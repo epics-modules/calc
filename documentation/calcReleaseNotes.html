@@ -20,8 +20,16 @@ interpolation. Array length no longer limited to 2000 elements.  Added range
 checking.  Now the number of elements must be specified at load time, with the
 macro, N.  Polynomial order is now forced to be in [0..10].
 <li><p>All databases have been converted to vdct.
-<li><p>swait-record documentation added
-<li><p>copy of Andy Foster's genSubManual.pdf included for user's convenience
+<li><p>Swait-record documentation added
+<li><p>Copy of Andy Foster's genSubManual.pdf included for user's convenience
+<li><p>New string operators '-|' and '|-' (delete first/last occurrence of
+substring).
+<li><p>Added arrayTest.c, a gensub-based support for producing unique
+arrays at runtime, e.g., for verifying that sscanRecord/saveData are
+storing data exactly as it was acquired.
+<li><p>Complete list of stringCalc functions, operators, and
+constants, with examples, is available as a set of medm displays,
+starting with the top-level display "calcExamples.adl".
 </ul>
 
 <h2 align="center">Release 2-3</h2>
