@@ -9,6 +9,7 @@ include "sCalcoutRecord.dbd"
 # DEVICE SUPPORT
 ################
 device(swait,CONSTANT,devSWaitIoEvent,"Soft Channel")
+device(scalcout,CONSTANT,devsCalcoutSoft,"Soft Channel")
 
 ################
 # DRIVER SUPPORT
