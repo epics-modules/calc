@@ -70,6 +70,9 @@ DEVELOPMENT CENTER AT ARGONNE NATIONAL LABORATORY (708-252-2000).
 #ifdef vxWorks
 #include <vxWorks.h>
 #include <stdlib.h>
+#else
+#define OK 0
+#define ERROR -1
 #endif
 
 #include <stdio.h>
