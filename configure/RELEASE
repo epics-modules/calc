@@ -5,10 +5,10 @@
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 
 # EPICS_BASE usually appears last so other apps can override stuff:
-EPICS_BASE=/net/beams/export/local/epics/base_R3_14_cvs_012604
+EPICS_BASE=/corvette/usr/local/epics/base-3.14.5
 
 # Need recDynLink
-STD=/home/oxygen/MOONEY/epics/synApps_5_0/support/std
+SSCAN=/corvette/home/epics/3-14-devel/sscan
 
 #Capfast users may need the following definitions
 #CAPFAST_TEMPLATES=

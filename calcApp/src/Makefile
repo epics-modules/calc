@@ -54,7 +54,7 @@ calc_SRCS += calc_registerRecordDeviceDriver.cpp
 #The following adds support from base/src/vxWorks
 #calc_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
 
-### The following builds SNL programs as components of std
+### The following builds SNL programs as components of calc
 # NOTE: for suffix .st, code is run through cpp; for .stt, it's not
 #calc_SRCS += calc.st
 #
@@ -62,8 +62,7 @@ calc_SRCS += calc_registerRecordDeviceDriver.cpp
 #seq_DIR    = $(SNCSEQ_LIB)
 #pv_DIR     = $(SNCSEQ_LIB)
 
-calc_LIBS += std
-std_DIR = $(STD_LIB)
+calc_LIBS += sscan
 calc_LIBS += $(EPICS_BASE_IOC_LIBS)
 
 #=============================
@@ -79,7 +78,7 @@ calcApp_SRCS_vxWorks += -nil-
 #The following adds support from base/src/vxWorks
 calcApp_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
 
-calcApp_LIBS += calc std
+calcApp_LIBS += calc sscan
 #calcApp_LIBS += seq pv
 calcApp_LIBS += $(EPICS_BASE_IOC_LIBS)
 
