@@ -1,12 +1,12 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps_5_1/support/calc/cvs/calcApp/op/adl/calcExamples.adl"
+	name="/home/oxygen4/MOONEY/epics/synApps_5_1/support/calc/cvs/calcApp/op/adl/calcExamples.adl"
 	version=030004
 }
 display {
 	object {
-		x=10
-		y=25
+		x=473
+		y=126
 		width=370
 		height=690
 	}
@@ -170,30 +170,6 @@ text {
 		clr=14
 	}
 	textix="LN(a)"
-}
-text {
-	object {
-		x=110
-		y=70
-		width=90
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="MAX(a,b,...)"
-}
-text {
-	object {
-		x=110
-		y=85
-		width=90
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="MIN(a,b,...)"
 }
 text {
 	object {
@@ -1280,4 +1256,63 @@ text {
 		clr=53
 	}
 	textix="$S(aa,'%lf')"
+}
+composite {
+	object {
+		x=110
+		y=70
+		width=90
+		height=14
+	}
+	"composite name"=""
+	children {
+		text {
+			object {
+				x=110
+				y=70
+				width=90
+				height=14
+			}
+			"basic attribute" {
+				clr=25
+			}
+			textix="       ,..."
+		}
+		text {
+			object {
+				x=110
+				y=70
+				width=90
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="MAX(a,b    )"
+		}
+	}
+}
+text {
+	object {
+		x=110
+		y=85
+		width=90
+		height=14
+	}
+	"basic attribute" {
+		clr=25
+	}
+	textix="       ,..."
+}
+text {
+	object {
+		x=110
+		y=85
+		width=90
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="MIN(a,b    )"
 }
