@@ -5,10 +5,10 @@ file {
 }
 display {
 	object {
-		x=0
-		y=0
-		width=205
-		height=245
+		x=10
+		y=10
+		width=210
+		height=260
 	}
 	clr=14
 	bclr=1
@@ -87,63 +87,125 @@ display {
 		1a7309,
 	}
 }
-text {
+"related display" {
 	object {
-		x=5
-		y=5
-		width=200
-		height=20
+		x=0
+		y=0
+		width=30
+		height=16
 	}
-	"basic attribute" {
-		clr=14
+	display[0] {
+		name="calcExamples.adl"
+		policy="replace display"
 	}
-	textix="Relational"
-	align="horiz. centered"
+	clr=0
+	bclr=17
+	label="-TOP"
 }
-text {
+"related display" {
 	object {
-		x=5
-		y=20
-		width=200
-		height=20
+		x=30
+		y=0
+		width=30
+		height=16
 	}
-	"basic attribute" {
-		clr=14
+	display[0] {
+		name="calcAlgebraicExamples.adl"
+		policy="replace display"
 	}
-	textix="expressions"
-	align="horiz. centered"
+	clr=0
+	bclr=17
+	label="-ALG"
 }
-polyline {
+"related display" {
 	object {
-		x=1
-		y=96
-		width=207
-		height=1
+		x=60
+		y=0
+		width=30
+		height=16
 	}
-	"basic attribute" {
-		clr=54
-		fill="outline"
-		width=1
+	display[0] {
+		name="calcTrigExamples.adl"
+		policy="replace display"
 	}
-	points {
-		(1,96)
-		(207,96)
+	clr=0
+	bclr=17
+	label="-TRIG"
+}
+"related display" {
+	object {
+		x=90
+		y=0
+		width=30
+		height=16
 	}
+	display[0] {
+		name="calcRelationalExamples.adl"
+		policy="replace display"
+	}
+	clr=0
+	bclr=17
+	label="-REL"
+}
+"related display" {
+	object {
+		x=120
+		y=0
+		width=30
+		height=16
+	}
+	display[0] {
+		name="calcBitwiseExamples.adl"
+		policy="replace display"
+	}
+	clr=0
+	bclr=17
+	label="-BIT"
+}
+"related display" {
+	object {
+		x=150
+		y=0
+		width=30
+		height=16
+	}
+	display[0] {
+		name="calcMiscExamples.adl"
+		policy="replace display"
+	}
+	clr=0
+	bclr=17
+	label="-MISC"
+}
+"related display" {
+	object {
+		x=180
+		y=0
+		width=30
+		height=16
+	}
+	display[0] {
+		name="calcStringExamples.adl"
+		policy="replace display"
+	}
+	clr=0
+	bclr=17
+	label="-STR"
 }
 composite {
 	object {
 		x=0
-		y=40
-		width=209
-		height=200
+		y=15
+		width=214
+		height=240
 	}
 	"composite name"=""
 	children {
 		polyline {
 			object {
 				x=0
-				y=40
-				width=209
+				y=15
+				width=214
 				height=3
 			}
 			"basic attribute" {
@@ -152,15 +214,58 @@ composite {
 				width=3
 			}
 			points {
-				(1,41)
-				(207,41)
+				(1,16)
+				(212,16)
+			}
+		}
+		text {
+			object {
+				x=5
+				y=20
+				width=205
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="Relational"
+			align="horiz. centered"
+		}
+		text {
+			object {
+				x=5
+				y=35
+				width=205
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="expressions"
+			align="horiz. centered"
+		}
+		polyline {
+			object {
+				x=0
+				y=55
+				width=214
+				height=3
+			}
+			"basic attribute" {
+				clr=54
+				fill="outline"
+				width=3
+			}
+			points {
+				(1,56)
+				(212,56)
 			}
 		}
 		composite {
 			object {
 				x=5
-				y=45
-				width=200
+				y=60
+				width=206
 				height=44
 			}
 			"composite name"=""
@@ -168,8 +273,8 @@ composite {
 				text {
 					object {
 						x=5
-						y=60
-						width=200
+						y=75
+						width=206
 						height=14
 					}
 					"basic attribute" {
@@ -180,8 +285,8 @@ composite {
 				text {
 					object {
 						x=5
-						y=75
-						width=200
+						y=90
+						width=206
 						height=14
 					}
 					"basic attribute" {
@@ -192,8 +297,8 @@ composite {
 				text {
 					object {
 						x=5
-						y=45
-						width=200
+						y=60
+						width=206
 						height=14
 					}
 					"basic attribute" {
@@ -203,11 +308,28 @@ composite {
 				}
 			}
 		}
+		polyline {
+			object {
+				x=1
+				y=111
+				width=207
+				height=1
+			}
+			"basic attribute" {
+				clr=54
+				fill="outline"
+				width=1
+			}
+			points {
+				(1,111)
+				(207,111)
+			}
+		}
 		text {
 			object {
 				x=5
-				y=95
-				width=200
+				y=110
+				width=206
 				height=14
 			}
 			"basic attribute" {
@@ -218,8 +340,8 @@ composite {
 		text {
 			object {
 				x=15
-				y=110
-				width=190
+				y=125
+				width=195
 				height=10
 			}
 			"basic attribute" {
@@ -230,8 +352,8 @@ composite {
 		text {
 			object {
 				x=5
-				y=125
-				width=200
+				y=140
+				width=206
 				height=14
 			}
 			"basic attribute" {
@@ -242,8 +364,8 @@ composite {
 		text {
 			object {
 				x=15
-				y=140
-				width=190
+				y=155
+				width=195
 				height=10
 			}
 			"basic attribute" {
@@ -254,8 +376,8 @@ composite {
 		text {
 			object {
 				x=5
-				y=155
-				width=200
+				y=170
+				width=206
 				height=14
 			}
 			"basic attribute" {
@@ -266,8 +388,8 @@ composite {
 		text {
 			object {
 				x=5
-				y=170
-				width=200
+				y=185
+				width=206
 				height=14
 			}
 			"basic attribute" {
@@ -278,8 +400,8 @@ composite {
 		text {
 			object {
 				x=15
-				y=185
-				width=190
+				y=200
+				width=195
 				height=10
 			}
 			"basic attribute" {
@@ -290,8 +412,8 @@ composite {
 		text {
 			object {
 				x=5
-				y=200
-				width=200
+				y=215
+				width=206
 				height=14
 			}
 			"basic attribute" {
@@ -302,8 +424,8 @@ composite {
 		text {
 			object {
 				x=5
-				y=215
-				width=200
+				y=230
+				width=206
 				height=14
 			}
 			"basic attribute" {
@@ -314,8 +436,8 @@ composite {
 		text {
 			object {
 				x=15
-				y=230
-				width=190
+				y=245
+				width=195
 				height=10
 			}
 			"basic attribute" {

@@ -5,17 +5,17 @@ file {
 }
 display {
 	object {
-		x=37
-		y=153
+		x=10
+		y=25
 		width=370
-		height=675
+		height=690
 	}
 	clr=14
 	bclr=1
 	cmap=""
 	gridSpacing=5
 	gridOn=0
-	snapToGrid=0
+	snapToGrid=1
 }
 "color map" {
 	ncolors=65
@@ -612,6 +612,7 @@ text {
 	}
 	display[0] {
 		name="calcAlgebraicExamples.adl"
+		policy="replace display"
 	}
 	clr=0
 	bclr=17
@@ -626,6 +627,7 @@ text {
 	}
 	display[0] {
 		name="calcTrigExamples.adl"
+		policy="replace display"
 	}
 	clr=0
 	bclr=17
@@ -640,6 +642,7 @@ text {
 	}
 	display[0] {
 		name="calcRelationalExamples.adl"
+		policy="replace display"
 	}
 	clr=0
 	bclr=17
@@ -654,6 +657,7 @@ text {
 	}
 	display[0] {
 		name="calcBitwiseExamples.adl"
+		policy="replace display"
 	}
 	clr=0
 	bclr=17
@@ -668,48 +672,11 @@ text {
 	}
 	display[0] {
 		name="calcMiscExamples.adl"
+		policy="replace display"
 	}
 	clr=0
 	bclr=17
-	label="-Misc operators & synbols"
-}
-"related display" {
-	object {
-		x=10
-		y=420
-		width=350
-		height=27
-	}
-	display[0] {
-		name="calcStringExamples.adl"
-	}
-	clr=0
-	bclr=17
-	label="-String functions/operators"
-}
-text {
-	object {
-		x=10
-		y=550
-		width=350
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="NOTE: can use single or double quotes at runtime"
-}
-text {
-	object {
-		x=10
-		y=565
-		width=350
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="but only single quotes in a static database."
+	label="-Misc operators & symbols"
 }
 text {
 	object {
@@ -842,57 +809,24 @@ text {
 	}
 	textix="SQRT(a)"
 }
-text {
+"related display" {
 	object {
 		x=10
-		y=620
+		y=435
 		width=350
-		height=14
+		height=27
 	}
-	"basic attribute" {
-		clr=53
+	display[0] {
+		name="calcStringExamples.adl"
+		policy="replace display"
 	}
-	textix="Items in blue are useable only in transform and"
+	clr=0
+	bclr=17
+	label="-String functions/operators"
 }
 text {
 	object {
-		x=10
-		y=635
-		width=350
-		height=14
-	}
-	"basic attribute" {
-		clr=53
-	}
-	textix="sCalcout records."
-}
-text {
-	object {
-		x=10
-		y=585
-		width=350
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="'a', 'b', etc. are numeric arguments."
-}
-text {
-	object {
-		x=10
-		y=600
-		width=350
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="'aa', 'bb', etc. are string arguments."
-}
-text {
-	object {
-		x=250
+		x=310
 		y=495
 		width=50
 		height=14
@@ -905,31 +839,7 @@ text {
 text {
 	object {
 		x=250
-		y=450
-		width=50
-		height=14
-	}
-	"basic attribute" {
-		clr=53
-	}
-	textix="aa+bb"
-}
-text {
-	object {
-		x=250
-		y=465
-		width=50
-		height=14
-	}
-	"basic attribute" {
-		clr=53
-	}
-	textix="aa-bb"
-}
-text {
-	object {
-		x=250
-		y=480
+		y=495
 		width=50
 		height=14
 	}
@@ -941,7 +851,7 @@ text {
 text {
 	object {
 		x=250
-		y=510
+		y=525
 		width=50
 		height=14
 	}
@@ -952,7 +862,7 @@ text {
 }
 text {
 	object {
-		x=250
+		x=310
 		y=525
 		width=50
 		height=14
@@ -962,19 +872,357 @@ text {
 	}
 	textix="aa<bb"
 }
+text {
+	object {
+		x=120
+		y=465
+		width=110
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="PRINTF('%f',aa)"
+}
+text {
+	object {
+		x=310
+		y=510
+		width=50
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="aa#bb"
+}
+text {
+	object {
+		x=250
+		y=480
+		width=50
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="aa>=bb"
+}
+text {
+	object {
+		x=310
+		y=480
+		width=50
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="aa<=bb"
+}
+text {
+	object {
+		x=250
+		y=510
+		width=50
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="aa!=bb"
+}
+text {
+	object {
+		x=10
+		y=465
+		width=100
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="BYTE(aa)"
+}
+text {
+	object {
+		x=10
+		y=480
+		width=100
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="DBL(aa)"
+}
+text {
+	object {
+		x=10
+		y=495
+		width=100
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="INT(aa)"
+}
+text {
+	object {
+		x=10
+		y=525
+		width=100
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="MIN(aa,bb,...)"
+}
+text {
+	object {
+		x=10
+		y=510
+		width=100
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="MAX(aa,bb,...)"
+}
+text {
+	object {
+		x=10
+		y=540
+		width=100
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="NINT(aa)"
+}
+text {
+	object {
+		x=10
+		y=410
+		width=90
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="RNDM"
+}
+text {
+	object {
+		x=10
+		y=580
+		width=350
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="NOTE: can use single or double quotes at runtime"
+}
+text {
+	object {
+		x=10
+		y=595
+		width=350
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="but only single quotes in a static database."
+}
+text {
+	object {
+		x=10
+		y=650
+		width=350
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="Items in blue are useable only in transform and"
+}
+text {
+	object {
+		x=10
+		y=665
+		width=350
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="sCalcout records."
+}
+text {
+	object {
+		x=10
+		y=615
+		width=350
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="'a', 'b', etc. are numeric arguments."
+}
+text {
+	object {
+		x=10
+		y=630
+		width=350
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="'aa', 'bb', etc. are string arguments."
+}
+polyline {
+	object {
+		x=10
+		y=575
+		width=350
+		height=0
+	}
+	"basic attribute" {
+		clr=53
+	}
+	points {
+		(10,575)
+		(360,575)
+	}
+}
+text {
+	object {
+		x=250
+		y=465
+		width=50
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="aa+bb"
+}
+text {
+	object {
+		x=310
+		y=465
+		width=50
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="aa-bb"
+}
+text {
+	object {
+		x=120
+		y=480
+		width=110
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="SSCANF(aa,'%lf')"
+}
+composite {
+	object {
+		x=250
+		y=540
+		width=110
+		height=14
+	}
+	"composite name"=""
+	children {
+		text {
+			object {
+				x=250
+				y=540
+				width=50
+				height=14
+			}
+			"basic attribute" {
+				clr=53
+			}
+			textix="aa==bb"
+		}
+		text {
+			object {
+				x=310
+				y=540
+				width=50
+				height=14
+			}
+			"basic attribute" {
+				clr=53
+			}
+			textix="aa=bb"
+		}
+	}
+}
+text {
+	object {
+		x=250
+		y=555
+		width=50
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="aa-|bb"
+}
+text {
+	object {
+		x=310
+		y=555
+		width=50
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="aa|-bb"
+}
+text {
+	object {
+		x=10
+		y=555
+		width=110
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="$P('%f',aa)"
+}
 composite {
 	object {
 		x=120
-		y=450
+		y=510
 		width=110
-		height=89
+		height=59
 	}
 	"composite name"=""
 	children {
 		text {
 			object {
 				x=120
-				y=495
+				y=525
 				width=110
 				height=14
 			}
@@ -986,31 +1234,7 @@ composite {
 		text {
 			object {
 				x=120
-				y=450
-				width=110
-				height=14
-			}
-			"basic attribute" {
-				clr=53
-			}
-			textix="PRINTF('%f',aa)"
-		}
-		text {
-			object {
-				x=120
-				y=465
-				width=110
-				height=14
-			}
-			"basic attribute" {
-				clr=53
-			}
-			textix="SSCANF(aa,'%lf')"
-		}
-		text {
-			object {
-				x=120
-				y=480
+				y=510
 				width=110
 				height=14
 			}
@@ -1022,7 +1246,7 @@ composite {
 		text {
 			object {
 				x=120
-				y=510
+				y=540
 				width=110
 				height=14
 			}
@@ -1034,7 +1258,7 @@ composite {
 		text {
 			object {
 				x=120
-				y=525
+				y=555
 				width=110
 				height=14
 			}
@@ -1047,171 +1271,13 @@ composite {
 }
 text {
 	object {
-		x=310
+		x=120
 		y=495
-		width=50
+		width=110
 		height=14
 	}
 	"basic attribute" {
 		clr=53
 	}
-	textix="aa#bb"
-}
-text {
-	object {
-		x=310
-		y=450
-		width=50
-		height=14
-	}
-	"basic attribute" {
-		clr=53
-	}
-	textix="aa>=bb"
-}
-text {
-	object {
-		x=310
-		y=465
-		width=50
-		height=14
-	}
-	"basic attribute" {
-		clr=53
-	}
-	textix="aa<=bb"
-}
-text {
-	object {
-		x=310
-		y=480
-		width=50
-		height=14
-	}
-	"basic attribute" {
-		clr=53
-	}
-	textix="aa!=bb"
-}
-text {
-	object {
-		x=310
-		y=510
-		width=50
-		height=14
-	}
-	"basic attribute" {
-		clr=53
-	}
-	textix="aa==bb"
-}
-text {
-	object {
-		x=310
-		y=525
-		width=50
-		height=14
-	}
-	"basic attribute" {
-		clr=53
-	}
-	textix="aa=bb"
-}
-composite {
-	object {
-		x=10
-		y=450
-		width=100
-		height=89
-	}
-	"composite name"=""
-	children {
-		text {
-			object {
-				x=10
-				y=450
-				width=100
-				height=14
-			}
-			"basic attribute" {
-				clr=53
-			}
-			textix="BYTE(aa)"
-		}
-		text {
-			object {
-				x=10
-				y=465
-				width=100
-				height=14
-			}
-			"basic attribute" {
-				clr=53
-			}
-			textix="DBL(aa)"
-		}
-		text {
-			object {
-				x=10
-				y=480
-				width=100
-				height=14
-			}
-			"basic attribute" {
-				clr=53
-			}
-			textix="INT(aa)"
-		}
-		text {
-			object {
-				x=10
-				y=510
-				width=100
-				height=14
-			}
-			"basic attribute" {
-				clr=53
-			}
-			textix="MIN(aa,bb,...)"
-		}
-		text {
-			object {
-				x=10
-				y=495
-				width=100
-				height=14
-			}
-			"basic attribute" {
-				clr=53
-			}
-			textix="MAX(aa,bb,...)"
-		}
-		text {
-			object {
-				x=10
-				y=525
-				width=100
-				height=14
-			}
-			"basic attribute" {
-				clr=53
-			}
-			textix="NINT(aa)"
-		}
-	}
-}
-polyline {
-	object {
-		x=10
-		y=544
-		width=350
-		height=0
-	}
-	"basic attribute" {
-		clr=53
-	}
-	points {
-		(10,544)
-		(360,544)
-	}
+	textix="$S(aa,'%lf')"
 }

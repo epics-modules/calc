@@ -5,10 +5,10 @@ file {
 }
 display {
 	object {
-		x=0
-		y=0
-		width=205
-		height=180
+		x=10
+		y=10
+		width=210
+		height=195
 	}
 	clr=14
 	bclr=1
@@ -90,8 +90,8 @@ display {
 text {
 	object {
 		x=5
-		y=5
-		width=200
+		y=20
+		width=205
 		height=20
 	}
 	"basic attribute" {
@@ -99,10 +99,27 @@ text {
 	}
 	textix="Bitwise expressions"
 }
+polyline {
+	object {
+		x=0
+		y=40
+		width=214
+		height=3
+	}
+	"basic attribute" {
+		clr=54
+		fill="outline"
+		width=3
+	}
+	points {
+		(1,41)
+		(212,41)
+	}
+}
 text {
 	object {
 		x=5
-		y=30
+		y=45
 		width=200
 		height=14
 	}
@@ -113,20 +130,8 @@ text {
 }
 text {
 	object {
-		x=5
-		y=60
-		width=200
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="3&5 = 1"
-}
-text {
-	object {
 		x=15
-		y=45
+		y=60
 		width=190
 		height=10
 	}
@@ -138,60 +143,19 @@ text {
 text {
 	object {
 		x=5
-		y=90
+		y=75
 		width=200
 		height=14
 	}
 	"basic attribute" {
 		clr=14
 	}
-	textix="3 XOR 5 = 6"
-}
-text {
-	object {
-		x=5
-		y=120
-		width=200
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="2<<2 = 8"
-}
-text {
-	object {
-		x=5
-		y=150
-		width=200
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="8>>1 = 4"
-}
-polyline {
-	object {
-		x=0
-		y=25
-		width=209
-		height=3
-	}
-	"basic attribute" {
-		clr=54
-		fill="outline"
-		width=3
-	}
-	points {
-		(1,26)
-		(207,26)
-	}
+	textix="3&5 = 1"
 }
 text {
 	object {
 		x=15
-		y=75
+		y=90
 		width=190
 		height=10
 	}
@@ -202,8 +166,20 @@ text {
 }
 text {
 	object {
-		x=15
+		x=5
 		y=105
+		width=200
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="3 XOR 5 = 6"
+}
+text {
+	object {
+		x=15
+		y=120
 		width=190
 		height=10
 	}
@@ -214,8 +190,20 @@ text {
 }
 text {
 	object {
-		x=15
+		x=5
 		y=135
+		width=200
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="2<<2 = 8"
+}
+text {
+	object {
+		x=15
+		y=150
 		width=190
 		height=10
 	}
@@ -226,8 +214,20 @@ text {
 }
 text {
 	object {
-		x=15
+		x=5
 		y=165
+		width=200
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="8>>1 = 4"
+}
+text {
+	object {
+		x=15
+		y=180
 		width=190
 		height=10
 	}
@@ -235,4 +235,126 @@ text {
 		clr=47
 	}
 	textix="BINARY: 1000 >> 1 = 0100"
+}
+"related display" {
+	object {
+		x=90
+		y=0
+		width=30
+		height=16
+	}
+	display[0] {
+		name="calcRelationalExamples.adl"
+		policy="replace display"
+	}
+	clr=0
+	bclr=17
+	label="-REL"
+}
+"related display" {
+	object {
+		x=0
+		y=0
+		width=30
+		height=16
+	}
+	display[0] {
+		name="calcExamples.adl"
+		policy="replace display"
+	}
+	clr=0
+	bclr=17
+	label="-TOP"
+}
+"related display" {
+	object {
+		x=30
+		y=0
+		width=30
+		height=16
+	}
+	display[0] {
+		name="calcAlgebraicExamples.adl"
+		policy="replace display"
+	}
+	clr=0
+	bclr=17
+	label="-ALG"
+}
+"related display" {
+	object {
+		x=60
+		y=0
+		width=30
+		height=16
+	}
+	display[0] {
+		name="calcTrigExamples.adl"
+		policy="replace display"
+	}
+	clr=0
+	bclr=17
+	label="-TRIG"
+}
+"related display" {
+	object {
+		x=120
+		y=0
+		width=30
+		height=16
+	}
+	display[0] {
+		name="calcBitwiseExamples.adl"
+		policy="replace display"
+	}
+	clr=0
+	bclr=17
+	label="-BIT"
+}
+"related display" {
+	object {
+		x=150
+		y=0
+		width=30
+		height=16
+	}
+	display[0] {
+		name="calcMiscExamples.adl"
+		policy="replace display"
+	}
+	clr=0
+	bclr=17
+	label="-MISC"
+}
+"related display" {
+	object {
+		x=180
+		y=0
+		width=30
+		height=16
+	}
+	display[0] {
+		name="calcStringExamples.adl"
+		policy="replace display"
+	}
+	clr=0
+	bclr=17
+	label="-STR"
+}
+polyline {
+	object {
+		x=0
+		y=15
+		width=214
+		height=3
+	}
+	"basic attribute" {
+		clr=54
+		fill="outline"
+		width=3
+	}
+	points {
+		(1,16)
+		(212,16)
+	}
 }

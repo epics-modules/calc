@@ -5,17 +5,17 @@ file {
 }
 display {
 	object {
-		x=0
-		y=0
-		width=205
-		height=605
+		x=10
+		y=25
+		width=210
+		height=620
 	}
 	clr=14
 	bclr=1
 	cmap=""
 	gridSpacing=5
 	gridOn=0
-	snapToGrid=0
+	snapToGrid=1
 }
 "color map" {
 	ncolors=65
@@ -87,40 +87,115 @@ display {
 		1a7309,
 	}
 }
-text {
-	object {
-		x=5
-		y=5
-		width=200
-		height=20
-	}
-	"basic attribute" {
-		clr=54
-	}
-	textix="Algebraic"
-	align="horiz. centered"
-}
-polyline {
+"related display" {
 	object {
 		x=0
-		y=45
-		width=209
-		height=3
+		y=0
+		width=30
+		height=16
 	}
-	"basic attribute" {
-		clr=54
-		fill="outline"
-		width=3
+	display[0] {
+		name="calcExamples.adl"
+		policy="replace display"
 	}
-	points {
-		(1,46)
-		(207,46)
+	clr=0
+	bclr=17
+	label="-TOP"
+}
+"related display" {
+	object {
+		x=30
+		y=0
+		width=30
+		height=16
 	}
+	display[0] {
+		name="calcAlgebraicExamples.adl"
+		policy="replace display"
+	}
+	clr=0
+	bclr=17
+	label="-ALG"
+}
+"related display" {
+	object {
+		x=60
+		y=0
+		width=30
+		height=16
+	}
+	display[0] {
+		name="calcTrigExamples.adl"
+		policy="replace display"
+	}
+	clr=0
+	bclr=17
+	label="-TRIG"
+}
+"related display" {
+	object {
+		x=90
+		y=0
+		width=30
+		height=16
+	}
+	display[0] {
+		name="calcRelationalExamples.adl"
+		policy="replace display"
+	}
+	clr=0
+	bclr=17
+	label="-REL"
+}
+"related display" {
+	object {
+		x=120
+		y=0
+		width=30
+		height=16
+	}
+	display[0] {
+		name="calcBitwiseExamples.adl"
+		policy="replace display"
+	}
+	clr=0
+	bclr=17
+	label="-BIT"
+}
+"related display" {
+	object {
+		x=150
+		y=0
+		width=30
+		height=16
+	}
+	display[0] {
+		name="calcMiscExamples.adl"
+		policy="replace display"
+	}
+	clr=0
+	bclr=17
+	label="-MISC"
+}
+"related display" {
+	object {
+		x=180
+		y=0
+		width=30
+		height=16
+	}
+	display[0] {
+		name="calcStringExamples.adl"
+		policy="replace display"
+	}
+	clr=0
+	bclr=17
+	label="-STR"
 }
 text {
 	object {
 		x=5
-		y=50
+		y=65
 		width=200
 		height=14
 	}
@@ -132,7 +207,7 @@ text {
 text {
 	object {
 		x=5
-		y=80
+		y=95
 		width=200
 		height=14
 	}
@@ -144,7 +219,7 @@ text {
 text {
 	object {
 		x=15
-		y=65
+		y=80
 		width=190
 		height=10
 	}
@@ -156,7 +231,7 @@ text {
 text {
 	object {
 		x=5
-		y=110
+		y=125
 		width=200
 		height=14
 	}
@@ -168,7 +243,7 @@ text {
 text {
 	object {
 		x=5
-		y=140
+		y=155
 		width=200
 		height=14
 	}
@@ -180,7 +255,7 @@ text {
 text {
 	object {
 		x=5
-		y=180
+		y=195
 		width=200
 		height=14
 	}
@@ -192,7 +267,7 @@ text {
 text {
 	object {
 		x=5
-		y=210
+		y=225
 		width=200
 		height=14
 	}
@@ -204,7 +279,7 @@ text {
 text {
 	object {
 		x=15
-		y=125
+		y=140
 		width=190
 		height=10
 	}
@@ -216,7 +291,7 @@ text {
 text {
 	object {
 		x=15
-		y=155
+		y=170
 		width=190
 		height=10
 	}
@@ -228,7 +303,7 @@ text {
 text {
 	object {
 		x=15
-		y=165
+		y=180
 		width=190
 		height=10
 	}
@@ -240,7 +315,7 @@ text {
 text {
 	object {
 		x=15
-		y=195
+		y=210
 		width=190
 		height=10
 	}
@@ -252,7 +327,7 @@ text {
 text {
 	object {
 		x=15
-		y=95
+		y=110
 		width=190
 		height=10
 	}
@@ -264,20 +339,7 @@ text {
 text {
 	object {
 		x=5
-		y=25
-		width=200
-		height=20
-	}
-	"basic attribute" {
-		clr=54
-	}
-	textix="expressions"
-	align="horiz. centered"
-}
-text {
-	object {
-		x=5
-		y=225
+		y=240
 		width=200
 		height=14
 	}
@@ -289,7 +351,7 @@ text {
 text {
 	object {
 		x=15
-		y=240
+		y=255
 		width=190
 		height=10
 	}
@@ -301,7 +363,7 @@ text {
 text {
 	object {
 		x=5
-		y=255
+		y=270
 		width=200
 		height=14
 	}
@@ -313,7 +375,7 @@ text {
 text {
 	object {
 		x=15
-		y=270
+		y=285
 		width=190
 		height=10
 	}
@@ -325,7 +387,7 @@ text {
 text {
 	object {
 		x=5
-		y=285
+		y=300
 		width=200
 		height=14
 	}
@@ -337,7 +399,7 @@ text {
 text {
 	object {
 		x=5
-		y=315
+		y=330
 		width=200
 		height=14
 	}
@@ -349,7 +411,7 @@ text {
 text {
 	object {
 		x=5
-		y=345
+		y=360
 		width=200
 		height=14
 	}
@@ -361,7 +423,7 @@ text {
 text {
 	object {
 		x=15
-		y=300
+		y=315
 		width=190
 		height=10
 	}
@@ -373,7 +435,7 @@ text {
 text {
 	object {
 		x=15
-		y=330
+		y=345
 		width=190
 		height=10
 	}
@@ -385,7 +447,7 @@ text {
 text {
 	object {
 		x=15
-		y=360
+		y=375
 		width=190
 		height=10
 	}
@@ -397,7 +459,7 @@ text {
 text {
 	object {
 		x=5
-		y=375
+		y=390
 		width=200
 		height=14
 	}
@@ -409,7 +471,7 @@ text {
 text {
 	object {
 		x=15
-		y=390
+		y=405
 		width=190
 		height=10
 	}
@@ -421,7 +483,7 @@ text {
 text {
 	object {
 		x=5
-		y=405
+		y=420
 		width=200
 		height=14
 	}
@@ -433,7 +495,7 @@ text {
 text {
 	object {
 		x=5
-		y=450
+		y=465
 		width=200
 		height=14
 	}
@@ -445,7 +507,7 @@ text {
 text {
 	object {
 		x=5
-		y=420
+		y=435
 		width=200
 		height=14
 	}
@@ -457,7 +519,7 @@ text {
 text {
 	object {
 		x=15
-		y=435
+		y=450
 		width=190
 		height=10
 	}
@@ -469,7 +531,7 @@ text {
 text {
 	object {
 		x=15
-		y=480
+		y=495
 		width=190
 		height=10
 	}
@@ -481,7 +543,7 @@ text {
 text {
 	object {
 		x=5
-		y=495
+		y=510
 		width=200
 		height=14
 	}
@@ -493,7 +555,7 @@ text {
 text {
 	object {
 		x=5
-		y=545
+		y=560
 		width=200
 		height=14
 	}
@@ -505,7 +567,7 @@ text {
 text {
 	object {
 		x=15
-		y=510
+		y=525
 		width=190
 		height=10
 	}
@@ -517,7 +579,7 @@ text {
 text {
 	object {
 		x=15
-		y=520
+		y=535
 		width=190
 		height=10
 	}
@@ -529,7 +591,7 @@ text {
 text {
 	object {
 		x=15
-		y=560
+		y=575
 		width=190
 		height=10
 	}
@@ -541,7 +603,7 @@ text {
 text {
 	object {
 		x=5
-		y=575
+		y=590
 		width=200
 		height=14
 	}
@@ -553,7 +615,7 @@ text {
 text {
 	object {
 		x=15
-		y=590
+		y=605
 		width=190
 		height=10
 	}
@@ -565,7 +627,7 @@ text {
 text {
 	object {
 		x=15
-		y=530
+		y=545
 		width=190
 		height=10
 	}
@@ -577,7 +639,7 @@ text {
 text {
 	object {
 		x=5
-		y=465
+		y=480
 		width=200
 		height=14
 	}
@@ -585,4 +647,64 @@ text {
 		clr=14
 	}
 	textix="A**B"
+}
+polyline {
+	object {
+		x=0
+		y=60
+		width=214
+		height=3
+	}
+	"basic attribute" {
+		clr=54
+		fill="outline"
+		width=3
+	}
+	points {
+		(1,61)
+		(212,61)
+	}
+}
+text {
+	object {
+		x=5
+		y=40
+		width=205
+		height=20
+	}
+	"basic attribute" {
+		clr=54
+	}
+	textix="expressions"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=5
+		y=20
+		width=205
+		height=20
+	}
+	"basic attribute" {
+		clr=54
+	}
+	textix="Algebraic"
+	align="horiz. centered"
+}
+polyline {
+	object {
+		x=-5
+		y=15
+		width=214
+		height=3
+	}
+	"basic attribute" {
+		clr=54
+		fill="outline"
+		width=3
+	}
+	points {
+		(-4,16)
+		(207,16)
+	}
 }
