@@ -6,9 +6,9 @@ file {
 display {
 	object {
 		x=10
-		y=10
-		width=205
-		height=670
+		y=25
+		width=210
+		height=750
 	}
 	clr=14
 	bclr=1
@@ -87,93 +87,115 @@ display {
 		1a7309,
 	}
 }
+"related display" {
+	object {
+		x=0
+		y=0
+		width=30
+		height=16
+	}
+	display[0] {
+		name="calcExamples.adl"
+		policy="replace display"
+	}
+	clr=0
+	bclr=17
+	label="-TOP"
+}
+"related display" {
+	object {
+		x=30
+		y=0
+		width=30
+		height=16
+	}
+	display[0] {
+		name="calcAlgebraicExamples.adl"
+		policy="replace display"
+	}
+	clr=0
+	bclr=17
+	label="-ALG"
+}
+"related display" {
+	object {
+		x=60
+		y=0
+		width=30
+		height=16
+	}
+	display[0] {
+		name="calcTrigExamples.adl"
+		policy="replace display"
+	}
+	clr=0
+	bclr=17
+	label="-TRIG"
+}
+"related display" {
+	object {
+		x=90
+		y=0
+		width=30
+		height=16
+	}
+	display[0] {
+		name="calcRelationalExamples.adl"
+		policy="replace display"
+	}
+	clr=0
+	bclr=17
+	label="-REL"
+}
+"related display" {
+	object {
+		x=120
+		y=0
+		width=30
+		height=16
+	}
+	display[0] {
+		name="calcBitwiseExamples.adl"
+		policy="replace display"
+	}
+	clr=0
+	bclr=17
+	label="-BIT"
+}
+"related display" {
+	object {
+		x=150
+		y=0
+		width=30
+		height=16
+	}
+	display[0] {
+		name="calcMiscExamples.adl"
+		policy="replace display"
+	}
+	clr=0
+	bclr=17
+	label="-MISC"
+}
+"related display" {
+	object {
+		x=180
+		y=0
+		width=30
+		height=16
+	}
+	display[0] {
+		name="calcStringExamples.adl"
+		policy="replace display"
+	}
+	clr=0
+	bclr=17
+	label="-STR"
+}
 text {
 	object {
 		x=5
-		y=5
-		width=200
-		height=20
-	}
-	"basic attribute" {
-		clr=54
-	}
-	textix="String expressions"
-}
-composite {
-	object {
-		x=5
-		y=590
-		width=200
-		height=74
-	}
-	"composite name"=""
-	children {
-		text {
-			object {
-				x=5
-				y=590
-				width=200
-				height=14
-			}
-			"basic attribute" {
-				clr=47
-			}
-			textix="NOTE: You can use either"
-		}
-		text {
-			object {
-				x=5
-				y=605
-				width=200
-				height=14
-			}
-			"basic attribute" {
-				clr=47
-			}
-			textix="single or double quotes for"
-		}
-		text {
-			object {
-				x=5
-				y=620
-				width=200
-				height=14
-			}
-			"basic attribute" {
-				clr=47
-			}
-			textix="string literals.  Using one"
-		}
-		text {
-			object {
-				x=5
-				y=635
-				width=200
-				height=14
-			}
-			"basic attribute" {
-				clr=47
-			}
-			textix="allows you to include the"
-		}
-		text {
-			object {
-				x=5
-				y=650
-				width=200
-				height=14
-			}
-			"basic attribute" {
-				clr=47
-			}
-			textix="other in the string."
-		}
-	}
-}
-text {
-	object {
-		x=5
-		y=30
+		y=45
 		width=200
 		height=14
 	}
@@ -184,8 +206,66 @@ text {
 }
 text {
 	object {
-		x=5
+		x=15
 		y=60
+		width=190
+		height=10
+	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="CONCATENATE STRINGS"
+}
+polyline {
+	object {
+		x=0
+		y=40
+		width=214
+		height=3
+	}
+	"basic attribute" {
+		clr=54
+		fill="outline"
+		width=3
+	}
+	points {
+		(1,41)
+		(212,41)
+	}
+}
+text {
+	object {
+		x=5
+		y=20
+		width=205
+		height=20
+	}
+	"basic attribute" {
+		clr=54
+	}
+	textix="String expressions"
+}
+polyline {
+	object {
+		x=0
+		y=15
+		width=214
+		height=3
+	}
+	"basic attribute" {
+		clr=54
+		fill="outline"
+		width=3
+	}
+	points {
+		(1,16)
+		(212,16)
+	}
+}
+text {
+	object {
+		x=5
+		y=75
 		width=200
 		height=14
 	}
@@ -197,14 +277,14 @@ text {
 text {
 	object {
 		x=15
-		y=45
+		y=115
 		width=190
 		height=10
 	}
 	"basic attribute" {
 		clr=47
 	}
-	textix="CONCATENATE STRINGS"
+	textix="E.G., 'A:B.VAL' - '.VAL' = 'A:B'"
 }
 text {
 	object {
@@ -216,103 +296,7 @@ text {
 	"basic attribute" {
 		clr=14
 	}
-	textix="AA>BB    (<, >=, etc.)"
-}
-text {
-	object {
-		x=5
-		y=120
-		width=200
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="PRINTF('abc%f', A)"
-}
-text {
-	object {
-		x=5
-		y=160
-		width=200
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="$P('abc%f',A)"
-}
-text {
-	object {
-		x=5
-		y=190
-		width=200
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="SSCANF(AA,'%lf')"
-}
-text {
-	object {
-		x=5
-		y=230
-		width=200
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="$S(AA,'%lf')"
-}
-text {
-	object {
-		x=5
-		y=260
-		width=200
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="MAX(AA,BB)"
-}
-text {
-	object {
-		x=5
-		y=290
-		width=200
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="AA-'.VAL'+'.EGU'"
-}
-text {
-	object {
-		x=5
-		y=320
-		width=200
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="'yyy:'+AA-'xxx:'"
-}
-text {
-	object {
-		x=5
-		y=350
-		width=200
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="DBL(AA)"
+	textix="AA-|BB"
 }
 text {
 	object {
@@ -324,55 +308,187 @@ text {
 	"basic attribute" {
 		clr=47
 	}
+	textix="subtract first BB from AA"
+}
+text {
+	object {
+		x=5
+		y=670
+		width=200
+		height=14
+	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="NOTE: You can use either"
+}
+text {
+	object {
+		x=5
+		y=685
+		width=200
+		height=14
+	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="single or double quotes for"
+}
+text {
+	object {
+		x=5
+		y=700
+		width=200
+		height=14
+	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="string literals.  Using one"
+}
+text {
+	object {
+		x=5
+		y=715
+		width=200
+		height=14
+	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="allows you to include the"
+}
+text {
+	object {
+		x=5
+		y=730
+		width=200
+		height=14
+	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="other in the string."
+}
+text {
+	object {
+		x=5
+		y=170
+		width=200
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="AA>BB    (<, >=, etc.)"
+}
+text {
+	object {
+		x=5
+		y=200
+		width=200
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="PRINTF('abc%f', A)"
+}
+text {
+	object {
+		x=5
+		y=240
+		width=200
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="$P('abc%f',A)"
+}
+text {
+	object {
+		x=5
+		y=270
+		width=200
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="SSCANF(AA,'%lf')"
+}
+text {
+	object {
+		x=5
+		y=310
+		width=200
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="$S(AA,'%lf')"
+}
+text {
+	object {
+		x=5
+		y=340
+		width=200
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="MAX(AA,BB)"
+}
+text {
+	object {
+		x=5
+		y=370
+		width=200
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="AA-'.VAL'+'.EGU'"
+}
+text {
+	object {
+		x=5
+		y=400
+		width=200
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="'yyy:'+AA-'xxx:'"
+}
+text {
+	object {
+		x=5
+		y=430
+		width=200
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="DBL(AA)"
+}
+text {
+	object {
+		x=15
+		y=185
+		width=190
+		height=10
+	}
+	"basic attribute" {
+		clr=47
+	}
 	textix="LEXICAL COMPARE, LOGICAL RESULT"
-}
-text {
-	object {
-		x=15
-		y=135
-		width=190
-		height=10
-	}
-	"basic attribute" {
-		clr=47
-	}
-	textix="ONLY ONE ARGUMENT. RESULT IS"
-}
-text {
-	object {
-		x=15
-		y=145
-		width=190
-		height=10
-	}
-	"basic attribute" {
-		clr=47
-	}
-	textix="STRING"
-}
-text {
-	object {
-		x=15
-		y=175
-		width=190
-		height=10
-	}
-	"basic attribute" {
-		clr=47
-	}
-	textix="$P MEANS PRINTF"
-}
-text {
-	object {
-		x=15
-		y=205
-		width=190
-		height=10
-	}
-	"basic attribute" {
-		clr=47
-	}
-	textix="ONLY ONE ARGUMENT. RESULT TYPE"
 }
 text {
 	object {
@@ -384,12 +500,60 @@ text {
 	"basic attribute" {
 		clr=47
 	}
+	textix="ONLY ONE ARGUMENT. RESULT IS"
+}
+text {
+	object {
+		x=15
+		y=225
+		width=190
+		height=10
+	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="STRING"
+}
+text {
+	object {
+		x=15
+		y=255
+		width=190
+		height=10
+	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="$P MEANS PRINTF"
+}
+text {
+	object {
+		x=15
+		y=285
+		width=190
+		height=10
+	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="ONLY ONE ARGUMENT. RESULT TYPE"
+}
+text {
+	object {
+		x=15
+		y=295
+		width=190
+		height=10
+	}
+	"basic attribute" {
+		clr=47
+	}
 	textix="DEPENDS ON FORMAT STRING"
 }
 text {
 	object {
 		x=15
-		y=245
+		y=325
 		width=190
 		height=10
 	}
@@ -401,7 +565,7 @@ text {
 text {
 	object {
 		x=15
-		y=275
+		y=355
 		width=190
 		height=10
 	}
@@ -413,7 +577,7 @@ text {
 text {
 	object {
 		x=15
-		y=305
+		y=385
 		width=190
 		height=10
 	}
@@ -425,7 +589,7 @@ text {
 text {
 	object {
 		x=15
-		y=335
+		y=415
 		width=190
 		height=10
 	}
@@ -437,7 +601,7 @@ text {
 text {
 	object {
 		x=15
-		y=365
+		y=445
 		width=190
 		height=10
 	}
@@ -449,7 +613,7 @@ text {
 text {
 	object {
 		x=5
-		y=390
+		y=470
 		width=200
 		height=14
 	}
@@ -461,7 +625,7 @@ text {
 text {
 	object {
 		x=5
-		y=420
+		y=500
 		width=200
 		height=14
 	}
@@ -473,7 +637,7 @@ text {
 text {
 	object {
 		x=5
-		y=450
+		y=530
 		width=200
 		height=14
 	}
@@ -485,7 +649,7 @@ text {
 text {
 	object {
 		x=5
-		y=490
+		y=570
 		width=200
 		height=14
 	}
@@ -497,7 +661,7 @@ text {
 text {
 	object {
 		x=5
-		y=530
+		y=610
 		width=200
 		height=14
 	}
@@ -509,7 +673,7 @@ text {
 text {
 	object {
 		x=15
-		y=405
+		y=485
 		width=190
 		height=10
 	}
@@ -521,7 +685,7 @@ text {
 text {
 	object {
 		x=15
-		y=435
+		y=515
 		width=190
 		height=10
 	}
@@ -533,7 +697,7 @@ text {
 text {
 	object {
 		x=15
-		y=465
+		y=545
 		width=190
 		height=10
 	}
@@ -545,7 +709,7 @@ text {
 text {
 	object {
 		x=15
-		y=475
+		y=555
 		width=190
 		height=10
 	}
@@ -557,7 +721,7 @@ text {
 text {
 	object {
 		x=15
-		y=505
+		y=585
 		width=190
 		height=10
 	}
@@ -569,7 +733,7 @@ text {
 text {
 	object {
 		x=15
-		y=515
+		y=595
 		width=190
 		height=10
 	}
@@ -581,7 +745,7 @@ text {
 text {
 	object {
 		x=15
-		y=545
+		y=625
 		width=190
 		height=10
 	}
@@ -593,7 +757,7 @@ text {
 text {
 	object {
 		x=5
-		y=560
+		y=640
 		width=200
 		height=14
 	}
@@ -605,7 +769,7 @@ text {
 text {
 	object {
 		x=15
-		y=575
+		y=655
 		width=190
 		height=10
 	}
@@ -617,7 +781,7 @@ text {
 text {
 	object {
 		x=15
-		y=375
+		y=455
 		width=190
 		height=10
 	}
@@ -626,32 +790,39 @@ text {
 	}
 	textix="CONVERT TO DOUBLE"
 }
-polyline {
+text {
 	object {
-		x=0
-		y=25
-		width=209
-		height=3
+		x=5
+		y=130
+		width=200
+		height=14
 	}
 	"basic attribute" {
-		clr=54
-		fill="outline"
-		width=3
+		clr=14
 	}
-	points {
-		(1,26)
-		(207,26)
-	}
+	textix="AA|-BB"
 }
 text {
 	object {
 		x=15
-		y=75
+		y=145
 		width=190
 		height=10
 	}
 	"basic attribute" {
 		clr=47
 	}
-	textix="E.G., 'A:B.VAL' - '.VAL' = "
+	textix="subtract last BB from AA"
+}
+text {
+	object {
+		x=15
+		y=155
+		width=190
+		height=10
+	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="E.G., 'ABA' |- 'A' = 'AB'"
 }
