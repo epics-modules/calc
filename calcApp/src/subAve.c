@@ -88,6 +88,7 @@ DEVELOPMENT CENTER AT ARGONNE NATIONAL LABORATORY (708-252-2000).
 #include <devLib.h>
 #include <dbEvent.h>
 #include <subRecord.h>
+#include <registryFunction.h>
 #include <epicsExport.h>
 
 #define	CIRBUFSIZE	10000
@@ -220,3 +221,13 @@ struct	subRecord *psub)
   return(OK);
 }
 
+static registryFunctionRef subAveRef[] = {
+	{"initSubAve", (REGISTRYFUNCTION)initSubAve},
+	{"SubAve", (REGISTRYFUNCTION)SubAve}
+};
+
+static void subAveRegister(void) {
+	registryFunctionRefAdd(subAveRef, NELEMENTS(subAveRef));
+}
+
+epicsExportRegistrar(subAveRegister);
