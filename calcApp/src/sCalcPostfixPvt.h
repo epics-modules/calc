@@ -141,19 +141,20 @@ struct stackElement {
 #define		VARG_TERM	69
 #define		MAXV_VAL	70
 #define		MINV_VAL	71
+#define		SUBLAST		72
 /* NOTE: FETCH_A .. FETCH_L must be contiguous and in alphabetical order */
-#define		FETCH_A		72
-#define		FETCH_B		73
-#define		FETCH_C		74
-#define		FETCH_D		75
-#define		FETCH_E		76
-#define		FETCH_F		77
-#define		FETCH_G		78
-#define		FETCH_H		79
-#define		FETCH_I		80
-#define		FETCH_J		81
-#define		FETCH_K		82
-#define		FETCH_L		83
+#define		FETCH_A		73
+#define		FETCH_B		74
+#define		FETCH_C		75
+#define		FETCH_D		76
+#define		FETCH_E		77
+#define		FETCH_F		78
+#define		FETCH_G		79
+#define		FETCH_H		80
+#define		FETCH_I		81
+#define		FETCH_J		82
+#define		FETCH_K		83
+#define		FETCH_L		84
 
 #define NO_STRING		125
 #define USES_STRING		126
