@@ -1,0 +1,18 @@
+grecord(ao,"$(P)arrayTest_start") {
+	field(DTYP,"Soft Channel")
+	field(FLNK,"$(P)arrayTest.VAL  PP MS")
+	field(PREC,"5")
+}
+grecord(genSub,"$(P)arrayTest") {
+	field(INAM,"arrayTest_init")
+	field(SNAM,"arrayTest_do")
+	field(PREC,"5")
+	field(INPA,"$(P)arrayTest_start.VAL  NPP MS")
+	field(FTA,"DOUBLE")
+	field(FTVA,"DOUBLE")
+	field(FTVB,"DOUBLE")
+	field(FTE,"LONG")
+	field(NOVA,"$(N)")
+	field(NOVB,"$(N)")
+	field(EFLG,"ON CHANGE")
+}
