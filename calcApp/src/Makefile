@@ -20,7 +20,6 @@ Com_DIR          = $(EPICS_BASE_LIB)
 DBDINC += transformRecord
 DBDINC += sCalcoutRecord
 DBDINC += swaitRecord
-DBDINC += genSubRecord
 
 # <name>.dbd will be created from <name>Include.dbd
 DBD += calc.dbd
@@ -37,7 +36,6 @@ calc_SRCS += sCalcPostfix.c sCalcPerform.c
 #calc_SRCS_vxWorks += test_sCalc.c
 calc_SRCS += sCalcoutRecord.c
 calc_SRCS += swaitRecord.c
-calc_SRCS += genSubRecord.c
 calc_SRCS += subAve.c
 
 # gensub-based interpolation
@@ -49,7 +47,7 @@ calc_SRCS += arrayTest.c
 # Register stuff
 calc_SRCS += calcRegister.c
 
-calc_LIBS += sscan
+calc_LIBS += sscan genSub
 calc_LIBS += $(EPICS_BASE_IOC_LIBS)
 
 #=============================
@@ -65,7 +63,7 @@ calcApp_SRCS_vxWorks += -nil-
 #The following adds support from base/src/vxWorks
 calcApp_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
 
-calcApp_LIBS += calc sscan
+calcApp_LIBS += calc sscan genSub
 #calcApp_LIBS += seq pv
 calcApp_LIBS += $(EPICS_BASE_IOC_LIBS)
 
