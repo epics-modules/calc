@@ -1,0 +1,61 @@
+#include <stddef.h>
+#include <stdlib.h>
+/* #include <ctype.h> */
+#include <math.h>
+#include <stdio.h>
+
+/* #include <dbEvent.h> */
+#include <dbDefs.h>
+#include <dbCommon.h>
+#include <recSup.h>
+#include <genSubRecord.h>
+
+#define MAX(a,b) ((a) > (b) ? (a) : (b))
+#define MIN(a,b) ((a) > (b) ? (b) : (a))
+#define NINT(f)  (int)((f)>0 ? (f)+0.5 : (f)-0.5)
+
+
+volatile int arrayTestDebug=0;
+
+static long arrayTest_init(genSubRecord *pgsub)
+{
+	long	*e;
+
+	*e = pgsub->nova;
+	return(0);
+}
+
+static long arrayTest_do(genSubRecord *pgsub)
+{
+	double	*a, *valb, *vala;
+	long	*e;
+	int    	i;
+
+	a = (double *)pgsub->a;
+	valb = (double *)pgsub->valb;
+	vala = (double *)pgsub->vala;
+	e = (long *)pgsub->e;
+	for (i=0; i<*e; i++) {
+		vala[i] = *a+i;
+		valb[i] = i;
+		if (arrayTestDebug) printf("arrayTest: vala[%d]=%f\n", i, vala[i]);
+	}
+
+	return(0);
+}
+
+#include <registryFunction.h>
+#include <epicsExport.h>
+
+epicsExportAddress(int, arrayTestDebug);
+
+static registryFunctionRef arrayTestRef[] = {
+	{"arrayTest_init", (REGISTRYFUNCTION)arrayTest_init},
+	{"arrayTest_do", (REGISTRYFUNCTION)arrayTest_do}
+};
+
+static void arrayTestRegister(void) {
+	registryFunctionRefAdd(arrayTestRef, NELEMENTS(arrayTestRef));
+}
+
+epicsExportRegistrar(arrayTestRegister);
