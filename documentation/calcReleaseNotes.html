@@ -12,7 +12,7 @@ content="text/html; charset=iso-8859-1">
 
 <h2 align="center">Release 2-4</h2>
 
-This version is intended to build with EPICS base 3.14.6.
+This version is intended to build with EPICS base 3.14.7.
 
 <ul>
 <li><p>interp.c, interp.db, interp.adl - no longer supports spline
@@ -21,15 +21,19 @@ checking.  Now the number of elements must be specified at load time, with the
 macro, N.  Polynomial order is now forced to be in [0..10].
 <li><p>All databases have been converted to vdct.
 <li><p>Swait-record documentation added
-<li><p>Copy of Andy Foster's genSubManual.pdf included for user's convenience
 <li><p>New string operators '-|' and '|-' (delete first/last occurrence of
 substring).
 <li><p>Added arrayTest.c, a gensub-based support for producing unique
 arrays at runtime, e.g., for verifying that sscanRecord/saveData are
-storing data exactly as it was acquired.
+storing data exactly as it was acquired.  Also added arrayTest.db and
+arrayTest.adl.
 <li><p>Complete list of stringCalc functions, operators, and
 constants, with examples, is available as a set of medm displays,
-starting with the top-level display "calcExamples.adl".
+starting with the top-level display "calcExamples.adl".  All medm
+displays that display calc expressions call up these doc displays.
+<li><P>stringCalc record now uses device support.  Supplied soft device
+support allows the user to specify whether or not to wait for completion
+of the operation started by the OUT link.
 </ul>
 
 <h2 align="center">Release 2-3</h2>
@@ -52,7 +56,7 @@ polynomial interpolation.
     Suggestions and Comments to: <br>
     <a href="mailto:mooney@aps.anl.gov">Tim Mooney </a>:
     (mooney@aps.anl.gov) <br>
-    Last modified: August 2, 2004 
+    Last modified: December 22, 2004 
 </address>
 </body>
 </html>
