@@ -1,4 +1,4 @@
-/* swaitRecord.c  */   
+/* swaitRecord.c */   
 /*
  *      Original Author: Ned Arnold 
  *      Date:            05-31-94
