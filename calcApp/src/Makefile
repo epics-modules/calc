@@ -46,22 +46,6 @@ calc_SRCS += interp.c
 # Register stuff
 calc_SRCS += calcRegister.c
 
-# <name>_registerRecordDeviceDriver.cpp will be created from <name>.dbd
-calc_SRCS += calc_registerRecordDeviceDriver.cpp
-#calc_SRCS_DEFAULT += calcMain.cpp #maybe only for win32
-#calc_SRCS_vxWorks += -nil- #?
-
-#The following adds support from base/src/vxWorks
-#calc_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
-
-### The following builds SNL programs as components of calc
-# NOTE: for suffix .st, code is run through cpp; for .stt, it's not
-#calc_SRCS += calc.st
-#
-#calc_LIBS += seq pv
-#seq_DIR    = $(SNCSEQ_LIB)
-#pv_DIR     = $(SNCSEQ_LIB)
-
 calc_LIBS += sscan
 calc_LIBS += $(EPICS_BASE_IOC_LIBS)
 
