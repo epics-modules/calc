@@ -1,14 +1,10 @@
 /* scalcout.c - Record Support Routines for calc with output records */
 /*
- *   Author : Ned Arnold
- *   Based on recCalc.c, by ...
- *      Original Author: Julie Sander and Bob Dalesio
- *      Current  Author: Marty Kraimer
- *      Date:            7-27-87
- *
+ *   Author : Tim Mooney
+ *   Based on calcoutRecord recCalc.c, by Ned Arnold
  *      Experimental Physics and Industrial Control System (EPICS)
  *
- *      Copyright 1991, the Regents of the University of California,
+ *      Copyright 1998, the Regents of the University of California,
  *      and the University of Chicago Board of Governors.
  *
  *      This software was produced under  U.S. Government contracts:
@@ -29,28 +25,28 @@
  *
  * Modification Log:
  * -----------------
- * .01  08-29-96	nda    Created from scalcoutRecord.c for EPICS R3.13 
- * .02  09-13-96	nda    Original release for EPICS R3.13beta3
- * .03  03-24-98    tmm    v2.0: created from Ned Arnold's calcout record
- * .04  07-06-98    tmm    v3.1: prototype field-type sensitive output link
- * .05  08-25-98    tmm    v3.2: use new support in EPICS 3.13.0.beta12 for
- *                         field-type sensitive link.
- * .06  11-04-98    tmm    v3.3: Don't call dbScanLock until interruptAccept
- *                         removed some dead code re. type-sensitive links
- * .07  11-11-98    tmm    v3.4: Support 12 strings settable at DCT time
- * .08  03-23-99    tmm    v3.5: time stamp support
- * .09  01-18-00    tmm    v3.6: special() did not list INGG...INLL
- * .10  05-08-00    tmm    v3.61: changed some status messages to debug messages.
- * .11  08-22-00    tmm    v3.62: changed message text.
- * .12  04-22-03    tmm    v3.7: RPC fields now allocated in dbd file, since
- *                         sCalcPostfix doesn't allocate them anymore
- * .13  06-26-03    rls    Port to 3.14; alarm() conflicts with alarm declaration
- *			   in unistd.h (sCalcoutRecord.h->epicsTime.h->osdTime.h->
- *			   unistd.h) when compiled with SUNPro.
- *
+ * 03-24-98    tmm    v2.0: created from Ned Arnold's calcout record
+ * 07-06-98    tmm    v3.1: prototype field-type sensitive output link
+ * 08-25-98    tmm    v3.2: use new support in EPICS 3.13.0.beta12 for
+ *                    field-type sensitive link.
+ * 11-04-98    tmm    v3.3: Don't call dbScanLock until interruptAccept
+ *                    removed some dead code re. type-sensitive links
+ * 11-11-98    tmm    v3.4: Support 12 strings settable at DCT time
+ * 03-23-99    tmm    v3.5: time stamp support
+ * 01-18-00    tmm    v3.6: special() did not list INGG...INLL
+ * 05-08-00    tmm    v3.61: changed some status messages to debug messages.
+ * 08-22-00    tmm    v3.62: changed message text.
+ * 04-22-03    tmm    v3.7: RPC fields now allocated in dbd file, since
+ *                    sCalcPostfix doesn't allocate them anymore
+ * 06-26-03    rls    Port to 3.14; alarm() conflicts with alarm declaration
+ *                    in unistd.h (sCalcoutRecord.h->epicsTime.h->osdTime.h->
+ *                    unistd.h) when compiled with SUNPro.
+ * 09-11-04    tmm    v3.8: use device support instead of writing directly
+ *                    to OUT.  Misc changes to stay closer to calcout record's
+ *                    implementation.
  */
 
-#define VERSION 3.7
+#define VERSION 3.8
 
 
 #include	<stdlib.h>
@@ -67,6 +63,7 @@
 #include	<dbScan.h>
 #include	<errMdef.h>
 #include	<recSup.h>
+#include	<devSup.h>
 #include	<recGbl.h>
 #include	<special.h>
 #include	<callback.h>
@@ -77,7 +74,7 @@
 #include	"sCalcoutRecord.h"
 #undef  GEN_SIZE_OFFSET
 #include	<menuIvoa.h>
-#include        <epicsExport.h>
+#include	<epicsExport.h>
 
 /* Create RSET - Record Support Entry Table*/
 #define report NULL
@@ -118,6 +115,16 @@ rset scalcoutRSET={
 	get_control_double,
 	get_alarm_double
 };
+
+typedef struct scalcoutDSET {
+    long       number;
+    DEVSUPFUN  dev_report;
+    DEVSUPFUN  init;
+    DEVSUPFUN  init_record;
+    DEVSUPFUN  get_ioint_info;
+    DEVSUPFUN  write;
+} scalcoutDSET;
+
 epicsExportAddress(rset, scalcoutRSET);
 
 /* To provide feedback to the user as to the connection status of the 
@@ -136,21 +143,21 @@ epicsExportAddress(rset, scalcoutRSET);
 #define CA_LINKS_ALL_OK 1
 #define CA_LINKS_NOT_OK 2
 
-struct rpvtStruct {
+typedef struct rpvtStruct {
 	CALLBACK	doOutCb;
 	CALLBACK	checkLinkCb;
 	short		wd_id_1_LOCK;
 	short		caLinkStat; /* NO_CA_LINKS,CA_LINKS_ALL_OK,CA_LINKS_NOT_OK */
 	short		outlink_field_type;
-};
+} rpvtStruct;
 
 static void checkAlarms();
 static void monitor();
 static int fetch_values();
 static void execOutput();
-static void doOutputCallback();
 static void checkLinks();
 static void checkLinksCallback();
+static long writeValue(scalcoutRecord *pcalc);
 
 volatile int    sCalcoutRecordDebug = 0;
 
@@ -164,20 +171,19 @@ volatile int    sCalcoutRecordDebug = 0;
 #define STRING_SIZE 40
 
 
-static long init_record(pcalc,pass)
-	struct scalcoutRecord	*pcalc;
-	int pass;
+static long init_record(scalcoutRecord *pcalc, int pass)
 {
-	struct link *plink;
+	DBLINK *plink;
 	int i;
 	double *pvalue;
 	unsigned short *plinkValid;
 	short error_number;
 	char *s, **ps;
+    scalcoutDSET *pscalcoutDSET;
 
-	struct dbAddr       dbAddr;
-	struct dbAddr       *pAddr = &dbAddr;
-	struct rpvtStruct   *prpvt;
+	dbAddr       Addr;
+	dbAddr       *pAddr = &Addr;
+	rpvtStruct   *prpvt;
 
 	if (pass==0) {
 		pcalc->vers = VERSION;
@@ -194,12 +200,20 @@ static long init_record(pcalc,pass)
 		ps = (char **)(pcalc->strs);
 		for (i=0; i<STRING_ARG_MAX; i++, s+=STRING_SIZE, ps++)
 			*ps = s;
-
 		return(0);
 	}
     
-	prpvt = (struct rpvtStruct *)pcalc->rpvt;
+	if (!(pscalcoutDSET = (scalcoutDSET *)pcalc->dset)) {
+		recGblRecordError(S_dev_noDSET,(void *)pcalc,"scalcout:init_record");
+		return(S_dev_noDSET);
+	}
+	/* must have write defined */
+	if ((pscalcoutDSET->number < 5) || (pscalcoutDSET->write == NULL)) {
+		recGblRecordError(S_dev_missingSup,(void *)pcalc,"calcout:init_record");
+		return(S_dev_missingSup);
+	}
 
+	prpvt = (rpvtStruct *)pcalc->rpvt;
 	plink = &pcalc->inpa;
 	pvalue = &pcalc->a;
 	plinkValid = &pcalc->inav;
@@ -250,9 +264,6 @@ static long init_record(pcalc,pass)
 	}
 	db_post_events(pcalc,&pcalc->oclv,DBE_VALUE);
 
-	callbackSetCallback(doOutputCallback, &prpvt->doOutCb);
-	callbackSetPriority(pcalc->prio, &prpvt->doOutCb);
-	callbackSetUser(pcalc, &prpvt->doOutCb);
 	callbackSetCallback(checkLinksCallback, &prpvt->checkLinkCb);
 	callbackSetPriority(0, &prpvt->checkLinkCb);
 	callbackSetUser(pcalc, &prpvt->checkLinkCb);
@@ -266,108 +277,115 @@ static long init_record(pcalc,pass)
     return(0);
 }
 
-static long process(pcalc)
-    struct scalcoutRecord     *pcalc;
+static long process(scalcoutRecord *pcalc)
 {
-	struct rpvtStruct   *prpvt = (struct rpvtStruct *)pcalc->rpvt;
-	short	doOutput = 0;
-	long	stat;
+	rpvtStruct   *prpvt = (rpvtStruct *)pcalc->rpvt;
+	short		doOutput = 0;
+	long		stat;
 
-	if (sCalcoutRecordDebug) printf("sCalcoutRecord:process: strs=%p\n", pcalc->strs);
-	if (pcalc->pact) {
-		execOutput(pcalc);
-		pcalc->dlya = 0;
-		db_post_events(pcalc,&pcalc->dlya,DBE_VALUE);
+	if (sCalcoutRecordDebug) printf("sCalcoutRecord(%s):process: strs=%p, pact=%d\n",
+		pcalc->name, pcalc->strs, pcalc->pact);
 
-		/* process the forward scan link record */
-		recGblFwdLink(pcalc);
+	if (!pcalc->pact) {
+		pcalc->pact = TRUE;
+		/* if some links are CA, check connections */
+		if (prpvt->caLinkStat != NO_CA_LINKS) checkLinks(pcalc);
+		if (fetch_values(pcalc)==0) {
+			stat = sCalcPerform(&pcalc->a, ARG_MAX, (char **)(pcalc->strs),
+					STRING_ARG_MAX, &pcalc->val, pcalc->sval, STRING_SIZE,
+					pcalc->rpcl);
+			if (stat)
+				recGblSetSevr(pcalc,CALC_ALARM,INVALID_ALARM);
+			else
+				pcalc->udf = FALSE;
+		}
+		/* check for output link execution */
+		switch (pcalc->oopt) {
+		case scalcoutOOPT_Every_Time:
+			doOutput = 1;
+			break;
+		case scalcoutOOPT_On_Change:
+			if (fabs(pcalc->pval - pcalc->val) > pcalc->mdel) doOutput = 1;
+			break;
+		case scalcoutOOPT_Transition_To_Zero:
+			if ((pcalc->pval != 0) && (pcalc->val == 0)) doOutput = 1;
+			break;         
+		case scalcoutOOPT_Transition_To_Non_zero:
+			if ((pcalc->pval == 0) && (pcalc->val != 0)) doOutput = 1;
+			break;
+		case scalcoutOOPT_When_Zero:
+			if (!pcalc->val) doOutput = 1;
+			break;
+		case scalcoutOOPT_When_Non_zero:
+			if (pcalc->val) doOutput = 1;
+			break;
+		case scalcoutOOPT_Never:
+			doOutput = 0;
+			break;
+		}
+		pcalc->pval = pcalc->val;
 
-		pcalc->pact = FALSE;
-		return(0);
-	}
-
-
-	pcalc->pact = TRUE;
-	/* if some links are CA, check connections */
-	if (prpvt->caLinkStat != NO_CA_LINKS) checkLinks(pcalc);
-
-	if (fetch_values(pcalc)==0) {
-		stat = sCalcPerform(&pcalc->a, ARG_MAX, (char **)(pcalc->strs),
-				STRING_ARG_MAX, &pcalc->val, pcalc->sval, STRING_SIZE,
-				pcalc->rpcl);
-		if (stat)
-			recGblSetSevr(pcalc,CALC_ALARM,INVALID_ALARM);
-		else
-			pcalc->udf = FALSE;
-	}
-	recGblGetTimeStamp(pcalc);
-	/* check for alarms */
-	checkAlarms(pcalc);
-
-	/* check for output link execution */
-	switch (pcalc->oopt) {
-	case scalcoutOOPT_Every_Time:
-		doOutput = 1;
-		break;
-	case scalcoutOOPT_On_Change:
-		if (fabs(pcalc->pval - pcalc->val) > pcalc->mdel) doOutput = 1;
-		break;
-	case scalcoutOOPT_Transition_To_Zero:
-		if ((pcalc->pval != 0) && (pcalc->val == 0)) doOutput = 1;
-		break;         
-	case scalcoutOOPT_Transition_To_Non_zero:
-		if ((pcalc->pval == 0) && (pcalc->val != 0)) doOutput = 1;
-		break;
-	case scalcoutOOPT_When_Zero:
-		if (!pcalc->val) doOutput = 1;
-		break;
-	case scalcoutOOPT_When_Non_zero:
-		if (pcalc->val) doOutput = 1;
-		break;
-	case scalcoutOOPT_Never:
-		doOutput = 0;
-		break;
-	}
-	pcalc->pval = pcalc->val;
-
-	if (doOutput) {
-		if (pcalc->odly > 0.0) {
-			pcalc->dlya = 1;
+		if (doOutput) {
+			if (pcalc->odly > 0.0) {
+				pcalc->dlya = 1;
+				db_post_events(pcalc,&pcalc->dlya,DBE_VALUE);
+                callbackRequestProcessCallbackDelayed(&prpvt->doOutCb,
+                    pcalc->prio, pcalc, (double)pcalc->odly);
+				if (sCalcoutRecordDebug)
+					printf("sCalcoutRecord(%s):process: exit, wait for delay\n",
+						pcalc->name);
+				return(0);
+			} else {
+                pcalc->pact = FALSE;
+				execOutput(pcalc);
+                if (pcalc->pact) {
+					if (sCalcoutRecordDebug)
+						printf("sCalcoutRecord(%s):process: exit, pact==1\n",
+							pcalc->name);
+					return(0);
+				}
+			}
+		}
+	} else { /* pact == TRUE */
+		/* Who invoked us ? */
+		if (pcalc->dlya) {
+			/* callbackRequestProcessCallbackDelayed() called us */
+			pcalc->dlya = 0;
 			db_post_events(pcalc,&pcalc->dlya,DBE_VALUE);
-			callbackSetPriority(pcalc->prio, &prpvt->doOutCb);
-			callbackRequestDelayed(&prpvt->doOutCb,(double)pcalc->odly);
-		} else {
+
+            /* Must set pact 0 so that asynchronous device support works */
+            pcalc->pact = 0;
 			execOutput(pcalc);
+            if (pcalc->pact) return(0);
+            pcalc->pact = TRUE;
+		} else {
+			/* We must have been called by asynchronous device support */
+            writeValue(pcalc);
 		}
 	}
-
-	/* check event list */
-	monitor(pcalc);
-
-	/* if no delay requested, finish processing */ 
-	if (!pcalc->dlya) {
-		/* process the forward scan link record */
-		recGblFwdLink(pcalc);
-		pcalc->pact = FALSE;
-	}
+    checkAlarms(pcalc);
+    recGblGetTimeStamp(pcalc);
+    monitor(pcalc);
+    recGblFwdLink(pcalc);
+    pcalc->pact = FALSE;
+	if (sCalcoutRecordDebug) printf("sCalcoutRecord(%s):process: exit, pact==0\n",
+		pcalc->name);
 	return(0);
 }
 
-static long special(paddr,after)
-    struct dbAddr	*paddr;
-    int				after;
+static long special(dbAddr	*paddr, int after)
 {
-	struct scalcoutRecord *pcalc = (struct scalcoutRecord *)(paddr->precord);
-	struct rpvtStruct   *prpvt = (struct rpvtStruct *)pcalc->rpvt;
-	struct dbAddr       dbAddr;
-	struct dbAddr       *pAddr = &dbAddr;
-	short error_number;
-	int                 fieldIndex = dbGetFieldIndex(paddr);
-	int                 lnkIndex;
-	struct link         *plink;
-	double              *pvalue;
-	unsigned short      *plinkValid;
-	char				*s;
+	scalcoutRecord	*pcalc = (scalcoutRecord *)(paddr->precord);
+	rpvtStruct		*prpvt = (struct rpvtStruct *)pcalc->rpvt;
+	dbAddr			Addr;
+	dbAddr			*pAddr = &Addr;
+	short			error_number;
+	int				fieldIndex = dbGetFieldIndex(paddr);
+	int				lnkIndex;
+	DBLINK			*plink;
+	double			*pvalue;
+	unsigned short	*plinkValid;
+	char			*s;
 
 	if (!after) return(0);
 	switch (fieldIndex) {
@@ -465,8 +483,7 @@ static long special(paddr,after)
 	return(0);
 }
 
-static long 
-cvt_dbaddr(struct dbAddr *paddr)
+static long cvt_dbaddr(dbAddr *paddr)
 {
 	scalcoutRecord	*pcalc = (scalcoutRecord *) paddr->precord;
 	char			**pfield = (char **)paddr->pfield;
@@ -487,21 +504,17 @@ cvt_dbaddr(struct dbAddr *paddr)
 	return(0);
 }
 
-static long get_units(paddr,units)
-    struct dbAddr *paddr;
-    char	  *units;
+static long get_units(dbAddr *paddr, char *units)
 {
-	struct scalcoutRecord	*pcalc=(struct scalcoutRecord *)paddr->precord;
+	scalcoutRecord	*pcalc=(scalcoutRecord *)paddr->precord;
 
 	strncpy(units,pcalc->egu,DB_UNITS_SIZE);
 	return(0);
 }
 
-static long get_precision(paddr,precision)
-	struct dbAddr *paddr;
-	long	  *precision;
+static long get_precision(dbAddr *paddr, long *precision)
 {
-	struct scalcoutRecord	*pcalc=(struct scalcoutRecord *)paddr->precord;
+	scalcoutRecord	*pcalc=(scalcoutRecord *)paddr->precord;
 	int fieldIndex = dbGetFieldIndex(paddr);
 
 	*precision = pcalc->prec;
@@ -510,11 +523,9 @@ static long get_precision(paddr,precision)
 	return(0);
 }
 
-static long get_graphic_double(paddr,pgd)
-    struct dbAddr *paddr;
-    struct dbr_grDouble	*pgd;
+static long get_graphic_double(dbAddr *paddr, struct dbr_grDouble *pgd)
 {
-    struct scalcoutRecord	*pcalc=(struct scalcoutRecord *)paddr->precord;
+    scalcoutRecord	*pcalc=(scalcoutRecord *)paddr->precord;
     int fieldIndex = dbGetFieldIndex(paddr);
 
 	switch (fieldIndex) {
@@ -543,11 +554,9 @@ static long get_graphic_double(paddr,pgd)
 	return(0);
 }
 
-static long get_control_double(paddr,pcd)
-	struct dbAddr *paddr;
-	struct dbr_ctrlDouble *pcd;
+static long get_control_double(dbAddr *paddr, struct dbr_ctrlDouble *pcd)
 {
-	struct scalcoutRecord	*pcalc=(struct scalcoutRecord *)paddr->precord;
+	scalcoutRecord	*pcalc=(scalcoutRecord *)paddr->precord;
 	int fieldIndex = dbGetFieldIndex(paddr);
 
 	switch (fieldIndex) {
@@ -575,11 +584,9 @@ static long get_control_double(paddr,pcd)
 	}
 	return(0);
 }
-static long get_alarm_double(paddr,pad)
-	struct dbAddr *paddr;
-	struct dbr_alDouble	*pad;
+static long get_alarm_double(dbAddr *paddr, struct dbr_alDouble *pad)
 {
-	struct scalcoutRecord	*pcalc=(struct scalcoutRecord *)paddr->precord;
+	scalcoutRecord	*pcalc=(scalcoutRecord *)paddr->precord;
 	int fieldIndex = dbGetFieldIndex(paddr);
 
 	if (fieldIndex == scalcoutRecordVAL) {
@@ -593,11 +600,10 @@ static long get_alarm_double(paddr,pad)
 }
 
 
-static void checkAlarms(pcalc)
-	struct scalcoutRecord	*pcalc;
+static void checkAlarms(scalcoutRecord *pcalc)
 {
-	double		val;
-	float		hyst, lalm, hihi, high, low, lolo;
+	double			val;
+	double			hyst, lalm, hihi, high, low, lolo;
 	unsigned short	hhsv, llsv, hsv, lsv;
 
 	if (pcalc->udf == TRUE) {
@@ -645,29 +651,11 @@ static void checkAlarms(pcalc)
 	return;
 }
 
-static void doOutputCallback(pcallback)
-	struct callback *pcallback;
-{
 
-	dbCommon    *pcalc;
-	struct rset *prset;
-
-	callbackGetUser(pcalc, pcallback);
-	prset = (struct rset *)pcalc->rset;
-
-	dbScanLock((struct dbCommon *)pcalc);
-	(*prset->process)(pcalc);
-	dbScanUnlock((struct dbCommon *)pcalc);
-}
-
-    
-
-static void execOutput(pcalc)
-	struct scalcoutRecord *pcalc;
+static void execOutput(scalcoutRecord *pcalc)
 {
 	long	status;
-	struct rpvtStruct   *prpvt = (struct rpvtStruct *)pcalc->rpvt;
-	short	ftype = prpvt->outlink_field_type;
+
 	/* Determine output data */
 	switch (pcalc->dopt) {
 	case scalcoutDOPT_Use_VAL:
@@ -687,30 +675,14 @@ static void execOutput(pcalc)
 	/* Check to see what to do if INVALID */
 	if (pcalc->sevr < INVALID_ALARM) {
 		/* Output the value */
-		switch (ftype) {
-		case DBF_STRING: case DBF_ENUM: case DBF_MENU: case DBF_DEVICE:
-		case DBF_INLINK: case DBF_OUTLINK: case DBF_FWDLINK:
-			status = dbPutLink(&(pcalc->out), DBR_STRING,&(pcalc->osv),1);
-			break;
-		default:
-			status = dbPutLink(&(pcalc->out), DBR_DOUBLE,&(pcalc->oval),1);
-			break;
-		}
+		status = writeValue(pcalc);
 		/* post event if output event != 0 */
 		if (pcalc->oevt > 0) post_event((int)pcalc->oevt);
 	} else {
 		switch (pcalc->ivoa) {
 		case menuIvoaContinue_normally:
 			/* write the new value */
-			switch (prpvt->outlink_field_type) {
-			case DBF_STRING: case DBF_ENUM: case DBF_MENU: case DBF_DEVICE:
-			case DBF_INLINK: case DBF_OUTLINK: case DBF_FWDLINK:
-				status = dbPutLink(&(pcalc->out), DBR_STRING,&(pcalc->osv),1);
-				break;
-			default:
-				status = dbPutLink(&(pcalc->out), DBR_DOUBLE, &(pcalc->oval),1);
-				break;
-			}
+			status = writeValue(pcalc);
 			/* post event if output event != 0 */
 			if (pcalc->oevt > 0) post_event((int)pcalc->oevt);
 			break;
@@ -720,7 +692,7 @@ static void execOutput(pcalc)
 
 		case menuIvoaSet_output_to_IVOV:
 			pcalc->oval=pcalc->ivov;
-			status = dbPutLink(&(pcalc->out), DBR_DOUBLE, &(pcalc->oval),1);
+			status = writeValue(pcalc);
 			/* post event if output event != 0 */
 			if (pcalc->oevt > 0) post_event((int)pcalc->oevt);
 			break;
@@ -733,8 +705,7 @@ static void execOutput(pcalc)
 	} 
 }
 
-static void monitor(pcalc)
-    struct scalcoutRecord	*pcalc;
+static void monitor(scalcoutRecord *pcalc)
 {
 	unsigned short	monitor_mask;
 	double			delta;
@@ -795,14 +766,13 @@ static void monitor(pcalc)
 	return;
 }
 
-static int fetch_values(pcalc)
-    struct scalcoutRecord *pcalc;
+static int fetch_values(scalcoutRecord *pcalc)
 {
-	struct link	*plink;	/* structure of the link field  */
-	double		*pvalue;
-	char		**psvalue;
-	long		status = 0;
-	int			i;
+	DBLINK	*plink;	/* structure of the link field  */
+	double	*pvalue;
+	char	**psvalue;
+	long	status = 0;
+	int		i;
 #if 0
 	TS_STAMP	timeStamp;
 #endif
@@ -831,15 +801,13 @@ static int fetch_values(pcalc)
 	return(0);
 }
 
-static void checkLinksCallback(pcallback)
-    struct callback *pcallback;
+static void checkLinksCallback(CALLBACK *pcallback)
 {
-
-    struct scalcoutRecord *pcalc;
-    struct rpvtStruct   *prpvt;
+    scalcoutRecord	*pcalc;
+    rpvtStruct		*prpvt;
 
     callbackGetUser(pcalc, pcallback);
-    prpvt = (struct rpvtStruct *)pcalc->rpvt;
+    prpvt = (rpvtStruct *)pcalc->rpvt;
     
 	if (!interruptAccept) {
 		/* Can't call dbScanLock yet.  Schedule another CALLBACK */
@@ -854,18 +822,17 @@ static void checkLinksCallback(pcallback)
 }
 
 
-static void checkLinks(pcalc)
-    struct scalcoutRecord *pcalc;
+static void checkLinks(scalcoutRecord *pcalc)
 {
-	struct link *plink;
-	struct rpvtStruct   *prpvt = (struct rpvtStruct *)pcalc->rpvt;
+	DBLINK			*plink;
+	rpvtStruct		*prpvt = (rpvtStruct *)pcalc->rpvt;
 	int i;
-	int isCaLink   = 0;
-	int isCaLinkNc = 0;
-	unsigned short *plinkValid;
-	struct dbAddr dbAddr;
-	struct dbAddr *pAddr = &dbAddr;
-	char *s;
+	int				isCaLink   = 0;
+	int				isCaLinkNc = 0;
+	unsigned short	*plinkValid;
+	dbAddr			Addr;
+	dbAddr			*pAddr = &Addr;
+	char			*s;
 
 	if (sCalcoutRecordDebug) printf("checkLinks() for %p\n", pcalc);
 
@@ -924,3 +891,16 @@ static void checkLinks(pcalc)
 	}
 }
 
+
+static long writeValue(scalcoutRecord *pcalc)
+{
+    scalcoutDSET	*pscalcoutDSET = (scalcoutDSET *)pcalc->dset;
+
+    if (!pscalcoutDSET || !pscalcoutDSET->write) {
+        errlogPrintf("%s DSET write does not exist\n",pcalc->name);
+        recGblSetSevr(pcalc,SOFT_ALARM,INVALID_ALARM);
+        pcalc->pact = TRUE;
+        return(-1);
+    }
+	return pscalcoutDSET->write(pcalc);
+}
