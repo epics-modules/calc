@@ -69,13 +69,13 @@ DEVELOPMENT CENTER AT ARGONNE NATIONAL LABORATORY (708-252-2000).
 
 #ifdef vxWorks
 #include <vxWorks.h>
-#include <stdlib.h>
 #else
 #define OK 0
 #define ERROR -1
 #endif
 
 #include <stdio.h>
+#include <stdlib.h>
 
 #include <alarm.h>
 #include <cvtTable.h>
@@ -165,7 +165,7 @@ struct	subRecord *psub)
   if ( num >  CIRBUFSIZE ) {
 	if(debugSubAve)
 		errPrintf(NO_ERR_RPT, __FILE__, __LINE__,
-			"%s: Num to ave (%d) exceeds limit (%d) for PV %s",
+			"%s: Num to ave (%ld) exceeds limit (%d) for PV %s",
 			 xname, num, CIRBUFSIZE,  psub->name);
 	num = CIRBUFSIZE;
 	NUM_2_AVE = num;
