@@ -5,10 +5,13 @@
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 
 # EPICS_BASE usually appears last so other apps can override stuff:
-EPICS_BASE=/net/beams/export/local/epics/baseR3.14.5
+EPICS_BASE=/corvette/usr/local/epics/base-3.14.6
 
 # Need recDynLink
-SSCAN=/home/oxygen/MOONEY/epics/synApps_5_0/support/sscan/2-3
+SSCAN=/corvette/home/epics/synApps5-1beta/sscan
+
+# Need genSubRecord
+GENSUB=/corvette/home/epics/synApps5-1beta/genSubV1-6
 
 #Capfast users may need the following definitions
 #CAPFAST_TEMPLATES=
