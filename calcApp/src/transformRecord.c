@@ -462,79 +462,80 @@ special(struct dbAddr *paddr, int after)
 
 	Debug(15, "special: special_type = %d\n", special_type);
 	switch (special_type) {
-	case (SPC_CALC):
-		pclcbuf = ptran->clca;
-		prpcbuf = (char *)ptran->rpca;
-		pcalcInvalid = &ptran->cav;
-		for (i = 0;
-		     i < ARG_MAX && paddr->pfield != (void *) pclcbuf;
-		     i++, pclcbuf+=INFIX_SIZE, prpcbuf+=POSTFIX_SIZE, pcalcInvalid++);
-		if (i < ARG_MAX) {
-			status = 0; /* empty expression is valid */
-			if (*pclcbuf) {
-				/* make sure it's no longer than INFIX_SIZE chars */
-				pclcbuf[INFIX_SIZE - 1] = (char) 0;
-				Debug(15, "special: infix expression: '%s'\n", pclcbuf);
-				status = sCalcPostfix(pclcbuf, prpcbuf, &error_number);
-				if (status) {
-					recGblRecordError(S_db_badField,(void *)ptran,
-						"transform:special: Illegal CALC field");
+	case (SPC_MOD):
+		if ((fieldIndex >= transformRecordCLCA) &&
+			(fieldIndex <= transformRecordCLCP)) {
+			pclcbuf = ptran->clca;
+			prpcbuf = (char *)ptran->rpca;
+			pcalcInvalid = &ptran->cav;
+			for (i = 0;
+			     i < ARG_MAX && paddr->pfield != (void *) pclcbuf;
+			     i++, pclcbuf+=INFIX_SIZE, prpcbuf+=POSTFIX_SIZE, pcalcInvalid++);
+			if (i < ARG_MAX) {
+				status = 0; /* empty expression is valid */
+				if (*pclcbuf) {
+					/* make sure it's no longer than INFIX_SIZE chars */
+					pclcbuf[INFIX_SIZE - 1] = (char) 0;
+					Debug(15, "special: infix expression: '%s'\n", pclcbuf);
+					status = sCalcPostfix(pclcbuf, prpcbuf, &error_number);
+					if (status) {
+						recGblRecordError(S_db_badField,(void *)ptran,
+							"transform:special: Illegal CALC field");
+					}
+				}
+				if (*pcalcInvalid != status) {
+					*pcalcInvalid = status;
+					db_post_events(ptran, pcalcInvalid, DBE_VALUE|DBE_LOG);
 				}
 			}
-			if (*pcalcInvalid != status) {
-				*pcalcInvalid = status;
-				db_post_events(ptran, pcalcInvalid, DBE_VALUE|DBE_LOG);
+			return (0);
+		} else {
+			/* Mark value field as "new", unless we caused the field to be written */
+			if (ptran->pact == 0) {
+				i = fieldIndex - transformRecordA;
+				if ((i >= 0) && (i < ARG_MAX)) {
+					/* user is changing a value field */
+					ptran->map |= (1<<i);	/* note new value (don't do calc) */
+				}
+			}
+
+			/* If user has changed a link, check it */
+			i = fieldIndex - transformRecordINPA;
+			if ((i >= 0) && (i < 2*ARG_MAX)) {
+				Debug(15, "special: checking link, i=%d\n", i);
+				plink   = &ptran->inpa + i;
+				pvalue  = &ptran->a    + i;
+				plinkValid = &ptran->iav + i;
+
+		        if (plink->type == CONSTANT) {
+					/* get initial value if this is an input link */
+		            if (fieldIndex < transformRecordOUTA) {
+		                recGblInitConstantLink(plink,DBF_DOUBLE,pvalue);
+		                db_post_events(ptran,pvalue,DBE_VALUE|DBE_LOG);
+		            }
+					Debug(15, "special: ...constant link, i=%d\n", i);
+		            *plinkValid = transformIAV_CON;
+		        }
+		        /* see if the PV resides on this ioc */
+		        else if (!dbNameToAddr(plink->value.pv_link.pvname, &dbAddr)) {
+		            *plinkValid = transformIAV_LOC;
+					Debug(15, "special: ...local link, i=%d\n", i);
+		        }
+		        /* pv is not on this ioc. Callback later for connection stat */
+		        else {
+		            *plinkValid = transformIAV_EXT_NC;
+		            /* DO_CALLBACK, if not already scheduled */
+					Debug(15, "special: ...CA link, pending_checkLinkCB=%d\n", prpvt->pending_checkLinkCB);
+		            if (!prpvt->pending_checkLinkCB) {
+		                prpvt->pending_checkLinkCB = 1;
+						callbackRequestDelayed(&prpvt->checkLinkCb, 0.5);
+		                prpvt->caLinkStat = CA_LINKS_NOT_OK;
+						Debug(15, "special: ...CA link, i=%d, req. callback\n", i);
+		            }
+		        }
+		        db_post_events(ptran,plinkValid,DBE_VALUE|DBE_LOG);
 			}
 		}
-		return (0);
-
-	case (SPC_MOD):
-		/* Mark value field as "new", unless we caused the field to be written */
-		if (ptran->pact == 0) {
-			i = fieldIndex - transformRecordA;
-			if ((i >= 0) && (i < ARG_MAX)) {
-				/* user is changing a value field */
-				ptran->map |= (1<<i);	/* note new value (don't do calc) */
-			}
-		}
-
-		/* If user has changed a link, check it */
-		i = fieldIndex - transformRecordINPA;
-		if ((i >= 0) && (i < 2*ARG_MAX)) {
-			Debug(15, "special: checking link, i=%d\n", i);
-			plink   = &ptran->inpa + i;
-			pvalue  = &ptran->a    + i;
-			plinkValid = &ptran->iav + i;
-
-	        if (plink->type == CONSTANT) {
-				/* get initial value if this is an input link */
-	            if (fieldIndex < transformRecordOUTA) {
-	                recGblInitConstantLink(plink,DBF_DOUBLE,pvalue);
-	                db_post_events(ptran,pvalue,DBE_VALUE|DBE_LOG);
-	            }
-				Debug(15, "special: ...constant link, i=%d\n", i);
-	            *plinkValid = transformIAV_CON;
-	        }
-	        /* see if the PV resides on this ioc */
-	        else if (!dbNameToAddr(plink->value.pv_link.pvname, &dbAddr)) {
-	            *plinkValid = transformIAV_LOC;
-				Debug(15, "special: ...local link, i=%d\n", i);
-	        }
-	        /* pv is not on this ioc. Callback later for connection stat */
-	        else {
-	            *plinkValid = transformIAV_EXT_NC;
-	            /* DO_CALLBACK, if not already scheduled */
-				Debug(15, "special: ...CA link, pending_checkLinkCB=%d\n", prpvt->pending_checkLinkCB);
-	            if (!prpvt->pending_checkLinkCB) {
-	                prpvt->pending_checkLinkCB = 1;
-					callbackRequestDelayed(&prpvt->checkLinkCb, 0.5);
-	                prpvt->caLinkStat = CA_LINKS_NOT_OK;
-					Debug(15, "special: ...CA link, i=%d, req. callback\n", i);
-	            }
-	        }
-	        db_post_events(ptran,plinkValid,DBE_VALUE|DBE_LOG);
-		}
-
 		return(0);
 
 	default:
