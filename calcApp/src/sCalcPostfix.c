@@ -1,4 +1,4 @@
-/* $Id: sCalcPostfix.c,v 1.5 2004-04-28 23:41:25 rivers Exp $
+/* $Id: sCalcPostfix.c,v 1.6 2004-08-30 19:06:00 mooney Exp $
  * Subroutines used to convert an infix expression to a postfix expression
  *
  *      Author:          Bob Dalesio
@@ -163,7 +163,9 @@ struct	expression_element{
  * Because the routine that looks for a match in this table takes the first 
  * match it finds, elements whose designations are contained in other elements
  * MUST come first in this list. (e.g. ABS will match A if A preceeds ABS and
- * then try to find BS therefore ABS must be first in this list
+ * then try to find BS.  Therefore ABS must be first in this list.)
+ * ':' receives special handling, so if you add an operator that includes
+ * ':', you must modify that special handling.
  */
 #define UNARY_MINUS_I_S_P  8
 #define UNARY_MINUS_I_C_P  9
@@ -177,6 +179,8 @@ static struct expression_element elements[] = {
 element    i_s_p i_c_p type_element     internal_rep */
 {"ABS",    8,    9,    UNARY_OPERATOR,  ABS_VAL},   /* absolute value */
 {"NOT",    8,    9,    UNARY_OPERATOR,  UNARY_NEG},   /* unary negate */
+{"-|",     5,    5,    BINARY_OPERATOR, SUB},         /* subtract first occurrence */
+{"|-",     5,    5,    BINARY_OPERATOR, SUBLAST},     /* subtract last occurrence */
 {"-",      8,    9,    MINUS_OPERATOR,  UNARY_NEG},   /* unary negate (or binary op) */
 {"SQRT",   8,    9,    UNARY_OPERATOR,  SQU_RT},      /* square root */
 {"SQR",    8,    9,    UNARY_OPERATOR,  SQU_RT},      /* square root */
@@ -370,7 +374,7 @@ long sCalcCheck(char *post, int forks_checked, int dir_mask)
 		case REL_OR:		case REL_AND:	case BIT_OR:	case BIT_AND:
 		case BIT_EXCL_OR:	case GR_OR_EQ:	case GR_THAN:	case LESS_OR_EQ:
 		case LESS_THAN:		case NOT_EQ:	case EQUAL:		case RIGHT_SHIFT:
-		case LEFT_SHIFT:	case ATAN2:
+		case LEFT_SHIFT:	case ATAN2:		case SUBLAST:
 			checkStackElement(ps);
 			ps--;
 			checkStackElement(ps);
