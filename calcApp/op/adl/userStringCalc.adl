@@ -1,14 +1,14 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps_5_1/support/calc/cvs/calcApp/op/adl/userStringCalc.adl"
+	name="/home/oxygen4/MOONEY/epics/synApps_5_1/support/calc/cvs/calcApp/op/adl/userStringCalc.adl"
 	version=030004
 }
 display {
 	object {
-		x=11
-		y=183
+		x=339
+		y=434
 		width=400
-		height=420
+		height=440
 	}
 	clr=14
 	bclr=3
@@ -741,8 +741,8 @@ menu {
 	}
 	control {
 		chan="$(P)$(C).DOPT"
-		clr=30
-		bclr=47
+		clr=14
+		bclr=51
 	}
 }
 polyline {
@@ -1053,76 +1053,6 @@ rectangle {
 polyline {
 	object {
 		x=0
-		y=392
-		width=399
-		height=3
-	}
-	"basic attribute" {
-		clr=54
-		fill="outline"
-		width=3
-	}
-	points {
-		(1,393)
-		(397,393)
-	}
-}
-composite {
-	object {
-		x=5
-		y=398
-		width=236
-		height=20
-	}
-	"composite name"=""
-	children {
-		"text entry" {
-			object {
-				x=55
-				y=398
-				width=186
-				height=20
-			}
-			control {
-				chan="$(P)$(C).FLNK"
-				clr=14
-				bclr=40
-			}
-			format="string"
-			limits {
-			}
-		}
-		text {
-			object {
-				x=5
-				y=398
-				width=40
-				height=10
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="FORWARD"
-			align="horiz. centered"
-		}
-		text {
-			object {
-				x=5
-				y=408
-				width=40
-				height=10
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="LINK"
-			align="horiz. centered"
-		}
-	}
-}
-polyline {
-	object {
-		x=0
 		y=268
 		width=380
 		height=3
@@ -1367,23 +1297,6 @@ polyline {
 		(283,305)
 	}
 }
-"related display" {
-	object {
-		x=335
-		y=398
-		width=40
-		height=20
-	}
-	display[0] {
-		label="user stringCalc (full)"
-		name="userStringCalc_full.adl"
-		args="P=$(P),C=$(C)"
-		policy="replace display"
-	}
-	clr=0
-	bclr=63
-	label="-More"
-}
 "text entry" {
 	object {
 		x=235
@@ -1532,4 +1445,139 @@ text {
 	clr=0
 	bclr=63
 	label="-?"
+}
+composite {
+	object {
+		x=0
+		y=412
+		width=399
+		height=26
+	}
+	"composite name"=""
+	children {
+		polyline {
+			object {
+				x=0
+				y=412
+				width=399
+				height=3
+			}
+			"basic attribute" {
+				clr=54
+				fill="outline"
+				width=3
+			}
+			points {
+				(1,413)
+				(397,413)
+			}
+		}
+		composite {
+			object {
+				x=5
+				y=418
+				width=236
+				height=20
+			}
+			"composite name"=""
+			children {
+				"text entry" {
+					object {
+						x=55
+						y=418
+						width=186
+						height=20
+					}
+					control {
+						chan="$(P)$(C).FLNK"
+						clr=14
+						bclr=40
+					}
+					format="string"
+					limits {
+					}
+				}
+				text {
+					object {
+						x=5
+						y=418
+						width=40
+						height=10
+					}
+					"basic attribute" {
+						clr=14
+					}
+					textix="FORWARD"
+					align="horiz. centered"
+				}
+				text {
+					object {
+						x=5
+						y=428
+						width=40
+						height=10
+					}
+					"basic attribute" {
+						clr=14
+					}
+					textix="LINK"
+					align="horiz. centered"
+				}
+			}
+		}
+		"related display" {
+			object {
+				x=335
+				y=418
+				width=40
+				height=20
+			}
+			display[0] {
+				label="user stringCalc (full)"
+				name="userStringCalc_full.adl"
+				args="P=$(P),C=$(C)"
+				policy="replace display"
+			}
+			clr=0
+			bclr=63
+			label="-More"
+		}
+	}
+}
+composite {
+	object {
+		x=164
+		y=390
+		width=216
+		height=20
+	}
+	"composite name"=""
+	children {
+		menu {
+			object {
+				x=300
+				y=390
+				width=80
+				height=20
+			}
+			control {
+				chan="$(P)$(C).WAIT"
+				clr=14
+				bclr=51
+			}
+		}
+		text {
+			object {
+				x=164
+				y=396
+				width=130
+				height=10
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="WAIT FOR COMPLETION?"
+			align="horiz. centered"
+		}
+	}
 }

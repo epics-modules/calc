@@ -1,14 +1,14 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps_5_1/support/calc/cvs/calcApp/op/adl/yysCalcoutRecord.adl"
+	name="/home/oxygen4/MOONEY/epics/synApps_5_1/support/calc/cvs/calcApp/op/adl/yysCalcoutRecord.adl"
 	version=030004
 }
 display {
 	object {
-		x=11
-		y=183
+		x=339
+		y=434
 		width=400
-		height=420
+		height=440
 	}
 	clr=14
 	bclr=3
@@ -98,6 +98,34 @@ rectangle {
 		clr=1
 	}
 }
+menu {
+	object {
+		x=0
+		y=30
+		width=100
+		height=16
+	}
+	control {
+		chan="$(P)$(C).SCAN"
+		clr=14
+		bclr=51
+	}
+}
+"message button" {
+	object {
+		x=170
+		y=30
+		width=40
+		height=20
+	}
+	control {
+		chan="$(P)$(C).PROC"
+		clr=14
+		bclr=51
+	}
+	label="PROC"
+	press_msg="1"
+}
 polyline {
 	object {
 		x=-1
@@ -132,6 +160,23 @@ polyline {
 }
 text {
 	object {
+		x=240
+		y=6
+		width=160
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	"dynamic attribute" {
+		vis="if not zero"
+		chan="$(P)userStringCalcEnable.VAL"
+	}
+	textix="($(P)$(C))"
+	align="horiz. centered"
+}
+text {
+	object {
 		x=105
 		y=36
 		width=40
@@ -142,6 +187,21 @@ text {
 	}
 	textix="EVENT#"
 	align="horiz. centered"
+}
+"text entry" {
+	object {
+		x=145
+		y=30
+		width=20
+		height=20
+	}
+	control {
+		chan="$(P)$(C).EVNT"
+		clr=14
+		bclr=51
+	}
+	limits {
+	}
 }
 text {
 	object {
@@ -636,8 +696,8 @@ menu {
 	}
 	control {
 		chan="$(P)$(C).DOPT"
-		clr=30
-		bclr=47
+		clr=14
+		bclr=51
 	}
 }
 polyline {
@@ -948,76 +1008,6 @@ rectangle {
 polyline {
 	object {
 		x=0
-		y=392
-		width=399
-		height=3
-	}
-	"basic attribute" {
-		clr=54
-		fill="outline"
-		width=3
-	}
-	points {
-		(1,393)
-		(397,393)
-	}
-}
-composite {
-	object {
-		x=5
-		y=398
-		width=236
-		height=20
-	}
-	"composite name"=""
-	children {
-		"text entry" {
-			object {
-				x=55
-				y=398
-				width=186
-				height=20
-			}
-			control {
-				chan="$(P)$(C).FLNK"
-				clr=14
-				bclr=40
-			}
-			format="string"
-			limits {
-			}
-		}
-		text {
-			object {
-				x=5
-				y=398
-				width=40
-				height=10
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="FORWARD"
-			align="horiz. centered"
-		}
-		text {
-			object {
-				x=5
-				y=408
-				width=40
-				height=10
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="LINK"
-			align="horiz. centered"
-		}
-	}
-}
-polyline {
-	object {
-		x=0
 		y=268
 		width=380
 		height=3
@@ -1262,23 +1252,6 @@ polyline {
 		(283,305)
 	}
 }
-"related display" {
-	object {
-		x=335
-		y=398
-		width=40
-		height=20
-	}
-	display[0] {
-		label="more fields"
-		name="yysCalcoutRecord_full.adl"
-		args="P=$(P),C=$(C)"
-		policy="replace display"
-	}
-	clr=0
-	bclr=63
-	label="-More"
-}
 "text entry" {
 	object {
 		x=235
@@ -1400,62 +1373,6 @@ text {
 	limits {
 	}
 }
-text {
-	object {
-		x=240
-		y=6
-		width=160
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="($(P)$(C))"
-	align="horiz. centered"
-}
-menu {
-	object {
-		x=0
-		y=30
-		width=100
-		height=16
-	}
-	control {
-		chan="$(P)$(C).SCAN"
-		clr=14
-		bclr=51
-	}
-}
-"text entry" {
-	object {
-		x=145
-		y=30
-		width=20
-		height=20
-	}
-	control {
-		chan="$(P)$(C).EVNT"
-		clr=14
-		bclr=51
-	}
-	limits {
-	}
-}
-"message button" {
-	object {
-		x=170
-		y=30
-		width=40
-		height=20
-	}
-	control {
-		chan="$(P)$(C).PROC"
-		clr=14
-		bclr=51
-	}
-	label="PROC"
-	press_msg="1"
-}
 "related display" {
 	object {
 		x=5
@@ -1483,4 +1400,128 @@ menu {
 	clr=0
 	bclr=63
 	label="-?"
+}
+polyline {
+	object {
+		x=0
+		y=412
+		width=399
+		height=3
+	}
+	"basic attribute" {
+		clr=54
+		fill="outline"
+		width=3
+	}
+	points {
+		(1,413)
+		(397,413)
+	}
+}
+composite {
+	object {
+		x=5
+		y=418
+		width=236
+		height=20
+	}
+	"composite name"=""
+	children {
+		"text entry" {
+			object {
+				x=55
+				y=418
+				width=186
+				height=20
+			}
+			control {
+				chan="$(P)$(C).FLNK"
+				clr=14
+				bclr=40
+			}
+			format="string"
+			limits {
+			}
+		}
+		text {
+			object {
+				x=5
+				y=418
+				width=40
+				height=10
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="FORWARD"
+			align="horiz. centered"
+		}
+		text {
+			object {
+				x=5
+				y=428
+				width=40
+				height=10
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="LINK"
+			align="horiz. centered"
+		}
+	}
+}
+composite {
+	object {
+		x=164
+		y=390
+		width=216
+		height=20
+	}
+	"composite name"=""
+	children {
+		menu {
+			object {
+				x=300
+				y=390
+				width=80
+				height=20
+			}
+			control {
+				chan="$(P)$(C).WAIT"
+				clr=14
+				bclr=51
+			}
+		}
+		text {
+			object {
+				x=164
+				y=396
+				width=130
+				height=10
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="WAIT FOR COMPLETION?"
+			align="horiz. centered"
+		}
+	}
+}
+"related display" {
+	object {
+		x=335
+		y=418
+		width=40
+		height=20
+	}
+	display[0] {
+		label="all fields"
+		name="yysCalcoutRecord_full.adl"
+		args="P=$(P),C=$(C)"
+		policy="replace display"
+	}
+	clr=0
+	bclr=63
+	label="-More"
 }

@@ -5,10 +5,10 @@ file {
 }
 display {
 	object {
-		x=260
-		y=89
+		x=135
+		y=28
 		width=610
-		height=825
+		height=845
 	}
 	clr=14
 	bclr=3
@@ -1387,7 +1387,7 @@ text {
 	object {
 		x=192
 		y=762
-		width=186
+		width=118
 		height=10
 	}
 	"basic attribute" {
@@ -1480,76 +1480,6 @@ rectangle {
 	}
 	format="string"
 	limits {
-	}
-}
-polyline {
-	object {
-		x=0
-		y=798
-		width=399
-		height=3
-	}
-	"basic attribute" {
-		clr=54
-		fill="outline"
-		width=3
-	}
-	points {
-		(1,799)
-		(397,799)
-	}
-}
-composite {
-	object {
-		x=5
-		y=804
-		width=236
-		height=20
-	}
-	"composite name"=""
-	children {
-		"text entry" {
-			object {
-				x=55
-				y=804
-				width=186
-				height=20
-			}
-			control {
-				chan="$(P)$(C).FLNK"
-				clr=14
-				bclr=40
-			}
-			format="string"
-			limits {
-			}
-		}
-		text {
-			object {
-				x=5
-				y=804
-				width=40
-				height=10
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="FORWARD"
-			align="horiz. centered"
-		}
-		text {
-			object {
-				x=5
-				y=814
-				width=40
-				height=10
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="LINK"
-			align="horiz. centered"
-		}
 	}
 }
 polyline {
@@ -1798,23 +1728,6 @@ polyline {
 		(0,711)
 		(283,711)
 	}
-}
-"related display" {
-	object {
-		x=335
-		y=804
-		width=40
-		height=20
-	}
-	display[0] {
-		label="no examples"
-		name="yysCalcoutRecord_full.adl"
-		args="P=$(P),C=$(C)"
-		policy="replace display"
-	}
-	clr=0
-	bclr=63
-	label="-Less"
 }
 text {
 	object {
@@ -3397,4 +3310,152 @@ text {
 	clr=0
 	bclr=63
 	label="-?"
+}
+composite {
+	object {
+		x=0
+		y=818
+		width=399
+		height=26
+	}
+	"composite name"=""
+	children {
+		polyline {
+			object {
+				x=0
+				y=818
+				width=399
+				height=3
+			}
+			"basic attribute" {
+				clr=54
+				fill="outline"
+				width=3
+			}
+			points {
+				(1,819)
+				(397,819)
+			}
+		}
+		"related display" {
+			object {
+				x=335
+				y=824
+				width=40
+				height=20
+			}
+			display[0] {
+				label="no examples"
+				name="yysCalcoutRecord_full.adl"
+				args="P=$(P),C=$(C)"
+				policy="replace display"
+			}
+			clr=0
+			bclr=63
+			label="-Less"
+		}
+		composite {
+			object {
+				x=5
+				y=824
+				width=236
+				height=20
+			}
+			"composite name"=""
+			children {
+				"text entry" {
+					object {
+						x=55
+						y=824
+						width=186
+						height=20
+					}
+					control {
+						chan="$(P)$(C).FLNK"
+						clr=14
+						bclr=40
+					}
+					format="string"
+					limits {
+					}
+				}
+				text {
+					object {
+						x=5
+						y=824
+						width=40
+						height=10
+					}
+					"basic attribute" {
+						clr=14
+					}
+					textix="FORWARD"
+					align="horiz. centered"
+				}
+				text {
+					object {
+						x=5
+						y=834
+						width=40
+						height=10
+					}
+					"basic attribute" {
+						clr=14
+					}
+					textix="LINK"
+					align="horiz. centered"
+				}
+			}
+		}
+	}
+}
+menu {
+	object {
+		x=310
+		y=755
+		width=80
+		height=15
+	}
+	control {
+		chan="$(P)$(C).WAIT"
+		clr=14
+		bclr=51
+	}
+}
+composite {
+	object {
+		x=164
+		y=798
+		width=216
+		height=20
+	}
+	"composite name"=""
+	children {
+		menu {
+			object {
+				x=300
+				y=798
+				width=80
+				height=20
+			}
+			control {
+				chan="$(P)$(C).WAIT"
+				clr=14
+				bclr=51
+			}
+		}
+		text {
+			object {
+				x=164
+				y=804
+				width=130
+				height=10
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="WAIT FOR COMPLETION?"
+			align="horiz. centered"
+		}
+	}
 }
