@@ -34,7 +34,7 @@ LIBRARY_IOC += calc
 calc_SRCS += transformRecord.c
 calc_SRCS += sCalcPostfix.c sCalcPerform.c
 #calc_SRCS_vxWorks += test_sCalc.c
-calc_SRCS += sCalcoutRecord.c
+calc_SRCS += sCalcoutRecord.c devsCalcoutSoft.c
 calc_SRCS += swaitRecord.c
 calc_SRCS += subAve.c
 
