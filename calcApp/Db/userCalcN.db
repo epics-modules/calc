@@ -3,11 +3,6 @@
 #! DBD("../../../../xxx/dbd/iocxxxVX.dbd")
 #! DBDEND
 
-
-template() {
-  port(port, "")
-}
-
 record(swait, "$(P)userCalc$(N)") {
   field(DESC, "userCalc $(N)")
   field(DISV, "0")
