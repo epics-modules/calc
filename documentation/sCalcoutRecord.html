@@ -29,7 +29,8 @@ numeric data depending on the data type of the field to which it is linked.
 2. Scan Parameters</H1>
 
 The sCalcout record has the standard fields for specifying under what
-circumstances the record will be processed.  See the EPICS Record Reference Manual for these fields and their use.  Since the sCalcout record supports no direct interfaces to hardware, it cannot be scanned on I/O interrupt, so its SCAN field cannot be <TT>I/O Intr</TT>.
+circumstances the record will be processed.  See the EPICS Record Reference
+Manual for these fields and their use.
 
 <P>&nbsp;
 <HR><A NAME="HEADING14-13"></A>
@@ -1278,7 +1279,40 @@ severity is INVALID.
 <TD>No</TD>
 </TR>
 
+<TR>
+<TD>WAIT</TD>
+<TD>Wait for completion?</TD>
+<TD>Menu</TD>
+<TD>Yes</TD>
+<TD>"NoWait"</TD>
+<TD>Yes</TD>
+<TD>Yes</TD>
+<TD>Yes</TD>
+<TD>No</TD>
+</TR>
 </TABLE>
+
+<P> The sCalcout record now uses device support to write to the
+<code>OUT</code> link. Soft device supplied with the record is selected with
+the .dbd specification <PRE> field(DTYP,"Soft Channel") </PRE>
+
+This device support uses the record's <code>WAIT</code> field to determine
+whether to wait for completion of processing initiated by the <code>OUT</code>
+link before causing the record to execute its forward link.  The mechanism by
+which this waiting for completion is performed requires that the
+<code>OUT</code> link have the attribute <code>CA</code> -- i.e., the link text
+looks something like
+
+<p><code>  xxx:record.field <b>CA</b> NMS</code>
+
+<p>Currently, the record does not try to ensure that <code>WAIT</code> and
+<code>OUT</code> are compatibly configured.  If <code>WAIT</code> == "Wait",
+but the link looks like
+
+<p><code> xxx:record.field <b>PP</b> NMS</code>
+
+<p>for example, then the record will not wait for completion before executing
+its forward link.
 
 <P>&nbsp;
 <HR>
@@ -2057,8 +2091,8 @@ at least HYST before the alarm status and severity changes.</DD>
 <DD>
 4. Determine if the Output Execution Option (OOPT) is met. If it is met,
 either execute the output link (and output event) immediately (if ODLY
-= 0), or schedule a callback after the specified interval. See the explanation
-for the <TT>execOutput()</TT> routine below.</DD>
+= 0), or schedule a callback to do so after the specified interval. See the
+explanation for the <TT>execOutput()</TT> routine below.</DD>
 
 
 <P>&nbsp;
@@ -2115,7 +2149,8 @@ the field IVOA.</DD>
 <P>&nbsp;
 <DD>
 3. If the Alarm Severity is not INVALID or IVOA specifies "Continue Normally",
-put the value of OVAL to the OUT link and post the event in OEVT (if non-zero).</DD>
+call device support to write the value of OVAL to device or PV specified by
+the OUT link, and post the event in OEVT (if non-zero).</DD>
 
 
 <P>&nbsp;
