@@ -19,28 +19,27 @@ volatile int arrayTestDebug=0;
 
 static long arrayTest_init(genSubRecord *pgsub)
 {
-	long	*e;
+	long *e = (long *)pgsub->e;
 
-	*e = pgsub->nova;
+	if (*e == 0) *e = (long)pgsub->nova;
 	return(0);
 }
 
 static long arrayTest_do(genSubRecord *pgsub)
 {
 	double	*a, *valb, *vala;
-	long	*e;
-	int    	i;
+	long	i, *e;
 
 	a = (double *)pgsub->a;
 	valb = (double *)pgsub->valb;
 	vala = (double *)pgsub->vala;
 	e = (long *)pgsub->e;
+	if (*e > pgsub->nova) *e = (long)pgsub->nova;
 	for (i=0; i<*e; i++) {
 		vala[i] = *a+i;
 		valb[i] = i;
-		if (arrayTestDebug) printf("arrayTest: vala[%d]=%f\n", i, vala[i]);
+		if (arrayTestDebug) printf("arrayTest: vala[%ld]=%f\n", i, vala[i]);
 	}
-
 	return(0);
 }
 
