@@ -1,4 +1,4 @@
-/* $Id: sCalcPerform.c,v 1.4 2003-05-28 22:11:57 bcda Exp $ */
+/* $Id: sCalcPerform.c,v 1.5 2004-04-28 21:50:33 rivers Exp $ */
 /*
  *	Author: Julie Sander and Bob Dalesio
  *	Date:	07-27-87
@@ -231,14 +231,14 @@ static char *findConversionIndicator(char *s)
 
 #if OVERRIDESTDCALC
 /* Override standard EPICS expression evaluator (if we're loaded after it) */
-epicsShareFunc long epicsShareAPI 
+long epicsShareAPI 
 	calcPerform(double *parg, double *presult, char *post)
 {
 	return(sCalcPerform(parg, 12, NULL, 0, presult, NULL, 0, post));
 }
 #endif
 
-epicsShareFunc long epicsShareAPI 
+long epicsShareAPI 
 	sCalcPerform(double *parg, int numArgs, char **psarg, int numSArgs, double *presult, char *psresult, int lenSresult, char *post)
 {
 	struct stackElement stack[STACKSIZE], *top;
