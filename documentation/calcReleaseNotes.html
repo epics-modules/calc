@@ -34,6 +34,9 @@ displays that display calc expressions call up these doc displays.
 <li><P>stringCalc record now uses device support.  Supplied soft device
 support allows the user to specify whether or not to wait for completion
 of the operation started by the OUT link.
+<li><P>EPICS base no longer contains the code required to check calc
+expressions for the sCalcout and transform records at boot time or DCT
+time.  (At run time, the expressions are checked by sCalcPostfix.)
 <li><P><a href="cvsLog.txt">cvs log</a>
 </ul>
 

@@ -395,9 +395,17 @@ Change for 3.14.6
 
 support/calc/calcApp/src/transformRecord.c
 
+Changed calc fields from SPC_CALC to SPC_MOD, so EPICS doesn't try to check
+them
+
 Minor changes to avoid compiler warnings
 =============================================================================
 
+support/calc/calcApp/src/transformRecord.dbd
+
+Changed calc fields from SPC_CALC to SPC_MOD, so EPICS doesn't try to check
+them
+=============================================================================
 support/calc/configure/CONFIG_APP
 
 new version supplied by 3.14.7 makeBaseApp
