@@ -70,9 +70,6 @@ DEVELOPMENT CENTER AT ARGONNE NATIONAL LABORATORY (708-252-2000).
 #ifdef vxWorks
 #include <vxWorks.h>
 #include <stdlib.h>
-#else
-#define OK 0
-#define ERROR -1
 #endif
 
 #include <stdio.h>
@@ -88,8 +85,6 @@ DEVELOPMENT CENTER AT ARGONNE NATIONAL LABORATORY (708-252-2000).
 #include <devLib.h>
 #include <dbEvent.h>
 #include <subRecord.h>
-#include <registryFunction.h>
-#include <epicsExport.h>
 
 #define	CIRBUFSIZE	10000
 #define NO_ERR_RPT	-1
@@ -104,10 +99,6 @@ DEVELOPMENT CENTER AT ARGONNE NATIONAL LABORATORY (708-252-2000).
 #define STOPONNUM_MODE  1
 
 int	debugSubAve = 0;
-/* The following statement serves to make this debugging symbol available, 
- * but more importantly to force the linker to include this entire module
- */
-epicsExportAddress(int, debugSubAve);
 
 struct	fcirBuf {
 	short	num;
@@ -221,13 +212,3 @@ struct	subRecord *psub)
   return(OK);
 }
 
-static registryFunctionRef subAveRef[] = {
-	{"initSubAve", (REGISTRYFUNCTION)initSubAve},
-	{"SubAve", (REGISTRYFUNCTION)SubAve}
-};
-
-static void subAveRegister(void) {
-	registryFunctionRefAdd(subAveRef, NELEMENTS(subAveRef));
-}
-
-epicsExportRegistrar(subAveRegister);

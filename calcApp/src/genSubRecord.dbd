@@ -9,12 +9,12 @@ menu(genSubEFLG) {
 }
 recordtype(genSub) {
 	include "dbCommon.dbd" 
-	field(VERS,DBF_DOUBLE) {
-		prompt("Version Number")
-		promptgroup(GUI_DISPLAY)
-		special(SPC_NOMOD)
-		interest(1)
-	}
+        field(VERS,DBF_DOUBLE) {
+                prompt("Version Number")
+                promptgroup(GUI_DISPLAY)
+                special(SPC_NOMOD)
+                interest(1)
+        }
 	field(VAL,DBF_LONG) {
 		prompt("Subr. return value")
 		asl(ASL0)
