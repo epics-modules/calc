@@ -1,4 +1,5 @@
 /* calcPostfix.h
+ *
  *      Author:          Bob Dalesio
  *      Date:            9-21-88
  *
