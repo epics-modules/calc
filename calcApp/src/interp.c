@@ -24,14 +24,19 @@ static long interp_init(genSubRecord *pgsub)
 	int i, j, n=100, *order;
 	long *e;
 
+	order = (int *)pgsub->f;
+	if (*order > MAXORDER) *order = MAXORDER;
+
 	e = (long *)pgsub->e;
+	if (*e > pgsub->noa) *e = pgsub->noa;
+
 	if (*e == 0) {
 		a = (double *)pgsub->a;
 		b = (double *)pgsub->b;
 		c = (double *)pgsub->c;
 		lo_lim = (double *)pgsub->valf;
 		hi_lim = (double *)pgsub->valg;
-		order = (int *)pgsub->f;
+
 		*e = n;
 		for (i=0; i<n/2; i++) {
 			a[i] = 4*3.141592654*i/(n-1);
@@ -54,18 +59,21 @@ static long interp_do(genSubRecord *pgsub)
 {
 	double	*a, *b, *c, *d, *lo_lim, *hi_lim, ix;
 	double	*valb, *valc;
-	int    	hi, lo, n, mid, i, s=0, first, *order;
+	int    	*e, hi, lo, n, mid, i, s=0, first, *order;
 
 	a = (double *)pgsub->a;
 	b = (double *)pgsub->b;
 	c = (double *)pgsub->c;
 	d = (double *)pgsub->d;
-	n = *(int *)pgsub->e;
+	e = (long *)pgsub->e;
+	if (*e > pgsub->noa) *e = pgsub->noa;
+	n = *e;
 	valb = (double *)pgsub->valb;
 	valc = (double *)pgsub->valc;
 	lo_lim = (double *)pgsub->valf;
 	hi_lim = (double *)pgsub->valg;
 	order = (int *)pgsub->f;
+	if (*order > MAXORDER) *order = MAXORDER;
 
 	if (interpDebug) printf("interp: x=%f, ", *d);
 	/* if arrays haven't been set up yet, output is same as input */
