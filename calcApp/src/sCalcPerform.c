@@ -1,4 +1,4 @@
-/* $Id: sCalcPerform.c,v 1.6 2004-08-04 17:40:35 mooney Exp $ */
+/* $Id: sCalcPerform.c,v 1.7 2004-08-30 19:03:40 mooney Exp $ */
 /*
  *	Author: Julie Sander and Bob Dalesio
  *	Date:	07-27-87
@@ -874,6 +874,7 @@ long epicsShareAPI
 				break;
 
 			case SUB:
+			case SUBLAST:
 				checkStackElement(ps, *post);
 				ps1 = ps;
 				DEC(ps);
@@ -887,7 +888,18 @@ long epicsShareAPI
 				} else {
 					/* subtract ps1->s from ps->s */
 					if (ps1->s[0]) {
-						s = strstr(ps->s, ps1->s);
+						if (currSymbol == SUB) {
+							/* first occurrence of ps1->s */
+							s = strstr(ps->s, ps1->s);
+						} else {
+							/* last occurrence of ps1->s */
+							s1 = ps->s+strlen(ps->s)-strlen(ps1->s);
+							for (s = NULL; s == NULL && s1 > ps->s; s1--) {
+								if (strncmp(s1, ps1->s, strlen(ps1->s))) {
+									s = s1;
+								}
+							}
+						}
 						if (s) {
 							for (s1=s+strlen(ps1->s); *s1; ) 
 								*s++ = *s1++;
