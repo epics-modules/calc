@@ -176,7 +176,7 @@ WAIT_IO_EVENT devSWaitIoEvent = {
         get_ioint_info,
         NULL
 };
-epicsExportAddress(WAIT_IO_EVENT, devSWaitIoEvent);
+epicsExportAddress(dset, devSWaitIoEvent);
 
 /* DEFINES */
 #define   ARG_MAX   12  /* Number of input arguments of the record */
