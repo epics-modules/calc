@@ -43,6 +43,9 @@ calc_SRCS += subAve.c
 # gensub-based interpolation
 calc_SRCS += interp.c
 
+# gensub-based array test
+calc_SRCS += arrayTest.c
+
 # Register stuff
 calc_SRCS += calcRegister.c
 
