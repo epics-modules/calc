@@ -1,7 +1,7 @@
 
 file {
-	name="/home/sricat/BCDA/epics/synApps_R3.13.1.1_R4.1/share/stdApp/op/adl/userStringCalc_full_1.2.adl"
-	version=020305
+	name="/home/oxygen/MOONEY/epics/synApps_5_1/support/calc/cvs/calcApp/op/adl/userStringCalc_full.adl"
+	version=030004
 }
 display {
 	object {
@@ -138,6 +138,8 @@ menu {
 		clr=14
 		bclr=51
 	}
+	limits {
+	}
 }
 text {
 	object {
@@ -179,6 +181,8 @@ polyline {
 		chan="$(P)$(C).DESC"
 		clr=54
 		bclr=1
+	}
+	limits {
 	}
 }
 text {
@@ -222,6 +226,8 @@ text {
 		chan="$(P)$(C).EVNT"
 		clr=14
 		bclr=51
+	}
+	limits {
 	}
 }
 text {
@@ -410,6 +416,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -424,6 +432,8 @@ rectangle {
 		bclr=51
 	}
 	format="string"
+	limits {
+	}
 }
 text {
 	object {
@@ -467,6 +477,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -481,6 +493,8 @@ rectangle {
 		bclr=51
 	}
 	format="string"
+	limits {
+	}
 }
 text {
 	object {
@@ -524,6 +538,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -538,6 +554,8 @@ rectangle {
 		bclr=51
 	}
 	format="string"
+	limits {
+	}
 }
 text {
 	object {
@@ -581,6 +599,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -595,6 +615,8 @@ rectangle {
 		bclr=51
 	}
 	format="string"
+	limits {
+	}
 }
 rectangle {
 	object {
@@ -626,6 +648,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -640,6 +664,8 @@ rectangle {
 		bclr=51
 	}
 	format="string"
+	limits {
+	}
 }
 text {
 	object {
@@ -683,6 +709,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -697,6 +725,8 @@ rectangle {
 		bclr=51
 	}
 	format="string"
+	limits {
+	}
 }
 text {
 	object {
@@ -743,6 +773,8 @@ polyline {
 		bclr=3
 	}
 	align="horiz. centered"
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -755,6 +787,8 @@ polyline {
 		chan="$(P)$(C).CALC"
 		clr=14
 		bclr=51
+	}
+	limits {
 	}
 }
 text {
@@ -889,6 +923,8 @@ text {
 		clr=54
 		bclr=0
 	}
+	limits {
+	}
 }
 polyline {
 	object {
@@ -985,6 +1021,8 @@ text {
 		clr=14
 		bclr=32
 	}
+	limits {
+	}
 }
 menu {
 	object {
@@ -1010,6 +1048,8 @@ menu {
 		chan="$(P)$(C).IVOV"
 		clr=30
 		bclr=47
+	}
+	limits {
 	}
 }
 text {
@@ -1046,8 +1086,6 @@ composite {
 		height=11
 	}
 	"composite name"=""
-	vis="static"
-	chan=""
 	children {
 		polygon {
 			object {
@@ -1123,6 +1161,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 polyline {
 	object {
@@ -1149,8 +1189,6 @@ composite {
 		height=20
 	}
 	"composite name"=""
-	vis="static"
-	chan=""
 	children {
 		"text entry" {
 			object {
@@ -1165,6 +1203,8 @@ composite {
 				bclr=40
 			}
 			format="string"
+			limits {
+			}
 		}
 		text {
 			object {
@@ -1219,8 +1259,6 @@ composite {
 		height=20
 	}
 	"composite name"=""
-	vis="static"
-	chan=""
 	children {
 		"text entry" {
 			object {
@@ -1234,6 +1272,8 @@ composite {
 				clr=14
 				bclr=32
 			}
+			limits {
+			}
 		}
 		composite {
 			object {
@@ -1243,8 +1283,6 @@ composite {
 				height=20
 			}
 			"composite name"=""
-			vis="static"
-			chan=""
 			children {
 				composite {
 					object {
@@ -1254,8 +1292,6 @@ composite {
 						height=20
 					}
 					"composite name"=""
-					vis="static"
-					chan=""
 					children {
 						text {
 							object {
@@ -1323,148 +1359,127 @@ rectangle {
 		chan="$(P)$(C).DOPT"
 	}
 }
-composite {
+"text update" {
 	object {
-		x=0
-		y=679
-		width=382
-		height=51
-	}
-	"composite name"=""
-	vis="static"
-	chan=""
-	children {
-		"text update" {
-			object {
-				x=282
-				y=689
-				width=96
-				height=20
-			}
-			monitor {
-				chan="$(P)$(C).OVAL"
-				clr=54
-				bclr=3
-			}
-			align="horiz. centered"
-		}
-		"text entry" {
-			object {
-				x=25
-				y=689
-				width=255
-				height=20
-			}
-			control {
-				chan="$(P)$(C).OCAL"
-				clr=14
-				bclr=51
-			}
-		}
-		text {
-			object {
-				x=30
-				y=679
-				width=50
-				height=10
-			}
-			"basic attribute" {
-				clr=21
-			}
-			"dynamic attribute" {
-				vis="if not zero"
-				chan="$(P)$(C).OCLV"
-			}
-			textix="INVALID"
-			align="horiz. centered"
-		}
-		text {
-			object {
-				x=75
-				y=679
-				width=200
-				height=10
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="OCAL (OUTPUT CALCULATION)"
-			align="horiz. centered"
-		}
-		polyline {
-			object {
-				x=0
-				y=727
-				width=381
-				height=3
-			}
-			"basic attribute" {
-				clr=54
-				fill="outline"
-				width=3
-			}
-			points {
-				(1,728)
-				(379,728)
-			}
-		}
-		text {
-			object {
-				x=4
-				y=715
-				width=80
-				height=10
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="STRING RESULT:"
-		}
-		"text update" {
-			object {
-				x=89
-				y=712
-				width=293
-				height=14
-			}
-			monitor {
-				chan="$(P)$(C).OSV"
-				clr=54
-				bclr=0
-			}
-		}
-		polyline {
-			object {
-				x=0
-				y=711
-				width=284
-				height=1
-			}
-			"basic attribute" {
-				clr=54
-				fill="outline"
-				width=1
-			}
-			points {
-				(0,711)
-				(283,711)
-			}
-		}
-	}
-}
-"shell command" {
-	object {
-		x=4
-		y=636
-		width=20
+		x=282
+		y=689
+		width=96
 		height=20
 	}
-	command[0] {
-		label="Help With Calculation Expressions"
-		name="netURL http://www.aps.anl.gov/xfd/bcda/medm_help/sCalcoutRecord.html#Expressions"
+	monitor {
+		chan="$(P)$(C).OVAL"
+		clr=54
+		bclr=3
 	}
-	clr=14
-	bclr=30
+	align="horiz. centered"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=25
+		y=689
+		width=255
+		height=20
+	}
+	control {
+		chan="$(P)$(C).OCAL"
+		clr=14
+		bclr=51
+	}
+	limits {
+	}
+}
+text {
+	object {
+		x=30
+		y=679
+		width=50
+		height=10
+	}
+	"basic attribute" {
+		clr=21
+	}
+	"dynamic attribute" {
+		vis="if not zero"
+		chan="$(P)$(C).OCLV"
+	}
+	textix="INVALID"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=75
+		y=679
+		width=200
+		height=10
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="OCAL (OUTPUT CALCULATION)"
+	align="horiz. centered"
+}
+polyline {
+	object {
+		x=0
+		y=727
+		width=381
+		height=3
+	}
+	"basic attribute" {
+		clr=54
+		fill="outline"
+		width=3
+	}
+	points {
+		(1,728)
+		(379,728)
+	}
+}
+text {
+	object {
+		x=4
+		y=715
+		width=80
+		height=10
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="STRING RESULT:"
+}
+"text update" {
+	object {
+		x=89
+		y=712
+		width=293
+		height=14
+	}
+	monitor {
+		chan="$(P)$(C).OSV"
+		clr=54
+		bclr=0
+	}
+	limits {
+	}
+}
+polyline {
+	object {
+		x=0
+		y=711
+		width=284
+		height=1
+	}
+	"basic attribute" {
+		clr=54
+		fill="outline"
+		width=1
+	}
+	points {
+		(0,711)
+		(283,711)
+	}
 }
 text {
 	object {
@@ -1508,6 +1523,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -1522,6 +1539,8 @@ rectangle {
 		bclr=51
 	}
 	format="string"
+	limits {
+	}
 }
 text {
 	object {
@@ -1565,6 +1584,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -1579,6 +1600,8 @@ rectangle {
 		bclr=51
 	}
 	format="string"
+	limits {
+	}
 }
 text {
 	object {
@@ -1622,6 +1645,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -1636,6 +1661,8 @@ rectangle {
 		bclr=51
 	}
 	format="string"
+	limits {
+	}
 }
 text {
 	object {
@@ -1679,6 +1706,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -1693,6 +1722,8 @@ rectangle {
 		bclr=51
 	}
 	format="string"
+	limits {
+	}
 }
 rectangle {
 	object {
@@ -1724,6 +1755,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -1738,6 +1771,8 @@ rectangle {
 		bclr=51
 	}
 	format="string"
+	limits {
+	}
 }
 text {
 	object {
@@ -1781,6 +1816,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -1795,6 +1832,8 @@ rectangle {
 		bclr=51
 	}
 	format="string"
+	limits {
+	}
 }
 text {
 	object {
@@ -1816,8 +1855,6 @@ composite {
 		height=20
 	}
 	"composite name"=""
-	vis="static"
-	chan=""
 	children {
 		"related display" {
 			object {
@@ -1897,6 +1934,8 @@ text {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 text {
 	object {
@@ -1940,6 +1979,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 text {
 	object {
@@ -1983,6 +2024,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 text {
 	object {
@@ -2026,6 +2069,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 text {
 	object {
@@ -2069,6 +2114,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 text {
 	object {
@@ -2112,6 +2159,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 text {
 	object {
@@ -2155,6 +2204,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 text {
 	object {
@@ -2198,6 +2249,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 text {
 	object {
@@ -2241,6 +2294,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 text {
 	object {
@@ -2284,6 +2339,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 text {
 	object {
@@ -2327,6 +2384,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 text {
 	object {
@@ -2370,6 +2429,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -2382,6 +2443,8 @@ rectangle {
 		chan="$(P)$(C).A"
 		clr=14
 		bclr=51
+	}
+	limits {
 	}
 }
 "text entry" {
@@ -2396,6 +2459,8 @@ rectangle {
 		clr=14
 		bclr=51
 	}
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -2408,6 +2473,8 @@ rectangle {
 		chan="$(P)$(C).C"
 		clr=14
 		bclr=51
+	}
+	limits {
 	}
 }
 "text entry" {
@@ -2422,6 +2489,8 @@ rectangle {
 		clr=14
 		bclr=51
 	}
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -2434,6 +2503,8 @@ rectangle {
 		chan="$(P)$(C).E"
 		clr=14
 		bclr=51
+	}
+	limits {
 	}
 }
 "text entry" {
@@ -2448,6 +2519,8 @@ rectangle {
 		clr=14
 		bclr=51
 	}
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -2460,6 +2533,8 @@ rectangle {
 		chan="$(P)$(C).G"
 		clr=14
 		bclr=51
+	}
+	limits {
 	}
 }
 "text entry" {
@@ -2474,6 +2549,8 @@ rectangle {
 		clr=14
 		bclr=51
 	}
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -2486,6 +2563,8 @@ rectangle {
 		chan="$(P)$(C).I"
 		clr=14
 		bclr=51
+	}
+	limits {
 	}
 }
 "text entry" {
@@ -2500,6 +2579,8 @@ rectangle {
 		clr=14
 		bclr=51
 	}
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -2512,6 +2593,8 @@ rectangle {
 		chan="$(P)$(C).K"
 		clr=14
 		bclr=51
+	}
+	limits {
 	}
 }
 "text entry" {
@@ -2526,4 +2609,34 @@ rectangle {
 		clr=14
 		bclr=51
 	}
+	limits {
+	}
+}
+"related display" {
+	object {
+		x=5
+		y=636
+		width=20
+		height=20
+	}
+	display[0] {
+		name="calcExamples.adl"
+	}
+	clr=0
+	bclr=63
+	label="-?"
+}
+"related display" {
+	object {
+		x=5
+		y=689
+		width=20
+		height=20
+	}
+	display[0] {
+		name="calcExamples.adl"
+	}
+	clr=0
+	bclr=63
+	label="-?"
 }

@@ -1,7 +1,7 @@
 
 file {
-	name="/home/sricat/BCDA/epics/3.13.0/baseR3.13.0.beta12_shareR1.0/stdApp/op/adl/yyTransform_1.3.adl"
-	version=020305
+	name="/home/oxygen/MOONEY/epics/synApps_5_1/support/calc/cvs/calcApp/op/adl/yyTransform.adl"
+	version=030004
 }
 display {
 	object {
@@ -111,6 +111,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 rectangle {
 	object {
@@ -141,6 +143,8 @@ rectangle {
 		clr=14
 		bclr=51
 	}
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -153,6 +157,8 @@ rectangle {
 		chan="$(P)$(T).D"
 		clr=14
 		bclr=51
+	}
+	limits {
 	}
 }
 "text entry" {
@@ -167,6 +173,8 @@ rectangle {
 		clr=14
 		bclr=51
 	}
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -179,6 +187,8 @@ rectangle {
 		chan="$(P)$(T).C"
 		clr=14
 		bclr=51
+	}
+	limits {
 	}
 }
 text {
@@ -207,6 +217,8 @@ text {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -221,6 +233,8 @@ text {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -235,6 +249,8 @@ text {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 rectangle {
 	object {
@@ -287,19 +303,6 @@ rectangle {
 		chan="$(P)$(T).ICV"
 	}
 }
-text {
-	object {
-		x=112
-		y=55
-		width=90
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="INPUT PV NAME"
-	align="horiz. centered"
-}
 "text entry" {
 	object {
 		x=267
@@ -311,6 +314,8 @@ text {
 		chan="$(P)$(T).CLCA"
 		clr=14
 		bclr=51
+	}
+	limits {
 	}
 }
 "text entry" {
@@ -325,6 +330,8 @@ text {
 		clr=14
 		bclr=51
 	}
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -337,6 +344,8 @@ text {
 		chan="$(P)$(T).CLCC"
 		clr=14
 		bclr=51
+	}
+	limits {
 	}
 }
 "text entry" {
@@ -351,19 +360,8 @@ text {
 		clr=14
 		bclr=51
 	}
-}
-text {
-	object {
-		x=265
-		y=55
-		width=200
-		height=10
+	limits {
 	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="EXPRESSION"
-	align="horiz. centered"
 }
 text {
 	object {
@@ -453,6 +451,8 @@ menu {
 		clr=14
 		bclr=51
 	}
+	limits {
+	}
 }
 text {
 	object {
@@ -496,6 +496,8 @@ polyline {
 		clr=54
 		bclr=1
 	}
+	limits {
+	}
 }
 text {
 	object {
@@ -522,6 +524,8 @@ text {
 		clr=14
 		bclr=51
 	}
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -534,6 +538,8 @@ text {
 		chan="$(P)$(T).CMTD"
 		clr=14
 		bclr=51
+	}
+	limits {
 	}
 }
 "text entry" {
@@ -548,6 +554,8 @@ text {
 		clr=14
 		bclr=51
 	}
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -560,6 +568,8 @@ text {
 		chan="$(P)$(T).CMTC"
 		clr=14
 		bclr=51
+	}
+	limits {
 	}
 }
 text {
@@ -656,6 +666,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 rectangle {
 	object {
@@ -687,6 +699,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -701,6 +715,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -715,6 +731,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 rectangle {
 	object {
@@ -767,19 +785,6 @@ rectangle {
 		chan="$(P)$(T).OCV"
 	}
 }
-text {
-	object {
-		x=552
-		y=55
-		width=90
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="OUTPUT PV NAME"
-	align="horiz. centered"
-}
 "related display" {
 	object {
 		x=330
@@ -799,9 +804,9 @@ text {
 }
 "related display" {
 	object {
-		x=202
+		x=112
 		y=49
-		width=60
+		width=150
 		height=16
 	}
 	display[0] {
@@ -810,13 +815,27 @@ text {
 	}
 	clr=0
 	bclr=17
-	label="-LINK HELP"
+	label="-INPUT PV NAME"
 }
 "related display" {
 	object {
-		x=642
+		x=267
 		y=49
-		width=60
+		width=196
+		height=16
+	}
+	display[0] {
+		name="calcExamples.adl"
+	}
+	clr=0
+	bclr=63
+	label="-EXPRESSION"
+}
+"related display" {
+	object {
+		x=552
+		y=49
+		width=150
 		height=16
 	}
 	display[0] {
@@ -825,5 +844,5 @@ text {
 	}
 	clr=0
 	bclr=17
-	label="-LINK HELP"
+	label="-OUTPUT PV NAME"
 }

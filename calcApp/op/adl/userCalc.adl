@@ -1,7 +1,7 @@
 
 file {
-	name="/tmp_mnt/home/sricat/BCDA/epics/3.13.0/baseR3.13.0.beta7_shareR1.0/stdApp/op/adl/userCalc_2.2.adl"
-	version=020205
+	name="/home/oxygen/MOONEY/epics/synApps_5_1/support/calc/cvs/calcApp/op/adl/userCalc.adl"
+	version=030004
 }
 display {
 	object {
@@ -13,6 +13,9 @@ display {
 	clr=14
 	bclr=3
 	cmap=""
+	gridSpacing=5
+	gridOn=0
+	snapToGrid=0
 }
 "color map" {
 	ncolors=65
@@ -200,6 +203,8 @@ rectangle {
 		bclr=35
 	}
 	format="string"
+	limits {
+	}
 }
 text {
 	object {
@@ -459,6 +464,8 @@ text {
 		bclr=35
 	}
 	format="string"
+	limits {
+	}
 }
 menu {
 	object {
@@ -577,6 +584,8 @@ menu {
 		bclr=35
 	}
 	format="string"
+	limits {
+	}
 }
 rectangle {
 	object {
@@ -608,6 +617,8 @@ rectangle {
 		bclr=35
 	}
 	format="string"
+	limits {
+	}
 }
 menu {
 	object {
@@ -652,6 +663,8 @@ rectangle {
 		bclr=35
 	}
 	format="string"
+	limits {
+	}
 }
 menu {
 	object {
@@ -691,8 +704,6 @@ composite {
 		height=99
 	}
 	"composite name"=""
-	vis="static"
-	chan=""
 	children {
 		"text entry" {
 			object {
@@ -705,6 +716,8 @@ composite {
 				chan="$(P)$(C).D"
 				clr=14
 				bclr=4
+			}
+			limits {
 			}
 		}
 		"text entry" {
@@ -719,6 +732,8 @@ composite {
 				clr=14
 				bclr=4
 			}
+			limits {
+			}
 		}
 		"text entry" {
 			object {
@@ -732,6 +747,8 @@ composite {
 				clr=14
 				bclr=4
 			}
+			limits {
+			}
 		}
 		"text entry" {
 			object {
@@ -744,6 +761,8 @@ composite {
 				chan="$(P)$(C).A"
 				clr=14
 				bclr=4
+			}
+			limits {
 			}
 		}
 	}
@@ -802,6 +821,8 @@ menu {
 		clr=14
 		bclr=3
 	}
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -814,6 +835,8 @@ menu {
 		chan="$(P)$(C).CALC"
 		clr=14
 		bclr=51
+	}
+	limits {
 	}
 }
 text {
@@ -857,20 +880,6 @@ text {
 	}
 	textix="HELP"
 }
-"shell command" {
-	object {
-		x=2
-		y=182
-		width=20
-		height=20
-	}
-	command[0] {
-		label="Help With Calculation Expressions"
-		name="netURL http://www.aps.anl.gov/asd/controls/epics/EpicsDocumentation/AppDevManuals/RecordRef/3.12/calc.html#HDR6 &"
-	}
-	clr=14
-	bclr=51
-}
 "message button" {
 	object {
 		x=180
@@ -897,6 +906,8 @@ text {
 		chan="$(P)$(C).PREC"
 		clr=14
 		bclr=51
+	}
+	limits {
 	}
 }
 text {
@@ -977,6 +988,8 @@ polyline {
 		clr=54
 		bclr=1
 	}
+	limits {
+	}
 }
 text {
 	object {
@@ -999,8 +1012,6 @@ composite {
 		height=20
 	}
 	"composite name"=""
-	vis="static"
-	chan=""
 	children {
 		text {
 			object {
@@ -1025,6 +1036,8 @@ composite {
 				chan="$(P)$(C).ODLY"
 				clr=14
 				bclr=32
+			}
+			limits {
 			}
 		}
 	}
@@ -1054,6 +1067,8 @@ menu {
 		clr=14
 		bclr=47
 	}
+	limits {
+	}
 }
 composite {
 	object {
@@ -1063,8 +1078,6 @@ composite {
 		height=20
 	}
 	"composite name"=""
-	vis="static"
-	chan=""
 	children {
 		text {
 			object {
@@ -1122,6 +1135,8 @@ text {
 		clr=14
 		bclr=47
 	}
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -1136,6 +1151,8 @@ text {
 		bclr=35
 	}
 	format="string"
+	limits {
+	}
 }
 text {
 	object {
@@ -1344,6 +1361,8 @@ text {
 		clr=14
 		bclr=61
 	}
+	limits {
+	}
 }
 composite {
 	object {
@@ -1353,8 +1372,6 @@ composite {
 		height=20
 	}
 	"composite name"=""
-	vis="static"
-	chan=""
 	children {
 		text {
 			object {
@@ -1402,4 +1419,18 @@ composite {
 			align="horiz. centered"
 		}
 	}
+}
+"related display" {
+	object {
+		x=2
+		y=182
+		width=20
+		height=20
+	}
+	display[0] {
+		name="calcExamples.adl"
+	}
+	clr=0
+	bclr=63
+	label="-?"
 }

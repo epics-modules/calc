@@ -1,7 +1,7 @@
 
 file {
-	name="/home/beams/BCDA/epics/synApps_R3.13.2_R4.3/share/stdApp/op/adl/userCalc_full_2.3.adl"
-	version=020306
+	name="/home/oxygen/MOONEY/epics/synApps_5_1/support/calc/cvs/calcApp/op/adl/userCalc_full.adl"
+	version=030004
 }
 display {
 	object {
@@ -323,20 +323,6 @@ text {
 		clr=14
 	}
 	textix="HELP"
-}
-"shell command" {
-	object {
-		x=2
-		y=382
-		width=20
-		height=20
-	}
-	command[0] {
-		label="Help With Calculation Expressions"
-		name="netURL http://www.aps.anl.gov/asd/controls/epics/EpicsDocumentation/AppDevManuals/RecordRef/3.12/calc.html#HDR6 &"
-	}
-	clr=14
-	bclr=51
 }
 composite {
 	object {
@@ -2023,4 +2009,18 @@ text {
 		clr=14
 	}
 	textix="FWD LINK"
+}
+"related display" {
+	object {
+		x=5
+		y=382
+		width=20
+		height=20
+	}
+	display[0] {
+		name="calcExamples.adl"
+	}
+	clr=0
+	bclr=63
+	label="-?"
 }

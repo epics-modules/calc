@@ -1,7 +1,7 @@
 
 file {
-	name="/home/sricat/BCDA/epics/synApps_R3.13.1.1_R4.1/share/stdApp/op/adl/yysCalcoutRecord_1.2.adl"
-	version=020305
+	name="/home/oxygen/MOONEY/epics/synApps_5_1/support/calc/cvs/calcApp/op/adl/yysCalcoutRecord.adl"
+	version=030004
 }
 display {
 	object {
@@ -127,6 +127,8 @@ polyline {
 		clr=54
 		bclr=1
 	}
+	limits {
+	}
 }
 text {
 	object {
@@ -190,8 +192,6 @@ composite {
 		height=20
 	}
 	"composite name"=""
-	vis="static"
-	chan=""
 	children {
 		"text entry" {
 			object {
@@ -204,6 +204,8 @@ composite {
 				chan="$(P)$(C).PREC"
 				clr=14
 				bclr=51
+			}
+			limits {
 			}
 		}
 		text {
@@ -262,6 +264,8 @@ text {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 text {
 	object {
@@ -305,6 +309,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 text {
 	object {
@@ -348,6 +354,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 text {
 	object {
@@ -391,6 +399,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 text {
 	object {
@@ -458,6 +468,8 @@ text {
 		bclr=51
 	}
 	format="string"
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -472,6 +484,8 @@ text {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 rectangle {
 	object {
@@ -523,6 +537,8 @@ polyline {
 		bclr=3
 	}
 	align="horiz. centered"
+	limits {
+	}
 }
 polyline {
 	object {
@@ -552,6 +568,8 @@ polyline {
 		chan="$(P)$(C).CALC"
 		clr=14
 		bclr=51
+	}
+	limits {
 	}
 }
 text {
@@ -595,20 +613,6 @@ text {
 		clr=14
 	}
 	textix="HELP"
-}
-"shell command" {
-	object {
-		x=4
-		y=230
-		width=20
-		height=20
-	}
-	command[0] {
-		label="Help With Calculation Expressions"
-		name="netURL http://www.aps.anl.gov/xfd/bcda/medm_help/sCalcoutRecord.html#Expressions"
-	}
-	clr=14
-	bclr=30
 }
 text {
 	object {
@@ -699,6 +703,8 @@ text {
 		chan="$(P)$(C).SVAL"
 		clr=54
 		bclr=0
+	}
+	limits {
 	}
 }
 polyline {
@@ -796,6 +802,8 @@ text {
 		clr=14
 		bclr=32
 	}
+	limits {
+	}
 }
 menu {
 	object {
@@ -821,6 +829,8 @@ menu {
 		chan="$(P)$(C).IVOV"
 		clr=30
 		bclr=47
+	}
+	limits {
 	}
 }
 text {
@@ -857,8 +867,6 @@ composite {
 		height=11
 	}
 	"composite name"=""
-	vis="static"
-	chan=""
 	children {
 		polygon {
 			object {
@@ -934,6 +942,8 @@ rectangle {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 polyline {
 	object {
@@ -960,8 +970,6 @@ composite {
 		height=20
 	}
 	"composite name"=""
-	vis="static"
-	chan=""
 	children {
 		"text entry" {
 			object {
@@ -976,6 +984,8 @@ composite {
 				bclr=40
 			}
 			format="string"
+			limits {
+			}
 		}
 		text {
 			object {
@@ -1030,8 +1040,6 @@ composite {
 		height=20
 	}
 	"composite name"=""
-	vis="static"
-	chan=""
 	children {
 		"text entry" {
 			object {
@@ -1045,6 +1053,8 @@ composite {
 				clr=14
 				bclr=32
 			}
+			limits {
+			}
 		}
 		composite {
 			object {
@@ -1054,8 +1064,6 @@ composite {
 				height=20
 			}
 			"composite name"=""
-			vis="static"
-			chan=""
 			children {
 				composite {
 					object {
@@ -1065,8 +1073,6 @@ composite {
 						height=20
 					}
 					"composite name"=""
-					vis="static"
-					chan=""
 					children {
 						text {
 							object {
@@ -1134,133 +1140,126 @@ rectangle {
 		chan="$(P)$(C).DOPT"
 	}
 }
-composite {
+"text update" {
+	object {
+		x=282
+		y=283
+		width=96
+		height=20
+	}
+	monitor {
+		chan="$(P)$(C).OVAL"
+		clr=54
+		bclr=3
+	}
+	align="horiz. centered"
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=25
+		y=283
+		width=255
+		height=20
+	}
+	control {
+		chan="$(P)$(C).OCAL"
+		clr=14
+		bclr=51
+	}
+	limits {
+	}
+}
+text {
+	object {
+		x=30
+		y=273
+		width=50
+		height=10
+	}
+	"basic attribute" {
+		clr=21
+	}
+	"dynamic attribute" {
+		vis="if not zero"
+		chan="$(P)$(C).OCLV"
+	}
+	textix="INVALID"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=75
+		y=273
+		width=200
+		height=10
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="OCAL (OUTPUT CALCULATION)"
+	align="horiz. centered"
+}
+polyline {
 	object {
 		x=0
-		y=273
-		width=382
-		height=51
+		y=321
+		width=381
+		height=3
 	}
-	"composite name"=""
-	vis="static"
-	chan=""
-	children {
-		"text update" {
-			object {
-				x=282
-				y=283
-				width=96
-				height=20
-			}
-			monitor {
-				chan="$(P)$(C).OVAL"
-				clr=54
-				bclr=3
-			}
-			align="horiz. centered"
-		}
-		"text entry" {
-			object {
-				x=25
-				y=283
-				width=255
-				height=20
-			}
-			control {
-				chan="$(P)$(C).OCAL"
-				clr=14
-				bclr=51
-			}
-		}
-		text {
-			object {
-				x=30
-				y=273
-				width=50
-				height=10
-			}
-			"basic attribute" {
-				clr=21
-			}
-			"dynamic attribute" {
-				vis="if not zero"
-				chan="$(P)$(C).OCLV"
-			}
-			textix="INVALID"
-			align="horiz. centered"
-		}
-		text {
-			object {
-				x=75
-				y=273
-				width=200
-				height=10
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="OCAL (OUTPUT CALCULATION)"
-			align="horiz. centered"
-		}
-		polyline {
-			object {
-				x=0
-				y=321
-				width=381
-				height=3
-			}
-			"basic attribute" {
-				clr=54
-				fill="outline"
-				width=3
-			}
-			points {
-				(1,322)
-				(379,322)
-			}
-		}
-		text {
-			object {
-				x=4
-				y=309
-				width=80
-				height=10
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="STRING RESULT:"
-		}
-		"text update" {
-			object {
-				x=89
-				y=306
-				width=293
-				height=14
-			}
-			monitor {
-				chan="$(P)$(C).OSV"
-				clr=54
-				bclr=0
-			}
-		}
-		polyline {
-			object {
-				x=0
-				y=305
-				width=284
-				height=1
-			}
-			"basic attribute" {
-				clr=54
-				fill="outline"
-				width=1
-			}
-			points {
-				(0,305)
-				(283,305)
-			}
-		}
+	"basic attribute" {
+		clr=54
+		fill="outline"
+		width=3
+	}
+	points {
+		(1,322)
+		(379,322)
+	}
+}
+text {
+	object {
+		x=4
+		y=309
+		width=80
+		height=10
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="STRING RESULT:"
+}
+"text update" {
+	object {
+		x=89
+		y=306
+		width=293
+		height=14
+	}
+	monitor {
+		chan="$(P)$(C).OSV"
+		clr=54
+		bclr=0
+	}
+	limits {
+	}
+}
+polyline {
+	object {
+		x=0
+		y=305
+		width=284
+		height=1
+	}
+	"basic attribute" {
+		clr=54
+		fill="outline"
+		width=1
+	}
+	points {
+		(0,305)
+		(283,305)
 	}
 }
 "related display" {
@@ -1293,6 +1292,8 @@ composite {
 		bclr=51
 	}
 	format="string"
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -1307,6 +1308,8 @@ composite {
 		bclr=40
 	}
 	format="string"
+	limits {
+	}
 }
 rectangle {
 	object {
@@ -1349,6 +1352,8 @@ text {
 		clr=14
 		bclr=51
 	}
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -1361,6 +1366,8 @@ text {
 		chan="$(P)$(C).B"
 		clr=14
 		bclr=51
+	}
+	limits {
 	}
 }
 "text entry" {
@@ -1375,6 +1382,8 @@ text {
 		clr=14
 		bclr=51
 	}
+	limits {
+	}
 }
 "text entry" {
 	object {
@@ -1387,6 +1396,8 @@ text {
 		chan="$(P)$(C).D"
 		clr=14
 		bclr=51
+	}
+	limits {
 	}
 }
 text {
@@ -1427,6 +1438,8 @@ menu {
 		clr=14
 		bclr=51
 	}
+	limits {
+	}
 }
 "message button" {
 	object {
@@ -1442,4 +1455,32 @@ menu {
 	}
 	label="PROC"
 	press_msg="1"
+}
+"related display" {
+	object {
+		x=5
+		y=283
+		width=20
+		height=20
+	}
+	display[0] {
+		name="calcExamples.adl"
+	}
+	clr=0
+	bclr=63
+	label="-?"
+}
+"related display" {
+	object {
+		x=5
+		y=230
+		width=20
+		height=20
+	}
+	display[0] {
+		name="calcExamples.adl"
+	}
+	clr=0
+	bclr=63
+	label="-?"
 }
