@@ -76,9 +76,9 @@
 
 #ifdef vxWorks
 #include <stddef.h>
-#include <stdlib.h>
 #include <stdarg.h>
 #endif
+#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
@@ -251,7 +251,7 @@ static int isBlank(char *name)
 	int i;
 
 	for(i=0; name[i]; i++) {
-		if (!(isspace(name[i]))) return(0);
+		if (!(isspace((int)(name[i])))) return(0);
 	}
 	return((i>0));
 }

@@ -1,4 +1,4 @@
-/* $Id: sCalcPerform.c,v 1.5 2004-04-28 21:50:33 rivers Exp $ */
+/* $Id: sCalcPerform.c,v 1.6 2004-08-04 17:40:35 mooney Exp $ */
 /*
  *	Author: Julie Sander and Bob Dalesio
  *	Date:	07-27-87
@@ -323,7 +323,7 @@ long epicsShareAPI
 			case FETCH:
 				++pd;
 				++post;
-				*pd = (*post < numArgs) ? parg[*post] : 0;
+				*pd = (*post < numArgs) ? parg[(int)*post] : 0;
 				break;
 
 			case FETCH_A: *(++pd) = parg[0]; break;
@@ -798,7 +798,7 @@ long epicsShareAPI
 				INC(ps);
 				++post;
 				ps->s = NULL;
-				ps->d = (*post < numArgs) ? parg[*post] : 0;
+				ps->d = (*post < numArgs) ? parg[(int)*post] : 0;
 				break;
 
 			case FETCH_A: INC(ps); ps->s = NULL; ps->d = parg[0]; break;
@@ -819,7 +819,7 @@ long epicsShareAPI
 				++post;
 				ps->s = &(ps->local_string[0]);
 				ps->s[0] = '\0';
-				if (*post < numSArgs) strncpy(ps->s, psarg[*post], LOCAL_STRING_SIZE);
+				if (*post < numSArgs) strncpy(ps->s, psarg[(int)*post], LOCAL_STRING_SIZE);
 				break;
 
 			case STORE:

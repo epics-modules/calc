@@ -59,7 +59,7 @@ static long interp_do(genSubRecord *pgsub)
 {
 	double	*a, *b, *c, *d, *lo_lim, *hi_lim, ix;
 	double	*valb, *valc;
-	int    	*e, hi, lo, n, mid, i, s=0, first, *order;
+	long   	*e, hi, lo, n, mid, i, s=0, first, *order;
 
 	a = (double *)pgsub->a;
 	b = (double *)pgsub->b;
@@ -72,7 +72,7 @@ static long interp_do(genSubRecord *pgsub)
 	valc = (double *)pgsub->valc;
 	lo_lim = (double *)pgsub->valf;
 	hi_lim = (double *)pgsub->valg;
-	order = (int *)pgsub->f;
+	order = (long *)pgsub->f;
 	if (*order > MAXORDER) *order = MAXORDER;
 
 	if (interpDebug) printf("interp: x=%f, ", *d);
@@ -113,14 +113,14 @@ static long interp_do(genSubRecord *pgsub)
 		*valb = polyInterp(&a[first], &b[first], i, *d);
 		*valc = polyInterp(&a[first], &c[first], i, *d);
 		if (interpDebug >= 10) {
-			printf("poly (O%d, first=%d) valb = %f\n",
+			printf("poly (O%ld, first=%ld) valb = %f\n",
 				*order, first, *valb);
 		}
 	} else {
 		/* linear interpolation */
 		*valb = b[lo] + (ix-lo)*(b[hi]-b[lo]);
 		*valc = c[lo] + (ix-lo)*(c[hi]-c[lo]);
-		if (interpDebug) printf("linear (%d:%f:%d) valb = %f\n",
+		if (interpDebug) printf("linear (%ld:%f:%ld) valb = %f\n",
 			lo, ix, hi, *valb);
 	}
 	if (interpDebug) {
