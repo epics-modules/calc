@@ -14,35 +14,18 @@
 <LI><A HREF="#Fields">Field Descriptions</A>
 <LI><A HREF="#Files">Files</A>
 <LI><A HREF="#Restrictions">Restrictions</A>
+<LI><A HREF="#Release notes">Release notes</A>
 </UL>
 
 <A NAME="Overview">
 <H2>Overview</H2></A>
 
-This documentation describes version 5.5 of the EPICS transform record,
+This documentation describes version 5.7 of the EPICS transform record,
 and related EPICS software recommended for building and using it.  This
-version of the record is compatible with EPICS Release 3.13, and it may
+version of the record is compatible with EPICS Release 3.14, and it may
 be compatible with later releases, but it is not compatible with any
 earlier releases of EPICS.
-<P>
-NOTE:  Versions of the transform record earlier than 5.0 defined the
-additional fields <tt>APP...PPP</tt>, which determined whether or not a
-channel-access put to the value fields <tt>A...P</tt>, respectively,
-would cause the record to process.  (The default value of these fields
-did not cause the record to process.)  The mechanism used to accomplish
-this (scanOnce(), called from the transform record's special() routine)
-was incompatible with EPICS execution tracing software, dbPutNotify(),
-which must be able to discover from the .dbd file which fields of a record
-cause processing when written to via channel access.  Because putNotify()
-has become an essential feature of EPICS in synchrotron-radiation
-applications (i.e., in synApps), the transform record was modified to
-remove the &lt;x&gt;<tt>PP</tt> fields, and the fields <tt>A..P</tt> were
-made process passive in transformRecord.dbd.
 
-NOTE:  Versions of the transform record earlier than 5.5 ignored link errors.
-Beginning with version 5.5, you can choose to ignore link errors (the default)
-or to quit processing (after all input link values have been fetched and
-transferred to their respective value fields).
 
 <P>The TRANSFORM record combines features of the CALC and SEQUENCE records,
 with 16 sets of the following fields:<BR>
@@ -74,11 +57,9 @@ but it will not fire its forward link.</em></blockquote>
 <tt>CLCP</tt>, but expression <tt>CLC</tt>&lt;x&gt; is evaluated only
 if &lt;x&gt; has the same value it had after the last time the record
 was processed, and the field has not been marked "new" as the result of
-a put from some client.  In other words, new values are regarded as
+a write by some client.  In other words, new values are regarded as
 independent variables in the set of equations <tt>CLCA...CLCP</tt>, and
-unchanged values are regarded as dependent variables.  (In versions earlier
-than 5.2, the test for old values did not correctly handle NaN values, which
-would always appear to be new, and would therefore never go away.)
+unchanged values are regarded as dependent variables. 
 
 <LI>Valid output links are triggered in order OUTA through OUTP---regardless
 of whether the corresponding values have changed.  That is, if OUTA is a
@@ -87,9 +68,8 @@ OUTA, and so on.
 </OL>
 
 <P>The transform record uses the expression-evaluation software
-sCalcPostFix.c and sCalcPerform.c, originally developed for the <a
-href="http://www.aps.anl.gov/xfd/bcda/medm_help/sCalcoutRecord.html">
-sCalcout record</a>.  An expression may contain any of the functions
+sCalcPostfix.c and sCalcPerform.c, originally developed for the
+sCalcout record.  An expression may contain any of the functions
 and constants that are valid for the sCalcout record (including string
 functions, though a final string result will of course be converted to
 double); any of the letters A-P, which stand for the values of the
@@ -113,8 +93,8 @@ slit system.  You can implement a bidirectional coordinate transformation
 with the following expressions (where position values are assumed to
 increase as we go from left to right):
 
-<TABLE CELLPADDING=0>
-<TR VALIGN=TOP><TH>value <TH>expression <TH>comment
+<TABLE BORDER>
+<TR VALIGN=TOP><TH>field <TH>expression <TH>comment
 <TR VALIGN=TOP><TD>A <TD>C-D/2 <TD>position of left edge of slit
 <TR VALIGN=TOP><TD>B <TD>C+D/2 <TD>position of right edge of slit
 <TR VALIGN=TOP><TD>C <TD>(A+B)/2 <TD>position of center of slit
@@ -133,7 +113,7 @@ effectively we have two actual devices and two virtual devices.
 <P>We don't care which two fields (out of A..D) correspond to actual
 motion-control devices, and two channel-access clients that make different
 assumptions about how a slit should be implemented can control this
-database without modification.  With an additional, similar transform
+slit without modification.  With an additional, similar transform
 record driven from the readback fields of the actual motion-control
 devices, we can calculate readback values for the virtual devices as well.
 
@@ -374,9 +354,6 @@ processing if the corresponding trigger field (.xPP) is nonzero and record's SCA
 <A NAME="Files"><H2>Files</H2></A> The following table briefly
 describes the files required to implement and use the transform
 record.  The reader is assumed to be familiar with building EPICS.
-These files can all be obtained from the <A
-HREF="http://www.aps.anl.gov/xfd/SoftDist/custom.htm"> EPICS Software
-Distribution</A>.
 
 <!--------------------------------------------------------------------->
 <P><TABLE BORDER CELLPADDING=1>
@@ -386,50 +363,11 @@ files to be placed in <CODE>&lt;top&gt;/&lt;app&gt;App/src/</CODE>
 </TH> </TR>
 <TR VALIGN=TOP><TD>transformRecord.c	<TD>Record support code
 <TR VALIGN=TOP><TD>transformRecord.dbd	<TD>Database definition file
-<TR><TD COLSPAN=2>The following expression-evaluation software is in EPICS base beginning with R3.13.1</TD>
 <TR VALIGN=TOP><TD>sCalcPerform.c  	<TD>string calculation support
 <TR VALIGN=TOP><TD>sCalcPostfix.c  	<TD>string calculation support
 <TR VALIGN=TOP><TD>sCalcPostfix.h  	<TD>string calculation support
 <TR VALIGN=TOP><TD>sCalcPostfixPvt.h  	<TD>string calculation support
 </TR>
-
-<TR><TD><TD>
-<TR VALIGN=TOP>
-<TD>Makefile.Vx</TD>
-<TD>This file is not included in the distribution.  If you're upgrading
-an application or share directory that has an earlier version of the
-transform record, you don't need to do anything with this file.  Otherwise,
-add the following lines:
-<P><PRE>
-SRCS.c += ../transformRecord.c
-LIBOBJS += transformRecord.o
-</PRE></TD>
-</TR>
-
-<TR VALIGN=TOP>
-<TD>Makefile.Host</TD>
-<TD>This file is not included in the distribution.  If you're upgrading
-an application or share directory that has an earlier version of the
-transform record, you don't need to do anything with this file.  Otherwise,
-add the following line:
-<P><PRE>
-RECTYPES += transformRecord.h
-</PRE></TD>
-</TR>
-
-<TR VALIGN=TOP>
-<TD>&lt;app&gt;Include.dbd</TD>
-<TD>(I'm just guessing what the filename might be in your case.
-The real filename is whatever appears after "<CODE>DBDEXPAND = </CODE>" in
-Makefile.Host.)  This file is not included in the distribution.  If you're upgrading
-an application or share directory that has an earlier version of the
-transform record, you don't need to do anything with this file.  Otherwise,
-add the following line:
-<PRE>
-include "transformRecord.dbd"
-</PRE></TD>
-</TR>
-
 </TABLE>
 
 <!--------------------------------------------------------------------->
@@ -440,10 +378,9 @@ files to be placed in
 </TH> </TR>
 
 <TR VALIGN=TOP><TD>userTransform.db		<TD>Sample transform-record database
-<TR><TD COLSPAN=2>This database file contains nothing but a transform record.</TD>
-</TR>
+<TR VALIGN=TOP><TD>userTransforms10.db	<TD>10 transforms and an enable switch
+<TR VALIGN=TOP><TD>userTransforms10_settings.req	<TD>save-restore request file for userTransforms10.db</TABLE>
 </TABLE>
-
 <!--------------------------------------------------------------------->
 <P><TABLE BORDER CELLPADDING=1>
 <TR><TH COLSPAN=2>MEDM DISPLAY FILES<BR>
@@ -451,8 +388,12 @@ files to be placed in
 <CODE>&lt;top&gt;/&lt;app&gt;App/op/adl/</CODE>
 </TH> </TR>
 
-<TR VALIGN=TOP><TD>yyTransform_full.adl		<TD>Small control display
-<TR VALIGN=TOP><TD>linkHelp.adl	<TD>A little help for end users
+<TR VALIGN=TOP><TD>yyTransform.adl		<TD>Small control display for any transform record
+<TR VALIGN=TOP><TD>yyTransform_full.adl	<TD>...with more detail
+
+<TR VALIGN=TOP><TD>userTransform.adl	<TD>Small control display for transform record enabled by the switch in userTransforms10.db
+<TR VALIGN=TOP><TD>userTransform_full.adl	<TD>...with more detail
+<TR VALIGN=TOP><TD>userTransforms10.adl	<TD>Collection of userTransform callups, with overall enable switch
 <TR><TD COLSPAN=2>These files build <CODE>medm</CODE> screens to access the transform record.
 To use one of them from the command line, type, for example
 <PRE>
@@ -500,23 +441,60 @@ This file is normally <CODE>#include</CODE>'d (once for each transform record) b
 file to be placed in your autosave search path
 </TH></TR>
 
-<TR VALIGN=TOP><TD>xx_auto_transform_settings.req	<TD>save settings of a specified transform record.
+<TR VALIGN=TOP><TD>transform_settings.req	<TD>save settings of a specified transform record.
 This file is normally included once for each transform record by other request files, with a line of the following form:<br>
-file xx_auto_transform_settings.req P=tmm:,T=userTran1
+file transform_settings.req P=tmm:,T=userTran1
+.
+</TR>
+
+<TR VALIGN=TOP><TD>userTransforms10_settings.req	<TD>save settings of the userTransforms10.db database.
 .
 </TR>
 </TABLE>
 
-
 <HR>
 <A NAME="Restrictions"><H2>Restrictions</H2></A>
+None that I'm aware of.
+
+<HR>
+<A NAME="Release notes"><H2>Release notes</H2></A>
+Versions earlier than 5.7 did not post fields with
+the DBE_LOG attribute.
+<P>
+Versions earlier than 5.6 expected sCalcPostfix
+to allocate the postfix-expression array.  sCalcPostfix no longer does this,
+and the transform record changed as a consequence.
+<P>
+Versions earlier than 5.5 ignored link errors.
+Beginning with version 5.5, you can choose to ignore link errors (the default)
+or to quit processing (after all input link values have been fetched and
+transferred to their respective value fields).
+<P>
+In versions earlier than 5.2, the test for old values did not correctly handle
+NaN values, which would always appear to be new, and would therefore never go
+away.
+<P>
+Versions earlier than 5.0 defined the
+additional fields <tt>APP...PPP</tt>, which determined whether or not a
+channel-access put to the value fields <tt>A...P</tt>, respectively,
+would cause the record to process.  (The default value of these fields
+did not cause the record to process.)  The mechanism used to accomplish
+this (scanOnce(), called from the transform record's special() routine)
+was incompatible with EPICS execution tracing software, dbPutNotify(),
+which must be able to discover from the .dbd file which fields of a record
+cause processing when written to via channel access.  Because putNotify()
+has become an essential feature of EPICS in synchrotron-radiation
+applications (i.e., in synApps), the transform record was modified to
+remove the &lt;x&gt;<tt>PP</tt> fields, and the fields <tt>A..P</tt> were
+made process passive in transformRecord.dbd.
+
 
 <HR>
 <ADDRESS>
 Suggestions and comments to: 
 <BR><A HREF="mailto:mooney@aps.anl.gov">Tim Mooney</A> : (mooney@aps.anl.gov)
 <BR>
-Last modified: December 17, 2002
+Last modified: March 3, 2004
 </ADDRESS>
 
 </BODY>
