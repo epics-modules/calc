@@ -1,3 +1,7 @@
+#*************************************************************************
+# Copyright (c) 2004 The University of Chicago, as Operator of Argonne
+#     National Laboratory.
+#*************************************************************************
 menu(scalcoutOOPT) {
 	choice(scalcoutOOPT_Every_Time,"Every Time")
 	choice(scalcoutOOPT_On_Change,"On Change")
@@ -21,9 +25,13 @@ menu(scalcoutINAV) {
 	choice(scalcoutINAV_LOC,"Local PV")
 	choice(scalcoutINAV_CON,"Constant")
 }
+menu(scalcoutWAIT) {
+	choice(scalcoutWAIT_NoWait,"NoWait")
+	choice(scalcoutWAIT_Wait,"Wait")
+}
 recordtype(scalcout) {
 	include "dbCommon.dbd" 
-	field(VERS,DBF_FLOAT) {
+	field(VERS,DBF_DOUBLE) {
 		prompt("Code Version")
 		special(SPC_NOMOD)
 		initial("1")
@@ -55,7 +63,6 @@ recordtype(scalcout) {
 	field(CALC,DBF_STRING) {
 		prompt("Calculation")
 		promptgroup(GUI_CALC)
-#		special(SPC_SCALC) not in base yet
 		special(SPC_MOD)
 		pp(TRUE)
 		size(40)
@@ -394,17 +401,16 @@ recordtype(scalcout) {
 		interest(1)
 		menu(scalcoutOOPT)
 	}
-	field(SOPT,DBF_MENU) {
-		prompt("String Output Execute Opt")
-		promptgroup(GUI_CALC)
-		interest(1)
-		menu(scalcoutOOPT)
-	}
-	field(ODLY,DBF_FLOAT) {
+	field(ODLY,DBF_DOUBLE) {
 		prompt("Output Execute Delay")
 		promptgroup(GUI_ALARMS)
 		asl(ASL0)
 		interest(1)
+	}
+	field(WAIT,DBF_MENU) {
+		prompt("Wait for completion?")
+		interest(1)
+		menu(scalcoutWAIT)
 	}
 	field(DLYA,DBF_USHORT) {
 		prompt("Output Delay Active")
@@ -456,35 +462,35 @@ recordtype(scalcout) {
 		promptgroup(GUI_DISPLAY)
 		interest(1)
 	}
-	field(HOPR,DBF_FLOAT) {
+	field(HOPR,DBF_DOUBLE) {
 		prompt("High Operating Rng")
 		promptgroup(GUI_DISPLAY)
 		interest(1)
 	}
-	field(LOPR,DBF_FLOAT) {
+	field(LOPR,DBF_DOUBLE) {
 		prompt("Low Operating Range")
 		promptgroup(GUI_DISPLAY)
 		interest(1)
 	}
-	field(HIHI,DBF_FLOAT) {
+	field(HIHI,DBF_DOUBLE) {
 		prompt("Hihi Alarm Limit")
 		promptgroup(GUI_ALARMS)
 		pp(TRUE)
 		interest(1)
 	}
-	field(LOLO,DBF_FLOAT) {
+	field(LOLO,DBF_DOUBLE) {
 		prompt("Lolo Alarm Limit")
 		promptgroup(GUI_ALARMS)
 		pp(TRUE)
 		interest(1)
 	}
-	field(HIGH,DBF_FLOAT) {
+	field(HIGH,DBF_DOUBLE) {
 		prompt("High Alarm Limit")
 		promptgroup(GUI_ALARMS)
 		pp(TRUE)
 		interest(1)
 	}
-	field(LOW,DBF_FLOAT) {
+	field(LOW,DBF_DOUBLE) {
 		prompt("Low Alarm Limit")
 		promptgroup(GUI_ALARMS)
 		pp(TRUE)
