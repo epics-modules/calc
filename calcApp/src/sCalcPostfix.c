@@ -1,4 +1,4 @@
-/* $Id: sCalcPostfix.c,v 1.4 2003-06-11 19:08:12 rivers Exp $
+/* $Id: sCalcPostfix.c,v 1.5 2004-04-28 23:41:25 rivers Exp $
  * Subroutines used to convert an infix expression to a postfix expression
  *
  *      Author:          Bob Dalesio
@@ -60,6 +60,7 @@
  *                      <? and >? operators, sCalcCheck(), FETCH_*
  * .23  04-09-03    tmm Changed arg list: char * instead of char ** for postfix buffer.  User
  *                      should provide 240-char buffer (for 40-char infix string).
+ * .24  04-27-04    tmm Replaced strncasecmp with epicsStrnCaseCmp
  */
 
 /* 
@@ -108,6 +109,7 @@
 #include	<string.h>
 #include	<ctype.h>
 #include	"dbDefs.h"
+#include        <epicsString.h>
 #define epicsExportSharedSymbols
 #include	"sCalcPostfix.h"
 #include	"sCalcPostfixPvt.h"
@@ -282,18 +284,6 @@ static struct expression_element	fetch_string_element = {
 "AA",		0,	0,	OPERAND,	SFETCH,   /* fetch var */
 };
 
-#ifdef vxWorks
-static int strncasecmp(char *s1, char *s2, size_t n)
-{
-	short i;
-	for (i=0; i<(short)n && (*s1 || *s2); i++, s1++, s2++) {
-		if (toupper((int)*s1) > toupper((int)*s2)) return(1);
-		if (toupper((int)*s1) < toupper((int)*s2)) return(-1);
-	}
-	return(0);
-}
-#endif
-
 /*
  * sCalcCheck()
  * The implementation of a variable number of arguments (for MAX and MIN)
@@ -579,7 +569,7 @@ static int find_element(pbuffer, pelement, pno_bytes, parg)
  	/* compare the string to each element in the element table */
  	*pelement = &elements[0];
  	while ((*pelement)->element[0] != NULL){
- 		if (strncasecmp(pbuffer,(*pelement)->element, strlen((*pelement)->element)) == 0){
+ 		if (epicsStrnCaseCmp(pbuffer,(*pelement)->element, strlen((*pelement)->element)) == 0){
  			*pno_bytes += strlen((*pelement)->element);
  			return(TRUE);
  		}
