@@ -32,6 +32,8 @@
 #ifndef INCsCalcPostfixh
 #define INCsCalcPostfixh
 
+#include <shareLib.h>
+
 #define	BAD_EXPRESSION	0
 #define	END_STACK		127
 
