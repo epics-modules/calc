@@ -4,12 +4,14 @@
 
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 
-#If using the sequencer, point SNCSEQ at its top directory:
-SNCSEQ=h:/epics/seq-2.0.4
-
 # EPICS_BASE usually appears last so other apps can override stuff:
-EPICS_BASE=h:/epics/base-3.14.2
-MPF=j:/epics/3.14/mpf2-2
+EPICS_BASE=H:/epics/base-3.14.8
+
+# Need recDynLink
+SSCAN=J:/epics/devel/sscan/2-5-1
+
+# Need genSubRecord
+GENSUB=J:/epics/devel/genSub/1-6
 
 #Capfast users may need the following definitions
 #CAPFAST_TEMPLATES=
