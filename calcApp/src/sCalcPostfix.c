@@ -1,4 +1,4 @@
-/* $Id: sCalcPostfix.c,v 1.6 2004-08-30 19:06:00 mooney Exp $
+/* $Id: sCalcPostfix.c,v 1.7 2006-02-02 16:16:13 mooney Exp $
  * Subroutines used to convert an infix expression to a postfix expression
  *
  *      Author:          Bob Dalesio
@@ -118,7 +118,7 @@
 long test_sCalcPostfix(char *pinfix, int n);
 long test_sCalcPerform(char *pinfix, int n);
 
-#define DEBUG 0
+#define DEBUG 1
 volatile int sCalcPostfixDebug=0;
 
 /* declarations for postfix */
@@ -167,7 +167,7 @@ struct	expression_element{
  * ':' receives special handling, so if you add an operator that includes
  * ':', you must modify that special handling.
  */
-#define UNARY_MINUS_I_S_P  8
+#define UNARY_MINUS_I_S_P  7
 #define UNARY_MINUS_I_C_P  9
 #define UNARY_MINUS_CODE   UNARY_NEG
 #define BINARY_MINUS_I_S_P 5
@@ -177,45 +177,45 @@ struct	expression_element{
 static struct expression_element elements[] = {
 /*
 element    i_s_p i_c_p type_element     internal_rep */
-{"ABS",    8,    9,    UNARY_OPERATOR,  ABS_VAL},   /* absolute value */
-{"NOT",    8,    9,    UNARY_OPERATOR,  UNARY_NEG},   /* unary negate */
+{"ABS",    10,    11,    UNARY_OPERATOR,  ABS_VAL},   /* absolute value */
+{"NOT",    10,    11,    UNARY_OPERATOR,  UNARY_NEG},   /* unary negate */
 {"-|",     5,    5,    BINARY_OPERATOR, SUB},         /* subtract first occurrence */
 {"|-",     5,    5,    BINARY_OPERATOR, SUBLAST},     /* subtract last occurrence */
-{"-",      8,    9,    MINUS_OPERATOR,  UNARY_NEG},   /* unary negate (or binary op) */
-{"SQRT",   8,    9,    UNARY_OPERATOR,  SQU_RT},      /* square root */
-{"SQR",    8,    9,    UNARY_OPERATOR,  SQU_RT},      /* square root */
-{"EXP",    8,    9,    UNARY_OPERATOR,  EXP},         /* exponential function */
-{"LOGE",   8,    9,    UNARY_OPERATOR,  LOG_E},       /* log E */
-{"LN",     8,    9,    UNARY_OPERATOR,  LOG_E},       /* log E */
-{"LOG",    8,    9,    UNARY_OPERATOR,  LOG_10},      /* log 10 */
-{"ACOS",   8,    9,    UNARY_OPERATOR,  ACOS},        /* arc cosine */
-{"ASIN",   8,    9,    UNARY_OPERATOR,  ASIN},        /* arc sine */
-{"ATAN2",  8,    9,    UNARY_OPERATOR,  ATAN2},       /* arc tangent */
-{"ATAN",   8,    9,    UNARY_OPERATOR,  ATAN},        /* arc tangent */
-{"MAX",    8,    9,    VARG_FUNC,       MAXV_VAL},    /* variable # of args */
-{"MIN",    8,    9,    VARG_FUNC,       MINV_VAL},    /* variable # of args */
-{"CEIL",   8,    9,    UNARY_OPERATOR,  CEIL},        /* smallest integer >= */
-{"FLOOR",  8,    9,    UNARY_OPERATOR,  FLOOR},       /* largest integer <=  */
-{"NINT",   8,    9,    UNARY_OPERATOR,  NINT},        /* nearest integer */
-{"INT",    8,    9,    UNARY_OPERATOR,  NINT},        /* nearest integer */
-{"COSH",   8,    9,    UNARY_OPERATOR,  COSH},        /* hyperbolic cosine */
-{"COS",    8,    9,    UNARY_OPERATOR,  COS},         /* cosine */
-{"SINH",   8,    9,    UNARY_OPERATOR,  SINH},        /* hyperbolic sine */
-{"SIN",    8,    9,    UNARY_OPERATOR,  SIN},         /* sine */
-{"TANH",   8,    9,    UNARY_OPERATOR,  TANH},        /* hyperbolic tangent*/
-{"TAN",    8,    9,    UNARY_OPERATOR,  TAN},         /* tangent */
+{"-",      10,    11,    MINUS_OPERATOR,  UNARY_NEG},   /* unary negate (or binary op) */
+{"SQRT",   10,    11,    UNARY_OPERATOR,  SQU_RT},      /* square root */
+{"SQR",    10,    11,    UNARY_OPERATOR,  SQU_RT},      /* square root */
+{"EXP",    10,    11,    UNARY_OPERATOR,  EXP},         /* exponential function */
+{"LOGE",   10,    11,    UNARY_OPERATOR,  LOG_E},       /* log E */
+{"LN",     10,    11,    UNARY_OPERATOR,  LOG_E},       /* log E */
+{"LOG",    10,    11,    UNARY_OPERATOR,  LOG_10},      /* log 10 */
+{"ACOS",   10,    11,    UNARY_OPERATOR,  ACOS},        /* arc cosine */
+{"ASIN",   10,    11,    UNARY_OPERATOR,  ASIN},        /* arc sine */
+{"ATAN2",  10,    11,    UNARY_OPERATOR,  ATAN2},       /* arc tangent */
+{"ATAN",   10,    11,    UNARY_OPERATOR,  ATAN},        /* arc tangent */
+{"MAX",    10,    11,    VARG_FUNC,       MAXV_VAL},    /* variable # of args */
+{"MIN",    10,    11,    VARG_FUNC,       MINV_VAL},    /* variable # of args */
+{"CEIL",   10,    11,    UNARY_OPERATOR,  CEIL},        /* smallest integer >= */
+{"FLOOR",  10,    11,    UNARY_OPERATOR,  FLOOR},       /* largest integer <=  */
+{"NINT",   10,    11,    UNARY_OPERATOR,  NINT},        /* nearest integer */
+{"INT",    10,    11,    UNARY_OPERATOR,  NINT},        /* nearest integer */
+{"COSH",   10,    11,    UNARY_OPERATOR,  COSH},        /* hyperbolic cosine */
+{"COS",    10,    11,    UNARY_OPERATOR,  COS},         /* cosine */
+{"SINH",   10,    11,    UNARY_OPERATOR,  SINH},        /* hyperbolic sine */
+{"SIN",    10,    11,    UNARY_OPERATOR,  SIN},         /* sine */
+{"TANH",   10,    11,    UNARY_OPERATOR,  TANH},        /* hyperbolic tangent*/
+{"TAN",    10,    11,    UNARY_OPERATOR,  TAN},         /* tangent */
 {"!=",     4,    4,    BINARY_OPERATOR, NOT_EQ},      /* not equal */
-{"!",      8,    9,    UNARY_OPERATOR,  REL_NOT},     /* not */
-{"~",      8,    9,    UNARY_OPERATOR,  BIT_NOT},     /* bitwise not */
-{"DBL",    8,    9,    UNARY_OPERATOR,  TO_DOUBLE},   /* convert to double */
-{"STR",    8,    9,    UNARY_OPERATOR,  TO_STRING},   /* convert to string */
-{"$P",     8,    9,    UNARY_OPERATOR,  PRINTF},      /* formatted print to string */
-{"PRINTF", 8,    9,    UNARY_OPERATOR,  PRINTF},      /* formatted print to string */
-{"BYTE",   8,    9,    UNARY_OPERATOR,  BYTE},        /* string[0] to byte */
-{"$S",     8,    9,    UNARY_OPERATOR,  SSCANF},      /* scan string argument */
-{"SSCANF", 8,    9,    UNARY_OPERATOR,  SSCANF},      /* scan string argument */
-{"@@",     8,    9,    UNARY_OPERATOR,  A_SFETCH},    /* fetch string argument */
-{"@",      8,    9,    UNARY_OPERATOR,  A_FETCH},     /* fetch numeric argument */
+{"!",      10,    11,    UNARY_OPERATOR,  REL_NOT},     /* not */
+{"~",      10,    11,    UNARY_OPERATOR,  BIT_NOT},     /* bitwise not */
+{"DBL",    10,    11,    UNARY_OPERATOR,  TO_DOUBLE},   /* convert to double */
+{"STR",    10,    11,    UNARY_OPERATOR,  TO_STRING},   /* convert to string */
+{"$P",     10,    11,    UNARY_OPERATOR,  PRINTF},      /* formatted print to string */
+{"PRINTF", 10,    11,    UNARY_OPERATOR,  PRINTF},      /* formatted print to string */
+{"BYTE",   10,    11,    UNARY_OPERATOR,  BYTE},        /* string[0] to byte */
+{"$S",     10,    11,    UNARY_OPERATOR,  SSCANF},      /* scan string argument */
+{"SSCANF", 10,    11,    UNARY_OPERATOR,  SSCANF},      /* scan string argument */
+{"@@",     10,    11,    UNARY_OPERATOR,  A_SFETCH},    /* fetch string argument */
+{"@",      10,    11,    UNARY_OPERATOR,  A_FETCH},     /* fetch numeric argument */
 {"RNDM",   0,    0,    OPERAND,         RANDOM},      /* Random Number */
 {"OR",     1,    1,    BINARY_OPERATOR, BIT_OR},      /* or */
 {"AND",    2,    2,    BINARY_OPERATOR, BIT_AND},     /* and */
@@ -240,11 +240,11 @@ element    i_s_p i_c_p type_element     internal_rep */
 {"'",      0,    0,    STRING_CONST,    SLITERAL},    /* string constant */
 {"?",      0,    0,    CONDITIONAL,     COND_IF},     /* conditional */
 {":",      0,    0,    CONDITIONAL,     COND_ELSE},   /* else */
-{"(",      0,    9,    UNARY_OPERATOR,  PAREN},       /* open paren */
-{"[",      0,    8,    BINARY_OPERATOR, SUBRANGE},    /* string subrange */
-{"{",      0,    8,    BINARY_OPERATOR, REPLACE},     /* string replace */
-{"^",      7,    7,    BINARY_OPERATOR, EXPON},       /* exponentiation */
-{"**",     7,    7,    BINARY_OPERATOR, EXPON},       /* exponentiation */
+{"(",      0,    11,    UNARY_OPERATOR,  PAREN},       /* open paren */
+{"[",      0,    10,    BINARY_OPERATOR, SUBRANGE},    /* string subrange */
+{"{",      0,    10,    BINARY_OPERATOR, REPLACE},     /* string replace */
+{"^",      8,    8,    BINARY_OPERATOR, EXPON},       /* exponentiation */
+{"**",     8,    8,    BINARY_OPERATOR, EXPON},       /* exponentiation */
 {"+",      5,    5,    BINARY_OPERATOR, ADD},         /* addition */
 #if 0 /* "-" operator is overloaded; may be unary or binary */
 {"-",      5,    5,    BINARY_OPERATOR, SUB},         /* subtraction */
