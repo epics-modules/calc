@@ -344,6 +344,7 @@ static long process(scalcoutRecord *pcalc)
 							pcalc->name);
 					return(0);
 				}
+				pcalc->pact = TRUE;
 			}
 		}
 	} else { /* pact == TRUE */
