@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen4/MOONEY/epics/synApps_5_1/support/calc/cvs/calcApp/op/adl/calcExamples.adl"
+	name="C:\Documents and Settings\mooney\Desktop\Work\epics\synApps\adl\calcExamples.adl"
 	version=030004
 }
 display {
@@ -8,7 +8,7 @@ display {
 		x=473
 		y=126
 		width=370
-		height=690
+		height=705
 	}
 	clr=14
 	bclr=1
@@ -994,93 +994,6 @@ text {
 }
 text {
 	object {
-		x=10
-		y=580
-		width=350
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="NOTE: can use single or double quotes at runtime"
-}
-text {
-	object {
-		x=10
-		y=595
-		width=350
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="but only single quotes in a static database."
-}
-text {
-	object {
-		x=10
-		y=650
-		width=350
-		height=14
-	}
-	"basic attribute" {
-		clr=53
-	}
-	textix="Items in blue are useable only in transform and"
-}
-text {
-	object {
-		x=10
-		y=665
-		width=350
-		height=14
-	}
-	"basic attribute" {
-		clr=53
-	}
-	textix="sCalcout records."
-}
-text {
-	object {
-		x=10
-		y=615
-		width=350
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="'a', 'b', etc. are numeric arguments."
-}
-text {
-	object {
-		x=10
-		y=630
-		width=350
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="'aa', 'bb', etc. are string arguments."
-}
-polyline {
-	object {
-		x=10
-		y=575
-		width=350
-		height=0
-	}
-	"basic attribute" {
-		clr=53
-	}
-	points {
-		(10,575)
-		(360,575)
-	}
-}
-text {
-	object {
 		x=250
 		y=465
 		width=50
@@ -1186,64 +1099,53 @@ text {
 	}
 	textix="$P('%f',aa)"
 }
-composite {
+text {
+	object {
+		x=120
+		y=525
+		width=110
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="aa[1,3]"
+}
+text {
 	object {
 		x=120
 		y=510
 		width=110
-		height=59
+		height=14
 	}
-	"composite name"=""
-	children {
-		text {
-			object {
-				x=120
-				y=525
-				width=110
-				height=14
-			}
-			"basic attribute" {
-				clr=53
-			}
-			textix="aa[1,3]"
-		}
-		text {
-			object {
-				x=120
-				y=510
-				width=110
-				height=14
-			}
-			"basic attribute" {
-				clr=53
-			}
-			textix="STR(aa)"
-		}
-		text {
-			object {
-				x=120
-				y=540
-				width=110
-				height=14
-			}
-			"basic attribute" {
-				clr=53
-			}
-			textix="aa{bb,cc}"
-		}
-		text {
-			object {
-				x=120
-				y=555
-				width=110
-				height=14
-			}
-			"basic attribute" {
-				clr=53
-			}
-			textix="'abcdef'"
-		}
+	"basic attribute" {
+		clr=53
 	}
+	textix="STR(aa)"
+}
+text {
+	object {
+		x=120
+		y=540
+		width=110
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="aa{bb,cc}"
+}
+text {
+	object {
+		x=120
+		y=555
+		width=110
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="'abcdef'"
 }
 text {
 	object {
@@ -1315,4 +1217,150 @@ text {
 		clr=14
 	}
 	textix="MIN(a,b    )"
+}
+composite {
+	object {
+		x=10
+		y=590
+		width=350
+		height=104
+	}
+	"composite name"=""
+	children {
+		text {
+			object {
+				x=10
+				y=595
+				width=350
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="NOTE: can use single or double quotes at runtime"
+		}
+		text {
+			object {
+				x=10
+				y=610
+				width=350
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="but only single quotes in a static database."
+		}
+		text {
+			object {
+				x=10
+				y=665
+				width=350
+				height=14
+			}
+			"basic attribute" {
+				clr=53
+			}
+			textix="Items in blue are useable only in transform and"
+		}
+		text {
+			object {
+				x=10
+				y=680
+				width=350
+				height=14
+			}
+			"basic attribute" {
+				clr=53
+			}
+			textix="sCalcout records."
+		}
+		text {
+			object {
+				x=10
+				y=630
+				width=350
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="'a', 'b', etc. are numeric arguments."
+		}
+		text {
+			object {
+				x=10
+				y=645
+				width=350
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="'aa', 'bb', etc. are string arguments."
+		}
+		polyline {
+			object {
+				x=10
+				y=590
+				width=350
+				height=0
+			}
+			"basic attribute" {
+				clr=53
+			}
+			points {
+				(10,590)
+				(360,590)
+			}
+		}
+	}
+}
+text {
+	object {
+		x=250
+		y=570
+		width=50
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="$E(aa)"
+}
+text {
+	object {
+		x=310
+		y=570
+		width=50
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="ESC(aa)"
+}
+text {
+	object {
+		x=120
+		y=570
+		width=110
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="TR_ESC(aa)"
+}
+text {
+	object {
+		x=10
+		y=570
+		width=110
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="$T(aa)"
 }
