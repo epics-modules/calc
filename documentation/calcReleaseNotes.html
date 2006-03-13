@@ -10,6 +10,18 @@ content="text/html; charset=iso-8859-1">
 
 <h1 align="center">calc Release Notes</h1>
 
+<h2 align="center">Release 2-5</h2>
+<ul>
+<li><p>Interp support uses different genSub-record fields, and has acquired a mode switch
+and a success indicator.  See calc/documentation/interp.README
+
+<li><p>sCalcout record has two new functions:
+<ul>
+<li>TR_ESC() translates escape sequences into the characters they represent
+<li>ESC()    translates selected unprintable characters into escape sequences.
+</ul>
+</ul>
+
 <h2 align="center">Release 2-4</h2>
 
 This version is intended to build with EPICS base 3.14.7.
