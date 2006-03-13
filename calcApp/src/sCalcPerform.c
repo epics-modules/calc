@@ -1,4 +1,4 @@
-/* $Id: sCalcPerform.c,v 1.7 2004-08-30 19:03:40 mooney Exp $ */
+/* sCalcPerform.c,v 1.7 2004/08/30 19:03:40 mooney Exp */
 /*
  *	Author: Julie Sander and Bob Dalesio
  *	Date:	07-27-87
@@ -39,6 +39,9 @@
  *              NaN on the value stack to indicate end of args.  Use isnan
  *              from EPICS base.  Added checkXxxElement(), which compile to
  *              nothing if DEBUG=0.
+ * 03-03-06 tmm Added TR_ESC function, which applies dbTranslateEscape() to
+ *              its argument, and ESC function, which applies
+ *              epicsStrSnPrintEscaped() to its argument.
  */
 
 /* This module contains the code for processing the arithmetic
@@ -81,6 +84,7 @@
 
 #include	"dbDefs.h"
 #include	"cvtFast.h"
+#include	"epicsString.h"
 #define epicsExportSharedSymbols
 #include	"sCalcPostfix.h"
 #include	"sCalcPostfixPvt.h"
@@ -238,12 +242,13 @@ long epicsShareAPI
 }
 #endif
 
+#define TMPSTR_SIZE 1000
 long epicsShareAPI 
 	sCalcPerform(double *parg, int numArgs, char **psarg, int numSArgs, double *presult, char *psresult, int lenSresult, char *post)
 {
 	struct stackElement stack[STACKSIZE], *top;
 	struct stackElement *ps, *ps1, *ps2;
-	char				*s2, tmpstr[1000], currSymbol;
+	char				*s2, tmpstr[TMPSTR_SIZE], currSymbol;
 	char				*s, *s1;
 	int					i, j, k;
 	long				l;
@@ -1547,6 +1552,28 @@ long epicsShareAPI
 				}
 				break;
 
+			case TR_ESC:
+				checkStackElement(ps, *post);
+				if (isString(ps)) {
+		 			dbTranslateEscape(tmpstr, ps->s);
+					strNcpy(ps->s, tmpstr, LOCAL_STRING_SIZE-1);
+				}
+				break;
+
+			case ESC:
+				checkStackElement(ps, *post);
+				if (isString(ps)) {
+					/* Find length of input string.  Null terminates string.*/
+					for (j=0; j<LOCAL_STRING_SIZE && ps->s[j] != '\0'; j++) {
+						;
+					}
+		 			i = epicsStrSnPrintEscaped(tmpstr, LOCAL_STRING_SIZE-1, ps->s, j);
+					i = MIN(i, LOCAL_STRING_SIZE);
+					tmpstr[i] = '\0'; /* make sure it's terminated */
+					strNcpy(ps->s, tmpstr, LOCAL_STRING_SIZE-1);
+				}
+				break;
+
 			case SUBRANGE:
 				checkStackElement(ps, *post);
 				ps2 = ps;
@@ -1610,6 +1637,7 @@ long epicsShareAPI
 				}
 				break;
  
+
 			case MAXV_VAL:
 			case MINV_VAL:
 #if DEBUG

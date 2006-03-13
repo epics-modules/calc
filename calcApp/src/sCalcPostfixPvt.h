@@ -29,6 +29,8 @@
  * .02  10-27-01 mlr added BYTE
  * .03  03-20-03 tmm added VARGS support, stackElement (now also used by
  *                   sCalcPostfix.c), MAXV_VAL, MINV_VAL, FETCH_*, 3.14 ready
+ *      03-03-06 tmm Added TR_ESC (apply dbTranslateEscape() to arg) and ESC
+ *                   (apply epicsStrSnPrintEscaped() to arg).
  * 
  */
 
@@ -65,7 +67,6 @@ struct stackElement {
 
 /*	defines for element table      */
 /* #define	BAD_EXPRESSION	0 */
-/* elements that define a value */
 #define 	FETCH		1
 #define 	SFETCH		2
 #define		CONST_PI	3
@@ -77,10 +78,6 @@ struct stackElement {
 #define		LITERAL		9
 #define		SLITERAL	10
 #define		SSCANF		11
-
-#define		VALUE_ELEMENT 11
-
-/* elements that operate on a value */
 #define		ACOS		12
 #define		ASIN		13
 #define		ATAN		14
@@ -142,19 +139,22 @@ struct stackElement {
 #define		MAXV_VAL	70
 #define		MINV_VAL	71
 #define		SUBLAST		72
+#define		TR_ESC		73
+#define		ESC		74
+
 /* NOTE: FETCH_A .. FETCH_L must be contiguous and in alphabetical order */
-#define		FETCH_A		73
-#define		FETCH_B		74
-#define		FETCH_C		75
-#define		FETCH_D		76
-#define		FETCH_E		77
-#define		FETCH_F		78
-#define		FETCH_G		79
-#define		FETCH_H		80
-#define		FETCH_I		81
-#define		FETCH_J		82
-#define		FETCH_K		83
-#define		FETCH_L		84
+#define		FETCH_A		75
+#define		FETCH_B		76
+#define		FETCH_C		77
+#define		FETCH_D		78
+#define		FETCH_E		79
+#define		FETCH_F		80
+#define		FETCH_G		81
+#define		FETCH_H		82
+#define		FETCH_I		83
+#define		FETCH_J		84
+#define		FETCH_K		85
+#define		FETCH_L		86
 
 #define NO_STRING		125
 #define USES_STRING		126

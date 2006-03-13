@@ -1,4 +1,4 @@
-/* $Id: sCalcPostfix.c,v 1.7 2006-02-02 16:16:13 mooney Exp $
+/* $Id: sCalcPostfix.c,v 1.8 2006-03-13 18:04:30 mooney Exp $
  * Subroutines used to convert an infix expression to a postfix expression
  *
  *      Author:          Bob Dalesio
@@ -61,6 +61,10 @@
  * .23  04-09-03    tmm Changed arg list: char * instead of char ** for postfix buffer.  User
  *                      should provide 240-char buffer (for 40-char infix string).
  * .24  04-27-04    tmm Replaced strncasecmp with epicsStrnCaseCmp
+ *      02-02-06    tmm Fixed priority of unary minus relative to exponent
+ *      03-03-06    tmm Added TR_ESC function, which applies dbTranslateEscape() to
+ *                      its argument, and ESC function, which applies
+ *                      epicsStrSnPrintEscaped() to its argument.
  */
 
 /* 
@@ -214,6 +218,10 @@ element    i_s_p i_c_p type_element     internal_rep */
 {"BYTE",   10,    11,    UNARY_OPERATOR,  BYTE},        /* string[0] to byte */
 {"$S",     10,    11,    UNARY_OPERATOR,  SSCANF},      /* scan string argument */
 {"SSCANF", 10,    11,    UNARY_OPERATOR,  SSCANF},      /* scan string argument */
+{"$T",     10,    11,    UNARY_OPERATOR,  TR_ESC},      /* translate escape */
+{"TR_ESC", 10,    11,    UNARY_OPERATOR,  TR_ESC},      /* translate escape */
+{"$E",     10,    11,    UNARY_OPERATOR,  ESC},         /* translate escape */
+{"ESC",    10,    11,    UNARY_OPERATOR,  ESC},         /* translate escape */
 {"@@",     10,    11,    UNARY_OPERATOR,  A_SFETCH},    /* fetch string argument */
 {"@",      10,    11,    UNARY_OPERATOR,  A_FETCH},     /* fetch numeric argument */
 {"RNDM",   0,    0,    OPERAND,         RANDOM},      /* Random Number */
@@ -430,6 +438,14 @@ long sCalcCheck(char *post, int forks_checked, int dir_mask)
  		case SSCANF:
 			checkStackElement(ps);
 			ps--;
+			checkStackElement(ps);
+			ps->s = &(ps->local_string[0]);
+			ps->s[0] = '\0';
+			ps->d = 0;
+			break;
+
+ 		case TR_ESC:
+ 		case ESC:
 			checkStackElement(ps);
 			ps->s = &(ps->local_string[0]);
 			ps->s[0] = '\0';
@@ -676,6 +692,8 @@ long epicsShareAPI sCalcPostfix(char *pinfix, char *ppostfix, short *perror)
 			case REPLACE:
 			case SFETCH:
 			case A_SFETCH:
+			case TR_ESC:
+			case ESC:
 				*ppostfixStart = USES_STRING;
 				break;
 			default:
