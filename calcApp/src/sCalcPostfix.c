@@ -1,4 +1,4 @@
-/* $Id: sCalcPostfix.c,v 1.8 2006-03-13 18:04:30 mooney Exp $
+/* $Id: sCalcPostfix.c,v 1.9 2006-03-13 18:18:12 mooney Exp $
  * Subroutines used to convert an infix expression to a postfix expression
  *
  *      Author:          Bob Dalesio
@@ -65,6 +65,8 @@
  *      03-03-06    tmm Added TR_ESC function, which applies dbTranslateEscape() to
  *                      its argument, and ESC function, which applies
  *                      epicsStrSnPrintEscaped() to its argument.
+ * .25  03-13-06    tmm Backed out unary-minus fix because it breaks functions
+ *                      specified without parentheses.
  */
 
 /* 
@@ -171,8 +173,18 @@ struct	expression_element{
  * ':' receives special handling, so if you add an operator that includes
  * ':', you must modify that special handling.
  */
+/*
+ * These priorities fix unary-minus problem (-1)^2 = -1, but break
+ * functions like cos(x) which are specified without parentheses.
+ * The function problem is worse, because it causes a stack underflow.
+ */
+#if 0
 #define UNARY_MINUS_I_S_P  7
 #define UNARY_MINUS_I_C_P  9
+#else
+#define UNARY_MINUS_I_S_P  10
+#define UNARY_MINUS_I_C_P  11
+#endif
 #define UNARY_MINUS_CODE   UNARY_NEG
 #define BINARY_MINUS_I_S_P 5
 #define BINARY_MINUS_I_C_P 5
@@ -559,8 +571,8 @@ long sCalcCheck(char *post, int forks_checked, int dir_mask)
 #if DEBUG
 	if (ps != top) {
 		if (sCalcPostfixDebug>=10) {
-			printf("sCalcCheck: stack error: top=%p, ps=%p, top-ps=%d, got_if=%d\n",
-				top, ps, top-ps, got_if);
+			printf("sCalcCheck: stack error: top=%p, ps=%p, top-ps=%ld, got_if=%d\n",
+				top, ps, (long)(top-ps), got_if);
 			printf("sCalcCheck: stack error: &stack[0]=%p, stack[0].d=%f\n", &stack[0], stack[0].d);
 		}
 	}
