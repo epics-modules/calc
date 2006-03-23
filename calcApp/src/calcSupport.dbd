@@ -4,12 +4,14 @@
 include "transformRecord.dbd"
 include "swaitRecord.dbd"
 include "sCalcoutRecord.dbd"
+include "aCalcoutRecord.dbd"
 
 ################
 # DEVICE SUPPORT
 ################
 device(swait,CONSTANT,devSWaitIoEvent,"Soft Channel")
 device(scalcout,CONSTANT,devsCalcoutSoft,"Soft Channel")
+device(acalcout,CONSTANT,devaCalcoutSoft,"Soft Channel")
 
 ################
 # DRIVER SUPPORT
@@ -24,3 +26,8 @@ registrar(interpRegister)
 
 variable(arrayTestDebug, int)
 registrar(arrayTestRegister)
+
+variable(aCalcPostfixDebug, int)
+variable(aCalcPerformDebug, int)
+variable(aCalcoutRecordDebug, int)
+variable(devaCalcoutSoftDebug, int)

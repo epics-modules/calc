@@ -19,6 +19,7 @@ Com_DIR          = $(EPICS_BASE_LIB)
 
 DBDINC += transformRecord
 DBDINC += sCalcoutRecord
+DBDINC += aCalcoutRecord
 DBDINC += swaitRecord
 
 # <name>.dbd will be created from <name>Include.dbd
@@ -33,8 +34,10 @@ LIBRARY_IOC += calc
 
 calc_SRCS += transformRecord.c
 calc_SRCS += sCalcPostfix.c sCalcPerform.c
+calc_SRCS += aCalcPostfix.c aCalcPerform.c
 #calc_SRCS_vxWorks += test_sCalc.c
 calc_SRCS += sCalcoutRecord.c devsCalcoutSoft.c
+calc_SRCS += aCalcoutRecord.c devaCalcoutSoft.c
 calc_SRCS += swaitRecord.c
 calc_SRCS += subAve.c
 
