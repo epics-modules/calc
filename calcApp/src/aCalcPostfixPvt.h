@@ -52,7 +52,7 @@
 typedef union { long l[2]; double d; } DOUBLE_LONG;
 
 #define STACKSIZE 20
-#define ARRAY_SIZE 1000
+#define ARRAY_SIZE 4000
 struct stackElement {
 	double d;
 	double *a;
