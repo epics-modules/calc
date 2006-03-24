@@ -71,6 +71,7 @@ struct stackElement {
 #define		CONST_IX	8
 #define		RANDOM		9
 #define		LITERAL		10
+#define		ARANDOM		11
 
 #define		ACOS		12
 #define		ASIN		13
@@ -127,6 +128,8 @@ struct stackElement {
 #define		A_AFETCH	67
 #define		MAXFUNC		70
 #define		MINFUNC		71
+#define		AMAX		72
+#define		AMIN		73
 
 /* NOTE: FETCH_A .. FETCH_L must be contiguous and in alphabetical order */
 #define		FETCH_A		75
