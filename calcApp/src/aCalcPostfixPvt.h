@@ -68,8 +68,9 @@ struct stackElement {
 #define		CONST_R2D	5
 #define		CONST_S2R	6
 #define		CONST_R2S	7
-#define		RANDOM		8
-#define		LITERAL		9
+#define		CONST_IX	8
+#define		RANDOM		9
+#define		LITERAL		10
 
 #define		ACOS		12
 #define		ASIN		13
