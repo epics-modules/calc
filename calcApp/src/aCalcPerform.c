@@ -76,8 +76,8 @@ epicsExportAddress(int, aCalcPerformDebug);
 #if DEBUG
 int aCalcStackHW = 0;	/* high-water mark */
 int aCalcStackLW = 0;	/* low-water mark */
-#define INC(ps) {if ((int)(++(ps)-top) > aCalcStackHW) aCalcStackHW = (int)((ps)-top);}
-#define DEC(ps) {if ((int)(--(ps)-top) < aCalcStackLW) aCalcStackLW = (int)((ps)-top);}
+#define INC(ps) {if ((int)(++(ps)-top) > aCalcStackHW) aCalcStackHW = (int)((ps)-top); if ((ps-top)>STACKSIZE) {stackInUse=0;return(-1);}}
+#define DEC(ps) {if ((int)(--(ps)-top) < aCalcStackLW) aCalcStackLW = (int)((ps)-top); if ((ps-top)<0) {stackInUse=0;return(-1);}}
 #define checkDoubleElement(pd,op) {if (isnan(*(pd))) printf("aCalcPerform: unexpected NaN in op %d\n", (op));}
 #define checkStackElement(ps,op) {if (((ps)->a == NULL) && isnan((ps)->d)) printf("aCalcPerform: unexpected NaN in op %d\n", (op));}
 #else
@@ -301,6 +301,7 @@ long epicsShareAPI
 		case MODULO:
 		case MAXFUNC:
 		case MINFUNC:
+
 			checkStackElement(ps, *post);
 			ps1 = ps;
 			DEC(ps);
@@ -410,6 +411,8 @@ long epicsShareAPI
 		case CEIL:
 		case FLOOR:
 		case NINT:
+		case AMAX:
+		case AMIN:
 			checkStackElement(ps, *post);
 			if (isArray(ps)) {
 				switch (currSymbol) {
@@ -446,6 +449,16 @@ long epicsShareAPI
 				case CEIL: for (i=0; i<arraySize; i++) {ps->a[i] = ceil(ps->a[i]);} break;
 				case FLOOR: for (i=0; i<arraySize; i++) {ps->a[i] = floor(ps->a[i]);} break;
 				case NINT: for (i=0; i<arraySize; i++) {ps->a[i] = (double)(long)(ps->a[i] >= 0 ? ps->a[i]+0.5 : ps->a[i]-0.5);;} break;
+				case AMAX:
+					for (i=1, d=ps->a[0]; i<arraySize; i++) {if (ps->a[i]>d) d = ps->a[i];}
+					toDouble(ps);
+					ps->d = d;
+					break;
+				case AMIN:
+					for (i=1, d=ps->a[0]; i<arraySize; i++) {if (ps->a[i]<d) d = ps->a[i];}
+					toDouble(ps);
+					ps->d = d;
+					break;
 				}
 			} else {
 				switch (currSymbol) {
@@ -478,19 +491,23 @@ long epicsShareAPI
 				case CEIL: if (ps->d < 0) {ps->d = ceil(ps->d);} break;
 				case FLOOR: if (ps->d < 0) {ps->d = floor(ps->d);} break;
 				case NINT: if (ps->d < 0) {ps->d = (double)(long)(ps->d >= 0 ? ps->d+0.5 : ps->d-0.5);} break;
+				case AMAX: break;
+				case AMIN: break;
 				}
 			}
 			break;
 
 
+		case ARANDOM:
+			INC(ps);
+			ps->a = &(ps->local_array[0]);
+			for (i=0; i<arraySize; i++) ps->a[i] = local_random();
+			break;
+
 		case RANDOM:
 			INC(ps);
-			if (isArray(ps)) {
-				for (i=0; i<arraySize; i++) ps->a[i] = local_random();
-			} else {
-				ps->d = local_random();
-				ps->a = NULL;
-			}
+			ps->d = local_random();
+			ps->a = NULL;
 			break;
 
 		case EXPON:
@@ -761,6 +778,9 @@ long epicsShareAPI
 			*p_dresult = ps->d;
 		}
 	}
+
+	if (aCalcPerformDebug) printf("aCalcPerform:stack lo=%d, hi=%d\n",
+		aCalcStackLW, aCalcStackHW);
 
 	stackInUse=0;
 	return(((isnan(*p_dresult)||isinf(*p_dresult)) ? -1 : 0));
