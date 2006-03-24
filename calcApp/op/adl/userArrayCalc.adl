@@ -1,12 +1,12 @@
 
 file {
-	name="C:\Documents and Settings\mooney\Desktop\Work\epics\synApps\adl\userArrayCalc.adl"
+	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/userArrayCalc.adl"
 	version=030004
 }
 display {
 	object {
-		x=304
-		y=131
+		x=33
+		y=126
 		width=400
 		height=440
 	}
@@ -547,18 +547,6 @@ polyline {
 		(0,156)
 		(398,156)
 	}
-}
-text {
-	object {
-		x=5
-		y=173
-		width=15
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="AA"
 }
 "text entry" {
 	object {
@@ -1322,18 +1310,6 @@ rectangle {
 		chan="$(P)$(C).IBBV"
 	}
 }
-text {
-	object {
-		x=5
-		y=195
-		width=15
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="BB"
-}
 "text entry" {
 	object {
 		x=235
@@ -1548,8 +1524,8 @@ composite {
 }
 "related display" {
 	object {
-		x=4
-		y=252
+		x=5
+		y=253
 		width=90
 		height=16
 	}
@@ -1564,8 +1540,8 @@ composite {
 }
 "related display" {
 	object {
-		x=3
-		y=304
+		x=5
+		y=306
 		width=90
 		height=16
 	}
@@ -1577,4 +1553,36 @@ composite {
 	clr=0
 	bclr=63
 	label="-ARRAY RESULT"
+}
+"related display" {
+	object {
+		x=5
+		y=170
+		width=20
+		height=20
+	}
+	display[0] {
+		label="plot"
+		name="userArrayCalcPlot.adl"
+		args="P=$(P),Y=$(P)$(C).AA,YLABEL=$(P)$(C).AA"
+	}
+	clr=0
+	bclr=63
+	label="-AA"
+}
+"related display" {
+	object {
+		x=5
+		y=192
+		width=20
+		height=20
+	}
+	display[0] {
+		label="plot"
+		name="userArrayCalcPlot.adl"
+		args="P=$(P),Y=$(P)$(C).BB,YLABEL=$(P)$(C).BB"
+	}
+	clr=0
+	bclr=63
+	label="-BB"
 }

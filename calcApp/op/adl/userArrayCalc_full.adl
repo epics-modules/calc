@@ -1,6 +1,6 @@
 
 file {
-	name="C:\Documents and Settings\mooney\Desktop\Work\epics\synApps\adl\userArrayCalc_full.adl"
+	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/userArrayCalc_full.adl"
 	version=030004
 }
 display {
@@ -374,18 +374,6 @@ polyline {
 		(379,615)
 	}
 }
-text {
-	object {
-		x=5
-		y=371
-		width=15
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="BB"
-}
 rectangle {
 	object {
 		x=25
@@ -434,18 +422,6 @@ rectangle {
 	format="string"
 	limits {
 	}
-}
-text {
-	object {
-		x=5
-		y=393
-		width=15
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="CC"
 }
 rectangle {
 	object {
@@ -496,18 +472,6 @@ rectangle {
 	limits {
 	}
 }
-text {
-	object {
-		x=5
-		y=415
-		width=15
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="DD"
-}
 rectangle {
 	object {
 		x=25
@@ -556,18 +520,6 @@ rectangle {
 	format="string"
 	limits {
 	}
-}
-text {
-	object {
-		x=5
-		y=437
-		width=15
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="EE"
 }
 rectangle {
 	object {
@@ -667,18 +619,6 @@ rectangle {
 	limits {
 	}
 }
-text {
-	object {
-		x=5
-		y=349
-		width=15
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="AA"
-}
 rectangle {
 	object {
 		x=25
@@ -727,18 +667,6 @@ rectangle {
 	format="string"
 	limits {
 	}
-}
-text {
-	object {
-		x=5
-		y=459
-		width=15
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="FF"
 }
 polyline {
 	object {
@@ -899,23 +827,11 @@ polyline {
 		(393,655)
 	}
 }
-text {
-	object {
-		x=4
-		y=662
-		width=80
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="ARRAY RESULT:"
-}
 "text update" {
 	object {
-		x=89
+		x=100
 		y=659
-		width=293
+		width=280
 		height=14
 	}
 	monitor {
@@ -1367,23 +1283,11 @@ polyline {
 		(379,728)
 	}
 }
-text {
-	object {
-		x=4
-		y=715
-		width=80
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="ARRAY RESULT:"
-}
 "text update" {
 	object {
-		x=89
+		x=100
 		y=712
-		width=293
+		width=280
 		height=14
 	}
 	monitor {
@@ -1410,18 +1314,6 @@ polyline {
 		(0,711)
 		(283,711)
 	}
-}
-text {
-	object {
-		x=5
-		y=503
-		width=15
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="HH"
 }
 rectangle {
 	object {
@@ -1472,18 +1364,6 @@ rectangle {
 	limits {
 	}
 }
-text {
-	object {
-		x=5
-		y=525
-		width=15
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="II"
-}
 rectangle {
 	object {
 		x=25
@@ -1533,18 +1413,6 @@ rectangle {
 	limits {
 	}
 }
-text {
-	object {
-		x=5
-		y=547
-		width=15
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="JJ"
-}
 rectangle {
 	object {
 		x=25
@@ -1593,18 +1461,6 @@ rectangle {
 	format="string"
 	limits {
 	}
-}
-text {
-	object {
-		x=5
-		y=569
-		width=15
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="KK"
 }
 rectangle {
 	object {
@@ -1704,18 +1560,6 @@ rectangle {
 	limits {
 	}
 }
-text {
-	object {
-		x=5
-		y=481
-		width=15
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="GG"
-}
 rectangle {
 	object {
 		x=25
@@ -1764,18 +1608,6 @@ rectangle {
 	format="string"
 	limits {
 	}
-}
-text {
-	object {
-		x=5
-		y=591
-		width=15
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="LL"
 }
 rectangle {
 	object {
@@ -2665,4 +2497,228 @@ composite {
 			align="horiz. centered"
 		}
 	}
+}
+"related display" {
+	object {
+		x=5
+		y=659
+		width=90
+		height=16
+	}
+	display[0] {
+		label="plot"
+		name="userArrayCalcPlot.adl"
+		args="P=$(P),Y=$(P)$(C).AVAL,YLABEL=$(P)$(C).AVAL"
+	}
+	clr=0
+	bclr=63
+	label="-ARRAY RESULT"
+}
+"related display" {
+	object {
+		x=5
+		y=712
+		width=90
+		height=16
+	}
+	display[0] {
+		label="plot"
+		name="userArrayCalcPlot.adl"
+		args="P=$(P),Y=$(P)$(C).OAV,YLABEL=$(P)$(C).OAV"
+	}
+	clr=0
+	bclr=63
+	label="-ARRAY RESULT"
+}
+"related display" {
+	object {
+		x=5
+		y=348
+		width=20
+		height=20
+	}
+	display[0] {
+		label="plot"
+		name="userArrayCalcPlot.adl"
+		args="P=$(P),Y=$(P)$(C).AA,YLABEL=$(P)$(C).AA"
+	}
+	clr=0
+	bclr=63
+	label="-AA"
+}
+"related display" {
+	object {
+		x=5
+		y=368
+		width=20
+		height=20
+	}
+	display[0] {
+		label="plot"
+		name="userArrayCalcPlot.adl"
+		args="P=$(P),Y=$(P)$(C).BB,YLABEL=$(P)$(C).BB"
+	}
+	clr=0
+	bclr=63
+	label="-BB"
+}
+"related display" {
+	object {
+		x=5
+		y=390
+		width=20
+		height=20
+	}
+	display[0] {
+		label="plot"
+		name="userArrayCalcPlot.adl"
+		args="P=$(P),Y=$(P)$(C).CC,YLABEL=$(P)$(C).CC"
+	}
+	clr=0
+	bclr=63
+	label="-CC"
+}
+"related display" {
+	object {
+		x=5
+		y=412
+		width=20
+		height=20
+	}
+	display[0] {
+		label="plot"
+		name="userArrayCalcPlot.adl"
+		args="P=$(P),Y=$(P)$(C).DD,YLABEL=$(P)$(C).DD"
+	}
+	clr=0
+	bclr=63
+	label="-DD"
+}
+"related display" {
+	object {
+		x=5
+		y=434
+		width=20
+		height=20
+	}
+	display[0] {
+		label="plot"
+		name="userArrayCalcPlot.adl"
+		args="P=$(P),Y=$(P)$(C).EE,YLABEL=$(P)$(C).EE"
+	}
+	clr=0
+	bclr=63
+	label="-EE"
+}
+"related display" {
+	object {
+		x=5
+		y=456
+		width=20
+		height=20
+	}
+	display[0] {
+		label="plot"
+		name="userArrayCalcPlot.adl"
+		args="P=$(P),Y=$(P)$(C).FF,YLABEL=$(P)$(C).FF"
+	}
+	clr=0
+	bclr=63
+	label="-FF"
+}
+"related display" {
+	object {
+		x=5
+		y=478
+		width=20
+		height=20
+	}
+	display[0] {
+		label="plot"
+		name="userArrayCalcPlot.adl"
+		args="P=$(P),Y=$(P)$(C).GG,YLABEL=$(P)$(C).GG"
+	}
+	clr=0
+	bclr=63
+	label="-GG"
+}
+"related display" {
+	object {
+		x=5
+		y=500
+		width=20
+		height=20
+	}
+	display[0] {
+		label="plot"
+		name="userArrayCalcPlot.adl"
+		args="P=$(P),Y=$(P)$(C).HH,YLABEL=$(P)$(C).HH"
+	}
+	clr=0
+	bclr=63
+	label="-HH"
+}
+"related display" {
+	object {
+		x=5
+		y=522
+		width=20
+		height=20
+	}
+	display[0] {
+		label="plot"
+		name="userArrayCalcPlot.adl"
+		args="P=$(P),Y=$(P)$(C).II,YLABEL=$(P)$(C).II"
+	}
+	clr=0
+	bclr=63
+	label="-II"
+}
+"related display" {
+	object {
+		x=5
+		y=544
+		width=20
+		height=20
+	}
+	display[0] {
+		label="plot"
+		name="userArrayCalcPlot.adl"
+		args="P=$(P),Y=$(P)$(C).JJ,YLABEL=$(P)$(C).JJ"
+	}
+	clr=0
+	bclr=63
+	label="-JJ"
+}
+"related display" {
+	object {
+		x=5
+		y=566
+		width=20
+		height=20
+	}
+	display[0] {
+		label="plot"
+		name="userArrayCalcPlot.adl"
+		args="P=$(P),Y=$(P)$(C).KK,YLABEL=$(P)$(C).KK"
+	}
+	clr=0
+	bclr=63
+	label="-KK"
+}
+"related display" {
+	object {
+		x=5
+		y=588
+		width=20
+		height=20
+	}
+	display[0] {
+		label="plot"
+		name="userArrayCalcPlot.adl"
+		args="P=$(P),Y=$(P)$(C).LL,YLABEL=$(P)$(C).LL"
+	}
+	clr=0
+	bclr=63
+	label="-LL"
 }

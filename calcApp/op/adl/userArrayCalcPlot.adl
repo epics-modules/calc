@@ -1,14 +1,14 @@
 
 file {
-	name="C:\Documents and Settings\mooney\Desktop\Work\epics\synApps\adl\userArrayCalcPlot.adl"
+	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/userArrayCalcPlot.adl"
 	version=030004
 }
 display {
 	object {
-		x=871
-		y=592
+		x=433
+		y=611
 		width=400
-		height=235
+		height=215
 	}
 	clr=14
 	bclr=0
@@ -95,7 +95,7 @@ display {
 		height=200
 	}
 	plotcom {
-		ylabel="$(YLABEL)"
+		xlabel="ARRAY INDEX"
 		clr=14
 		bclr=0
 	}
@@ -126,19 +126,6 @@ text {
 	"basic attribute" {
 		clr=14
 	}
-	textix="ArrayCalc Plot"
-	align="horiz. centered"
-}
-text {
-	object {
-		x=0
-		y=218
-		width=400
-		height=13
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="index"
+	textix="$(YLABEL)"
 	align="horiz. centered"
 }
