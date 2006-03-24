@@ -109,8 +109,8 @@ int aCalcStackLW = 0;	/* low-water mark */
 		for(ii=0; ii<arraySize; ii++) (ps)->a[ii]=ps->d;	\
 }
 
-struct stackElement stack[STACKSIZE];
-int stackInUse=0;
+static struct stackElement stack[STACKSIZE];
+static int stackInUse=0;
 
 long epicsShareAPI 
 	aCalcPerform(double *p_dArg, int num_dArgs, double **pp_aArg,
@@ -118,12 +118,16 @@ long epicsShareAPI
 		char *post)
 
 {
-	struct stackElement stack[STACKSIZE], *top;
+	struct stackElement *top;
 	struct stackElement *ps, *ps1;
 	char				*s, currSymbol;
 	int					i, j;
 	double				d;
 	short 				got_if;
+
+	if (aCalcPerformDebug>=10) {
+		printf("aCalcPerform:array-arg addresses: %p %p...\n", (void *)pp_aArg[0], (void *)pp_aArg[1]);
+	}
 
 	if (stackInUse) {
 		printf("aCalcPerform: stack in use.  Nothing done\n");
@@ -183,6 +187,10 @@ long epicsShareAPI
 			printf("%c=%f\t", 'a'+i, p_dArg[i]);
 			if (i%4 == 3) printf("\n");
 		}
+		for (i=0; i<num_aArgs; i++) {
+			printf("%c%c=[%f %f %f...]\n",
+				'a'+i, 'a'+i, pp_aArg[i][0], pp_aArg[i][1], pp_aArg[i][2]);
+		}
 	}
 #endif
 
@@ -234,13 +242,12 @@ long epicsShareAPI
 			ps->a = &(ps->local_array[0]);
 			ps->a[0] = 0.;
 			if (*post < num_aArgs) {
-				if (aCalcPerformDebug>=20) printf("aCalcPerform:fetch array %d = [\n", (int)*post);
 				for (i=0; i<arraySize; i++) {
 					ps->a[i] = pp_aArg[(int)*post][i];
-					if (aCalcPerformDebug>=20) printf("%f ", ps->a[i]);
-
 				}
-				if (aCalcPerformDebug>=20) printf("]\n");
+				if (aCalcPerformDebug>=20)
+					printf("aCalcPerform:fetch array %d = [%f %f...]\n",
+						(int)*post, ps->a[0], ps->a[1]);
 			}
 			break;
 
@@ -277,6 +284,14 @@ long epicsShareAPI
 			INC(ps);
 			ps->a = NULL;
 			ps->d = (180.*3600)/PI;
+			break;
+
+		case CONST_IX:
+			INC(ps);
+			ps->a = &(ps->local_array[0]);
+			for (i=0; i<arraySize; i++) {
+				ps->a[i] = i;
+			}
 			break;
 
 		case ADD:
@@ -609,23 +624,29 @@ long epicsShareAPI
 			break;
 
 		case RIGHT_SHIFT:
-			checkStackElement(ps, *post);
-			ps1 = ps;
-			DEC(ps);
-			checkStackElement(ps, *post);
-			toDouble(ps1);
-			toDouble(ps);
-			ps->d = (int)(ps->d) >> (int)(ps1->d);
-			break;
-
 		case LEFT_SHIFT:
 			checkStackElement(ps, *post);
 			ps1 = ps;
 			DEC(ps);
 			checkStackElement(ps, *post);
 			toDouble(ps1);
-			toDouble(ps);
-			ps->d = (int)(ps->d) << (int)(ps1->d);
+			if (isDouble(ps)) {
+				if (currSymbol == RIGHT_SHIFT) {
+					ps->d = (int)(ps->d) >> (int)(ps1->d);
+				} else {
+					ps->d = (int)(ps->d) << (int)(ps1->d);
+				}
+			} else {
+				j = myNINT(ps1->d);
+				if (currSymbol == LEFT_SHIFT)  j = -j;
+				if (j > 0) {
+					for (i=arraySize-1; i>=j; i--) ps->a[i] = ps->a[i-j];
+					for ( ; i>=0; i--) ps->a[i] = 0.;
+				} else if (j < 0) {
+					for (i=0; i<arraySize+j; i++) ps->a[i] = ps->a[i-j];
+					for ( ; i<arraySize; i++) ps->a[i] = 0.;
+				}
+			}
 			break;
 
  		case ATAN2:
