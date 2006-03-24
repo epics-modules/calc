@@ -134,6 +134,8 @@ element    i_s_p i_c_p type_element     internal_rep */
 {"ATAN",   10,    11,    UNARY_OPERATOR,  ATAN},        /* arc tangent */
 {"MAX",    10,    11,    UNARY_OPERATOR,  MAXFUNC},     /* 2 args */
 {"MIN",    10,    11,    UNARY_OPERATOR,  MINFUNC},     /* 2 args */
+{"AMAX",   10,    11,    UNARY_OPERATOR,  AMAX},        /* 1 arg */
+{"AMIN",   10,    11,    UNARY_OPERATOR,  AMIN},        /* 1 args */
 {"CEIL",   10,    11,    UNARY_OPERATOR,  CEIL},        /* smallest integer >= */
 {"FLOOR",  10,    11,    UNARY_OPERATOR,  FLOOR},       /* largest integer <=  */
 {"NINT",   10,    11,    UNARY_OPERATOR,  NINT},        /* nearest integer */
@@ -151,7 +153,8 @@ element    i_s_p i_c_p type_element     internal_rep */
 {"ARR",    10,    11,    UNARY_OPERATOR,  TO_ARRAY},    /* convert to array */
 {"@@",     10,    11,    UNARY_OPERATOR,  A_AFETCH},    /* fetch array argument */
 {"@",      10,    11,    UNARY_OPERATOR,  A_FETCH},     /* fetch numeric argument */
-{"RNDM",    0,     0,    OPERAND,         RANDOM},      /* Random Number */
+{"RNDM",    0,     0,    OPERAND,         RANDOM},      /* Random number */
+{"ARNDM",   0,     0,    OPERAND,         ARANDOM},     /* Random array */
 {"OR",      1,     1,    BINARY_OPERATOR, BIT_OR},      /* or */
 {"AND",     2,     2,    BINARY_OPERATOR, BIT_AND},     /* and */
 {"XOR",     1,     1,    BINARY_OPERATOR, BIT_EXCL_OR}, /* exclusive or */
@@ -217,6 +220,186 @@ static struct expression_element	fetch_string_element = {
 "AA",		0,	0,	OPERAND,	AFETCH,   /* fetch var */
 };
 
+#if 0
+#define INC(ps) {if ((int)(++ps-top)>STACKSIZE) return(-1);}
+#define DEC(ps) {if ((int)(--ps-top)<0) return(-1);}
+#else
+#define INC(ps) ++(ps)
+#define DEC(ps) --(ps)
+#endif
+long aCalcCheck(char *post, int forks_checked, int dir_mask)
+{
+	double 		stack[STACKSIZE], *top, *ps;
+	int			i, this_fork = 0;
+	int			dir;
+	short 		got_if=0;
+	char		*post_top = post;
+#if DEBUG
+	char		debug_prefix[10]="";
+
+	if (aCalcPostfixDebug) {
+		for (i=0; i<=forks_checked; i++)
+			strcat(debug_prefix, (dir_mask&(1<<i))?"T":"F");
+		printf("aCalcCheck: entry: forks_checked=%d, dir_mask=0x%x\n",
+			forks_checked, dir_mask);
+	}
+#endif
+
+	top = ps = &stack[1];
+	DEC(ps);  /* Expression handler assumes ps is pointing to a filled element */
+
+	/* string expressions and values handled */
+	while (*post != END_STACK) {
+#if DEBUG
+		if (aCalcPostfixDebug) printf("aCalcCheck: %s *post=%d\n", debug_prefix, *post);
+#endif
+
+		switch (*post) {
+
+		case FETCH_A: case FETCH_B: case FETCH_C: case FETCH_D:
+		case FETCH_E: case FETCH_F: case FETCH_G: case FETCH_H:
+		case FETCH_I: case FETCH_J: case FETCH_K: case FETCH_L:
+			INC(ps);
+			*ps = 0;
+			break;
+
+		case FETCH:
+			INC(ps);
+			++post;
+			*ps = 0;
+			break;
+
+		case AFETCH:	/* fetch from string variable */
+			INC(ps);
+			++post;
+			*ps=0;
+			break;
+
+		case CONST_PI:	case CONST_D2R:	case CONST_R2D:	case CONST_S2R:
+		case CONST_R2S:	case RANDOM:	case ARANDOM:	case CONST_IX:
+			INC(ps);
+			*ps = 0;
+			break;
+
+		case ADD:			case SUB:		case MAX_VAL:	case MIN_VAL:
+		case MULT:			case DIV:		case EXPON:		case MODULO:
+		case REL_OR:		case REL_AND:	case BIT_OR:	case BIT_AND:
+		case BIT_EXCL_OR:	case GR_OR_EQ:	case GR_THAN:	case LESS_OR_EQ:
+		case LESS_THAN:		case NOT_EQ:	case EQUAL:		case RIGHT_SHIFT:
+		case LEFT_SHIFT:	case ATAN2:		case MAXFUNC:	case MINFUNC:
+			DEC(ps);
+			*ps = 0;
+			break;
+
+	
+		case ABS_VAL:	case UNARY_NEG:	case SQU_RT:	case EXP:
+		case LOG_10:	case LOG_E:		case ACOS:		case ASIN:
+		case ATAN:		case COS:		case SIN:		case TAN:
+		case COSH:		case SINH:		case TANH:		case CEIL:
+		case FLOOR:		case NINT:		case REL_NOT:	case BIT_NOT:
+		case A_FETCH:	case TO_DOUBLE:
+		case AMAX:		case AMIN:
+			*ps = 0;
+			break;
+
+		case A_AFETCH:
+			*ps = 0;
+			break;
+
+		case LITERAL:
+			INC(ps);
+			++post;
+			if (post == NULL) {
+				++post;
+			} else {
+				post += 7;
+			}
+			*ps = 0;
+			break;
+
+		case TO_ARRAY:
+			*ps = 0;;
+			break;
+
+		case COND_IF:
+			/*
+			 * Recursively check all COND_IF forks:
+			 * Take the condition-false path, call aCalcCheck() to check the
+			 * condition-true path, giving instructions (forks_checked,
+			 * dir_mask) that will bring it to this fork and cause it to take
+			 * the condition-true path. 
+			 */
+			dir = (this_fork <= forks_checked) ? dir_mask&(1<<this_fork) : 0;
+			if (this_fork == forks_checked) {
+				if (dir == 0) {
+					if (aCalcCheck(post_top, this_fork, dir_mask|(1<<this_fork)))
+						return(-1);
+				}
+			} else if (this_fork > forks_checked) {
+				/* New fork, so dir has been set to 0 */
+				forks_checked++;
+				if (aCalcCheck(post_top, this_fork, dir_mask|(1<<this_fork)))
+					return(-1);
+#if DEBUG
+				if (aCalcPostfixDebug) strcat(debug_prefix, "F");
+#endif
+			}
+			this_fork++;  /* assuming we do, in fact, encounter another fork */
+
+			/* if false condition then skip true expression */
+			if (dir == 0) {
+				/* skip to matching COND_ELSE */
+				for (got_if=1; got_if>0 && *(post+1) != END_STACK; ++post) {
+					switch(post[1]) {
+					case LITERAL:	post+=8; break;
+					case COND_IF:	got_if++; break;
+					case COND_ELSE:	got_if--; break;
+					case FETCH: case AFETCH: post++; break;
+					}
+				}
+			}
+			/* remove condition from stack top */
+			DEC(ps);
+			break;
+
+		case COND_ELSE:
+			/* result, true condition is on stack so skip false condition  */
+			/* skip to matching COND_END */
+			for (got_if=1; got_if>0 && *(post+1) != END_STACK; ++post) {
+				switch(post[1]) {
+				case LITERAL:	post+=8; break;
+				case COND_IF:	got_if++; break;
+				case COND_END:	got_if--; break;
+				case FETCH: case AFETCH: post++; break;
+				}
+			}
+			break;
+
+		case COND_END:
+			break;
+
+		default:
+			break;
+		}
+
+		/* move ahead in postfix expression */
+		++post;
+	}
+
+#if DEBUG
+	if (ps != top) {
+		if (aCalcPostfixDebug>=10) {
+			printf("aCalcCheck: stack error: top=%p, ps=%p, ps-top=%d, got_if=%d\n",
+				(void *)top, (void *)ps, ps-top, got_if);
+		}
+	}
+	if (aCalcPostfixDebug) printf("aCalcCheck: normal exit\n");
+#endif
+
+	/* If we have a stack error, and it's not attributable to '?' without ':', complain */
+	if ((ps != top) && ((top-ps) != got_if)) return(-1);
+	return(0);
+}
 
 /*
  * FIND_ELEMENT
@@ -301,6 +484,7 @@ long epicsShareAPI aCalcPostfix(char *pinfix, char *ppostfix, short *perror)
 	char in_stack_pri, in_coming_pri, code;
 	char *pposthold, *ppostfixStart;
 	short arg;
+	int badExpression;
 
 #if DEBUG
 	if (aCalcPostfixDebug) printf("aCalcPostfix: entry\n");
@@ -578,10 +762,12 @@ long epicsShareAPI aCalcPostfix(char *pinfix, char *ppostfix, short *perror)
 	*ppostfix++ = END_STACK;
 	*ppostfix = '\0';
 
-	if (ppostfixStart[1] == END_STACK) {
+	if ((ppostfixStart[1] == END_STACK) || aCalcCheck(ppostfixStart, 0, 0)) {
 		*ppostfixStart = BAD_EXPRESSION;
+		badExpression = 1;
 	} else {
 		*ppostfixStart = GOOD_EXPRESSION;
+		badExpression = 0;
 	}
 
 #if DEBUG
@@ -589,6 +775,5 @@ long epicsShareAPI aCalcPostfix(char *pinfix, char *ppostfix, short *perror)
 		printf("aCalcPostfix: buf-used=%d\n", (int)(1+ppostfix-ppostfixStart));
 	}
 #endif
-
-	return(0);
+	return(badExpression);
 }
