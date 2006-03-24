@@ -63,10 +63,6 @@
 #include	"aCalcPostfixPvt.h"
 #include <epicsExport.h>
 
-
-long test_aCalcPostfix(char *pinfix, int n);
-long test_aCalcPerform(char *pinfix, int n);
-
 #define DEBUG 1
 volatile int aCalcPostfixDebug=0;
 epicsExportAddress(int, aCalcPostfixDebug);
@@ -164,6 +160,7 @@ element    i_s_p i_c_p type_element     internal_rep */
 {"R2D",     0,     0,    OPERAND,         CONST_R2D},   /* 180/pi */
 {"S2R",     0,     0,    OPERAND,         CONST_S2R},   /* arc-sec to radians: pi/(180*3600) */
 {"R2S",     0,     0,    OPERAND,         CONST_R2S},   /* radians to arc-sec: (180*3600)/pi */
+{"IX",      0,     0,    OPERAND,         CONST_IX},    /* array [0,1,2...] */
 {"0",       0,     0,    FLOAT_PT_CONST,  LITERAL},     /* flt pt constant */
 {"1",       0,     0,    FLOAT_PT_CONST,  LITERAL},     /* flt pt constant */
 {"2",       0,     0,    FLOAT_PT_CONST,  LITERAL},     /* flt pt constant */
@@ -220,219 +217,6 @@ static struct expression_element	fetch_string_element = {
 "AA",		0,	0,	OPERAND,	AFETCH,   /* fetch var */
 };
 
-/*
- * aCalcCheck()
- * The implementation of a variable number of arguments (for MAX and MIN)
- * has aCalcPerform() putting a NaN on its result stack to mark the end of
- * arguments.  aCalcPostfix() does not check its work thoroughly enough to ensure
- * that a pathological expression, such as "tan(max(a),b)" (enough total
- * arguments, but too many for "tan" and not enough for "max") gets flagged
- * as an error.  So, in the example above, the code that implements "max" will
- * see a NaN after only one argument--before it has begun to look for the
- * end-of-arguments marker--and will treat it as a value to be operated on.
- * We don't want to spend the time on every run of calcPerform() to check for
- * this sort of thing, so we check now.
- * Note that the only kind of problem we're capable of finding is an operator
- * encountering an unexpected NaN that was placed on the stack by the
- * VARG_TERM operator.  Pathological expressions not involving MAX or MIN
- * will sail on by, as they always have.
- */
-#define STACKSIZE 30
-#define checkStackElement(ps) {if ((ps)->a == NULL && isnan((ps)->d)) return(-1);}
-long aCalcCheck(char *post, int forks_checked, int dir_mask)
-{
-	struct stackElement stack[STACKSIZE], *top;
-	struct stackElement *ps;
-	int					i, this_fork = 0;
-	double				dir;
-	short 				got_if=0;
-	DOUBLE_LONG			*pu;
-	char				*post_top = post;
-#if DEBUG
-	char				debug_prefix[10]="";
-
-	if (aCalcPostfixDebug) {
-		for (i=0; i<=forks_checked; i++)
-			strcat(debug_prefix, (dir_mask&(1<<i))?"T":"F");
-		printf("aCalcCheck: entry: forks_checked=%d, dir_mask=0x%x\n",
-			forks_checked, dir_mask);
-	}
-	stack[0].d = 1.23456;	/* stack telltale */
-	stack[0].a = NULL;
-#endif
-
-	top = ps = &stack[1];
-	ps--;  /* Expression handler assumes ps is pointing to a filled element */
-
-	/* string expressions and values handled */
-	while (*post != END_STACK) {
-#if DEBUG
-		if (aCalcPostfixDebug) printf("aCalcCheck: %s *post=%d\n", debug_prefix, *post);
-#endif
-
-		switch (*post) {
-
-		case FETCH_A: case FETCH_B: case FETCH_C: case FETCH_D:
-		case FETCH_E: case FETCH_F: case FETCH_G: case FETCH_H:
-		case FETCH_I: case FETCH_J: case FETCH_K: case FETCH_L:
-			ps++;
-			ps->a = NULL;
-			ps->d = 0;
-			break;
-
-		case FETCH:
-			ps++;
-			++post;
-			ps->a = NULL;
-			ps->d = 0;
-			break;
-
-		case AFETCH:	/* fetch from string variable */
-			ps++;
-			++post;
-			ps->a = &(ps->local_array[0]);
-			ps->a[0] = '\0';
-			break;
-
-		case CONST_PI:	case CONST_D2R:	case CONST_R2D:	case CONST_S2R:
-		case CONST_R2S:	case RANDOM:
-			ps++;
-			ps->a = NULL;
-			ps->d = 0;
-			break;
-
-		case ADD:			case SUB:		case MAX_VAL:	case MIN_VAL:
-		case MULT:			case DIV:		case EXPON:		case MODULO:
-		case REL_OR:		case REL_AND:	case BIT_OR:	case BIT_AND:
-		case BIT_EXCL_OR:	case GR_OR_EQ:	case GR_THAN:	case LESS_OR_EQ:
-		case LESS_THAN:		case NOT_EQ:	case EQUAL:		case RIGHT_SHIFT:
-		case LEFT_SHIFT:	case ATAN2:		case MAXFUNC:	case MINFUNC:
-			checkStackElement(ps);
-			ps--;
-			checkStackElement(ps);
-			ps->d = 0;
-			ps->a = NULL;
-			break;
-
-	
-		case ABS_VAL:	case UNARY_NEG:	case SQU_RT:	case EXP:
-		case LOG_10:	case LOG_E:		case ACOS:		case ASIN:
-		case ATAN:		case COS:		case SIN:		case TAN:
-		case COSH:		case SINH:		case TANH:		case CEIL:
-		case FLOOR:		case NINT:		case REL_NOT:	case BIT_NOT:
-		case A_FETCH:	case TO_DOUBLE:
-			checkStackElement(ps);
-			ps->d = 0;
-			ps->a = NULL;
-			break;
-
-		case A_AFETCH:
-			checkStackElement(ps);
-			ps->a = &(ps->local_array[0]);
-			ps->a[0] = '\0';
-			break;
-
-		case LITERAL:
-			ps++;
-			++post;
-			if (post == NULL) {
-				++post;
-			} else {
-				post += 7;
-			}
-			ps->d = 0;
-			ps->a = NULL;
-			break;
-
-		case TO_ARRAY:
-			checkStackElement(ps);
-			ps->a = &(ps->local_array[0]);
-			ps->a[0] = '\0';
-			break;
-
-		case COND_IF:
-			/*
-			 * Recursively check all COND_IF forks:
-			 * Take the condition-false path, call aCalcCheck() to check the
-			 * condition-true path, giving instructions (forks_checked,
-			 * dir_mask) that will bring it to this fork and cause it to take
-			 * the condition-true path. 
-			 */
-			dir = (this_fork <= forks_checked) ? dir_mask&(1<<this_fork) : 0;
-			if (this_fork == forks_checked) {
-				if (dir == 0) {
-					if (aCalcCheck(post_top, this_fork, dir_mask|(1<<this_fork)))
-						return(-1);
-				}
-			} else if (this_fork > forks_checked) {
-				/* New fork, so dir has been set to 0 */
-				forks_checked++;
-				if (aCalcCheck(post_top, this_fork, dir_mask|(1<<this_fork)))
-					return(-1);
-#if DEBUG
-				if (aCalcPostfixDebug) strcat(debug_prefix, "F");
-#endif
-			}
-			this_fork++;  /* assuming we do, in fact, encounter another fork */
-
-			/* if false condition then skip true expression */
-			checkStackElement(ps);
-			if (ps->d == (double)dir) {
-				/* skip to matching COND_ELSE */
-				for (got_if=1; got_if>0 && *(post+1) != END_STACK; ++post) {
-					switch(post[1]) {
-					case LITERAL:	post+=8; break;
-					case COND_IF:	got_if++; break;
-					case COND_ELSE:	got_if--; break;
-					case FETCH: case AFETCH: post++; break;
-					}
-				}
-			}
-			/* remove condition from stack top */
-			--ps;
-			break;
-
-		case COND_ELSE:
-			/* result, true condition is on stack so skip false condition  */
-			/* skip to matching COND_END */
-			for (got_if=1; got_if>0 && *(post+1) != END_STACK; ++post) {
-				switch(post[1]) {
-				case LITERAL:	post+=8; break;
-				case COND_IF:	got_if++; break;
-				case COND_END:	got_if--; break;
-				case FETCH: case AFETCH: post++; break;
-				}
-			}
-			break;
-
-		case COND_END:
-			break;
-
-		default:
-			break;
-		}
-
-		/* move ahead in postfix expression */
-		++post;
-	}
-
-#if DEBUG
-	if (ps != top) {
-		if (aCalcPostfixDebug>=10) {
-			printf("aCalcCheck: stack error: top=%p, ps=%p, top-ps=%d, got_if=%d\n",
-				(void *)top, (void *)ps, top-ps, got_if);
-			printf("aCalcCheck: stack error: &stack[0]=%p, stack[0].d=%f\n", (void *)&stack[0], stack[0].d);
-		}
-	}
-	if (aCalcPostfixDebug) printf("aCalcCheck: normal exit\n");
-#endif
-
-	/* If we have a stack error, and it's not attributable to '?' without ':', complain */
-	if ((ps != top) && ((top-ps) != got_if)) return(-1);
-	return(0);
-}
-
-
 
 /*
  * FIND_ELEMENT
@@ -514,7 +298,7 @@ long epicsShareAPI aCalcPostfix(char *pinfix, char *ppostfix, short *perror)
 	short no_bytes, operand_needed, new_expression;
 	struct expression_element stack[80], *pelement, *pstacktop;
 	double constant;
-	char c, in_stack_pri, in_coming_pri, code;
+	char in_stack_pri, in_coming_pri, code;
 	char *pposthold, *ppostfixStart;
 	short arg;
 
@@ -806,5 +590,5 @@ long epicsShareAPI aCalcPostfix(char *pinfix, char *ppostfix, short *perror)
 	}
 #endif
 
-	return(aCalcCheck(ppostfixStart, 0, 0));
+	return(0);
 }
