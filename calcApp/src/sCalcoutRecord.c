@@ -160,6 +160,7 @@ static void checkLinksCallback();
 static long writeValue(scalcoutRecord *pcalc);
 
 volatile int    sCalcoutRecordDebug = 0;
+epicsExportAddress(int, sCalcoutRecordDebug);
 
 #define ARG_MAX 12
 #define STRING_ARG_MAX 12

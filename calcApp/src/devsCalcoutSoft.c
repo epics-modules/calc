@@ -60,6 +60,7 @@ struct {
 epicsExportAddress(dset,devsCalcoutSoft);
 
 volatile int devsCalcoutSoftDebug=0;
+epicsExportAddress(int, devsCalcoutSoftDebug);
 
 static long write_scalcout(scalcoutRecord *pscalcout)
 {

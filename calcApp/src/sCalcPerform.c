@@ -88,6 +88,7 @@
 #define epicsExportSharedSymbols
 #include	"sCalcPostfix.h"
 #include	"sCalcPostfixPvt.h"
+#include <epicsExport.h>
 
 static double	local_random();
 
@@ -101,6 +102,8 @@ static double	local_random();
 #define OVERRIDESTDCALC 0
 #define DEBUG 0
 volatile int sCalcPerformDebug = 0;
+epicsExportAddress(int, sCalcPerformDebug);
+
 #if DEBUG
 int sCalcStackHW = 0;	/* high-water mark */
 int sCalcStackLW = 0;	/* low-water mark */
