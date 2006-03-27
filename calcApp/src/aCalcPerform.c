@@ -76,8 +76,8 @@ epicsExportAddress(int, aCalcPerformDebug);
 #if DEBUG
 int aCalcStackHW = 0;	/* high-water mark */
 int aCalcStackLW = 0;	/* low-water mark */
-#define INC(ps) {if ((int)(++(ps)-top) > aCalcStackHW) aCalcStackHW = (int)((ps)-top); if ((ps-top)>STACKSIZE) {stackInUse=0;return(-1);}}
-#define DEC(ps) {if ((int)(--(ps)-top) < aCalcStackLW) aCalcStackLW = (int)((ps)-top); if ((ps-top)<0) {stackInUse=0;return(-1);}}
+#define INC(ps) {if ((int)(++(ps)-top) > aCalcStackHW) aCalcStackHW = (int)((ps)-top); if ((ps-top)>STACKSIZE) {printf("aCalcPerform:underflow\n"); stackInUse=0;return(-1);}}
+#define DEC(ps) {if ((int)(--(ps)-top) < aCalcStackLW) aCalcStackLW = (int)((ps)-top); if ((ps-top)<-1) {printf("aCalcPerform:underflow\n"); stackInUse=0;return(-1);}}
 #define checkDoubleElement(pd,op) {if (isnan(*(pd))) printf("aCalcPerform: unexpected NaN in op %d\n", (op));}
 #define checkStackElement(ps,op) {if (((ps)->a == NULL) && isnan((ps)->d)) printf("aCalcPerform: unexpected NaN in op %d\n", (op));}
 #else
@@ -119,9 +119,9 @@ long epicsShareAPI
 
 {
 	struct stackElement *top;
-	struct stackElement *ps, *ps1;
+	struct stackElement *ps, *ps1, *ps2;
 	char				*s, currSymbol;
-	int					i, j;
+	int					i, j, k;
 	double				d;
 	short 				got_if;
 
@@ -354,9 +354,11 @@ long epicsShareAPI
 			/* if false condition then skip true expression */
 			checkStackElement(ps, *post);
 			toDouble(ps);
+			if (aCalcPerformDebug>=20) {printf("aCalcPerform:cond_if: ps->d=%f, ps-top=%d\n", ps->d, (int)ps-(int)top);}
 			if (ps->d == 0.0) {
 				/* skip to matching COND_ELSE */
 				for (got_if=1; got_if>0 && post[1] != END_STACK; ++post) {
+					if (aCalcPerformDebug>=20) {printf("aCalcPerform:cond_if:*post=%d\n", *post);}
 					switch (post[1]) {
 					case LITERAL:	post+=8; break;
 					case COND_IF:	got_if++; break;
@@ -372,6 +374,8 @@ long epicsShareAPI
 					stackInUse=0;
 					return(-1);
 				}
+				if (aCalcPerformDebug>=20) {printf("aCalcPerform:skipped to else: *post=%d\n", *post);}
+
 			}
 			/* remove condition from stack top */
 			DEC(ps);
@@ -380,7 +384,9 @@ long epicsShareAPI
 		case COND_ELSE:
 			/* result, true condition is on stack so skip false condition  */
 			/* skip to matching COND_END */
+			if (aCalcPerformDebug>=20) {printf("aCalcPerform:cond_ else\n");}
 			for (got_if=1; got_if>0 && post[1] != END_STACK; ++post) {
+				if (aCalcPerformDebug>=20) {printf("aCalcPerform:cond_else: *post=%d\n", *post);}
 				switch(post[1]) {
 				case LITERAL:	post+=8; break;
 				case COND_IF:	got_if++; break;
@@ -388,11 +394,14 @@ long epicsShareAPI
 				case FETCH: case AFETCH: post++; break;
 				}
 			}
+			if (aCalcPerformDebug>=20) {printf("aCalcPerform:skipped to cond_end: *post=%d\n", *post);}
+
 			break;
 
 		case COND_END:
 			break;
 
+		/* Normal one-argument functiona and operators */
 		case ABS_VAL:
 		case UNARY_NEG:
 		case SQU_RT:
@@ -413,6 +422,8 @@ long epicsShareAPI
 		case NINT:
 		case AMAX:
 		case AMIN:
+		case REL_NOT:
+		case BIT_NOT:
 			checkStackElement(ps, *post);
 			if (isArray(ps)) {
 				switch (currSymbol) {
@@ -459,6 +470,8 @@ long epicsShareAPI
 					toDouble(ps);
 					ps->d = d;
 					break;
+				case REL_NOT: for (i=0; i<arraySize; i++) {ps->a[i] = (ps->a[i] ? 0 : 1);} break;
+				case BIT_NOT: for (i=0; i<arraySize; i++) {ps->a[i] = ~(int)(ps->a[i]);} break;
 				}
 			} else {
 				switch (currSymbol) {
@@ -493,6 +506,8 @@ long epicsShareAPI
 				case NINT: if (ps->d < 0) {ps->d = (double)(long)(ps->d >= 0 ? ps->d+0.5 : ps->d-0.5);} break;
 				case AMAX: break;
 				case AMIN: break;
+				case REL_NOT: ps->d = (ps->d ? 0 : 1);
+				case BIT_NOT: ps->d = ~(int)(ps->d);
 				}
 			}
 			break;
@@ -548,59 +563,7 @@ long epicsShareAPI
 			}
 			break;
 
-		case REL_OR:
-			checkStackElement(ps, *post);
-			ps1 = ps;
-			DEC(ps);
-			checkStackElement(ps, *post);
-			toDouble(ps1);
-			toDouble(ps);
-			ps->d = ps->d || ps1->d;
-			break;
-
-		case REL_AND:
-			checkStackElement(ps, *post);
-			ps1 = ps;
-			DEC(ps);
-			checkStackElement(ps, *post);
-			toDouble(ps1);
-			toDouble(ps);
-			ps->d = ps->d && ps1->d;
-			break;
-
-		case BIT_OR:
-			/* force double values into integers and or them */
-			checkStackElement(ps, *post);
-			ps1 = ps;
-			DEC(ps);
-			checkStackElement(ps, *post);
-			toDouble(ps1);
-			toDouble(ps);
-			ps->d = (int)(ps1->d) | (int)(ps->d);
-			break;
-
-		case BIT_AND:
-			/* force double values into integers and and them */
-			checkStackElement(ps, *post);
-			ps1 = ps;
-			DEC(ps);
-			checkStackElement(ps, *post);
-			toDouble(ps1);
-			toDouble(ps);
-			ps->d = (int)(ps1->d) & (int)(ps->d);
-			break;
-
-		case BIT_EXCL_OR:
-			/* force double values to integers to exclusive or them */
-			checkStackElement(ps, *post);
-			ps1 = ps;
-			DEC(ps);
-			checkStackElement(ps, *post);
-			toDouble(ps1);
-			toDouble(ps);
-			ps->d = (int)(ps1->d) ^ (int)(ps->d);
-			break;
-
+		/* Normal two-argument functiona and operators */
 		case GR_OR_EQ:
 		case GR_THAN:
 		case LESS_OR_EQ:
@@ -609,6 +572,12 @@ long epicsShareAPI
 		case EQUAL:
 		case MAX_VAL:
 		case MIN_VAL:
+		case REL_OR:
+		case REL_AND:
+		case BIT_OR:
+		case BIT_AND:
+		case BIT_EXCL_OR:
+ 		case ATAN2:
 			checkStackElement(ps, *post);
 			ps1 = ps;
 			DEC(ps);
@@ -625,6 +594,12 @@ long epicsShareAPI
 				case EQUAL: for (i=0; i<arraySize; i++) ps->a[i] = ps->a[i] == ps1->a[i]; break;
 				case MAX_VAL: for (i=0; i<arraySize; i++) if (ps->a[i] < ps1->a[i]) ps->a[i] = ps1->a[i]; break;
 				case MIN_VAL: for (i=0; i<arraySize; i++) if (ps->a[i] > ps1->a[i]) ps->a[i] = ps1->a[i]; break;
+				case REL_OR: for (i=0; i<arraySize; i++) ps->a[i] = ps->a[i] || ps1->a[i]; break;
+				case REL_AND: for (i=0; i<arraySize; i++) ps->a[i] = ps->a[i] && ps1->a[i]; break;
+				case BIT_OR: for (i=0; i<arraySize; i++) ps->a[i] = (int)ps->a[i] | (int)ps1->a[i]; break;
+				case BIT_AND: for (i=0; i<arraySize; i++) ps->a[i] = (int)ps->a[i] & (int)ps1->a[i]; break;
+				case BIT_EXCL_OR: for (i=0; i<arraySize; i++) ps->a[i] = (int)ps->a[i] ^ (int)ps1->a[i]; break;
+		 		case ATAN2: for (i=0; i<arraySize; i++) ps->a[i] = atan2(ps1->a[i], ps->a[i]); break;
 				}
 			} else {
 				switch (currSymbol) {
@@ -636,6 +611,12 @@ long epicsShareAPI
 				case EQUAL: ps->d = ps->d == ps1->d; break;
 				case MAX_VAL: if (ps->d < ps1->d) ps->d = ps1->d; break;
 				case MIN_VAL: if (ps->d > ps1->d) ps->d = ps1->d; break;
+				case REL_OR: ps->d = ps->d || ps1->d; break;
+				case REL_AND: ps->d = ps->d && ps1->d; break;
+				case BIT_OR: ps->d = (int)ps->d | (int)ps1->d; break;
+				case BIT_AND: ps->d = (int)ps->d & (int)ps1->d; break;
+				case BIT_EXCL_OR: ps->d = (int)ps->d ^ (int)ps1->d; break;
+				case ATAN2: ps->d = atan2(ps1->d, ps->d);
 				}
 			}
 			break;
@@ -664,28 +645,6 @@ long epicsShareAPI
 					for ( ; i<arraySize; i++) ps->a[i] = 0.;
 				}
 			}
-			break;
-
- 		case ATAN2:
-			checkStackElement(ps, *post);
-			ps1 = ps;
-			DEC(ps);
-			checkStackElement(ps, *post);
-			toDouble(ps1);
-			toDouble(ps);
- 			ps->d = atan2(ps1->d, ps->d);
- 			break;
-
-		case REL_NOT:
-			checkStackElement(ps, *post);
-			toDouble(ps);
-			ps->d = (ps->d ? 0 : 1);
-			break;
-
-		case BIT_NOT:
-			checkStackElement(ps, *post);
-			toDouble(ps);
-			ps->d = ~(int)(ps->d);
 			break;
 
 		case A_FETCH:
@@ -737,12 +696,41 @@ long epicsShareAPI
 			toArray(ps);
 			break;
 
+		case SUBRANGE:
+		case SUBRANGE_IP:
+			checkStackElement(ps, *post);
+			ps2 = ps;
+			DEC(ps);
+			checkStackElement(ps, *post);
+			ps1 = ps;
+			DEC(ps);
+			checkStackElement(ps, *post);
+			toArray(ps);
+			toDouble(ps1);
+			i = (int)ps1->d;
+			if (i < 0) i += arraySize;
+			toDouble(ps2);
+			j = (int)ps2->d;
+			if (j < 0) j += arraySize;
+			i = MAX(MIN(i,arraySize),0);
+			j = MIN(j,arraySize);
+			if (currSymbol == SUBRANGE) {
+				for(k=0; i<=j; k++, i++) ps->a[k] = ps->a[i];
+				for( ; k<arraySize; k++) ps->a[k] = 0.;
+			} else {
+				for(k=0; k<i; k++) ps->a[k] = 0.;
+				for(k=j; k<arraySize; k++) ps->a[k] = 0.;
+			}
+			break;
+
 		default:
 			break;
 		}
 
 		/* move ahead in postfix expression */
 		++post;
+		if (aCalcPerformDebug>=20) printf("aCalcPerform:bottom of switch *post=%d\n", *post);
+
 	}
 
 	if (aCalcPerformDebug>=20) printf("aCalcPerform:done with expression\n");
@@ -751,7 +739,7 @@ long epicsShareAPI
 	if (ps != top) {
 #if DEBUG
 		if (aCalcPerformDebug>=10) {
-			printf("aCalcPerform: stack error,ps=%p,top=%p\n", ps, top);
+			printf("aCalcPerform: stack error,ps=%p,top=%p\n", (void *)ps, (void *)top);
 			printf("aCalcPerform: ps->d=%f\n", ps->d);
 		}
 #endif
