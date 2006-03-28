@@ -424,6 +424,7 @@ long epicsShareAPI
 		case AMIN:
 		case REL_NOT:
 		case BIT_NOT:
+		case AVERAGE:
 			checkStackElement(ps, *post);
 			if (isArray(ps)) {
 				switch (currSymbol) {
@@ -472,6 +473,11 @@ long epicsShareAPI
 					break;
 				case REL_NOT: for (i=0; i<arraySize; i++) {ps->a[i] = (ps->a[i] ? 0 : 1);} break;
 				case BIT_NOT: for (i=0; i<arraySize; i++) {ps->a[i] = ~(int)(ps->a[i]);} break;
+				case AVERAGE:
+					for (i=1, d=0.; i<arraySize; i++) {d += ps->a[i];}
+					toDouble(ps);
+					ps->d = d/arraySize;
+					break;
 				}
 			} else {
 				switch (currSymbol) {
@@ -506,8 +512,9 @@ long epicsShareAPI
 				case NINT: if (ps->d < 0) {ps->d = (double)(long)(ps->d >= 0 ? ps->d+0.5 : ps->d-0.5);} break;
 				case AMAX: break;
 				case AMIN: break;
-				case REL_NOT: ps->d = (ps->d ? 0 : 1);
-				case BIT_NOT: ps->d = ~(int)(ps->d);
+				case REL_NOT: ps->d = (ps->d ? 0 : 1); break;
+				case BIT_NOT: ps->d = ~(int)(ps->d); break;
+				case AVERAGE: break;
 				}
 			}
 			break;
