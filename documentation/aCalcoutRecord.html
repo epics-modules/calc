@@ -10,7 +10,7 @@ LispWorks 3.2.2 -->
 
 <H1>
 aCalcout - Array Calculation Output Record</H1>
-<HR><A NAME="HEADING14-1"></A>
+<HR><A NAME="INTRODUCTION"></A>
 
 <H1>
 1. Introduction</H1>
@@ -25,8 +25,11 @@ The aCalcout record's output link is intended to write array or scalar data
 depending on the data type of the field to which it is linked, but this hasn't
 been implemented yet.
 
+<P>Here's a sample MEDM display of some of the the aCalcout record fields.
+<center><IMG SRC="userArrayCalc.adl.jpg"><br>userArrayCalc.adl</IMG></center>
+
 <P>&nbsp;
-<HR><A NAME="HEADING14-11"></A>
+<HR><A NAME="SCAN_PARAMETERS"></A>
 <H1>
 2. Scan Parameters</H1>
 
@@ -35,12 +38,12 @@ circumstances the record will be processed.  See the EPICS Record Reference
 Manual for these fields and their use.
 
 <P>&nbsp;
-<HR><A NAME="HEADING14-13"></A>
+<HR><A NAME="INPUT_LINKS"></A>
 
 <H1>
-3. Read Parameters</H1>
+3. Input Links</H1>
 
-The read parameters for the aCalcout record consist of 24 input links: 12 to
+The aCalcout record has 24 links with which it fetches values for use in expressions: 12 to
 scalar fields (INPA -> A, INPB -> B, . . . INPL -> L); and 12 to array fields
 (INAA -> AA, INBB -> BB, ...INLL -> LL). The fields can be database links,
 channel access links, or (scalar-fields only) constants. These link fields
@@ -48,8 +51,8 @@ cannot be hardware addresses. In addition, the aCalcout record contains the
 fields INAV, INBV, . . . INLV, which indicate the status of the links to scalar
 fields, and the fields IAAV, IBBV, . . . ILLV, which indicate the status of the
 links to array fields.&nbsp; These fields indicate whether or not the specified
-PV was found and a link to it established. See <A HREF="#MARKER-9-2">Section 6,
-<I>Operator Display Parameters</I></A> for an explanation of these fields.
+PV was found and a link to it established. See <A HREF="#DISPLAY_PARAMETERS">Section 6,
+<I>Display Parameters</I></A> for an explanation of these fields.
 
 <P>&nbsp;See the EPICS Record Reference Manual for information on how to specify
 database links.
@@ -158,7 +161,7 @@ database links.
 
 <P>&nbsp;
 
-<HR><A NAME="HEADING14-16"></A>
+<HR><A NAME="EXPRESSIONS"></A>
 <H1>
 4. Expressions</H1>
 
@@ -251,13 +254,6 @@ commas, and the conditional '?:' operator. The expression can consist of any of
 these operators, as well as any of the values from the scalar and array input
 fields, which are the operands.
 
-<P>Grouping of operands with parentheses is important not only to
-specify the order in which operations are to be done, but also to distinguish
-operands from operators whose names are spelled out, such as the logical
-operator 'AND'.  The expression 'AANDB', which could have meant 'A AND B',
-will be misinterpreted by the parser, which will interpret 'AA' as the name
-of an array variable.
-
 <P>Unless otherwise stated, functions and operators behave as follows:
 
 <ul>
@@ -288,7 +284,7 @@ argument in color will be converted implicitly to scalar:
 
 </ul> 
 
-<A NAME="HEADING14-19"></A>
+<A NAME="OPERANDS"></A>
 <H2>
 4.1. Operands</H2>
 
@@ -469,7 +465,7 @@ constants.
 </table>
 
 
-<A NAME="HEADING14-21"></A>
+<A NAME="ALGEBRAIC"></A>
 <A NAME="Expressions"></A>
 <H2>
 4.2. Algebraic Functions/Operators</H2> 
@@ -576,7 +572,6 @@ constants.
 <td valign=top>Modulo (binary)
 <td><code>A%B</code>
 
-
 <tr>
 <td align=center valign=top>-
 <td valign=top>Negate (unary)
@@ -599,8 +594,9 @@ constants.
 
 </table>
 
+
 <P>
-<A NAME="HEADING14-39"></A>
+<A NAME="TRIGONOMETRIC"></A>
 <H2>
 4.3. Trigonometric Functions</H2>
 
@@ -664,7 +660,7 @@ constants.
 </table>
 
 <P>
-<A NAME="HEADING14-49"></A>
+<A NAME="RELATIONAL"></A>
 <H2>
 4.4. Relational Operators</H2>
 
@@ -718,7 +714,7 @@ constants.
 </table>
 
 <P>
-<A NAME="HEADING14-56"></A>
+<A NAME="LOGICAL"></A>
 <H2>
 4.5. Logical Operators</H2>
 
@@ -747,7 +743,7 @@ constants.
 </table>
 
 <P>
-<A NAME="HEADING14-60"></A>
+<A NAME="BITWISE"></A>
 <H2>
 4.6. Bitwise Operators</H2>
 
@@ -801,16 +797,26 @@ constants.
 
 
 <P>
-<A NAME="HEADING14-69"></A>
+<A NAME="SEPARATORS"></A>
 <H2>
-4.7. Parentheses and Comma</H2>
+4.7. Separators</H2>
 
-The open and close parentheses are supported. Nested parenthesis are supported.
+The open and close parentheses are supported.  Nested parenthesis are supported.
+Square and curly brackets are not available for use as separators, because they
+are being used as operators.
 
 <BR>The comma is supported when used to separate the arguments of a binary
 function.
 
-<P><A NAME="HEADING14-72"></A>
+<br>Spaces may occur between expression elements.  Space is required between
+elements that would otherwise be parsed incorrectly.  The parser always attempts
+to match the largest string of characters that constitute a recognized operator
+or variable. For example, <code>A AND B</code> could be shortened to <code>A ANDB</code>,
+because <code>ANDB</code> will be parsed as <code>AND B</code>.  However,
+<code>A AND B</code> may not be shortened to <code>AAND B</code>, because
+<code>AAND</code> would be parsed as <code>AA ND</code>.
+
+<P><A NAME="IF-ELSE"></A>
 <H2>
 4.8. Conditional Expression</H2>
 The C language's if-else (<code>?:</code>") operator is supported. The format is:
@@ -819,7 +825,7 @@ The C language's if-else (<code>?:</code>") operator is supported. The format is
 
 
 <P>
-<A NAME="HEADING14-74"></A>
+<A NAME="ARRAY_SPECIFIC"></A>
 <H2>
 4.9. Array-specific Functions/Operators</H2>
 
@@ -870,9 +876,14 @@ rendition of some scalar function.
 <td>Array shift left.    Move array elements by index. 
 <td><code>AA&lt;&lt;2</code> (same as <code>AA&gt;&gt;-2</code>)
 
+<tr>
+<td align=center valign=top>AVG
+<td valign=top>Average of array values
+<td><code>AVG(AA)</code>
+
 </table>
 
-<A NAME="HEADING14-75"></A>
+<A NAME="ARGUMENT_ARRAY"></A>
 <H2>
 4.10. Argument-array Operators</H2>
 <table border>
@@ -905,7 +916,7 @@ Thus, <code>@@1</code> is another way of saying <code>BB</code>.
 </table>
 
 
-<A NAME="HEADING14-76"></A>
+<A NAME="EXAMPLES"></A>
 <H2>
 4.11. Examples</H2>
 <A NAME="HEADING14-77"></A>
@@ -1013,7 +1024,7 @@ of A and B.<P>
 </DL>
 
 <P>&nbsp;
-<HR><A NAME="HEADING14-98"></A>
+<HR><A NAME="OUTPUT_PARAMETERS"></A>
 <H1>
 5.&nbsp;<A NAME="MARKER-9-1"></A>Output Parameters</H1>
 
@@ -1262,9 +1273,9 @@ its forward link.
 
 <P>&nbsp;
 <HR>
-<P><A NAME="HEADING14-109"></A>
+<P><A NAME="DISPLAY_PARAMETERS"></A>
 <H1>
-6.&nbsp;<A NAME="MARKER-9-2"></A>Operator Display Parameters</H1>
+6.&nbsp;<A NAME="MARKER-9-2"></A>Display Parameters</H1>
 
 These parameters are used to present meaningful data to the operator.
 Some are also meant to represent the status of the record at run-time.
@@ -1558,7 +1569,7 @@ description (DESC) fields.
 &nbsp;
 
 <HR>
-<P><A NAME="HEADING14-122"></A>
+<P><A NAME="ALARM_PARAMETERS"></A>
 <H1>
 7. Alarm Parameters</H1>
 
@@ -1702,7 +1713,7 @@ and these fields.
 &nbsp;
 
 <HR>
-<P><A NAME="HEADING14-126"></A>
+<P><A NAME="MONITOR_PARAMETERS"></A>
 <H1>
 8. Monitor Parameters</H1>
 
@@ -1755,7 +1766,7 @@ are triggered.
 &nbsp;
 
 <HR>
-<P><A NAME="HEADING14-128"></A>
+<P><A NAME="RUN-TIME_PARAMETERS"></A>
 <H1>
 9. Run-time Parameters</H1>
 
@@ -1932,11 +1943,11 @@ in the same manner for the VAL field.
 &nbsp;
 
 <HR>
-<P><A NAME="HEADING14-132"></A>
+<P><A NAME="RECORD_SUPPORT"></A>
 <H1>
 10. Record Support Routines</H1>
 
-<A NAME="HEADING14-133"></A>
+<A NAME="INIT_RECORD"></A>
 <H3>
 init_record</H3>
 For each constant input link, the corresponding value field is initialized
@@ -1947,32 +1958,32 @@ link is created if the input link is PV_LINK.
 CALC and OCAL to reverse polish notation. The result is stored in RPCL
 and ORPC, respectively.
 
-<P>&nbsp;<A NAME="HEADING14-136"></A>
+<P>&nbsp;<A NAME="PROCESS"></A>
 <H3>
 process</H3>
 See section 11.
 
-<P>&nbsp;<A NAME="HEADING14-138"></A>
+<P>&nbsp;<A NAME="SPECIAL"></A>
 <H3>
 special</H3>
 This is called if CALC or OCAL is changed. special calls aCalcPostfix.
 
-<P>&nbsp;<A NAME="HEADING14-140"></A>
+<P>&nbsp;<A NAME="GET_VALUE"></A>
 <H3>
 get_value</H3>
 Fills in the values of struct valueDes so that they refer to VAL.
 
-<P>&nbsp;<A NAME="HEADING14-142"></A>
+<P>&nbsp;<A NAME="GET_UNITS"></A>
 <H3>
 get_units</H3>
 Retrieves EGU.
 
-<P>&nbsp;<A NAME="HEADING14-144"></A>
+<P>&nbsp;<A NAME="GET_PRECISION"></A>
 <H3>
 get_precision</H3>
 Retrieves PREC.
 
-<P>&nbsp;<A NAME="HEADING14-146"></A>
+<P>&nbsp;<A NAME="GET_GRAPHIC_DOUBLE"></A>
 <H3>
 get_graphic_double</H3>
 Sets the upper display and lower display limits for a field. If the field
@@ -1980,7 +1991,7 @@ is VAL, HIHI, HIGH, LOW, or LOLO, the limits are set to HOPR and LOPR,
 else if the field has upper and lower limits defined they will be used,
 else the upper and lower maximum values for the field type will be used.
 
-<P>&nbsp;<A NAME="HEADING14-148"></A>
+<P>&nbsp;<A NAME="GET_CONTROL_DOUBLE"></A>
 <H3>
 get_control_double</H3>
 Sets the upper control and the lower control limits for a field. If the
@@ -1989,7 +2000,7 @@ LOPR, else if the field has upper and lower limits defined they will be
 used, else the upper and lower maximum values for the field type will be
 used.
 
-<P>&nbsp;<A NAME="HEADING14-150"></A>
+<P>&nbsp;<A NAME="GET_ALARM_DOUBLE"></A>
 <H3>
 get_alarm_double</H3>
 Sets the following values:
@@ -2003,11 +2014,11 @@ Sets the following values:
 <P>&nbsp;lower_alarm_limit = LOLO
 
 <HR>
-<P>&nbsp;<A NAME="HEADING14-156"></A>
+<P>&nbsp;<A NAME="RECORD_PROCESSING"></A>
 <H1>
 11. Record Processing</H1>
 
-<A NAME="HEADING14-157"></A>
+<A NAME="PROCESS"></A>
 <H2>
 11.1. process()</H2>
 The <TT>process()</TT> routine implements the following algorithm:
@@ -2076,7 +2087,7 @@ PACT FALSE, and return.</DD>
 
 
 <P>&nbsp;</DL>
-<A NAME="HEADING14-169"></A>
+<A NAME="EXEC_OUTPUT"></A>
 <H2>
 11.2. execOutput()</H2>
 
@@ -2107,83 +2118,71 @@ the OUT link, and post the event in OEVT (if non-zero).</DD>
 <P>&nbsp;</DL>
 <!-- TOC -->
 <DL>
-<DT><A HREF="#HEADING14-1"><B>1. </B>- Introduction</A></DT>
+<DT><A HREF="#INTRODUCTION"><B>1. </B>- Introduction</A></DT>
 
-<DT><A HREF="#HEADING14-11"><B>2. </B>- Scan Parameters</A></DT>
+<DT><A HREF="#SCAN_PARAMETERS"><B>2. </B>- Scan Parameters</A></DT>
 
-<DT><A HREF="#HEADING14-13"><B>3. </B>- Read Parameters</A></DT>
+<DT><A HREF="#INPUT_LINKS"><B>3. </B>- Input Links</A></DT>
 
-<DT><A HREF="#HEADING14-16"><B>4. </B>- Expressions</A></DT>
+<DT><A HREF="#EXPRESSIONS"><B>4. </B>- Expressions</A></DT>
 
-<DT><A HREF="#HEADING14-19"><B>4.1. </B>- Operands</A></DT>
+<DT><A HREF="#OPERANDS"><B>4.1. </B>- Operands</A></DT>
 
-<DT><A HREF="#HEADING14-21"><B>4.2. </B>- Algebraic Functions/Operators</A></DT>
+<DT><A HREF="#ALGEBRAIC"><B>4.2. </B>- Algebraic Functions/Operators</A></DT>
 
-<DT><A HREF="#HEADING14-39"><B>4.3. </B>- Trigonometric Functions</A></DT>
+<DT><A HREF="#TRIGONOMETRIC"><B>4.3. </B>- Trigonometric Functions</A></DT>
 
-<DT><A HREF="#HEADING14-49"><B>4.4. </B>- Relational Operators</A></DT>
+<DT><A HREF="#RELATIONAL"><B>4.4. </B>- Relational Operators</A></DT>
 
-<DT><A HREF="#HEADING14-56"><B>4.5. </B>- Logical Operators</A></DT>
+<DT><A HREF="#LOGICAL"><B>4.5. </B>- Logical Operators</A></DT>
 
-<DT><A HREF="#HEADING14-60"><B>4.6. </B>- Bitwise Operators</A></DT>
+<DT><A HREF="#BITWISE"><B>4.6. </B>- Bitwise Operators</A></DT>
 
-<DT><A HREF="#HEADING14-69"><B>4.7. </B>- Parentheses and Comma</A></DT>
+<DT><A HREF="#SEPARATORS"><B>4.7. </B>- Separators</A></DT>
 
-<DT><A HREF="#HEADING14-72"><B>4.8. </B>- Conditional Expression</A></DT>
+<DT><A HREF="#IF-ELSE"><B>4.8. </B>- If-Else</A></DT>
 
-<DT><A HREF="#HEADING14-74"><B>4.9. </B>- Array-specific Functions/Operators</A></DT>
+<DT><A HREF="#ARRAY_SPECIFIC"><B>4.9. </B>- Array-specific Functions/Operators</A></DT>
 
-<DT><A HREF="#HEADING14-75"><B>4.10. </B>- Argument-array Operators</A></DT>
+<DT><A HREF="#ARGUMENT_ARRAY"><B>4.10. </B>- Argument-array Operators</A></DT>
 
-<DT><A HREF="#HEADING14-76"><B>4.11. </B>- Examples</A></DT>
+<DT><A HREF="#EXAMPLES"><B>4.11. </B>- Examples</A></DT>
 
-<DT><A HREF="#HEADING14-77">Algebraic</A></DT>
+<DT><A HREF="#OUTPUT_PARAMETERS"><B>5. </B>- Output Parameters</A></DT>
 
-<DT><A HREF="#HEADING14-79">Relational</A></DT>
+<DT><A HREF="#DISPLAY_PARAMETERS"><B>6. </B>- Display Parameters</A></DT>
 
-<DT><A HREF="#HEADING14-83">If-Else</A></DT>
+<DT><A HREF="#ALARM_PARAMETERS"><B>7. </B>- Alarm Parameters</A></DT>
 
-<DT><A HREF="#HEADING14-91">Logical</A></DT>
+<DT><A HREF="#MONITOR_PARAMETERS"><B>8. </B>- Monitor Parameters</A></DT>
 
-<DT><A HREF="#HEADING14-92">Array</A></DT>
+<DT><A HREF="#RUN-TIME_PARAMETERS"><B>9. </B>- Run-time Parameters</A></DT>
 
-<DT><A HREF="#HEADING14-93">Argument-array</A></DT>
+<DT><A HREF="#RECORD_SUPPORT"><B>10. </B>- Record Support Routines</A></DT>
 
-<DT><A HREF="#HEADING14-98"><B>5. </B>- Output Parameters</A></DT>
+<DT><A HREF="#INIT_RECORD">init_record</A></DT>
 
-<DT><A HREF="#HEADING14-109"><B>6. </B>- Operator Display Parameters</A></DT>
+<DT><A HREF="#PROCESS">process</A></DT>
 
-<DT><A HREF="#HEADING14-122"><B>7. </B>- Alarm Parameters</A></DT>
+<DT><A HREF="#SPECIAL">special</A></DT>
 
-<DT><A HREF="#HEADING14-126"><B>8. </B>- Monitor Parameters</A></DT>
+<DT><A HREF="#GET_VALUE">get_value</A></DT>
 
-<DT><A HREF="#HEADING14-128"><B>9. </B>- Run-time Parameters</A></DT>
+<DT><A HREF="#GET_UNITS">get_units</A></DT>
 
-<DT><A HREF="#HEADING14-132"><B>10. </B>- Record Support Routines</A></DT>
+<DT><A HREF="#GET_PRECISION">get_precision</A></DT>
 
-<DT><A HREF="#HEADING14-133">init_record</A></DT>
+<DT><A HREF="#GET_GRAPHIC_DOUBLE">get_graphic_double</A></DT>
 
-<DT><A HREF="#HEADING14-136">process</A></DT>
+<DT><A HREF="#GET_CONTROL_DOUBLE">get_control_double</A></DT>
 
-<DT><A HREF="#HEADING14-138">special</A></DT>
+<DT><A HREF="#GET_ALARM_DOUBLE">get_alarm_double</A></DT>
 
-<DT><A HREF="#HEADING14-140">get_value</A></DT>
+<DT><A HREF="#RECORD_PROCESSING"><B>11. </B>- Record Processing</A></DT>
 
-<DT><A HREF="#HEADING14-142">get_units</A></DT>
+<DT><A HREF="#PROCESS"><B>11.1. </B>- process()</A></DT>
 
-<DT><A HREF="#HEADING14-144">get_precision</A></DT>
-
-<DT><A HREF="#HEADING14-146">get_graphic_double</A></DT>
-
-<DT><A HREF="#HEADING14-148">get_control_double</A></DT>
-
-<DT><A HREF="#HEADING14-150">get_alarm_double</A></DT>
-
-<DT><A HREF="#HEADING14-156"><B>11. </B>- Record Processing</A></DT>
-
-<DT><A HREF="#HEADING14-157"><B>11.1. </B>- process()</A></DT>
-
-<DT><A HREF="#HEADING14-169"><B>11.2. </B>- execOutput()</A></DT>
+<DT><A HREF="#EXEC_OUTPUT"><B>11.2. </B>- execOutput()</A></DT>
 </DL>
 
 <HR>
