@@ -46,6 +46,18 @@
  *		FINE		found an expression element
  *		VARIABLE	found a database reference
  *		UNKNOWN_ELEMENT	unknown element found in the infix expression
+ *
+ * functions unique to array calcs:
+ *     AMAX, AMIN - max/min of array
+ *     ARNDM      - randon array
+ *     ARR        - convert to array
+ *     AVG        - average of array
+ *     IX         - constant array [0,1,2,3,...]
+ * functions specialized behavior in array calcs:
+ *     MAX, MIN   - only 2 args
+ *     []         - subrange translated to index 0
+ *     {}         - subrange in place
+ *     <<, >>     - move array contents by index
  */
 
 #ifdef vxWorks
@@ -81,6 +93,8 @@ epicsExportAddress(int, aCalcPostfixDebug);
 #define	TRASH			9
 #define	FLOAT_PT_CONST	10
 #define	MINUS_OPERATOR	11
+#define	CLOSE_BRACKET	13
+#define	CLOSE_CURLY		14
 
 /* parsing return values */
 #define	FINE		0
@@ -146,6 +160,7 @@ element    i_s_p i_c_p type_element     internal_rep */
 {"SIN",    10,    11,    UNARY_OPERATOR,  SIN},         /* sine */
 {"TANH",   10,    11,    UNARY_OPERATOR,  TANH},        /* hyperbolic tangent*/
 {"TAN",    10,    11,    UNARY_OPERATOR,  TAN},         /* tangent */
+{"AVG",    10,    11,    UNARY_OPERATOR,  AVERAGE},     /* array average */
 {"!=",      4,     4,    BINARY_OPERATOR, NOT_EQ},      /* not equal */
 {"!",      10,    11,    UNARY_OPERATOR,  REL_NOT},     /* not */
 {"~",      10,    11,    UNARY_OPERATOR,  BIT_NOT},     /* bitwise not */
@@ -178,6 +193,8 @@ element    i_s_p i_c_p type_element     internal_rep */
 {"?",       0,     0,    CONDITIONAL,     COND_IF},     /* conditional */
 {":",       0,     0,    CONDITIONAL,     COND_ELSE},   /* else */
 {"(",       0,     11,   UNARY_OPERATOR,  PAREN},       /* open paren */
+{"[",       0,     10,   BINARY_OPERATOR, SUBRANGE},    /* array subrange */
+{"{",       0,     10,   BINARY_OPERATOR, SUBRANGE_IP}, /* array subrange in place*/
 {"^",       8,     8,    BINARY_OPERATOR, EXPON},       /* exponentiation */
 {"**",      8,     8,    BINARY_OPERATOR, EXPON},       /* exponentiation */
 {"+",       5,     5,    BINARY_OPERATOR, ADD},         /* addition */
@@ -189,6 +206,8 @@ element    i_s_p i_c_p type_element     internal_rep */
 {"%",       6,     6,    BINARY_OPERATOR, MODULO},      /* modulo */
 {",",       0,     0,    SEPARATOR,       COMMA},       /* comma */
 {")",       0,     0,    CLOSE_PAREN,     PAREN},       /* close paren */
+{"]",       0,     0,    CLOSE_BRACKET,   SUBRANGE},    /* close bracket */
+{"}",       0,     0,    CLOSE_CURLY,     SUBRANGE_IP}, /* close curly bracket */
 {"||",      1,     1,    BINARY_OPERATOR, REL_OR},      /* logical or */
 {"|",       1,     1,    BINARY_OPERATOR, BIT_OR},      /* bitwise or */
 {"&&",      2,     2,    BINARY_OPERATOR, REL_AND},     /* logical and */
@@ -297,8 +316,8 @@ long aCalcCheck(char *post, int forks_checked, int dir_mask)
 		case ATAN:		case COS:		case SIN:		case TAN:
 		case COSH:		case SINH:		case TANH:		case CEIL:
 		case FLOOR:		case NINT:		case REL_NOT:	case BIT_NOT:
-		case A_FETCH:	case TO_DOUBLE:
-		case AMAX:		case AMIN:
+		case A_FETCH:	case TO_DOUBLE: case AMAX:		case AMIN:
+		case AVERAGE:
 			*ps = 0;
 			break;
 
@@ -314,6 +333,13 @@ long aCalcCheck(char *post, int forks_checked, int dir_mask)
 			} else {
 				post += 7;
 			}
+			*ps = 0;
+			break;
+
+		case SUBRANGE:
+		case SUBRANGE_IP:
+			DEC(ps);
+			DEC(ps);
 			*ps = 0;
 			break;
 
@@ -481,7 +507,7 @@ long epicsShareAPI aCalcPostfix(char *pinfix, char *ppostfix, short *perror)
 	short no_bytes, operand_needed, new_expression;
 	struct expression_element stack[80], *pelement, *pstacktop;
 	double constant;
-	char in_stack_pri, in_coming_pri, code;
+	char in_stack_pri, in_coming_pri, code, c;
 	char *pposthold, *ppostfixStart;
 	short arg;
 	int badExpression;
@@ -689,6 +715,32 @@ long epicsShareAPI aCalcPostfix(char *pinfix, char *ppostfix, short *perror)
 				pstacktop--;
 			}
 			pstacktop--;	/* remove ( from stack */
+			break;
+
+		case CLOSE_BRACKET:
+		case CLOSE_CURLY:
+			c = (pelement->type == CLOSE_BRACKET) ? '[' : '{';
+			if (operand_needed){
+				*perror = 4;
+				*ppostfixStart = BAD_EXPRESSION; return(-1);
+			}
+
+			/* add operators to postfix until matching bracket */
+			while (pstacktop->element[0] != c) {
+				if (pstacktop == &stack[1] || pstacktop == &stack[0]) {
+					*perror = 6;
+					*ppostfixStart = BAD_EXPRESSION; return(-1);
+				}
+				*ppostfix++ = pstacktop->code;
+				pstacktop--;
+			}
+			/* add SUBRANGE operator to postfix */
+			if (pstacktop == &stack[0]) {
+				*perror = 6;
+				*ppostfixStart = BAD_EXPRESSION; return(-1);
+			}
+			*ppostfix++ = pstacktop->code;
+			pstacktop--;
 			break;
 
 		case CONDITIONAL:

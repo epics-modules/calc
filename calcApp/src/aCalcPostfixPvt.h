@@ -123,13 +123,18 @@ struct stackElement {
 #define		ATAN2		59
 #define		STORE		60
 #define		TO_DOUBLE	61
+#define		SUBRANGE	63
 #define		TO_ARRAY	64
+#define		AVERAGE		65
+
 #define		A_FETCH		66
 #define		A_AFETCH	67
+
 #define		MAXFUNC		70
 #define		MINFUNC		71
 #define		AMAX		72
 #define		AMIN		73
+#define		SUBRANGE_IP	74
 
 /* NOTE: FETCH_A .. FETCH_L must be contiguous and in alphabetical order */
 #define		FETCH_A		75
