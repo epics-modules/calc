@@ -65,19 +65,32 @@ epicsExportAddress(int,devaCalcoutSoftDebug);
 static long write_acalcout(acalcoutRecord *pacalcout)
 {
     struct link		*plink = &pacalcout->out;
-    long			status;
-	dbAddr			Addr;
+    long			status, nelm = 1;
+	dbAddr			Addr, *pAddr = &Addr;
 
 	if (devaCalcoutSoftDebug) printf("write_acalcout: pact=%d\n", pacalcout->pact);
 	if (pacalcout->pact) return(0);
 
+    if (plink->type==CA_LINK) {
+		dbCaGetNelements(plink, &nelm);
+	} else {
+		if (!dbNameToAddr(plink->value.pv_link.pvname, pAddr))
+			nelm = pAddr->no_elements;
+	}
+	if (devaCalcoutSoftDebug) printf("write_acalcout: target nelm=%d\n", nelm);
+
     if ((plink->type==CA_LINK) && (pacalcout->wait)) {
 		/* asynchronous */
 		if (devaCalcoutSoftDebug) printf("write_scalcout: calling dbCPLCB..DBR_DOUBLE\n");
-		status = dbCaPutLinkCallback(&(pacalcout->out), DBR_DOUBLE,
-			&(pacalcout->oval), 1, (dbCaCallback)dbCaCallbackProcess, plink);
+		if (nelm == 1) {
+			status = dbCaPutLinkCallback(&(pacalcout->out), DBR_DOUBLE,
+				&(pacalcout->oval), 1, (dbCaCallback)dbCaCallbackProcess, plink);
+		} else {
+			status = dbCaPutLinkCallback(&(pacalcout->out), DBR_DOUBLE,
+				pacalcout->oav, nelm, (dbCaCallback)dbCaCallbackProcess, plink);
+		}
 		if (status) {
-			if (devaCalcoutSoftDebug) printf("write_acalcout: dbCPLCB returned error\n");
+			if (devaCalcoutSoftDebug) printf("write_acalcout: dbCaPutLinkCallback returned error\n");
 			recGblSetSevr(pacalcout, LINK_ALARM, INVALID_ALARM);
    			return(status);
     	}
@@ -85,8 +98,16 @@ static long write_acalcout(acalcoutRecord *pacalcout)
 
 	} else {
 		/* synchronous */
-		status = dbPutLink(&(pacalcout->out), DBR_DOUBLE,&(pacalcout->oval),1);
-
+		if (nelm == 1) {
+			status = dbPutLink(&(pacalcout->out), DBR_DOUBLE,&(pacalcout->oval),1);
+		} else {
+			status = dbPutLink(&(pacalcout->out), DBR_DOUBLE,pacalcout->oav,nelm);
+		}
+		if (status) {
+			if (devaCalcoutSoftDebug) printf("write_acalcout: dbPutLink returned error\n");
+			recGblSetSevr(pacalcout, LINK_ALARM, INVALID_ALARM);
+   			return(status);
+    	}
 	}
 	return (status);
 }
