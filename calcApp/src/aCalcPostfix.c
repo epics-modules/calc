@@ -161,6 +161,7 @@ element    i_s_p i_c_p type_element     internal_rep */
 {"TANH",   10,    11,    UNARY_OPERATOR,  TANH},        /* hyperbolic tangent*/
 {"TAN",    10,    11,    UNARY_OPERATOR,  TAN},         /* tangent */
 {"AVG",    10,    11,    UNARY_OPERATOR,  AVERAGE},     /* array average */
+{"STD",    10,    11,    UNARY_OPERATOR,  STD_DEV},     /* standard deviation */
 {"!=",      4,     4,    BINARY_OPERATOR, NOT_EQ},      /* not equal */
 {"!",      10,    11,    UNARY_OPERATOR,  REL_NOT},     /* not */
 {"~",      10,    11,    UNARY_OPERATOR,  BIT_NOT},     /* bitwise not */
@@ -317,7 +318,7 @@ long aCalcCheck(char *post, int forks_checked, int dir_mask)
 		case COSH:		case SINH:		case TANH:		case CEIL:
 		case FLOOR:		case NINT:		case REL_NOT:	case BIT_NOT:
 		case A_FETCH:	case TO_DOUBLE: case AMAX:		case AMIN:
-		case AVERAGE:
+		case AVERAGE:	case STD_DEV:
 			*ps = 0;
 			break;
 

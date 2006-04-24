@@ -122,7 +122,7 @@ long epicsShareAPI
 	struct stackElement *ps, *ps1, *ps2;
 	char				*s, currSymbol;
 	int					i, j, k;
-	double				d;
+	double				d, e;
 	short 				got_if;
 
 	if (aCalcPerformDebug>=10) {
@@ -425,6 +425,7 @@ long epicsShareAPI
 		case REL_NOT:
 		case BIT_NOT:
 		case AVERAGE:
+		case STD_DEV:
 			checkStackElement(ps, *post);
 			if (isArray(ps)) {
 				switch (currSymbol) {
@@ -474,9 +475,19 @@ long epicsShareAPI
 				case REL_NOT: for (i=0; i<arraySize; i++) {ps->a[i] = (ps->a[i] ? 0 : 1);} break;
 				case BIT_NOT: for (i=0; i<arraySize; i++) {ps->a[i] = ~(int)(ps->a[i]);} break;
 				case AVERAGE:
-					for (i=1, d=0.; i<arraySize; i++) {d += ps->a[i];}
+					for (i=1, d=ps->a[0]; i<arraySize; i++) {d += ps->a[i];}
 					toDouble(ps);
 					ps->d = d/arraySize;
+					break;
+				case STD_DEV:
+					for (i=1, d=ps->a[0]; i<arraySize; i++) {d += ps->a[i];}
+					d /= arraySize;
+					for (i=0, e=0.; i<arraySize; i++) {e += (ps->a[i]-d)*(ps->a[i]-d);}
+					toDouble(ps);
+					if (arraySize > 1)
+						ps->d = sqrt(e/(arraySize-1));
+					else
+						ps->d = sqrt(e/arraySize);
 					break;
 				}
 			} else {
@@ -515,6 +526,7 @@ long epicsShareAPI
 				case REL_NOT: ps->d = (ps->d ? 0 : 1); break;
 				case BIT_NOT: ps->d = ~(int)(ps->d); break;
 				case AVERAGE: break;
+				case STD_DEV: ps->d = 0; break;
 				}
 			}
 			break;
