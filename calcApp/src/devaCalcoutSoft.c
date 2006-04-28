@@ -65,7 +65,7 @@ epicsExportAddress(int,devaCalcoutSoftDebug);
 static long write_acalcout(acalcoutRecord *pacalcout)
 {
     struct link		*plink = &pacalcout->out;
-    long			status, nelm = 1;
+    long			status, nelm = 1, i;
 	dbAddr			Addr, *pAddr = &Addr;
 
 	if (devaCalcoutSoftDebug) printf("write_acalcout: pact=%d\n", pacalcout->pact);
@@ -77,7 +77,9 @@ static long write_acalcout(acalcoutRecord *pacalcout)
 		if (!dbNameToAddr(plink->value.pv_link.pvname, pAddr))
 			nelm = pAddr->no_elements;
 	}
-	if (devaCalcoutSoftDebug) printf("write_acalcout: target nelm=%d\n", nelm);
+	if (devaCalcoutSoftDebug) printf("write_acalcout: target nelm=%ld\n", nelm);
+	i = (pacalcout->nuse > 0) ? pacalcout->nuse : pacalcout->nelm;
+	if (i < nelm) nelm = i;
 
     if ((plink->type==CA_LINK) && (pacalcout->wait)) {
 		/* asynchronous */

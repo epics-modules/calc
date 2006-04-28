@@ -61,6 +61,14 @@ recordtype(acalcout) {
 		interest(1)
 		initial("1")
 	}
+	field(NUSE,DBF_ULONG) {
+		prompt("# elem's in use")
+		promptgroup(GUI_WAVE)
+		special(SPC_MOD)
+		interest(1)
+		pp(TRUE)
+		initial("0")
+	}
 	field(PVAL,DBF_DOUBLE) {
 		prompt("Previous Value")
 	}

@@ -171,6 +171,10 @@ static long init_record(acalcoutRecord *pcalc, int pass)
 		pcalc->pavl = (double *)calloc(pcalc->nelm, sizeof(double));
 		pcalc->oav = (double *)calloc(pcalc->nelm, sizeof(double));
 		pcalc->poav = (double *)calloc(pcalc->nelm, sizeof(double));
+		if (pcalc->nuse > pcalc->nelm) {
+			pcalc->nuse = pcalc->nelm;
+			db_post_events(pcalc,&pcalc->nuse,DBE_VALUE|DBE_LOG);
+		}
 		return(0);
 	}
     
@@ -255,19 +259,27 @@ static long process(acalcoutRecord *pcalc)
 {
 	rpvtStruct   *prpvt = (rpvtStruct *)pcalc->rpvt;
 	short		doOutput = 0;
-	long		stat;
+	long		i, stat;
 
 	if (aCalcoutRecordDebug) printf("acalcoutRecord(%s):process: pact=%d\n",
 		pcalc->name, pcalc->pact);
 
 	if (!pcalc->pact) {
 		pcalc->pact = TRUE;
+
 		/* if some links are CA, check connections */
 		if (prpvt->caLinkStat != NO_CA_LINKS) checkLinks(pcalc);
 		if (fetch_values(pcalc)==0) {
 			if (aCalcoutRecordDebug >= 5) printf("acalcoutRecord(%s):process: calling aCalcPerform\n", pcalc->name);
+			/* Note that we want to permit nuse == 0 as a way of saying "use nelm". */
+			i = (pcalc->nuse > 0) ? pcalc->nuse : pcalc->nelm;
 			stat = aCalcPerform(&pcalc->a, ARG_MAX, &pcalc->aa,
-					ARRAY_ARG_MAX, (long)pcalc->nelm, &pcalc->val, pcalc->aval, pcalc->rpcl);
+					ARRAY_ARG_MAX, i, &pcalc->val, pcalc->aval, pcalc->rpcl);
+			if (i < pcalc->nelm) {
+				for (; i<pcalc->nelm; i++) {
+					pcalc->aval[i] = 0;
+				}
+			}
 			if (aCalcoutRecordDebug >= 5) {
 				printf("acalcoutRecord(%s):aCalcPerform returns val=%f, aval=[%f %f...]\n",
 					pcalc->name, pcalc->val, pcalc->aval[0], pcalc->aval[1]);
@@ -405,6 +417,15 @@ static long special(dbAddr	*paddr, int after)
 		return(0);
 		break;
 
+	case acalcoutRecordNUSE:
+		if (pcalc->nuse > pcalc->nelm) {
+			pcalc->nuse = pcalc->nelm;
+			db_post_events(pcalc,&pcalc->nuse,DBE_VALUE);
+			return(-1);
+		}
+		return(0);
+		break;
+
 	case(acalcoutRecordINPA):
 	case(acalcoutRecordINPB):
 	case(acalcoutRecordINPC):
@@ -506,7 +527,7 @@ static long cvt_dbaddr(dbAddr *paddr)
 	} else if (fieldIndex==acalcoutRecordPOAV) {
 		paddr->pfield = pcalc->poav;
 	}
-	paddr->no_elements = pcalc->nelm;
+	paddr->no_elements = (pcalc->nuse > 0) ? pcalc->nuse : pcalc->nelm;
 	paddr->field_type = DBF_DOUBLE;
 	paddr->field_size = sizeof(double);
 	paddr->dbr_field_type = DBF_DOUBLE;
@@ -519,7 +540,7 @@ static long get_array_info(struct dbAddr *paddr, long *no_elements, long *offset
 
 	if (aCalcoutRecordDebug >= 20) printf("acalcout: get_array_info: paddr->pfield = %p\n",
 		(void *)paddr->pfield);
-    *no_elements =  pcalc->nelm;
+    *no_elements =  (pcalc->nuse > 0) ? pcalc->nuse : pcalc->nelm;
     *offset = 0;
     return(0);
 }
@@ -558,6 +579,13 @@ static long put_array_info(struct dbAddr *paddr, long nNew)
 	}
 	if (pd && (nNew < pcalc->nelm))
 		for (i=nNew; i<pcalc->nelm; i++) pd[i] = 0.;
+	
+	/* We could set nuse to the number of elements just written, but that would also
+	 * affect the other arrays.  For now, with all arrays sharing a single value of nuse,
+	 * it seems better to require that nuse be set explicitly.  Currently, I'm leaving
+	 * unanswered the question of whether each array should have its own 'nuse'.  The
+	 * array-calc engine currently doesn't support per-array 'nuse'.
+	 */
 
     return(0);
 }
@@ -724,9 +752,15 @@ static void execOutput(acalcoutRecord *pcalc)
 		break;
 
 	case acalcoutDOPT_Use_OVAL:
+		i = (pcalc->nuse > 0) ? pcalc->nuse : pcalc->nelm;
 		if (aCalcPerform(&pcalc->a, ARG_MAX, &pcalc->aa,
-				ARRAY_ARG_MAX, (long)pcalc->nelm, &pcalc->oval, pcalc->oav, pcalc->rpcl)) {
+				ARRAY_ARG_MAX, i, &pcalc->oval, pcalc->oav, pcalc->rpcl)) {
 			recGblSetSevr(pcalc,CALC_ALARM,INVALID_ALARM);
+		}
+		if (i < pcalc->nelm) {
+			for (; i<pcalc->nelm; i++) {
+				pcalc->oav[i] = 0;
+			}
 		}
 		break;
 	}
@@ -848,7 +882,7 @@ static int fetch_values(acalcoutRecord *pcalc)
 	DBLINK	*plink;	/* structure of the link field  */
 	double	*pvalue;
 	double	**pavalue;
-	long	status = 0, nRequest = pcalc->nelm;
+	long	status = 0, nRequest = (pcalc->nuse > 0) ? pcalc->nuse : pcalc->nelm;
 	int		i;
 
 	if (aCalcoutRecordDebug >= 10)
