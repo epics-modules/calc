@@ -1,21 +1,21 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps_5_1/support/calc/cvs/calcApp/op/adl/calcMiscExamples.adl"
+	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/calcMiscExamples.adl"
 	version=030004
 }
 display {
 	object {
-		x=10
-		y=10
-		width=210
-		height=440
+		x=50
+		y=206
+		width=240
+		height=470
 	}
 	clr=14
 	bclr=1
 	cmap=""
 	gridSpacing=5
 	gridOn=0
-	snapToGrid=0
+	snapToGrid=1
 }
 "color map" {
 	ncolors=65
@@ -196,7 +196,7 @@ polyline {
 	object {
 		x=0
 		y=15
-		width=214
+		width=244
 		height=3
 	}
 	"basic attribute" {
@@ -206,14 +206,14 @@ polyline {
 	}
 	points {
 		(1,16)
-		(212,16)
+		(242,16)
 	}
 }
 text {
 	object {
 		x=5
 		y=20
-		width=205
+		width=235
 		height=20
 	}
 	"basic attribute" {
@@ -226,7 +226,7 @@ text {
 	object {
 		x=5
 		y=35
-		width=205
+		width=235
 		height=20
 	}
 	"basic attribute" {
@@ -239,7 +239,7 @@ polyline {
 	object {
 		x=0
 		y=55
-		width=214
+		width=244
 		height=3
 	}
 	"basic attribute" {
@@ -249,50 +249,55 @@ polyline {
 	}
 	points {
 		(1,56)
-		(212,56)
+		(242,56)
 	}
 }
 text {
 	object {
 		x=5
-		y=355
-		width=200
+		y=440
+		width=230
 		height=14
 	}
 	"basic attribute" {
 		clr=14
 	}
-	textix="@@0"
+	textix="ARNDM"
 }
 text {
 	object {
-		x=5
-		y=295
-		width=200
+		x=6
+		y=80
+		width=229
 		height=14
 	}
 	"basic attribute" {
 		clr=14
 	}
-	textix="@A+3"
+	textix="(a)"
 }
-text {
+polyline {
 	object {
-		x=5
-		y=325
-		width=200
-		height=14
+		x=0
+		y=57
+		width=224
+		height=1
 	}
 	"basic attribute" {
-		clr=14
+		clr=54
+		fill="outline"
+		width=1
 	}
-	textix="@(A+3)"
+	points {
+		(0,57)
+		(223,57)
+	}
 }
 text {
 	object {
-		x=5
+		x=6
 		y=60
-		width=200
+		width=229
 		height=14
 	}
 	"basic attribute" {
@@ -303,9 +308,9 @@ text {
 }
 polyline {
 	object {
-		x=6
+		x=7
 		y=75
-		width=196
+		width=223
 		height=1
 	}
 	"basic attribute" {
@@ -314,15 +319,15 @@ polyline {
 		width=1
 	}
 	points {
-		(6,75)
-		(201,75)
+		(7,75)
+		(229,75)
 	}
 }
 text {
 	object {
-		x=5
+		x=6
 		y=110
-		width=200
+		width=229
 		height=14
 	}
 	"basic attribute" {
@@ -332,21 +337,9 @@ text {
 }
 text {
 	object {
-		x=5
-		y=80
-		width=200
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="(a)"
-}
-text {
-	object {
-		x=5
+		x=6
 		y=140
-		width=200
+		width=229
 		height=14
 	}
 	"basic attribute" {
@@ -356,9 +349,21 @@ text {
 }
 text {
 	object {
-		x=5
+		x=6
+		y=205
+		width=229
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="A?B:C"
+}
+text {
+	object {
+		x=6
 		y=185
-		width=200
+		width=229
 		height=14
 	}
 	"basic attribute" {
@@ -369,9 +374,9 @@ text {
 }
 polyline {
 	object {
-		x=6
+		x=7
 		y=200
-		width=196
+		width=223
 		height=1
 	}
 	"basic attribute" {
@@ -380,140 +385,15 @@ polyline {
 		width=1
 	}
 	points {
-		(6,200)
-		(201,200)
-	}
-}
-text {
-	object {
-		x=5
-		y=205
-		width=200
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="A?B:C"
-}
-text {
-	object {
-		x=15
-		y=95
-		width=190
-		height=10
-	}
-	"basic attribute" {
-		clr=47
-	}
-	textix="CAN'T USE '[]' or '{}'"
-}
-text {
-	object {
-		x=15
-		y=125
-		width=190
-		height=10
-	}
-	"basic attribute" {
-		clr=47
-	}
-	textix="SAME AS A&B.  BUT NOTE..."
-}
-text {
-	object {
-		x=15
-		y=155
-		width=190
-		height=10
-	}
-	"basic attribute" {
-		clr=47
-	}
-	textix="SCALCOUT RECORD WILL PARSE 'AA'"
-}
-text {
-	object {
-		x=15
-		y=165
-		width=190
-		height=10
-	}
-	"basic attribute" {
-		clr=47
-	}
-	textix="AS A STRING VARIABLE"
-}
-text {
-	object {
-		x=15
-		y=220
-		width=190
-		height=10
-	}
-	"basic attribute" {
-		clr=47
-	}
-	textix="IF (A!=0) RESULT IS B, ELSE C"
-}
-text {
-	object {
-		x=15
-		y=310
-		width=190
-		height=10
-	}
-	"basic attribute" {
-		clr=47
-	}
-	textix="GET VARIABLE A; ADD 3 TO IT"
-}
-text {
-	object {
-		x=15
-		y=340
-		width=190
-		height=10
-	}
-	"basic attribute" {
-		clr=47
-	}
-	textix="GET VARIABLE A+3"
-}
-text {
-	object {
-		x=15
-		y=370
-		width=190
-		height=10
-	}
-	"basic attribute" {
-		clr=47
-	}
-	textix="GET STRING VAR 0 (@@0=AA, ..)"
-}
-polyline {
-	object {
-		x=0
-		y=57
-		width=196
-		height=1
-	}
-	"basic attribute" {
-		clr=54
-		fill="outline"
-		width=1
-	}
-	points {
-		(0,57)
-		(195,57)
+		(7,200)
+		(229,200)
 	}
 }
 polyline {
 	object {
-		x=5
+		x=6
 		y=182
-		width=196
+		width=223
 		height=1
 	}
 	"basic attribute" {
@@ -522,27 +402,15 @@ polyline {
 		width=1
 	}
 	points {
-		(5,182)
-		(200,182)
+		(6,182)
+		(228,182)
 	}
 }
 text {
 	object {
-		x=5
-		y=265
-		width=200
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="@0"
-}
-text {
-	object {
-		x=5
+		x=6
 		y=242
-		width=200
+		width=229
 		height=14
 	}
 	"basic attribute" {
@@ -553,9 +421,9 @@ text {
 }
 polyline {
 	object {
-		x=6
+		x=7
 		y=258
-		width=196
+		width=223
 		height=1
 	}
 	"basic attribute" {
@@ -564,27 +432,15 @@ polyline {
 		width=1
 	}
 	points {
-		(6,258)
-		(201,258)
+		(7,258)
+		(229,258)
 	}
-}
-text {
-	object {
-		x=15
-		y=280
-		width=190
-		height=10
-	}
-	"basic attribute" {
-		clr=47
-	}
-	textix="GET VARIABLE 0 (@0=A, @1=B, ..)"
 }
 polyline {
 	object {
-		x=5
+		x=6
 		y=240
-		width=196
+		width=223
 		height=1
 	}
 	"basic attribute" {
@@ -593,15 +449,97 @@ polyline {
 		width=1
 	}
 	points {
-		(5,240)
-		(200,240)
+		(6,240)
+		(228,240)
 	}
 }
 text {
 	object {
-		x=5
+		x=6
+		y=325
+		width=229
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="@(A+3)"
+}
+text {
+	object {
+		x=6
+		y=355
+		width=229
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="@@0"
+}
+composite {
+	object {
+		x=6
+		y=387
+		width=229
+		height=19
+	}
+	"composite name"=""
+	children {
+		text {
+			object {
+				x=6
+				y=389
+				width=229
+				height=14
+			}
+			"basic attribute" {
+				clr=54
+			}
+			textix="Random number"
+			align="horiz. centered"
+		}
+		polyline {
+			object {
+				x=7
+				y=405
+				width=222
+				height=1
+			}
+			"basic attribute" {
+				clr=54
+				fill="outline"
+				width=1
+			}
+			points {
+				(7,405)
+				(228,405)
+			}
+		}
+		polyline {
+			object {
+				x=6
+				y=387
+				width=222
+				height=1
+			}
+			"basic attribute" {
+				clr=54
+				fill="outline"
+				width=1
+			}
+			points {
+				(6,387)
+				(227,387)
+			}
+		}
+	}
+}
+text {
+	object {
+		x=6
 		y=410
-		width=200
+		width=229
 		height=14
 	}
 	"basic attribute" {
@@ -611,39 +549,93 @@ text {
 }
 text {
 	object {
-		x=0
-		y=389
-		width=200
-		height=14
+		x=16
+		y=95
+		width=219
+		height=10
 	}
 	"basic attribute" {
-		clr=54
+		clr=47
 	}
-	textix="Random number"
-	align="horiz. centered"
+	textix="CAN'T USE '[]' or '{}'"
 }
-polyline {
+text {
 	object {
-		x=1
-		y=405
-		width=196
-		height=1
+		x=16
+		y=125
+		width=219
+		height=10
 	}
 	"basic attribute" {
-		clr=54
-		fill="outline"
-		width=1
+		clr=47
 	}
-	points {
-		(1,405)
-		(196,405)
+	textix="SAME AS A&B.  BUT NOTE..."
+}
+text {
+	object {
+		x=16
+		y=155
+		width=219
+		height=10
 	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="SCALCOUT RECORD WILL PARSE 'AA'"
+}
+text {
+	object {
+		x=16
+		y=165
+		width=219
+		height=10
+	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="AS A STRING VARIABLE"
+}
+text {
+	object {
+		x=16
+		y=220
+		width=219
+		height=10
+	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="IF (A!=0) RESULT IS B, ELSE C"
+}
+text {
+	object {
+		x=16
+		y=340
+		width=219
+		height=10
+	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="GET VARIABLE A+3"
+}
+text {
+	object {
+		x=16
+		y=370
+		width=219
+		height=10
+	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="GET STRING VAR 0 (@@0=AA, ..)"
 }
 text {
 	object {
 		x=10
 		y=425
-		width=190
+		width=219
 		height=10
 	}
 	"basic attribute" {
@@ -651,20 +643,89 @@ text {
 	}
 	textix="RANDOM VALUE IN RANGE [0,1]"
 }
-polyline {
+text {
 	object {
-		x=0
-		y=387
-		width=196
-		height=1
+		x=16
+		y=455
+		width=219
+		height=10
 	}
 	"basic attribute" {
-		clr=54
-		fill="outline"
-		width=1
+		clr=47
 	}
-	points {
-		(0,387)
-		(195,387)
+	textix="ARRAY of RANDOM, (0 to 1)"
+}
+"related display" {
+	object {
+		x=210
+		y=0
+		width=30
+		height=16
+	}
+	display[0] {
+		name="calcArrayExamples.adl"
+		policy="replace display"
+	}
+	clr=0
+	bclr=17
+	label="-ARR"
+}
+composite {
+	object {
+		x=6
+		y=265
+		width=229
+		height=55
+	}
+	"composite name"=""
+	children {
+		text {
+			object {
+				x=6
+				y=265
+				width=229
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="@0"
+		}
+		text {
+			object {
+				x=6
+				y=295
+				width=229
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="@A+3"
+		}
+		text {
+			object {
+				x=16
+				y=280
+				width=219
+				height=10
+			}
+			"basic attribute" {
+				clr=47
+			}
+			textix="GET VARIABLE 0 (@0=A, @1=B, ..)"
+		}
+		text {
+			object {
+				x=16
+				y=310
+				width=219
+				height=10
+			}
+			"basic attribute" {
+				clr=47
+			}
+			textix="GET VARIABLE A; ADD 3 TO IT"
+		}
 	}
 }
