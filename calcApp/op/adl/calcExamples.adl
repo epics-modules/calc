@@ -1,6 +1,6 @@
 
 file {
-	name="C:\Documents and Settings\mooney\Desktop\Work\epics\synApps\all_adl\calcExamples.adl"
+	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/calcExamples.adl"
 	version=030004
 }
 display {
@@ -8,7 +8,7 @@ display {
 		x=473
 		y=126
 		width=370
-		height=810
+		height=825
 	}
 	clr=14
 	bclr=1
@@ -1207,65 +1207,6 @@ text {
 	}
 	textix="a<?b"
 }
-text {
-	object {
-		x=10
-		y=780
-		width=350
-		height=14
-	}
-	"basic attribute" {
-		clr=20
-	}
-	textix="Items in red are useable only in aCalcout"
-}
-composite {
-	object {
-		x=10
-		y=750
-		width=350
-		height=29
-	}
-	"composite name"=""
-	children {
-		text {
-			object {
-				x=10
-				y=750
-				width=350
-				height=14
-			}
-			"basic attribute" {
-				clr=53
-			}
-			textix="Items in blue are useable only in transform and"
-		}
-		text {
-			object {
-				x=10
-				y=765
-				width=350
-				height=14
-			}
-			"basic attribute" {
-				clr=53
-			}
-			textix="sCalcout records, and include string functions."
-		}
-	}
-}
-text {
-	object {
-		x=10
-		y=795
-		width=350
-		height=14
-	}
-	"basic attribute" {
-		clr=20
-	}
-	textix="records, and only with array arg(s)."
-}
 composite {
 	object {
 		x=10
@@ -1464,54 +1405,6 @@ composite {
 }
 text {
 	object {
-		x=10
-		y=730
-		width=90
-		height=14
-	}
-	"basic attribute" {
-		clr=20
-	}
-	textix="ARNDM"
-}
-text {
-	object {
-		x=110
-		y=730
-		width=90
-		height=14
-	}
-	"basic attribute" {
-		clr=20
-	}
-	textix="@a"
-}
-text {
-	object {
-		x=210
-		y=730
-		width=90
-		height=14
-	}
-	"basic attribute" {
-		clr=20
-	}
-	textix="@@a"
-}
-text {
-	object {
-		x=310
-		y=730
-		width=90
-		height=14
-	}
-	"basic attribute" {
-		clr=20
-	}
-	textix="IX"
-}
-text {
-	object {
 		x=310
 		y=410
 		width=90
@@ -1521,4 +1414,178 @@ text {
 		clr=53
 	}
 	textix="@@a"
+}
+composite {
+	object {
+		x=10
+		y=765
+		width=350
+		height=59
+	}
+	"composite name"=""
+	children {
+		text {
+			object {
+				x=10
+				y=795
+				width=350
+				height=14
+			}
+			"basic attribute" {
+				clr=20
+			}
+			textix="Items in red are useable only in aCalcout"
+		}
+		text {
+			object {
+				x=10
+				y=810
+				width=350
+				height=14
+			}
+			"basic attribute" {
+				clr=20
+			}
+			textix="records, and only with array arg(s)."
+		}
+		composite {
+			object {
+				x=10
+				y=765
+				width=350
+				height=29
+			}
+			"composite name"=""
+			children {
+				text {
+					object {
+						x=10
+						y=765
+						width=350
+						height=14
+					}
+					"basic attribute" {
+						clr=53
+					}
+					textix="Items in blue are useable only in transform and"
+				}
+				text {
+					object {
+						x=10
+						y=780
+						width=350
+						height=14
+					}
+					"basic attribute" {
+						clr=53
+					}
+					textix="sCalcout records, and include string functions."
+				}
+			}
+		}
+	}
+}
+composite {
+	object {
+		x=10
+		y=730
+		width=390
+		height=14
+	}
+	"composite name"=""
+	children {
+		text {
+			object {
+				x=10
+				y=730
+				width=90
+				height=14
+			}
+			"basic attribute" {
+				clr=20
+			}
+			textix="ARNDM"
+		}
+		text {
+			object {
+				x=110
+				y=730
+				width=90
+				height=14
+			}
+			"basic attribute" {
+				clr=20
+			}
+			textix="@a"
+		}
+		text {
+			object {
+				x=210
+				y=730
+				width=90
+				height=14
+			}
+			"basic attribute" {
+				clr=20
+			}
+			textix="@@a"
+		}
+		text {
+			object {
+				x=310
+				y=730
+				width=90
+				height=14
+			}
+			"basic attribute" {
+				clr=20
+			}
+			textix="IX"
+		}
+	}
+}
+text {
+	object {
+		x=10
+		y=745
+		width=90
+		height=14
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="ARR(a)"
+}
+text {
+	object {
+		x=110
+		y=745
+		width=90
+		height=14
+	}
+	"basic attribute" {
+		clr=20
+	}
+}
+text {
+	object {
+		x=210
+		y=745
+		width=90
+		height=14
+	}
+	"basic attribute" {
+		clr=20
+	}
+}
+text {
+	object {
+		x=310
+		y=745
+		width=90
+		height=14
+	}
+	"basic attribute" {
+		clr=20
+	}
 }
