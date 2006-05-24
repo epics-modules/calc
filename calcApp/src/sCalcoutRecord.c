@@ -44,9 +44,10 @@
  * 09-11-04    tmm    v3.8: use device support instead of writing directly
  *                    to OUT.  Misc changes to stay closer to calcout record's
  *                    implementation.
+ * 05-24-06    tmm    v3.9  Added Dirk Zimoch's fix to call DSET->init_record()
  */
 
-#define VERSION 3.8
+#define VERSION 3.9
 
 
 #include	<stdlib.h>
@@ -275,6 +276,9 @@ static long init_record(scalcoutRecord *pcalc, int pass)
 		prpvt->wd_id_1_LOCK = 1;
 	}
 
+	if (pscalcoutDSET->init_record ) {
+		return (*pscalcoutDSET->init_record)(pcalc);
+	}
     return(0);
 }
 

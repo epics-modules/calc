@@ -13,10 +13,11 @@
  *
  * Modification Log:
  * -----------------
- * 03-21-06    tmm    v1.0: created from acalcout record
+ * 03-21-06    tmm    v1.0: created from scalcout record
+ * 05-24-06    tmm    v1.1  call DSET->init_record()
  */
 
-#define VERSION 1.0
+#define VERSION 1.1
 
 
 #include	<stdlib.h>
@@ -143,7 +144,7 @@ static long init_record(acalcoutRecord *pcalc, int pass)
 	double *pvalue;
 	unsigned short *plinkValid;
 	short error_number;
-	double *a, **pa;
+	double **pa;
 	char *s;
     acalcoutDSET *pacalcoutDSET;
 
@@ -252,6 +253,9 @@ static long init_record(acalcoutRecord *pcalc, int pass)
 		prpvt->wd_id_1_LOCK = 1;
 	}
 
+	if (pacalcoutDSET->init_record ) {
+		return (*pacalcoutDSET->init_record)(pcalc);
+	}
     return(0);
 }
 
