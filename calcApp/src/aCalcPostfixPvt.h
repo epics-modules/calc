@@ -127,9 +127,10 @@ struct stackElement {
 #define		TO_ARRAY	64
 #define		AVERAGE		65
 #define		STD_DEV		66
+#define		FWHM		67
 
-#define		A_FETCH		67
-#define		A_AFETCH	68
+#define		A_FETCH		68
+#define		A_AFETCH	69
 
 #define		MAXFUNC		70
 #define		MINFUNC		71

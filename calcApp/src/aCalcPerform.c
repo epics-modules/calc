@@ -426,6 +426,7 @@ long epicsShareAPI
 		case BIT_NOT:
 		case AVERAGE:
 		case STD_DEV:
+		case FWHM:
 			checkStackElement(ps, *post);
 			if (isArray(ps)) {
 				switch (currSymbol) {
@@ -489,6 +490,40 @@ long epicsShareAPI
 					else
 						ps->d = sqrt(e/arraySize);
 					break;
+				case FWHM:
+					/* find max (d), min (e) values, and index (j) of max value */
+					d = ps->a[0];
+					e = ps->a[0];
+					for (i=1, j=0; i<arraySize; i++) {
+						if (ps->a[i] > d) {
+							d = ps->a[i];
+							j = i;
+						}
+						if (ps->a[i] < e) {
+							e = ps->a[i];
+						}
+					}
+					if (aCalcPerformDebug) {printf("max=%f, at %d; min=%f\n", d, j, e);}
+					d = e + (d-e)/2;
+					/* walk forwards from peak */
+					for (i=j+1, e=0.0; i<arraySize; i++) {
+						if (ps->a[i] < d) {
+							e = (i-1) + (d - ps->a[i-1])/(ps->a[i] - ps->a[i-1]);
+							if (aCalcPerformDebug) {printf("halfmax at index %f\n", e);}
+							break;
+						}
+					}
+					/* walk backwards from peak */
+					for (i=j-1; i>=0; i--) {
+						if (ps->a[i] < d) {
+							d = i + (d - ps->a[i])/(ps->a[i+1] - ps->a[i]);
+							if (aCalcPerformDebug) {printf("halfmax at index %f\n", d);}
+							break;
+						}
+					}
+					toDouble(ps);
+					ps->d = e-d;
+					break;
 				}
 			} else {
 				switch (currSymbol) {
@@ -527,6 +562,7 @@ long epicsShareAPI
 				case BIT_NOT: ps->d = ~(int)(ps->d); break;
 				case AVERAGE: break;
 				case STD_DEV: ps->d = 0; break;
+				case FWHM: ps->d = 0; break;
 				}
 			}
 			break;
