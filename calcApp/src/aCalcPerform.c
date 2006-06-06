@@ -121,7 +121,7 @@ long epicsShareAPI
 	struct stackElement *top;
 	struct stackElement *ps, *ps1, *ps2;
 	char				*s, currSymbol;
-	int					i, j, k;
+	int					i, j, k, found;
 	double				d, e;
 	short 				got_if;
 
@@ -506,21 +506,25 @@ long epicsShareAPI
 					if (aCalcPerformDebug) {printf("max=%f, at %d; min=%f\n", d, j, e);}
 					d = e + (d-e)/2;
 					/* walk forwards from peak */
-					for (i=j+1, e=0.0; i<arraySize; i++) {
+					for (i=j+1, found=0; i<arraySize; i++) {
 						if (ps->a[i] < d) {
+							found = 1;
 							e = (i-1) + (d - ps->a[i-1])/(ps->a[i] - ps->a[i-1]);
 							if (aCalcPerformDebug) {printf("halfmax at index %f\n", e);}
 							break;
 						}
 					}
+					if (!found) e = arraySize-1;
 					/* walk backwards from peak */
-					for (i=j-1; i>=0; i--) {
+					for (i=j-1, found=0; i>=0; i--) {
 						if (ps->a[i] < d) {
+							found = 1;
 							d = i + (d - ps->a[i])/(ps->a[i+1] - ps->a[i]);
 							if (aCalcPerformDebug) {printf("halfmax at index %f\n", d);}
 							break;
 						}
 					}
+					if (!found) d = 0;
 					toDouble(ps);
 					ps->d = e-d;
 					break;
