@@ -428,6 +428,7 @@ long epicsShareAPI
 		case STD_DEV:
 		case FWHM:
 		case SMOOTH:
+		case DERIV:
 			checkStackElement(ps, *post);
 			if (isArray(ps)) {
 				switch (currSymbol) {
@@ -536,6 +537,16 @@ long epicsShareAPI
 						d=e; e=f; f=ps->a[i+1];
 					}
 					break;
+				case DERIV:
+					d = ps->a[0]; e = ps->a[1];
+					ps->a[0] = ps->a[1] - ps->a[0];
+					for (i=1; i<arraySize-1; i++) {
+						/* average of slopes to adjacent points */
+						ps->a[i] = ((e-d)+(ps->a[i+1]-e))/2;
+						d=e; e=ps->a[i+1];
+					}
+					ps->a[arraySize-1] = e-d;
+					break;
 				}
 			} else {
 				switch (currSymbol) {
@@ -576,6 +587,7 @@ long epicsShareAPI
 				case STD_DEV: ps->d = 0; break;
 				case FWHM: ps->d = 0; break;
 				case SMOOTH: break;
+				case DERIV: ps->d = 0; break;
 				}
 			}
 			break;
