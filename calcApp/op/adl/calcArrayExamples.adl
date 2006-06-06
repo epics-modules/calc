@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/calcArrayExamples.adl"
+	name="/home/oxygen4/MOONEY/epics/synApps_T202_E3_14_7_R5_1/support/calc/calcApp/op/adl/calcArrayExamples.adl"
 	version=030004
 }
 display {
@@ -8,7 +8,7 @@ display {
 		x=401
 		y=345
 		width=240
-		height=540
+		height=570
 	}
 	clr=14
 	bclr=1
@@ -629,40 +629,29 @@ composite {
 		}
 	}
 }
-composite {
+text {
 	object {
 		x=5
 		y=325
 		width=230
-		height=25
+		height=14
 	}
-	"composite name"=""
-	children {
-		text {
-			object {
-				x=5
-				y=325
-				width=230
-				height=14
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="ARR(AA)"
-		}
-		text {
-			object {
-				x=15
-				y=340
-				width=220
-				height=10
-			}
-			"basic attribute" {
-				clr=47
-			}
-			textix="ARRAY WITH VALUES A,A,A,..."
-		}
+	"basic attribute" {
+		clr=14
 	}
+	textix="ARR(A)"
+}
+text {
+	object {
+		x=15
+		y=340
+		width=220
+		height=10
+	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="ARRAY WITH VALUES A,A,A,..."
 }
 composite {
 	object {
@@ -699,27 +688,62 @@ composite {
 		}
 	}
 }
-text {
+composite {
 	object {
 		x=5
 		y=515
 		width=230
-		height=14
+		height=25
 	}
-	"basic attribute" {
-		clr=14
+	"composite name"=""
+	children {
+		text {
+			object {
+				x=15
+				y=530
+				width=220
+				height=10
+			}
+			"basic attribute" {
+				clr=47
+			}
+			textix="SMOOTH ARRAY (BINOMIAL OVER 5 CHANS)"
+		}
+		text {
+			object {
+				x=5
+				y=515
+				width=230
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SMOO(AA)"
+		}
 	}
-	textix="SMOO(AA)"
 }
 text {
 	object {
 		x=15
-		y=530
+		y=560
 		width=220
 		height=10
 	}
 	"basic attribute" {
 		clr=47
 	}
-	textix="SMOOTH ARRAY (BINOMIAL OVER 5 CHANS)"
+	textix="DERIVATIVE (WRT ARRAY INDEX)"
+}
+text {
+	object {
+		x=5
+		y=545
+		width=230
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="DERIV(AA)"
 }
