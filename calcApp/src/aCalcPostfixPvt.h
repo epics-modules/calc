@@ -129,29 +129,30 @@ struct stackElement {
 #define		STD_DEV		65
 #define		FWHM		66
 #define		SMOOTH		67
+#define		DERIV		68
 
-#define		A_FETCH		68
-#define		A_AFETCH	69
+#define		A_FETCH		69
+#define		A_AFETCH	70
 
-#define		MAXFUNC		70
-#define		MINFUNC		71
-#define		AMAX		72
-#define		AMIN		73
-#define		SUBRANGE_IP	74
+#define		MAXFUNC		71
+#define		MINFUNC		72
+#define		AMAX		73
+#define		AMIN		74
+#define		SUBRANGE_IP	75
 
 /* NOTE: FETCH_A .. FETCH_L must be contiguous and in alphabetical order */
-#define		FETCH_A		75
-#define		FETCH_B		76
-#define		FETCH_C		77
-#define		FETCH_D		78
-#define		FETCH_E		79
-#define		FETCH_F		80
-#define		FETCH_G		81
-#define		FETCH_H		82
-#define		FETCH_I		83
-#define		FETCH_J		84
-#define		FETCH_K		85
-#define		FETCH_L		86
+#define		FETCH_A		76
+#define		FETCH_B		77
+#define		FETCH_C		78
+#define		FETCH_D		79
+#define		FETCH_E		80
+#define		FETCH_F		81
+#define		FETCH_G		82
+#define		FETCH_H		83
+#define		FETCH_I		84
+#define		FETCH_J		85
+#define		FETCH_K		86
+#define		FETCH_L		87
 
 #define		GOOD_EXPRESSION		100
 
