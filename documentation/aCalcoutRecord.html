@@ -890,6 +890,13 @@ rendition of some scalar function.
 <td align=center valign=top>FWHM
 <td valign=top>Full width at half max of array values
 <td><code>FWHM(AA)</code>
+
+<tr>
+<td align=center valign=top>SMOO
+<td valign=top>Smooth array values, using a 5-point binomial formula
+y'(i) = y(i-2)/16 + y(i-1)/4 + 3*y(i)/8 + y(i+1)/4 + y(i+2)/16
+<td><code>SMOO(AA)</code>
+
 </table>
 
 <A NAME="ARGUMENT_ARRAY"></A>

@@ -122,7 +122,7 @@ long epicsShareAPI
 	struct stackElement *ps, *ps1, *ps2;
 	char				*s, currSymbol;
 	int					i, j, k, found;
-	double				d, e;
+	double				d, e, f;
 	short 				got_if;
 
 	if (aCalcPerformDebug>=10) {
@@ -427,6 +427,7 @@ long epicsShareAPI
 		case AVERAGE:
 		case STD_DEV:
 		case FWHM:
+		case SMOOTH:
 			checkStackElement(ps, *post);
 			if (isArray(ps)) {
 				switch (currSymbol) {
@@ -528,6 +529,13 @@ long epicsShareAPI
 					toDouble(ps);
 					ps->d = e-d;
 					break;
+				case SMOOTH:
+					d = ps->a[0]; e = ps->a[1]; f=ps->a[2];
+					for (i=2; i<arraySize-2; i++) {
+						ps->a[i] = d/16 + e/4 + 3*f/8 + ps->a[i+1]/4 + ps->a[i+2]/16;
+						d=e; e=f; f=ps->a[i+1];
+					}
+					break;
 				}
 			} else {
 				switch (currSymbol) {
@@ -567,6 +575,7 @@ long epicsShareAPI
 				case AVERAGE: break;
 				case STD_DEV: ps->d = 0; break;
 				case FWHM: ps->d = 0; break;
+				case SMOOTH: break;
 				}
 			}
 			break;

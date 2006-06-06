@@ -123,11 +123,12 @@ struct stackElement {
 #define		ATAN2		59
 #define		STORE		60
 #define		TO_DOUBLE	61
-#define		SUBRANGE	63
-#define		TO_ARRAY	64
-#define		AVERAGE		65
-#define		STD_DEV		66
-#define		FWHM		67
+#define		SUBRANGE	62
+#define		TO_ARRAY	63
+#define		AVERAGE		64
+#define		STD_DEV		65
+#define		FWHM		66
+#define		SMOOTH		67
 
 #define		A_FETCH		68
 #define		A_AFETCH	69

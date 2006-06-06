@@ -163,6 +163,7 @@ element    i_s_p i_c_p type_element     internal_rep */
 {"AVG",    10,    11,    UNARY_OPERATOR,  AVERAGE},     /* array average */
 {"STD",    10,    11,    UNARY_OPERATOR,  STD_DEV},     /* standard deviation */
 {"FWHM",   10,    11,    UNARY_OPERATOR,  FWHM},        /* full width at half max */
+{"SMOO",   10,    11,    UNARY_OPERATOR,  SMOOTH},        /* smooth */
 {"!=",      4,     4,    BINARY_OPERATOR, NOT_EQ},      /* not equal */
 {"!",      10,    11,    UNARY_OPERATOR,  REL_NOT},     /* not */
 {"~",      10,    11,    UNARY_OPERATOR,  BIT_NOT},     /* bitwise not */

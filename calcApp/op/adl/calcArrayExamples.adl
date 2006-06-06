@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen4/MOONEY/epics/synApps_T202_E3_14_7_R5_1/support/calc/calcApp/op/adl/calcArrayExamples.adl"
+	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/calcArrayExamples.adl"
 	version=030004
 }
 display {
@@ -8,7 +8,7 @@ display {
 		x=401
 		y=345
 		width=240
-		height=510
+		height=540
 	}
 	clr=14
 	bclr=1
@@ -664,27 +664,62 @@ composite {
 		}
 	}
 }
-text {
+composite {
 	object {
 		x=5
 		y=485
+		width=230
+		height=25
+	}
+	"composite name"=""
+	children {
+		text {
+			object {
+				x=5
+				y=485
+				width=230
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="FWHM(AA)"
+		}
+		text {
+			object {
+				x=15
+				y=500
+				width=220
+				height=10
+			}
+			"basic attribute" {
+				clr=47
+			}
+			textix="FULL WIDTH AT HALF MAX OF AA"
+		}
+	}
+}
+text {
+	object {
+		x=5
+		y=515
 		width=230
 		height=14
 	}
 	"basic attribute" {
 		clr=14
 	}
-	textix="FWHM(AA)"
+	textix="SMOO(AA)"
 }
 text {
 	object {
 		x=15
-		y=500
+		y=530
 		width=220
 		height=10
 	}
 	"basic attribute" {
 		clr=47
 	}
-	textix="FULL WIDTH AT HALF MAX OF AA"
+	textix="SMOOTH ARRAY (BINOMIAL OVER 5 CHANS)"
 }
