@@ -165,6 +165,7 @@ element    i_s_p i_c_p type_element     internal_rep */
 {"FWHM",   10,    11,    UNARY_OPERATOR,  FWHM},        /* full width at half max */
 {"SMOO",   10,    11,    UNARY_OPERATOR,  SMOOTH},      /* smooth */
 {"DERIV",  10,    11,    UNARY_OPERATOR,  DERIV},       /* derivative */
+{"SUM",    10,    11,    UNARY_OPERATOR,  ARRSUM},      /* sum over array */
 {"!=",      4,     4,    BINARY_OPERATOR, NOT_EQ},      /* not equal */
 {"!",      10,    11,    UNARY_OPERATOR,  REL_NOT},     /* not */
 {"~",      10,    11,    UNARY_OPERATOR,  BIT_NOT},     /* bitwise not */
@@ -322,7 +323,7 @@ long aCalcCheck(char *post, int forks_checked, int dir_mask)
 		case FLOOR:		case NINT:		case REL_NOT:	case BIT_NOT:
 		case A_FETCH:	case TO_DOUBLE: case AMAX:		case AMIN:
 		case AVERAGE:	case STD_DEV:	case FWHM:		case SMOOTH:
-		case DERIV:
+		case DERIV:		case ARRSUM:
 			*ps = 0;
 			break;
 

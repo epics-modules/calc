@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/calcExamples.adl"
+	name="/home/oxygen4/MOONEY/epics/synApps_T202_E3_14_7_R5_1/support/calc/calcApp/op/adl/calcExamples.adl"
 	version=030004
 }
 display {
@@ -8,7 +8,7 @@ display {
 		x=473
 		y=126
 		width=370
-		height=825
+		height=840
 	}
 	clr=14
 	bclr=1
@@ -1371,7 +1371,7 @@ text {
 composite {
 	object {
 		x=10
-		y=765
+		y=780
 		width=350
 		height=59
 	}
@@ -1380,7 +1380,7 @@ composite {
 		text {
 			object {
 				x=10
-				y=795
+				y=810
 				width=350
 				height=14
 			}
@@ -1392,7 +1392,7 @@ composite {
 		text {
 			object {
 				x=10
-				y=810
+				y=825
 				width=350
 				height=14
 			}
@@ -1404,7 +1404,7 @@ composite {
 		composite {
 			object {
 				x=10
-				y=765
+				y=780
 				width=350
 				height=29
 			}
@@ -1413,7 +1413,7 @@ composite {
 				text {
 					object {
 						x=10
-						y=765
+						y=780
 						width=350
 						height=14
 					}
@@ -1425,7 +1425,7 @@ composite {
 				text {
 					object {
 						x=10
-						y=780
+						y=795
 						width=350
 						height=14
 					}
@@ -1449,18 +1449,6 @@ text {
 		clr=20
 	}
 	textix="ARNDM"
-}
-text {
-	object {
-		x=10
-		y=745
-		width=90
-		height=14
-	}
-	"basic attribute" {
-		clr=20
-	}
-	textix="ARR(a)"
 }
 text {
 	object {
@@ -1512,30 +1500,6 @@ text {
 }
 text {
 	object {
-		x=100
-		y=745
-		width=90
-		height=14
-	}
-	"basic attribute" {
-		clr=20
-	}
-	textix="FWHM(aa)"
-}
-text {
-	object {
-		x=200
-		y=745
-		width=90
-		height=14
-	}
-	"basic attribute" {
-		clr=20
-	}
-	textix="SMOO(aa)"
-}
-text {
-	object {
 		x=300
 		y=715
 		width=90
@@ -1558,15 +1522,107 @@ text {
 	}
 	textix="IX"
 }
+composite {
+	object {
+		x=10
+		y=745
+		width=380
+		height=14
+	}
+	"composite name"=""
+	children {
+		text {
+			object {
+				x=10
+				y=745
+				width=90
+				height=14
+			}
+			"basic attribute" {
+				clr=20
+			}
+			textix="ARR(a)"
+		}
+		text {
+			object {
+				x=100
+				y=745
+				width=90
+				height=14
+			}
+			"basic attribute" {
+				clr=20
+			}
+			textix="FWHM(aa)"
+		}
+		text {
+			object {
+				x=200
+				y=745
+				width=90
+				height=14
+			}
+			"basic attribute" {
+				clr=20
+			}
+			textix="SMOO(aa)"
+		}
+		text {
+			object {
+				x=300
+				y=745
+				width=90
+				height=14
+			}
+			"basic attribute" {
+				clr=20
+			}
+			textix="DERIV(aa)"
+		}
+	}
+}
 text {
 	object {
-		x=300
-		y=745
+		x=10
+		y=760
 		width=90
 		height=14
 	}
 	"basic attribute" {
 		clr=20
 	}
-	textix="DERIV(aa)"
+	textix="SUM(aa)"
+}
+text {
+	object {
+		x=100
+		y=760
+		width=90
+		height=14
+	}
+	"basic attribute" {
+		clr=20
+	}
+}
+text {
+	object {
+		x=200
+		y=760
+		width=90
+		height=14
+	}
+	"basic attribute" {
+		clr=20
+	}
+}
+text {
+	object {
+		x=300
+		y=760
+		width=90
+		height=14
+	}
+	"basic attribute" {
+		clr=20
+	}
 }

@@ -68,6 +68,7 @@ static double	local_random();
 #endif
 #define MAX(a,b) (a)>(b)?(a):(b)
 #define MIN(a,b) (a)<(b)?(a):(b)
+#define SMALL 1.e-9
 
 #define DEBUG 1
 volatile int aCalcPerformDebug = 0;
@@ -429,6 +430,7 @@ long epicsShareAPI
 		case FWHM:
 		case SMOOTH:
 		case DERIV:
+		case ARRSUM:
 			checkStackElement(ps, *post);
 			if (isArray(ps)) {
 				switch (currSymbol) {
@@ -547,6 +549,13 @@ long epicsShareAPI
 					}
 					ps->a[arraySize-1] = e-d;
 					break;
+				case ARRSUM:
+					for (i=0, d=0.0; i<arraySize; i++) {
+						d += ps->a[i];
+					}
+					toDouble(ps);
+					ps->d = d;
+					break;
 				}
 			} else {
 				switch (currSymbol) {
@@ -588,6 +597,7 @@ long epicsShareAPI
 				case FWHM: ps->d = 0; break;
 				case SMOOTH: break;
 				case DERIV: ps->d = 0; break;
+				case ARRSUM: break;
 				}
 			}
 			break;
@@ -709,12 +719,14 @@ long epicsShareAPI
 			checkStackElement(ps, *post);
 			toDouble(ps1);
 			if (isDouble(ps)) {
+				/* scalar variable: bit shift by integer amount */
 				if (currSymbol == RIGHT_SHIFT) {
 					ps->d = (int)(ps->d) >> (int)(ps1->d);
 				} else {
 					ps->d = (int)(ps->d) << (int)(ps1->d);
 				}
 			} else {
+				/* array variable: shift array elements */
 				j = myNINT(ps1->d);
 				if (currSymbol == LEFT_SHIFT)  j = -j;
 				if (j > 0) {
@@ -723,6 +735,24 @@ long epicsShareAPI
 				} else if (j < 0) {
 					for (i=0; i<arraySize+j; i++) ps->a[i] = ps->a[i-j];
 					for ( ; i<arraySize; i++) ps->a[i] = 0.;
+				}
+				d = fabs(ps1->d - j);
+				/* printf("aCalcPerform:shift: d=%f\n", d);*/
+				if (d > SMALL) {
+					/* shift by delta-index of less than .5 */
+					if (ps1->d < j) {
+						for (i=0; i<arraySize-1; i++) {
+							ps->a[i] += d * (ps->a[i+1] - ps->a[i]);
+						}
+						/* extrapolate for last data point */
+						ps->a[i] += d * (ps->a[i] - ps->a[i-1]);
+					} else {
+						for (i=arraySize-1; i>0; i--) {
+							ps->a[i] += d * (ps->a[i-1] - ps->a[i]);
+						}
+						/* extrapolate for last data point */
+						ps->a[i] += d * (ps->a[i] - ps->a[i+1]);
+					}
 				}
 			}
 			break;
