@@ -202,8 +202,8 @@ int nderiv(double *x, double *y, int n, double *d, int npts, double *lx)
 
 int deriv(double *x, double *y, int n, double *d)
 {
-	double work[3]; /* must be >= 2m+1, where m is 5th arg to nderiv() */
-	return(nderiv(x, y, n, d, 1, work));
+	double work[5]; /* must be >= 2m+1, where m is 5th arg to nderiv() */
+	return(nderiv(x, y, n, d, 2, work));
 }
 #endif
 
