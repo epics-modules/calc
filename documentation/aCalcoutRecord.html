@@ -898,9 +898,28 @@ y'(i) = y(i-2)/16 + y(i-1)/4 + 3*y(i)/8 + y(i+1)/4 + y(i+2)/16
 <td><code>SMOO(AA)</code>
 
 <tr>
+<td align=center valign=top>NSMOO
+<td valign=top>Smooth array values, using multiple applications of SMOO()
+<td><code>NSMOO(AA,B)</code>
+
+<tr>
 <td align=center valign=top>DERIV
 <td valign=top>Derivative of array values, with respect to array index.
+Equivalent to NDERIV(AA,1).
 <td><code>DERIV(AA)</code>
+
+<tr>
+<td align=center valign=top>NDERIV
+<td valign=top>Derivative of array values, with respect to array index.
+Derivative is calculated in the following way: at each array point, fit
+N surrounding array points to a second-order polynomial, take the derivative
+of the polynomial analytically, and evaluate it at the index of the array
+point.  The number of points, on either side of the array point, to be used
+in the fit, is specified by the second argument to NDERIV().  (I.e., if N is
+specified, 2*N+1 points will be fit.)  Array elements less than N points from
+the beginning or end of the array will get a less effectively calculated
+derivative, since the fit will not be centered on the point.
+<td><code>NDERIV(AA,B)</code>
 
 <tr>
 <td align=center valign=top>SUM
