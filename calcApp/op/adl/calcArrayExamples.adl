@@ -5,10 +5,10 @@ file {
 }
 display {
 	object {
-		x=401
-		y=345
+		x=192
+		y=38
 		width=240
-		height=600
+		height=660
 	}
 	clr=14
 	bclr=1
@@ -758,27 +758,86 @@ composite {
 		}
 	}
 }
-text {
+composite {
 	object {
 		x=5
 		y=575
 		width=230
-		height=14
+		height=25
 	}
-	"basic attribute" {
-		clr=14
+	"composite name"=""
+	children {
+		text {
+			object {
+				x=15
+				y=590
+				width=220
+				height=10
+			}
+			"basic attribute" {
+				clr=47
+			}
+			textix="SUM OF ARRAY ELEMENTS"
+		}
+		text {
+			object {
+				x=5
+				y=575
+				width=230
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SUM(AA)"
+		}
 	}
-	textix="SUM(AA)"
 }
 text {
 	object {
 		x=15
-		y=590
+		y=620
 		width=220
 		height=10
 	}
 	"basic attribute" {
 		clr=47
 	}
-	textix="SUM OF ARRAY ELEMENTS"
+	textix="SMOO(AA) B times"
+}
+text {
+	object {
+		x=5
+		y=605
+		width=230
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="NSMOO(AA,B)"
+}
+text {
+	object {
+		x=15
+		y=650
+		width=220
+		height=10
+	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="DERIV by fitting 2B+1 point segments"
+}
+text {
+	object {
+		x=5
+		y=635
+		width=230
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="NDERIV(AA,B)"
 }
