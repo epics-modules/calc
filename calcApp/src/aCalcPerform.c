@@ -70,6 +70,9 @@ static double	local_random();
 #define MIN(a,b) (a)<(b)?(a):(b)
 #define SMALL 1.e-9
 
+extern int deriv(double *x, double *y, int n, double *d);
+extern int nderiv(double *x, double *y, int n, double *d, int m, double *work);
+
 #define DEBUG 1
 volatile int aCalcPerformDebug = 0;
 epicsExportAddress(int, aCalcPerformDebug);
@@ -120,7 +123,7 @@ long epicsShareAPI
 
 {
 	struct stackElement *top;
-	struct stackElement *ps, *ps1, *ps2;
+	struct stackElement *ps, *ps1, *ps2, *ps3;
 	char				*s, currSymbol;
 	int					i, j, k, found;
 	double				d, e, f;
@@ -295,6 +298,40 @@ long epicsShareAPI
 			}
 			break;
 
+		case NSMOOTH:
+			checkStackElement(ps, *post);
+			j = ps->d; /* get npts (ignore it for now, because NSMOOTH is not implemented yet) */
+			DEC(ps);
+			checkStackElement(ps, *post);
+			for(k=0; k<j; k++) {
+				d = ps->a[0]; e = ps->a[1]; f=ps->a[2];
+				for (i=2; i<arraySize-2; i++) {
+					ps->a[i] = d/16 + e/4 + 3*f/8 + ps->a[i+1]/4 + ps->a[i+2]/16;
+					d=e; e=f; f=ps->a[i+1];
+				}
+			}
+			break;
+
+		case NDERIV:
+			checkStackElement(ps, *post);
+			toDouble(ps);
+			j = MIN((arraySize-1)/2, ps->d);  /* points on either side of value for fit */
+			DEC(ps);
+			checkStackElement(ps, *post);
+			toArray(ps);
+			ps1 = ps; /* y array */
+			INC(ps); ps->a = &(ps->local_array[0]);
+			ps2 = ps; /* place in which to make an x array */
+			for (i=0; i<arraySize; i++) {ps2->a[i] = i;}
+			INC(ps); ps->a = &(ps->local_array[0]); /* place in which to calc derivative */
+			ps3 = ps;
+			INC(ps); ps->a = &(ps->local_array[0]); /* workspace for nderiv */
+			nderiv(ps2->a, ps1->a, arraySize, ps3->a, j, ps->a);
+			for (i=0; i<arraySize; i++) {ps1->a[i] = ps3->a[i];}
+			DEC(ps); DEC(ps); DEC(ps);
+			break;
+
+		/* normal two-argument functions/operators (either arg can be array or scalar) */
 		case ADD:
 		case SUB:
 		case MULT:
@@ -302,7 +339,7 @@ long epicsShareAPI
 		case MODULO:
 		case MAXFUNC:
 		case MINFUNC:
-
+		
 			checkStackElement(ps, *post);
 			ps1 = ps;
 			DEC(ps);
@@ -540,14 +577,16 @@ long epicsShareAPI
 					}
 					break;
 				case DERIV:
-					d = ps->a[0]; e = ps->a[1];
-					ps->a[0] = ps->a[1] - ps->a[0];
-					for (i=1; i<arraySize-1; i++) {
-						/* average of slopes to adjacent points */
-						ps->a[i] = ((e-d)+(ps->a[i+1]-e))/2;
-						d=e; e=ps->a[i+1];
-					}
-					ps->a[arraySize-1] = e-d;
+					ps1 = ps; /* y values */
+					INC(ps);
+					ps->a = &(ps->local_array[0]);
+					ps2 = ps; /* x values */
+					for (i=0; i<arraySize; i++) {ps2->a[i] = i;}
+					INC(ps);
+					ps->a = &(ps->local_array[0]); /* place for deriv */
+					deriv(ps2->a, ps1->a, arraySize, ps->a);
+					for (i=0; i<arraySize; i++) {ps1->a[i] = ps->a[i];}
+					DEC(ps); DEC(ps);
 					break;
 				case ARRSUM:
 					for (i=0, d=0.0; i<arraySize; i++) {
@@ -633,7 +672,7 @@ long epicsShareAPI
 						if ((ps1->d - (double)j) != 0) {stackInUse=0; return(-1);}
        					ps->a[i] = exp(ps1->d * log(-(ps->a[i])));
 						/* is value negative */
-						if ((i % 2) > 0) ps->a[i] = -ps->a[i];
+						if ((j % 2) > 0) ps->a[i] = -ps->a[i];
 					} else {
 						ps->a[i] = exp(ps1->d * log(ps->a[i]));
 					}
