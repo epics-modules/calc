@@ -164,7 +164,9 @@ element    i_s_p i_c_p type_element     internal_rep */
 {"STD",    10,    11,    UNARY_OPERATOR,  STD_DEV},     /* standard deviation */
 {"FWHM",   10,    11,    UNARY_OPERATOR,  FWHM},        /* full width at half max */
 {"SMOO",   10,    11,    UNARY_OPERATOR,  SMOOTH},      /* smooth */
+{"NSMOO",  10,    11,    UNARY_OPERATOR,  NSMOOTH},     /* smooth (npts)*/
 {"DERIV",  10,    11,    UNARY_OPERATOR,  DERIV},       /* derivative */
+{"NDERIV", 10,    11,    UNARY_OPERATOR,  NDERIV},      /* derivative (npts)*/
 {"SUM",    10,    11,    UNARY_OPERATOR,  ARRSUM},      /* sum over array */
 {"!=",      4,     4,    BINARY_OPERATOR, NOT_EQ},      /* not equal */
 {"!",      10,    11,    UNARY_OPERATOR,  REL_NOT},     /* not */
@@ -305,17 +307,19 @@ long aCalcCheck(char *post, int forks_checked, int dir_mask)
 			*ps = 0;
 			break;
 
+		/* two-argument functions/operators */
 		case ADD:			case SUB:		case MAX_VAL:	case MIN_VAL:
 		case MULT:			case DIV:		case EXPON:		case MODULO:
 		case REL_OR:		case REL_AND:	case BIT_OR:	case BIT_AND:
 		case BIT_EXCL_OR:	case GR_OR_EQ:	case GR_THAN:	case LESS_OR_EQ:
 		case LESS_THAN:		case NOT_EQ:	case EQUAL:		case RIGHT_SHIFT:
 		case LEFT_SHIFT:	case ATAN2:		case MAXFUNC:	case MINFUNC:
+		case NSMOOTH:		case NDERIV:
 			DEC(ps);
 			*ps = 0;
 			break;
 
-	
+		/* one-argument functions/operators */
 		case ABS_VAL:	case UNARY_NEG:	case SQU_RT:	case EXP:
 		case LOG_10:	case LOG_E:		case ACOS:		case ASIN:
 		case ATAN:		case COS:		case SIN:		case TAN:

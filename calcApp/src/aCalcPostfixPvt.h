@@ -129,11 +129,13 @@ struct stackElement {
 #define		STD_DEV		65
 #define		FWHM		66
 #define		SMOOTH		67
-#define		DERIV		68
-#define		ARRSUM		69
+#define		NSMOOTH		68
+#define		DERIV		69
+#define		NDERIV		70
+#define		ARRSUM		71
 
-#define		A_FETCH		70
-#define		A_AFETCH	71
+#define		A_FETCH		72
+#define		A_AFETCH	73
 
 #define		MAXFUNC		81
 #define		MINFUNC		82
