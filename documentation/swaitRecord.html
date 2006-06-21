@@ -71,19 +71,46 @@ The SWAIT record has the standard fields for specifying under what circumstances
 the record will be processed. In addition to the standard scan mechanisms
 available to all records (periodic, passive, event, etc.), the SWAIT record
 can be specified to process as a result of one of its input values changing
-(using Channel Access monitors). This offers immediate response to an input
-change (rather than waiting for the next periodic scan) while minimizing
-record processing that is not required. The scan mechanism choice <code>I/O Intr</code>
-will enable this feature.
+(using Channel Access monitors). The scan mechanism choice <code>I/O Intr</code>
+enables this feature for the record instance as a whole, and the fields INAP - INLP
+control the behavior of each input link INPA - INPL, respectively.  Thus, if
+.SCAN == "I/O Intr" and .INAP == "Yes", then the record will process every time
+a new value is posted for the field specified by the input INPA.
+
+<p>
+<table border="1"><tbody><tr><th>Field</th><th>Summary</th><th>Type</th><th>DCT</th><th>Initial</th><th>Access</th><th>Modify</th><th>Rec Proc Monitor</th></tr><tr>
+<td>INAP</td><td>Input A ProcessOnChange</td><td>Menu</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr>
+<td>INBP</td><td>Input B ProcessOnChange</td><td>Menu</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr>
+<td>INCP</td><td>Input C ProcessOnChange</td><td>Menu</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr>
+<td>INDP</td><td>Input D ProcessOnChange</td><td>Menu</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr>
+<td>INEP</td><td>Input E ProcessOnChange</td><td>Menu</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr>
+<td>INFP</td><td>Input F ProcessOnChange</td><td>Menu</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr>
+<td>INGP</td><td>Input G ProcessOnChange</td><td>Menu</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr>
+<td>INHP</td><td>Input H ProcessOnChange</td><td>Menu</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr>
+<td>INIP</td><td>Input I ProcessOnChange</td><td>Menu</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr>
+<td>INJP</td><td>Input J ProcessOnChange</td><td>Menu</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr>
+<td>INKP</td><td>Input K ProcessOnChange</td><td>Menu</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr>
+<td>INLP</td><td>Input L ProcessOnChange</td><td>Menu</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td></tr></tbody></table>
+<p>
+
 <p>
 <table border="1"><tbody><tr><td><b>Note: Because of the event-driven nature
 of this feature, it is quite easy to configure a database that results in
 an infinite loop which uses all available CPU time. If the SWAIT record is
 set to process as a result of a channel changing and the processing of the
 SWAIT record causes the channel to change again, an infinite loop will result.
-The symptom will be a loss of all channel access connections (lower priority
-tasks) even though the shell responds normally. Using the <code>spy vxWorks
-utility will confirm the predicament by showing 0% free CPU time.</code>
+This is not by itself a bad thing, but if there is no throttle on the rate at
+which the SWAIT record causes itself to process, its activity will use all
+of the available CPU time.  The symptom will be an apparent loss of all channel
+access connections (lower priority tasks) even though the shell responds normally.
+Using the <code>spy</code> vxWorks utility will confirm the predicament by showing
+0% free CPU time.  If the condition persists for more than a few tens of seconds,
+some system queue is likely to overflow, and a crate reboot may be required to recover.
+
+<p>You can safely use the SWAIT record in such a self-sustaining loop by setting the
+record's output-delay (.ODLY) field to, say, .02 (seconds).  The delay value must be
+larger than a single system-clock tick (typically, .01667) or it will have no effect.
+</code>
 </b></td></tr></tbody></table>
 <p>
 The Application Developer's Guide explains how the rest of these fields are used.
