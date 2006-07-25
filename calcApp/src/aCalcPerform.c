@@ -72,6 +72,8 @@ static double	local_random();
 
 extern int deriv(double *x, double *y, int n, double *d);
 extern int nderiv(double *x, double *y, int n, double *d, int m, double *work);
+int fitpoly(double *x, double *y, int n,
+	double *a0, double *a1, double *a2, double *mask);
 
 #define DEBUG 1
 volatile int aCalcPerformDebug = 0;
@@ -123,7 +125,7 @@ long epicsShareAPI
 
 {
 	struct stackElement *top;
-	struct stackElement *ps, *ps1, *ps2, *ps3;
+	struct stackElement *ps, *ps1, *ps2, *ps3, *ps4;
 	char				*s, currSymbol;
 	int					i, j, k, found;
 	double				d, e, f;
@@ -468,6 +470,8 @@ long epicsShareAPI
 		case SMOOTH:
 		case DERIV:
 		case ARRSUM:
+		case FITPOLY:
+		case FITMPOLY:
 			checkStackElement(ps, *post);
 			if (isArray(ps)) {
 				switch (currSymbol) {
@@ -595,6 +599,36 @@ long epicsShareAPI
 					toDouble(ps);
 					ps->d = d;
 					break;
+				case FITPOLY:
+					ps1 = ps; /* y values */
+					INC(ps);
+					ps->a = &(ps->local_array[0]);
+					ps2 = ps; /* x values */
+					for (i=0; i<arraySize; i++) {ps2->a[i] = i;}
+					INC(ps);
+					ps->a = &(ps->local_array[0]); /* place for deriv */
+					fitpoly(ps2->a, ps1->a, arraySize, &d, &e, &f, NULL);
+					for (i=0; i<arraySize; i++) {
+						ps1->a[i] = d + e*ps2->a[i] + f*(ps2->a[i])*(ps2->a[i]);
+					}
+					DEC(ps); DEC(ps);
+					break;
+				case FITMPOLY:
+					ps3 = ps; /* mask array */
+					DEC(ps);
+					ps1 = ps; /* y values */
+					INC(ps); INC(ps); /* point to unused value-stack element */
+					ps->a = &(ps->local_array[0]);
+					ps2 = ps; /* x values */
+					for (i=0; i<arraySize; i++) {ps2->a[i] = i;}
+					INC(ps); /* point to unused value-stack element */
+					ps->a = &(ps->local_array[0]); /* place for deriv */
+					fitpoly(ps2->a, ps1->a, arraySize, &d, &e, &f, ps3->a);
+					for (i=0; i<arraySize; i++) {
+						ps1->a[i] = d + e*ps2->a[i] + f*(ps2->a[i])*(ps2->a[i]);
+					}
+					DEC(ps); DEC(ps); DEC(ps);
+					break;
 				}
 			} else {
 				switch (currSymbol) {
@@ -637,6 +671,8 @@ long epicsShareAPI
 				case SMOOTH: break;
 				case DERIV: ps->d = 0; break;
 				case ARRSUM: break;
+				case FITPOLY: ps->d = 0; break;
+				case FITMPOLY: ps->d = 0; break;
 				}
 			}
 			break;

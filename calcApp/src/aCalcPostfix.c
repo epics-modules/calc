@@ -168,6 +168,8 @@ element    i_s_p i_c_p type_element     internal_rep */
 {"DERIV",  10,    11,    UNARY_OPERATOR,  DERIV},       /* derivative */
 {"NDERIV", 10,    11,    UNARY_OPERATOR,  NDERIV},      /* derivative (npts)*/
 {"SUM",    10,    11,    UNARY_OPERATOR,  ARRSUM},      /* sum over array */
+{"FITPOLY",10,    11,    UNARY_OPERATOR,  FITPOLY},     /* polynomial fit */
+{"FITMPOLY",10,    11,    UNARY_OPERATOR,  FITMPOLY},     /* polynomial fit */
 {"!=",      4,     4,    BINARY_OPERATOR, NOT_EQ},      /* not equal */
 {"!",      10,    11,    UNARY_OPERATOR,  REL_NOT},     /* not */
 {"~",      10,    11,    UNARY_OPERATOR,  BIT_NOT},     /* bitwise not */
@@ -314,7 +316,7 @@ long aCalcCheck(char *post, int forks_checked, int dir_mask)
 		case BIT_EXCL_OR:	case GR_OR_EQ:	case GR_THAN:	case LESS_OR_EQ:
 		case LESS_THAN:		case NOT_EQ:	case EQUAL:		case RIGHT_SHIFT:
 		case LEFT_SHIFT:	case ATAN2:		case MAXFUNC:	case MINFUNC:
-		case NSMOOTH:		case NDERIV:
+		case NSMOOTH:		case NDERIV:	case FITMPOLY:
 			DEC(ps);
 			*ps = 0;
 			break;
@@ -327,7 +329,7 @@ long aCalcCheck(char *post, int forks_checked, int dir_mask)
 		case FLOOR:		case NINT:		case REL_NOT:	case BIT_NOT:
 		case A_FETCH:	case TO_DOUBLE: case AMAX:		case AMIN:
 		case AVERAGE:	case STD_DEV:	case FWHM:		case SMOOTH:
-		case DERIV:		case ARRSUM:
+		case DERIV:		case ARRSUM:	case FITPOLY:
 			*ps = 0;
 			break;
 
