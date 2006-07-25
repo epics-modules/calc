@@ -14,156 +14,16 @@ int pfit(double *x, double *y, int n,
 
 int lfit(double *x, double *y, int n,
 	double *m, double *m_e, double *b, double *b_e, double *chisq);
-int polyfit(double *x, double *y, int n, double *c, double *b, double *a);
+int fitpoly(double *x, double *y, int n,
+	double *c, double *b, double *a, double *mask);
 
-#if 0
-int main(int argc, char **argv)
-{
-	double x[1000], y[1000];
-	double m, m_e, b, b_e, chisq_l;
-	double x0, x0_e, y0, y0_e, w, w_e, chisq_p, depth;
-	int i;
-	int n = 10;
-	long seed = 1;
 
-	for (i=0; i<n; i++) {
-		x[i] = i;
-		y[i] = x[i]*x[i]+drand48();
-	}
-	i = lfit(x,y,n, &m,&m_e,&b,&b_e, &chisq_l);
-	printf("lfit: m=%7f(%7f); b=%7f(%7f); chisq=%7f\n", m,m_e,b,b_e,chisq_l);
-
-	i = pfit(x,y,n, &x0, &x0_e, &y0, &y0_e, &w, &w_e, &chisq_p, &depth);
-	printf("pfit: x0=%7f(%7f); y0=%7f(%7f);  w=%7f(%7f); chi=%7f; depth=%f\n",
-		x0, x0_e, y0, y0_e, w, w_e, chisq_p, depth);
-	return(0);
-}
-#endif
-
-#if 0
-/*
- * Caller supplies x[], y[] arrays of n pts.
- * We return derivative in d.
- */
-int deriv(double *x, double *y, int n, double *d)
-{
-	int i, el, ep, epoly;
-	double m, m_e, b, b_e, chisq_l;
-	double x0, x0_e, y0, y0_e, w, w_e, chisq_p, depth;
-	double c, b, a;
-
-	/*printf("deriv: x[0..2]=[%f,%f,%f]; y[0..2]=[%f,%f,%f]\n",
-		x[0], x[1], x[2], y[0], y[1], y[2]); */
-	/* first three points */
-	el = lfit(x,y,5, &m,&m_e,&b,&b_e, &chisq_l);
-	ep = pfit(x,y,5, &x0, &x0_e, &y0, &y0_e, &w, &w_e, &chisq_p, &depth);
-	epoly = polyfit(x,y,5, &c, &b, &a);
-	if (el && ep) {
-		d[0] = d[1] = d[2] = 0;
-	} else if ((!el && (chisq_l < chisq_p)) || ep) {
-		d[0] = d[1] = d[2] = m;
-	} else {
-		/* y[i] = y0 + w*(x[i]-x0)*(x[i]-x0) */
-		/* dy[i] = 2*w*(x[i]-x0) */
-		d[0] = 2*w*(x[0]-x0);
-		d[1] = 2*w*(x[1]-x0);
-		d[2] = 2*w*(x[2]-x0);
-	}
-
-	/* middle points */
-	for (i=3; i<n-3; i++) {
-		el = lfit(&(x[i-2]),&(y[i-2]),5, &m,&m_e,&b,&b_e, &chisq_l);
-		ep = pfit(&(x[i-2]),&(y[i-2]),5, &x0, &x0_e, &y0, &y0_e, &w, &w_e, &chisq_p, &depth);
-		if (el && ep) {
-			d[i] = 0;
-		} else if ((!el && (chisq_l < chisq_p)) || ep) {
-			/* d[i] = m*x[i]+b;*/
-			d[i] = m;
-		} else {
-			/* d[i] = y0 + w*(x[i]-x0)*(x[i]-x0);*/
-			d[i] = 2*w*(x[i]-x0);
-		}
-		printf("   x,y,d = %f, %f, %f\n", x[i], y[i], d[i]);
-	}
-
-	/* last three points */
-	el = lfit(&(x[n-5]),&(y[n-5]),5, &m,&m_e,&b,&b_e, &chisq_l);
-	ep = pfit(&(x[n-5]),&(y[n-5]),5, &x0, &x0_e, &y0, &y0_e, &w, &w_e, &chisq_p, &depth);
-	if (el && ep) {
-		d[n-3] = d[n-2] = d[n-1] = 0;
-	} else if ((!el && (chisq_l < chisq_p)) || ep) {
-		d[n-3] = d[n-2] = d[n-1] = m;
-	} else {
-		d[n-3] = 2*w*(x[n-3]-x0);
-		d[n-2] = 2*w*(x[n-2]-x0);
-		d[n-1] = 2*w*(x[n-1]-x0);
-	}
-
-	/* for (i=0; i<n; i++) {printf("   x,y,d = %f, %f, %f\n", x[i], y[i], d[i]);} */
-	return(0);
-}
-#endif
 
 /*
  * Caller supplies x[], y[] arrays of n pts.
  * We return derivative in d.
  */
-#if 0
-int deriv(double *x, double *y, int n, double *d)
-{
-	int i, j, e;
-	double c, b, a, lx[5];
 
-	/* first three points */
-	e = polyfit(x,y,5, &c, &b, &a);
-	if (e) {
-		d[0] = d[1] = d[2] = 0;
-	} else {
-		/*
-		 * y[i] = c + b*x[i] + a*(x[i])^2
-		 * dy = b + 2*a*(x[i]-x0)
-		 */
-		d[0] = b + 2*a*x[0];
-		d[1] = b + 2*a*x[1];
-		d[2] = b + 2*a*x[2];
-	}
-
-	/* middle points */
-	for (i=3; i<n-3; i++) {
-		/* make local copy of x-array segment */
-		for (j=0; j<5; j++) lx[j] = x[(i-2)+j]-x[i-2];
-		/* e = polyfit(&(x[i-2]),&(y[i-2]),5, &c, &b, &a); */
-		e = polyfit(lx,&(y[i-2]),5, &c, &b, &a);
-		if (e) {
-			d[i] = 0;
-		} else {
-			/* d[i] = b + 2*a*x[i]; */
-			d[i] = b + 2*a*lx[2];
-		}
-		/* printf("   x,y,d = %f, %f, %f\n", x[i], y[i], d[i]); */
-	}
-
-	/* last three points */
-	/* make local copy of x-array segment */
-	for (j=0; j<5; j++) lx[j] = x[(n-5)+j]-x[n-5];
-	/* e = polyfit(&(x[n-5]),&(y[n-5]),5, &c, &b, &a); */
-	e = polyfit(lx,&(y[n-5]),5, &c, &b, &a);
-	if (e) {
-		d[n-3] = d[n-2] = d[n-1] = 0;
-	} else {
-		/* d[n-3] = b + 2*a*x[n-3];
-		 * d[n-2] = b + 2*a*x[n-2];
-		 * d[n-1] = b + 2*a*x[n-1];
-		 */
-		d[n-3] = b + 2*a*x[2];
-		d[n-2] = b + 2*a*x[3];
-		d[n-1] = b + 2*a*x[4];
-	}
-
-	/* for (i=0; i<n; i++) {printf("   x,y,d = %f, %f, %f\n", x[i], y[i], d[i]);} */
-	return(0);
-}
-#else
 int nderiv(double *x, double *y, int n, double *d, int npts, double *lx)
 {
 	int i, j, e, m;
@@ -171,7 +31,7 @@ int nderiv(double *x, double *y, int n, double *d, int npts, double *lx)
 
 	m = 2*npts+1;
 	/* first m/2+1 points */
-	e = polyfit(x,y,m, &c, &b, &a);
+	e = fitpoly(x,y,m, &c, &b, &a, NULL);
 	/*
 	 * y[i] = c + b*x[i] + a*(x[i])^2
 	 * dy = b + 2*a*(x[i]-x0)
@@ -182,7 +42,7 @@ int nderiv(double *x, double *y, int n, double *d, int npts, double *lx)
 	for (i=m/2+1; i<n-(m/2+1); i++) {
 		/* make local copy of x-array segment */
 		for (j=0; j<m; j++) lx[j] = x[(i-m/2)+j]-x[i-m/2];
-		e = polyfit(lx,&(y[i-m/2]),m, &c, &b, &a);
+		e = fitpoly(lx,&(y[i-m/2]),m, &c, &b, &a, NULL);
 		if (e) {
 			d[i] = 0;
 		} else {
@@ -195,7 +55,7 @@ int nderiv(double *x, double *y, int n, double *d, int npts, double *lx)
 	/* last m/2+1 points */
 	/* make local copy of x-array segment */
 	for (j=0; j<m; j++) lx[j] = x[(n-m)+j]-x[n-m];
-	e = polyfit(lx,&(y[n-m]),m, &c, &b, &a);
+	e = fitpoly(lx,&(y[n-m]),m, &c, &b, &a, NULL);
 	for (j=0; j<m/2+1; j++) d[(n-(m/2+1))+j] = e ? 0.0 : b + 2*a*x[j+m/2];
 	return(0);
 }
@@ -205,7 +65,6 @@ int deriv(double *x, double *y, int n, double *d)
 	double work[5]; /* must be >= 2m+1, where m is 5th arg to nderiv() */
 	return(nderiv(x, y, n, d, 2, work));
 }
-#endif
 
 int invert3x3(double **aa, double **bb)
 {
@@ -393,7 +252,8 @@ int pfit(double *x, double *y /*, double *e */, int n,
 }
 
 /* fit: y[i] = c + b*(x[i]-x0) + a*(x[i]-x0)*(x[i]-x0) */
-int polyfit(double *x, double *y, int n, double *c, double *b, double *a)
+int fitpoly(double *x, double *y, int n,
+	double *c, double *b, double *a, double *mask)
 {
 	double beta[3];
 	double aa[9],  *alpha[3];
@@ -409,22 +269,23 @@ int polyfit(double *x, double *y, int n, double *c, double *b, double *a)
 	}
 
 	for (i=0; i<n; i++) {
-		beta[0] += y[i];
-		beta[1] += y[i]*x[i];
-		beta[2] += (y[i]*x[i]*x[i]);
-		/* alpha[0][0] += 1; */
-		alpha[0][1] += x[i];
-		alpha[1][1] += x[i]*x[i];
-		alpha[1][2] += x[i]*x[i]*x[i];
-		alpha[2][2] += x[i]*x[i]*x[i]*x[i];
+		if ((mask==NULL) || (mask[i]>SMALL)) {
+			beta[0] += y[i];
+			beta[1] += y[i]*x[i];
+			beta[2] += (y[i]*x[i]*x[i]);
+			alpha[0][0] += 1;
+			alpha[0][1] += x[i];
+			alpha[1][1] += x[i]*x[i];
+			alpha[1][2] += x[i]*x[i]*x[i];
+			alpha[2][2] += x[i]*x[i]*x[i]*x[i];
+		}
 	}
-	alpha[0][0] = n;
 	alpha[1][0] = alpha[0][1];
 	alpha[2][0] = alpha[0][2] = alpha[1][1];
 	alpha[2][1] = alpha[1][2];
 
 	if (invert3x3(alpha, ialpha)) {
-		printf("polyfit: error in invert3x3\n");
+		printf("fitpoly: error in invert3x3\n");
 		return(-1);
 	}
 
