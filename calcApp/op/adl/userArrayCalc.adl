@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/userArrayCalc.adl"
+	name="C:\cygwin\home\mooney\epics\synApps\support\all_adl\userArrayCalc.adl"
 	version=030004
 }
 display {
@@ -111,21 +111,6 @@ menu {
 		bclr=51
 	}
 }
-"message button" {
-	object {
-		x=170
-		y=30
-		width=40
-		height=20
-	}
-	control {
-		chan="$(P)$(C).PROC"
-		clr=14
-		bclr=51
-	}
-	label="PROC"
-	press_msg="1"
-}
 polyline {
 	object {
 		x=-1
@@ -174,34 +159,6 @@ text {
 	}
 	textix="($(P)$(C))"
 	align="horiz. centered"
-}
-text {
-	object {
-		x=105
-		y=36
-		width=40
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="EVENT#"
-	align="horiz. centered"
-}
-"text entry" {
-	object {
-		x=145
-		y=30
-		width=20
-		height=20
-	}
-	control {
-		chan="$(P)$(C).EVNT"
-		clr=14
-		bclr=51
-	}
-	limits {
-	}
 }
 text {
 	object {
@@ -259,72 +216,6 @@ text {
 		chan="$(P)userArrayCalcEnable.VAL"
 	}
 	textix="DISABLED"
-	align="horiz. centered"
-}
-composite {
-	object {
-		x=215
-		y=30
-		width=70
-		height=20
-	}
-	"composite name"=""
-	children {
-		"text entry" {
-			object {
-				x=260
-				y=30
-				width=25
-				height=20
-			}
-			control {
-				chan="$(P)$(C).PREC"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-		text {
-			object {
-				x=215
-				y=36
-				width=45
-				height=10
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="#DIGITS"
-		}
-	}
-}
-"related display" {
-	object {
-		x=320
-		y=33
-		width=15
-		height=15
-	}
-	display[0] {
-		label="userArrayCalcs (all)"
-		name="userArrayCalcs10.adl"
-		args="P=$(P)"
-	}
-	clr=0
-	bclr=63
-}
-text {
-	object {
-		x=335
-		y=37
-		width=60
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="ENABLE ALL"
 	align="horiz. centered"
 }
 rectangle {
@@ -1534,6 +1425,11 @@ composite {
 		name="userArrayCalcPlot.adl"
 		args="P=$(P),Y=$(P)$(C).AVAL,YLABEL=$(P)$(C).AVAL"
 	}
+	display[1] {
+		label="plot with input arrays"
+		name="arrayPlot8.adl"
+		args="P=$(P),Y1=$(P)$(C).AVAL,Y2=$(P)$(C).AA,Y3=$(P)$(C).BB,Y4=$(P)$(C).CC,Y5=$(P)$(C).DD,Y6=$(P)$(C).EE,Y7=$(P)$(C).FF,Y8=$(P)$(C).GG"
+	}
 	clr=0
 	bclr=63
 	label="-ARRAY RESULT"
@@ -1566,6 +1462,11 @@ composite {
 		name="userArrayCalcPlot.adl"
 		args="P=$(P),Y=$(P)$(C).AA,YLABEL=$(P)$(C).AA"
 	}
+	display[1] {
+		label="plot AA-HH"
+		name="arrayPlot8.adl"
+		args="P=$(P),Y1=$(P)$(C).AA,Y2=$(P)$(C).BB,Y3=$(P)$(C).CC,Y4=$(P)$(C).DD,Y5=$(P)$(C).EE,Y6=$(P)$(C).FF,Y7=$(P)$(C).GG,Y8=$(P)$(C).HH"
+	}
 	clr=0
 	bclr=63
 	label="-AA"
@@ -1585,4 +1486,128 @@ composite {
 	clr=0
 	bclr=63
 	label="-BB"
+}
+composite {
+	object {
+		x=105
+		y=30
+		width=290
+		height=20
+	}
+	"composite name"=""
+	children {
+		text {
+			object {
+				x=105
+				y=36
+				width=20
+				height=10
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="EVT"
+			align="horiz. centered"
+		}
+		"text entry" {
+			object {
+				x=125
+				y=30
+				width=20
+				height=20
+			}
+			control {
+				chan="$(P)$(C).EVNT"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+		"message button" {
+			object {
+				x=150
+				y=30
+				width=40
+				height=20
+			}
+			control {
+				chan="$(P)$(C).PROC"
+				clr=14
+				bclr=51
+			}
+			label="PROC"
+			press_msg="1"
+		}
+		text {
+			object {
+				x=200
+				y=36
+				width=25
+				height=10
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="#DIG"
+		}
+		"text entry" {
+			object {
+				x=225
+				y=30
+				width=25
+				height=20
+			}
+			control {
+				chan="$(P)$(C).PREC"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+		text {
+			object {
+				x=260
+				y=36
+				width=25
+				height=10
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="NUSE"
+		}
+		"text entry" {
+			object {
+				x=285
+				y=30
+				width=55
+				height=20
+			}
+			control {
+				chan="$(P)$(C).NUSE"
+				clr=14
+				bclr=51
+			}
+			limits {
+			}
+		}
+		"related display" {
+			object {
+				x=345
+				y=33
+				width=50
+				height=16
+			}
+			display[0] {
+				label="userArrayCalcs (all)"
+				name="userArrayCalcs10.adl"
+				args="P=$(P)"
+			}
+			clr=0
+			bclr=63
+			label="-ENABLE"
+		}
+	}
 }
