@@ -12,6 +12,16 @@ LispWorks 3.2.2 -->
 aCalcout - Array Calculation Output Record</H1>
 <HR><A NAME="INTRODUCTION"></A>
 
+<em>
+Note: this record, and the calc engine that it uses, are experimental.  While
+the scalar functions and operators are probably fairly stable, array operators
+and functions described here are not guaranteed to exist in future versions of
+this software, or to behave in exactly the same way.  For example, the function
+that takes the derivative of an array currently expects a single array argument,
+and constructs an artificial independent variable array; probably a future
+version will require that two arrays be specified. 
+</em>
+
 <H1>
 1. Introduction</H1>
 
@@ -21,12 +31,12 @@ aCalcout record extends the calcout record by supporting array operands and
 expressions in addition to scalar operands and expressions. The record has 12
 array fields (AA...LL) used as input variables for the expression, and it calls
 an extended version of the EPICS calculation engine that knows about arrays. 
-The aCalcout record's output link is intended to write array or scalar data
-depending on the data type of the field to which it is linked, but this hasn't
-been implemented yet.
+Soft device support supplied with the aCalcout record writes array or scalar
+data to the record's output link, depending on the number of elements of the
+field to which it is linked.
 
 <P>Here's a sample MEDM display of some of the the aCalcout record fields.
-<center><IMG SRC="userArrayCalc.adl.jpg"><br>userArrayCalc.adl</IMG></center>
+<P><center><IMG SRC="userArrayCalc.adl.jpg"><br>userArrayCalc.adl</IMG></center>
 
 <P>&nbsp;
 <HR><A NAME="SCAN_PARAMETERS"></A>
@@ -175,11 +185,11 @@ and AVAL can also be written to the output link.  (If you elect to write an
 output value, the record will choose between VAL and AVAL, depending on the data
 type of the field at the other end of the output link.)
 
-<P>The CALC expression is actually converted to opcodes and stored in postfix
-notation in the RPCL field.  It is this postfix expression which is actually
-evaluated.  When the CALC field is  changed at run-time, the record-support
-routine <code>special()</code> calls a function to check it, convert it
-to postfix, and evaluate it.
+<P>The CALC expression is converted to opcodes and stored in postfix
+notation in the RPCL field.  It is the postfix expression which is actually
+evaluated when the record processes.  When the CALC field is changed at
+run-time, the record-support routine <code>special()</code> calls a function
+to check it and convert it to postfix.
 
 <BR>The record also has a second set of calculation-related fields described in
 <A HREF="#MARKER-9-1">Section 5, <I>Output Parameters.</I></A>
@@ -247,12 +257,12 @@ to postfix, and evaluate it.
 </TR>
 </TABLE>
 
-<P> Expressions supported by the array calculation record can involve operands,
-algebraic operators and functions, trigonometric functions, relational
-operators, logical operators, array operators and functions, parentheses and
-commas, and the conditional '?:' operator. The expression can consist of any of
-these operators, as well as any of the values from the scalar and array input
-fields, which are the operands.
+<P> Expressions supported by the array calculation record can involve scalar
+and/or array operands, algebraic operators and functions, trigonometric
+functions, relational operators, logical operators, array operators and
+functions, parentheses and commas, and the conditional '?:' operator. All are
+described in sections to follow, but first, we need to talk about how  operators
+and functions behave when presented with scalar, array, and mixed operands.
 
 <P>Unless otherwise stated, functions and operators behave as follows:
 
@@ -271,9 +281,11 @@ repeating the scalar value.  Thus, the value of the expression <code>A+BB</code>
 <code>a*bb[0], a*bb[1], a*bb[3],...</code>
 
 <li>Whenever an array must be converted implicitly to a scalar (e.g., for the
-operators <code> ?: ^ ** >> << </code>, the scalar value used is the
-value of the first array element.  In the following expressions, the array
-argument in color will be converted implicitly to scalar:
+operators <code>?:</code>, <code>^</code>, <code>**</code>, <code>>></code>, and
+<code><<</code>), the scalar value used is the value of the first array element. 
+In the following expressions, the array argument in color will be converted
+implicitly to scalar:
+
 <ul>
 <li><font color='red'>AA</font>?BB:CC
 <li>AA^<font color='red'>BB</font>
@@ -842,21 +854,6 @@ rendition of some scalar function.
 <th valign=top>Example
 
 <tr>
-<td align=center valign=top>AMIN
-<td valign=top>Minimal element of array (one-argument function)
-<td><code>AMIN(AA) -> scalar</code>
-
-<tr>
-<td align=center valign=top>AMAX
-<td valign=top>Maximal element of array (one-argument function)
-<td><code>AMAX('a','b','c') -> 'c'</code>
-
-<tr>
-<td align=center valign=top>ARR
-<td>Convert argument to array (one-argument function)
-<td><code>ARR(1) -> 1, 1, 1,...</code>
-
-<tr>
 <td align=center valign=top>[
 <td>Subarray
 <td><code>AA[1,3] -> aa(1),aa(2),aa(3)</code>
@@ -877,14 +874,30 @@ rendition of some scalar function.
 <td><code>AA&lt;&lt;2</code> (same as <code>AA&gt;&gt;-2</code>)
 
 <tr>
+<td align=center valign=top>AMIN
+<td valign=top>Minimal element of array (one-argument function)
+<td><code>AMIN(AA) -> scalar</code>
+
+<tr>
+<td align=center valign=top>AMAX
+<td valign=top>Maximal element of array (one-argument function)
+<td><code>AMAX('a','b','c') -> 'c'</code>
+
+<tr>
+<td align=center valign=top>ARR
+<td>Convert argument to array (one-argument function)
+<td><code>ARR(1) -> 1, 1, 1,...</code>
+
+<tr>
 <td align=center valign=top>AVG
 <td valign=top>Average of array values
 <td><code>AVG(AA)</code>
 
 <tr>
-<td align=center valign=top>STD
-<td valign=top>Standard deviation of array values
-<td><code>STD(AA)</code>
+<td align=center valign=top>DERIV
+<td valign=top>Derivative of array values, with respect to array index.
+Equivalent to NDERIV(AA,2).
+<td><code>DERIV(AA)</code>
 
 <tr>
 <td align=center valign=top>FWHM
@@ -892,21 +905,16 @@ rendition of some scalar function.
 <td><code>FWHM(AA)</code>
 
 <tr>
-<td align=center valign=top>SMOO
-<td valign=top>Smooth array values, using a 5-point binomial formula
-y'(i) = y(i-2)/16 + y(i-1)/4 + 3*y(i)/8 + y(i+1)/4 + y(i+2)/16
-<td><code>SMOO(AA)</code>
+<td align=center valign=top>FITPOLY
+<td valign=top>Fit array to second order polynomial a + b*x + c*x^2.
+<td><code>FITPOLY(AA)</code>
 
 <tr>
-<td align=center valign=top>NSMOO
-<td valign=top>Smooth array values, using multiple applications of SMOO()
-<td><code>NSMOO(AA,B)</code>
-
-<tr>
-<td align=center valign=top>DERIV
-<td valign=top>Derivative of array values, with respect to array index.
-Equivalent to NDERIV(AA,2).
-<td><code>DERIV(AA)</code>
+<td align=center valign=top>FITMPOLY
+<td valign=top>Fit masked array to second order polynomial.  First argument is input-data
+array, second argument is the mask array.  If mask-array element value is true (greater than zero),
+corresponding data-array element will be used to compute best-fit polynomial a + b*x + c*x^2.
+<td><code>FITPOLY(AA,AA>0)</code>
 
 <tr>
 <td align=center valign=top>NDERIV
@@ -920,6 +928,22 @@ specified, 2*N+1 points will be fit.)  Array elements less than N points from
 the beginning or end of the array will get a less effectively calculated
 derivative, since the fit will not be centered on the point.
 <td><code>NDERIV(AA,B)</code>
+
+<tr>
+<td align=center valign=top>NSMOO
+<td valign=top>Smooth array values, using multiple applications of SMOO()
+<td><code>NSMOO(AA,B)</code>
+
+<tr>
+<td align=center valign=top>STD
+<td valign=top>Standard deviation of array values
+<td><code>STD(AA)</code>
+
+<tr>
+<td align=center valign=top>SMOO
+<td valign=top>Smooth array values, using a 5-point binomial formula
+y'(i) = y(i-2)/16 + y(i-1)/4 + 3*y(i)/8 + y(i+1)/4 + y(i+2)/16
+<td><code>SMOO(AA)</code>
 
 <tr>
 <td align=center valign=top>SUM
@@ -1047,6 +1071,32 @@ but the selected subrange is left in place.)
 
 </DL>
 
+<P>Here's a more complete example of array calcs in use.  Suppose we want to
+analyze results from a series of edge scans to find the conditions that produce
+the sharpest edge.  Lacking any hardware, we'll also have to make fake data to
+analyze.  We'll use three aCalcout records:
+<ul>
+<li><code>aCalc1</code> to compute artificial edge-scan data,
+<li><code>aCalc2</code> to take the derivative of that data,
+<li><code>aCalc3</code> to compute the FWHM of the derivative.
+</ul>
+
+<P>Here are field values that do the job:
+
+<ul>
+<pre>
+aCalc1.CALC = "tanh((ix-c)/b)+a*arndm"
+aCalc1.A = &lt;edge position&gt;
+aCalc1.B = &lt;edge width control&gt;
+aCalc1.C = &lt;amount of noise added to data&gt;
+aCalc1.OUT = "aCalc2.A PP"
+
+aCalc2.CALC = "nderiv(aa,20)"
+aCalc2.OUT = "aCalc3.AA PP"
+
+aCalc3.CALC = "fwhm(aa)"
+</pre>
+</ul>
 <A NAME="HEADING14-93"></A>
 <H3>
 Argument-array</H3>
