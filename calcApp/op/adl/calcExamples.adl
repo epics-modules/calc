@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/calcExamples.adl"
+	name="C:\cygwin\home\mooney\epics\synApps\support\all_adl\calcExamples.adl"
 	version=030004
 }
 display {
@@ -8,12 +8,12 @@ display {
 		x=473
 		y=126
 		width=370
-		height=840
+		height=855
 	}
 	clr=14
 	bclr=1
 	cmap=""
-	gridSpacing=5
+	gridSpacing=15
 	gridOn=0
 	snapToGrid=1
 }
@@ -1346,18 +1346,6 @@ composite {
 }
 text {
 	object {
-		x=10
-		y=715
-		width=90
-		height=14
-	}
-	"basic attribute" {
-		clr=20
-	}
-	textix="AVG(aa)"
-}
-text {
-	object {
 		x=310
 		y=410
 		width=90
@@ -1371,7 +1359,7 @@ text {
 composite {
 	object {
 		x=10
-		y=780
+		y=795
 		width=350
 		height=59
 	}
@@ -1380,7 +1368,7 @@ composite {
 		text {
 			object {
 				x=10
-				y=810
+				y=825
 				width=350
 				height=14
 			}
@@ -1392,7 +1380,7 @@ composite {
 		text {
 			object {
 				x=10
-				y=825
+				y=840
 				width=350
 				height=14
 			}
@@ -1404,7 +1392,7 @@ composite {
 		composite {
 			object {
 				x=10
-				y=780
+				y=795
 				width=350
 				height=29
 			}
@@ -1413,7 +1401,7 @@ composite {
 				text {
 					object {
 						x=10
-						y=780
+						y=795
 						width=350
 						height=14
 					}
@@ -1425,7 +1413,7 @@ composite {
 				text {
 					object {
 						x=10
-						y=795
+						y=810
 						width=350
 						height=14
 					}
@@ -1438,193 +1426,262 @@ composite {
 		}
 	}
 }
-text {
-	object {
-		x=10
-		y=730
-		width=90
-		height=14
-	}
-	"basic attribute" {
-		clr=20
-	}
-	textix="ARNDM"
-}
-text {
-	object {
-		x=100
-		y=715
-		width=90
-		height=14
-	}
-	"basic attribute" {
-		clr=20
-	}
-	textix="STD(aa)"
-}
-text {
-	object {
-		x=200
-		y=715
-		width=90
-		height=14
-	}
-	"basic attribute" {
-		clr=20
-	}
-	textix="AMAX(aa)"
-}
-text {
-	object {
-		x=100
-		y=730
-		width=90
-		height=14
-	}
-	"basic attribute" {
-		clr=20
-	}
-	textix="@a"
-}
-text {
-	object {
-		x=200
-		y=730
-		width=90
-		height=14
-	}
-	"basic attribute" {
-		clr=20
-	}
-	textix="@@a"
-}
-text {
-	object {
-		x=300
-		y=715
-		width=90
-		height=14
-	}
-	"basic attribute" {
-		clr=20
-	}
-	textix="AMIN(aa)"
-}
-text {
-	object {
-		x=300
-		y=730
-		width=90
-		height=14
-	}
-	"basic attribute" {
-		clr=20
-	}
-	textix="IX"
-}
 composite {
 	object {
 		x=10
-		y=745
-		width=380
-		height=14
+		y=715
+		width=335
+		height=74
 	}
 	"composite name"=""
 	children {
-		text {
+		composite {
 			object {
 				x=10
-				y=745
-				width=90
-				height=14
+				y=715
+				width=70
+				height=74
 			}
-			"basic attribute" {
-				clr=20
+			"composite name"=""
+			children {
+				text {
+					object {
+						x=10
+						y=775
+						width=70
+						height=14
+					}
+					"basic attribute" {
+						clr=20
+					}
+					textix="AVG(aa)"
+				}
+				text {
+					object {
+						x=10
+						y=745
+						width=70
+						height=14
+					}
+					"basic attribute" {
+						clr=20
+					}
+					textix="ARNDM"
+				}
+				text {
+					object {
+						x=10
+						y=715
+						width=70
+						height=14
+					}
+					"basic attribute" {
+						clr=20
+					}
+					textix="AMAX(aa)"
+				}
+				text {
+					object {
+						x=10
+						y=730
+						width=70
+						height=14
+					}
+					"basic attribute" {
+						clr=20
+					}
+					textix="AMIN(aa)"
+				}
+				text {
+					object {
+						x=10
+						y=760
+						width=70
+						height=14
+					}
+					"basic attribute" {
+						clr=20
+					}
+					textix="ARR(a)"
+				}
 			}
-			textix="ARR(a)"
 		}
-		text {
+		composite {
 			object {
-				x=100
-				y=745
-				width=90
-				height=14
+				x=85
+				y=715
+				width=110
+				height=74
 			}
-			"basic attribute" {
-				clr=20
+			"composite name"=""
+			children {
+				text {
+					object {
+						x=85
+						y=775
+						width=110
+						height=14
+					}
+					"basic attribute" {
+						clr=20
+					}
+					textix="IX"
+				}
+				text {
+					object {
+						x=85
+						y=760
+						width=110
+						height=14
+					}
+					"basic attribute" {
+						clr=20
+					}
+					textix="FWHM(aa)"
+				}
+				text {
+					object {
+						x=85
+						y=715
+						width=110
+						height=14
+					}
+					"basic attribute" {
+						clr=20
+					}
+					textix="DERIV(aa)"
+				}
+				text {
+					object {
+						x=85
+						y=730
+						width=110
+						height=14
+					}
+					"basic attribute" {
+						clr=20
+					}
+					textix="FITPOLY(aa)"
+				}
+				text {
+					object {
+						x=85
+						y=745
+						width=110
+						height=14
+					}
+					"basic attribute" {
+						clr=20
+					}
+					textix="FITMPOLY(aa,bb)"
+				}
 			}
-			textix="FWHM(aa)"
 		}
-		text {
+		composite {
 			object {
-				x=200
-				y=745
-				width=90
-				height=14
+				x=205
+				y=715
+				width=80
+				height=74
 			}
-			"basic attribute" {
-				clr=20
+			"composite name"=""
+			children {
+				text {
+					object {
+						x=205
+						y=760
+						width=80
+						height=14
+					}
+					"basic attribute" {
+						clr=20
+					}
+					textix="STD(aa)"
+				}
+				text {
+					object {
+						x=205
+						y=745
+						width=80
+						height=14
+					}
+					"basic attribute" {
+						clr=20
+					}
+					textix="SMOO(aa)"
+				}
+				text {
+					object {
+						x=205
+						y=775
+						width=80
+						height=14
+					}
+					"basic attribute" {
+						clr=20
+					}
+					textix="SUM(aa)"
+				}
+				text {
+					object {
+						x=205
+						y=730
+						width=80
+						height=14
+					}
+					"basic attribute" {
+						clr=20
+					}
+					textix="NSMOO(aa,a)"
+				}
+				text {
+					object {
+						x=205
+						y=715
+						width=80
+						height=14
+					}
+					"basic attribute" {
+						clr=20
+					}
+					textix="NDERIV(aa,a)"
+				}
 			}
-			textix="SMOO(aa)"
 		}
-		text {
+		composite {
 			object {
-				x=300
-				y=745
-				width=90
-				height=14
+				x=295
+				y=715
+				width=50
+				height=29
 			}
-			"basic attribute" {
-				clr=20
+			"composite name"=""
+			children {
+				text {
+					object {
+						x=295
+						y=730
+						width=50
+						height=14
+					}
+					"basic attribute" {
+						clr=20
+					}
+					textix="@@a"
+				}
+				text {
+					object {
+						x=295
+						y=715
+						width=50
+						height=14
+					}
+					"basic attribute" {
+						clr=20
+					}
+					textix="@a"
+				}
 			}
-			textix="DERIV(aa)"
 		}
-	}
-}
-text {
-	object {
-		x=10
-		y=760
-		width=90
-		height=14
-	}
-	"basic attribute" {
-		clr=20
-	}
-	textix="SUM(aa)"
-}
-text {
-	object {
-		x=100
-		y=760
-		width=90
-		height=14
-	}
-	"basic attribute" {
-		clr=20
-	}
-	textix="NSMOO(aa,a)"
-}
-text {
-	object {
-		x=200
-		y=760
-		width=90
-		height=14
-	}
-	"basic attribute" {
-		clr=20
-	}
-	textix="NDERIV(aa,a)"
-}
-text {
-	object {
-		x=300
-		y=760
-		width=90
-		height=14
-	}
-	"basic attribute" {
-		clr=20
 	}
 }

@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/calcArrayExamples.adl"
+	name="C:\cygwin\home\mooney\epics\synApps\support\all_adl\calcArrayExamples.adl"
 	version=030004
 }
 display {
@@ -8,7 +8,7 @@ display {
 		x=192
 		y=38
 		width=240
-		height=660
+		height=720
 	}
 	clr=14
 	bclr=1
@@ -803,7 +803,7 @@ text {
 	"basic attribute" {
 		clr=47
 	}
-	textix="SMOO(AA) B times"
+	textix="SMOO(AA) B TIMES"
 }
 text {
 	object {
@@ -819,18 +819,6 @@ text {
 }
 text {
 	object {
-		x=15
-		y=650
-		width=220
-		height=10
-	}
-	"basic attribute" {
-		clr=47
-	}
-	textix="DERIV by fitting 2B+1 point segments"
-}
-text {
-	object {
 		x=5
 		y=635
 		width=230
@@ -840,4 +828,64 @@ text {
 		clr=14
 	}
 	textix="NDERIV(AA,B)"
+}
+text {
+	object {
+		x=15
+		y=650
+		width=220
+		height=10
+	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="DERIV BY FITTING 2B+1 POINT SEGMENTS"
+}
+text {
+	object {
+		x=5
+		y=665
+		width=230
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="FITPOLY(AA)"
+}
+text {
+	object {
+		x=15
+		y=680
+		width=220
+		height=10
+	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="FIT TO 2ND ORDER POLYNOMIAL"
+}
+text {
+	object {
+		x=5
+		y=695
+		width=230
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="FITMPOLY(AA,BB)"
+}
+text {
+	object {
+		x=15
+		y=710
+		width=220
+		height=10
+	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="FITPOLY, IGNORING AA[I] IF BB[I]==0"
 }
