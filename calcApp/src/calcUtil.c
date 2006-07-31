@@ -32,9 +32,13 @@ int nderiv(double *x, double *y, int n, double *d, int npts, double *lx)
 	m = 2*npts+1;
 	/* first m/2+1 points */
 	e = fitpoly(x,y,m, &c, &b, &a, NULL);
+	if (e) {
+		printf("nderiv: error in fitpoly\n");
+		return(e);
+	}
 	/*
 	 * y[i] = c + b*x[i] + a*(x[i])^2
-	 * dy = b + 2*a*(x[i]-x0)
+	 * dy/dx = b + 2*a*(x[i])
 	 */
 	for (j=0; j<m/2+1; j++) d[j] = e ? 0.0 : b + 2*a*x[j];
 
@@ -44,11 +48,11 @@ int nderiv(double *x, double *y, int n, double *d, int npts, double *lx)
 		for (j=0; j<m; j++) lx[j] = x[(i-m/2)+j]-x[i-m/2];
 		e = fitpoly(lx,&(y[i-m/2]),m, &c, &b, &a, NULL);
 		if (e) {
-			d[i] = 0;
-		} else {
-			/* d[i] = b + 2*a*x[i]; */
-			d[i] = b + 2*a*lx[m/2];
+			printf("nderiv: error in fitpoly\n");
+			return(e);
 		}
+		/* d[i] = b + 2*a*x[i]; */
+		d[i] = b + 2*a*lx[m/2];
 		/* printf("   x,y,d = %f, %f, %f\n", x[i], y[i], d[i]); */
 	}
 
@@ -56,6 +60,10 @@ int nderiv(double *x, double *y, int n, double *d, int npts, double *lx)
 	/* make local copy of x-array segment */
 	for (j=0; j<m; j++) lx[j] = x[(n-m)+j]-x[n-m];
 	e = fitpoly(lx,&(y[n-m]),m, &c, &b, &a, NULL);
+	if (e) {
+		printf("nderiv: error in fitpoly\n");
+		return(e);
+	}
 	for (j=0; j<m/2+1; j++) d[(n-(m/2+1))+j] = e ? 0.0 : b + 2*a*x[j+m/2];
 	return(0);
 }
