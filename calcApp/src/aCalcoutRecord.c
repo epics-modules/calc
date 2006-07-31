@@ -279,6 +279,7 @@ static long process(acalcoutRecord *pcalc)
 			i = (pcalc->nuse > 0) ? pcalc->nuse : pcalc->nelm;
 			stat = aCalcPerform(&pcalc->a, ARG_MAX, &pcalc->aa,
 					ARRAY_ARG_MAX, i, &pcalc->val, pcalc->aval, pcalc->rpcl);
+			if (stat) printf("%s:process: error in aCalcPerform()\n", pcalc->name);
 			if (i < pcalc->nelm) {
 				for (; i<pcalc->nelm; i++) {
 					pcalc->aval[i] = 0;
@@ -760,6 +761,7 @@ static void execOutput(acalcoutRecord *pcalc)
 		if (aCalcPerform(&pcalc->a, ARG_MAX, &pcalc->aa,
 				ARRAY_ARG_MAX, i, &pcalc->oval, pcalc->oav, pcalc->rpcl)) {
 			recGblSetSevr(pcalc,CALC_ALARM,INVALID_ALARM);
+			printf("%s:execOutput: error in aCalcPerform()\n", pcalc->name);
 		}
 		if (i < pcalc->nelm) {
 			for (; i<pcalc->nelm; i++) {
@@ -901,7 +903,7 @@ static int fetch_values(acalcoutRecord *pcalc)
 	for (i=0, plink=&pcalc->inaa, pavalue=(double **)(&pcalc->aa); i<ARRAY_ARG_MAX; 
 			i++, plink++, pavalue++) {
 		status = dbGetLink(plink, DBR_DOUBLE, *pavalue, 0, &nRequest);
-		if (!RTN_SUCCESS(status)) {printf("acalcout:fetch:error\n");}
+		if (!RTN_SUCCESS(status)) return(status);
 	}
 	if (aCalcoutRecordDebug >= 10)
 		printf("acalcoutRecord(%s):fetch_values: returning\n", pcalc->name);
