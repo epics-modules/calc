@@ -46,21 +46,21 @@
 #include <vxWorks.h>
 #endif
 
-#include	<stdlib.h>
-#include	<stdio.h>
-#include	<string.h>
-#include	<math.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
 
-#include	"dbDefs.h"
-#include	"cvtFast.h"
-#include	"epicsString.h"
+#include "dbDefs.h"
+#include "cvtFast.h"
+#include "epicsString.h"
 #define epicsExportSharedSymbols
-#include	"aCalcPostfix.h"
-#include	"aCalcPostfixPvt.h"
+#include "aCalcPostfix.h"
+#include "aCalcPostfixPvt.h"
 #include <epicsExport.h>
 #include <freeList.h>
 
-static double	local_random();
+static double local_random();
 
 #define myNINT(a) ((int)((a) >= 0 ? (a)+0.5 : (a)-0.5))
 #ifndef PI
@@ -116,6 +116,7 @@ int aCalcStackLW = 0;	/* low-water mark */
 }
 
 static struct stackElement stack[STACKSIZE];
+
 static int stackInUse=0;
 
 long epicsShareAPI 
@@ -125,9 +126,9 @@ long epicsShareAPI
 
 {
 	struct stackElement *top;
-	struct stackElement *ps, *ps1, *ps2, *ps3, *ps4;
+	struct stackElement *ps, *ps1, *ps2, *ps3;
 	char				*s, currSymbol;
-	int					i, j, k, found;
+	int					i, j, k, found, status;
 	double				d, e, f;
 	short 				got_if;
 
@@ -137,6 +138,7 @@ long epicsShareAPI
 
 	if (stackInUse) {
 		printf("aCalcPerform: stack in use.  Nothing done\n");
+		return(-1);
 	}
 	stackInUse = 1;
 
@@ -211,7 +213,8 @@ long epicsShareAPI
 	ps--;  /* Expression handler assumes ps is pointing to a filled element */
 	ps->d = 1.23456; ps->a = NULL;	/* telltale */
 
-	while (*post != END_STACK) {
+	status = 0;
+	while ((*post != END_STACK) && (status == 0)) {
 
 		currSymbol = *post;
 		if (aCalcPerformDebug>=20) printf("aCalcPerform: currSymbol=%d\n", currSymbol);
@@ -328,7 +331,7 @@ long epicsShareAPI
 			INC(ps); ps->a = &(ps->local_array[0]); /* place in which to calc derivative */
 			ps3 = ps;
 			INC(ps); ps->a = &(ps->local_array[0]); /* workspace for nderiv */
-			nderiv(ps2->a, ps1->a, arraySize, ps3->a, j, ps->a);
+			status = nderiv(ps2->a, ps1->a, arraySize, ps3->a, j, ps->a);
 			for (i=0; i<arraySize; i++) {ps1->a[i] = ps3->a[i];}
 			DEC(ps); DEC(ps); DEC(ps);
 			break;
@@ -588,7 +591,7 @@ long epicsShareAPI
 					for (i=0; i<arraySize; i++) {ps2->a[i] = i;}
 					INC(ps);
 					ps->a = &(ps->local_array[0]); /* place for deriv */
-					deriv(ps2->a, ps1->a, arraySize, ps->a);
+					status = deriv(ps2->a, ps1->a, arraySize, ps->a);
 					for (i=0; i<arraySize; i++) {ps1->a[i] = ps->a[i];}
 					DEC(ps); DEC(ps);
 					break;
@@ -607,7 +610,7 @@ long epicsShareAPI
 					for (i=0; i<arraySize; i++) {ps2->a[i] = i;}
 					INC(ps);
 					ps->a = &(ps->local_array[0]); /* place for deriv */
-					fitpoly(ps2->a, ps1->a, arraySize, &d, &e, &f, NULL);
+					status = fitpoly(ps2->a, ps1->a, arraySize, &d, &e, &f, NULL);
 					for (i=0; i<arraySize; i++) {
 						ps1->a[i] = d + e*ps2->a[i] + f*(ps2->a[i])*(ps2->a[i]);
 					}
@@ -623,7 +626,7 @@ long epicsShareAPI
 					for (i=0; i<arraySize; i++) {ps2->a[i] = i;}
 					INC(ps); /* point to unused value-stack element */
 					ps->a = &(ps->local_array[0]); /* place for deriv */
-					fitpoly(ps2->a, ps1->a, arraySize, &d, &e, &f, ps3->a);
+					status = fitpoly(ps2->a, ps1->a, arraySize, &d, &e, &f, ps3->a);
 					for (i=0; i<arraySize; i++) {
 						ps1->a[i] = d + e*ps2->a[i] + f*(ps2->a[i])*(ps2->a[i]);
 					}
@@ -918,7 +921,11 @@ long epicsShareAPI
 
 	}
 
-	if (aCalcPerformDebug>=20) printf("aCalcPerform:done with expression\n");
+	if (aCalcPerformDebug>=20) printf("aCalcPerform:done with expression, status=%d\n", status);
+	if (status) {
+		stackInUse=0;
+		return(status);
+	}
 
 	/* if everything is peachy,the stack should end at its first position */
 	if (ps != top) {
