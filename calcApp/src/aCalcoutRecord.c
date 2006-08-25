@@ -163,16 +163,13 @@ static long init_record(acalcoutRecord *pcalc, int pass)
 		}
 		if (aCalcoutRecordDebug >= 10) printf("acalcoutRecord(%s):init: aa=%p, bb=%p\n",
 				pcalc->name, (void *)pcalc->aa, (void *)pcalc->bb);
-		/* allocate space for previous-value arrays */
-		pcalc->paa = (double *)calloc(ARRAY_ARG_MAX*pcalc->nelm, sizeof(double));
-		pa=(double **)&(pcalc->paa);
-		for (i=0; i<ARRAY_ARG_MAX; i++)
-			pa[i] = pcalc->paa + i*pcalc->nelm;
+		/* allocate space for previous-value array */
+		pcalc->paa = (double *)calloc(pcalc->nelm, sizeof(double));
 		pcalc->aval = (double *)calloc(pcalc->nelm, sizeof(double));
 		pcalc->pavl = (double *)calloc(pcalc->nelm, sizeof(double));
 		pcalc->oav = (double *)calloc(pcalc->nelm, sizeof(double));
 		pcalc->poav = (double *)calloc(pcalc->nelm, sizeof(double));
-		if (pcalc->nuse > pcalc->nelm) {
+		if ((pcalc->nuse < 0) || (pcalc->nuse > pcalc->nelm)) {
 			pcalc->nuse = pcalc->nelm;
 			db_post_events(pcalc,&pcalc->nuse,DBE_VALUE|DBE_LOG);
 		}
@@ -268,6 +265,12 @@ static long process(acalcoutRecord *pcalc)
 	if (aCalcoutRecordDebug) printf("acalcoutRecord(%s):process: pact=%d\n",
 		pcalc->name, pcalc->pact);
 
+	/* Make sure.  Autosave is capable of setting NUSE to an illegal value. */
+	if ((pcalc->nuse < 0) || (pcalc->nuse > pcalc->nelm)) {
+		pcalc->nuse = pcalc->nelm;
+		db_post_events(pcalc,&pcalc->nuse, DBE_VALUE|DBE_LOG);
+	}
+
 	if (!pcalc->pact) {
 		pcalc->pact = TRUE;
 
@@ -276,7 +279,8 @@ static long process(acalcoutRecord *pcalc)
 		if (fetch_values(pcalc)==0) {
 			if (aCalcoutRecordDebug >= 5) printf("acalcoutRecord(%s):process: calling aCalcPerform\n", pcalc->name);
 			/* Note that we want to permit nuse == 0 as a way of saying "use nelm". */
-			i = (pcalc->nuse > 0) ? pcalc->nuse : pcalc->nelm;
+			i = ((pcalc->nuse > 0) && (pcalc->nuse < pcalc->nelm)) ?
+				pcalc->nuse : pcalc->nelm;
 			stat = aCalcPerform(&pcalc->a, ARG_MAX, &pcalc->aa,
 					ARRAY_ARG_MAX, i, &pcalc->val, pcalc->aval, pcalc->rpcl);
 			if (stat) printf("%s:process: error in aCalcPerform()\n", pcalc->name);
@@ -423,7 +427,7 @@ static long special(dbAddr	*paddr, int after)
 		break;
 
 	case acalcoutRecordNUSE:
-		if (pcalc->nuse > pcalc->nelm) {
+		if ((pcalc->nuse < 0) || (pcalc->nuse > pcalc->nelm)) {
 			pcalc->nuse = pcalc->nelm;
 			db_post_events(pcalc,&pcalc->nuse,DBE_VALUE);
 			return(-1);
@@ -519,10 +523,6 @@ static long cvt_dbaddr(dbAddr *paddr)
 		ppd = &(pcalc->aa);
 		i = pfield - ppd;
 		paddr->pfield = ppd[i];
-	} else if ((fieldIndex>=acalcoutRecordPAA) && (fieldIndex<=acalcoutRecordPLL)) {
-		ppd = &(pcalc->paa);
-		i = pfield - ppd;
-		paddr->pfield = ppd[i];
 	} else if (fieldIndex==acalcoutRecordAVAL) {
 		paddr->pfield = pcalc->aval;
 	} else if (fieldIndex==acalcoutRecordPAVL) {
@@ -532,7 +532,8 @@ static long cvt_dbaddr(dbAddr *paddr)
 	} else if (fieldIndex==acalcoutRecordPOAV) {
 		paddr->pfield = pcalc->poav;
 	}
-	paddr->no_elements = (pcalc->nuse > 0) ? pcalc->nuse : pcalc->nelm;
+	paddr->no_elements = ((pcalc->nuse > 0) && (pcalc->nuse < pcalc->nelm)) ?
+		pcalc->nuse : pcalc->nelm;
 	paddr->field_type = DBF_DOUBLE;
 	paddr->field_size = sizeof(double);
 	paddr->dbr_field_type = DBF_DOUBLE;
@@ -545,7 +546,8 @@ static long get_array_info(struct dbAddr *paddr, long *no_elements, long *offset
 
 	if (aCalcoutRecordDebug >= 20) printf("acalcout: get_array_info: paddr->pfield = %p\n",
 		(void *)paddr->pfield);
-    *no_elements =  (pcalc->nuse > 0) ? pcalc->nuse : pcalc->nelm;
+    *no_elements =  ((pcalc->nuse > 0) && (pcalc->nuse < pcalc->nelm)) ?
+		pcalc->nuse : pcalc->nelm;
     *offset = 0;
     return(0);
 }
@@ -566,9 +568,6 @@ static long put_array_info(struct dbAddr *paddr, long nNew)
 	if ((fieldIndex>=acalcoutRecordAA) && (fieldIndex<=acalcoutRecordLL)) {
 		ppd = &(pcalc->aa);
 		pd = ppd[pfield - pcalc->aa];
-	} else if ((fieldIndex>=acalcoutRecordPAA) && (fieldIndex<=acalcoutRecordPLL)) {
-		ppd = &(pcalc->paa);
-		pd = ppd[pfield - pcalc->paa];
 	} else if (fieldIndex==acalcoutRecordAVAL) {
 		pd = pcalc->aval;
 	} else if (fieldIndex==acalcoutRecordPAVL) {
@@ -757,7 +756,8 @@ static void execOutput(acalcoutRecord *pcalc)
 		break;
 
 	case acalcoutDOPT_Use_OVAL:
-		i = (pcalc->nuse > 0) ? pcalc->nuse : pcalc->nelm;
+		i = ((pcalc->nuse > 0) && (pcalc->nuse < pcalc->nelm)) ?
+			pcalc->nuse : pcalc->nelm;
 		if (aCalcPerform(&pcalc->a, ARG_MAX, &pcalc->aa,
 				ARRAY_ARG_MAX, i, &pcalc->oval, pcalc->oav, pcalc->rpcl)) {
 			recGblSetSevr(pcalc,CALC_ALARM,INVALID_ALARM);
@@ -811,8 +811,8 @@ static void monitor(acalcoutRecord *pcalc)
 	unsigned short	monitor_mask;
 	double			delta;
 	double			*pnew, *pprev;
-	double			**panew, **paprev;
-	int				i, j, diff;
+	double			**panew;
+	int				i, diff;
 
 	if (aCalcoutRecordDebug >= 10)
 		printf("acalcoutRecord(%s):monitor:entry\n", pcalc->name);
@@ -864,16 +864,12 @@ static void monitor(acalcoutRecord *pcalc)
 		}
 	}
 
-	for (i=0, panew=&pcalc->aa, paprev=&pcalc->paa; i<ARRAY_ARG_MAX; i++, panew++, paprev++) {
-		for (j=0, diff=0; j<pcalc->nelm; j++) {
-			if ((*panew)[j] != (*paprev)[j]) {diff = 1;break;}
-		}
-		if (diff) {
+	for (i=0, panew=&pcalc->aa; i<ARRAY_ARG_MAX; i++, panew++) {
+		if (pcalc->new & (1<<i)) {
 			db_post_events(pcalc, *panew, monitor_mask|DBE_VALUE|DBE_LOG);
-			for (j=0; j<pcalc->nelm; j++) (*paprev)[j] = (*panew)[j];
 		}
-
 	}
+	pcalc->new = 0;
 
 	/* Check OVAL field */
 	if (pcalc->povl != pcalc->oval) {
@@ -888,8 +884,9 @@ static int fetch_values(acalcoutRecord *pcalc)
 	DBLINK	*plink;	/* structure of the link field  */
 	double	*pvalue;
 	double	**pavalue;
-	long	status = 0, nRequest = (pcalc->nuse > 0) ? pcalc->nuse : pcalc->nelm;
-	int		i;
+	long	status = 0, nRequest = ((pcalc->nuse > 0) && (pcalc->nuse < pcalc->nelm)) ?
+							pcalc->nuse : pcalc->nelm;
+	int		i, j;
 
 	if (aCalcoutRecordDebug >= 10)
 		printf("acalcoutRecord(%s):fetch_values: entry\n", pcalc->name);
@@ -902,8 +899,15 @@ static int fetch_values(acalcoutRecord *pcalc)
 	if (aCalcoutRecordDebug >= 10) printf("acalcoutRecord(%s):fetch_values: arrays\n", pcalc->name);
 	for (i=0, plink=&pcalc->inaa, pavalue=(double **)(&pcalc->aa); i<ARRAY_ARG_MAX; 
 			i++, plink++, pavalue++) {
+		/* save current array value */
+		for (j=0; j<pcalc->nelm; j++) pcalc->paa[j] = (*pavalue)[j];
+		/* get new value */
 		status = dbGetLink(plink, DBR_DOUBLE, *pavalue, 0, &nRequest);
 		if (!RTN_SUCCESS(status)) return(status);
+		/* compare new array value with saved value */
+		for (j=0; j<pcalc->nelm; j++) {
+			if (pcalc->paa[j] != (*pavalue)[j]) {pcalc->new |= 1<<i; break;}
+		}
 	}
 	if (aCalcoutRecordDebug >= 10)
 		printf("acalcoutRecord(%s):fetch_values: returning\n", pcalc->name);
