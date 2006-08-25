@@ -237,14 +237,14 @@ element    i_s_p i_c_p type_element     internal_rep */
 
 /*
  * Element-table entry for "fetch" operation.  This element is used for all
- * named variables.  Currently, letters A-Z (double) and AA-ZZ (string) are
+ * named variables.  Currently, letters A-Z (double) and AA-ZZ (array) are
  * allowed.  Lower and upper case letters mean the same thing.
  */
 static struct expression_element	fetch_element = {
 "A",		0,	0,	OPERAND,	FETCH,   /* fetch var */
 };
 
-static struct expression_element	fetch_string_element = {
+static struct expression_element	fetch_array_element = {
 "AA",		0,	0,	OPERAND,	AFETCH,   /* fetch var */
 };
 
@@ -276,7 +276,7 @@ long aCalcCheck(char *post, int forks_checked, int dir_mask)
 	top = ps = &stack[1];
 	DEC(ps);  /* Expression handler assumes ps is pointing to a filled element */
 
-	/* string expressions and values handled */
+	/* array expressions and values handled */
 	while (*post != END_STACK) {
 #if DEBUG
 		if (aCalcPostfixDebug) printf("aCalcCheck: %s *post=%d\n", debug_prefix, *post);
@@ -297,7 +297,7 @@ long aCalcCheck(char *post, int forks_checked, int dir_mask)
 			*ps = 0;
 			break;
 
-		case AFETCH:	/* fetch from string variable */
+		case AFETCH:	/* fetch from array variable */
 			INC(ps);
 			++post;
 			*ps=0;
@@ -467,9 +467,9 @@ static int find_element(pbuffer, pelement, pno_bytes, parg)
 		*pelement = &fetch_element; /* fetch means "variable reference" (fetch or store) */
 		*parg = *pbuffer - (isupper((int)*pbuffer) ? 'A' : 'a');
 		*pno_bytes += 1;
-		/* string variables: ["aa" - "zz"], numbered 1-26 */
+		/* array variables: ["aa" - "zz"], numbered 1-26 */
 		if (pbuffer[1] == pbuffer[0]) {
-			*pelement = &fetch_string_element;
+			*pelement = &fetch_array_element;
 			*pno_bytes += 1;
 		}
  		return(TRUE);
@@ -574,7 +574,7 @@ long epicsShareAPI aCalcPostfix(char *pinfix, char *ppostfix, short *perror)
 				*ppostfix++ = pelement->code;
 			}
 
-			/* if this is a string variable reference, append variable number */
+			/* if this is an array variable reference, append variable number */
 			if (pelement->code == (char)AFETCH) {
 				*ppostfix++ = arg;
 			}
