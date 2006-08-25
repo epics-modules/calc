@@ -692,86 +692,12 @@ recordtype(acalcout) {
 	field(PAA,DBF_NOACCESS) {
 		prompt("Prev Val of array input")
 		asl(ASL0)
-		special(SPC_DBADDR)
-		pp(TRUE)
 		extra("double *paa")
 	}
-	field(PBB,DBF_NOACCESS) {
-		prompt("Prev Val of array input")
+	field(NEW,DBF_ULONG) {
+		prompt("new array value mask")
 		asl(ASL0)
-		special(SPC_DBADDR)
-		pp(TRUE)
-		extra("double *pbb")
-	}
-	field(PCC,DBF_NOACCESS) {
-		prompt("Prev Val of array input")
-		asl(ASL0)
-		special(SPC_DBADDR)
-		pp(TRUE)
-		extra("double *pcc")
-	}
-	field(PDD,DBF_NOACCESS) {
-		prompt("Prev Val of array input")
-		asl(ASL0)
-		special(SPC_DBADDR)
-		pp(TRUE)
-		extra("double *pdd")
-	}
-	field(PEE,DBF_NOACCESS) {
-		prompt("Prev Val of array input")
-		asl(ASL0)
-		special(SPC_DBADDR)
-		pp(TRUE)
-		extra("double *pee")
-	}
-	field(PFF,DBF_NOACCESS) {
-		prompt("Prev Val of array input")
-		asl(ASL0)
-		special(SPC_DBADDR)
-		pp(TRUE)
-		extra("double *pff")
-	}
-	field(PGG,DBF_NOACCESS) {
-		prompt("Prev Val of array input")
-		asl(ASL0)
-		special(SPC_DBADDR)
-		pp(TRUE)
-		extra("double *pgg")
-	}
-	field(PHH,DBF_NOACCESS) {
-		prompt("Prev Val of array input")
-		asl(ASL0)
-		special(SPC_DBADDR)
-		pp(TRUE)
-		extra("double *phh")
-	}
-	field(PII,DBF_NOACCESS) {
-		prompt("Prev Val of array input")
-		asl(ASL0)
-		special(SPC_DBADDR)
-		pp(TRUE)
-		extra("double *pii")
-	}
-	field(PJJ,DBF_NOACCESS) {
-		prompt("Prev Val of array input")
-		asl(ASL0)
-		special(SPC_DBADDR)
-		pp(TRUE)
-		extra("double *pjj")
-	}
-	field(PKK,DBF_NOACCESS) {
-		prompt("Prev Val of array input")
-		asl(ASL0)
-		special(SPC_DBADDR)
-		pp(TRUE)
-		extra("double *pkk")
-	}
-	field(PLL,DBF_NOACCESS) {
-		prompt("Prev Val of array input")
-		asl(ASL0)
-		special(SPC_DBADDR)
-		pp(TRUE)
-		extra("double *pll")
+		special(SPC_NOMOD)
 	}
 	field(OVAL,DBF_DOUBLE) {
 		prompt("Output Value")
