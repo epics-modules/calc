@@ -108,14 +108,22 @@ int aCalcStackLW = 0;	/* low-water mark */
 /* convert double-valued stack element to array */
 #define to_array(ps) {										\
 	int ii;													\
-	(ps)->a = &((ps)->local_array[0]);						\
+	(ps)->a = &((ps)->array[0]);						\
 	if (isnan((ps)->d))										\
 		for(ii=0; ii<arraySize; ii++) (ps)->a[ii]=0.;		\
 	else													\
 		for(ii=0; ii<arraySize; ii++) (ps)->a[ii]=ps->d;	\
 }
 
-static struct stackElement stack[STACKSIZE];
+volatile long aCalcPerformArraySize = 4000;
+epicsExportAddress(long, aCalcPerformArraySize);
+struct stackElement {
+	double d;
+	double *a;
+	double *array;
+};
+/* static struct stackElement stack[STACKSIZE];*/
+static struct stackElement *stack = 0;
 
 static int stackInUse=0;
 
@@ -136,6 +144,41 @@ long epicsShareAPI
 		printf("aCalcPerform:array-arg addresses: %p %p...\n", (void *)pp_aArg[0], (void *)pp_aArg[1]);
 	}
 
+	if (stack == NULL) {
+		stack = malloc(STACKSIZE * sizeof(struct stackElement));
+		if (stack == NULL) {
+			printf("aCalcPerform: Can't allocate stack.\n");
+			return(-1);
+		}
+		/* If aCalcPerformArraySize wasn't specified, use arraySize from first call. */
+		if (aCalcPerformArraySize < arraySize) aCalcPerformArraySize = arraySize;
+		for (i=0; i<STACKSIZE; i++) {
+			stack[i].array = (double *)malloc(aCalcPerformArraySize * sizeof(double));
+			if (stack[i].array == NULL) {
+				printf("aCalcPerform: Can't allocate array.\n");
+				if (i>0) {
+					for (i--;i>=0; i--) free(stack[i].array);
+					free(stack);
+				}
+				return(-1);
+			}
+		}
+#if 0
+		printf("aCalcPerform: stack=%p\n", stack);
+		printf("aCalcPerform: &(stack[0])=%p\n", &(stack[0]));
+		printf("aCalcPerform: &(stack[0].d)=%p\n", &(stack[0].d));
+		printf("aCalcPerform: &(stack[0].a)=%p\n", &(stack[0].a));
+		printf("aCalcPerform: &(stack[0].array)=%p\n", &(stack[0].array));
+		printf("aCalcPerform: &(stack[0].array[0])=%p\n", &(stack[0].array[0]));
+
+		printf("aCalcPerform: &(stack[1])=%p\n", &(stack[1]));
+		printf("aCalcPerform: &(stack[1].d)=%p\n", &(stack[1].d));
+		printf("aCalcPerform: &(stack[1].a)=%p\n", &(stack[1].a));
+		printf("aCalcPerform: &(stack[1].array)=%p\n", &(stack[1].array));
+		printf("aCalcPerform: &(stack[1].array[1])=%p\n", &(stack[1].array[1]));
+#endif
+	}
+
 	if (stackInUse) {
 		printf("aCalcPerform: stack in use.  Nothing done\n");
 		return(-1);
@@ -145,10 +188,10 @@ long epicsShareAPI
 	for (i=0; i<STACKSIZE; i++) {
 		stack[i].d = 0.;
 		stack[i].a = NULL;
-		for (j=0; j<ARRAY_SIZE; j++) stack[i].local_array[j] = 0.;
+		for (j=0; j<aCalcPerformArraySize; j++) stack[i].array[j] = 0.;
 	}
-	if (arraySize > ARRAY_SIZE) {
-		printf("aCalcPerform: compiled for <= %d-element arrays\n", ARRAY_SIZE);
+	if (arraySize > aCalcPerformArraySize) {
+		printf("aCalcPerform: I've only allocated for %ld-element arrays\n", aCalcPerformArraySize);
 		stackInUse = 0;
 		return(-1);
 	}
@@ -248,7 +291,7 @@ long epicsShareAPI
 		case AFETCH:	/* fetch from array variable */
 			INC(ps);
 			++post;
-			ps->a = &(ps->local_array[0]);
+			ps->a = &(ps->array[0]);
 			ps->a[0] = 0.;
 			if (*post < num_aArgs) {
 				for (i=0; i<arraySize; i++) {
@@ -297,7 +340,7 @@ long epicsShareAPI
 
 		case CONST_IX:
 			INC(ps);
-			ps->a = &(ps->local_array[0]);
+			ps->a = &(ps->array[0]);
 			for (i=0; i<arraySize; i++) {
 				ps->a[i] = i;
 			}
@@ -325,12 +368,12 @@ long epicsShareAPI
 			checkStackElement(ps, *post);
 			toArray(ps);
 			ps1 = ps; /* y array */
-			INC(ps); ps->a = &(ps->local_array[0]);
+			INC(ps); ps->a = &(ps->array[0]);
 			ps2 = ps; /* place in which to make an x array */
 			for (i=0; i<arraySize; i++) {ps2->a[i] = i;}
-			INC(ps); ps->a = &(ps->local_array[0]); /* place in which to calc derivative */
+			INC(ps); ps->a = &(ps->array[0]); /* place in which to calc derivative */
 			ps3 = ps;
-			INC(ps); ps->a = &(ps->local_array[0]); /* workspace for nderiv */
+			INC(ps); ps->a = &(ps->array[0]); /* workspace for nderiv */
 			status = nderiv(ps2->a, ps1->a, arraySize, ps3->a, j, ps->a);
 			for (i=0; i<arraySize; i++) {ps1->a[i] = ps3->a[i];}
 			DEC(ps); DEC(ps); DEC(ps);
@@ -586,11 +629,11 @@ long epicsShareAPI
 				case DERIV:
 					ps1 = ps; /* y values */
 					INC(ps);
-					ps->a = &(ps->local_array[0]);
+					ps->a = &(ps->array[0]);
 					ps2 = ps; /* x values */
 					for (i=0; i<arraySize; i++) {ps2->a[i] = i;}
 					INC(ps);
-					ps->a = &(ps->local_array[0]); /* place for deriv */
+					ps->a = &(ps->array[0]); /* place for deriv */
 					status = deriv(ps2->a, ps1->a, arraySize, ps->a);
 					for (i=0; i<arraySize; i++) {ps1->a[i] = ps->a[i];}
 					DEC(ps); DEC(ps);
@@ -605,11 +648,11 @@ long epicsShareAPI
 				case FITPOLY:
 					ps1 = ps; /* y values */
 					INC(ps);
-					ps->a = &(ps->local_array[0]);
+					ps->a = &(ps->array[0]);
 					ps2 = ps; /* x values */
 					for (i=0; i<arraySize; i++) {ps2->a[i] = i;}
 					INC(ps);
-					ps->a = &(ps->local_array[0]); /* place for deriv */
+					ps->a = &(ps->array[0]); /* place for deriv */
 					status = fitpoly(ps2->a, ps1->a, arraySize, &d, &e, &f, NULL);
 					for (i=0; i<arraySize; i++) {
 						ps1->a[i] = d + e*ps2->a[i] + f*(ps2->a[i])*(ps2->a[i]);
@@ -621,11 +664,11 @@ long epicsShareAPI
 					DEC(ps);
 					ps1 = ps; /* y values */
 					INC(ps); INC(ps); /* point to unused value-stack element */
-					ps->a = &(ps->local_array[0]);
+					ps->a = &(ps->array[0]);
 					ps2 = ps; /* x values */
 					for (i=0; i<arraySize; i++) {ps2->a[i] = i;}
 					INC(ps); /* point to unused value-stack element */
-					ps->a = &(ps->local_array[0]); /* place for deriv */
+					ps->a = &(ps->array[0]); /* place for deriv */
 					status = fitpoly(ps2->a, ps1->a, arraySize, &d, &e, &f, ps3->a);
 					for (i=0; i<arraySize; i++) {
 						ps1->a[i] = d + e*ps2->a[i] + f*(ps2->a[i])*(ps2->a[i]);
@@ -683,7 +726,7 @@ long epicsShareAPI
 
 		case ARANDOM:
 			INC(ps);
-			ps->a = &(ps->local_array[0]);
+			ps->a = &(ps->array[0]);
 			for (i=0; i<arraySize; i++) ps->a[i] = local_random();
 			break;
 
@@ -851,7 +894,7 @@ long epicsShareAPI
 			checkStackElement(ps, *post);
 			toDouble(ps);
 			d = ps->d;
-			ps->a = &(ps->local_array[0]);
+			ps->a = &(ps->array[0]);
 			ps->a[0] = '\0';
 			j = (int)(d >= 0 ? d+0.5 : 0);
 			if (j < num_aArgs) {
