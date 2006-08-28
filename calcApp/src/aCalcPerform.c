@@ -115,8 +115,8 @@ int aCalcStackLW = 0;	/* low-water mark */
 		for(ii=0; ii<arraySize; ii++) (ps)->a[ii]=ps->d;	\
 }
 
-volatile long aCalcPerformArraySize = 4000;
-epicsExportAddress(long, aCalcPerformArraySize);
+volatile long aCalcArraySize = 4000;
+epicsExportAddress(long, aCalcArraySize);
 struct stackElement {
 	double d;
 	double *a;
@@ -150,10 +150,10 @@ long epicsShareAPI
 			printf("aCalcPerform: Can't allocate stack.\n");
 			return(-1);
 		}
-		/* If aCalcPerformArraySize wasn't specified, use arraySize from first call. */
-		if (aCalcPerformArraySize < arraySize) aCalcPerformArraySize = arraySize;
+		/* If aCalcArraySize wasn't specified, use arraySize from first call. */
+		if (aCalcArraySize < arraySize) aCalcArraySize = arraySize;
 		for (i=0; i<STACKSIZE; i++) {
-			stack[i].array = (double *)malloc(aCalcPerformArraySize * sizeof(double));
+			stack[i].array = (double *)malloc(aCalcArraySize * sizeof(double));
 			if (stack[i].array == NULL) {
 				printf("aCalcPerform: Can't allocate array.\n");
 				if (i>0) {
@@ -188,10 +188,10 @@ long epicsShareAPI
 	for (i=0; i<STACKSIZE; i++) {
 		stack[i].d = 0.;
 		stack[i].a = NULL;
-		for (j=0; j<aCalcPerformArraySize; j++) stack[i].array[j] = 0.;
+		for (j=0; j<aCalcArraySize; j++) stack[i].array[j] = 0.;
 	}
-	if (arraySize > aCalcPerformArraySize) {
-		printf("aCalcPerform: I've only allocated for %ld-element arrays\n", aCalcPerformArraySize);
+	if (arraySize > aCalcArraySize) {
+		printf("aCalcPerform: I've only allocated for %ld-element arrays\n", aCalcArraySize);
 		stackInUse = 0;
 		return(-1);
 	}
