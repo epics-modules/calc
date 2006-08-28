@@ -239,8 +239,10 @@ long epicsShareAPI
 			if (i%4 == 3) printf("\n");
 		}
 		for (i=0; i<num_aArgs; i++) {
-			printf("%c%c=[%f %f %f...]\n",
-				'a'+i, 'a'+i, pp_aArg[i][0], pp_aArg[i][1], pp_aArg[i][2]);
+			if (pp_aArg[i]) {
+				printf("%c%c=[%f %f %f...]\n",
+					'a'+i, 'a'+i, pp_aArg[i][0], pp_aArg[i][1], pp_aArg[i][2]);
+			}
 		}
 	}
 #endif
@@ -294,8 +296,10 @@ long epicsShareAPI
 			ps->a = &(ps->array[0]);
 			ps->a[0] = 0.;
 			if (*post < num_aArgs) {
-				for (i=0; i<arraySize; i++) {
-					ps->a[i] = pp_aArg[(int)*post][i];
+				if (pp_aArg[(int)*post]) {
+					for (i=0; i<arraySize; i++) ps->a[i] = pp_aArg[(int)*post][i];
+				} else {
+					for (i=0; i<arraySize; i++) ps->a[i] = 0.0;
 				}
 				if (aCalcPerformDebug>=20)
 					printf("aCalcPerform:fetch array %d = [%f %f...]\n",
@@ -898,7 +902,11 @@ long epicsShareAPI
 			ps->a[0] = '\0';
 			j = (int)(d >= 0 ? d+0.5 : 0);
 			if (j < num_aArgs) {
-				for (i=0; i<arraySize; i++) {ps->a[i] = pp_aArg[j][i];}
+				if (pp_aArg[j]) {
+					for (i=0; i<arraySize; i++) ps->a[i] = pp_aArg[j][i];
+				} else {
+					for (i=0; i<arraySize; i++) ps->a[i] = 0.0;
+				}
 			}
 			break;
 
