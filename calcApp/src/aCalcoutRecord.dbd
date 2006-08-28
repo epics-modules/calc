@@ -75,7 +75,6 @@ recordtype(acalcout) {
 	field(PAVL,DBF_NOACCESS) {
 		prompt("Prev. Array Value")
 		asl(ASL0)
-		special(SPC_DBADDR)
 		pp(TRUE)
 		extra("double *pavl")
 	}
@@ -713,7 +712,6 @@ recordtype(acalcout) {
 	field(POAV,DBF_NOACCESS) {
 		prompt("Output array value")
 		asl(ASL0)
-		special(SPC_DBADDR)
 		pp(TRUE)
 		extra("double *poav")
 	}
