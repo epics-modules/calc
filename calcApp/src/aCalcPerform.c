@@ -115,8 +115,8 @@ int aCalcStackLW = 0;	/* low-water mark */
 		for(ii=0; ii<arraySize; ii++) (ps)->a[ii]=ps->d;	\
 }
 
-volatile long aCalcArraySize = 4000;
-epicsExportAddress(long, aCalcArraySize);
+volatile int aCalcArraySize = 1000;
+epicsExportAddress(int, aCalcArraySize);
 struct stackElement {
 	double d;
 	double *a;
@@ -191,7 +191,7 @@ long epicsShareAPI
 		for (j=0; j<aCalcArraySize; j++) stack[i].array[j] = 0.;
 	}
 	if (arraySize > aCalcArraySize) {
-		printf("aCalcPerform: I've only allocated for %ld-element arrays\n", aCalcArraySize);
+		printf("aCalcPerform: I've only allocated for %d-element arrays\n", aCalcArraySize);
 		stackInUse = 0;
 		return(-1);
 	}
