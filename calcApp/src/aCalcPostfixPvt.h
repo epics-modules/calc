@@ -52,12 +52,6 @@
 typedef union { long l[2]; double d; } DOUBLE_LONG;
 
 #define STACKSIZE 20
-#define ARRAY_SIZE 4000
-struct stackElement {
-	double d;
-	double *a;
-	double local_array[ARRAY_SIZE];
-};
 
 /*	defines for element table      */
 /* #define	BAD_EXPRESSION	0 */
