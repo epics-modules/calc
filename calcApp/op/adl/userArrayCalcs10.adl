@@ -1,6 +1,6 @@
 
 file {
-	name="C:\Documents and Settings\mooney\Desktop\Work\epics\synApps\adl\userArrayCalcs10.adl"
+	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/userArrayCalcs10.adl"
 	version=030004
 }
 display {
@@ -8,7 +8,7 @@ display {
 		x=466
 		y=87
 		width=140
-		height=220
+		height=240
 	}
 	clr=64
 	bclr=3
@@ -129,8 +129,8 @@ display {
 		name="userArrayCalc_demo.adl"
 		args="P=$(P),C=userArrayCalc1"
 	}
-	clr=14
-	bclr=51
+	clr=0
+	bclr=63
 }
 "text entry" {
 	object {
@@ -174,8 +174,8 @@ display {
 		name="userArrayCalc_demo.adl"
 		args="P=$(P),C=userArrayCalc2"
 	}
-	clr=14
-	bclr=51
+	clr=0
+	bclr=63
 }
 "text entry" {
 	object {
@@ -219,8 +219,8 @@ display {
 		name="userArrayCalc_demo.adl"
 		args="P=$(P),C=userArrayCalc3"
 	}
-	clr=14
-	bclr=51
+	clr=0
+	bclr=63
 }
 "text entry" {
 	object {
@@ -264,8 +264,8 @@ display {
 		name="userArrayCalc_demo.adl"
 		args="P=$(P),C=userArrayCalc4"
 	}
-	clr=14
-	bclr=51
+	clr=0
+	bclr=63
 }
 "text entry" {
 	object {
@@ -309,8 +309,8 @@ display {
 		name="userArrayCalc_demo.adl"
 		args="P=$(P),C=userArrayCalc5"
 	}
-	clr=14
-	bclr=51
+	clr=0
+	bclr=63
 }
 "text entry" {
 	object {
@@ -354,8 +354,8 @@ display {
 		name="userArrayCalc_demo.adl"
 		args="P=$(P),C=userArrayCalc6"
 	}
-	clr=14
-	bclr=51
+	clr=0
+	bclr=63
 }
 "text entry" {
 	object {
@@ -399,8 +399,8 @@ display {
 		name="userArrayCalc_demo.adl"
 		args="P=$(P),C=userArrayCalc7"
 	}
-	clr=14
-	bclr=51
+	clr=0
+	bclr=63
 }
 "text entry" {
 	object {
@@ -444,8 +444,8 @@ display {
 		name="userArrayCalc_demo.adl"
 		args="P=$(P),C=userArrayCalc8"
 	}
-	clr=14
-	bclr=51
+	clr=0
+	bclr=63
 }
 "text entry" {
 	object {
@@ -489,8 +489,8 @@ display {
 		name="userArrayCalc_demo.adl"
 		args="P=$(P),C=userArrayCalc9"
 	}
-	clr=14
-	bclr=51
+	clr=0
+	bclr=63
 }
 "text entry" {
 	object {
@@ -534,8 +534,8 @@ display {
 		name="userArrayCalc_demo.adl"
 		args="P=$(P),C=userArrayCalc10"
 	}
-	clr=14
-	bclr=51
+	clr=0
+	bclr=63
 }
 "choice button" {
 	object {
@@ -550,4 +550,20 @@ display {
 		bclr=51
 	}
 	stacking="column"
+}
+"related display" {
+	object {
+		x=0
+		y=220
+		width=140
+		height=20
+	}
+	display[0] {
+		label="userArrayCalcPlots10"
+		name="userArrayCalcPlots10.adl"
+		args="P=$(P)"
+	}
+	clr=0
+	bclr=63
+	label="-All Plots"
 }
