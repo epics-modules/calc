@@ -10,6 +10,18 @@ content="text/html; charset=iso-8859-1">
 
 <h1 align="center">calc Release Notes</h1>
 
+<h2 align="center">Release 2-6-3</h2>
+<ul>
+<li>array calcs reworked to allocate arrays only as needed.
+<br>aCalcPerform
+allocates no stack space until it is called.  Then, it allocates 20
+arrays of length aCalcArraySize (a volatile int, settable from the shell)
+or the arraySize argument specified by the first caller, whichever is
+larger.
+<br>aCalcoutRecord allocates an NELEM-size array for each variable AA-LL,
+when that variable is first read from or written to.
+</ul>
+
 <h2 align="center">Release 2-6-2</h2>
 <ul>
 <li><p>Added the following functions for the aCalcout record
