@@ -852,8 +852,9 @@ long epicsShareAPI
 				}
 			} else {
 				/* array variable: shift array elements */
-				j = myNINT(ps1->d);
-				if (currSymbol == LEFT_SHIFT)  j = -j;
+				e = ps1->d;	/* num channels to shift */
+				if (currSymbol == LEFT_SHIFT)  e = -e;
+				j = myNINT(e);
 				if (j > 0) {
 					for (i=arraySize-1; i>=j; i--) ps->a[i] = ps->a[i-j];
 					for ( ; i>=0; i--) ps->a[i] = 0.;
@@ -861,11 +862,11 @@ long epicsShareAPI
 					for (i=0; i<arraySize+j; i++) ps->a[i] = ps->a[i-j];
 					for ( ; i<arraySize; i++) ps->a[i] = 0.;
 				}
-				d = fabs(ps1->d - j);
+				d = fabs(e - j);
 				/* printf("aCalcPerform:shift: d=%f\n", d);*/
 				if (d > SMALL) {
 					/* shift by delta-index of less than .5 */
-					if (ps1->d < j) {
+					if (e < j) {
 						for (i=0; i<arraySize-1; i++) {
 							ps->a[i] += d * (ps->a[i+1] - ps->a[i]);
 						}
