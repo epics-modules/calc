@@ -60,6 +60,9 @@
 #include <epicsExport.h>
 #include <freeList.h>
 
+/* Note value much larger than this breaks MEDM's plot */
+#define	myMAXFLOAT	((float)1e+35)
+
 static double local_random();
 
 #define myNINT(a) ((int)((a) >= 0 ? (a)+0.5 : (a)-0.5))
@@ -405,14 +408,20 @@ long epicsShareAPI
 				case MULT: for (i=0; i<arraySize; i++) {ps->a[i] *= ps1->a[i];} break;
 				case DIV:
 					for (i=0; i<arraySize; i++) {
-						if (ps1->a[i]==0) {stackInUse=0; return(-1);}
-						ps->a[i] /= ps1->a[i];
+						if (ps1->a[i]==0) {
+							ps->a[i] = myMAXFLOAT;
+						} else {
+							ps->a[i] /= ps1->a[i];
+						}
 					}
 					break;
 				case MODULO:
 					for (i=0; i<arraySize; i++) {
-						if ((int)ps1->a[i] == 0) {stackInUse=0; return(-1);}
-						ps->a[i] = (double)((int)ps->a[i] % (int)ps1->a[i]);
+						if ((int)ps1->a[i] == 0) {
+							ps->a[i] = myMAXFLOAT;
+						} else {
+							ps->a[i] = (double)((int)ps->a[i] % (int)ps1->a[i]);
+						}
 					}
 					break;
 				case MAXFUNC: for (i=0; i<arraySize; i++) {if (ps1->a[i] > ps->a[i]) {ps->a[i] = ps1->a[i];}} break;
@@ -429,11 +438,19 @@ long epicsShareAPI
 				case SUB: ps->d -= ps1->d; break;
 				case MULT: ps->d *= ps1->d; break;
 				case DIV:
-					if (ps1->d == 0) {stackInUse=0; return(-1);}
-					ps->d = ps->d / ps1->d; break;
+					if (ps1->d == 0) {
+						ps->d = myMAXFLOAT;
+					} else {
+						ps->d = ps->d / ps1->d;
+					}
+					break;
 				case MODULO:
-					if ((int)ps1->d == 0) {stackInUse=0; return(-1);}
-					ps->d = (double)((int)ps->d % (int)ps1->d); break;
+					if ((int)ps1->d == 0) {
+						ps->d = myMAXFLOAT;
+					} else {
+						ps->d = (double)((int)ps->d % (int)ps1->d);
+					}
+					break;
 				case MAXFUNC: if (ps1->d > ps->d) ps->d = ps1->d; break;
 				case MINFUNC: if (ps1->d < ps->d) ps->d = ps1->d; break;
 				}
@@ -528,23 +545,41 @@ long epicsShareAPI
 				case ABS_VAL: for (i=0; i<arraySize; i++) {if (ps->a[i] < 0) ps->a[i] *= -1;} break;
 				case UNARY_NEG: for (i=0; i<arraySize; i++) {ps->a[i] *= -1;} break;
 				case SQU_RT:
+					status = 0;
 					for (i=0; i<arraySize; i++) {
-						if (ps->a[i] < 0) {stackInUse=0; return(-1);}
-						ps->a[i] = sqrt(ps->a[i]);
+						if (ps->a[i] < 0) {
+							ps->a[i] = 0;
+							status = -1;
+						} else {
+							ps->a[i] = sqrt(ps->a[i]);
+						}
 					}
+					if (status)	printf("aCalcPerform: attempt to take sqrt of negative number\n");
 					break;
 				case EXP: for (i=0; i<arraySize; i++) {ps->a[i] = exp(ps->a[i]);} break;
 				case LOG_10:
+					status = 0;
 					for (i=0; i<arraySize; i++) {
-						if (ps->a[i] < 0) {stackInUse=0; return(-1);}
-						ps->a[i] = log10(ps->a[i]);
+						if (ps->a[i] < 0) {
+							ps->a[i] = 0;
+							status = -1;
+						} else {
+							ps->a[i] = log10(ps->a[i]);
+						}
 					}
+					if (status) printf("aCalcPerform: attempt to take log of negative number\n");
 					break;
 				case LOG_E:
+					status = 0;
 					for (i=0; i<arraySize; i++) {
-						if (ps->a[i] < 0) {stackInUse=0; return(-1);}
-						ps->a[i] = log(ps->a[i]);
+						if (ps->a[i] < 0)  {
+							ps->a[i] = 0;
+							status = -1;
+						} else {
+							ps->a[i] = log(ps->a[i]);
+						}
 					}
+					if (status) printf("aCalcPerform: attempt to take log of negative number\n");
 					break;
 				case ACOS: for (i=0; i<arraySize; i++) {ps->a[i] = acos(ps->a[i]);} break;
 				case ASIN: for (i=0; i<arraySize; i++) {ps->a[i] = asin(ps->a[i]);} break;
@@ -557,7 +592,10 @@ long epicsShareAPI
 				case TANH: for (i=0; i<arraySize; i++) {ps->a[i] = tanh(ps->a[i]);} break;
 				case CEIL: for (i=0; i<arraySize; i++) {ps->a[i] = ceil(ps->a[i]);} break;
 				case FLOOR: for (i=0; i<arraySize; i++) {ps->a[i] = floor(ps->a[i]);} break;
-				case NINT: for (i=0; i<arraySize; i++) {ps->a[i] = (double)(long)(ps->a[i] >= 0 ? ps->a[i]+0.5 : ps->a[i]-0.5);;} break;
+				case NINT: for (i=0; i<arraySize; i++) {
+								ps->a[i] = (double)(long)(ps->a[i] >= 0 ? ps->a[i]+0.5 : ps->a[i]-0.5);
+							}
+							break;
 				case AMAX:
 					for (i=1, d=ps->a[0]; i<arraySize; i++) {if (ps->a[i]>d) d = ps->a[i];}
 					toDouble(ps);
@@ -685,32 +723,44 @@ long epicsShareAPI
 				case ABS_VAL: if (ps->d < 0) {ps->d *= -1;} break;
 				case UNARY_NEG: ps->d *= -1; break;
 				case SQU_RT:
-					if (ps->d < 0) {stackInUse=0; return(-1);}
-					ps->d = sqrt(ps->d);
+					if (ps->d < 0) {
+						ps->d = 0;
+						printf("aCalcPerform: attempt to take sqrt of negative number\n");
+					} else {
+						ps->d = sqrt(ps->d);
+					}
 					break;
 				case EXP:
 					ps->d = exp(ps->d);
 					break;
 				case LOG_10:
-					if (ps->d < 0) {stackInUse=0; return(-1);}
-					ps->d = log10(ps->d);
+					if (ps->d < 0) {
+						ps->d = 0;
+						printf("aCalcPerform: attempt to take log of negative number\n");
+					} else {
+						ps->d = log10(ps->d);
+					}
 					break;
 				case LOG_E:
-					if (ps->d < 0) {stackInUse=0; return(-1);}
-					ps->d = log(ps->d);
+					if (ps->d < 0) {
+						ps->d = 0;
+						printf("aCalcPerform: attempt to take log of negative number\n");
+					} else {
+						ps->d = log(ps->d);
+					}
 					break;
-				case ACOS: if (ps->d < 0) {ps->d = acos(ps->d);} break;
-				case ASIN: if (ps->d < 0) {ps->d = asin(ps->d);} break;
-				case ATAN: if (ps->d < 0) {ps->d = atan(ps->d);} break;
-				case COS: if (ps->d < 0) {ps->d = cos(ps->d);} break;
-				case SIN: if (ps->d < 0) {ps->d = sin(ps->d);} break;
-				case TAN: if (ps->d < 0) {ps->d = tan(ps->d);} break;
-				case COSH: if (ps->d < 0) {ps->d = cosh(ps->d);} break;
-				case SINH: if (ps->d < 0) {ps->d = sinh(ps->d);} break;
-				case TANH: if (ps->d < 0) {ps->d = tanh(ps->d);} break;
-				case CEIL: if (ps->d < 0) {ps->d = ceil(ps->d);} break;
-				case FLOOR: if (ps->d < 0) {ps->d = floor(ps->d);} break;
-				case NINT: if (ps->d < 0) {ps->d = (double)(long)(ps->d >= 0 ? ps->d+0.5 : ps->d-0.5);} break;
+				case ACOS: {ps->d = acos(ps->d);} break;
+				case ASIN: {ps->d = asin(ps->d);} break;
+				case ATAN: {ps->d = atan(ps->d);} break;
+				case COS: {ps->d = cos(ps->d);} break;
+				case SIN: {ps->d = sin(ps->d);} break;
+				case TAN: {ps->d = tan(ps->d);} break;
+				case COSH: {ps->d = cosh(ps->d);} break;
+				case SINH: {ps->d = sinh(ps->d);} break;
+				case TANH: {ps->d = tanh(ps->d);} break;
+				case CEIL: {ps->d = ceil(ps->d);} break;
+				case FLOOR: {ps->d = floor(ps->d);} break;
+				case NINT: ps->d = (double)(long)(ps->d >= 0 ? ps->d+0.5 : ps->d-0.5); break;
 				case AMAX: break;
 				case AMIN: break;
 				case REL_NOT: ps->d = (ps->d ? 0 : 1); break;
@@ -746,34 +796,27 @@ long epicsShareAPI
 			DEC(ps);
 			checkStackElement(ps, *post);
 			toDouble(ps1);
-			/* is exponent an integer? */
-			i = (int) ps1->d;
-			if ((ps1->d - (double)i) != 0) {stackInUse=0; return(-1);}
+			/* if exponent is not integer, use nearest integer */
+			j = myNINT(ps1->d);
 			if (isArray(ps)) {
 				for (i=0; i<arraySize; i++) {
 					if (ps->a[i] == 0) continue;
 					if (ps->a[i] < 0) {
-						j = (int) ps1->d;
-						/* is exponent an integer? */
-						if ((ps1->d - (double)j) != 0) {stackInUse=0; return(-1);}
-       					ps->a[i] = exp(ps1->d * log(-(ps->a[i])));
+       					ps->a[i] = exp(j * log(-(ps->a[i])));
 						/* is value negative */
 						if ((j % 2) > 0) ps->a[i] = -ps->a[i];
 					} else {
-						ps->a[i] = exp(ps1->d * log(ps->a[i]));
+						ps->a[i] = exp(j * log(ps->a[i]));
 					}
 				}
 			} else {
 				if (ps->d == 0) break;
 				if (ps->d < 0) {
-					i = (int) ps1->d;
-					/* is exponent an integer? */
-					if ((ps1->d - (double)i) != 0) {stackInUse=0; return(-1);}
-       				ps->d = exp(ps1->d * log(-(ps->d)));
+       				ps->d = exp(j * log(-(ps->d)));
 					/* is value negative */
-					if ((i % 2) > 0) ps->d = -ps->d;
+					if ((j % 2) > 0) ps->d = -ps->d;
 				} else {
-					ps->d = exp(ps1->d * log(ps->d));
+					ps->d = exp(j * log(ps->d));
 				}
 			}
 			break;
