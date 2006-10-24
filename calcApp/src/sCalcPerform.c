@@ -42,6 +42,8 @@
  * 03-03-06 tmm Added TR_ESC function, which applies dbTranslateEscape() to
  *              its argument, and ESC function, which applies
  *              epicsStrSnPrintEscaped() to its argument.
+ * 10-23-06 tmm Added CRC16 and MODBUS functions, calculate modbus 16-bit CRC
+ *              from string, and either return it, or append it.
  */
 
 /* This module contains the code for processing the arithmetic
@@ -234,6 +236,45 @@ static char *findConversionIndicator(char *s)
 		}
 	}
 	return(retval);
+}
+
+#define POLYNOMIAL 0x0A001;
+int crc16(char *output, char *rawInput)
+{
+	int i, j, len;
+	unsigned int crc;
+	char tranInput[100];
+
+	len = dbTranslateEscape(tranInput, rawInput);
+	if (len == 0) return(-1);
+	if (sCalcPerformDebug>=5) {
+		printf("input string(len=%d): ", len);
+		for (i=0; i<len; i++) printf("0x%02x ", tranInput[i]);
+		printf("\n");
+	}
+	crc = 0xffff;
+	if (sCalcPerformDebug>=10) printf("crc=0x%04x\n", crc);
+	/* Loop through the translated input string */
+	for (i=0; i<len; i++) {
+		/* Exclusive-OR the next input byte with the low byte of the CRC */
+		/* crc = (crc&0x0ff00) | ((crc&0x0ff) ^ (unsigned int)tranInput[i]);*/
+		crc ^= (unsigned int)tranInput[i];
+		if (sCalcPerformDebug>=10) printf("crc=0x%04x\n", crc);
+		/* Loop through all 8 data bits */
+		for (j=0; j<8; j++) {
+			if (crc & 0x0001) {
+				crc >>= 1;
+				/* If the LSB is 1, XOR the polynomial mask with the CRC */
+				crc ^= POLYNOMIAL;
+			} else {
+				crc >>= 1;
+			}
+		if (sCalcPerformDebug>=10) printf("crc=0x%04x\n", crc);
+		}
+	}
+	/* put the CRC (low byte first) into the output string, escaped */
+	sprintf(output, "\\x%02x\\x%02x", crc&0xff, (crc&0xff00)>>8);
+	return(0);
 }
 
 #if OVERRIDESTDCALC
@@ -877,7 +918,7 @@ long epicsShareAPI
 					ps->d = ps->d + ps1->d;
 				} else {
 					/* concatenate two strings */
-					strncat(ps->s, ps1->s, LOCAL_STRING_SIZE);
+					strncat(ps->s, ps1->s, strlen(ps->s)-LOCAL_STRING_SIZE-1);
 				}
 				break;
 
@@ -1574,6 +1615,24 @@ long epicsShareAPI
 					i = MIN(i, LOCAL_STRING_SIZE);
 					tmpstr[i] = '\0'; /* make sure it's terminated */
 					strNcpy(ps->s, tmpstr, LOCAL_STRING_SIZE-1);
+				}
+				break;
+
+			case CRC16:
+			case MODBUS:
+				checkStackElement(ps, *post);
+				if (isString(ps)) {
+					/* Find length of input string.  Null terminates string.*/
+					for (j=0; j<LOCAL_STRING_SIZE && ps->s[j] != '\0'; j++) {
+						;
+					}
+		 			if (crc16(tmpstr, ps->s) == 0) {
+						if (currSymbol==CRC16) {
+							strNcpy(ps->s, tmpstr, LOCAL_STRING_SIZE-1);
+						} else {
+							strncat(ps->s, tmpstr, strlen(ps->s)-LOCAL_STRING_SIZE-1);
+						}
+					}
 				}
 				break;
 

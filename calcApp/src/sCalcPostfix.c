@@ -1,4 +1,4 @@
-/* $Id: sCalcPostfix.c,v 1.10 2006-03-24 23:05:47 mooney Exp $
+/* $Id: sCalcPostfix.c,v 1.11 2006-10-24 14:52:53 mooney Exp $
  * Subroutines used to convert an infix expression to a postfix expression
  *
  *      Author:          Bob Dalesio
@@ -65,6 +65,8 @@
  *      03-03-06    tmm Added TR_ESC function, which applies dbTranslateEscape() to
  *                      its argument, and ESC function, which applies
  *                      epicsStrSnPrintEscaped() to its argument.
+ *      10-23-06    tmm Added CRC16 and MODBUS functions, calculate modbus 16
+ *                      -bit CRC from string, and either return it, or append it.
  */
 
 /* 
@@ -224,6 +226,8 @@ element    i_s_p i_c_p type_element     internal_rep */
 {"TR_ESC", 10,    11,    UNARY_OPERATOR,  TR_ESC},      /* translate escape */
 {"$E",     10,    11,    UNARY_OPERATOR,  ESC},         /* translate escape */
 {"ESC",    10,    11,    UNARY_OPERATOR,  ESC},         /* translate escape */
+{"CRC16",  10,    11,    UNARY_OPERATOR,  CRC16},       /* CRC16 */
+{"MODBUS", 10,    11,    UNARY_OPERATOR,  MODBUS},      /* MODBUS */
 {"@@",     10,    11,    UNARY_OPERATOR,  A_SFETCH},    /* fetch string argument */
 {"@",      10,    11,    UNARY_OPERATOR,  A_FETCH},     /* fetch numeric argument */
 {"RNDM",   0,    0,    OPERAND,         RANDOM},      /* Random Number */
@@ -398,7 +402,7 @@ long sCalcCheck(char *post, int forks_checked, int dir_mask)
 		case ATAN:		case COS:		case SIN:		case TAN:
 		case COSH:		case SINH:		case TANH:		case CEIL:
 		case FLOOR:		case NINT:		case REL_NOT:	case BIT_NOT:
-		case A_FETCH:	case TO_DOUBLE:	case BYTE:
+		case A_FETCH:	case TO_DOUBLE:	case BYTE:		case CRC16:
 			checkStackElement(ps);
 			ps->d = 0;
 			ps->s = NULL;
@@ -696,6 +700,7 @@ long epicsShareAPI sCalcPostfix(char *pinfix, char *ppostfix, short *perror)
 			case A_SFETCH:
 			case TR_ESC:
 			case ESC:
+			case CRC16:
 				*ppostfixStart = USES_STRING;
 				break;
 			default:
