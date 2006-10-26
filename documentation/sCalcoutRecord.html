@@ -883,7 +883,7 @@ to format string (two-argument function) (NOTE: '$S' is a synonym for SSCANF)
 <td><code>SSCANF('V=1.25', "%*2c%lf") -> 1.25</code>
 
 <tr>
-<td align=center valign=top>TR_ESC
+<td align=center valign=top><font color="blue">TR_ESC</font>
 <td>Translate escape sequences into the characters they represent
 (one-argument function).   (NOTE: '$T' is a synonym for TR_ESC.)
 <BR>TR_ESC() applies dbTranslateEscape() to its argument. 
@@ -892,7 +892,7 @@ to format string (two-argument function) (NOTE: '$S' is a synonym for SSCANF)
 <td><code>TR_ESC("a\x62c") -> 'abc'</code>
 
 <tr>
-<td align=center valign=top>ESC
+<td align=center valign=top><font color="blue">ESC</font>
 <td>Translate escape characters into equivalent escape sequences.
 (one-argument function) (NOTE: '$E' is a synonym for ESC)
 <BR>ESC() applies epicsStrSnEscaped() to its argument. 
@@ -901,6 +901,42 @@ to format string (two-argument function) (NOTE: '$S' is a synonym for SSCANF)
 If there is no null chaacter, the string is assumed to be 40
 characters long.
 <td><code>ESC("a&lt;return&gt;c") -> 'a\rc'</code>
+
+<tr>
+<td align=center valign=top><font color="blue">CRC16</font>
+<td>Calculate Modbus/RTU 16-bit CRC and return it as an escaped string. 
+<td><code>CRC16('\x01\x03') -> '\x01\x03\x40\x21'</code>
+
+<tr>
+<td align=center valign=top><font color="blue">MODBUS</font>
+<td>Calculate Modbus/RTU 16-bit CRC and append it, as an escaped string,
+to the argument. 
+<td><code>CRC16('\x01\x03') -> '\x40\x21'</code>
+
+<tr>
+<td align=center valign=top><font color="blue">LRC</font>
+<td>Calculate Modbus/ASCII 8-bit LRC and return it as an escaped string. 
+<td><code>LRC('\x01\x03') -> '\xfc'</code>
+
+<tr>
+<td align=center valign=top><font color="blue">AMODBUS</font>
+<td>Calculate Modbus/ASCII 8-bit LRC and append it, as an escaped string,
+to the argument.  Note that this doesn't do everything needed for an actual
+device.  The string is supposed to be converted to binary, have its LRC
+appended, and ':' prepended.  Then the whole thing then gets converted to
+ASCII characters. 
+<td><code>AMODBUS('\x01\x03') -> '\x01\x03\xfc'</code>
+
+<tr>
+<td align=center valign=top><font color="blue">XOR8</font>
+<td>Calculate 8-bit XOR checksum and return it as an escaped string. 
+<td><code>XOR8('\x01\x03') -> '\x02'</code>
+
+<tr>
+<td align=center valign=top><font color="blue">ADD_XOR8</font>
+<td>Calculate 8-bit XOR checksum and append it, as an escaped string,
+to the argument. 
+<td><code>ADD_XOR8('\x01\x03') -> '\x01\x03\x02'</code>
 
 <tr>
 <td align=center valign=top>[
@@ -924,6 +960,10 @@ characters long.
 <td>String indicator
 <td><code>'abc'</code>
 
+<tr>
+<td valign=top colspan=3> <font color="blue">Functions and operators rendered in
+this color are experimental.  The names or implementations may change in a future
+version of this software.</font>
 </table>
 
 <A NAME="HEADING14-75"></A>
