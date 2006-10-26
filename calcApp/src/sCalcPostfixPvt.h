@@ -33,6 +33,7 @@
  *                   (apply epicsStrSnPrintEscaped() to arg).
  *      10-23-06 tmm Added CRC16 and MODBUS functions, calculate modbus 16
  *                   -bit CRC from string, and either return it, or append it.
+ *      10-24-06 tmm Added LRC, AMODBUS, XOR8 and ADD_XOR8 functions
  * 
  */
 
@@ -145,6 +146,11 @@ struct stackElement {
 #define		ESC			74
 #define		CRC16		75
 #define		MODBUS		76
+#define		LRC			77
+#define		AMODBUS		78
+#define		XOR8		79
+#define		ADD_XOR8	80
+
 
 /* NOTE: FETCH_A .. FETCH_L must be contiguous and in alphabetical order */
 #define		FETCH_A		90

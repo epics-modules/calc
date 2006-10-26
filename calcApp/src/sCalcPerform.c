@@ -44,6 +44,7 @@
  *              epicsStrSnPrintEscaped() to its argument.
  * 10-23-06 tmm Added CRC16 and MODBUS functions, calculate modbus 16-bit CRC
  *              from string, and either return it, or append it.
+ * 10-24-06 tmm Added LRC, AMODBUS, XOR8 and ADD_XOR8 functions
  */
 
 /* This module contains the code for processing the arithmetic
@@ -274,6 +275,55 @@ int crc16(char *output, char *rawInput)
 	}
 	/* put the CRC (low byte first) into the output string, escaped */
 	sprintf(output, "\\x%02x\\x%02x", crc&0xff, (crc&0xff00)>>8);
+	return(0);
+}
+
+int lrc(char *output, char *rawInput)
+{
+	int i, len;
+	unsigned int lrc;
+	unsigned char tranInput[100];
+
+	len = dbTranslateEscape(tranInput, rawInput);
+	if (len == 0) return(-1);
+	if (sCalcPerformDebug>=5) {
+		printf("input string(len=%d): ", len);
+		for (i=0; i<len; i++) printf("0x%02x ", tranInput[i]);
+		printf("\n");
+	}
+	lrc = 0;
+	/* Loop through the translated input string */
+	for (i=0; i<len; i++) {
+		lrc += (unsigned int)tranInput[i];
+	}
+	lrc = -lrc;
+	if (sCalcPerformDebug>=10) printf("lrc=0x%04x\n", lrc);
+	/* put the LRC into the output string, escaped */
+	sprintf(output, "\\x%02x", lrc&0xff);
+	return(0);
+}
+
+int xor8(char *output, char *rawInput)
+{
+	int i, len;
+	unsigned int xor8;
+	char tranInput[100];
+
+	len = dbTranslateEscape(tranInput, rawInput);
+	if (len == 0) return(-1);
+	if (sCalcPerformDebug>=5) {
+		printf("input string(len=%d): ", len);
+		for (i=0; i<len; i++) printf("0x%02x ", tranInput[i]);
+		printf("\n");
+	}
+	xor8 = 0;
+	/* Loop through the translated input string */
+	for (i=0; i<len; i++) {
+		xor8 ^= (unsigned int)tranInput[i];
+	}
+	if (sCalcPerformDebug>=10) printf("xor8=0x%04x\n", xor8);
+	/* put XOR8 into the output string, escaped */
+	sprintf(output, "\\x%02x", xor8&0xff);
 	return(0);
 }
 
@@ -1622,12 +1672,46 @@ long epicsShareAPI
 			case MODBUS:
 				checkStackElement(ps, *post);
 				if (isString(ps)) {
-					/* Find length of input string.  Null terminates string.*/
-					for (j=0; j<LOCAL_STRING_SIZE && ps->s[j] != '\0'; j++) {
-						;
-					}
 		 			if (crc16(tmpstr, ps->s) == 0) {
 						if (currSymbol==CRC16) {
+							strNcpy(ps->s, tmpstr, LOCAL_STRING_SIZE-1);
+						} else {
+							strncat(ps->s, tmpstr, strlen(ps->s)-LOCAL_STRING_SIZE-1);
+						}
+					}
+				}
+				break;
+
+			case LRC:
+			case AMODBUS:
+				/* Note that this isn't complete:  Ascii modbus has to have its LRC
+				 * computed while the command string is still binary, then the
+				 * (binary) LRC is appended, then ':' is prepended and <cr><lf> is appended
+				 * Example: To send the binary command string "F7 03 13 89 00 0A" (hex,
+				 * obviously), you calculate the LRC (0x60), append to the command string,
+				 * and convert hex character by character to ASCII, yielding
+				 * "46 37 30 33 31 33 38 39 30 30 30 41 36 30"
+				 * then you prepend ':' (0x3a) and append <cr><lf> (0x0d0a), yielding
+				 * "3A 46 37 30 33 31 33 38 39 30 30 30 41 36 30 0D 0A"
+				 */
+				checkStackElement(ps, *post);
+				if (isString(ps)) {
+		 			if (lrc(tmpstr, ps->s) == 0) {
+						if (currSymbol==LRC) {
+							strNcpy(ps->s, tmpstr, LOCAL_STRING_SIZE-1);
+						} else {
+							strncat(ps->s, tmpstr, strlen(ps->s)-LOCAL_STRING_SIZE-1);
+						}
+					}
+				}
+				break;
+
+			case XOR8:
+			case ADD_XOR8:
+				checkStackElement(ps, *post);
+				if (isString(ps)) {
+		 			if (xor8(tmpstr, ps->s) == 0) {
+						if (currSymbol==XOR8) {
 							strNcpy(ps->s, tmpstr, LOCAL_STRING_SIZE-1);
 						} else {
 							strncat(ps->s, tmpstr, strlen(ps->s)-LOCAL_STRING_SIZE-1);

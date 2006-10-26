@@ -1,4 +1,4 @@
-/* $Id: sCalcPostfix.c,v 1.11 2006-10-24 14:52:53 mooney Exp $
+/* $Id: sCalcPostfix.c,v 1.12 2006-10-26 21:18:23 mooney Exp $
  * Subroutines used to convert an infix expression to a postfix expression
  *
  *      Author:          Bob Dalesio
@@ -67,6 +67,7 @@
  *                      epicsStrSnPrintEscaped() to its argument.
  *      10-23-06    tmm Added CRC16 and MODBUS functions, calculate modbus 16
  *                      -bit CRC from string, and either return it, or append it.
+ *      10-24-06    tmm Added LRC, AMODBUS, XOR8 and ADD_XOR8 functions
  */
 
 /* 
@@ -227,7 +228,11 @@ element    i_s_p i_c_p type_element     internal_rep */
 {"$E",     10,    11,    UNARY_OPERATOR,  ESC},         /* translate escape */
 {"ESC",    10,    11,    UNARY_OPERATOR,  ESC},         /* translate escape */
 {"CRC16",  10,    11,    UNARY_OPERATOR,  CRC16},       /* CRC16 */
-{"MODBUS", 10,    11,    UNARY_OPERATOR,  MODBUS},      /* MODBUS */
+{"MODBUS", 10,    11,    UNARY_OPERATOR,  MODBUS},      /* MODBUS (append CRC16) */
+{"LRC",    10,    11,    UNARY_OPERATOR,  LRC},         /* LRC */
+{"AMODBUS",10,    11,    UNARY_OPERATOR,  AMODBUS},     /* Ascii Modbus (append LRC) */
+{"XOR8",   10,    11,    UNARY_OPERATOR,  XOR8},        /* XOR8 checksum */
+{"ADD_XOR8", 10,  11,    UNARY_OPERATOR,  ADD_XOR8},    /* Append XOR8 to string */
 {"@@",     10,    11,    UNARY_OPERATOR,  A_SFETCH},    /* fetch string argument */
 {"@",      10,    11,    UNARY_OPERATOR,  A_FETCH},     /* fetch numeric argument */
 {"RNDM",   0,    0,    OPERAND,         RANDOM},      /* Random Number */
@@ -403,6 +408,8 @@ long sCalcCheck(char *post, int forks_checked, int dir_mask)
 		case COSH:		case SINH:		case TANH:		case CEIL:
 		case FLOOR:		case NINT:		case REL_NOT:	case BIT_NOT:
 		case A_FETCH:	case TO_DOUBLE:	case BYTE:		case CRC16:
+		case MODBUS:	case LRC:		case AMODBUS:	case XOR8:
+		case ADD_XOR8:
 			checkStackElement(ps);
 			ps->d = 0;
 			ps->s = NULL;
@@ -701,6 +708,11 @@ long epicsShareAPI sCalcPostfix(char *pinfix, char *ppostfix, short *perror)
 			case TR_ESC:
 			case ESC:
 			case CRC16:
+			case MODBUS:
+			case LRC:
+			case AMODBUS:
+			case XOR8:
+			case ADD_XOR8:
 				*ppostfixStart = USES_STRING;
 				break;
 			default:
