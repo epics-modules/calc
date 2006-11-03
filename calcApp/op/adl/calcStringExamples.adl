@@ -1182,7 +1182,7 @@ text {
 	"basic attribute" {
 		clr=14
 	}
-	textix="READ(AA,'%ld')"
+	textix="READ(AA,'%ld')   or $R(...)"
 }
 text {
 	object {
@@ -1195,4 +1195,28 @@ text {
 		clr=47
 	}
 	textix="LIKE SSCANF, BUT READ BINARY DATA"
+}
+text {
+	object {
+		x=245
+		y=540
+		width=230
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="WRITE('%ld',A)  or $W(...)"
+}
+text {
+	object {
+		x=255
+		y=555
+		width=220
+		height=10
+	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="LIKE PRINTF, BUT WRITE BINARY DATA"
 }

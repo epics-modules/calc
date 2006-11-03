@@ -1,4 +1,4 @@
-/* $Id: sCalcPostfix.c,v 1.13 2006-11-03 20:13:52 mooney Exp $
+/* $Id: sCalcPostfix.c,v 1.14 2006-11-03 22:18:51 mooney Exp $
  * Subroutines used to convert an infix expression to a postfix expression
  *
  *      Author:          Bob Dalesio
@@ -220,9 +220,12 @@ element    i_s_p i_c_p type_element     internal_rep */
 {"STR",    10,    11,    UNARY_OPERATOR,  TO_STRING},   /* convert to string */
 {"$P",     10,    11,    UNARY_OPERATOR,  PRINTF},      /* formatted print to string */
 {"PRINTF", 10,    11,    UNARY_OPERATOR,  PRINTF},      /* formatted print to string */
+{"$W",     10,    11,    UNARY_OPERATOR,  BIN_WRITE},   /* binary write to string */
+{"WRITE",  10,    11,    UNARY_OPERATOR,  BIN_WRITE},   /* binary write to string */
 {"BYTE",   10,    11,    UNARY_OPERATOR,  BYTE},        /* string[0] to byte */
 {"$S",     10,    11,    UNARY_OPERATOR,  SSCANF},      /* scan string argument */
 {"SSCANF", 10,    11,    UNARY_OPERATOR,  SSCANF},      /* scan string argument */
+{"$R",     10,    11,    UNARY_OPERATOR,  BIN_READ},    /* binary read from raw string */
 {"READ",   10,    11,    UNARY_OPERATOR,  BIN_READ},    /* binary read from raw string */
 {"$T",     10,    11,    UNARY_OPERATOR,  TR_ESC},      /* translate escape */
 {"TR_ESC", 10,    11,    UNARY_OPERATOR,  TR_ESC},      /* translate escape */
@@ -449,6 +452,7 @@ long sCalcCheck(char *post, int forks_checked, int dir_mask)
 			break;
 
  		case PRINTF:
+ 		case BIN_WRITE:
  		case SSCANF:
  		case BIN_READ:
 			checkStackElement(ps);
@@ -701,6 +705,7 @@ long epicsShareAPI sCalcPostfix(char *pinfix, char *ppostfix, short *perror)
 			switch (pelement->code) {
 			case TO_STRING:
 			case PRINTF:
+			case BIN_WRITE:
 			case SSCANF:
 	 		case BIN_READ:
 			case SLITERAL:

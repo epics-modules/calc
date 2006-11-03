@@ -1603,6 +1603,75 @@ long epicsShareAPI
 				strNcpy(ps->s, tmpstr, LOCAL_STRING_SIZE-1);
 				break;
 
+	 		case BIN_WRITE:
+				checkStackElement(ps, *post);
+				ps1 = ps;
+				DEC(ps);
+				checkStackElement(ps, *post);
+				if (isDouble(ps))
+					return(-1);
+				s = ps->s;
+				while ((s1 = strstr(s, "%%"))) {s = s1+2;}
+				if (((s = strpbrk(s, "%")) == NULL) ||
+					((s = strpbrk(s+1, "*cdeEfgGiousxX")) == NULL)) {
+					/* no printf arguments needed */
+		 			return(-1);
+				} else {
+					switch (*s) {
+					default: case '*':
+						return(-1);
+					case 'c':
+						toDouble(ps1);
+						c = myNINT(ps1->d);
+						memcpy(ps->s, &c, 1);
+						j = 1;
+						break;
+					case 'd': case 'i':
+						toDouble(ps1);
+						if (s[-1] == 'h') {
+							h = myNINT(ps1->d);
+							memcpy(ps->s, &h, 2);
+							j = 2;
+						} else {
+							l = myNINT(ps1->d);
+							memcpy(ps->s, &l, 4);
+							j = 4;
+						}
+						break;
+					case 'o': case 'u': case 'x': case 'X':
+						toDouble(ps1);
+						if (s[-1] == 'h') {
+							ui = myNINT(ps1->d);
+							memcpy(ps->s, &ui, 2);
+							j = 2;
+						} else {
+							ul = myNINT(ps1->d);
+							memcpy(ps->s, &ul, 4);
+							j = 4;
+						}
+						break;
+					case 'e': case 'E': case 'f': case 'g': case 'G':
+						toDouble(ps1);
+						if (s[-1] == 'l') {
+							memcpy(ps->s, &(ps1->d), 8);
+							j = 8;
+						} else {
+							f = ps1->d;
+							memcpy(ps->s, &f, 4);
+							j = 4;
+						}
+						break;
+					case 's':
+						return(-1);
+						break;
+					}
+				}
+		 		i = epicsStrSnPrintEscaped(tmpstr, LOCAL_STRING_SIZE-1, ps->s, j);
+				i = MIN(i, LOCAL_STRING_SIZE);
+				tmpstr[i] = '\0'; /* make sure it's terminated */
+				strNcpy(ps->s, tmpstr, LOCAL_STRING_SIZE-1);
+				break;
+
 	 		case SSCANF:
 				checkStackElement(ps, *post);
 				ps1 = ps;
