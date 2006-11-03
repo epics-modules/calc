@@ -1,14 +1,14 @@
 
 file {
-	name="/home/oxygen4/MOONEY/epics/synApps_T202_E3_14_7_R5_1/support/calc/calcApp/op/adl/calcStringExamples.adl"
+	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/calcStringExamples.adl"
 	version=030101
 }
 display {
 	object {
-		x=598
-		y=25
+		x=92
+		y=35
 		width=480
-		height=600
+		height=630
 	}
 	clr=14
 	bclr=1
@@ -158,18 +158,6 @@ text {
 		clr=14
 	}
 	textix="$P('abc%f',A)"
-}
-text {
-	object {
-		x=5
-		y=270
-		width=230
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="SSCANF(AA,'%lf')"
 }
 text {
 	object {
@@ -354,18 +342,6 @@ text {
 text {
 	object {
 		x=15
-		y=285
-		width=220
-		height=10
-	}
-	"basic attribute" {
-		clr=47
-	}
-	textix="ONLY ONE ARGUMENT. RESULT TYPE"
-}
-text {
-	object {
-		x=15
 		y=295
 		width=220
 		height=10
@@ -482,42 +458,6 @@ text {
 		clr=47
 	}
 	textix="*.VAL -> *.EGU"
-}
-text {
-	object {
-		x=0
-		y=545
-		width=460
-		height=14
-	}
-	"basic attribute" {
-		clr=47
-	}
-	textix="NOTE: You can use either single or double quotes for string"
-}
-text {
-	object {
-		x=0
-		y=560
-		width=460
-		height=14
-	}
-	"basic attribute" {
-		clr=47
-	}
-	textix="literals.  Using one allows you to include the other in the"
-}
-text {
-	object {
-		x=0
-		y=575
-		width=460
-		height=14
-	}
-	"basic attribute" {
-		clr=47
-	}
-	textix="string."
 }
 "related display" {
 	object {
@@ -1031,100 +971,89 @@ composite {
 		}
 	}
 }
-composite {
+text {
+	object {
+		x=245
+		y=450
+		width=230
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="INT(AA)"
+}
+text {
+	object {
+		x=245
+		y=480
+		width=230
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="STR(A)"
+}
+text {
+	object {
+		x=255
+		y=425
+		width=220
+		height=10
+	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="FIND FIRST NUMBER IN STRING,"
+}
+text {
+	object {
+		x=255
+		y=435
+		width=220
+		height=10
+	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="CONVERT TO DOUBLE"
+}
+text {
+	object {
+		x=255
+		y=465
+		width=220
+		height=10
+	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="FIND FIRST NUMBER; CVT TO INT"
+}
+text {
+	object {
+		x=255
+		y=495
+		width=220
+		height=10
+	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="CONVERT TO STRING"
+}
+text {
 	object {
 		x=245
 		y=410
 		width=230
-		height=95
+		height=14
 	}
-	"composite name"=""
-	children {
-		text {
-			object {
-				x=245
-				y=450
-				width=230
-				height=14
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="INT(AA)"
-		}
-		text {
-			object {
-				x=245
-				y=480
-				width=230
-				height=14
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="STR(A)"
-		}
-		text {
-			object {
-				x=255
-				y=425
-				width=220
-				height=10
-			}
-			"basic attribute" {
-				clr=47
-			}
-			textix="FIND FIRST NUMBER IN STRING,"
-		}
-		text {
-			object {
-				x=255
-				y=435
-				width=220
-				height=10
-			}
-			"basic attribute" {
-				clr=47
-			}
-			textix="CONVERT TO DOUBLE"
-		}
-		text {
-			object {
-				x=255
-				y=465
-				width=220
-				height=10
-			}
-			"basic attribute" {
-				clr=47
-			}
-			textix="FIND FIRST NUMBER; CVT TO INT"
-		}
-		text {
-			object {
-				x=255
-				y=495
-				width=220
-				height=10
-			}
-			"basic attribute" {
-				clr=47
-			}
-			textix="CONVERT TO STRING"
-		}
-		text {
-			object {
-				x=245
-				y=410
-				width=230
-				height=14
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="DBL(AA)"
-		}
+	"basic attribute" {
+		clr=14
 	}
+	textix="DBL(AA)"
 }
 composite {
 	object {
@@ -1160,4 +1089,110 @@ composite {
 			textix="xxx:* -> yyy:*"
 		}
 	}
+}
+composite {
+	object {
+		x=0
+		y=575
+		width=460
+		height=44
+	}
+	"composite name"=""
+	children {
+		text {
+			object {
+				x=0
+				y=575
+				width=460
+				height=14
+			}
+			"basic attribute" {
+				clr=47
+			}
+			textix="NOTE: You can use either single or double quotes for string"
+		}
+		text {
+			object {
+				x=0
+				y=590
+				width=460
+				height=14
+			}
+			"basic attribute" {
+				clr=47
+			}
+			textix="literals.  Using one allows you to include the other in the"
+		}
+		text {
+			object {
+				x=0
+				y=605
+				width=460
+				height=14
+			}
+			"basic attribute" {
+				clr=47
+			}
+			textix="string."
+		}
+	}
+}
+composite {
+	object {
+		x=5
+		y=270
+		width=230
+		height=25
+	}
+	"composite name"=""
+	children {
+		text {
+			object {
+				x=5
+				y=270
+				width=230
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SSCANF(AA,'%lf')"
+		}
+		text {
+			object {
+				x=15
+				y=285
+				width=220
+				height=10
+			}
+			"basic attribute" {
+				clr=47
+			}
+			textix="ONLY ONE ARGUMENT. RESULT TYPE"
+		}
+	}
+}
+text {
+	object {
+		x=5
+		y=540
+		width=230
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="READ(AA,'%ld')"
+}
+text {
+	object {
+		x=15
+		y=555
+		width=220
+		height=10
+	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="LIKE SSCANF, BUT READ BINARY DATA"
 }

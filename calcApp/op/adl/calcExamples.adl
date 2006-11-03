@@ -1,7 +1,7 @@
 
 file {
-	name="C:\cygwin\home\mooney\epics\synApps\support\all_adl\calcExamples.adl"
-	version=030004
+	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/calcExamples.adl"
+	version=030101
 }
 display {
 	object {
@@ -1432,7 +1432,7 @@ text {
 	"basic attribute" {
 		clr=53
 	}
-	textix="STR(aa)"
+	textix="READ(aa,'%ld')"
 }
 text {
 	object {
@@ -1756,6 +1756,7 @@ text {
 	"basic attribute" {
 		clr=53
 	}
+	textix="STR(aa)"
 }
 text {
 	object {
