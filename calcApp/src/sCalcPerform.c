@@ -88,12 +88,15 @@
 #include	"dbDefs.h"
 #include	"cvtFast.h"
 #include	"epicsString.h"
+#include	"epicsStdio.h"	/* for  epicsSnprintf() */
+
 #define epicsExportSharedSymbols
 #include	"sCalcPostfix.h"
 #include	"sCalcPostfixPvt.h"
 #include <epicsExport.h>
 
 static double	local_random();
+extern void getOpString(char code, char* opString);
 
 #define myNINT(a) ((int)((a) >= 0 ? (a)+0.5 : (a)-0.5))
 #ifndef PI
@@ -103,7 +106,7 @@ static double	local_random();
 #define MIN(a,b) (a)<(b)?(a):(b)
 
 #define OVERRIDESTDCALC 0
-#define DEBUG 0
+#define DEBUG 1
 volatile int sCalcPerformDebug = 0;
 epicsExportAddress(int, sCalcPerformDebug);
 
@@ -327,6 +330,7 @@ int xor8(char *output, char *rawInput)
 	return(0);
 }
 
+
 #if OVERRIDESTDCALC
 /* Override standard EPICS expression evaluator (if we're loaded after it) */
 long epicsShareAPI 
@@ -343,7 +347,7 @@ long epicsShareAPI
 	struct stackElement stack[STACKSIZE], *top;
 	struct stackElement *ps, *ps1, *ps2;
 	char				*s2, tmpstr[TMPSTR_SIZE], currSymbol;
-	char				*s, *s1;
+	char				*s, *s1, c;
 	int					i, j, k;
 	long				l;
 	unsigned short		ui;
@@ -362,38 +366,40 @@ long epicsShareAPI
 		for (more=1; more;) {
 			if (*s >= FETCH_A && *s <= FETCH_L) {
 				printf("%c ", 'a' + (*s-FETCH_A));
+				s++;
 			} else {
-				printf("%2d ", *s);
-			}
-			switch (*s) {
-			case END_STACK:
-				more = 0;
-				break;
-			case LITERAL:
-				printf("(0x");
-				for (i=0, s++; i<8; i++, s++)
-					printf("%2x ", (unsigned int)(unsigned char)*s);
-				printf(") ");
-				break;
-			case SLITERAL:
-				s++; /* point past code */
-				printf("'");
-				while (*s) printf("%c", *s++);
-				printf("' ");
-				s++;
-				break;
-			case FETCH:
-				s++; /* point past code */
-				printf("@%d ", *s++);
-				break;
-			case SFETCH:
-				s++; /* point past code */
-				printf("$%d ", *s++);
-				break;
-			default:
-				if (*s == BAD_EXPRESSION) more=0;
-				s++;
-				break;
+				switch (*s) {
+				case END_STACK:
+					more = 0;
+					break;
+				case LITERAL:
+					printf("(0x");
+					for (i=0, s++; i<8; i++, s++)
+						printf("%2x ", (unsigned int)(unsigned char)*s);
+					printf(") ");
+					break;
+				case SLITERAL:
+					s++; /* point past code */
+					printf("'");
+					while (*s) printf("%c", *s++);
+					printf("' ");
+					s++;
+					break;
+				case FETCH:
+					s++; /* point past code */
+					printf("@%d ", *s++);
+					break;
+				case SFETCH:
+					s++; /* point past code */
+					printf("$%d ", *s++);
+					break;
+				default:
+					getOpString(*s, tmpstr);
+					printf("%s ", tmpstr);
+					if (*s == BAD_EXPRESSION) more=0;
+					s++;
+					break;
+				}
 			}
 		}
 
@@ -1646,11 +1652,69 @@ long epicsShareAPI
 				}
 				break;
 
+	 		case BIN_READ:
+				checkStackElement(ps, *post);
+				ps1 = ps;
+				DEC(ps);
+				checkStackElement(ps, *post);
+				if (isDouble(ps) || isDouble(ps1))
+					return(-1);
+				s = findConversionIndicator(ps1->s);
+				if (s == NULL)
+					return(-1);
+		 		i = dbTranslateEscape(tmpstr, ps->s);
+				switch (*s) {
+				default: case 'p': case 'w': case 'n': case '$': case '[': case 's':
+					/* unsupported conversion indicator */
+					return(-1);
+				case 'd': case 'i':
+					if (s[-1] == 'h') {
+						memcpy(&h, tmpstr, 2);
+						ps->d = (double)h;
+					} else {
+						memcpy(&l, tmpstr, 4);
+						ps->d = (double)l;
+					}
+					ps->s = NULL;
+					break;
+				case 'o': case 'u': case 'x': case 'X':
+					if (s[-1] == 'h') {
+						memcpy(&ui, tmpstr, 2);
+						ps->d = (double)ui;
+					} else {
+						memcpy(&ul, tmpstr, 4);
+						ps->d = (double)ul;
+					}
+					ps->s = NULL;
+					break;
+				case 'e': case 'E': case 'f': case 'g': case 'G':
+					if (s[-1] == 'l') {
+						memcpy(&(ps->d), tmpstr, 8);
+					} else {
+						memcpy(&f, tmpstr, 4);
+						ps->d = (double)f;
+					}
+					ps->s = NULL;
+					break;
+				case 'c':
+					memcpy(&c, tmpstr, 1);
+					ps->d = (double)c;
+					ps->s = NULL;
+					break;
+				}
+				break;
+
 			case TR_ESC:
 				checkStackElement(ps, *post);
 				if (isString(ps)) {
-		 			dbTranslateEscape(tmpstr, ps->s);
+		 			i = dbTranslateEscape(tmpstr, ps->s);
+#if 0 /* No use doing this, since no function reads past end-of-string */
+					if (i > LOCAL_STRING_SIZE-1) i = LOCAL_STRING_SIZE-1;
+					memcpy(ps->s, tmpstr, i);
+					ps->s[i] = '\0';
+#else
 					strNcpy(ps->s, tmpstr, LOCAL_STRING_SIZE-1);
+#endif
 				}
 				break;
 
