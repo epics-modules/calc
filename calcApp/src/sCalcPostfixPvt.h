@@ -150,6 +150,7 @@ struct stackElement {
 #define		AMODBUS		78
 #define		XOR8		79
 #define		ADD_XOR8	80
+#define		BIN_READ		81
 
 
 /* NOTE: FETCH_A .. FETCH_L must be contiguous and in alphabetical order */
