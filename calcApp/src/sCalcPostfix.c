@@ -1,4 +1,4 @@
-/* $Id: sCalcPostfix.c,v 1.12 2006-10-26 21:18:23 mooney Exp $
+/* $Id: sCalcPostfix.c,v 1.13 2006-11-03 20:13:52 mooney Exp $
  * Subroutines used to convert an infix expression to a postfix expression
  *
  *      Author:          Bob Dalesio
@@ -194,8 +194,8 @@ element    i_s_p i_c_p type_element     internal_rep */
 {"SQRT",   10,    11,    UNARY_OPERATOR,  SQU_RT},      /* square root */
 {"SQR",    10,    11,    UNARY_OPERATOR,  SQU_RT},      /* square root */
 {"EXP",    10,    11,    UNARY_OPERATOR,  EXP},         /* exponential function */
-{"LOGE",   10,    11,    UNARY_OPERATOR,  LOG_E},       /* log E */
 {"LN",     10,    11,    UNARY_OPERATOR,  LOG_E},       /* log E */
+{"LOGE",   10,    11,    UNARY_OPERATOR,  LOG_E},       /* log E */
 {"LOG",    10,    11,    UNARY_OPERATOR,  LOG_10},      /* log 10 */
 {"ACOS",   10,    11,    UNARY_OPERATOR,  ACOS},        /* arc cosine */
 {"ASIN",   10,    11,    UNARY_OPERATOR,  ASIN},        /* arc sine */
@@ -223,6 +223,7 @@ element    i_s_p i_c_p type_element     internal_rep */
 {"BYTE",   10,    11,    UNARY_OPERATOR,  BYTE},        /* string[0] to byte */
 {"$S",     10,    11,    UNARY_OPERATOR,  SSCANF},      /* scan string argument */
 {"SSCANF", 10,    11,    UNARY_OPERATOR,  SSCANF},      /* scan string argument */
+{"READ",   10,    11,    UNARY_OPERATOR,  BIN_READ},    /* binary read from raw string */
 {"$T",     10,    11,    UNARY_OPERATOR,  TR_ESC},      /* translate escape */
 {"TR_ESC", 10,    11,    UNARY_OPERATOR,  TR_ESC},      /* translate escape */
 {"$E",     10,    11,    UNARY_OPERATOR,  ESC},         /* translate escape */
@@ -449,6 +450,7 @@ long sCalcCheck(char *post, int forks_checked, int dir_mask)
 
  		case PRINTF:
  		case SSCANF:
+ 		case BIN_READ:
 			checkStackElement(ps);
 			ps--;
 			checkStackElement(ps);
@@ -572,8 +574,8 @@ long sCalcCheck(char *post, int forks_checked, int dir_mask)
 #if DEBUG
 	if (ps != top) {
 		if (sCalcPostfixDebug>=10) {
-			printf("sCalcCheck: stack error: top=%p, ps=%p, top-ps=%d, got_if=%d\n",
-				top, ps, top-ps, got_if);
+			printf("sCalcCheck: stack error: top=%p, ps=%p, top-ps=%ld, got_if=%d\n",
+				top, ps, (long)(top-ps), got_if);
 			printf("sCalcCheck: stack error: &stack[0]=%p, stack[0].d=%f\n", &stack[0], stack[0].d);
 		}
 	}
@@ -700,6 +702,7 @@ long epicsShareAPI sCalcPostfix(char *pinfix, char *ppostfix, short *perror)
 			case TO_STRING:
 			case PRINTF:
 			case SSCANF:
+	 		case BIN_READ:
 			case SLITERAL:
 			case SUBRANGE:
 			case REPLACE:
@@ -1071,4 +1074,31 @@ long epicsShareAPI sCalcPostfix(char *pinfix, char *ppostfix, short *perror)
 #endif
 
 	return(sCalcCheck(ppostfixStart, 0, 0));
+}
+
+void getOpString(char code, char* opString) {
+	struct expression_element *pelement;
+ 	for (pelement = &elements[0]; pelement->element[0] != NULL; pelement++){
+		if (code == NO_STRING) {
+ 			strcpy(opString, "");
+ 			return;
+		}
+		if (code == USES_STRING) {
+ 			strcpy(opString, "<uses_string>");
+ 			return;
+		}
+		if (code == BAD_EXPRESSION) {
+ 			strcpy(opString, "<bad_expression>");
+ 			return;
+		}
+ 		if (code == END_STACK) {
+ 			strcpy(opString, "<end>");
+ 			return;
+		}
+		if (code == pelement->code) {
+ 			strcpy(opString, pelement->element);
+ 			return;
+ 		}
+ 	}
+	strcpy(opString, "???");
 }
