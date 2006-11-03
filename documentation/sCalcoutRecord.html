@@ -52,6 +52,13 @@ These fields indicate whether or not the specified PV was found and a link
 to it established. See <A HREF="#MARKER-9-2">Section 6, <I>Operator Display
 Parameters</I></A> for an explanation of these fields.
 
+<P>From most types of PV's, the sCalcout record's string input links fetch data as
+strings, and depend on EPICS to convert a PV's native value to string.  But when an
+sCalcout record's string input link names a PV whose data type is an array of
+DBF_CHAR or DBF_UCHAR, the record fetches up to 39 array elements from the array in
+their native form, translates the result using epicsStrSnPrintEscaped(), and
+truncates the result to fit into a 40-character string.
+
 <P>&nbsp;See the EPICS Record Reference Manual for information on how to specify database links.
 <TABLE BORDER NOSAVE >
 <TR>
@@ -746,11 +753,27 @@ to evaluate expressions).  All but <code>RNDM</code> are constants.
 <P>
 <A NAME="HEADING14-69"></A>
 <H2>
-4.7. Parentheses and Comma</H2>
-The open and close parentheses are supported. Nested parenthesis are supported.
+4.7. Special Characters </H2>
+<P>Parentheses, and nested parentheses are permitted (sometimes required) in expressions.
 
-<BR>The comma is supported when used to separate the arguments of a binary
-function.
+<P>The comma is required to separate the arguments of a binary function.
+
+<P>Quotes of two kinds (" and ') are permitted to indicate the beginning and end of a string expression. 
+The expression parser treats these quote characters in exactly the same way, so you can use pairs of
+either.  Using one kind of quote allows you to include the other kind in a string.  Note that string calc
+expressions defined in an EPICS database must use the ' character to delimit embedded strings, because
+database tools will use " to delimit the entire expression.  
+
+<P>Escape sequences understood by the Epics routines dbTranslateEscape() and
+epicsStrSnEscaped() are permitted in strings handled by the sCalcout record,
+and the sCalc engine supplies functions that encode and decode escaped
+strings.  Here's the current escape list:<br>
+<code> \a \b \f \n \r \t \v \\ \? \' \" \000 \xhh</code><br>
+
+<P>Note that '\000' represents an octal number, and may include one, two, or
+three octal digits.  \xhh is a two-digit hexadecimal number.
+
+<P>See the Application Developer's Guide for more on this topic.
 
 <P><A NAME="HEADING14-72"></A>
 <H2>
@@ -881,6 +904,35 @@ to format string (two-argument function) (NOTE: '$S' is a synonym for SSCANF)
 <BR>Allowed format indicators: <B>%*[cdeEfgGhilosuxX</B>
 <BR>Disallowed indicators: <B>$npw</B>
 <td><code>SSCANF('V=1.25', "%*2c%lf") -> 1.25</code>
+
+<tr>
+<td align=center valign=top><font color="blue">READ</font>
+<td>Read binary data.  This function is similar in form to SSCANF, and is roughly
+analogous in function, but it operates on binary data.  The first argument is
+the string from which data is to be copied.  If this string contains any unprintable
+characters, they will have been converted to escape sequences by the software that
+transported them to this point.  READ() converts this string to a raw binary array,
+using the EPICS function dbTranslateEscape(), copies bytes from that array
+into a temporary numeric variable, whose type depends on the format string,
+converts the result to double, and returns this value.
+
+<P>The format string is similar to that of the SSCANF function, but only the
+following subset of format indicators is supported:
+<table border>
+<tr><th>format<th>resulting behavior
+<tr><td>%i %d<td>copy four bytes to a long signed integer
+<tr><td>%hi %hd<td>copy two bytes to a short signed integer
+<tr><td>%o %u %x %X<td>copy four bytes to a long unsigned integer
+<tr><td>%ho %hu %hx %hX<td>copy two bytes to a short unsigned integer
+<tr><td>%e %E %f %g %G<td>copy four bytes to a float
+<tr><td>%le %lE %lf %lg %lG<td>copy eight bytes to a double
+<tr><td>%c<td>copy one bytes to a signed character
+</table>
+
+<BR>Allowed format indicators: <B>%*cdeEfgGhilouxX</B>
+<BR>Disallowed indicators: <B>$npw[s</B>
+<BR>Ignored indicators: <B>*</B>
+<td><code>READ('\x01\x02', "%hu") -> 258</code>
 
 <tr>
 <td align=center valign=top><font color="blue">TR_ESC</font>
@@ -2241,7 +2293,7 @@ the OUT link, and post the event in OEVT (if non-zero).</DD>
 
 <DT><A HREF="#HEADING14-60"><B>4.6. </B>- Bitwise Operators</A></DT>
 
-<DT><A HREF="#HEADING14-69"><B>4.7. </B>- Parentheses and Comma</A></DT>
+<DT><A HREF="#HEADING14-69"><B>4.7. </B>- Special Characters</A></DT>
 
 <DT><A HREF="#HEADING14-72"><B>4.8. </B>- Conditional Expression</A></DT>
 
