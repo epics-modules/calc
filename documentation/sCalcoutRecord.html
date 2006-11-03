@@ -915,6 +915,7 @@ transported them to this point.  READ() converts this string to a raw binary arr
 using the EPICS function dbTranslateEscape(), copies bytes from that array
 into a temporary numeric variable, whose type depends on the format string,
 converts the result to double, and returns this value.
+<br>(NOTE: '$R' is a synonym for READ)
 
 <P>The format string is similar to that of the SSCANF function, but only the
 following subset of format indicators is supported:
@@ -926,13 +927,41 @@ following subset of format indicators is supported:
 <tr><td>%ho %hu %hx %hX<td>copy two bytes to a short unsigned integer
 <tr><td>%e %E %f %g %G<td>copy four bytes to a float
 <tr><td>%le %lE %lf %lg %lG<td>copy eight bytes to a double
-<tr><td>%c<td>copy one bytes to a signed character
+<tr><td>%c<td>copy one byte to a signed character
 </table>
 
 <BR>Allowed format indicators: <B>%*cdeEfgGhilouxX</B>
 <BR>Disallowed indicators: <B>$npw[s</B>
 <BR>Ignored indicators: <B>*</B>
 <td><code>READ('\x01\x02', "%hu") -> 258</code>
+
+<tr>
+<td align=center valign=top><font color="blue">WRITE</font>
+<td>Write binary data.  This function is similar in form to PRINTF, and is roughly
+analogous in function, but it operates on binary data.  The first argument is the
+format string; the second is the data to be written.  After the data have been
+written to a buffer, the buffer is processed by epicsStrSnEscaped() and returned.
+<br>(NOTE: '$W' is a synonym for WRITE)
+
+<P>The format string is similar to that of the PRINTF function, but only the
+following subset of format indicators is supported:
+<table border>
+<tr><th>format<th>resulting behavior
+<tr><td>%i %d<td>convert to a long signed integer and write four bytes
+<tr><td>%hi %hd<td>convert to to a short signed integer and copy two bytes
+<tr><td>%o %u %x %X<td>convert to a long unsigned integer and copy four bytes
+<tr><td>%ho %hu %hx %hX<td>convert to a short unsigned integer and copy two bytes 
+<tr><td>%e %E %f %g %G<td>convert to a float and copy four bytes 
+<tr><td>%le %lE %lf %lg %lG<td>convert to a double and copy eight bytes 
+<tr><td>%c<td>convert to a signed character and copy one byte
+</table>
+
+<BR>Allowed format indicators: <B>%cdeEfgGhilouxX</B>
+<BR>Disallowed indicators: <B>$npw[s</B>
+<td><code>WRITE('%hd', 1250) -> '\004\342'</code>
+
+
+
 
 <tr>
 <td align=center valign=top><font color="blue">TR_ESC</font>
