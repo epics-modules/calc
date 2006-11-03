@@ -69,6 +69,7 @@
 #include	<special.h>
 #include	<callback.h>
 #include	<taskwd.h>
+#include	<epicsString.h>	/* for epicsStrSnPrintEscaped() */
 #include	"sCalcPostfix.h"
 
 #define GEN_SIZE_OFFSET
@@ -776,9 +777,12 @@ static int fetch_values(scalcoutRecord *pcalc)
 {
 	DBLINK	*plink;	/* structure of the link field  */
 	double	*pvalue;
-	char	**psvalue;
-	long	status = 0;
-	int		i;
+	char	**psvalue, tmpstr[STRING_SIZE];
+	long	status=0, nelm=1;
+	int		i, j;
+	short	field_type = 0;
+	dbAddr	Addr;
+	dbAddr	*pAddr = &Addr;
 #if 0
 	TS_STAMP	timeStamp;
 #endif
@@ -791,7 +795,36 @@ static int fetch_values(scalcoutRecord *pcalc)
 
 	for (i=0, plink=&pcalc->inaa, psvalue=pcalc->strs; i<STRING_ARG_MAX; 
 			i++, plink++, psvalue++) {
-		status = dbGetLink(plink, DBR_STRING, *psvalue, 0, 0);
+		switch (plink->type) {
+		case CA_LINK:
+			field_type = dbCaGetLinkDBFtype(plink);
+			dbCaGetNelements(plink, &nelm);
+			break;
+		case DB_LINK:
+			if (!dbNameToAddr(plink->value.pv_link.pvname, pAddr)) {
+				field_type = pAddr->field_type;
+				nelm = pAddr->no_elements;
+			} else {
+				field_type = DBR_STRING;
+				nelm = 1;
+			}
+			break;
+		default:
+			break;
+		}
+		if (nelm > STRING_SIZE-1) nelm = STRING_SIZE-1;
+		if (((field_type==DBR_CHAR) || (field_type==DBR_UCHAR)) && nelm>1) {
+			for (j=0; j<STRING_SIZE; j++) (*psvalue)[j]='\0';
+			status = dbGetLink(plink, field_type, tmpstr, 0, &nelm);
+			if (nelm>0) {
+				epicsStrSnPrintEscaped(*psvalue, STRING_SIZE-1, tmpstr, nelm);
+				(*psvalue)[STRING_SIZE-1] = '\0';
+			} else {
+				(*psvalue)[0] = '\0';
+			}
+		} else {
+			status = dbGetLink(plink, DBR_STRING, *psvalue, 0, 0);
+		}
 #if 0
 		if (!RTN_SUCCESS(status)) {
 			/* might be a time value */
