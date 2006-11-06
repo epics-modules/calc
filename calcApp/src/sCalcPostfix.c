@@ -1,4 +1,4 @@
-/* $Id: sCalcPostfix.c,v 1.14 2006-11-03 22:18:51 mooney Exp $
+/* $Id: sCalcPostfix.c,v 1.15 2006-11-06 16:02:11 mooney Exp $
  * Subroutines used to convert an infix expression to a postfix expression
  *
  *      Author:          Bob Dalesio
@@ -186,10 +186,10 @@ struct	expression_element{
 static struct expression_element elements[] = {
 /*
 element    i_s_p i_c_p type_element     internal_rep */
-{"ABS",    10,    11,    UNARY_OPERATOR,  ABS_VAL},   /* absolute value */
+{"ABS",    10,    11,    UNARY_OPERATOR,  ABS_VAL},     /* absolute value */
 {"NOT",    10,    11,    UNARY_OPERATOR,  UNARY_NEG},   /* unary negate */
-{"-|",     5,    5,    BINARY_OPERATOR, SUB},         /* subtract first occurrence */
-{"|-",     5,    5,    BINARY_OPERATOR, SUBLAST},     /* subtract last occurrence */
+{"-|",      5,     5,    BINARY_OPERATOR, SUB},         /* subtract first occurrence */
+{"|-",      5,     5,    BINARY_OPERATOR, SUBLAST},     /* subtract last occurrence */
 {"-",      10,    11,    MINUS_OPERATOR,  UNARY_NEG},   /* unary negate (or binary op) */
 {"SQRT",   10,    11,    UNARY_OPERATOR,  SQU_RT},      /* square root */
 {"SQR",    10,    11,    UNARY_OPERATOR,  SQU_RT},      /* square root */
@@ -213,7 +213,7 @@ element    i_s_p i_c_p type_element     internal_rep */
 {"SIN",    10,    11,    UNARY_OPERATOR,  SIN},         /* sine */
 {"TANH",   10,    11,    UNARY_OPERATOR,  TANH},        /* hyperbolic tangent*/
 {"TAN",    10,    11,    UNARY_OPERATOR,  TAN},         /* tangent */
-{"!=",     4,    4,    BINARY_OPERATOR, NOT_EQ},      /* not equal */
+{"!=",     4,      4,    BINARY_OPERATOR, NOT_EQ},      /* not equal */
 {"!",      10,    11,    UNARY_OPERATOR,  REL_NOT},     /* not */
 {"~",      10,    11,    UNARY_OPERATOR,  BIT_NOT},     /* bitwise not */
 {"DBL",    10,    11,    UNARY_OPERATOR,  TO_DOUBLE},   /* convert to double */
@@ -451,10 +451,10 @@ long sCalcCheck(char *post, int forks_checked, int dir_mask)
 			ps->s[0] = '\0';
 			break;
 
- 		case PRINTF:
- 		case BIN_WRITE:
- 		case SSCANF:
- 		case BIN_READ:
+		case PRINTF:
+		case BIN_WRITE:
+		case SSCANF:
+		case BIN_READ:
 			checkStackElement(ps);
 			ps--;
 			checkStackElement(ps);
@@ -463,8 +463,8 @@ long sCalcCheck(char *post, int forks_checked, int dir_mask)
 			ps->d = 0;
 			break;
 
- 		case TR_ESC:
- 		case ESC:
+		case TR_ESC:
+		case ESC:
 			checkStackElement(ps);
 			ps->s = &(ps->local_string[0]);
 			ps->s[0] = '\0';
@@ -598,22 +598,20 @@ long sCalcCheck(char *post, int forks_checked, int dir_mask)
  *
  * find the pointer to an entry in the element table
  */
-static int find_element(pbuffer, pelement, pno_bytes, parg)
- register char	*pbuffer;
- register struct expression_element	**pelement;
- register short	*pno_bytes, *parg;
- {
+static int find_element(char *pbuffer, struct expression_element **pelement,
+	short *pno_bytes, short *parg;
+{
 	*parg = 0;
 
- 	/* compare the string to each element in the element table */
- 	*pelement = &elements[0];
- 	while ((*pelement)->element[0] != NULL){
- 		if (epicsStrnCaseCmp(pbuffer,(*pelement)->element, strlen((*pelement)->element)) == 0){
- 			*pno_bytes += strlen((*pelement)->element);
- 			return(TRUE);
- 		}
- 		*pelement += 1;
- 	}
+	/* compare the string to each element in the element table */
+	*pelement = &elements[0];
+	while ((*pelement)->element[0] != NULL){
+		if (epicsStrnCaseCmp(pbuffer,(*pelement)->element, strlen((*pelement)->element)) == 0){
+			*pno_bytes += strlen((*pelement)->element);
+			return(TRUE);
+		}
+		*pelement += 1;
+	}
 
 	/* look for a variable reference */
 	/* double variables: ["a" - "z"], numbered 1-26 */
@@ -626,7 +624,7 @@ static int find_element(pbuffer, pelement, pno_bytes, parg)
 			*pelement = &fetch_string_element;
 			*pno_bytes += 1;
 		}
- 		return(TRUE);
+		return(TRUE);
 	}
 #if DEBUG
 	if (sCalcPostfixDebug) printf("find_element: can't find '%s'\n", pbuffer);
@@ -639,10 +637,8 @@ static int find_element(pbuffer, pelement, pno_bytes, parg)
  *
  * get an expression element
  */
-static int get_element(pinfix, pelement, pno_bytes, parg)
-register char	*pinfix;
-register struct expression_element	**pelement;
-register short	*pno_bytes, *parg;
+static int get_element(char	*pinfix, struct expression_element **pelement,
+	short *pno_bytes, short *parg;
 {
 
 	/* get the next expression element from the infix expression */
@@ -730,7 +726,7 @@ long epicsShareAPI sCalcPostfix(char *pinfix, char *ppostfix, short *perror)
 
 		switch (pelement->type){
 
-	    case OPERAND:
+		case OPERAND:
 			if (!operand_needed){
 				*perror = 5;
 				*ppostfixStart = BAD_EXPRESSION; return(-1);
@@ -1081,29 +1077,30 @@ long epicsShareAPI sCalcPostfix(char *pinfix, char *ppostfix, short *perror)
 	return(sCalcCheck(ppostfixStart, 0, 0));
 }
 
-void getOpString(char code, char* opString) {
+void getOpString(char code, char* opString)
+{
 	struct expression_element *pelement;
- 	for (pelement = &elements[0]; pelement->element[0] != NULL; pelement++){
+	for (pelement = &elements[0]; pelement->element[0] != NULL; pelement++){
 		if (code == NO_STRING) {
- 			strcpy(opString, "");
- 			return;
+			strcpy(opString, "");
+			return;
 		}
 		if (code == USES_STRING) {
- 			strcpy(opString, "<uses_string>");
- 			return;
+			strcpy(opString, "<uses_string>");
+			return;
 		}
 		if (code == BAD_EXPRESSION) {
- 			strcpy(opString, "<bad_expression>");
- 			return;
+			strcpy(opString, "<bad_expression>");
+			return;
 		}
- 		if (code == END_STACK) {
- 			strcpy(opString, "<end>");
- 			return;
+		if (code == END_STACK) {
+			strcpy(opString, "<end>");
+			return;
 		}
 		if (code == pelement->code) {
- 			strcpy(opString, pelement->element);
- 			return;
- 		}
- 	}
+			strcpy(opString, pelement->element);
+			return;
+		}
+	}
 	strcpy(opString, "???");
 }
