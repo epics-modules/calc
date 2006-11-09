@@ -84,6 +84,7 @@
 #include	<stdio.h>
 #include	<string.h>
 #include	<math.h>
+#include	<ctype.h>	/* for isdigit() */
 
 #include	"dbDefs.h"
 #include	"cvtFast.h"
@@ -155,6 +156,13 @@ int sCalcStackLW = 0;	/* low-water mark */
 		(void)cvtDoubleToString((ps)->d, (ps)->s, 8);	\
 }
 
+/*
+ * Find first conversion indicator in format string that is not assign suppressed,
+ * and return a pointer to it.
+ * Examples:
+ *    "%f"     the conversion indicator is 'f'
+ *    "%*2f%c" the conversion indicator is 'c'
+ */
 static char *findConversionIndicator(char *s)
 {
 	char *cc=NULL, *s1, *retval;
@@ -1728,45 +1736,101 @@ long epicsShareAPI
 				checkStackElement(ps, *post);
 				if (isDouble(ps) || isDouble(ps1))
 					return(-1);
+				/* find first conversion indicator that is not assign suppressed */
 				s = findConversionIndicator(ps1->s);
 				if (s == NULL)
 					return(-1);
 		 		i = dbTranslateEscape(tmpstr, ps->s);
+				s1 = tmpstr;
+
+				/*
+				 * See if we have to skip over any bytes before copying data.
+				 * I.e., check for conversion-suppression character upstream of s
+				 */
+				s2 = strchr(ps1->s, (int)'*');
+				if (s2 && s2 < s) {
+					/* Determine how many bytes we have to skip over.  Note
+					 * we are permitting, e.g.,
+					 *     "%*2f" 	skip over 2 4-byte floats
+					 *     "%*2hd" 	skip over 2 2-byte shorts
+					 *     "%*2c"   skip over 2 bytes
+					 *     "%*2"    skip over 2 bytes (sscanf would not allow this)
+					 */
+					s2++;
+					i = 1;
+					if (isdigit((int)*s2)) {
+						i = atoi(s2);
+						while (isdigit((int)*s2)) s2++;
+					}
+					switch (*s2) {
+						case 'h':
+							i *= 2;
+							break;
+						case 'l':
+							if (strpbrk(s2, "diouxX")) {
+								i *= 4;
+							} else {
+								/* assume some kind of float */
+								i *= 8;
+							}
+							break;
+						case 'd': case 'i': case 'o': case 'u': case 'x': case 'X':
+							if (s2[-1] == 'h') {
+								i *= 2;
+							} else {
+								i *= 4;
+							}
+							break;
+							
+						case 'e': case 'E': case 'f': case 'g': case 'G':
+							if (s2[-1] == 'l') {
+								i *= 8;
+							} else {
+								i *= 4;
+							}
+							break;
+					}
+					/* skip past i bytes of the string to be read */
+					s1 += i;
+				}
+
+				/* Do the read */
 				switch (*s) {
 				default: case 'p': case 'w': case 'n': case '$': case '[': case 's':
 					/* unsupported conversion indicator */
 					return(-1);
+					break;
 				case 'd': case 'i':
 					if (s[-1] == 'h') {
-						memcpy(&h, tmpstr, 2);
+						memcpy(&h, s1, 2);
 						ps->d = (double)h;
 					} else {
-						memcpy(&l, tmpstr, 4);
+						memcpy(&l, s1, 4);
 						ps->d = (double)l;
 					}
 					ps->s = NULL;
 					break;
 				case 'o': case 'u': case 'x': case 'X':
 					if (s[-1] == 'h') {
-						memcpy(&ui, tmpstr, 2);
+						memcpy(&ui, s1, 2);
 						ps->d = (double)ui;
 					} else {
-						memcpy(&ul, tmpstr, 4);
+						memcpy(&ul, s1, 4);
 						ps->d = (double)ul;
 					}
 					ps->s = NULL;
 					break;
 				case 'e': case 'E': case 'f': case 'g': case 'G':
 					if (s[-1] == 'l') {
-						memcpy(&(ps->d), tmpstr, 8);
+						memcpy(&(ps->d), s1, 8);
 					} else {
-						memcpy(&f, tmpstr, 4);
+						memcpy(&f, s1, 4);
 						ps->d = (double)f;
 					}
 					ps->s = NULL;
 					break;
 				case 'c':
-					memcpy(&c, tmpstr, 1);
+					memcpy(&c, s1, 1);
 					ps->d = (double)c;
 					ps->s = NULL;
 					break;
