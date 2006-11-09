@@ -928,13 +928,19 @@ following subset of format indicators is supported:
 <tr><td>%e %E %f %g %G<td>copy four bytes to a float
 <tr><td>%le %lE %lf %lg %lG<td>copy eight bytes to a double
 <tr><td>%c<td>copy one byte to a signed character
+<tr><td>%*<td>suppress assignment to next conversion indicator.  Only one '%*'
+is honored. <br>
+<em>This is the only reliable way to skip past a specified number of bytes in a
+binary input string.  For a non-escaped string, something like '<code>aa[3,5]</code>'
+would have worked as well.  But if the string <code>aa</code> might include
+escape sequences, character offsets in the escaped string will depend on the
+values of the characters, because printable characters are not escaped.</em>
 </table>
 
 <BR>Allowed format indicators: <B>%*cdeEfgGhilouxX</B>
 <BR>Disallowed indicators: <B>$npw[s</B>
-<BR>Ignored indicators: <B>*</B>
-<td><code>READ('\x01\x02', "%hu") -> 258</code>
-
+<td><code>READ('\x01\x02', "%hu") -> 258</code><br><br>
+<code>READ('\x01\x02', "%*c%hu") -> 2</code><br>
 <tr>
 <td align=center valign=top><font color="blue">WRITE</font>
 <td>Write binary data.  This function is similar in form to PRINTF, and is roughly
