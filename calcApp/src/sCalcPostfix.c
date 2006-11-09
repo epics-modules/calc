@@ -1,4 +1,4 @@
-/* $Id: sCalcPostfix.c,v 1.15 2006-11-06 16:02:11 mooney Exp $
+/* $Id: sCalcPostfix.c,v 1.16 2006-11-09 21:13:22 mooney Exp $
  * Subroutines used to convert an infix expression to a postfix expression
  *
  *      Author:          Bob Dalesio
@@ -599,7 +599,7 @@ long sCalcCheck(char *post, int forks_checked, int dir_mask)
  * find the pointer to an entry in the element table
  */
 static int find_element(char *pbuffer, struct expression_element **pelement,
-	short *pno_bytes, short *parg;
+	short *pno_bytes, short *parg)
 {
 	*parg = 0;
 
@@ -638,7 +638,7 @@ static int find_element(char *pbuffer, struct expression_element **pelement,
  * get an expression element
  */
 static int get_element(char	*pinfix, struct expression_element **pelement,
-	short *pno_bytes, short *parg;
+	short *pno_bytes, short *parg)
 {
 
 	/* get the next expression element from the infix expression */
