@@ -421,6 +421,7 @@ recordtype(swait) {
 		asl(ASL0)
 		special(SPC_CALC)
 		size(36)
+		initial("0")
 	}
 	field(RPCL,DBF_NOACCESS) {
 		prompt("Reverse Polish Calc")
