@@ -20,6 +20,8 @@ or the arraySize argument specified by the first caller, whichever is
 larger.
 <br>aCalcoutRecord allocates an NELEM-size array for each variable AA-LL,
 when that variable is first read from or written to.
+<li>swaitRecord's .CALC field defaults to "0" instead of "", because ""
+will not be legal in EPICS 3.13.9.
 </ul>
 
 <h2 align="center">Release 2-6-2</h2>
