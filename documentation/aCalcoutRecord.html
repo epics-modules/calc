@@ -277,14 +277,14 @@ aa[0]+bb[0], aa[1]+bb[1],...</code>)
 
 <li>If one argument of a two-argument function or operator is an array, and the
 other argument is a scalar, the scalar argument is converted to an array by
-repeating the scalar value.  Thus, the value of the expression <code>A+BB</code> is the array
+repeating the scalar value.  Thus, the value of the expression <code>A*BB</code> is the array
 <code>a*bb[0], a*bb[1], a*bb[3],...</code>
 
 <li>Whenever an array must be converted implicitly to a scalar (e.g., for the
 operators <code>?:</code>, <code>^</code>, <code>**</code>, <code>>></code>, and
-<code><<</code>), the scalar value used is the value of the first array element. 
-In the following expressions, the array argument in color will be converted
-implicitly to scalar:
+<code><<</code>), the scalar value used is the value of the first array
+element.  In the following expressions, the array argument in <font
+color='red'>color</font> will be converted implicitly to scalar:
 
 <ul>
 <li><font color='red'>AA</font>?BB:CC
@@ -1085,7 +1085,7 @@ analyze.  We'll use three aCalcout records:
 
 <ul>
 <pre>
-aCalc1.CALC = "tanh((ix-c)/b)+a*arndm"
+aCalc1.CALC = "tanh((ix-a)/b)+c*arndm"
 aCalc1.A = &lt;edge position&gt;
 aCalc1.B = &lt;edge width control&gt;
 aCalc1.C = &lt;amount of noise added to data&gt;
