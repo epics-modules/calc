@@ -1,14 +1,14 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps_5_1/support/calc/cvs/calcApp/op/adl/userTransform.adl"
+	name="C:\cygwin\home\mooney\epics\synApps\support\all_adl\userTransform.adl"
 	version=030004
 }
 display {
 	object {
-		x=145
-		y=538
+		x=33
+		y=158
 		width=710
-		height=165
+		height=185
 	}
 	clr=14
 	bclr=3
@@ -469,8 +469,8 @@ text {
 }
 "related display" {
 	object {
-		x=320
-		y=30
+		x=660
+		y=165
 		width=50
 		height=20
 	}
@@ -901,4 +901,41 @@ composite {
 	clr=0
 	bclr=17
 	label="-OUTPUT PV NAME"
+}
+composite {
+	object {
+		x=268
+		y=168
+		width=197
+		height=16
+	}
+	"composite name"=""
+	children {
+		menu {
+			object {
+				x=345
+				y=168
+				width=120
+				height=16
+			}
+			control {
+				chan="$(P)$(T).COPT"
+				clr=14
+				bclr=51
+			}
+		}
+		text {
+			object {
+				x=268
+				y=171
+				width=75
+				height=10
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="CALC OPTION:"
+			align="horiz. centered"
+		}
+	}
 }

@@ -389,7 +389,9 @@ process(transformRecord *ptran)
 		Debug(15, "process: %s input link; \n", no_inlink ? "NO" : "");
 		Debug(15, "process: value is %s\n", new_value ? "NEW" : "OLD");
 		Debug(15, "process: expression is%s ok\n", postfix_ok ? " " : " NOT");
-		if (no_inlink && !new_value && postfix_ok) {
+		/* if (no_inlink && !new_value && postfix_ok) { */
+		if (((no_inlink && !new_value) || ptran->copt==transformCOPT_ALWAYS)
+				&& postfix_ok) {
 			Debug(15, "process: calculating for field %s\n", Fldnames[i]);
 			if (sCalcPerform(&ptran->a, 16, NULL,0, pval, NULL,0, prpcbuf)) {
 				recGblSetSevr(ptran, CALC_ALARM, INVALID_ALARM);

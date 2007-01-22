@@ -20,7 +20,7 @@
 <A NAME="Overview">
 <H2>Overview</H2></A>
 
-This documentation describes version 5.7 of the EPICS transform record,
+This documentation describes version 5.8 of the EPICS transform record,
 and related EPICS software recommended for building and using it.  This
 version of the record is compatible with EPICS Release 3.14, and it may
 be compatible with later releases, but it is not compatible with any
@@ -54,12 +54,24 @@ the record will quit processing at this point.  It will do some clean up,
 but it will not fire its forward link.</em></blockquote>
 
 <LI>Valid expressions are evaluated in order <tt>CLCA</tt> through
-<tt>CLCP</tt>, but expression <tt>CLC</tt>&lt;x&gt; is evaluated only
-if &lt;x&gt; has the same value it had after the last time the record
-was processed, and the field has not been marked "new" as the result of
-a write by some client.  In other words, new values are regarded as
-independent variables in the set of equations <tt>CLCA...CLCP</tt>, and
-unchanged values are regarded as dependent variables. 
+<tt>CLCP</tt>, but if COPT=="Conditional", then expression
+<tt>CLC<i>x</i></tt> is evaluated only if <tt><i>x</i></tt> is "old": if <tt><i>x</i></tt>
+has the same value it had after the last time the record was processed, and
+<tt><i>x</i></tt> was not written to since the last time the record was processed. 
+In other words, new values are regarded as independent variables in the set
+of equations <tt>CLCA...CLCP</tt>, and unchanged/unwritten values are
+regarded as dependent variables.
+
+<blockquote><em> Note that writes received while PACT==1
+are special: they will change the field they write to, but they will not be
+regarded as writes for the purpose of determining whether a value is "new". 
+This rule allows a transform record to write to itself (using database links)
+without messing up its notion of which values are new. 
+
+<P>Also note that the presence of an input link guarantees that a value will
+be regarded as "new" for the purpose of deciding whether to evaluate an
+expression.
+</em></blockquote>
 
 <LI>Valid output links are triggered in order OUTA through OUTP---regardless
 of whether the corresponding values have changed.  That is, if OUTA is a
@@ -184,6 +196,8 @@ Reference Manual for these) the transform record has the fields described below.
 <TR><TD>CMTP <TD>R/W		<TD>Comment				<TD>STRING(40)	<TD>
 <TR><TD>CMV	 <TD>R		<TD>Expression Invalid	<TD>LONG		<TD>Expression CLCM invalid if nonzero
 <TR><TD>CNV	 <TD>R		<TD>Expression Invalid	<TD>LONG		<TD>Expression CLCN invalid if nonzero
+<TR><TD>COPT <TD>R/W	<TD>Calc option			<TD>MENU: <DL
+compact><DT>0<DD>Conditional<DT>1<DD>Always</DL><TD>Calcs performed conditionally, or always?
 <TR><TD>COV	 <TD>R		<TD>Expression Invalid	<TD>LONG		<TD>Expression CLCO invalid if nonzero
 <TR><TD>CPV	 <TD>R		<TD>Expression Invalid	<TD>LONG		<TD>Expression CLCP invalid if nonzero
 <TR><TD>D    <TD>R/W(*)	<TD>Value D				<TD>DOUBLE		<TD>

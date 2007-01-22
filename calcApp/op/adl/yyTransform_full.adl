@@ -1,14 +1,14 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps_5_1/support/calc/cvs/calcApp/op/adl/yyTransform_full.adl"
+	name="C:\cygwin\home\mooney\epics\synApps\support\all_adl\yyTransform_full.adl"
 	version=030004
 }
 display {
 	object {
-		x=102
-		y=429
+		x=410
+		y=414
 		width=710
-		height=465
+		height=485
 	}
 	clr=14
 	bclr=3
@@ -2489,8 +2489,8 @@ rectangle {
 }
 "related display" {
 	object {
-		x=320
-		y=30
+		x=660
+		y=465
 		width=50
 		height=20
 	}
@@ -2547,4 +2547,41 @@ rectangle {
 	clr=0
 	bclr=17
 	label="-OUTPUT PV NAME"
+}
+composite {
+	object {
+		x=265
+		y=468
+		width=197
+		height=16
+	}
+	"composite name"=""
+	children {
+		menu {
+			object {
+				x=342
+				y=468
+				width=120
+				height=16
+			}
+			control {
+				chan="$(P)$(T).COPT"
+				clr=14
+				bclr=51
+			}
+		}
+		text {
+			object {
+				x=265
+				y=471
+				width=75
+				height=10
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="CALC OPTION:"
+			align="horiz. centered"
+		}
+	}
 }

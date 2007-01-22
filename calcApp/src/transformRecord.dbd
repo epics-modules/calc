@@ -8,6 +8,10 @@ menu(transformIVLA) {
         choice(transformIVLA_IGNORE,"Ignore error")
         choice(transformIVLA_DO_NOTHING,"Do Nothing")
 }
+menu(transformCOPT) {
+        choice(transformCOPT_CONDITIONAL,"Conditional")
+        choice(transformCOPT_ALWAYS,"Always")
+}
 recordtype(transform) {
 	include "dbCommon.dbd" 
 	field(VERS,DBF_FLOAT) {
@@ -27,6 +31,13 @@ recordtype(transform) {
 		promptgroup(GUI_COMMON)
 		interest(1)
 		menu(transformIVLA)
+		initial("0")
+	}
+	field(COPT,DBF_MENU) {
+		prompt("Calc option")
+		promptgroup(GUI_COMMON)
+		interest(1)
+		menu(transformCOPT)
 		initial("0")
 	}
 	field(VAL,DBF_DOUBLE) {
