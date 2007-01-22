@@ -1,17 +1,17 @@
 
 file {
-	name="C:\cygwin\home\mooney\epics\synApps\support\all_adl\arrayPlot8.adl"
-	version=030004
+	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/arrayPlot8.adl"
+	version=030101
 }
 display {
 	object {
-		x=403
-		y=88
+		x=120
+		y=583
 		width=400
-		height=335
+		height=280
 	}
 	clr=14
-	bclr=14
+	bclr=12
 	cmap=""
 	gridSpacing=5
 	gridOn=0
@@ -87,142 +87,55 @@ display {
 		1a7309,
 	}
 }
-composite {
+text {
 	object {
 		x=0
 		y=0
-		width=400
-		height=112
+		width=200
+		height=14
 	}
-	"composite name"=""
-	children {
-		composite {
-			object {
-				x=0
-				y=0
-				width=400
-				height=112
-			}
-			"composite name"=""
-			children {
-				text {
-					object {
-						x=0
-						y=0
-						width=400
-						height=14
-					}
-					"basic attribute" {
-						clr=0
-					}
-					textix="$(Y1)"
-					align="horiz. centered"
-				}
-				text {
-					object {
-						x=0
-						y=14
-						width=400
-						height=14
-					}
-					"basic attribute" {
-						clr=47
-					}
-					textix="$(Y2)"
-					align="horiz. centered"
-				}
-				text {
-					object {
-						x=0
-						y=28
-						width=400
-						height=14
-					}
-					"basic attribute" {
-						clr=20
-					}
-					textix="$(Y3)"
-					align="horiz. centered"
-				}
-				text {
-					object {
-						x=0
-						y=42
-						width=400
-						height=14
-					}
-					"basic attribute" {
-						clr=33
-					}
-					textix="$(Y4)"
-					align="horiz. centered"
-				}
-				text {
-					object {
-						x=0
-						y=56
-						width=400
-						height=14
-					}
-					"basic attribute" {
-						clr=30
-					}
-					textix="$(Y5)"
-					align="horiz. centered"
-				}
-				text {
-					object {
-						x=0
-						y=70
-						width=400
-						height=14
-					}
-					"basic attribute" {
-						clr=16
-					}
-					textix="$(Y6)"
-					align="horiz. centered"
-				}
-				text {
-					object {
-						x=0
-						y=84
-						width=400
-						height=14
-					}
-					"basic attribute" {
-						clr=52
-					}
-					textix="$(Y7)"
-					align="horiz. centered"
-				}
-				text {
-					object {
-						x=0
-						y=98
-						width=400
-						height=14
-					}
-					"basic attribute" {
-						clr=36
-					}
-					textix="$(Y8)"
-					align="horiz. centered"
-				}
-			}
-		}
+	"basic attribute" {
+		clr=0
 	}
+	textix="$(Y1)"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=0
+		y=14
+		width=200
+		height=14
+	}
+	"basic attribute" {
+		clr=45
+	}
+	textix="$(Y2)"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=0
+		y=28
+		width=200
+		height=14
+	}
+	"basic attribute" {
+		clr=20
+	}
+	textix="$(Y3)"
+	align="horiz. centered"
 }
 "cartesian plot" {
 	object {
 		x=0
-		y=115
+		y=60
 		width=400
 		height=200
 	}
 	plotcom {
 		ylabel="SEE LEGEND"
-		clr=0
+		clr=45
 		bclr=14
 	}
 	style="line"
@@ -233,7 +146,7 @@ composite {
 	}
 	trace[1] {
 		ydata="$(Y2)"
-		data_clr=47
+		data_clr=45
 	}
 	trace[2] {
 		ydata="$(Y3)"
@@ -268,12 +181,13 @@ composite {
 	y2_axis {
 		rangeStyle="auto-scale"
 	}
+	countPvName="2000"
 	eraseMode="if zero"
 }
 text {
 	object {
 		x=0
-		y=318
+		y=262
 		width=390
 		height=13
 	}
@@ -281,5 +195,70 @@ text {
 		clr=0
 	}
 	textix="ARRAY INDEX"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=0
+		y=42
+		width=200
+		height=14
+	}
+	"basic attribute" {
+		clr=33
+	}
+	textix="$(Y4)"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=200
+		y=0
+		width=200
+		height=14
+	}
+	"basic attribute" {
+		clr=30
+	}
+	textix="$(Y5)"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=200
+		y=14
+		width=200
+		height=14
+	}
+	"basic attribute" {
+		clr=16
+	}
+	textix="$(Y6)"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=200
+		y=28
+		width=200
+		height=14
+	}
+	"basic attribute" {
+		clr=52
+	}
+	textix="$(Y7)"
+	align="horiz. centered"
+}
+text {
+	object {
+		x=200
+		y=42
+		width=200
+		height=14
+	}
+	"basic attribute" {
+		clr=35
+	}
+	textix="$(Y7)"
 	align="horiz. centered"
 }
