@@ -83,9 +83,13 @@
  * .24  06-26-03  rls  Port to 3.14; alarm() conflicts with alarm declaration in unistd.h
  *			(transformRecord.h->epicsTime.h->osdTime.h->unistd.h) when
  *			compiled with SUNPro.
+ * .25  01-16-07  tmm  v5.8 Added field COPT (calc option).  If COPT==0 ("Conditional"),
+ *                     calcs are not done if there is a corresponding input link, or if the
+ *                     corresponding value has changed.  If COPT==1 ("Always") calcs are done
+ *                     always.
  */
 
-#define VERSION 5.7
+#define VERSION 5.8
 
 #ifdef vxWorks
 #include <stddef.h>
