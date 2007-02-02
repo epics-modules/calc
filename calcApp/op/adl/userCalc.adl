@@ -1,7 +1,7 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/userCalc.adl"
-	version=030101
+	name="C:\cygwin\home\mooney\epics\synApps\support\all_adl\userCalc.adl"
+	version=030004
 }
 display {
 	object {
@@ -101,7 +101,7 @@ rectangle {
 	}
 	"dynamic attribute" {
 		vis="calc"
-		calc="a==1"
+		calc="a=1"
 		chan="$(P)$(C).DOLV"
 	}
 }
@@ -175,7 +175,7 @@ rectangle {
 	}
 	"dynamic attribute" {
 		vis="calc"
-		calc="a==1"
+		calc="a=1"
 		chan="$(P)$(C).OUTV"
 	}
 }
@@ -207,7 +207,7 @@ text {
 	}
 	"dynamic attribute" {
 		vis="calc"
-		calc="a==1"
+		calc="a=1"
 		chan="$(P)$(C).OUTV"
 	}
 	textix="INVALID NAME"
@@ -328,7 +328,7 @@ rectangle {
 	}
 	"dynamic attribute" {
 		vis="calc"
-		calc="a==1"
+		calc="a=1"
 		chan="$(P)$(C).INAV"
 	}
 }
@@ -388,7 +388,7 @@ rectangle {
 	}
 	"dynamic attribute" {
 		vis="calc"
-		calc="a==1"
+		calc="a=1"
 		chan="$(P)$(C).INBV"
 	}
 }
@@ -435,7 +435,7 @@ rectangle {
 	}
 	"dynamic attribute" {
 		vis="calc"
-		calc="a==1"
+		calc="a=1"
 		chan="$(P)$(C).INCV"
 	}
 }
@@ -482,7 +482,7 @@ rectangle {
 	}
 	"dynamic attribute" {
 		vis="calc"
-		calc="a==1"
+		calc="a=1"
 		chan="$(P)$(C).INDV"
 	}
 }
@@ -930,7 +930,7 @@ text {
 	}
 	"dynamic attribute" {
 		vis="calc"
-		calc="a==1"
+		calc="a=1"
 		chan="$(P)$(C).DOLV"
 	}
 	textix="INVALID NAME"
