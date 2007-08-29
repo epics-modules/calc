@@ -10,6 +10,16 @@ content="text/html; charset=iso-8859-1">
 
 <h1 align="center">calc Release Notes</h1>
 
+<h2 align="center">Release 2-6-4</h2>
+<ul>
+<li>The transform record can now use both the input link and the
+expression to find a new value for a value field.  This is enabled
+by the COPT (calc option) field.  With the default value of COPT,
+"Conditional", the presence of the input link INPA precludes evaluation of the
+expression CLCA.  This was the way the transform record has always
+worked in the past.   With COPT="Always", all expressions are
+</ul>
+
 <h2 align="center">Release 2-6-3</h2>
 <ul>
 <li>array calcs reworked to allocate arrays only as needed.
