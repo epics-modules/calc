@@ -831,7 +831,7 @@ because <code>ANDB</code> will be parsed as <code>AND B</code>.  However,
 <P><A NAME="IF-ELSE"></A>
 <H2>
 4.8. Conditional Expression</H2>
-The C language's if-else (<code>?:</code>") operator is supported. The format is:
+The C language's if-else ("<code>?:</code>") operator is supported. The format is:
 
 <PRE>&nbsp;&lt;expression&gt; ? &lt;expression-true result&gt; : &lt;expression-false  result&gt;</PRE>
 
@@ -1171,7 +1171,7 @@ The DOPT field determines what data is written to the output link when the
 output is executed. The field is a menu field with two options: <TT>Use
 CALC</TT> or <TT>Use OCAL</TT>. If <TT>Use CALC</TT> is specified, when the
 record writes its output it will write the result of the expression in the CALC
-field, that is, it will write the value of the VAL [AVAL] field to a double
+field, that is, it will write the value of the VAL [AVAL] field to a scalar
 [array] destination. If <TT>Use OCAL</TT> is specified, the record will instead
 write the result of the expression in the OCAL field, which result is contained
 in the OVAL field (array result in the OAV field). The OCAL field is exactly
@@ -1187,7 +1187,7 @@ executing the OUT link or posting the output event. During this waiting period
 the record is "active" and will not be processed again until the wait is over.
 The field DLYA is equal to 1 during the delay period. The resolution of the
 delay entry is one clock tick, where the clock frequency is defined elsewhere
-(see epicsThreadSleepQuantum() in the <b><i>EPICS Application Developer's Guide</i></b>).
+(see <code>epicsThreadSleepQuantum()</code> in the <i>EPICS Application Developer's Guide</i>).
 
 
 <P>&nbsp;The IVOA field specifies what action to take with the OUT link
