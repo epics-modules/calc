@@ -68,9 +68,12 @@ regarded as writes for the purpose of determining whether a value is "new".
 This rule allows a transform record to write to itself (using database links)
 without messing up its notion of which values are new. 
 
-<P>Also note that the presence of an input link guarantees that a value will
-be regarded as "new" for the purpose of deciding whether to evaluate an
-expression.
+<P>Also note that, beginning with version 5.8 (calc module version 2.6.4), the presence
+of an input link no longer guarantees that a value will be regarded as "new" for the
+purpose of deciding whether to evaluate the associated expression.  Now, a value is
+regarded as "new" if it's different from the value after the last execution of the
+record, or if some outside agent wrote to the value field (while PACT==0).
+
 </em></blockquote>
 
 <LI>Valid output links are triggered in order OUTA through OUTP---regardless
