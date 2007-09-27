@@ -1567,6 +1567,15 @@ long epicsShareAPI
 				toString(ps);
 				break;
 
+			case LEN:
+				checkStackElement(ps, *post);
+				toString(ps);
+				for (i=0; (i < LOCAL_STRING_SIZE) && ps->s[i]; i++)
+					;
+				ps->d = (double)i;
+				ps->s = NULL;
+				break;
+
 			case BYTE:
 				checkStackElement(ps, *post);
 				if (isString(ps)) {

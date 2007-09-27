@@ -1,4 +1,4 @@
-/* $Id: sCalcPostfix.c,v 1.16 2006-11-09 21:13:22 mooney Exp $
+/* $Id: sCalcPostfix.c,v 1.17 2007-09-27 21:24:42 mooney Exp $
  * Subroutines used to convert an infix expression to a postfix expression
  *
  *      Author:          Bob Dalesio
@@ -237,6 +237,7 @@ element    i_s_p i_c_p type_element     internal_rep */
 {"AMODBUS",10,    11,    UNARY_OPERATOR,  AMODBUS},     /* Ascii Modbus (append LRC) */
 {"XOR8",   10,    11,    UNARY_OPERATOR,  XOR8},        /* XOR8 checksum */
 {"ADD_XOR8", 10,  11,    UNARY_OPERATOR,  ADD_XOR8},    /* Append XOR8 to string */
+{"LEN",    10,    11,    UNARY_OPERATOR,  LEN},         /* String length */
 {"@@",     10,    11,    UNARY_OPERATOR,  A_SFETCH},    /* fetch string argument */
 {"@",      10,    11,    UNARY_OPERATOR,  A_FETCH},     /* fetch numeric argument */
 {"RNDM",   0,    0,    OPERAND,         RANDOM},      /* Random Number */
@@ -413,7 +414,7 @@ long sCalcCheck(char *post, int forks_checked, int dir_mask)
 		case FLOOR:		case NINT:		case REL_NOT:	case BIT_NOT:
 		case A_FETCH:	case TO_DOUBLE:	case BYTE:		case CRC16:
 		case MODBUS:	case LRC:		case AMODBUS:	case XOR8:
-		case ADD_XOR8:
+		case ADD_XOR8:	case LEN:
 			checkStackElement(ps);
 			ps->d = 0;
 			ps->s = NULL;
@@ -717,6 +718,7 @@ long epicsShareAPI sCalcPostfix(char *pinfix, char *ppostfix, short *perror)
 			case AMODBUS:
 			case XOR8:
 			case ADD_XOR8:
+			case LEN:
 				*ppostfixStart = USES_STRING;
 				break;
 			default:

@@ -152,6 +152,7 @@ struct stackElement {
 #define		ADD_XOR8	80
 #define		BIN_READ	81
 #define		BIN_WRITE	82
+#define		LEN			83
 
 
 /* NOTE: FETCH_A .. FETCH_L must be contiguous and in alphabetical order */
