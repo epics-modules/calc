@@ -1,0 +1,7 @@
+# Only the stuff we build that requires the genSub module
+
+variable(interpDebug, int)
+registrar(interpRegister)
+
+variable(arrayTestDebug, int)
+registrar(arrayTestRegister)
