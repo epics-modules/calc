@@ -11,19 +11,51 @@ content="text/html; charset=iso-8859-1">
 <h1 align="center">calc module Documentation</h1>
 
 <dl>
-<dt>aCalcout record<dd><a href="aCalcoutRecord.html">aCalcoutRecord.html</a>
-<dt>sCalcout record<dd><a href="sCalcoutRecord.html">sCalcoutRecord.html</a>
-<dt>transform record<dd><a href="transformRecord.html">transformRecord.html</a>
-<dt>swait record<dd><a href="swaitRecord.html">swaitRecord.html</a>
-<dt>interpolation<dd><a href="interp.README">interp.README</a>
-<dt>Release Notes<dd><a href="calcReleaseNotes.html">calcReleaseNotes.html</a>
+<dt><a href="aCalcoutRecord.html">aCalcoutRecord.html</a>
+<dd>The aCalcout record is much like the calcout record in EPICS base, but it
+supports array fields and calculations, and its output link can wait for completion.
+
+<dt><a href="sCalcoutRecord.html">sCalcoutRecord.html</a>
+<dd>The sCalcout record is much like the calcout record in EPICS base, but it
+supports string fields and calculations, and its output link can wait for completion.
+
+<dt><a href="transformRecord.html">transformRecord.html</a>
+<dd>The transform record is sort of like 16 calcout records collected together
+into a single record.  The 16 calc expressions use a common set of 16
+value fields, but each calc expression writes to its own value field.
+
+<dt><a href="swaitRecord.html">swaitRecord.html</a>
+<dd>The swait record is much like the calcout record in EPICS base, but it
+uses an older form of retargetable links, and its output link waits for completion.
+
+<dt><a href="interp.README">interp.README</a><dd>Interpolation software.  Given
+arrays X and Y, calculates y(x), where x is in the range min(Y)..max(Y).  The
+arrays can be preloaded, or built at run time. 
+
+<dt><a href="calcReleaseNotes.html">calcReleaseNotes.html</a><dd>Release Notes
 </dl>
+
+<h2 align="center">How to build and use</h2>
+<ul>
+<li>Edit <code>configure/RELEASE</code> to specify the paths to <b>EPICS base</b>, and to
+other modules (<b>sscan</b> and <b>genSub</b>) that the <b>calc</b> module can use to
+build specific pieces of itself.  If you don't have <b>sscan</b> or
+<b>genSub</b>, comment the definitions out, and the <b>calc</b> module will adjust its
+build accordingly.
+<li>Run Gnu Make to build.
+<li>Note that the <b>calc</b> module is not useful on its own, but only produces
+code that can be used by other modules.  (A good example of a module that uses
+the calc module is synApps' <b>xxx</b> module.) A module that uses <b>calc</b>
+should include <code>calcSupport.dbd</code> into the <code>.dbd</code> file it
+creates for loading into an ioc, or for export to other modules, and it should
+link to <code>libcalc</code>.
+</ul>
 
 <address>
     Suggestions and Comments to: <br>
     <a href="mailto:mooney@aps.anl.gov">Tim Mooney </a>:
     (mooney@aps.anl.gov) <br>
-    Last modified: May 11, 2006 
+    Last modified: Jan 23, 2008 
 </address>
 </body>
 </html>
