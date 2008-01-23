@@ -1,3 +1,6 @@
+# NOTE: This file is not well maintained.  It's probably better to use the xxx
+# module as an example of loading stuff published by the calc module.
+
 # vxWorks startup script
 
 # for vxStats
