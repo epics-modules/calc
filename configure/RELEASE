@@ -5,13 +5,13 @@
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 
 # EPICS_BASE usually appears last so other apps can override stuff:
-EPICS_BASE=/home/oxygen/MOONEY/epics/base-3.14.7
+EPICS_BASE=/home/mooney/epics/base-3.14.8.2
 
-# Need recDynLink
-SSCAN=/home/oxygen/MOONEY/epics/synApps_T202_E3_14_7_R5_1/support/sscan/2-5
+# Need SSCAN module only to build the swait record (recDynLink library)
+SSCAN=/home/mooney/epics/synApps/support/sscan
 
-# Need genSubRecord
-GENSUB=/home/oxygen/MOONEY/epics/synApps_T202_E3_14_7_R5_1/support/genSub/1-6
+# Need genSub module to build interp.c, and for arrayTest and interp databases.
+GENSUB=/home/mooney/epics/synApps/support/genSub/1-6a
 
 #Capfast users may need the following definitions
 #CAPFAST_TEMPLATES=
