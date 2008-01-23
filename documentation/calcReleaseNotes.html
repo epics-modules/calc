@@ -14,6 +14,10 @@ content="text/html; charset=iso-8859-1">
 <ul>
 <li>The sCalcout record now supports the function, "len()", which returns the
 length of its argument *converted to string, if necessary).
+<li>Made the build sensitive to the modules in configure/RELEASE, so people
+don't have to get a copy of sscan and gensub just to use, say, the sCalcout
+record.  calcSupport.dbd and libcalc will include whatever calc was able to
+build, and this is determined by what modules are named in configure/RELEASE.
 </ul>
 
 <h2 align="center">Release 2-6-4</h2>
