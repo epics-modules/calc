@@ -45,9 +45,11 @@
  *                    to OUT.  Misc changes to stay closer to calcout record's
  *                    implementation.
  * 05-24-06    tmm    v3.9  Added Dirk Zimoch's fix to call DSET->init_record()
+ * 01-24-08    tmm    v4.0: Fixed check of outlink (if link to link field,
+ *                    or if .WAIT, then outlink attribute must be CA).
  */
 
-#define VERSION 3.9
+#define VERSION 4.0
 
 
 #include	<stdlib.h>

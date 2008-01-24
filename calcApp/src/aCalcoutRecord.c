@@ -17,9 +17,11 @@
  * 05-24-06  tmm  v1.1: call DSET->init_record()
  * 08-28-06  tmm  v1.2: don't allocate any array until someone tries to
  *                use or look at it.
+ * 01-24-08  tmm  v1.3: Fixed check of outlink (if link to link field,
+ *                or if .WAIT, then outlink attribute must be CA).
  */
 
-#define VERSION 1.2
+#define VERSION 1.3
 
 
 #include	<stdlib.h>
