@@ -18,6 +18,8 @@ length of its argument *converted to string, if necessary).
 don't have to get a copy of sscan and gensub just to use, say, the sCalcout
 record.  calcSupport.dbd and libcalc will include whatever calc was able to
 build, and this is determined by what modules are named in configure/RELEASE.
+<li>For sCalcout and aCalcout records, fixed check of outlink (if link to link
+field, or if .WAIT, then outlink attribute must be CA).
 </ul>
 
 <h2 align="center">Release 2-6-4</h2>
