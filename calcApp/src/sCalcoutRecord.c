@@ -896,6 +896,7 @@ static void checkLinks(scalcoutRecord *pcalc)
 				}
 				/* If this is the outlink, get the type of field it's connected to.  If it's connected
 				 * to a link field, and the outlink is not a CA link, complain, because this won't work.
+				 * Also, if .WAIT, then the link must be a CA link.
 				 */
 				if (plink == &pcalc->out) {
 					prpvt->outlink_field_type = dbCaGetLinkDBFtype(plink);
