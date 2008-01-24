@@ -231,15 +231,20 @@ static long init_record(scalcoutRecord *pcalc, int pass)
 			if (plink == &pcalc->out)
 				prpvt->outlink_field_type = DBF_NOACCESS;
         } else if (!dbNameToAddr(plink->value.pv_link.pvname, pAddr)) {
-			/* see if the PV resides on this ioc */
+			/* the PV we're linked to resides on this ioc */
 			*plinkValid = scalcoutINAV_LOC;
-			if (plink == &pcalc->out)
+			if (plink == &pcalc->out) {
 				prpvt->outlink_field_type = pAddr->field_type;
-			if (sCalcoutRecordDebug && (pAddr->field_type >= DBF_INLINK) &&
-					(pAddr->field_type <= DBF_FWDLINK)) {
-				s = strchr(plink->value.pv_link.pvname, (int)' ') + 1;
-				if (strncmp(s,"CA",2)) printf("sCalcoutRecord(%s):init_record:dblink to link field\n",
-					pcalc->name);
+				if ((pAddr->field_type >= DBF_INLINK) && (pAddr->field_type <= DBF_FWDLINK)) {
+					if (!(plink->value.pv_link.pvlMask & pvlOptCA)) {
+						printf("sCalcoutRecord(%s):init_record:non-CA link to link field\n",
+							plink->value.pv_link.pvname);
+					}
+				}
+				if (pcalc->wait && !(plink->value.pv_link.pvlMask & pvlOptCA)) {
+					printf("sCalcoutRecord(%s):init_record: Can't wait with non-CA link attribute\n",
+						plink->value.pv_link.pvname);
+				}
 			}
 		} else {
 			/* pv is not on this ioc. Callback later for connection stat */
@@ -392,7 +397,6 @@ static long special(dbAddr	*paddr, int after)
 	DBLINK			*plink;
 	double			*pvalue;
 	unsigned short	*plinkValid;
-	char			*s;
 
 	if (!after) return(0);
 	switch (fieldIndex) {
@@ -461,11 +465,16 @@ static long special(dbAddr	*paddr, int after)
 			*plinkValid = scalcoutINAV_LOC;
 			if (fieldIndex == scalcoutRecordOUT) {
 				prpvt->outlink_field_type = pAddr->field_type;
-			if (sCalcoutRecordDebug && (pAddr->field_type >= DBF_INLINK) &&
-					(pAddr->field_type <= DBF_FWDLINK)) {
-				s = strchr(plink->value.pv_link.pvname, (int)' ') + 1;
-				if (strncmp(s,"CA",2)) printf("sCalcoutRecord:special:dblink to link field\n");
-			}
+				if ((pAddr->field_type >= DBF_INLINK) && (pAddr->field_type <= DBF_FWDLINK)) {
+					if (!(plink->value.pv_link.pvlMask & pvlOptCA)) {
+						printf("sCalcoutRecord(%s):special:non-CA link to link field\n",
+							plink->value.pv_link.pvname);
+					}
+				}
+				if (pcalc->wait && !(plink->value.pv_link.pvlMask & pvlOptCA)) {
+					printf("sCalcoutRecord(%s):special: Can't wait with non-CA link attribute\n",
+						plink->value.pv_link.pvname);
+				}
 			}
 		} else {
 			/* pv is not on this ioc. Callback later for connection stat */
@@ -871,7 +880,6 @@ static void checkLinks(scalcoutRecord *pcalc)
 	unsigned short	*plinkValid;
 	dbAddr			Addr;
 	dbAddr			*pAddr = &Addr;
-	char			*s;
 
 	if (sCalcoutRecordDebug) printf("checkLinks() for %p\n", pcalc);
 
@@ -886,20 +894,25 @@ static void checkLinks(scalcoutRecord *pcalc)
 					*plinkValid = scalcoutINAV_EXT;
 					db_post_events(pcalc,plinkValid,DBE_VALUE);
 				}
-				/* if outlink, get type of field we're connected to */
+				/* If this is the outlink, get the type of field it's connected to.  If it's connected
+				 * to a link field, and the outlink is not a CA link, complain, because this won't work.
+				 */
 				if (plink == &pcalc->out) {
 					prpvt->outlink_field_type = dbCaGetLinkDBFtype(plink);
-					if (sCalcoutRecordDebug) {
-						printf("sCalcout:checkLinks: outlink type = %d\n",
-							prpvt->outlink_field_type);
-						if (!dbNameToAddr(plink->value.pv_link.pvname, pAddr)) {
-							if ((pAddr->field_type >= DBF_INLINK) &&
-									(pAddr->field_type <= DBF_FWDLINK)) {
-								s = strchr(plink->value.pv_link.pvname, (int)' ') + 1;
-								if (strncmp(s,"CA",2))
-									printf("sCalcoutRecord:checkLinks:dblink to link field\n");
+					if (sCalcoutRecordDebug)
+						printf("sCalcout:checkLinks: outlink type = %d\n", prpvt->outlink_field_type);
+					if (!dbNameToAddr(plink->value.pv_link.pvname, pAddr)) {
+						if ((pAddr->field_type >= DBF_INLINK) &&
+								(pAddr->field_type <= DBF_FWDLINK)) {
+							if (!(plink->value.pv_link.pvlMask & pvlOptCA)) {
+								printf("sCalcoutRecord(%s):checkLinks:non-CA link to link field\n",
+									plink->value.pv_link.pvname);
 							}
 						}
+					}
+					if (pcalc->wait && !(plink->value.pv_link.pvlMask & pvlOptCA)) {
+						printf("sCalcoutRecord(%s):checkLinks: Can't wait with non-CA link attribute\n",
+							plink->value.pv_link.pvname);
 					}
 				}
 			} else {
