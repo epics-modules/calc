@@ -47,9 +47,12 @@
  * 05-24-06    tmm    v3.9  Added Dirk Zimoch's fix to call DSET->init_record()
  * 01-24-08    tmm    v4.0: Fixed check of outlink (if link to link field,
  *                    or if .WAIT, then outlink attribute must be CA).
+ * 04-29-08    tmm    v4.1: Peter Mueller noticed that calc records were not
+ *                    checking VAL against limits until after execOutput --
+ *                    too late to do IVOA.
  */
 
-#define VERSION 4.0
+#define VERSION 4.1
 
 
 #include	<stdlib.h>
@@ -312,6 +315,10 @@ static long process(scalcoutRecord *pcalc)
 			else
 				pcalc->udf = FALSE;
 		}
+
+		/* Check VAL against limits */
+	    checkAlarms(pcalc);
+
 		/* check for output link execution */
 		switch (pcalc->oopt) {
 		case scalcoutOOPT_Every_Time:
@@ -377,7 +384,7 @@ static long process(scalcoutRecord *pcalc)
             writeValue(pcalc);
 		}
 	}
-    checkAlarms(pcalc);
+    /*checkAlarms(pcalc); This is too late; IVOA might have vetoed output */
     recGblGetTimeStamp(pcalc);
     monitor(pcalc);
     recGblFwdLink(pcalc);
@@ -691,7 +698,7 @@ static void execOutput(scalcoutRecord *pcalc)
 	}
 
 	/* Check to see what to do if INVALID */
-	if (pcalc->sevr < INVALID_ALARM) {
+	if (pcalc->nsev < INVALID_ALARM) {
 		/* Output the value */
 		status = writeValue(pcalc);
 		/* post event if output event != 0 */

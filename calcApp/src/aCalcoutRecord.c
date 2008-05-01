@@ -19,9 +19,11 @@
  *                use or look at it.
  * 01-24-08  tmm  v1.3: Fixed check of outlink (if link to link field,
  *                or if .WAIT, then outlink attribute must be CA).
+ * 04-29-08  tmm  v1.4: Peter Mueller noticed that calc records were not checking
+ *                VAL against limits until after execOutput -- too late to do IVOA.
  */
 
-#define VERSION 1.3
+#define VERSION 1.4
 
 
 #include	<stdlib.h>
@@ -292,6 +294,10 @@ static long process(acalcoutRecord *pcalc)
 			else
 				pcalc->udf = FALSE;
 		}
+
+		/* Check VAL against limits */
+	    checkAlarms(pcalc);
+
 		/* check for output link execution */
 		switch (pcalc->oopt) {
 		case acalcoutOOPT_Every_Time:
@@ -359,7 +365,7 @@ static long process(acalcoutRecord *pcalc)
             writeValue(pcalc);
 		}
 	}
-    checkAlarms(pcalc);
+    /*checkAlarms(pcalc); This is too late; IVOA might have vetoed output */
     recGblGetTimeStamp(pcalc);
 
 	if (aCalcoutRecordDebug >= 5) {
@@ -787,7 +793,7 @@ static void execOutput(acalcoutRecord *pcalc)
 	}
 
 	/* Check to see what to do if INVALID */
-	if (pcalc->sevr < INVALID_ALARM) {
+	if (pcalc->nsev < INVALID_ALARM) {
 		/* Output the value */
 		if (aCalcoutRecordDebug >= 10)
 			printf("acalcoutRecord(%s):execOutput:calling writeValue\n", pcalc->name);
