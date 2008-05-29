@@ -17,6 +17,7 @@
  *  noc  max number of entries in c array - limits table size
  *
  *  Note: the code uses only n entries, where n = MIN(nova, novb, novc)
+ * Tim Mooney
  */
 
 #include <stddef.h>
