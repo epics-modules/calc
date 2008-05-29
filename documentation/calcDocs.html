@@ -29,12 +29,19 @@ into a single record.  The 16 calc expressions use a common set of 16
 value fields, but each calc expression writes to its own value field.
 
 <P><dt><a href="swaitRecord.html">swaitRecord.html</a>
-<dd>The <b>swait</b> record is much like the <b>calcout</b> record in EPICS base, but it
-uses an older form of retargetable links, and its output link waits for completion.
+
+<dd>The <b>swait</b> record is much like the <b>calcout</b> record in EPICS
+base, but it uses an older form of retargetable links, and its output link waits
+for completion.  The <b>swait</b> record is not recommended for new development;
+use a <b>calcout</b> record instead.
 
 </dl>
 
 <h2>EPICS Databases, MEDM display files, and autosave-request files</h2>
+
+
+
+
 <dl>
 
 <P><dt>
