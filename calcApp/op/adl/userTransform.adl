@@ -1,7 +1,7 @@
 
 file {
-	name="C:\cygwin\home\mooney\epics\synApps\support\all_adl\userTransform.adl"
-	version=030004
+	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/userTransform.adl"
+	version=030102
 }
 display {
 	object {
@@ -867,7 +867,7 @@ composite {
 	}
 	display[0] {
 		label="Terse link docs"
-		name="linkHelp.adl"
+		name="inlinkHelp.adl"
 	}
 	clr=0
 	bclr=17
@@ -896,7 +896,7 @@ composite {
 	}
 	display[0] {
 		label="Terse link docs"
-		name="linkHelp.adl"
+		name="outlinkHelp.adl"
 	}
 	clr=0
 	bclr=17
