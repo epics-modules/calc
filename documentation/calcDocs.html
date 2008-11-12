@@ -48,7 +48,7 @@ use a <b>calcout</b> record instead.
 arrayTest.db<br>
 arrayTest.adl
 
-<dd>This database contains a <b>genSub</b> record that maintains two array fields:
+<dd>This database contains an <b>aSub</b> record that maintains two array fields:
 "$(P)arrayTest.VALA", and "$(P)arrayTest.VALB".  The "VALB"
 field contains double values from 0 to $(N)-1, where $(N) is a macro supplied to
 the <tt>dbLoadRecords()</tt> command that loads the database.  The "VALA"
@@ -106,7 +106,7 @@ switch ("$(P)interp_mode") to "Add Entry".
 
 <P>To interpolate, one sets the mode switch to "Interpolate", and writes
 a number to the X-input field, "$(P)interp_x".  This causes an underlying
-<b>genSub</b> record to interpolate the Yi arrays to find values that would
+<b>aSub</b> record to interpolate the Yi arrays to find values that would
 correspond with that value of X, to display them as "$(P)interp_y1" and
 "$(P)interp_y2", and, optionally, to write them to the external PVs named in the
 link fields "$(P)interp_y1.OUT", and "$(P)interp_y2.OUT".
@@ -284,11 +284,12 @@ retained mostly for backward compatibility.
 
 <h2 align="center">How to build and use</h2>
 <ul>
-<li>Edit <code>configure/RELEASE</code> to specify the paths to <b>EPICS base</b>, and to
-other modules (<b>sscan</b> and <b>genSub</b>) that the <b>calc</b> module can use to
-build specific pieces of itself.  If you don't have <b>sscan</b> or
-<b>genSub</b>, comment the definitions out, and the <b>calc</b> module will adjust its
-build accordingly.
+
+<li>Edit <code>configure/RELEASE</code> to specify the paths to <b>EPICS
+base</b>, and to the <b>sscan</b> module.  If you don't have <b>sscan</b>, or
+don't want it to be used by the <b>calc</b> module, comment the definition out,
+and the <b>calc</b> module will adjust its build accordingly.
+
 <li>Run Gnu Make to build.
 <li>Note that the <b>calc</b> module is not useful on its own, but only produces
 code that can be used by other modules.  (A good example of a module that uses

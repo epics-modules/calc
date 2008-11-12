@@ -1,8 +1,4 @@
-This interpolation software relies on the gensub record (written by Andy
-Foster).  A copy of a genSub module version that is compatible with this version
-of synApps is included with synApps.
-
-The following fields of the gensub record have the following functions in this
+The following fields of the aSub record have the following functions in this
 software:
 
 VALA[]  independent variable
@@ -45,9 +41,9 @@ However you load the arrays, make sure you do all of the following:
 
 The supplied database adds a sort of user interface to the software described
 above.  The user writes to $(P)interp_x, and the database sends this value to
-the gensub record, which interpolates and, if successful, writes to
+the aSub record, which interpolates and, if successful, writes to
 $(P)interp_y1 and $(P)interp_y2.  If the user has specified output-link fields
 $(P)interp_y1.OUT or $(P)interp_y2.OUT, then the new values will be written to
 the PV's named in those links.
 
-Tim Mooney 3/10/2006
+Tim Mooney 11/12/2008
