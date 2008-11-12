@@ -4,7 +4,7 @@
 #! DBDEND
 
 
-# We need this record because genSub
+# We need this record because aSub
 # fields aren't process passive.
 record(ao, "$(P)arrayTest_start") {
   field(DTYP, "Soft Channel")
@@ -14,7 +14,7 @@ record(ao, "$(P)arrayTest_start") {
 
 # VALA[] = A, A+1, A+2, ...
 # VALB[] = 0, 1, 2, ...
-record(genSub, "$(P)arrayTest") {
+record(aSub, "$(P)arrayTest") {
   field(INAM, "arrayTest_init")
   field(SNAM, "arrayTest_do")
   field(PREC, "5")

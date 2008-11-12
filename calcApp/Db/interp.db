@@ -33,7 +33,7 @@ record(ao, "$(P)interp_y2") {
 # VALB: y1(D)
 # VALC: y2(D)
 # VALF, VALG: limits on D
-record(genSub, "$(P)interp") {
+record(aSub, "$(P)interp") {
   field(INAM, "interp_init")
   field(SNAM, "interp_do")
   field(PREC, "5")
@@ -144,7 +144,7 @@ record(longout, "$(P)interp_ok") {
 #! Field("$(P)interp_mode.RVAL",16777215,1,"$(P)interp_mode.RVAL")
 #! Record("$(P)interp_n",1320,202,0,1,"$(P)interp_n")
 #! Field("$(P)interp_n.VAL",16777215,0,"$(P)interp_n.VAL")
-#! TextBox(TB0,720,320,880,380,0,"Dialog",12,1,16777215,"Process only if genSub was processed by interp_x.",null)
+#! TextBox(TB0,720,320,880,380,0,"Dialog",12,1,16777215,"Process only if aSub was processed by interp_x.",null)
 #! Record("$(P)interp_doOutput",420,505,0,1,"$(P)interp_doOutput")
 #! Field("$(P)interp_doOutput.INPA",16777215,0,"$(P)interp_doOutput.INPA")
 #! Link("$(P)interp_doOutput.INPA","$(P)interp_x.PACT")
