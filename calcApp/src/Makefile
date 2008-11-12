@@ -48,12 +48,11 @@ ifdef SSCAN
 	calc_LIBS += sscan
 endif
 
-ifdef GENSUB
-	calc_DBD += calcSupport_withGENSUB.dbd
-	calc_SRCS += interp.c
-	calc_SRCS += arrayTest.c
-	calc_LIBS += genSub
-endif
+# 'GENSUB' is now in base as 'aSub'
+#
+calc_DBD += calcSupport_withGENSUB.dbd
+calc_SRCS += interp.c
+calc_SRCS += arrayTest.c
 
 # Register stuff
 calc_SRCS += calcRegister.c
@@ -77,9 +76,6 @@ calcApp_LIBS += calc
 ifdef SSCAN
 	calcApp_LIBS += sscan
 endif
-ifdef GENSUB
-	calcApp_LIBS += genSub
-endif
 
 #calcApp_LIBS += seq pv
 calcApp_LIBS += $(EPICS_BASE_IOC_LIBS)
@@ -97,19 +93,9 @@ include $(TOP)/configure/RULES
 # copy of base.dbd from each support module.)
 
 ifdef SSCAN
-ifdef GENSUB
 calcSupport.dbd: ../calcSupport_LOCAL.dbd ../calcSupport_withSSCAN.dbd ../calcSupport_withGENSUB.dbd
 	cat ../calcSupport_LOCAL.dbd ../calcSupport_withSSCAN.dbd ../calcSupport_withGENSUB.dbd >calcSupport.dbd
 else
-calcSupport.dbd: ../calcSupport_LOCAL.dbd ../calcSupport_withSSCAN.dbd
-	cat ../calcSupport_LOCAL.dbd ../calcSupport_withSSCAN.dbd >calcSupport.dbd
-endif
-else
-ifdef GENSUB
 calcSupport.dbd: ../calcSupport_LOCAL.dbd ../calcSupport_withGENSUB.dbd
 	cat ../calcSupport_LOCAL.dbd ../calcSupport_withGENSUB.dbd >calcSupport.dbd
-else
-calcSupport.dbd: ../calcSupport_LOCAL.dbd
-	cat ../calcSupport_LOCAL.dbd >calcSupport.dbd
-endif
 endif

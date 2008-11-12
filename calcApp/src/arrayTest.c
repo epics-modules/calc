@@ -8,7 +8,7 @@
 #include <dbDefs.h>
 #include <dbCommon.h>
 #include <recSup.h>
-#include <genSubRecord.h>
+#include <aSubRecord.h>
 
 #define MAX(a,b) ((a) > (b) ? (a) : (b))
 #define MIN(a,b) ((a) > (b) ? (b) : (a))
@@ -17,24 +17,24 @@
 
 volatile int arrayTestDebug=0;
 
-static long arrayTest_init(genSubRecord *pgsub)
+static long arrayTest_init(aSubRecord *pasub)
 {
-	long *e = (long *)pgsub->e;
+	long *e = (long *)pasub->e;
 
-	if (*e == 0) *e = (long)pgsub->nova;
+	if (*e == 0) *e = (long)pasub->nova;
 	return(0);
 }
 
-static long arrayTest_do(genSubRecord *pgsub)
+static long arrayTest_do(genSubRecord *pasub)
 {
 	double	*a, *valb, *vala;
 	long	i, *e;
 
-	a = (double *)pgsub->a;
-	valb = (double *)pgsub->valb;
-	vala = (double *)pgsub->vala;
-	e = (long *)pgsub->e;
-	if (*e > pgsub->nova) *e = (long)pgsub->nova;
+	a = (double *)pasub->a;
+	valb = (double *)pasub->valb;
+	vala = (double *)pasub->vala;
+	e = (long *)pasub->e;
+	if (*e > pasub->nova) *e = (long)pasub->nova;
 	for (i=0; i<*e; i++) {
 		vala[i] = *a+i;
 		valb[i] = i;

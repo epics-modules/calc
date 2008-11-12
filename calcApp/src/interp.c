@@ -1,5 +1,5 @@
 /* Interp - Manage and use interpolation table.
- * genSub record fields:
+ * aSub record fields:
  *  vala[]  independent variable
  *  valb[]  dependent variable 1
  *  valc[]  dependent variable 2
@@ -30,7 +30,7 @@
 #include <dbDefs.h>
 #include <dbCommon.h>
 #include <recSup.h>
-#include <genSubRecord.h>
+#include <aSubRecord.h>
 
 #define MAXORDER 10
 #define MAX(a,b) ((a) > (b) ? (a) : (b))
@@ -44,42 +44,42 @@ static double find_index(long n, double *a, double *d, long *lo, long *hi);
 
 volatile int interpDebug=0;
 
-static long interp_init(genSubRecord *pgsub)
+static long interp_init(aSubRecord *pasub)
 {
 	int *order;
 	long *valn;
 
-	order = (int *)pgsub->f;
+	order = (int *)pasub->f;
 	if (*order > MAXORDER) *order = MAXORDER;
 
-	valn = (long *)pgsub->valn;
-	if (*valn > pgsub->noa) *valn = pgsub->nova;
-	if (*valn > pgsub->nob) *valn = pgsub->novb;
-	if (*valn > pgsub->noc) *valn = pgsub->novc;
+	valn = (long *)pasub->valn;
+	if (*valn > pasub->noa) *valn = pasub->nova;
+	if (*valn > pasub->nob) *valn = pasub->novb;
+	if (*valn > pasub->noc) *valn = pasub->novc;
 	return(0);
 }
 
-static long interp_do(genSubRecord *pgsub)
+static long interp_do(aSubRecord *pasub)
 {
 	double	*a, *b, *c, ix;
 	double	*vala, *valb, *valc, *valf, *valg;
 	long	hi, lo, n, ii, iplace, first, *order, mode, *valn, *vale, err=0;
 	int		same_X=0;
 
-	a = (double *)pgsub->a;
-	b = (double *)pgsub->b;
-	c = (double *)pgsub->c;
-	mode = *((long *)(pgsub->g));
-	vala = (double *)pgsub->vala;
-	valb = (double *)pgsub->valb;
-	valc = (double *)pgsub->valc;
-	vale = (long *)pgsub->vale;
-	valn = (long *)pgsub->valn;
-	valf = (double *)pgsub->valf;
-	valg = (double *)pgsub->valg;
-	if (*valn > pgsub->nova) *valn = pgsub->nova;
-	if (*valn > pgsub->novb) *valn = pgsub->novb;
-	if (*valn > pgsub->novc) *valn = pgsub->novc;
+	a = (double *)pasub->a;
+	b = (double *)pasub->b;
+	c = (double *)pasub->c;
+	mode = *((long *)(pasub->g));
+	vala = (double *)pasub->vala;
+	valb = (double *)pasub->valb;
+	valc = (double *)pasub->valc;
+	vale = (long *)pasub->vale;
+	valn = (long *)pasub->valn;
+	valf = (double *)pasub->valf;
+	valg = (double *)pasub->valg;
+	if (*valn > pasub->nova) *valn = pasub->nova;
+	if (*valn > pasub->novb) *valn = pasub->novb;
+	if (*valn > pasub->novc) *valn = pasub->novc;
 	if (*valn < 0) *valn = 0;
 	n = *valn;
 
@@ -88,7 +88,7 @@ static long interp_do(genSubRecord *pgsub)
 	case 0:
 		/* interpolate */
 		*vale = 0;  /* presume failure */
-		order = (long *)pgsub->f;
+		order = (long *)pasub->f;
 		if (*order > MAXORDER) *order = MAXORDER;
 		/* if arrays haven't been set up yet, output is same as input */
 		if (n <= 1) {
@@ -126,7 +126,7 @@ static long interp_do(genSubRecord *pgsub)
 	case 1:
 		/* Add point to tables.  Maintain a[] increasing with index.*/
 		*vale = 0;  /* tell everyone there's no interpolation result */
-		if (*valn == pgsub->nova) {
+		if (*valn == pasub->nova) {
 			/* Can't add any more points */
 			return(-1);
 		}
@@ -178,7 +178,7 @@ static long interp_do(genSubRecord *pgsub)
 	case 2:
 		/* Clear tables */
 		*vale = 0;  /* tell everyone there's no interpolation result */
-		for (ii=0; ii < pgsub->nova; ii++) {
+		for (ii=0; ii < pasub->nova; ii++) {
 			vala[ii] = valb[ii] = valc[ii] = 0.0;
 		}
 		*valn = 0;
