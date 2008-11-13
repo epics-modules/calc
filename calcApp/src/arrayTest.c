@@ -25,7 +25,7 @@ static long arrayTest_init(aSubRecord *pasub)
 	return(0);
 }
 
-static long arrayTest_do(genSubRecord *pasub)
+static long arrayTest_do(aSubRecord *pasub)
 {
 	double	*a, *valb, *vala;
 	long	i, *e;
