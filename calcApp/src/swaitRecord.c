@@ -774,7 +774,7 @@ STATIC void execOutput(swaitRecord *pwait)
 	if ((pwait->scan == SCAN_IO_EVENT) && (pcbst->procPending == 1)) {
 		if (swaitRecordDebug >= 10)
 			errlogPrintf("swaitRecord(%s)execOutput: calling scanOnce()\n", pwait->name);
-		scanOnce(pwait);
+		scanOnce((struct dbCommon *)pwait);
 	}
 	return;
 }
