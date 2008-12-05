@@ -128,6 +128,7 @@
 			  printf(FMT,V); } }
 #endif
 volatile int    transformRecordDebug = 0;
+epicsExportAddress(int, transformRecordDebug);
 
 #define DEBUG_LEVEL (transformRecordDebug + 10*ptran->tpro)
 
