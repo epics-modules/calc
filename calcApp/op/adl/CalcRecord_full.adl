@@ -1,13 +1,13 @@
 
 file {
-	name="/home/gmca/epics/gmcaApp/CalcRecord_full.adl"
-	version=030101
+	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/CalcRecord_full.adl"
+	version=030102
 }
 display {
 	object {
-		x=476
-		y=45
-		width=400
+		x=655
+		y=29
+		width=395
 		height=405
 	}
 	clr=14
@@ -211,23 +211,6 @@ polyline {
 		(398,52)
 	}
 }
-rectangle {
-	object {
-		x=20
-		y=63
-		width=214
-		height=24
-	}
-	"basic attribute" {
-		clr=20
-		fill="outline"
-		width=2
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)$(C).INAV"
-	}
-}
 text {
 	object {
 		x=5
@@ -268,23 +251,6 @@ text {
 	}
 	textix="B"
 }
-rectangle {
-	object {
-		x=20
-		y=85
-		width=214
-		height=24
-	}
-	"basic attribute" {
-		clr=20
-		fill="outline"
-		width=2
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)$(C).INBV"
-	}
-}
 "text entry" {
 	object {
 		x=22
@@ -312,23 +278,6 @@ text {
 		clr=14
 	}
 	textix="C"
-}
-rectangle {
-	object {
-		x=20
-		y=107
-		width=214
-		height=24
-	}
-	"basic attribute" {
-		clr=20
-		fill="outline"
-		width=2
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)$(C).INCV"
-	}
 }
 "text entry" {
 	object {
@@ -358,23 +307,6 @@ text {
 	}
 	textix="D"
 }
-rectangle {
-	object {
-		x=20
-		y=129
-		width=214
-		height=24
-	}
-	"basic attribute" {
-		clr=20
-		fill="outline"
-		width=2
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)$(C).INDV"
-	}
-}
 "text entry" {
 	object {
 		x=22
@@ -402,23 +334,6 @@ text {
 		clr=14
 	}
 	textix="E"
-}
-rectangle {
-	object {
-		x=20
-		y=151
-		width=214
-		height=24
-	}
-	"basic attribute" {
-		clr=20
-		fill="outline"
-		width=2
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)$(C).INEV"
-	}
 }
 "text entry" {
 	object {
@@ -448,23 +363,6 @@ text {
 	}
 	textix="F"
 }
-rectangle {
-	object {
-		x=20
-		y=173
-		width=214
-		height=24
-	}
-	"basic attribute" {
-		clr=20
-		fill="outline"
-		width=2
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)$(C).INFV"
-	}
-}
 "text entry" {
 	object {
 		x=22
@@ -492,23 +390,6 @@ text {
 		clr=14
 	}
 	textix="G"
-}
-rectangle {
-	object {
-		x=20
-		y=195
-		width=214
-		height=24
-	}
-	"basic attribute" {
-		clr=20
-		fill="outline"
-		width=2
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)$(C).INGV"
-	}
 }
 "text entry" {
 	object {
@@ -538,23 +419,6 @@ text {
 	}
 	textix="H"
 }
-rectangle {
-	object {
-		x=20
-		y=217
-		width=214
-		height=24
-	}
-	"basic attribute" {
-		clr=20
-		fill="outline"
-		width=2
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)$(C).INHV"
-	}
-}
 "text entry" {
 	object {
 		x=22
@@ -582,23 +446,6 @@ text {
 		clr=14
 	}
 	textix="I"
-}
-rectangle {
-	object {
-		x=20
-		y=239
-		width=214
-		height=24
-	}
-	"basic attribute" {
-		clr=20
-		fill="outline"
-		width=2
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)$(C).INIV"
-	}
 }
 "text entry" {
 	object {
@@ -628,23 +475,6 @@ text {
 	}
 	textix="J"
 }
-rectangle {
-	object {
-		x=20
-		y=261
-		width=214
-		height=24
-	}
-	"basic attribute" {
-		clr=20
-		fill="outline"
-		width=2
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)$(C).INJV"
-	}
-}
 "text entry" {
 	object {
 		x=22
@@ -673,23 +503,6 @@ text {
 	}
 	textix="K"
 }
-rectangle {
-	object {
-		x=20
-		y=283
-		width=214
-		height=24
-	}
-	"basic attribute" {
-		clr=20
-		fill="outline"
-		width=2
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)$(C).INKV"
-	}
-}
 "text entry" {
 	object {
 		x=22
@@ -717,39 +530,6 @@ text {
 		clr=14
 	}
 	textix="L"
-}
-rectangle {
-	object {
-		x=20
-		y=305
-		width=214
-		height=24
-	}
-	"basic attribute" {
-		clr=20
-		fill="outline"
-		width=2
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)$(C).INLV"
-	}
-}
-"text entry" {
-	object {
-		x=22
-		y=307
-		width=210
-		height=20
-	}
-	control {
-		chan="$(P)$(C).INPL"
-		clr=14
-		bclr=40
-	}
-	format="string"
-	limits {
-	}
 }
 text {
 	object {
@@ -1150,6 +930,22 @@ rectangle {
 		clr=14
 		bclr=51
 	}
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=22
+		y=307
+		width=210
+		height=20
+	}
+	control {
+		chan="$(P)$(C).INPL"
+		clr=14
+		bclr=40
+	}
+	format="string"
 	limits {
 	}
 }

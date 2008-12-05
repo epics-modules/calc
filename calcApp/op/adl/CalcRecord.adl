@@ -1,13 +1,13 @@
 
 file {
-	name="/home/gmca/epics/gmcaApp/CalcRecord.adl"
-	version=030101
+	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/CalcRecord.adl"
+	version=030102
 }
 display {
 	object {
 		x=477
 		y=492
-		width=400
+		width=395
 		height=230
 	}
 	clr=14
@@ -211,23 +211,6 @@ polyline {
 		(398,52)
 	}
 }
-rectangle {
-	object {
-		x=20
-		y=63
-		width=214
-		height=24
-	}
-	"basic attribute" {
-		clr=20
-		fill="outline"
-		width=2
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)$(C).INAV"
-	}
-}
 text {
 	object {
 		x=5
@@ -268,23 +251,6 @@ text {
 	}
 	textix="B"
 }
-rectangle {
-	object {
-		x=20
-		y=85
-		width=214
-		height=24
-	}
-	"basic attribute" {
-		clr=20
-		fill="outline"
-		width=2
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)$(C).INBV"
-	}
-}
 "text entry" {
 	object {
 		x=22
@@ -313,23 +279,6 @@ text {
 	}
 	textix="C"
 }
-rectangle {
-	object {
-		x=20
-		y=107
-		width=214
-		height=24
-	}
-	"basic attribute" {
-		clr=20
-		fill="outline"
-		width=2
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)$(C).INCV"
-	}
-}
 "text entry" {
 	object {
 		x=22
@@ -357,23 +306,6 @@ text {
 		clr=14
 	}
 	textix="D"
-}
-rectangle {
-	object {
-		x=20
-		y=129
-		width=214
-		height=24
-	}
-	"basic attribute" {
-		clr=20
-		fill="outline"
-		width=2
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)$(C).INDV"
-	}
 }
 "text entry" {
 	object {
