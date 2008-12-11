@@ -5,7 +5,7 @@ from math import *
 from string import *
 
 import os
-os.environ['EPICS_CA_ADDR_LIST'] = "164.54.53.99"
+#os.environ['EPICS_CA_ADDR_LIST'] = "164.54.53.99"
 
 sCalcRecord = "xxx:userStringCalc2"
 calc = sCalcRecord + ".CALC"
