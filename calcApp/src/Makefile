@@ -61,8 +61,8 @@ include $(TOP)/configure/RULES
 
 ifdef SSCAN
 calcSupport.dbd: ../calcSupport_LOCAL.dbd ../calcSupport_withSSCAN.dbd ../calcSupport_withGENSUB.dbd
-	cat ../calcSupport_LOCAL.dbd ../calcSupport_withSSCAN.dbd ../calcSupport_withGENSUB.dbd >calcSupport.dbd
+	perl ../cat.pl ../calcSupport_LOCAL.dbd ../calcSupport_withSSCAN.dbd ../calcSupport_withGENSUB.dbd calcSupport.dbd
 else
 calcSupport.dbd: ../calcSupport_LOCAL.dbd ../calcSupport_withGENSUB.dbd
-	cat ../calcSupport_LOCAL.dbd ../calcSupport_withGENSUB.dbd >calcSupport.dbd
+	perl ../cat.pl ../calcSupport_LOCAL.dbd ../calcSupport_withGENSUB.dbd calcSupport.dbd
 endif
