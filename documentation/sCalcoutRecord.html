@@ -171,7 +171,13 @@ truncates the result to fit into a 40-character string.
 Like the Calc record, the sCalcout record has a CALC field into which
 you can enter an expression for the record to evaluate when it processes.  The resulting numeric value will be placed in the VAL field, and the resulting string value will be placed in the SVAL field.  VAL can then be used by the OOPT field (see <A HREF="#MARKER-9-1">Section 5, <I>Output Parameters</I></A>) to determine whether or not to write to the output link or post an output event. Either VAL and SVAL can also be written to the output link.  (If you elect to write an output value, the record will choose between VAL and SVAL, depending on the data type of the field at the other end of the output link.)
 
-<P>&nbsp;The CALC expression is actually converted to opcodes and stored in Reverse Polish Notation in the RPCL field.  It is this expression which is ctually used to calculate VAL.  The Reverse Polish expression is evaluated more efficiently at run-time than an infix expression would be.  When CALC is  changed at run-time, the record-support routine <code>special()</code> will call a function to check it, and convert it to Reverse Polish Notation.
+<P>&nbsp;The CALC expression is actually converted to opcodes and stored in
+postfix notation in the RPCL field.  It is this expression which is actually
+used to calculate VAL.  The postfix expression is evaluated more efficiently at
+run-time than an infix expression would be.  When CALC is  changed at run-time,
+the record-support routine <code>special()</code> will call a function to check
+it, and convert it to postfix notation.
+
 <BR>The record also has a second set of calculation-related fields described  in <A HREF="#MARKER-9-1">Section 5, <I>Output Parameters.</I></A>
 
 <BR>&nbsp;
@@ -256,13 +262,13 @@ of a string variable.
 <H2>
 4.1. Operands</H2>
 The expression can use the values retrieved from the input links as operands,
-though constants can be used as operands too. These values retrieved from
+though constants can also be used as operands. These values retrieved from
 the input links are stored in the A-L, and AA-LL fields. The values to
 be used in the expression are simply referenced by the field name. For
 example, the value obtained from the INPA link is stored in the field A,
 and the value obtained from INPB is stored in field B. The field names
 can be included in the expression which will operate on their respective
-values, as in A+B.
+values, as in "A+B".
 
 <P>
 <TABLE BORDER>
