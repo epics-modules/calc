@@ -288,7 +288,18 @@ retained mostly for backward compatibility.
 <li>Edit <code>configure/RELEASE</code> to specify the paths to <b>EPICS
 base</b>, and to the <b>sscan</b> module.  If you don't have <b>sscan</b>, or
 don't want it to be used by the <b>calc</b> module, comment the definition out,
-and the <b>calc</b> module will adjust its build accordingly.
+and the <b>calc</b> module will adjust its build accordingly.  The only thing
+<b>calc</b> can't build without <b>sscan</b> is the swait record, which is
+retained in <b>calc</b> mostly for historical reasons.
+
+<blockquote>
+
+The swait record is the original "userCalc" record, and many users at APS have
+become accustomed to the way it works.  The calcout record from EPICS base, with
+"Async Soft Channel" device support, is a reasonable substitute for the swait
+record,
+
+</blockquote>
 
 <li>Run Gnu Make to build.
 <li>Note that the <b>calc</b> module is not useful on its own, but only produces
@@ -302,7 +313,7 @@ link to <code>libcalc</code>.
 <address>
     Suggestions and Comments to: <br>
     Tim Mooney (mooney@aps.anl.gov) <br>
-    Last modified: May 29, 2008 
+    Last modified: February 27, 2009 
 </address>
 </body>
 </html>
