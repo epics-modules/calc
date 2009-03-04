@@ -1,4 +1,9 @@
-The following fields of the aSub record have the following functions in this
+This interpolation software relies on the gensub record (written by Andy
+Foster), or the aSub record (included in EPICS base beginning with version
+3.14.10).  If needed, a copy of a genSub module version that is compatible
+with synApps is included in the synApps tar file.
+
+The following fields of the gensub record have the following functions in this
 software:
 
 VALA[]  independent variable
@@ -27,8 +32,8 @@ VALA]] increases with its array index.  You can do this in several ways:
 1) with a channel-access client, such as BURT or caput.  This works only
    at run time.
 2) by editing the file autosave writes when it's told to save according to
-   'interp.req', and then using autosave/restore to load that file.  This
-   works only at boot time
+   'interp.req' (later renamed 'interp_settings.req'), and then using
+   autosave/restore to load that file.  This works only at boot time.
 3) by setting the interp mode to "Add Entry", specifying interp_y1 and
    interp_y2 values, and then specifying an interp_x value. This works only at
    run time.
@@ -41,9 +46,9 @@ However you load the arrays, make sure you do all of the following:
 
 The supplied database adds a sort of user interface to the software described
 above.  The user writes to $(P)interp_x, and the database sends this value to
-the aSub record, which interpolates and, if successful, writes to
+the gensub record, which interpolates and, if successful, writes to
 $(P)interp_y1 and $(P)interp_y2.  If the user has specified output-link fields
 $(P)interp_y1.OUT or $(P)interp_y2.OUT, then the new values will be written to
 the PV's named in those links.
 
-Tim Mooney 11/12/2008
+Tim Mooney 3/04/2009
