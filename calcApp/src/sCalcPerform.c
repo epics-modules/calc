@@ -295,7 +295,7 @@ int lrc(char *output, char *rawInput)
 	unsigned int lrc;
 	unsigned char tranInput[100];
 
-	len = dbTranslateEscape(tranInput, rawInput);
+	len = dbTranslateEscape((char *)tranInput, rawInput);
 	if (len == 0) return(-1);
 	if (sCalcPerformDebug>=5) {
 		printf("input string(len=%d): ", len);
@@ -1680,7 +1680,6 @@ long epicsShareAPI
 						break;
 					case 's':
 						return(-1);
-						break;
 					}
 				}
 		 		i = epicsStrSnPrintEscaped(tmpstr, LOCAL_STRING_SIZE-1, ps->s, j);
@@ -1699,42 +1698,47 @@ long epicsShareAPI
 				s = findConversionIndicator(ps1->s);
 				if (s == NULL)
 					return(-1);
+				i = 1; /* successful return value from sscanf */
 				switch (*s) {
 				default: case 'p': case 'w': case 'n': case '$':
 					return(-1);
 				case 'd': case 'i':
 					if (s[-1] == 'h') {
-		 				sscanf(ps->s, ps1->s, &h);
+		 				i = sscanf(ps->s, ps1->s, &h);
 						ps->d = (double)h;
 					} else {
-		 				sscanf(ps->s, ps1->s, &l);
+		 				i = sscanf(ps->s, ps1->s, &l);
 						ps->d = (double)l;
 					}
 					ps->s = NULL;
 					break;
 				case 'o': case 'u': case 'x': case 'X':
 					if (s[-1] == 'h') {
-		 				sscanf(ps->s, ps1->s, &ui);
+		 				i = sscanf(ps->s, ps1->s, &ui);
 						ps->d = (double)ui;
 					} else {
-		 				sscanf(ps->s, ps1->s, &ul);
+		 				i = sscanf(ps->s, ps1->s, &ul);
 						ps->d = (double)ul;
 					}
 					ps->s = NULL;
 					break;
 				case 'e': case 'E': case 'f': case 'g': case 'G':
 					if (s[-1] == 'l') {
-		 				sscanf(ps->s, ps1->s, &(ps->d));
+		 				i = sscanf(ps->s, ps1->s, &(ps->d));
 					} else {
-		 				sscanf(ps->s, ps1->s, &f);
+		 				i = sscanf(ps->s, ps1->s, &f);
 						ps->d = (double)f;
 					}
 					ps->s = NULL;
 					break;
 				case 'c': case '[': case 's':
-		 			sscanf(ps->s, ps1->s, tmpstr);
+		 			i = sscanf(ps->s, ps1->s, tmpstr);
 					strNcpy(ps->s, tmpstr, LOCAL_STRING_SIZE-1);
 					break;
+				}
+				if (i != 1) {
+					/* sscanf error */
+					return(-1); 
 				}
 				break;
 
@@ -1808,7 +1812,6 @@ long epicsShareAPI
 				default: case 'p': case 'w': case 'n': case '$': case '[': case 's':
 					/* unsupported conversion indicator */
 					return(-1);
-					break;
 				case 'd': case 'i':
 					if (s[-1] == 'h') {
 						memcpy(&h, s1, 2);
