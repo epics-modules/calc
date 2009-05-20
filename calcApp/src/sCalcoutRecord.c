@@ -310,10 +310,13 @@ static long process(scalcoutRecord *pcalc)
 			stat = sCalcPerform(&pcalc->a, ARG_MAX, (char **)(pcalc->strs),
 					STRING_ARG_MAX, &pcalc->val, pcalc->sval, STRING_SIZE,
 					pcalc->rpcl);
-			if (stat)
+			if (stat) {
+				pcalc->val = -1;
+				strcpy(pcalc->sval,"***ERROR***");
 				recGblSetSevr(pcalc,CALC_ALARM,INVALID_ALARM);
-			else
+			} else {
 				pcalc->udf = FALSE;
+			}
 		}
 
 		/* Check VAL against limits */
@@ -418,7 +421,6 @@ static long special(dbAddr	*paddr, int after)
 		}
 		db_post_events(pcalc,&pcalc->clcv,DBE_VALUE);
 		return(0);
-		break;
 
 	case scalcoutRecordOCAL:
 		pcalc->oclv = sCalcPostfix(pcalc->ocal, (char *)pcalc->orpc, &error_number);
@@ -429,7 +431,6 @@ static long special(dbAddr	*paddr, int after)
 		}
 		db_post_events(pcalc,&pcalc->oclv,DBE_VALUE);
 		return(0);
-		break;
 
 	case(scalcoutRecordINPA):
 	case(scalcoutRecordINPB):
@@ -499,7 +500,6 @@ static long special(dbAddr	*paddr, int after)
 		}
         db_post_events(pcalc,plinkValid,DBE_VALUE);
 		return(0);
-		break;
 
 	default:
 		recGblDbaddrError(S_db_badChoice,paddr,"calc: special");
@@ -692,6 +692,8 @@ static void execOutput(scalcoutRecord *pcalc)
 		if (sCalcPerform(&pcalc->a, ARG_MAX, (char **)(pcalc->strs),
 				STRING_ARG_MAX, &pcalc->oval, pcalc->osv, STRING_SIZE,
 				(char *)pcalc->orpc)) {
+			pcalc->val = -1;
+			strcpy(pcalc->sval,"***ERROR***");
 			recGblSetSevr(pcalc,CALC_ALARM,INVALID_ALARM);
 		}
 		break;
