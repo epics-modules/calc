@@ -14,6 +14,7 @@ sresult = sCalcRecord + ".SVAL"
 
 small = 1.e-9
 
+# Initialize an sCalcout record's fields for testing
 A2L = "ABCDEFGHIJKL"
 
 A=1.
@@ -44,6 +45,10 @@ for i in range(12):
 	caput(sCalcRecord + "." + A2L[i], eval(A2L[i]))
 	caput(sCalcRecord + "." + A2L[i] + A2L[i], eval(A2L[i]+A2L[i]) )
 
+# List of expressions for testing
+# exp = [(sCalc_expression, equivalent_python_expression), ...]
+# If equivalent_python_expression == None, then the sCalc_expression can
+# be evaluated as-is by python.
 exp = [
 	("tan(A)", None),
 	("sin(B)", None),
