@@ -91,7 +91,7 @@ DEVELOPMENT CENTER AT ARGONNE NATIONAL LABORATORY (708-252-2000).
 #include <registryFunction.h>
 #include <epicsExport.h>
 
-#define	CIRBUFSIZE	10000
+#define	CIRBUFSIZE	1000
 #define NO_ERR_RPT	-1
 
 #define NUM_2_AVE	psub->a
@@ -99,9 +99,15 @@ DEVELOPMENT CENTER AT ARGONNE NATIONAL LABORATORY (708-252-2000).
 #define RESTART		psub->c
 #define MODE		psub->d
 #define FILL		psub->e
+#define ALGORITHM	psub->f
 
-#define CONTINUOUS_MODE	0
-#define STOPONNUM_MODE  1
+#define MODE_CONTINUOUS	0
+#define MODE_STOPONNUM  1
+
+#define ALGORITHM_AVERAGE	0
+#define ALGORITHM_LINFIT	1
+
+static double calculate_yFit(struct subRecord *psub);
 
 int	debugSubAve = 0;
 /* The following statement serves to make this debugging symbol available, 
@@ -110,115 +116,179 @@ int	debugSubAve = 0;
 epicsExportAddress(int, debugSubAve);
 
 struct	fcirBuf {
-	short	num;
-	short	cur;
-        short	fill;
-	double  *wp;
-	double  sum;
-	double  ave;
-	double	buf[CIRBUFSIZE];
+	short	num;	/* Number of values to average */
+	short	fill;	/* Number of values acquired thus far */
+	short	algorithm;	/* Average or fit line */
+	double	*yp;	/* Pointer to next y value */
+	double	sum;	/* running sum of y values */
+	double	ave;	/* running average of y values */
+	double	ybuf[CIRBUFSIZE];
+	epicsTimeStamp	*xp;	/* Pointer to next x value */
+	epicsTimeStamp	xbuf[CIRBUFSIZE];
 };
 
-long	initSubAve(
-struct	subRecord *psub)
+long	initSubAve(struct subRecord *psub)
 {
-  char	*xname="initSubAve";
-  struct  fcirBuf	*p;
-  short	i;
+	char	*xname="initSubAve";
+	struct	fcirBuf	*p;
+	short	i;
 
-  if ((psub->dpvt = malloc( sizeof(struct fcirBuf))) == NULL) {
-        errPrintf(S_dev_noMemory, __FILE__, __LINE__,
-		"%s: couldn't allocate memory for %s", xname, psub->name);
-	return(S_dev_noMemory);
-  }
-  p = (struct fcirBuf *)psub->dpvt;
-  if(debugSubAve)
-	printf("%s: Init completed for Subroutine Record %s\n", xname, 
-		psub->name);
-  for ( i = 0 ; i < CIRBUFSIZE; i++)
-	p->buf[i] = 0;
-  p->num = 1;
-  p->fill = p->cur  = 0;
-  p->wp = p->buf;
-  p->ave = p->sum = 0;
-  return(OK);
+	if ((psub->dpvt = malloc(sizeof(struct fcirBuf))) == NULL) {
+		errPrintf(S_dev_noMemory, __FILE__, __LINE__,
+			"%s: couldn't allocate memory for %s", xname, psub->name);
+		return(S_dev_noMemory);
+	}
+	p = (struct fcirBuf *)psub->dpvt;
+	if (debugSubAve)
+		printf("%s: Init completed for Subroutine Record %s\n", xname, psub->name);
+	for (i=0 ; i<CIRBUFSIZE; i++) {
+		p->ybuf[i] = 0;
+	}
+	p->num = 1;
+	p->fill = 0;
+	p->yp = p->ybuf;
+	p->xp = p->xbuf;
+	p->ave = p->sum = 0;
+	p->algorithm = (short)ALGORITHM;
+	return(OK);
 }
 
 
-long	SubAve(
-struct	subRecord *psub)
+long SubAve(struct subRecord *psub)
 {
-  char	*xname="SubAve";
-  long	num;
-  short i;
-  short restart;
-  unsigned short monitor_mask;
-  struct  fcirBuf	*p;
+	char	*xname="SubAve";
+	long	num;
+	short	i, restart, algorithm;
+	unsigned short monitor_mask;
+	struct	fcirBuf	*p;
 
-	if((p = (struct fcirBuf *)psub->dpvt) == NULL) {
-		if(debugSubAve)
+	if ((p = (struct fcirBuf *)psub->dpvt) == NULL) {
+		if (debugSubAve)
 			errPrintf(S_dev_noMemory, __FILE__, __LINE__,
 				"%s: dpvt in NULL for %s", xname, psub->name);
 		return(ERROR);
 	}
-  num = (long)NUM_2_AVE;
-  if ( num >  CIRBUFSIZE ) {
-	if(debugSubAve)
-		errPrintf(NO_ERR_RPT, __FILE__, __LINE__,
-			"%s: Num to ave (%ld) exceeds limit (%d) for PV %s",
-			 xname, num, CIRBUFSIZE,  psub->name);
-	num = CIRBUFSIZE;
-	NUM_2_AVE = num;
-	db_post_events(psub, &psub->a, DBE_VALUE);
-  }
+	num = (long)NUM_2_AVE;
+	algorithm = (short)ALGORITHM;
+	if (num > CIRBUFSIZE ) {
+		if (debugSubAve)
+			errPrintf(NO_ERR_RPT, __FILE__, __LINE__,
+				"%s: Num to ave (%ld) exceeds limit (%d) for PV %s",
+				 xname, num, CIRBUFSIZE, psub->name);
+		num = CIRBUFSIZE;
+		NUM_2_AVE = num;
+		db_post_events(psub, &psub->a, DBE_VALUE);
+	}
 	
-  restart = RESTART;
-  if (RESTART) {
-	RESTART=0;
-	db_post_events(psub, &psub->c, DBE_VALUE);
-  }
+	restart = RESTART;
+	if (RESTART) {
+		RESTART=0;
+		db_post_events(psub, &psub->c, DBE_VALUE);
+	}
 
-  if ( ((num != p->num) && (MODE == CONTINUOUS_MODE)) || restart ) {
-  	for ( i=0; i < p->num; i++)
-		p->buf[i]=0;
-  	p->wp = p->buf;
-	*p->wp = 0;
-        p->fill = p->cur = 0;
-	p->num = num;
-	p->ave = p->sum = 0;
-  }
-  if( p->fill == p->num) {
-	if( MODE == CONTINUOUS_MODE) {
-		p->sum += INPUTVAL -  *p->wp;
-		p->ave = p->sum/(double)num;
-		*p->wp = INPUTVAL;
-		if( ++(p->wp) >= p->buf + p->num) {
-		    p->wp = p->buf;
-			if(debugSubAve > 10) {
-  			    for ( i=0; i < p->num; i++)
-				printf("buf[%d] = %f\n", i, p->buf[i]);
+	if (algorithm != p->algorithm) {
+		restart = 1;
+		p->algorithm = algorithm;
+	}
+
+	if ( ((num != p->num) && (MODE == MODE_CONTINUOUS)) || restart ) {
+		/*
+		 * Number of values to average changed, or user said 'restart',
+		 * or user changed algorithm.
+		 */
+		for (i=0; i < p->num; i++)
+			p->ybuf[i]=0;
+		p->yp = p->ybuf;
+		*p->yp = 0;
+		p->xp = p->xbuf;
+		p->fill = 0;
+		p->num = num;
+		p->ave = p->sum = 0;
+	}
+	if (p->fill == p->num) {
+		if (MODE == MODE_CONTINUOUS) {
+			p->sum += INPUTVAL - *p->yp;
+			p->ave = p->sum/(double)num;
+			*p->yp = INPUTVAL;
+			if (++(p->yp) >= p->ybuf + p->num) {
+				p->yp = p->ybuf;
+				if (debugSubAve > 10) {
+					for (i=0; i < p->num; i++)
+						printf("ybuf[%d] = %f\n", i, p->ybuf[i]);
+				}
+			}
+			epicsTimeGetCurrent(p->xp);
+			if (++(p->xp) >= p->xbuf + p->num) {
+				p->xp = p->xbuf;
 			}
 		}
+		monitor_mask = recGblResetAlarms(psub);
+		db_post_events(psub, &psub->val, monitor_mask);
+	} else {
+		recGblSetSevr(psub, SOFT_ALARM, MAJOR_ALARM);
+		p->sum += INPUTVAL;
+		p->ave = p->sum/(double)(++p->fill);
+		*p->yp = INPUTVAL;
+		if (++(p->yp) >= p->ybuf + p->num)
+			p->yp = p->ybuf;
+		epicsTimeGetCurrent(p->xp);
+		if (++(p->xp) >= p->xbuf + p->num)
+			p->xp = p->xbuf;
+		if (debugSubAve > 10) {
+			printf("y val = %f, x val = 0x%x\n", *(p->yp), *(p->xp));
+		}
 	}
-	monitor_mask = recGblResetAlarms(psub);
-	db_post_events(psub, &psub->val, monitor_mask);
-  } else {
-	recGblSetSevr(psub, SOFT_ALARM, MAJOR_ALARM);
-	p->sum += INPUTVAL;
-	p->ave = p->sum/(double)(++p->fill);
-	*p->wp = INPUTVAL;
-	if( ++(p->wp) >= p->buf + p->num)
-		p->wp = p->buf;
-  }
-  psub->val = p->ave;
-  if(debugSubAve) {
-      printf("%s: ave = %.3f, sum = %.3f, num = %d\n", xname, p->ave, p->sum,
-		 p->fill);
-  }
-  psub->e = p->fill;
-  db_post_events(psub, &psub->e, DBE_VALUE);
+	if (algorithm == ALGORITHM_AVERAGE) {
+		psub->val = p->ave;
+	} else {
+		if (p->fill > 1) {
+			psub->val = calculate_yFit(psub);
+		} else {
+			psub->val = INPUTVAL;
+		}
+	}
 
-  return(OK);
+	if (debugSubAve) {
+		printf("%s: result = %.3f, sum = %.3f, num = %d\n", xname, p->ave, p->sum, p->fill);
+	}
+	psub->e = p->fill;
+	db_post_events(psub, &psub->e, DBE_VALUE);
+
+	return(OK);
+}
+
+static double calculate_yFit(struct subRecord *psub) {
+	struct	fcirBuf	*p = (struct fcirBuf *)psub->dpvt;
+	double sumx=0, sumy=0, sumxy=0, sumx2=0;
+	double x, y, m=0, b=0;
+	int i, n;
+	double	*yp = p->yp;	/* Pointer to y value */
+	epicsTimeStamp	*xp = p->xp;	/* Pointer to x value */
+	epicsTimeStamp	*currTime = NULL;	/* Pointer to x value */
+
+	if (p->num < 2)
+		return(0.0);
+	n = p->fill;
+	for (i=0; i<n; i++) {
+		if (--yp < p->ybuf) yp = p->ybuf + (p->num-1);
+		if (--xp < p->xbuf) xp = p->xbuf + (p->num-1);
+		if (i == 0) currTime = xp;
+		x = epicsTimeDiffInSeconds(currTime, xp);
+		y = *yp;
+		if (debugSubAve > 10) {
+			printf("%s: x[%d] = %.3f, y[%d] = %.3f\n", psub->name, i, x, i, y);
+		}
+		sumx += x;
+		sumy += y;
+		sumxy += x*y;
+		sumx2 += x*x;
+	}
+	m = (sumxy - sumx*sumy/n)/(sumx2 - sumx*sumx/n);
+	b = (sumy - m * sumx)/n;
+	if (debugSubAve > 10) {
+		printf("%s: m = %.3f, b = %.3f\n", psub->name, m, b);
+	}
+	return(b);
 }
 
 static registryFunctionRef subAveRef[] = {
