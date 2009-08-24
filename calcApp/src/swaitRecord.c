@@ -101,6 +101,7 @@
 #include <callback.h>
 #include <taskwd.h>
 #include <postfix.h>
+#include <menuYesNo.h>
 
 #define GEN_SIZE_OFFSET
 #include "swaitRecord.h"
@@ -381,7 +382,7 @@ STATIC long process(swaitRecord	*pwait)
 	/* reset procPending before getting values */
 	((struct cbStruct *)pwait->cbst)->procPending = 0;
 
-	if (pwait->simm == NO) {
+	if (pwait->simm == menuYesNoNO) {
 		if (fetch_values(pwait)==0) {
 			if (calcPerform(&pwait->a,&pwait->val,pwait->rpcl)) {
 				recGblSetSevr(pwait,CALC_ALARM,INVALID_ALARM);
