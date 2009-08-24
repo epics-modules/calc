@@ -95,6 +95,7 @@
 #include <dbFldTypes.h>
 #include <devSup.h>
 #include <errMdef.h>
+#include <errlog.h>
 #include <recSup.h>
 #include <recGbl.h>
 #include <special.h>
