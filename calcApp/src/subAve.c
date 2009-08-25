@@ -86,6 +86,7 @@ DEVELOPMENT CENTER AT ARGONNE NATIONAL LABORATORY (708-252-2000).
 #include <devSup.h>
 #include <link.h>
 #include <devLib.h>
+#include <errlog.h>
 #include <dbEvent.h>
 #include <subRecord.h>
 #include <registryFunction.h>
@@ -235,7 +236,7 @@ long SubAve(struct subRecord *psub)
 		if (++(p->xp) >= p->xbuf + p->num)
 			p->xp = p->xbuf;
 		if (debugSubAve > 10) {
-			printf("y val = %f, x val = 0x%x\n", *(p->yp), *(p->xp));
+			printf("y val = %f, x sec = %d\n", *(p->yp), (*(p->xp)).secPastEpoch);
 		}
 	}
 	if (algorithm == ALGORITHM_AVERAGE) {
