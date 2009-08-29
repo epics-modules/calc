@@ -39,6 +39,7 @@
 #include	<dbEvent.h>
 #include	<dbScan.h>
 #include	<errMdef.h>
+#include	<errlog.h>
 #include	<recSup.h>
 #include	<devSup.h>
 #include	<recGbl.h>
