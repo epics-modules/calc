@@ -461,7 +461,7 @@ long epicsShareAPI
 			/* if false condition then skip true expression */
 			checkStackElement(ps, *post);
 			toDouble(ps);
-			if (aCalcPerformDebug>=20) {printf("aCalcPerform:cond_if: ps->d=%f, ps-top=%d\n", ps->d, (int)ps-(int)top);}
+			if (aCalcPerformDebug>=20) {printf("aCalcPerform:cond_if: ps->d=%f, ps-top=%ld\n", ps->d, (long)(ps-top));}
 			if (ps->d == 0.0) {
 				/* skip to matching COND_ELSE */
 				for (got_if=1; got_if>0 && post[1] != END_STACK; ++post) {
