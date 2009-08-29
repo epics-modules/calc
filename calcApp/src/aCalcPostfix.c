@@ -427,8 +427,8 @@ long aCalcCheck(char *post, int forks_checked, int dir_mask)
 #if DEBUG
 	if (ps != top) {
 		if (aCalcPostfixDebug>=10) {
-			printf("aCalcCheck: stack error: top=%p, ps=%p, ps-top=%d, got_if=%d\n",
-				(void *)top, (void *)ps, ps-top, got_if);
+			printf("aCalcCheck: stack error: top=%p, ps=%p, ps-top=%ld, got_if=%d\n",
+				(void *)top, (void *)ps, (long)(ps-top), got_if);
 		}
 	}
 	if (aCalcPostfixDebug) printf("aCalcCheck: normal exit\n");
@@ -453,7 +453,7 @@ static int find_element(pbuffer, pelement, pno_bytes, parg)
 
  	/* compare the string to each element in the element table */
  	*pelement = &elements[0];
- 	while ((*pelement)->element[0] != NULL){
+ 	while ((*pelement)->element[0] != 0){
  		if (epicsStrnCaseCmp(pbuffer,(*pelement)->element, strlen((*pelement)->element)) == 0){
  			*pno_bytes += strlen((*pelement)->element);
  			return(TRUE);
@@ -492,13 +492,13 @@ register short	*pno_bytes, *parg;
 {
 
 	/* get the next expression element from the infix expression */
-	if (*pinfix == NULL) return(END);
+	if (*pinfix == 0) return(END);
 	*pno_bytes = 0;
 	while (*pinfix == 0x20){
 		*pno_bytes += 1;
 		pinfix++;
 	}
-	if (*pinfix == NULL) return(END);
+	if (*pinfix == 0) return(END);
 	if (!find_element(pinfix, pelement, pno_bytes, parg))
 		return(UNKNOWN_ELEMENT);
 #if DEBUG

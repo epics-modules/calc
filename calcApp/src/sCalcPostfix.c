@@ -1,4 +1,4 @@
-/* $Id: sCalcPostfix.c,v 1.17 2007-09-27 21:24:42 mooney Exp $
+/* $Id: sCalcPostfix.c,v 1.18 2009-08-29 22:16:59 rivers Exp $
  * Subroutines used to convert an infix expression to a postfix expression
  *
  *      Author:          Bob Dalesio
@@ -606,7 +606,7 @@ static int find_element(char *pbuffer, struct expression_element **pelement,
 
 	/* compare the string to each element in the element table */
 	*pelement = &elements[0];
-	while ((*pelement)->element[0] != NULL){
+	while ((*pelement)->element[0] != 0){
 		if (epicsStrnCaseCmp(pbuffer,(*pelement)->element, strlen((*pelement)->element)) == 0){
 			*pno_bytes += strlen((*pelement)->element);
 			return(TRUE);
@@ -643,13 +643,13 @@ static int get_element(char	*pinfix, struct expression_element **pelement,
 {
 
 	/* get the next expression element from the infix expression */
-	if (*pinfix == NULL) return(END);
+	if (*pinfix == 0) return(END);
 	*pno_bytes = 0;
 	while (*pinfix == 0x20){
 		*pno_bytes += 1;
 		pinfix++;
 	}
-	if (*pinfix == NULL) return(END);
+	if (*pinfix == 0) return(END);
 	if (!find_element(pinfix, pelement, pno_bytes, parg))
 		return(UNKNOWN_ELEMENT);
 #if DEBUG
@@ -1082,7 +1082,7 @@ long epicsShareAPI sCalcPostfix(char *pinfix, char *ppostfix, short *perror)
 void getOpString(char code, char* opString)
 {
 	struct expression_element *pelement;
-	for (pelement = &elements[0]; pelement->element[0] != NULL; pelement++){
+	for (pelement = &elements[0]; pelement->element[0] != 0; pelement++){
 		if (code == NO_STRING) {
 			strcpy(opString, "");
 			return;
