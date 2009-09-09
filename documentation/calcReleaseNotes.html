@@ -10,6 +10,31 @@ content="text/html; charset=iso-8859-1">
 
 <h1 align="center">calc Release Notes</h1>
 
+<h2 align="center">Release 2-8</h2>
+<ul>
+
+<li>Modified subAve.c (which supports userAve10.db) to add two algorithms: a
+line fit, selected by setting the sub record's .F field to 1, and a modified
+line fit, in which the calculated slope is multiplied by the correlation
+coefficient (.F ==2).  These algorithms fit recorded values, seen as a function
+of the time they were recorded, to a line, and return the line evaluated at the
+time the most recent input value was recorded.  This is nearly the same as
+taking the average, if the input signal's true value is constant.  But if the
+input signal varies with time, a line fit can yield a better estimate of the
+true current value.  This is particularly useful when the smoothed value is
+needed in a PID loop.
+
+<li>Modified sCalcPerform to add the function nrndm, a pseudorandom number
+normally (i.e., bell curve) distribed about zero, with a standard deviation of
+one.
+
+<li>Fixed a bug in the sCalcoutRecord (thanks to Lewis Muir for finding and
+diagnosing the problem).  The record was not in all cases checking that an
+input link had one of the supported types before before using it to fill the
+associated value field.  As a result, a link to a DBF_CHAR or DBF_UCHAR PV
+would clear the following link's value field.
+</ul>
+
 <h2 align="center">Release 2-7</h2>
 <ul>
 <li>Instead of the genSub record, the calc module now uses the aSub record
@@ -18,6 +43,9 @@ required changes.
 <li>transform record exports transformRecordDebug, and calcSupport.dbd names it.
 <li>new .adl files yyArrayCalc*.adl
 <li>CalcRecord*.adl: deleted link-valid fields, which don't exist for calc record.
+<li>sCalcPerform now returns an error if the sscanf function fails to convert.
+<li>the sCalcout record now sets VAL==-1 and SVAL == "***ERROR***" if sCalcPerform
+returns an error.
 </ul>
 
 <h2 align="center">Release 2-6-7</h2>
