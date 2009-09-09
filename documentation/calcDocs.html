@@ -136,30 +136,37 @@ userAve.adl<br>
 userAve10.adl<br>
 
 <dd>These files implement, manage, and display a set of 10 <b>sub</b> records
-programmed (thanks to Frank Lenkszus) to calculate the average of M values, where M is given by
-"$(P)userAve$(N).A", which are read via the input link "$(P)userAve$(N).INPB". 
-These records are intended for use in run-time programming.  The records can
-operate in two ways:
+programmed (thanks to Frank Lenkszus) to calculate the average of M values,
+where M is given by "$(P)userAve$(N).A", which are read via the input link
+"$(P)userAve$(N).INPB".  Alternatively, the <b>sub</b> record can be made to fit
+recorded values, seen as a function of time, to a line, and to return the line
+evaluated at the time of the most recently recorded value.  This is very similar
+to an average, if the true value is constant.  If the true value varies with
+time, the line fit produces a better estimate of the signal's true value than an
+average.
+
+<P>These records are intended for use in run-time programming.  With either
+algorithm, the records can operate in two ways:
 
 <dl>
 
-<P><dt>Running average ("$(P)userAve$(N)_mode" == "CONTINUOUS")
+<P><dt>Running average/fit ("$(P)userAve$(N)_mode" == "CONTINUOUS")
 
-<dd>After M values have been recorded, output the average of the most recent M
-value whenever a new value is read.
+<dd>After M values have been recorded, output the average (line-fit result) of
+the most recent M value whenever a new value is read.
 
-<P><dt>One-shot average ("$(P)userAve$(N)_mode" == "ONE-SHOT")
+<P><dt>One-shot average/fit ("$(P)userAve$(N)_mode" == "ONE-SHOT")
 
-<dd>Clear the output, read M values, output the average of those values, and
-ignore new values until a restart command is received ("$(P)userAve$(N).C is set
-to 1).
+<dd>Clear the output, read M values, output the average (line-fit result) of
+those values, and ignore new values until a restart command is received
+("$(P)userAve$(N).C is set to 1).
 
 </dl>
 
 <P>In either mode, the record uses its alarm field to indicate whether the
 output value it is displaying ("$(P)userAve$(N).VAL") is valid (i.e., is the
 result of M readings).  Until M readings have been read, the record will be in
-alarm (STAT=="SOFT", SEVR=="MAJOR").  After M readings have been averaged,
+alarm (STAT=="SOFT", SEVR=="MAJOR").  After M readings have been treated,
 STAT=="NO_ALARM", SEVR=="NO_ALARM".
 
 <P><dt>
