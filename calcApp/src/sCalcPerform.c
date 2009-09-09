@@ -588,9 +588,14 @@ long epicsShareAPI
 				*pd = log(*pd);
 				break;
 
-			case RANDOM:
+			case RANDOM:	/* Uniformly distributed in (0,1] (i.e., never zero). */
 				++pd;
 				*pd = local_random();
+				break;
+
+			case NORMAL_RNDM:	/* Normally distributed about zero, with std dev = 1. */
+				++pd;
+				*pd = sqrt(-2*log(local_random())) * cos(2*PI*local_random());
 				break;
 
 			case EXPON:
@@ -1133,6 +1138,12 @@ long epicsShareAPI
 			case RANDOM:
 				INC(ps);
 				ps->d = local_random();
+				ps->s = NULL;
+				break;
+
+			case NORMAL_RNDM:				
+				INC(ps);
+				ps->d = sqrt(-2*log(local_random())) * cos(2*PI*local_random());
 				ps->s = NULL;
 				break;
 
@@ -2118,15 +2129,14 @@ long epicsShareAPI
 static unsigned short seed = 0xa3bf;
 static unsigned short multy = 191 * 8 + 5;  /* 191 % 8 == 5 */
 static unsigned short addy = 0x3141;
+extern double simple_random(void);
 static double local_random()
 {
-        double  randy;
+	double  randy;
 
-        /* random number */
-        seed = (seed * multy) + addy;
-        randy = (float) seed / 65535.0;
-
-        /* between 0 - 1 */
-        return(randy);
+	/* random number */
+	seed = (seed * multy) + addy;
+	/* randy = (float) seed / 65535.0; */
+	randy = (float) (seed+1) / 65536.0;	/* exclude zero */
+	return(randy);
 }
-

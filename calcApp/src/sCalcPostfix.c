@@ -1,4 +1,4 @@
-/* $Id: sCalcPostfix.c,v 1.18 2009-08-29 22:16:59 rivers Exp $
+/* $Id: sCalcPostfix.c,v 1.19 2009-09-09 16:39:34 mooney Exp $
  * Subroutines used to convert an infix expression to a postfix expression
  *
  *      Author:          Bob Dalesio
@@ -241,6 +241,7 @@ element    i_s_p i_c_p type_element     internal_rep */
 {"@@",     10,    11,    UNARY_OPERATOR,  A_SFETCH},    /* fetch string argument */
 {"@",      10,    11,    UNARY_OPERATOR,  A_FETCH},     /* fetch numeric argument */
 {"RNDM",   0,    0,    OPERAND,         RANDOM},      /* Random Number */
+{"NRNDM",  0,    0,    OPERAND,         NORMAL_RNDM},   /* Normally Distributed Random Number */
 {"OR",     1,    1,    BINARY_OPERATOR, BIT_OR},      /* or */
 {"AND",    2,    2,    BINARY_OPERATOR, BIT_AND},     /* and */
 {"XOR",    1,    1,    BINARY_OPERATOR, BIT_EXCL_OR}, /* exclusive or */
@@ -387,7 +388,7 @@ long sCalcCheck(char *post, int forks_checked, int dir_mask)
 			break;
 
 		case CONST_PI:	case CONST_D2R:	case CONST_R2D:	case CONST_S2R:
-		case CONST_R2S:	case RANDOM:
+		case CONST_R2S:	case RANDOM: case NORMAL_RNDM:
 			ps++;
 			ps->s = NULL;
 			ps->d = 0;
