@@ -1,7 +1,7 @@
 
 file {
-	name="C:\cygwin\home\mooney\epics\synApps\support\calc\calcApp\op\adl\calcExamples.adl"
-	version=030004
+	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/calcExamples.adl"
+	version=030103
 }
 display {
 	object {
@@ -1827,4 +1827,16 @@ composite {
 			textix="DBL(aa)"
 		}
 	}
+}
+text {
+	object {
+		x=110
+		y=425
+		width=90
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="NRNDM"
 }
