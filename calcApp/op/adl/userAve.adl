@@ -1,14 +1,14 @@
 
 file {
-	name="C:\Program Files\EPICS WIN32 Extensions\synApps_4_3_adl\userAve.adl"
-	version=020306
+	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/userAve.adl"
+	version=030103
 }
 display {
 	object {
-		x=762
-		y=532
+		x=380
+		y=28
 		width=380
-		height=150
+		height=155
 	}
 	clr=14
 	bclr=4
@@ -128,9 +128,9 @@ text {
 }
 menu {
 	object {
-		x=2
+		x=5
 		y=32
-		width=100
+		width=90
 		height=16
 	}
 	control {
@@ -141,9 +141,9 @@ menu {
 }
 "message button" {
 	object {
-		x=107
+		x=100
 		y=30
-		width=40
+		width=35
 		height=20
 	}
 	control {
@@ -158,7 +158,7 @@ menu {
 	object {
 		x=1
 		y=0
-		width=240
+		width=180
 		height=26
 	}
 	control {
@@ -171,9 +171,9 @@ menu {
 }
 text {
 	object {
-		x=241
+		x=180
 		y=6
-		width=140
+		width=100
 		height=14
 	}
 	"basic attribute" {
@@ -181,39 +181,6 @@ text {
 	}
 	textix="($(P)$(C))"
 	align="horiz. centered"
-}
-text {
-	object {
-		x=150
-		y=32
-		width=80
-		height=20
-	}
-	"basic attribute" {
-		clr=20
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)userAveEnable.VAL"
-	}
-	textix="DISABLED"
-	align="horiz. centered"
-}
-"related display" {
-	object {
-		x=234
-		y=33
-		width=100
-		height=16
-	}
-	display[0] {
-		label="userAverages (all)"
-		name="userAve10.adl"
-		args="P=$(P)"
-	}
-	clr=14
-	bclr=51
-	label="-ENABLE ALL"
 }
 polyline {
 	object {
@@ -234,23 +201,6 @@ polyline {
 }
 text {
 	object {
-		x=155
-		y=33
-		width=70
-		height=15
-	}
-	"basic attribute" {
-		clr=54
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userAveEnable.VAL"
-	}
-	textix="ENABLED"
-	align="horiz. centered"
-}
-text {
-	object {
 		x=224
 		y=59
 		width=80
@@ -265,7 +215,7 @@ text {
 "text update" {
 	object {
 		x=312
-		y=56
+		y=55
 		width=65
 		height=15
 	}
@@ -297,8 +247,8 @@ polyline {
 }
 menu {
 	object {
-		x=224
-		y=128
+		x=225
+		y=115
 		width=100
 		height=18
 	}
@@ -311,7 +261,7 @@ menu {
 "message button" {
 	object {
 		x=328
-		y=128
+		y=115
 		width=50
 		height=18
 	}
@@ -320,14 +270,14 @@ menu {
 		clr=14
 		bclr=51
 	}
-	label="RESTART"
+	label="CLEAR"
 	press_msg="1"
 }
 "text entry" {
 	object {
 		x=154
 		y=128
-		width=30
+		width=60
 		height=20
 	}
 	control {
@@ -355,7 +305,7 @@ text {
 	object {
 		x=154
 		y=108
-		width=64
+		width=60
 		height=20
 	}
 	control {
@@ -380,22 +330,6 @@ text {
 	textix="# OF SAMPLES TO AVERAGE:"
 	align="horiz. right"
 }
-"related display" {
-	object {
-		x=189
-		y=129
-		width=29
-		height=18
-	}
-	display[0] {
-		name="userAve.adl"
-		args="P=$(P),C=$(C)"
-		policy="replace display"
-	}
-	clr=14
-	bclr=51
-	label="-Fix"
-}
 polyline {
 	object {
 		x=177
@@ -413,22 +347,6 @@ polyline {
 	points {
 		(178,134)
 		(183,134)
-	}
-}
-polyline {
-	object {
-		x=182
-		y=137
-		width=11
-		height=3
-	}
-	"basic attribute" {
-		clr=50
-		width=3
-	}
-	points {
-		(183,138)
-		(191,138)
 	}
 }
 text {
@@ -460,45 +378,154 @@ text {
 	limits {
 	}
 }
-composite {
+"text update" {
 	object {
 		x=224
-		y=80
+		y=87
 		width=154
-		height=41
+		height=26
+	}
+	monitor {
+		chan="$(P)$(C).VAL"
+		clr=0
+		bclr=14
+	}
+	clrmod="alarm"
+	align="horiz. centered"
+	format="string"
+	limits {
+	}
+}
+text {
+	object {
+		x=227
+		y=75
+		width=150
+		height=12
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="Averaged Value:"
+	align="horiz. centered"
+}
+menu {
+	object {
+		x=225
+		y=135
+		width=100
+		height=18
+	}
+	control {
+		chan="$(P)$(C)_algorithm.VAL"
+		clr=14
+		bclr=51
+	}
+}
+"related display" {
+	object {
+		x=305
+		y=33
+		width=70
+		height=16
+	}
+	display[0] {
+		label="userAverages (all)"
+		name="userAve10.adl"
+		args="P=$(P)"
+	}
+	clr=0
+	bclr=17
+	label="-ENABLE ALL"
+}
+composite {
+	object {
+		x=294
+		y=5
+		width=80
+		height=20
 	}
 	"composite name"=""
 	children {
-		"text update" {
+		text {
 			object {
-				x=224
-				y=95
-				width=154
-				height=26
+				x=294
+				y=5
+				width=80
+				height=20
 			}
-			monitor {
-				chan="$(P)$(C).VAL"
-				clr=0
-				bclr=14
+			"basic attribute" {
+				clr=20
 			}
-			clrmod="alarm"
+			"dynamic attribute" {
+				vis="if zero"
+				chan="$(P)userAveEnable.VAL"
+			}
+			textix="DISABLED"
 			align="horiz. centered"
-			format="string"
-			limits {
-			}
 		}
 		text {
 			object {
-				x=227
-				y=80
-				width=150
-				height=12
+				x=299
+				y=6
+				width=70
+				height=15
 			}
 			"basic attribute" {
-				clr=14
+				clr=54
 			}
-			textix="Averaged Value:"
+			"dynamic attribute" {
+				vis="if not zero"
+				chan="$(P)userAveEnable.VAL"
+			}
+			textix="ENABLED"
 			align="horiz. centered"
 		}
 	}
+}
+"choice button" {
+	object {
+		x=140
+		y=31
+		width=100
+		height=18
+	}
+	control {
+		chan="$(P)$(C)_busy.VAL"
+		clr=14
+		bclr=51
+	}
+	stacking="column"
+}
+"related display" {
+	object {
+		x=328
+		y=135
+		width=50
+		height=18
+	}
+	display[0] {
+		label="Value fields"
+		name="userAve_more.adl"
+		args="P=$(P),C=$(C)"
+		policy="replace display"
+	}
+	clr=0
+	bclr=17
+	label="-More"
+}
+"message button" {
+	object {
+		x=250
+		y=30
+		width=50
+		height=20
+	}
+	control {
+		chan="$(P)$(C)_acquire.PROC"
+		clr=14
+		bclr=51
+	}
+	label="Acquire"
+	press_msg="1"
 }
