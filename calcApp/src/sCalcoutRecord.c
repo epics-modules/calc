@@ -816,6 +816,8 @@ static int fetch_values(scalcoutRecord *pcalc)
 
 	for (i=0, plink=&pcalc->inaa, psvalue=pcalc->strs; i<STRING_ARG_MAX; 
 			i++, plink++, psvalue++) {
+		field_type = 0;
+		nelm = 1;
 		switch (plink->type) {
 		case CA_LINK:
 			field_type = dbCaGetLinkDBFtype(plink);
@@ -833,18 +835,20 @@ static int fetch_values(scalcoutRecord *pcalc)
 		default:
 			break;
 		}
-		if (nelm > STRING_SIZE-1) nelm = STRING_SIZE-1;
-		if (((field_type==DBR_CHAR) || (field_type==DBR_UCHAR)) && nelm>1) {
-			for (j=0; j<STRING_SIZE; j++) (*psvalue)[j]='\0';
-			status = dbGetLink(plink, field_type, tmpstr, 0, &nelm);
-			if (nelm>0) {
-				epicsStrSnPrintEscaped(*psvalue, STRING_SIZE-1, tmpstr, nelm);
-				(*psvalue)[STRING_SIZE-1] = '\0';
+		if ((plink->type==CA_LINK) || (plink->type==DB_LINK)) {
+			if (nelm > STRING_SIZE-1) nelm = STRING_SIZE-1;
+			if (((field_type==DBR_CHAR) || (field_type==DBR_UCHAR)) && nelm>1) {
+				for (j=0; j<STRING_SIZE; j++) (*psvalue)[j]='\0';
+				status = dbGetLink(plink, field_type, tmpstr, 0, &nelm);
+				if (nelm>0) {
+					epicsStrSnPrintEscaped(*psvalue, STRING_SIZE-1, tmpstr, nelm);
+					(*psvalue)[STRING_SIZE-1] = '\0';
+				} else {
+					(*psvalue)[0] = '\0';
+				}
 			} else {
-				(*psvalue)[0] = '\0';
+				status = dbGetLink(plink, DBR_STRING, *psvalue, 0, 0);
 			}
-		} else {
-			status = dbGetLink(plink, DBR_STRING, *psvalue, 0, 0);
 		}
 #if 0
 		if (!RTN_SUCCESS(status)) {
