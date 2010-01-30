@@ -5,12 +5,12 @@
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 
 # EPICS_BASE usually appears last so other apps can override stuff:
-EPICS_BASE=/home/oxygen/MOONEY/epics/base-3.14.10
+EPICS_BASE=/corvette/usr/local/epics/base-3.14.11
 
 # Need SSCAN module only to build the swait record (recDynLink library)
 # If you comment this definition out, the module will just decline to
 # build the swait record.
-SSCAN=/home/oxygen/MOONEY/epics/synApps/support/sscan
+SSCAN=/corvette/home/epics/devel/sscan/2-6-6
 
 #Capfast users may need the following definitions
 #CAPFAST_TEMPLATES=
