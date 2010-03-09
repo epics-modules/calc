@@ -24,15 +24,26 @@ input signal varies with time, a line fit can yield a better estimate of the
 true current value.  This is particularly useful when the smoothed value is
 needed in a PID loop.
 
-<li>Modified sCalcPerform to add the function nrndm, a pseudorandom number
+<li>subAve.c had fixed 10,000 element buffer.  Now it starts with 100 elements
+	and grows as needed to as many as 100,000 elements.
+
+<li>userAve10.db, userAve.adl - modifications to add subAve.c's new line-fit
+	algorithm.
+
+<li>Modified sCalc support to add the function nrndm, a pseudorandom number
 normally (i.e., bell curve) distribed about zero, with a standard deviation of
-one.
+one.  This affects sCalcout and transform records.
 
 <li>Fixed a bug in the sCalcoutRecord (thanks to Lewis Muir for finding and
 diagnosing the problem).  The record was not in all cases checking that an
 input link had one of the supported types before before using it to fill the
 associated value field.  As a result, a link to a DBF_CHAR or DBF_UCHAR PV
 would clear the following link's value field.
+
+<li>Fixes for EPICS 3.14.11, notably, adding errlog.h
+
+<li>Added FLNK to swait_settings.req (the 'userCalc' record)
+
 </ul>
 
 <h2 align="center">Release 2-7</h2>
