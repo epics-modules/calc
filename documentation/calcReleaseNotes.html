@@ -28,7 +28,10 @@ needed in a PID loop.
 	and grows as needed to as many as 100,000 elements.
 
 <li>userAve10.db, userAve.adl - modifications to add subAve.c's new line-fit
-	algorithm.
+	algorithm.  Modifications to allow clients easily to acquire an averaged
+	value (for example, in a scan) by writing to an "acquire" PV.  Clients
+	that use ca_put_callback to start acquisition will receive a callback when
+	the specified number of readings have been averaged.
 
 <li>Modified sCalc support to add the function nrndm, a pseudorandom number
 normally (i.e., bell curve) distribed about zero, with a standard deviation of
@@ -43,6 +46,8 @@ would clear the following link's value field.
 <li>Fixes for EPICS 3.14.11, notably, adding errlog.h
 
 <li>Added FLNK to swait_settings.req (the 'userCalc' record)
+
+<li>Added a simple soft function generator (sine square triangle), FuncGen*
 
 </ul>
 
