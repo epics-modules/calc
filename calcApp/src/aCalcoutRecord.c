@@ -140,8 +140,8 @@ static long writeValue(acalcoutRecord *pcalc);
 volatile int    aCalcoutRecordDebug = 0;
 epicsExportAddress(int, aCalcoutRecordDebug);
 
-#define ARG_MAX 12
-#define ARRAY_ARG_MAX 12
+#define MAX_FIELDS 12
+#define ARRAY_MAX_FIELDS 12
 
 
 static long init_record(acalcoutRecord *pcalc, int pass)
@@ -181,10 +181,10 @@ static long init_record(acalcoutRecord *pcalc, int pass)
 	plink = &pcalc->inpa;
 	pvalue = &pcalc->a;
 	plinkValid = &pcalc->inav;
-	for (i=0; i<(ARG_MAX+ARRAY_ARG_MAX+1); i++, plink++, pvalue++, plinkValid++) {
+	for (i=0; i<(MAX_FIELDS+ARRAY_MAX_FIELDS+1); i++, plink++, pvalue++, plinkValid++) {
 		if (plink->type == CONSTANT) {
 			/* Don't InitConstantLink the array links or the output link. */
-			if (i < ARG_MAX) { 
+			if (i < MAX_FIELDS) { 
 				recGblInitConstantLink(plink,DBF_DOUBLE,pvalue);
 				db_post_events(pcalc,pvalue,DBE_VALUE);
 			}
@@ -280,8 +280,8 @@ static long process(acalcoutRecord *pcalc)
 			/* Note that we want to permit nuse == 0 as a way of saying "use nelm". */
 			i = ((pcalc->nuse > 0) && (pcalc->nuse < pcalc->nelm)) ?
 				pcalc->nuse : pcalc->nelm;
-			stat = aCalcPerform(&pcalc->a, ARG_MAX, &pcalc->aa,
-					ARRAY_ARG_MAX, i, &pcalc->val, pcalc->aval, pcalc->rpcl);
+			stat = aCalcPerform(&pcalc->a, MAX_FIELDS, &pcalc->aa,
+					ARRAY_MAX_FIELDS, i, &pcalc->val, pcalc->aval, pcalc->rpcl);
 			if (stat) printf("%s:process: error in aCalcPerform()\n", pcalc->name);
 			if (i < pcalc->nelm) {
 				for (; i<pcalc->nelm; i++) pcalc->aval[i] = 0;
@@ -782,8 +782,8 @@ static void execOutput(acalcoutRecord *pcalc)
 	case acalcoutDOPT_Use_OVAL:
 		i = ((pcalc->nuse > 0) && (pcalc->nuse < pcalc->nelm)) ?
 			pcalc->nuse : pcalc->nelm;
-		if (aCalcPerform(&pcalc->a, ARG_MAX, &pcalc->aa,
-				ARRAY_ARG_MAX, i, &pcalc->oval, pcalc->oav, pcalc->rpcl)) {
+		if (aCalcPerform(&pcalc->a, MAX_FIELDS, &pcalc->aa,
+				ARRAY_MAX_FIELDS, i, &pcalc->oval, pcalc->oav, pcalc->rpcl)) {
 			recGblSetSevr(pcalc,CALC_ALARM,INVALID_ALARM);
 			printf("%s:execOutput: error in aCalcPerform()\n", pcalc->name);
 		}
@@ -885,14 +885,14 @@ static void monitor(acalcoutRecord *pcalc)
 	}
 
 	/* check all input fields for changes */
-	for (i=0, pnew=&pcalc->a, pprev=&pcalc->pa; i<ARG_MAX;  i++, pnew++, pprev++) {
+	for (i=0, pnew=&pcalc->a, pprev=&pcalc->pa; i<MAX_FIELDS;  i++, pnew++, pprev++) {
 		if ((*pnew != *pprev) || (monitor_mask&DBE_ALARM)) {
 			db_post_events(pcalc,pnew,monitor_mask|DBE_VALUE|DBE_LOG);
 			*pprev = *pnew;
 		}
 	}
 
-	for (i=0, panew=&pcalc->aa; i<ARRAY_ARG_MAX; i++, panew++) {
+	for (i=0, panew=&pcalc->aa; i<ARRAY_MAX_FIELDS; i++, panew++) {
 		if (*panew && (pcalc->new & (1<<i))) {
 			db_post_events(pcalc, *panew, monitor_mask|DBE_VALUE|DBE_LOG);
 		}
@@ -919,7 +919,7 @@ static int fetch_values(acalcoutRecord *pcalc)
 
 	if (aCalcoutRecordDebug >= 10)
 		printf("acalcoutRecord(%s):fetch_values: entry\n", pcalc->name);
-	for (i=0, plink=&pcalc->inpa, pvalue=&pcalc->a; i<ARG_MAX; 
+	for (i=0, plink=&pcalc->inpa, pvalue=&pcalc->a; i<MAX_FIELDS; 
 			i++, plink++, pvalue++) {
 		status = dbGetLink(plink, DBR_DOUBLE, pvalue, 0, 0);
 		if (!RTN_SUCCESS(status)) return(status);
@@ -927,7 +927,7 @@ static int fetch_values(acalcoutRecord *pcalc)
 
 	if (aCalcoutRecordDebug >= 10) printf("acalcoutRecord(%s):fetch_values: arrays\n", pcalc->name);
 	plinkValid = &pcalc->iaav;
-	for (i=0, plink=&pcalc->inaa, pavalue=(double **)(&pcalc->aa); i<ARRAY_ARG_MAX; 
+	for (i=0, plink=&pcalc->inaa, pavalue=(double **)(&pcalc->aa); i<ARRAY_MAX_FIELDS; 
 			i++, plink++, pavalue++, plinkValid++) {
 		if ((*plinkValid==acalcoutINAV_EXT) || (*plinkValid==acalcoutINAV_LOC)) {
 			if (aCalcoutRecordDebug >= 10) printf("acalcoutRecord(%s):fetch_values: field %c%c, pointer=%p\n",
@@ -995,7 +995,7 @@ static void checkLinks(acalcoutRecord *pcalc)
 	plink   = &pcalc->inpa;
 	plinkValid = &pcalc->inav;
 
-	for (i=0; i<ARG_MAX+ARRAY_ARG_MAX+1; i++, plink++, plinkValid++) {
+	for (i=0; i<MAX_FIELDS+ARRAY_MAX_FIELDS+1; i++, plink++, plinkValid++) {
 		if (plink->type == CA_LINK) {
 			isCaLink = 1;
 			if (dbCaIsLinkConnected(plink)) {
