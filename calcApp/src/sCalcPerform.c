@@ -364,7 +364,7 @@ long epicsShareAPI
 	double				d;
 	double				*topd, *pd;
 	short 				h, got_if, cvt_to_double;
-	DOUBLE_LONG			*pu;
+	DOUBLE64_2LONG32	*pu;
 
 #if DEBUG
 	if (sCalcPerformDebug>=10) {
@@ -868,7 +868,7 @@ long epicsShareAPI
 			case VARG_TERM:
 				/* put a NaN on the value stack to mark the end of arguments */
 				++pd;
-				pu = (DOUBLE_LONG *)pd;
+				pu = (DOUBLE64_2LONG32 *)pd;
 				pu->l[0] = pu->l[1] = 0xffffffff;
 				break;
 
@@ -2067,7 +2067,7 @@ long epicsShareAPI
 				/* put a NaN on the value stack to mark the end of arguments */
 				INC(ps);
 				ps->s = NULL;
-				pu = (DOUBLE_LONG *)&ps->d;
+				pu = (DOUBLE64_2LONG32 *)&ps->d;
 				pu->l[0] = pu->l[1] = 0xffffffff;
 				break;
 
