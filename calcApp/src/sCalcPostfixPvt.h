@@ -58,7 +58,7 @@
 #endif
 
 #define MAX_VARGS 20
-typedef union { long l[2]; double d; } DOUBLE_LONG;
+typedef union { epicsInt32 l[2]; epicsFloat64 d; } DOUBLE64_2LONG32;
 
 #define STACKSIZE 30
 #define LOCAL_STRING_SIZE 40

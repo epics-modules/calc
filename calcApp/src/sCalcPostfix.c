@@ -339,7 +339,7 @@ long sCalcCheck(char *post, int forks_checked, int dir_mask)
 	int					i, this_fork = 0;
 	double				dir;
 	short 				got_if=0;
-	DOUBLE_LONG			*pu;
+	DOUBLE64_2LONG32	*pu;
 	char				*post_top = post;
 #if DEBUG
 	char				debug_prefix[10]="";
@@ -505,7 +505,7 @@ long sCalcCheck(char *post, int forks_checked, int dir_mask)
 			/* put a NaN on the value stack to mark the end of arguments */
 			ps++;
 			ps->s = NULL;
-			pu = (DOUBLE_LONG *)&ps->d;
+			pu = (DOUBLE64_2LONG32 *)&ps->d;
 			pu->l[0] = pu->l[1] = 0xffffffff;
 			break;
 
