@@ -49,8 +49,6 @@
 #include "epicsMath.h"
 #endif
 
-typedef union { long l[2]; double d; } DOUBLE_LONG;
-
 #define STACKSIZE 20
 
 /*	defines for element table      */
