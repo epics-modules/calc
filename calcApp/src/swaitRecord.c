@@ -181,12 +181,12 @@ WAIT_IO_EVENT devSWaitIoEvent = {
 epicsExportAddress(dset, devSWaitIoEvent);
 
 /* DEFINES */
-#define   ARG_MAX   12  /* Number of input arguments of the record */
+#define   MAX_FIELDS 12 /* Number of input arguments of the record */
 #define   IN_PVS     1  /* Number of other input dynamic links(DOLN) */
 #define   OUT_PVS    1  /* Number of "non-input" dynamic links(OUTN) */
-#define   DOL_INDEX  ARG_MAX 
-#define   OUT_INDEX  (ARG_MAX + IN_PVS)
-#define   NUM_LINKS  (ARG_MAX + IN_PVS + OUT_PVS)
+#define   DOL_INDEX  MAX_FIELDS 
+#define   OUT_INDEX  (MAX_FIELDS + IN_PVS)
+#define   NUM_LINKS  (MAX_FIELDS + IN_PVS + OUT_PVS)
 #define   PVN_SIZE  40  /*must match the length defined in swaitRecord.db*/
 #define   Q_SIZE    50
 #define   PV_OK     0
@@ -616,7 +616,7 @@ STATIC void monitor(pwait)
                 db_post_events(pwait,&pwait->val,monitor_mask);
         }
         /* check all input fields for changes */
-        for(i=0, pnew=&pwait->a, pprev=&pwait->la; i<ARG_MAX;
+        for(i=0, pnew=&pwait->a, pprev=&pwait->la; i<MAX_FIELDS;
             i++, pnew++, pprev++) {
             if (*pnew != *pprev) {
                  db_post_events(pwait,pnew,monitor_mask|DBE_VALUE);
@@ -658,7 +658,7 @@ swaitRecord *pwait;
 
         piointInc  = &pwait->inap;
         for(i=0,  pvalue=&pwait->a, pPvStat = &pwait->inav;
-            i<ARG_MAX; i++, pvalue++, pPvStat++, piointInc++) {
+            i<MAX_FIELDS; i++, pvalue++, pPvStat++, piointInc++) {
 
             /* if any input should be connected, but is not, return */
             if (*pPvStat == PV_NC) {
