@@ -170,8 +170,8 @@ static long writeValue(scalcoutRecord *pcalc);
 volatile int    sCalcoutRecordDebug = 0;
 epicsExportAddress(int, sCalcoutRecordDebug);
 
-#define ARG_MAX 12
-#define STRING_ARG_MAX 12
+#define MAX_FIELDS 12
+#define STRING_MAX_FIELDS 12
 /*
  * Strings defined in the .dbd file are assumed to be of length STRING_SIZE.
  * Strings implemented in the .dbd file with a char * pointer (for which space
@@ -198,16 +198,16 @@ static long init_record(scalcoutRecord *pcalc, int pass)
 		pcalc->vers = VERSION;
 		pcalc->rpvt = (void *)calloc(1, sizeof(struct rpvtStruct));
 		/* allocate space for previous-value strings */
-		s = (char *)calloc(STRING_ARG_MAX, STRING_SIZE);
-		for (i=0, ps=(char **)&(pcalc->paa); i<STRING_ARG_MAX; i++, ps++)
+		s = (char *)calloc(STRING_MAX_FIELDS, STRING_SIZE);
+		for (i=0, ps=(char **)&(pcalc->paa); i<STRING_MAX_FIELDS; i++, ps++)
 			*ps = &s[i*STRING_SIZE];
 		/* allocate and fill in array of pointers to strings AA... */
-		pcalc->strs = (char **)calloc(STRING_ARG_MAX, sizeof(char *));
+		pcalc->strs = (char **)calloc(STRING_MAX_FIELDS, sizeof(char *));
 		if (sCalcoutRecordDebug) printf("sCalcoutRecord:init_record: strs=%p\n",
 			pcalc->strs);
 		s = (char *)&(pcalc->aa);
 		ps = (char **)(pcalc->strs);
-		for (i=0; i<STRING_ARG_MAX; i++, s+=STRING_SIZE, ps++)
+		for (i=0; i<STRING_MAX_FIELDS; i++, s+=STRING_SIZE, ps++)
 			*ps = s;
 		return(0);
 	}
@@ -226,10 +226,10 @@ static long init_record(scalcoutRecord *pcalc, int pass)
 	plink = &pcalc->inpa;
 	pvalue = &pcalc->a;
 	plinkValid = &pcalc->inav;
-	for (i=0; i<(ARG_MAX+STRING_ARG_MAX+1); i++, plink++, pvalue++, plinkValid++) {
+	for (i=0; i<(MAX_FIELDS+STRING_MAX_FIELDS+1); i++, plink++, pvalue++, plinkValid++) {
 		if (plink->type == CONSTANT) {
 			/* Don't InitConstantLink the string links or the output link. */
-			if (i < ARG_MAX) { 
+			if (i < MAX_FIELDS) { 
 				recGblInitConstantLink(plink,DBF_DOUBLE,pvalue);
 				db_post_events(pcalc,pvalue,DBE_VALUE);
 			}
@@ -308,8 +308,8 @@ static long process(scalcoutRecord *pcalc)
 		/* if some links are CA, check connections */
 		if (prpvt->caLinkStat != NO_CA_LINKS) checkLinks(pcalc);
 		if (fetch_values(pcalc)==0) {
-			stat = sCalcPerform(&pcalc->a, ARG_MAX, (char **)(pcalc->strs),
-					STRING_ARG_MAX, &pcalc->val, pcalc->sval, STRING_SIZE,
+			stat = sCalcPerform(&pcalc->a, MAX_FIELDS, (char **)(pcalc->strs),
+					STRING_MAX_FIELDS, &pcalc->val, pcalc->sval, STRING_SIZE,
 					pcalc->rpcl);
 			if (stat) {
 				pcalc->val = -1;
@@ -690,8 +690,8 @@ static void execOutput(scalcoutRecord *pcalc)
 		break;
 
 	case scalcoutDOPT_Use_OVAL:
-		if (sCalcPerform(&pcalc->a, ARG_MAX, (char **)(pcalc->strs),
-				STRING_ARG_MAX, &pcalc->oval, pcalc->osv, STRING_SIZE,
+		if (sCalcPerform(&pcalc->a, MAX_FIELDS, (char **)(pcalc->strs),
+				STRING_MAX_FIELDS, &pcalc->oval, pcalc->osv, STRING_SIZE,
 				(char *)pcalc->orpc)) {
 			pcalc->val = -1;
 			strcpy(pcalc->sval,"***ERROR***");
@@ -773,13 +773,13 @@ static void monitor(scalcoutRecord *pcalc)
 	}
 
 	/* check all input fields for changes */
-	for (i=0, pnew=&pcalc->a, pprev=&pcalc->pa; i<ARG_MAX;  i++, pnew++, pprev++) {
+	for (i=0, pnew=&pcalc->a, pprev=&pcalc->pa; i<MAX_FIELDS;  i++, pnew++, pprev++) {
 		if ((*pnew != *pprev) || (monitor_mask&DBE_ALARM)) {
 			db_post_events(pcalc,pnew,monitor_mask|DBE_VALUE|DBE_LOG);
 			*pprev = *pnew;
 		}
 	}
-	for (i=0, psnew=pcalc->strs, psprev=&pcalc->paa; i<STRING_ARG_MAX;
+	for (i=0, psnew=pcalc->strs, psprev=&pcalc->paa; i<STRING_MAX_FIELDS;
 			i++, psnew++, psprev++) {
 		if (strcmp(*psnew, *psprev)) {
 			db_post_events(pcalc, *psnew, monitor_mask|DBE_VALUE|DBE_LOG);
@@ -808,13 +808,13 @@ static int fetch_values(scalcoutRecord *pcalc)
 	TS_STAMP	timeStamp;
 #endif
 
-	for (i=0, plink=&pcalc->inpa, pvalue=&pcalc->a; i<ARG_MAX; 
+	for (i=0, plink=&pcalc->inpa, pvalue=&pcalc->a; i<MAX_FIELDS; 
 			i++, plink++, pvalue++) {
 		status = dbGetLink(plink, DBR_DOUBLE, pvalue, 0, 0);
 		if (!RTN_SUCCESS(status)) return(status);
 	}
 
-	for (i=0, plink=&pcalc->inaa, psvalue=pcalc->strs; i<STRING_ARG_MAX; 
+	for (i=0, plink=&pcalc->inaa, psvalue=pcalc->strs; i<STRING_MAX_FIELDS; 
 			i++, plink++, psvalue++) {
 		field_type = 0;
 		nelm = 1;
@@ -902,7 +902,7 @@ static void checkLinks(scalcoutRecord *pcalc)
 	plink   = &pcalc->inpa;
 	plinkValid = &pcalc->inav;
 
-	for (i=0; i<ARG_MAX+STRING_ARG_MAX+1; i++, plink++, plinkValid++) {
+	for (i=0; i<MAX_FIELDS+STRING_MAX_FIELDS+1; i++, plink++, plinkValid++) {
 		if (plink->type == CA_LINK) {
 			isCaLink = 1;
 			if (dbCaIsLinkConnected(plink)) {
