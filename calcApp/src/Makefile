@@ -36,6 +36,7 @@ ifdef SSCAN
 endif
 
 calc_SRCS += interp.c
+#test calc_SRCS += trajectory.c
 calc_SRCS += arrayTest.c
 
 # Register stuff
@@ -60,9 +61,9 @@ include $(TOP)/configure/RULES
 # of base.dbd from each support module.)
 
 ifdef SSCAN
-calcSupport.dbd: ../calcSupport_LOCAL.dbd ../calcSupport_withSSCAN.dbd ../calcSupport_withGENSUB.dbd
-	perl ../cat.pl ../calcSupport_LOCAL.dbd ../calcSupport_withSSCAN.dbd ../calcSupport_withGENSUB.dbd calcSupport.dbd
+calcSupport.dbd: ../calcSupport_LOCAL.dbd ../calcSupport_withSSCAN.dbd
+	perl ../cat.pl ../calcSupport_LOCAL.dbd ../calcSupport_withSSCAN.dbd calcSupport.dbd
 else
-calcSupport.dbd: ../calcSupport_LOCAL.dbd ../calcSupport_withGENSUB.dbd
-	perl ../cat.pl ../calcSupport_LOCAL.dbd ../calcSupport_withGENSUB.dbd calcSupport.dbd
+calcSupport.dbd: ../calcSupport_LOCAL.dbd
+	perl ../cat.pl ../calcSupport_LOCAL.dbd calcSupport.dbd
 endif
