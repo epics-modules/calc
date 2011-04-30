@@ -1,7 +1,7 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/calcExamples.adl"
-	version=030103
+	name="/home/oxygen4/MOONEY/epics/synAppsSVN/support/calc/calcApp/op/adl/calcExamples.adl"
+	version=030105
 }
 display {
 	object {
@@ -210,8 +210,8 @@ text {
 text {
 	object {
 		x=310
-		y=255
-		width=90
+		y=285
+		width=50
 		height=14
 	}
 	"basic attribute" {
@@ -223,7 +223,7 @@ text {
 	object {
 		x=310
 		y=270
-		width=90
+		width=50
 		height=14
 	}
 	"basic attribute" {
@@ -234,8 +234,8 @@ text {
 text {
 	object {
 		x=310
-		y=325
-		width=90
+		y=355
+		width=50
 		height=14
 	}
 	"basic attribute" {
@@ -247,25 +247,13 @@ text {
 	object {
 		x=310
 		y=340
-		width=90
+		width=50
 		height=14
 	}
 	"basic attribute" {
 		clr=14
 	}
 	textix="a>>b"
-}
-text {
-	object {
-		x=310
-		y=395
-		width=90
-		height=14
-	}
-	"basic attribute" {
-		clr=53
-	}
-	textix="@@a"
 }
 "related display" {
 	object {
@@ -1745,88 +1733,77 @@ text {
 	}
 	textix="$W('%lf',a)"
 }
-composite {
+text {
+	object {
+		x=10
+		y=510
+		width=90
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="INT(aa)"
+}
+text {
+	object {
+		x=10
+		y=540
+		width=90
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="MIN(aa,bb,..)"
+}
+text {
+	object {
+		x=10
+		y=525
+		width=90
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="MAX(aa,bb,..)"
+}
+text {
+	object {
+		x=10
+		y=555
+		width=90
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="NINT(aa)"
+}
+text {
 	object {
 		x=10
 		y=480
 		width=90
-		height=89
+		height=14
 	}
-	"composite name"=""
-	children {
-		text {
-			object {
-				x=10
-				y=510
-				width=90
-				height=14
-			}
-			"basic attribute" {
-				clr=53
-			}
-			textix="INT(aa)"
-		}
-		text {
-			object {
-				x=10
-				y=540
-				width=90
-				height=14
-			}
-			"basic attribute" {
-				clr=53
-			}
-			textix="MIN(aa,bb,..)"
-		}
-		text {
-			object {
-				x=10
-				y=525
-				width=90
-				height=14
-			}
-			"basic attribute" {
-				clr=53
-			}
-			textix="MAX(aa,bb,..)"
-		}
-		text {
-			object {
-				x=10
-				y=555
-				width=90
-				height=14
-			}
-			"basic attribute" {
-				clr=53
-			}
-			textix="NINT(aa)"
-		}
-		text {
-			object {
-				x=10
-				y=480
-				width=90
-				height=14
-			}
-			"basic attribute" {
-				clr=53
-			}
-			textix="BYTE(aa)"
-		}
-		text {
-			object {
-				x=10
-				y=495
-				width=90
-				height=14
-			}
-			"basic attribute" {
-				clr=53
-			}
-			textix="DBL(aa)"
-		}
+	"basic attribute" {
+		clr=53
 	}
+	textix="BYTE(aa)"
+}
+text {
+	object {
+		x=10
+		y=495
+		width=90
+		height=14
+	}
+	"basic attribute" {
+		clr=53
+	}
+	textix="DBL(aa)"
 }
 text {
 	object {
