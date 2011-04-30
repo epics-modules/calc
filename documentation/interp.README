@@ -51,4 +51,42 @@ $(P)interp_y1 and $(P)interp_y2.  If the user has specified output-link fields
 $(P)interp_y1.OUT or $(P)interp_y2.OUT, then the new values will be written to
 the PV's named in those links.
 
-Tim Mooney 3/04/2009
+==============================================================================
+To use BURT to load and save the VALA, VALB, and VALC arrays, make a burt
+request file for your loaded copy of the interp database:
+
+---begin file interp.req---
+xxx:interp.VALA
+xxx:interp.VALB
+xxx:interp.VALC
+---end file interp.req---
+
+Then make a load file using burtrb:
+
+burtrb -f interp.req -o interp.load
+
+This will produce an output file that might look something like this:
+
+---begin file interp.load---
+--- Start BURT header
+Time:     Thu Dec  9 17:17:48 2010
+Login ID: mooney (Tim Mooney)
+Eff  UID: 597
+Group ID: 104
+Keywords: 
+Comments: 
+Type:     Absolute
+Directory /home/oxygen4/MOONEY/epics/synAppsSVN/support/xxx/xxxApp/op/burt
+Req File: interp.req
+--- End BURT header
+xxx:interp.VALA 2000 0.000000000000000e+00 0.000000000000000e+00 ...
+xxx:interp.VALB 2000 0.000000000000000e+00 0.000000000000000e+00 ...
+xxx:interp.VALC 2000 0.000000000000000e+00 0.000000000000000e+00 ...
+---end file interp.load---
+
+You can edit this file to change the array values.  Note that the first
+number ("2000") on the line beginning "xxx:interp.VALA" is the number
+of array values specified on the rest of the line.  (I've chopped
+the line off after two array values in this example.)
+
+Tim Mooney 12/09/2010
