@@ -36,7 +36,6 @@ ifdef SSCAN
 endif
 
 calc_SRCS += interp.c
-#test calc_SRCS += trajectory.c
 calc_SRCS += arrayTest.c
 
 # Register stuff
