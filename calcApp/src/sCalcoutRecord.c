@@ -472,8 +472,28 @@ static long special(dbAddr	*paddr, int after)
 			if (fieldIndex == scalcoutRecordOUT)
 				prpvt->outlink_field_type = DBF_NOACCESS;
 		} else if (!dbNameToAddr(plink->value.pv_link.pvname, pAddr)) {
+			short pvlMask = plink->value.pv_link.pvlMask;
+			short isCA = pvlMask & (pvlOptCA|pvlOptCP|pvlOptCPP);
+
 			/* PV resides on this ioc */
-			*plinkValid = scalcoutINAV_LOC;
+			if ((fieldIndex <= scalcoutRecordINPL) || (fieldIndex > scalcoutRecordINLL) || !isCA) {
+				/* Not a string input link or not a CA (type) link */
+				*plinkValid = scalcoutINAV_LOC;
+			} else {
+				/*
+				 * string link of type CA.  We need to check the return from dbGetLink(),
+				 * because it may fail the first time we call it.  If we're connected to
+				 * a DBF_ENUM PV, dbGetLink() won't succeed until it gets the enum-string
+				 * values, which it needs to convert numbers to strings.
+				 */
+				/* lie: say the PV is not connected and from another ioc so we'll check it */
+				*plinkValid = scalcoutINAV_EXT_NC;
+				if (!prpvt->wd_id_1_LOCK) {
+					callbackRequestDelayed(&prpvt->checkLinkCb,.5);
+					prpvt->wd_id_1_LOCK = 1;
+					prpvt->caLinkStat = CA_LINKS_NOT_OK;
+				}
+			}
 			if (fieldIndex == scalcoutRecordOUT) {
 				prpvt->outlink_field_type = pAddr->field_type;
 				if ((pAddr->field_type >= DBF_INLINK) && (pAddr->field_type <= DBF_FWDLINK)) {
@@ -816,6 +836,7 @@ static int fetch_values(scalcoutRecord *pcalc)
 
 	for (i=0, plink=&pcalc->inaa, psvalue=pcalc->strs; i<STRING_MAX_FIELDS; 
 			i++, plink++, psvalue++) {
+		status = 0;
 		field_type = 0;
 		nelm = 1;
 		switch (plink->type) {
@@ -840,6 +861,8 @@ static int fetch_values(scalcoutRecord *pcalc)
 			if (((field_type==DBR_CHAR) || (field_type==DBR_UCHAR)) && nelm>1) {
 				for (j=0; j<STRING_SIZE; j++) (*psvalue)[j]='\0';
 				status = dbGetLink(plink, field_type, tmpstr, 0, &nelm);
+				if (sCalcoutRecordDebug > 1)
+					printf("fetch_values('%s'): dbGetLink(%d) field_type %d, returned %ld\n", pcalc->name, i, field_type, status);
 				if (nelm>0) {
 					epicsStrSnPrintEscaped(*psvalue, STRING_SIZE-1, tmpstr, nelm);
 					(*psvalue)[STRING_SIZE-1] = '\0';
@@ -848,6 +871,8 @@ static int fetch_values(scalcoutRecord *pcalc)
 				}
 			} else {
 				status = dbGetLink(plink, DBR_STRING, *psvalue, 0, 0);
+				if (sCalcoutRecordDebug > 1)
+					printf("fetch_values('%s'): dbGetLink(%d) DBR_STRING, returned %ld\n", pcalc->name, i, status);
 			}
 		}
 #if 0
@@ -896,8 +921,10 @@ static void checkLinks(scalcoutRecord *pcalc)
 	unsigned short	*plinkValid;
 	dbAddr			Addr;
 	dbAddr			*pAddr = &Addr;
+	char 			tmpstr[100];
+	int linkWorks;
 
-	if (sCalcoutRecordDebug) printf("checkLinks() for %p\n", pcalc);
+	if (sCalcoutRecordDebug) printf("checkLinks() for %s\n", pcalc->name);
 
 	plink   = &pcalc->inpa;
 	plinkValid = &pcalc->inav;
@@ -905,9 +932,32 @@ static void checkLinks(scalcoutRecord *pcalc)
 	for (i=0; i<MAX_FIELDS+STRING_MAX_FIELDS+1; i++, plink++, plinkValid++) {
 		if (plink->type == CA_LINK) {
 			isCaLink = 1;
+
+			/* See if link is fully functional. (CA link to ENUM must wait for enum strings.) */
+			linkWorks = 0;
 			if (dbCaIsLinkConnected(plink)) {
+				if (i >= MAX_FIELDS && i < MAX_FIELDS+STRING_MAX_FIELDS) {
+					/* this is a string link, do a trial dbGetLink() */
+					long	status;
+					status = dbGetLink(plink, DBR_STRING, tmpstr, 0, 0);
+					if (RTN_SUCCESS(status)) {
+						linkWorks = 1;
+					} else {
+						if (sCalcoutRecordDebug)
+							printf("checkLinks: dbGetLink returned %ld\n", status);
+					}
+				}
+			}
+
+			/* if (dbCaIsLinkConnected(plink)) { */
+			if (linkWorks) {
 				if (*plinkValid == scalcoutINAV_EXT_NC) {
-					*plinkValid = scalcoutINAV_EXT;
+					if (!dbNameToAddr(plink->value.pv_link.pvname, pAddr)) {
+						/* PV resides on this ioc */
+						*plinkValid = scalcoutINAV_LOC;
+					} else {
+						*plinkValid = scalcoutINAV_EXT;
+					}
 					db_post_events(pcalc,plinkValid,DBE_VALUE);
 				}
 				/* If this is the outlink, get the type of field it's connected to.  If it's connected
