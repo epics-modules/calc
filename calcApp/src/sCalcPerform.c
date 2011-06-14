@@ -105,9 +105,11 @@ extern void getOpString(char code, char* opString);
 #endif
 #define MAX(a,b) (a)>(b)?(a):(b)
 #define MIN(a,b) (a)<(b)?(a):(b)
+#define SMALL 1.e-11
 
 #define OVERRIDESTDCALC 0
 #define DEBUG 1
+#define INIT_STACK 1
 volatile int sCalcPerformDebug = 0;
 epicsExportAddress(int, sCalcPerformDebug);
 
@@ -128,8 +130,8 @@ int sCalcStackLW = 0;	/* low-water mark */
 /* strncpy sucks (may copy extra characters, may not null-terminate) */
 #define strNcpy(dest, src, N) {			\
 	int ii;								\
-	char *dd=dest, *ss=src;				\
-	for (ii=0; *ss && ii < N-1; ii++)	\
+	char *dd=(dest), *ss=(src);				\
+	for (ii=0; *ss && ii < (N)-1; ii++)	\
 		*dd++ = *ss++;					\
 	*dd = '\0';							\
 }
@@ -348,6 +350,27 @@ long epicsShareAPI
 }
 #endif
 
+void showStack_usesString(struct stackElement *ps) {
+	int i;
+	printf("stack: ");
+	for (i=0; i<3; i++, ps--) {
+		if (isDouble(ps))
+			printf("%f ", ps->d);
+		else 
+			printf("'%s' ", ps->s);
+	}
+	printf("\n");
+}
+
+void showStack_noString(double *pd) {
+	int i;
+	printf("stack: ");
+	for (i=0; i<3; i++, pd--) {
+		printf("%f ", *pd);
+	}
+	printf("\n");
+}
+
 #define TMPSTR_SIZE 1000
 long epicsShareAPI 
 	sCalcPerform(double *parg, int numArgs, char **psarg, int numSArgs, double *presult, char *psresult, int lenSresult, char *post)
@@ -381,10 +404,16 @@ long epicsShareAPI
 					more = 0;
 					break;
 				case LITERAL:
+#if 0
 					printf("(0x");
 					for (i=0, s++; i<8; i++, s++)
 						printf("%2x ", (unsigned int)(unsigned char)*s);
 					printf(") ");
+#else
+					memcpy((void *)&d,++s,8);
+					printf("%f ", d);
+					s += 8;
+#endif
 					break;
 				case SLITERAL:
 					s++; /* point past code */
@@ -400,6 +429,14 @@ long epicsShareAPI
 				case SFETCH:
 					s++; /* point past code */
 					printf("$%d ", *s++);
+					break;
+				case VARG_TERM:
+					s++; /* point past code */
+					printf("VARG_TERM ");
+					break;
+				case COND_END:
+					s++; /* point past code */
+					printf("COND_END ");
 					break;
 				default:
 					getOpString(*s, tmpstr);
@@ -425,11 +462,18 @@ long epicsShareAPI
 
 	if (*post++ != USES_STRING) {
 
+#if INIT_STACK
+		for (i=0, pd = ((double *)&stack[10])-10; i<STACKSIZE; i++, pd++) {
+			*pd = 0;
+		}
+#endif
+
 		topd = pd = (double *)&stack[10];
 		pd--;
 
 		/* No string expressions */
 		while (*post != END_STACK) {
+			if (sCalcPerformDebug>=15) showStack_noString(pd);
 
 			switch (*post){
 
@@ -666,42 +710,53 @@ long epicsShareAPI
 				checkDoubleElement(pd, *post);
 				--pd;
 				checkDoubleElement(pd, *post);
-				*pd = *pd >= pd[1];
+				/* *pd = *pd >= pd[1]; */
+				*pd = (fabs(*pd-pd[1]) < SMALL) || (*pd > pd[1]);
 				break;
 
 			case GR_THAN:
 				checkDoubleElement(pd, *post);
 				--pd;
 				checkDoubleElement(pd, *post);
-				*pd = *pd > pd[1];
+				/* *pd = *pd > pd[1]; */
+				*pd = (*pd - pd[1]) > SMALL;
 				break;
 
 			case LESS_OR_EQ:
 				checkDoubleElement(pd, *post);
 				--pd;
 				checkDoubleElement(pd, *post);
-				*pd = *pd <= pd[1];
+				/* *pd =  *pd < pd[1]; */
+				*pd = (fabs(*pd-pd[1]) < SMALL) || (*pd < pd[1]);
 				break;
 
 			case LESS_THAN:
 				checkDoubleElement(pd, *post);
 				--pd;
 				checkDoubleElement(pd, *post);
-				*pd = *pd < pd[1];
+				/* *pd = *pd < pd[1]; */
+				*pd = (pd[1] - *pd) > SMALL;
 				break;
 
 			case NOT_EQ:
 				checkDoubleElement(pd, *post);
 				--pd;
 				checkDoubleElement(pd, *post);
-				*pd = *pd != pd[1];
+				/* *pd = *pd != pd[1]; */
+				*pd = (fabs(*pd-pd[1]) > SMALL);
 				break;
 
 			case EQUAL:
 				checkDoubleElement(pd, *post);
 				--pd;
 				checkDoubleElement(pd, *post);
-				*pd = *pd == pd[1];
+#if 0
+				if (sCalcPerformDebug >= 15) {
+					printf("*pd=%f, pd[1]=%f, *pd == pd[1] = %d\n", *pd, pd[1], *pd == pd[1]);
+				}
+#endif
+				/* *pd = *pd == pd[1]; */
+				*pd = (fabs(*pd-pd[1]) < SMALL);
 				break;
 
 			case RIGHT_SHIFT:
@@ -901,7 +956,12 @@ long epicsShareAPI
 	} else {
 
 		/*** expression requires string operations ***/
-
+#if INIT_STACK
+		for (i=0, ps=&stack[0]; i<STACKSIZE; i++, ps++) {
+			ps->d = 0;
+			ps->s = NULL;
+		}
+#endif
 		top = ps = &stack[10];
 		ps--;  /* Expression handler assumes ps is pointing to a filled element */
 		ps->d = 1.23456; ps->s = NULL;	/* telltale */
@@ -1239,10 +1299,12 @@ long epicsShareAPI
 				checkStackElement(ps, *post);
 				if (isDouble(ps)) {
 					toDouble(ps1);
-					ps->d = ps->d >= ps1->d;
+					/* ps->d = ps->d >= ps1->d; */
+					ps->d = (fabs(ps->d - ps1->d) < SMALL) || (ps->d > ps1->d);
 				} else if (isDouble(ps1)) {
 					to_double(ps);
-					ps->d = ps->d >= ps1->d;
+					/* ps->d = ps->d >= ps1->d; */
+					ps->d = (fabs(ps->d - ps1->d) < SMALL) || (ps->d > ps1->d);
 				} else {
 					/* compare ps->s to ps1->s */
 					ps->d = (double)(strcmp(ps->s, ps1->s) >= 0);
@@ -1257,10 +1319,12 @@ long epicsShareAPI
 				checkStackElement(ps, *post);
 				if (isDouble(ps)) {
 					toDouble(ps1);
-					ps->d = ps->d > ps1->d;
+					/* ps->d = ps->d > ps1->d; */
+					ps->d = (ps->d - ps1->d) > SMALL;
 				} else if (isDouble(ps1)) {
 					to_double(ps);
-					ps->d = ps->d > ps1->d;
+					/* ps->d = ps->d > ps1->d; */
+					ps->d = (ps->d - ps1->d) > SMALL;
 				} else {
 					/* compare ps->s to ps1->s */
 					ps->d = (double)(strcmp(ps->s, ps1->s) > 0);
@@ -1275,10 +1339,12 @@ long epicsShareAPI
 				checkStackElement(ps, *post);
 				if (isDouble(ps)) {
 					toDouble(ps1);
-					ps->d = ps->d <= ps1->d;
+					/* ps->d = ps->d <= ps1->d; */
+					ps->d = (fabs(ps->d - ps1->d) < SMALL) || (ps->d < ps1->d);
 				} else if (isDouble(ps1)) {
 					to_double(ps);
-					ps->d = ps->d <= ps1->d;
+					/* ps->d = ps->d <= ps1->d; */
+					ps->d = (fabs(ps->d - ps1->d) < SMALL) || (ps->d < ps1->d);
 				} else {
 					/* compare ps->s to ps1->s */
 					ps->d = (double)(strcmp(ps->s, ps1->s) <= 0);
@@ -1293,10 +1359,12 @@ long epicsShareAPI
 				checkStackElement(ps, *post);
 				if (isDouble(ps)) {
 					toDouble(ps1);
-					ps->d = ps->d < ps1->d;
+					/* ps->d = ps->d < ps1->d; */
+					ps->d = (ps1->d - ps->d) > SMALL;
 				} else if (isDouble(ps1)) {
 					to_double(ps);
-					ps->d = ps->d < ps1->d;
+					/* ps->d = ps->d < ps1->d; */
+					ps->d = (ps1->d - ps->d) > SMALL;
 				} else {
 					/* compare ps->s to ps1->s */
 					ps->d = (double)(strcmp(ps->s, ps1->s) < 0);
@@ -1311,10 +1379,12 @@ long epicsShareAPI
 				checkStackElement(ps, *post);
 				if (isDouble(ps)) {
 					toDouble(ps1);
-					ps->d = ps->d != ps1->d;
+					/* ps->d = ps->d != ps1->d; */
+					ps->d = (fabs(ps->d - ps1->d) > SMALL);
 				} else if (isDouble(ps1)) {
 					to_double(ps);
-					ps->d = ps->d != ps1->d;
+					/* ps->d = ps->d != ps1->d; */
+					ps->d = (fabs(ps->d - ps1->d) > SMALL);
 				} else {
 					/* compare ps->s to ps1->s */
 					ps->d = (double)(strcmp(ps->s, ps1->s) != 0);
@@ -1329,10 +1399,12 @@ long epicsShareAPI
 				checkStackElement(ps, *post);
 				if (isDouble(ps)) {
 					toDouble(ps1);
-					ps->d = ps->d == ps1->d;
+					/* ps->d = ps->d == ps1->d; */
+					ps->d = (fabs(ps->d - ps1->d) < SMALL);
 				} else if (isDouble(ps1)) {
 					to_double(ps);
-					ps->d = ps->d == ps1->d;
+					/* ps->d = ps->d == ps1->d; */
+					ps->d = (fabs(ps->d - ps1->d) < SMALL);
 				} else if ((isString(ps)) && (isString(ps1))) {
 					/* compare ps->s to ps1->s */
 					ps->d = (double)(strcmp(ps->s, ps1->s) == 0);
