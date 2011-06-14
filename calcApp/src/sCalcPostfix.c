@@ -1105,5 +1105,5 @@ void getOpString(char code, char* opString)
 			return;
 		}
 	}
-	strcpy(opString, "???");
+	sprintf(opString, "???%d", code);
 }
