@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <display typeId="org.csstudio.opibuilder.Display" version="1.0">
   <auto_zoom_to_fit_all>false</auto_zoom_to_fit_all>
   <macros>
@@ -69,7 +70,7 @@ $(pv_value)</tooltip>
   <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="1.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
-    <minimum>-Infinity</minimum>
+    <minimum>-1.7976931348623157E308</minimum>
     <vertical_alignment>1</vertical_alignment>
     <show_units>true</show_units>
     <multiline_input>false</multiline_input>
@@ -101,7 +102,7 @@ $(pv_value)</tooltip>
     <border_style>3</border_style>
     <rules />
     <border_width>1</border_width>
-    <maximum>Infinity</maximum>
+    <maximum>1.7976931348623157E308</maximum>
     <limits_from_pv>false</limits_from_pv>
     <border_color>
       <color red="0" green="128" blue="255" />
@@ -121,6 +122,7 @@ $(pv_value)</tooltip>
     <height>10</height>
     <name>Label</name>
     <transparent>true</transparent>
+    <show_scrollbar>false</show_scrollbar>
     <background_color>
       <color red="255" green="255" blue="255" />
     </background_color>
@@ -143,6 +145,7 @@ $(pv_value)</tooltip>
     <horizontal_alignment>0</horizontal_alignment>
     <actions hook="false" />
     <y>56</y>
+    <wrap_words>true</wrap_words>
     <tooltip />
     <x>20</x>
   </widget>
@@ -177,7 +180,6 @@ $(pv_value)</tooltip>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>32</y>
-    <actions hook="false" />
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
     <x>5</x>
@@ -229,7 +231,7 @@ $(pv_value)</tooltip>
   <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="1.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
-    <minimum>-Infinity</minimum>
+    <minimum>-1.7976931348623157E308</minimum>
     <vertical_alignment>1</vertical_alignment>
     <show_units>true</show_units>
     <multiline_input>false</multiline_input>
@@ -261,7 +263,7 @@ $(pv_value)</tooltip>
     <border_style>3</border_style>
     <rules />
     <border_width>1</border_width>
-    <maximum>Infinity</maximum>
+    <maximum>1.7976931348623157E308</maximum>
     <limits_from_pv>false</limits_from_pv>
     <border_color>
       <color red="0" green="128" blue="255" />
@@ -281,6 +283,7 @@ $(pv_value)</tooltip>
     <height>14</height>
     <name>Label</name>
     <transparent>true</transparent>
+    <show_scrollbar>false</show_scrollbar>
     <background_color>
       <color red="255" green="255" blue="255" />
     </background_color>
@@ -303,6 +306,7 @@ $(pv_value)</tooltip>
     <horizontal_alignment>1</horizontal_alignment>
     <actions hook="false" />
     <y>6</y>
+    <wrap_words>true</wrap_words>
     <tooltip />
     <x>180</x>
   </widget>
@@ -361,6 +365,7 @@ $(pv_value)</tooltip>
     <height>12</height>
     <name>Label</name>
     <transparent>true</transparent>
+    <show_scrollbar>false</show_scrollbar>
     <background_color>
       <color red="255" green="255" blue="255" />
     </background_color>
@@ -383,6 +388,7 @@ $(pv_value)</tooltip>
     <horizontal_alignment>1</horizontal_alignment>
     <actions hook="false" />
     <y>59</y>
+    <wrap_words>true</wrap_words>
     <tooltip />
     <x>224</x>
   </widget>
@@ -507,7 +513,6 @@ $(pv_value)</tooltip>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>115</y>
-    <actions hook="false" />
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
     <x>225</x>
@@ -559,7 +564,7 @@ $(pv_value)</tooltip>
   <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="1.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
-    <minimum>-Infinity</minimum>
+    <minimum>-1.7976931348623157E308</minimum>
     <vertical_alignment>1</vertical_alignment>
     <show_units>true</show_units>
     <multiline_input>false</multiline_input>
@@ -591,7 +596,7 @@ $(pv_value)</tooltip>
     <border_style>3</border_style>
     <rules />
     <border_width>1</border_width>
-    <maximum>Infinity</maximum>
+    <maximum>1.7976931348623157E308</maximum>
     <limits_from_pv>false</limits_from_pv>
     <border_color>
       <color red="0" green="128" blue="255" />
@@ -611,6 +616,7 @@ $(pv_value)</tooltip>
     <height>10</height>
     <name>Label</name>
     <transparent>true</transparent>
+    <show_scrollbar>false</show_scrollbar>
     <background_color>
       <color red="255" green="255" blue="255" />
     </background_color>
@@ -633,13 +639,14 @@ $(pv_value)</tooltip>
     <horizontal_alignment>1</horizontal_alignment>
     <actions hook="false" />
     <y>134</y>
+    <wrap_words>true</wrap_words>
     <tooltip />
     <x>6</x>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="1.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
-    <minimum>-Infinity</minimum>
+    <minimum>-1.7976931348623157E308</minimum>
     <vertical_alignment>1</vertical_alignment>
     <show_units>true</show_units>
     <multiline_input>false</multiline_input>
@@ -671,7 +678,7 @@ $(pv_value)</tooltip>
     <border_style>3</border_style>
     <rules />
     <border_width>1</border_width>
-    <maximum>Infinity</maximum>
+    <maximum>1.7976931348623157E308</maximum>
     <limits_from_pv>false</limits_from_pv>
     <border_color>
       <color red="0" green="128" blue="255" />
@@ -691,6 +698,7 @@ $(pv_value)</tooltip>
     <height>10</height>
     <name>Label</name>
     <transparent>true</transparent>
+    <show_scrollbar>false</show_scrollbar>
     <background_color>
       <color red="255" green="255" blue="255" />
     </background_color>
@@ -713,6 +721,7 @@ $(pv_value)</tooltip>
     <horizontal_alignment>1</horizontal_alignment>
     <actions hook="false" />
     <y>114</y>
+    <wrap_words>true</wrap_words>
     <tooltip />
     <x>6</x>
   </widget>
@@ -771,6 +780,7 @@ $(pv_value)</tooltip>
     <height>10</height>
     <name>Label</name>
     <transparent>true</transparent>
+    <show_scrollbar>false</show_scrollbar>
     <background_color>
       <color red="255" green="255" blue="255" />
     </background_color>
@@ -793,6 +803,7 @@ $(pv_value)</tooltip>
     <horizontal_alignment>1</horizontal_alignment>
     <actions hook="false" />
     <y>94</y>
+    <wrap_words>true</wrap_words>
     <tooltip />
     <x>4</x>
   </widget>
@@ -890,6 +901,7 @@ $(pv_value)</tooltip>
     <height>12</height>
     <name>Label</name>
     <transparent>true</transparent>
+    <show_scrollbar>false</show_scrollbar>
     <background_color>
       <color red="255" green="255" blue="255" />
     </background_color>
@@ -912,6 +924,7 @@ $(pv_value)</tooltip>
     <horizontal_alignment>1</horizontal_alignment>
     <actions hook="false" />
     <y>75</y>
+    <wrap_words>true</wrap_words>
     <tooltip />
     <x>227</x>
   </widget>
@@ -946,7 +959,6 @@ $(pv_value)</tooltip>
       <color red="0" green="128" blue="255" />
     </border_color>
     <y>135</y>
-    <actions hook="false" />
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
     <x>225</x>
@@ -962,7 +974,7 @@ $(pv_value)</tooltip>
     <transparent>false</transparent>
     <pv_name />
     <background_color>
-      <color name="Gray_17" />
+      <color name="callup_bg" />
     </background_color>
     <foreground_color>
       <color name="callup_fg" />
@@ -983,12 +995,12 @@ $(pv_value)</tooltip>
     </border_color>
     <y>33</y>
     <actions hook="false">
-      <action type="OPEN_DISPLAY">
+      <action type="OPEN_OPI_IN_VIEW">
         <path>userAve10.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
-        <replace>false</replace>
+        <Position>1</Position>
         <description>userAverages (all)</description>
       </action>
     </actions>
@@ -1037,6 +1049,7 @@ $(pv_value)</tooltip>
       <height>20</height>
       <name>Label</name>
       <transparent>true</transparent>
+      <show_scrollbar>false</show_scrollbar>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1066,6 +1079,7 @@ $(pv_value)</tooltip>
       <horizontal_alignment>1</horizontal_alignment>
       <actions hook="false" />
       <y>0</y>
+      <wrap_words>true</wrap_words>
       <tooltip />
       <x>0</x>
     </widget>
@@ -1077,6 +1091,7 @@ $(pv_value)</tooltip>
       <height>15</height>
       <name>Label</name>
       <transparent>true</transparent>
+      <show_scrollbar>false</show_scrollbar>
       <background_color>
         <color red="255" green="255" blue="255" />
       </background_color>
@@ -1106,6 +1121,7 @@ $(pv_value)</tooltip>
       <horizontal_alignment>1</horizontal_alignment>
       <actions hook="false" />
       <y>1</y>
+      <wrap_words>true</wrap_words>
       <tooltip />
       <x>5</x>
     </widget>
@@ -1136,11 +1152,6 @@ $(pv_value)</tooltip>
       <color red="255" green="255" blue="255" />
     </selected_color>
     <rules />
-    <items>
-      <s>Choice 1</s>
-      <s>Choice 2</s>
-      <s>Choice 3</s>
-    </items>
     <border_width>1</border_width>
     <horizontal>true</horizontal>
     <items_from_pv>true</items_from_pv>
@@ -1185,22 +1196,22 @@ $(pv_value)</tooltip>
     </border_color>
     <y>155</y>
     <actions hook="false">
-      <action type="OPEN_DISPLAY">
+      <action type="OPEN_OPI_IN_VIEW">
         <path>yyCalcoutRecord.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <C>$(C)_doneCalc</C>
         </macros>
-        <replace>false</replace>
+        <Position>1</Position>
         <description>done calc</description>
       </action>
-      <action type="OPEN_DISPLAY">
+      <action type="OPEN_OPI_IN_VIEW">
         <path>yySeq.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
           <S>$(C)_acquire</S>
         </macros>
-        <replace>false</replace>
+        <Position>1</Position>
         <description>acquire seq</description>
       </action>
     </actions>
@@ -1263,7 +1274,7 @@ $(pv_value)</tooltip>
     <transparent>false</transparent>
     <pv_name />
     <background_color>
-      <color name="Gray_17" />
+      <color name="callup_bg" />
     </background_color>
     <foreground_color>
       <color name="callup_fg" />
@@ -1274,7 +1285,7 @@ $(pv_value)</tooltip>
     <font>
       <opifont.name>Default</opifont.name>
     </font>
-    <width>50</width>
+    <width>40</width>
     <border_style>6</border_style>
     <label>Less</label>
     <rules />
@@ -1284,18 +1295,18 @@ $(pv_value)</tooltip>
     </border_color>
     <y>135</y>
     <actions hook="false">
-      <action type="OPEN_DISPLAY">
+      <action type="OPEN_OPI_IN_VIEW">
         <path>userAve.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
-        <replace>false</replace>
+        <Position>1</Position>
         <description>Less</description>
       </action>
     </actions>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
-    <x>338</x>
+    <x>340</x>
   </widget>
   <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
     <visible>true</visible>
@@ -1305,6 +1316,7 @@ $(pv_value)</tooltip>
     <height>14</height>
     <name>Label</name>
     <transparent>true</transparent>
+    <show_scrollbar>false</show_scrollbar>
     <background_color>
       <color red="255" green="255" blue="255" />
     </background_color>
@@ -1327,6 +1339,7 @@ $(pv_value)</tooltip>
     <horizontal_alignment>0</horizontal_alignment>
     <actions hook="false" />
     <y>160</y>
+    <wrap_words>true</wrap_words>
     <tooltip />
     <x>5</x>
   </widget>
@@ -1338,6 +1351,7 @@ $(pv_value)</tooltip>
     <height>14</height>
     <name>Label</name>
     <transparent>true</transparent>
+    <show_scrollbar>false</show_scrollbar>
     <background_color>
       <color red="255" green="255" blue="255" />
     </background_color>
@@ -1360,6 +1374,7 @@ $(pv_value)</tooltip>
     <horizontal_alignment>0</horizontal_alignment>
     <actions hook="false" />
     <y>180</y>
+    <wrap_words>true</wrap_words>
     <tooltip />
     <x>5</x>
   </widget>
@@ -1371,6 +1386,7 @@ $(pv_value)</tooltip>
     <height>14</height>
     <name>Label</name>
     <transparent>true</transparent>
+    <show_scrollbar>false</show_scrollbar>
     <background_color>
       <color red="255" green="255" blue="255" />
     </background_color>
@@ -1393,6 +1409,7 @@ $(pv_value)</tooltip>
     <horizontal_alignment>0</horizontal_alignment>
     <actions hook="false" />
     <y>200</y>
+    <wrap_words>true</wrap_words>
     <tooltip />
     <x>5</x>
   </widget>
@@ -1404,6 +1421,7 @@ $(pv_value)</tooltip>
     <height>14</height>
     <name>Label</name>
     <transparent>true</transparent>
+    <show_scrollbar>false</show_scrollbar>
     <background_color>
       <color red="255" green="255" blue="255" />
     </background_color>
@@ -1426,6 +1444,7 @@ $(pv_value)</tooltip>
     <horizontal_alignment>0</horizontal_alignment>
     <actions hook="false" />
     <y>183</y>
+    <wrap_words>true</wrap_words>
     <tooltip />
     <x>170</x>
   </widget>
@@ -1437,6 +1456,7 @@ $(pv_value)</tooltip>
     <height>14</height>
     <name>Label</name>
     <transparent>true</transparent>
+    <show_scrollbar>false</show_scrollbar>
     <background_color>
       <color red="255" green="255" blue="255" />
     </background_color>
@@ -1459,6 +1479,7 @@ $(pv_value)</tooltip>
     <horizontal_alignment>0</horizontal_alignment>
     <actions hook="false" />
     <y>203</y>
+    <wrap_words>true</wrap_words>
     <tooltip />
     <x>170</x>
   </widget>
@@ -1470,6 +1491,7 @@ $(pv_value)</tooltip>
     <height>14</height>
     <name>Label</name>
     <transparent>true</transparent>
+    <show_scrollbar>false</show_scrollbar>
     <background_color>
       <color red="255" green="255" blue="255" />
     </background_color>
@@ -1492,6 +1514,7 @@ $(pv_value)</tooltip>
     <horizontal_alignment>0</horizontal_alignment>
     <actions hook="false" />
     <y>230</y>
+    <wrap_words>true</wrap_words>
     <tooltip />
     <x>5</x>
   </widget>

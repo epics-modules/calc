@@ -3186,10 +3186,10 @@ $(pv_value)</tooltip>
     <transparent>false</transparent>
     <pv_name />
     <background_color>
-      <color name="ioc_write_bg" />
+      <color name="callup_bg" />
     </background_color>
     <foreground_color>
-      <color name="default_fg" />
+      <color name="callup_fg" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
@@ -3207,28 +3207,28 @@ $(pv_value)</tooltip>
     </border_color>
     <y>30</y>
     <actions hook="false">
-      <action type="OPEN_DISPLAY">
+      <action type="OPEN_OPI_IN_VIEW">
         <path>yyWaitRecord.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
-        <replace>false</replace>
+        <Position>1</Position>
         <description>First four inputs only</description>
       </action>
-      <action type="OPEN_DISPLAY">
+      <action type="OPEN_OPI_IN_VIEW">
         <path>userCalcMeter.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
-        <replace>false</replace>
+        <Position>1</Position>
         <description>Show meter</description>
       </action>
-      <action type="OPEN_DISPLAY">
+      <action type="OPEN_OPI_IN_VIEW">
         <path>userCalc_help.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
-        <replace>false</replace>
+        <Position>1</Position>
         <description>Help</description>
       </action>
     </actions>
@@ -5204,12 +5204,12 @@ $(pv_value)</tooltip>
     </border_color>
     <y>382</y>
     <actions hook="false">
-      <action type="OPEN_DISPLAY">
+      <action type="OPEN_OPI_IN_VIEW">
         <path>calcExamples.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
-        <replace>false</replace>
+        <Position>1</Position>
         <description />
       </action>
     </actions>

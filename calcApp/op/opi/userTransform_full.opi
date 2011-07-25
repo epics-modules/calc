@@ -7255,10 +7255,10 @@ $(pv_value)</tooltip>
     <transparent>false</transparent>
     <pv_name />
     <background_color>
-      <color name="ioc_write_bg" />
+      <color name="callup_bg" />
     </background_color>
     <foreground_color>
-      <color name="default_fg" />
+      <color name="callup_fg" />
     </foreground_color>
     <widget_type>Menu Button</widget_type>
     <enabled>true</enabled>
@@ -7276,12 +7276,12 @@ $(pv_value)</tooltip>
     </border_color>
     <y>32</y>
     <actions hook="false">
-      <action type="OPEN_DISPLAY">
+      <action type="OPEN_OPI_IN_VIEW">
         <path>userTransforms10.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
-        <replace>false</replace>
+        <Position>1</Position>
         <description>userTrans (all)</description>
       </action>
     </actions>
@@ -7300,7 +7300,7 @@ $(pv_value)</tooltip>
     <transparent>false</transparent>
     <pv_name />
     <background_color>
-      <color name="Gray_17" />
+      <color name="callup_bg" />
     </background_color>
     <foreground_color>
       <color name="callup_fg" />
@@ -7345,7 +7345,7 @@ $(pv_value)</tooltip>
     <transparent>false</transparent>
     <pv_name />
     <background_color>
-      <color name="Gray_17" />
+      <color name="callup_bg" />
     </background_color>
     <foreground_color>
       <color name="callup_fg" />
@@ -7366,12 +7366,12 @@ $(pv_value)</tooltip>
     </border_color>
     <y>49</y>
     <actions hook="false">
-      <action type="OPEN_DISPLAY">
+      <action type="OPEN_OPI_IN_VIEW">
         <path>inlinkHelp.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
-        <replace>false</replace>
+        <Position>1</Position>
         <description>Terse link docs</description>
       </action>
     </actions>
@@ -7411,12 +7411,12 @@ $(pv_value)</tooltip>
     </border_color>
     <y>49</y>
     <actions hook="false">
-      <action type="OPEN_DISPLAY">
+      <action type="OPEN_OPI_IN_VIEW">
         <path>calcExamples.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
-        <replace>false</replace>
+        <Position>1</Position>
         <description />
       </action>
     </actions>
@@ -7435,7 +7435,7 @@ $(pv_value)</tooltip>
     <transparent>false</transparent>
     <pv_name />
     <background_color>
-      <color name="Gray_17" />
+      <color name="callup_bg" />
     </background_color>
     <foreground_color>
       <color name="callup_fg" />
@@ -7456,12 +7456,12 @@ $(pv_value)</tooltip>
     </border_color>
     <y>49</y>
     <actions hook="false">
-      <action type="OPEN_DISPLAY">
+      <action type="OPEN_OPI_IN_VIEW">
         <path>outlinkHelp.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
-        <replace>false</replace>
+        <Position>1</Position>
         <description>Terse link docs</description>
       </action>
     </actions>

@@ -962,7 +962,7 @@ $(pv_value)</tooltip>
     <transparent>false</transparent>
     <pv_name />
     <background_color>
-      <color name="Gray_17" />
+      <color name="callup_bg" />
     </background_color>
     <foreground_color>
       <color name="callup_fg" />
@@ -983,12 +983,12 @@ $(pv_value)</tooltip>
     </border_color>
     <y>33</y>
     <actions hook="false">
-      <action type="OPEN_DISPLAY">
+      <action type="OPEN_OPI_IN_VIEW">
         <path>userAve10.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
-        <replace>false</replace>
+        <Position>1</Position>
         <description>userAverages (all)</description>
       </action>
     </actions>
@@ -1164,7 +1164,7 @@ $(pv_value)</tooltip>
     <transparent>false</transparent>
     <pv_name />
     <background_color>
-      <color name="Gray_17" />
+      <color name="callup_bg" />
     </background_color>
     <foreground_color>
       <color name="callup_fg" />
@@ -1185,12 +1185,12 @@ $(pv_value)</tooltip>
     </border_color>
     <y>135</y>
     <actions hook="false">
-      <action type="OPEN_DISPLAY">
+      <action type="OPEN_OPI_IN_VIEW">
         <path>userAve_more.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
         </macros>
-        <replace>false</replace>
+        <Position>1</Position>
         <description>Value fields</description>
       </action>
     </actions>

@@ -196,7 +196,7 @@ $(pv_value)</tooltip>
     <transparent>false</transparent>
     <pv_name>$(P)$(C).DOPT</pv_name>
     <background_color>
-      <color name="callup_bg" />
+      <color name="MEDM_COLOR_47" />
     </background_color>
     <foreground_color>
       <color name="default_fg" />
@@ -2116,10 +2116,10 @@ $(pv_value)</tooltip>
     <selector_type>0</selector_type>
     <pv_name>$(P)$(C).OEVT</pv_name>
     <background_color>
-      <color name="callup_bg" />
+      <color name="ioc_write_bg" />
     </background_color>
     <foreground_color>
-      <color name="default_fg" />
+      <color name="ioc_write_fg" />
     </foreground_color>
     <widget_type>Text Input</widget_type>
     <enabled>true</enabled>
@@ -2302,7 +2302,7 @@ $(pv_value)</tooltip>
     <selector_type>0</selector_type>
     <pv_name>$(P)$(C).DOLD</pv_name>
     <background_color>
-      <color name="callup_bg" />
+      <color name="MEDM_COLOR_47" />
     </background_color>
     <foreground_color>
       <color name="default_fg" />
