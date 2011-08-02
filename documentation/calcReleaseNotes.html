@@ -9,6 +9,29 @@ content="text/html; charset=iso-8859-1">
 <body bgcolor="#FFFFFF">
 
 <h1 align="center">calc Release Notes</h1>
+<h2 align="center">Release 2-9</h2>
+<ul>
+
+<li>Dropped backward compatibility with genSub record
+
+<li>sCalcout record:
+	<ul>
+
+	<li>now treats arrays of DBF_CHAR, DBF_UCHAR as strings
+
+	<li>now checks CA string-input link by calling dbGetLink(), to defend
+		 against failure resulting from enum strings not having arrived before
+		 first call.
+
+	</ul>
+
+<li>Added .opi display files for CSS-BOY
+
+<li>Added some missing logical and bitwise operators to calcExamples.* displays
+
+<li>Added BURT array-load example to interp.README
+
+</ul>
 
 <h2 align="center">Release 2-8</h2>
 <ul>
