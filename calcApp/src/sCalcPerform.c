@@ -380,9 +380,9 @@ long epicsShareAPI
 	char				*s2, tmpstr[TMPSTR_SIZE], currSymbol;
 	char				*s, *s1, c;
 	int					i, j, k;
-	long				l;
+	long				l = 0L;
 	unsigned short		ui;
-	unsigned long		ul;
+	unsigned long		ul = 0UL;
 	float				f;
 	double				d;
 	double				*topd, *pd;
@@ -558,7 +558,7 @@ long epicsShareAPI
 			case COND_IF:
 				/* if false condition then skip true expression */
 				checkDoubleElement(pd, *post);
-				if (*pd == 0.0) {
+				if (fabs(*pd) < SMALL) {
 					/* skip to matching COND_ELSE */
 					for (got_if=1; got_if>0 && post[1] != END_STACK; ++post) {
 						switch(post[1]) {
@@ -646,7 +646,7 @@ long epicsShareAPI
 				checkDoubleElement(pd, *post);
 				--pd;
 				checkDoubleElement(pd, *post);
-				if (*pd == 0) break;
+				if (fabs(*pd) < SMALL) break;
 				if (*pd < 0) {
 					i = (int) pd[1];
 					/* is exponent an integer? */
@@ -687,7 +687,7 @@ long epicsShareAPI
 				checkDoubleElement(pd, *post);
 				--pd;
 				checkDoubleElement(pd, *post);
-				*pd = (int)(pd[1]) | (int)(*pd);
+				*pd = (long)(pd[1]) | (long)(*pd);
 				break;
 
 			case BIT_AND:
@@ -695,7 +695,7 @@ long epicsShareAPI
 				checkDoubleElement(pd, *post);
 				--pd;
 				checkDoubleElement(pd, *post);
-				*pd = (int)(pd[1]) & (int)(*pd);
+				*pd = (long)(pd[1]) & (long)(*pd);
 				break;
 
 			case BIT_EXCL_OR:
@@ -703,7 +703,7 @@ long epicsShareAPI
 				checkDoubleElement(pd, *post);
 				--pd;
 				checkDoubleElement(pd, *post);
-				*pd = (int)(pd[1]) ^ (int)(*pd);
+				*pd = (long)(pd[1]) ^ (long)(*pd);
 				break;
 
 			case GR_OR_EQ:
@@ -763,14 +763,14 @@ long epicsShareAPI
 				checkDoubleElement(pd, *post);
 				--pd;
 				checkDoubleElement(pd, *post);
-				*pd = (int)(*pd) >> (int)(pd[1]);
+				*pd = (long)(*pd) >> (long)(pd[1]);
 				break;
 
 			case LEFT_SHIFT:
 				checkDoubleElement(pd, *post);
 				--pd;
 				checkDoubleElement(pd, *post);
-				*pd = (int)(*pd) << (int)(pd[1]);
+				*pd = (long)(*pd) << (long)(pd[1]);
 				break;
 
 			case MAX_VAL:
@@ -862,14 +862,19 @@ long epicsShareAPI
 
 			case BIT_NOT:
 				checkDoubleElement(pd, *post);
-				*pd = ~(int)(*pd);
+				*pd = ~(long)(*pd);
 				break;
 
 			case A_FETCH:
 				checkDoubleElement(pd, *post);
 				d = *pd;
 				i = (int)(d >= 0 ? d+0.5 : 0);
-				*pd = (i < numArgs) ? parg[i] : 0;
+				if (i >= numArgs || i < 0) {
+					printf("sCalcPerform: fetch index, %d, out of range.\n", i);
+					*pd = 0;
+				} else {
+					*pd = parg[i];
+				}
 				break;
 
 			case LITERAL:
@@ -1113,7 +1118,7 @@ long epicsShareAPI
 				/* if false condition then skip true expression */
 				checkStackElement(ps, *post);
 				toDouble(ps);
-				if (ps->d == 0.0) {
+				if (fabs(ps->d) < SMALL) {
 					/* skip to matching COND_ELSE */
 					for (got_if=1; got_if>0 && post[1] != END_STACK; ++post) {
 						switch(post[1]) {
@@ -1234,9 +1239,9 @@ long epicsShareAPI
 				checkStackElement(ps, *post);
 				toDouble(ps1);
 				toDouble(ps);
-				if ((int)ps1->d == 0)
+				if ((long)ps1->d == 0)
 					return(-1);
-				ps->d = (double)((int)ps->d % (int)ps1->d);
+				ps->d = (double)((long)ps->d % (long)ps1->d);
 				break;
 
 			case REL_OR:
@@ -1267,7 +1272,7 @@ long epicsShareAPI
 				checkStackElement(ps, *post);
 				toDouble(ps1);
 				toDouble(ps);
-				ps->d = (int)(ps1->d) | (int)(ps->d);
+				ps->d = (long)(ps1->d) | (long)(ps->d);
 				break;
 
 			case BIT_AND:
@@ -1278,7 +1283,7 @@ long epicsShareAPI
 				checkStackElement(ps, *post);
 				toDouble(ps1);
 				toDouble(ps);
-				ps->d = (int)(ps1->d) & (int)(ps->d);
+				ps->d = (long)(ps1->d) & (long)(ps->d);
 				break;
 
 			case BIT_EXCL_OR:
@@ -1289,7 +1294,7 @@ long epicsShareAPI
 				checkStackElement(ps, *post);
 				toDouble(ps1);
 				toDouble(ps);
-				ps->d = (int)(ps1->d) ^ (int)(ps->d);
+				ps->d = (long)(ps1->d) ^ (long)(ps->d);
 				break;
 
 			case GR_OR_EQ:
@@ -1787,11 +1792,17 @@ long epicsShareAPI
 					return(-1);
 				case 'd': case 'i':
 					if (s[-1] == 'h') {
+						h = 0;
 		 				i = sscanf(ps->s, ps1->s, &h);
 						ps->d = (double)h;
-					} else {
+					} else if (s[-1] == 'l') {
+						l = 0L;
 		 				i = sscanf(ps->s, ps1->s, &l);
 						ps->d = (double)l;
+					} else {
+						j = 0;
+		 				i = sscanf(ps->s, ps1->s, &j);
+						ps->d = (double)j;
 					}
 					ps->s = NULL;
 					break;
