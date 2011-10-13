@@ -714,7 +714,7 @@ static void execOutput(scalcoutRecord *pcalc)
 				STRING_MAX_FIELDS, &pcalc->oval, pcalc->osv, STRING_SIZE,
 				(char *)pcalc->orpc)) {
 			pcalc->val = -1;
-			strcpy(pcalc->sval,"***ERROR***");
+			strcpy(pcalc->osv,"***ERROR***");
 			recGblSetSevr(pcalc,CALC_ALARM,INVALID_ALARM);
 		}
 		break;
