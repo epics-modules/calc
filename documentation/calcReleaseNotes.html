@@ -9,6 +9,17 @@ content="text/html; charset=iso-8859-1">
 <body bgcolor="#FFFFFF">
 
 <h1 align="center">calc Release Notes</h1>
+<h2 align="center">Release 2-10</h2>
+<ul>
+
+<li>In all .adl files displaying calc expressions, the expression widget has
+been  modified to have '$ "' appended to PV name, and to have the attribute
+'format=string'.  The space between the '$' and '"' is needed for MEDM versions
+earlier than 3-1-6, which assume '$' begins a macro substitution. 
+
+</ul>
+
+<h1 align="center">calc Release Notes</h1>
 <h2 align="center">Release 2-9</h2>
 <ul>
 
@@ -26,6 +37,9 @@ content="text/html; charset=iso-8859-1">
 	<li>fixes for 64-bit arch (Thanks to Lewis Muir and Andrew Johnson)
 
 	<li>Some additions to test_sCalc.py
+	
+	<li>Previously, if the OCAL expression evaluation produced an error, the
+	    record set SVAL, instead of OSV, to '***ERROR***'.
 
 	</ul>
 
