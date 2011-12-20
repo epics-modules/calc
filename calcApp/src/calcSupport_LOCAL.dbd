@@ -7,8 +7,6 @@ include "aCalcoutRecord.dbd"
 device(scalcout,CONSTANT,devsCalcoutSoft,"Soft Channel")
 device(acalcout,CONSTANT,devaCalcoutSoft,"Soft Channel")
 
-registrar(calcRegister)
-
 variable(debugSubAve, int)
 registrar(subAveRegister)
 
