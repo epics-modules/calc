@@ -22,6 +22,13 @@ software:
 <tr><td>NOVA    <td>max number of entries in a array - limits table size
 <tr><td>NOVB    <td>max number of entries in b array - limits table size
 <tr><td>NOVC    <td>max number of entries in c array - limits table size
+
+<tr><td>H       <td>array of new values of independent variable, for interp
+<tr><td>VALH    <td>array of interpolation results for dependent variable 1
+<tr><td>VALI    <td>array of interpolation results for dependent variable 2
+<tr><td>NOH     <td>max number of entries in h array, will be coerced to <= novh, novi
+<tr><td>NOVH    <td>max number of entries in valh array
+<tr><td>NOVI    <td>max number of entries in vali array
 </table>
 
 <P>Note: the code uses only n entries, where n = <code>MIN(NOVA, NOVB, NOVC)</code>
@@ -106,5 +113,10 @@ xxx:interp.VALC 2000 0.000000000000000e+00 0.000000000000000e+00 ...
 number ("2000") on the line beginning "xxx:interp.VALA" is the number
 of array values specified on the rest of the line.  (I've chopped
 the line off after two array values in this example.)
+
+<P>Beginning with calc 2.10, you can also interpolate using an array of values
+to produce arrays of results.  Instead of writing a scalar to A and getting
+scalars VALF and VALG, you set the mode to "Array Interpolate", write an array
+to H, and get arrays VALH and VALI.
 
 Tim Mooney
