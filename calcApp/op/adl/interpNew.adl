@@ -1,7 +1,7 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/xxx/xxxApp/op/adl/interpNew.adl"
-	version=030104
+	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/interpNew.adl"
+	version=030105
 }
 display {
 	object {
@@ -271,6 +271,12 @@ text {
 		label="Data Entry"
 		name="interpNewData.adl"
 		args="P=$(P),Q=$(Q)"
+	}
+	display[2] {
+		label="interp array"
+		name="interpArray.adl"
+		args="P=$(P),Q=$(Q)"
+		policy="replace display"
 	}
 	clr=0
 	bclr=17
