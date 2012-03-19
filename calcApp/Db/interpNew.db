@@ -12,6 +12,8 @@ record(mbbo, "$(P)interp$(Q=)_mode") {
   field(NOBT, "2")
   field(TWVL, "2")
   field(TWST, "Clear All")
+  field(THVL, "3")
+  field(THST, "Array Interpolate")
   field(FLNK, "$(P)interp$(Q=)_enableOut")
 }
 
@@ -31,15 +33,21 @@ record(ao, "$(P)interp$(Q=)_y2_in") {
   field(PREC, "5")
 }
 
-# A: x
-# B: y1(x)
-# C: y2(x)
-# D: x' (where yi are wanted)
-# E: num values
+# A: x new value, for interp or adding to VALA[]
+# B: y1(x) new value for adding to VALB[]
+# C: y2(x) new value for adding to VALC[]
+# VALN: num values
 # F: polynomial order
-# VALB: y1(D)
-# VALC: y2(D)
-# VALF, VALG: limits on D
+# G: mode (0: interpolate; 1: add point to tables; 2: clear tables; 3: interpolate array
+# VALA[]: independent variable
+# VALB[]: y1(VALA)
+# VALC[]: y2(VALA)
+# VALE: status: 0==successful interpolation
+# VALF: y1(A)
+# VALG: y2(A)
+# H: x[]
+# VALH[]: y1(H[])
+# VALI[]: y2(H[])
 record(aSub, "$(P)interp$(Q=)") {
   field(INAM, "interp_init")
   field(SNAM, "interp_do")
@@ -59,6 +67,9 @@ record(aSub, "$(P)interp$(Q=)") {
   field(NOVB, "$(N)")
   field(NOVC, "$(N)")
   field(OUTE, "$(P)interp$(Q=)_ok.VAL PP")
+  field(NOH, "$(N)")
+  field(NOVH, "$(N)")
+  field(NOVI, "$(N)")
 }
 
 record(longout, "$(P)interp$(Q=)_n") {
