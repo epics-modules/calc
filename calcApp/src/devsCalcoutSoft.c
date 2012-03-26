@@ -36,6 +36,7 @@
 #include "devSup.h"
 #include "link.h"
 #include "special.h"
+#include "sCalcPostfix.h"	/* needed for SCALC_INFIX_TO_POSTFIX_SIZE in sCalcoutRecord.h */
 #include "sCalcoutRecord.h"
 #include "epicsExport.h"
 #include	<callback.h>
