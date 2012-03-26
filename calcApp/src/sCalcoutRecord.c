@@ -824,9 +824,6 @@ static int fetch_values(scalcoutRecord *pcalc)
 	short	field_type = 0;
 	dbAddr	Addr;
 	dbAddr	*pAddr = &Addr;
-#if 0
-	TS_STAMP	timeStamp;
-#endif
 
 	for (i=0, plink=&pcalc->inpa, pvalue=&pcalc->a; i<MAX_FIELDS; 
 			i++, plink++, pvalue++) {
@@ -875,16 +872,6 @@ static int fetch_values(scalcoutRecord *pcalc)
 					printf("fetch_values('%s'): dbGetLink(%d) DBR_STRING, returned %ld\n", pcalc->name, i, status);
 			}
 		}
-#if 0
-		if (!RTN_SUCCESS(status)) {
-			/* might be a time value */
-			status = dbGetLink(plink, DBR_TIME, &timeStamp, 0, 0); /* doesn't work */
-			if (!RTN_SUCCESS(status)) {
-				TSgetTimeStamp((int) pcalc->tse, (struct timespec *) &timeStamp); /* works */
-			}
-			tsStampToText(&timeStamp, TS_TEXT_MMDDYY, *psvalue);
-		}
-#endif
 		if (!RTN_SUCCESS(status)) {strcpy(*psvalue, "Huh?");}
 	}
 	return(0);
