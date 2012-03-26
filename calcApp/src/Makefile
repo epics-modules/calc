@@ -38,9 +38,6 @@ endif
 calc_SRCS += interp.c
 calc_SRCS += arrayTest.c
 
-# Register stuff
-calc_SRCS += calcRegister.c
-
 calc_LIBS += $(EPICS_BASE_IOC_LIBS)
 
 #=============================
