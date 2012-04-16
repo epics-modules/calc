@@ -19,11 +19,15 @@ earlier than 3-1-6, which assume '$' begins a macro substitution.
 
 <li>Modified scalcout, transform, and swait records to use 80-character
 expression fields.  Modified associated autosave-request files to handle these
-fields by appending '$' to the field name.
+fields by appending '$' to the field name.  Note that autosave R4.9 or higher is
+required to save and restore these fields.
 
 <li>Modified interp.c and interpNew.* software to support interpolating an
 array of values to produce an array of results.  The interpolation of scalars
 and arrays uses the same interpolation tables and polynomial order.
+
+<li>The sseq record was moved from the std module to the calc module, along
+with all of its databases, request files, and display files.
 </ul>
 
 <h1 align="center">calc Release Notes</h1>

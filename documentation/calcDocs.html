@@ -28,6 +28,11 @@ supports string fields and calculations, and its output link can wait for comple
 into a single record.  The 16 calc expressions use a common set of 16
 value fields, but each calc expression writes to its own value field.
 
+<P><dt><a href="sseqRecord.html">sseqRecord.html</a>
+<dd>The <b>sseq</b> record is similar to the seq record in EPICS base, but it
+can write either to string or numeric fields, it can wait for completion after
+executing each output link, and the sequence can be aborted.
+
 <P><dt><a href="swaitRecord.html">swaitRecord.html</a>
 
 <dd>The <b>swait</b> record is much like the <b>calcout</b> record in EPICS
@@ -293,6 +298,19 @@ yyWaitRecord_full.adl
 <dd>MEDM displays for a plain <b>swait</b> record, i.e., one that is not also a
 userCalc, and a database to load a single <b>swait</b> record.  These files are
 retained mostly for backward compatibility.
+
+<P><dt>
+userStringSeqs10.db<br>
+userStringSeq*.adl
+
+<dd>Ten string-sequence records.
+
+
+<P><dt>
+yySseq.db<br>
+yySseq*.adl
+
+<dd>One string-sequence record.
 
 </dl>
 
