@@ -10,17 +10,90 @@ LispWorks 3.2.2 -->
 
 <H1>
 aCalcout - Array Calculation Output Record</H1>
+
+
+<!-- TOC -->
+<H2>Contents</H2>
+
+<DL>
+<DT><A HREF="#INTRODUCTION"><B>1. </B>- Introduction</A></DT>
+
+<DT><A HREF="#SCAN_PARAMETERS"><B>2. </B>- Scan Parameters</A></DT>
+
+<DT><A HREF="#ARRAY_SIZE_PARAMETERS"><B>3. </B>- Array-size Parameters</A></DT>
+
+<DT><A HREF="#INPUT_LINKS"><B>4. </B>- Input Links</A></DT>
+
+<DT><A HREF="#EXPRESSIONS"><B>5. </B>- Expressions</A></DT>
+
+<DT><A HREF="#OPERANDS"><B>5.1. </B>- Operands</A></DT>
+
+<DT><A HREF="#ALGEBRAIC"><B>5.2. </B>- Algebraic Functions/Operators</A></DT>
+
+<DT><A HREF="#TRIGONOMETRIC"><B>5.3. </B>- Trigonometric Functions</A></DT>
+
+<DT><A HREF="#RELATIONAL"><B>5.4. </B>- Relational Operators</A></DT>
+
+<DT><A HREF="#LOGICAL"><B>5.5. </B>- Logical Operators</A></DT>
+
+<DT><A HREF="#BITWISE"><B>5.6. </B>- Bitwise Operators</A></DT>
+
+<DT><A HREF="#SEPARATORS"><B>5.7. </B>- Separators</A></DT>
+
+<DT><A HREF="#IF-ELSE"><B>5.8. </B>- If-Else Expression</A></DT>
+
+<DT><A HREF="#ARRAY_SPECIFIC"><B>5.9. </B>- Array-specific Functions/Operators</A></DT>
+
+<DT><A HREF="#ARGUMENT_ARRAY"><B>5.10. </B>- Argument-array Operators</A></DT>
+
+<DT><A HREF="#EXAMPLES"><B>5.11. </B>- Examples</A></DT>
+
+<DT><A HREF="#OUTPUT_PARAMETERS"><B>6. </B>- Output Parameters</A></DT>
+
+<DT><A HREF="#DISPLAY_PARAMETERS"><B>7. </B>- Display Parameters</A></DT>
+
+<DT><A HREF="#ALARM_PARAMETERS"><B>8. </B>- Alarm Parameters</A></DT>
+
+<DT><A HREF="#MONITOR_PARAMETERS"><B>9. </B>- Monitor Parameters</A></DT>
+
+<DT><A HREF="#RUN-TIME_PARAMETERS"><B>10. </B>- Run-time Parameters</A></DT>
+
+<DT><A HREF="#RECORD_SUPPORT"><B>11. </B>- Record Support Routines</A></DT>
+
+<DT><A HREF="#INIT_RECORD">init_record</A></DT>
+
+<DT><A HREF="#PROCESS">process</A></DT>
+
+<DT><A HREF="#SPECIAL">special</A></DT>
+
+<DT><A HREF="#GET_VALUE">get_value</A></DT>
+
+<DT><A HREF="#GET_UNITS">get_units</A></DT>
+
+<DT><A HREF="#GET_PRECISION">get_precision</A></DT>
+
+<DT><A HREF="#GET_GRAPHIC_DOUBLE">get_graphic_double</A></DT>
+
+<DT><A HREF="#GET_CONTROL_DOUBLE">get_control_double</A></DT>
+
+<DT><A HREF="#GET_ALARM_DOUBLE">get_alarm_double</A></DT>
+
+<DT><A HREF="#RECORD_PROCESSING"><B>12. </B>- Record Processing</A></DT>
+
+<DT><A HREF="#PROCESS"><B>12.1. </B>- process()</A></DT>
+
+<DT><A HREF="#EXEC_OUTPUT"><B>12.2. </B>- execOutput()</A></DT>
+</DL>
+
 <HR><A NAME="INTRODUCTION"></A>
 
-<em>
-Note: this record, and the calc engine that it uses, are experimental.  While
-the scalar functions and operators are probably fairly stable, array operators
-and functions described here are not guaranteed to exist in future versions of
-this software, or to behave in exactly the same way.  For example, the function
-that takes the derivative of an array currently expects a single array argument,
-and constructs an artificial independent variable array; probably a future
-version will require that two arrays be specified. 
-</em>
+<em> Note: Some aspects of this record, and of the calc engine that it uses, are
+experimental.  While the scalar functions and operators are probably fairly
+stable, array operators and functions described here are not guaranteed to exist
+in future versions of this software, or to behave in exactly the same way.  For
+example, the function that takes the derivative of an array currently expects a
+single array argument, and constructs an artificial independent variable array;
+probably a future version will require that two arrays be specified.  </em>
 
 <H1>
 1. Introduction</H1>
@@ -48,10 +121,23 @@ circumstances the record will be processed.  See the EPICS Record Reference
 Manual for these fields and their use.
 
 <P>&nbsp;
+<HR><A NAME="ARRAY_SIZE_PARAMETERS"></A>
+<H1>
+3. Array-size Parameters</H1>
+
+The aCalcout record allocates NELM elements for its arrays the first time they
+are used. This is the maximum number of array elements, and it applies to all
+arrays.  NELM must be specified at boot time, before any array is used.
+
+<P>The number of elements actually used is specified as NUSE.  The value of NUSE
+will forced into the range 0,NELM (inclusive).  If NUSE==0, the record will take
+it as NELM.
+
+<P>&nbsp;
 <HR><A NAME="INPUT_LINKS"></A>
 
 <H1>
-3. Input Links</H1>
+4. Input Links</H1>
 
 The aCalcout record has 24 links with which it fetches values for use in expressions: 12 to
 scalar fields (INPA -> A, INPB -> B, . . . INPL -> L); and 12 to array fields
@@ -61,7 +147,7 @@ cannot be hardware addresses. In addition, the aCalcout record contains the
 fields INAV, INBV, . . . INLV, which indicate the status of the links to scalar
 fields, and the fields IAAV, IBBV, . . . ILLV, which indicate the status of the
 links to array fields.&nbsp; These fields indicate whether or not the specified
-PV was found and a link to it established. See <A HREF="#DISPLAY_PARAMETERS">Section 6,
+PV was found and a link to it established. See <A HREF="#DISPLAY_PARAMETERS">Section 7,
 <I>Display Parameters</I></A> for an explanation of these fields.
 
 <P>&nbsp;See the EPICS Record Reference Manual for information on how to specify
@@ -173,13 +259,13 @@ database links.
 
 <HR><A NAME="EXPRESSIONS"></A>
 <H1>
-4. Expressions</H1>
+5. Expressions</H1>
 
 Like the Calcout record, the aCalcout record has a CALC field into which you can
 enter an expression for the record to evaluate when it processes.  The resulting
 scalar value will be placed in the VAL field, and the resulting array value
 will be placed in the AVAL field.  VAL can then be used by the OOPT field (see
-<A HREF="#MARKER-9-1">Section 5, <I>Output Parameters</I></A>) to determine
+<A HREF="#EXPRESSIONS">Section 6, <I>Output Parameters</I></A>) to determine
 whether or not to write to the output link or post an output event. Either VAL
 and AVAL can also be written to the output link.  (If you elect to write an
 output value, the record will choose between VAL and AVAL, depending on the data
@@ -192,7 +278,7 @@ run-time, the record-support routine <code>special()</code> calls a function
 to check it and convert it to postfix.
 
 <BR>The record also has a second set of calculation-related fields described in
-<A HREF="#MARKER-9-1">Section 5, <I>Output Parameters.</I></A>
+<A HREF="#EXPRESSIONS">Section 6, <I>Output Parameters.</I></A>
 
 <BR>&nbsp;
 <TABLE BORDER>
@@ -298,7 +384,7 @@ color='red'>color</font> will be converted implicitly to scalar:
 
 <A NAME="OPERANDS"></A>
 <H2>
-4.1. Operands</H2>
+5.1. Operands</H2>
 
 The expression can use the values retrieved from the input links as operands.
 These values retrieved from the input links are stored in the A-L, and AA-LL
@@ -438,8 +524,6 @@ defined by the record (more exactly, defined by the calc engine the record uses
 to evaluate expressions).  All but <code>RNDM</code> and <code>ARNDM</code> are
 constants.
 
-<P><A NAME="HEADING14-20"></A>
-
 <table border>
 
 <tr>
@@ -480,7 +564,7 @@ constants.
 <A NAME="ALGEBRAIC"></A>
 <A NAME="Expressions"></A>
 <H2>
-4.2. Algebraic Functions/Operators</H2> 
+5.2. Algebraic Functions/Operators</H2> 
 
 <table border>
 
@@ -610,7 +694,7 @@ constants.
 <P>
 <A NAME="TRIGONOMETRIC"></A>
 <H2>
-4.3. Trigonometric Functions</H2>
+5.3. Trigonometric Functions</H2>
 
 <table border>
 
@@ -674,7 +758,7 @@ constants.
 <P>
 <A NAME="RELATIONAL"></A>
 <H2>
-4.4. Relational Operators</H2>
+5.4. Relational Operators</H2>
 
 <table border>
 
@@ -728,7 +812,7 @@ constants.
 <P>
 <A NAME="LOGICAL"></A>
 <H2>
-4.5. Logical Operators</H2>
+5.5. Logical Operators</H2>
 
 <table border>
 
@@ -757,7 +841,7 @@ constants.
 <P>
 <A NAME="BITWISE"></A>
 <H2>
-4.6. Bitwise Operators</H2>
+5.6. Bitwise Operators</H2>
 
 <table border>
 
@@ -811,7 +895,7 @@ constants.
 <P>
 <A NAME="SEPARATORS"></A>
 <H2>
-4.7. Separators</H2>
+5.7. Separators</H2>
 
 The open and close parentheses are supported.  Nested parenthesis are supported.
 Square and curly brackets are not available for use as separators, because they
@@ -830,7 +914,7 @@ because <code>ANDB</code> will be parsed as <code>AND B</code>.  However,
 
 <P><A NAME="IF-ELSE"></A>
 <H2>
-4.8. Conditional Expression</H2>
+5.8. If-Else Expression</H2>
 The C language's if-else ("<code>?:</code>") operator is supported. The format is:
 
 <PRE>&nbsp;&lt;expression&gt; ? &lt;expression-true result&gt; : &lt;expression-false  result&gt;</PRE>
@@ -839,7 +923,7 @@ The C language's if-else ("<code>?:</code>") operator is supported. The format i
 <P>
 <A NAME="ARRAY_SPECIFIC"></A>
 <H2>
-4.9. Array-specific Functions/Operators</H2>
+5.9. Array-specific Functions/Operators</H2>
 
 Most of the functions and operators that can work with arrays are simple
 generalizations of functions and operators that work with scalars. Such
@@ -954,7 +1038,7 @@ y'(i) = y(i-2)/16 + y(i-1)/4 + 3*y(i)/8 + y(i+1)/4 + y(i+2)/16
 
 <A NAME="ARGUMENT_ARRAY"></A>
 <H2>
-4.10. Argument-array Operators</H2>
+5.10. Argument-array Operators</H2>
 <table border>
 
 <P>These operators represent the scalar/array fields of the aCalcout record as
@@ -987,8 +1071,7 @@ Thus, <code>@@1</code> is another way of saying <code>BB</code>.
 
 <A NAME="EXAMPLES"></A>
 <H2>
-4.11. Examples</H2>
-<A NAME="HEADING14-77"></A>
+5.11. Examples</H2>
 <H3>Algebraic</H3>
 
 <DL>
@@ -996,7 +1079,6 @@ Thus, <code>@@1</code> is another way of saying <code>BB</code>.
 <DD>Result is <CODE>A + B + 10</CODE>
 </DL>
 
-<P><A NAME="HEADING14-79"></A>
 <H3>Relational</H3>
 
 <DL>
@@ -1005,7 +1087,6 @@ Thus, <code>@@1</code> is another way of saying <code>BB</code>.
 <BR>Result is <CODE>0</CODE> if <CODE>(A+B) >= (C+D)</CODE>
 </DL>
 
-<P><A NAME="HEADING14-83"></A>
 <H3>If-Else</H3>
 
 <DL>
@@ -1033,7 +1114,6 @@ Thus, <code>@@1</code> is another way of saying <code>BB</code>.
 </OL>
 </DL>
 
-<P><A NAME="HEADING14-92"></A>
 <H3>Array</H3>
 <P>Notation:  I'll use <code>(1,2,3)</code> to indicate an array.  Note that
 [1,2] is not an array, but the subrange operator with arguments 1 and 2.
@@ -1097,7 +1177,6 @@ aCalc2.OUT = "aCalc3.AA PP"
 aCalc3.CALC = "fwhm(aa)"
 </pre>
 </ul>
-<A NAME="HEADING14-93"></A>
 <H3>
 Argument-array</H3>
 
@@ -1121,7 +1200,7 @@ of A and B.<P>
 <P>&nbsp;
 <HR><A NAME="OUTPUT_PARAMETERS"></A>
 <H1>
-5.&nbsp;<A NAME="MARKER-9-1"></A>Output Parameters</H1>
+6. Output Parameters</H1>
 
 These parameters specify and control the output capabilities of the
 aCalcout record. They determine when to write the output, where to write
@@ -1370,7 +1449,7 @@ its forward link.
 <HR>
 <P><A NAME="DISPLAY_PARAMETERS"></A>
 <H1>
-6.&nbsp;<A NAME="MARKER-9-2"></A>Display Parameters</H1>
+7. Display Parameters</H1>
 
 These parameters are used to present meaningful data to the operator.
 Some are also meant to represent the status of the record at run-time.
@@ -1666,7 +1745,7 @@ description (DESC) fields.
 <HR>
 <P><A NAME="ALARM_PARAMETERS"></A>
 <H1>
-7. Alarm Parameters</H1>
+8. Alarm Parameters</H1>
 
 The possible alarm conditions for the aCalcout record are the SCAN,
 READ, Calculation, and limit alarms. The SCAN and READ alarms are called
@@ -1810,7 +1889,7 @@ and these fields.
 <HR>
 <P><A NAME="MONITOR_PARAMETERS"></A>
 <H1>
-8. Monitor Parameters</H1>
+9. Monitor Parameters</H1>
 
 These parameters are used to determine when to send monitors for the
 value fields. The monitors are sent when the value field exceeds the last
@@ -1863,7 +1942,7 @@ are triggered.
 <HR>
 <P><A NAME="RUN-TIME_PARAMETERS"></A>
 <H1>
-9. Run-time Parameters</H1>
+10. Run-time Parameters</H1>
 
 These fields are not configurable using a configuration tool and none
 are modifiable at run-time. They are used to process the record.
@@ -2040,7 +2119,7 @@ in the same manner for the VAL field.
 <HR>
 <P><A NAME="RECORD_SUPPORT"></A>
 <H1>
-10. Record Support Routines</H1>
+11. Record Support Routines</H1>
 
 <A NAME="INIT_RECORD"></A>
 <H3>
@@ -2056,7 +2135,7 @@ and ORPC, respectively.
 <P>&nbsp;<A NAME="PROCESS"></A>
 <H3>
 process</H3>
-See section 11.
+See section 12.
 
 <P>&nbsp;<A NAME="SPECIAL"></A>
 <H3>
@@ -2111,11 +2190,11 @@ Sets the following values:
 <HR>
 <P>&nbsp;<A NAME="RECORD_PROCESSING"></A>
 <H1>
-11. Record Processing</H1>
+12. Record Processing</H1>
 
 <A NAME="PROCESS"></A>
 <H2>
-11.1. process()</H2>
+12.1. process()</H2>
 The <TT>process()</TT> routine implements the following algorithm:
 
 <P>&nbsp;
@@ -2184,7 +2263,7 @@ PACT FALSE, and return.</DD>
 <P>&nbsp;</DL>
 <A NAME="EXEC_OUTPUT"></A>
 <H2>
-11.2. execOutput()</H2>
+12.2. execOutput()</H2>
 
 <DL>
 <DD>
@@ -2211,78 +2290,11 @@ the OUT link, and post the event in OEVT (if non-zero).</DD>
 
 
 <P>&nbsp;</DL>
-<!-- TOC -->
-<DL>
-<DT><A HREF="#INTRODUCTION"><B>1. </B>- Introduction</A></DT>
 
-<DT><A HREF="#SCAN_PARAMETERS"><B>2. </B>- Scan Parameters</A></DT>
-
-<DT><A HREF="#INPUT_LINKS"><B>3. </B>- Input Links</A></DT>
-
-<DT><A HREF="#EXPRESSIONS"><B>4. </B>- Expressions</A></DT>
-
-<DT><A HREF="#OPERANDS"><B>4.1. </B>- Operands</A></DT>
-
-<DT><A HREF="#ALGEBRAIC"><B>4.2. </B>- Algebraic Functions/Operators</A></DT>
-
-<DT><A HREF="#TRIGONOMETRIC"><B>4.3. </B>- Trigonometric Functions</A></DT>
-
-<DT><A HREF="#RELATIONAL"><B>4.4. </B>- Relational Operators</A></DT>
-
-<DT><A HREF="#LOGICAL"><B>4.5. </B>- Logical Operators</A></DT>
-
-<DT><A HREF="#BITWISE"><B>4.6. </B>- Bitwise Operators</A></DT>
-
-<DT><A HREF="#SEPARATORS"><B>4.7. </B>- Separators</A></DT>
-
-<DT><A HREF="#IF-ELSE"><B>4.8. </B>- If-Else</A></DT>
-
-<DT><A HREF="#ARRAY_SPECIFIC"><B>4.9. </B>- Array-specific Functions/Operators</A></DT>
-
-<DT><A HREF="#ARGUMENT_ARRAY"><B>4.10. </B>- Argument-array Operators</A></DT>
-
-<DT><A HREF="#EXAMPLES"><B>4.11. </B>- Examples</A></DT>
-
-<DT><A HREF="#OUTPUT_PARAMETERS"><B>5. </B>- Output Parameters</A></DT>
-
-<DT><A HREF="#DISPLAY_PARAMETERS"><B>6. </B>- Display Parameters</A></DT>
-
-<DT><A HREF="#ALARM_PARAMETERS"><B>7. </B>- Alarm Parameters</A></DT>
-
-<DT><A HREF="#MONITOR_PARAMETERS"><B>8. </B>- Monitor Parameters</A></DT>
-
-<DT><A HREF="#RUN-TIME_PARAMETERS"><B>9. </B>- Run-time Parameters</A></DT>
-
-<DT><A HREF="#RECORD_SUPPORT"><B>10. </B>- Record Support Routines</A></DT>
-
-<DT><A HREF="#INIT_RECORD">init_record</A></DT>
-
-<DT><A HREF="#PROCESS">process</A></DT>
-
-<DT><A HREF="#SPECIAL">special</A></DT>
-
-<DT><A HREF="#GET_VALUE">get_value</A></DT>
-
-<DT><A HREF="#GET_UNITS">get_units</A></DT>
-
-<DT><A HREF="#GET_PRECISION">get_precision</A></DT>
-
-<DT><A HREF="#GET_GRAPHIC_DOUBLE">get_graphic_double</A></DT>
-
-<DT><A HREF="#GET_CONTROL_DOUBLE">get_control_double</A></DT>
-
-<DT><A HREF="#GET_ALARM_DOUBLE">get_alarm_double</A></DT>
-
-<DT><A HREF="#RECORD_PROCESSING"><B>11. </B>- Record Processing</A></DT>
-
-<DT><A HREF="#PROCESS"><B>11.1. </B>- process()</A></DT>
-
-<DT><A HREF="#EXEC_OUTPUT"><B>11.2. </B>- execOutput()</A></DT>
-</DL>
 
 <HR>
 <ADDRESS>
-Tim Mooney - March 27, 2006</ADDRESS>
+Tim Mooney</ADDRESS>
 
 </BODY>
 </HTML>
