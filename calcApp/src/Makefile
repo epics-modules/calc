@@ -11,6 +11,7 @@ include $(TOP)/configure/CONFIG
 DBDINC += transformRecord
 DBDINC += sCalcoutRecord
 DBDINC += aCalcoutRecord
+DBDINC += sseqRecord
 ifdef SSCAN
 	DBDINC += swaitRecord
 endif
@@ -28,6 +29,7 @@ calc_SRCS += aCalcPostfix.c aCalcPerform.c calcUtil.c
 #calc_SRCS_vxWorks += test_sCalc.c
 calc_SRCS += sCalcoutRecord.c devsCalcoutSoft.c
 calc_SRCS += aCalcoutRecord.c devaCalcoutSoft.c
+calc_SRCS += sseqRecord.c
 calc_SRCS += subAve.c
 
 ifdef SSCAN
