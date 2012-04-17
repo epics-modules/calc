@@ -1,7 +1,7 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/std/stdApp/op/adl/yySseq_bare.adl"
-	version=030105
+	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/yySseq_bare.adl"
+	version=030102
 }
 display {
 	object {
@@ -102,70 +102,6 @@ display {
 	bclr=17
 	label="-LINK HELP"
 }
-"text entry" {
-	object {
-		x=25
-		y=22
-		width=150
-		height=20
-	}
-	control {
-		chan="$(P)$(S).DOL1"
-		clr=14
-		bclr=40
-	}
-	format="string"
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=97
-		width=150
-		height=20
-	}
-	control {
-		chan="$(P)$(S).DOL4"
-		clr=14
-		bclr=40
-	}
-	format="string"
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=72
-		width=150
-		height=20
-	}
-	control {
-		chan="$(P)$(S).DOL3"
-		clr=14
-		bclr=40
-	}
-	format="string"
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=47
-		width=150
-		height=20
-	}
-	control {
-		chan="$(P)$(S).DOL2"
-		clr=14
-		bclr=40
-	}
-	format="string"
-	limits {
-	}
-}
 text {
 	object {
 		x=25
@@ -192,126 +128,6 @@ text {
 	textix="STRING VALUE"
 	align="horiz. centered"
 }
-"text entry" {
-	object {
-		x=232
-		y=22
-		width=196
-		height=20
-	}
-	control {
-		chan="$(P)$(S).STR1"
-		clr=14
-		bclr=51
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=232
-		y=47
-		width=196
-		height=20
-	}
-	control {
-		chan="$(P)$(S).STR2"
-		clr=14
-		bclr=51
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=232
-		y=72
-		width=196
-		height=20
-	}
-	control {
-		chan="$(P)$(S).STR3"
-		clr=14
-		bclr=51
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=232
-		y=97
-		width=196
-		height=20
-	}
-	control {
-		chan="$(P)$(S).STR4"
-		clr=14
-		bclr=51
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=435
-		y=22
-		width=80
-		height=20
-	}
-	control {
-		chan="$(P)$(S).DO1"
-		clr=14
-		bclr=51
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=435
-		y=97
-		width=80
-		height=20
-	}
-	control {
-		chan="$(P)$(S).DO4"
-		clr=14
-		bclr=51
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=435
-		y=47
-		width=80
-		height=20
-	}
-	control {
-		chan="$(P)$(S).DO2"
-		clr=14
-		bclr=51
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=435
-		y=72
-		width=80
-		height=20
-	}
-	control {
-		chan="$(P)$(S).DO3"
-		clr=14
-		bclr=51
-	}
-	limits {
-	}
-}
 text {
 	object {
 		x=435
@@ -324,70 +140,6 @@ text {
 	}
 	textix="VALUE"
 	align="horiz. centered"
-}
-"text entry" {
-	object {
-		x=520
-		y=22
-		width=150
-		height=20
-	}
-	control {
-		chan="$(P)$(S).LNK1"
-		clr=14
-		bclr=40
-	}
-	format="string"
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=520
-		y=97
-		width=150
-		height=20
-	}
-	control {
-		chan="$(P)$(S).LNK4"
-		clr=14
-		bclr=40
-	}
-	format="string"
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=520
-		y=72
-		width=150
-		height=20
-	}
-	control {
-		chan="$(P)$(S).LNK3"
-		clr=14
-		bclr=40
-	}
-	format="string"
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=520
-		y=47
-		width=150
-		height=20
-	}
-	control {
-		chan="$(P)$(S).LNK2"
-		clr=14
-		bclr=40
-	}
-	format="string"
-	limits {
-	}
 }
 text {
 	object {
@@ -433,89 +185,18 @@ text {
 	limits {
 	}
 }
-composite {
+text {
 	object {
 		x=180
 		y=10
 		width=45
-		height=107
+		height=10
 	}
-	"composite name"=""
-	children {
-		"text entry" {
-			object {
-				x=180
-				y=22
-				width=45
-				height=20
-			}
-			control {
-				chan="$(P)$(S).DLY1"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-		"text entry" {
-			object {
-				x=180
-				y=97
-				width=45
-				height=20
-			}
-			control {
-				chan="$(P)$(S).DLY4"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-		"text entry" {
-			object {
-				x=180
-				y=47
-				width=45
-				height=20
-			}
-			control {
-				chan="$(P)$(S).DLY2"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-		"text entry" {
-			object {
-				x=180
-				y=72
-				width=45
-				height=20
-			}
-			control {
-				chan="$(P)$(S).DLY3"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-		text {
-			object {
-				x=180
-				y=10
-				width=45
-				height=10
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="DELAY"
-			align="horiz. centered"
-		}
+	"basic attribute" {
+		clr=14
 	}
+	textix="DELAY"
+	align="horiz. centered"
 }
 text {
 	object {
@@ -529,58 +210,6 @@ text {
 	}
 	textix="FORWARD LINK"
 	align="horiz. centered"
-}
-menu {
-	object {
-		x=680
-		y=22
-		width=65
-		height=20
-	}
-	control {
-		chan="$(P)$(S).WAIT1"
-		clr=14
-		bclr=51
-	}
-}
-menu {
-	object {
-		x=680
-		y=47
-		width=65
-		height=20
-	}
-	control {
-		chan="$(P)$(S).WAIT2"
-		clr=14
-		bclr=51
-	}
-}
-menu {
-	object {
-		x=680
-		y=72
-		width=65
-		height=20
-	}
-	control {
-		chan="$(P)$(S).WAIT3"
-		clr=14
-		bclr=51
-	}
-}
-menu {
-	object {
-		x=680
-		y=97
-		width=65
-		height=20
-	}
-	control {
-		chan="$(P)$(S).WAIT4"
-		clr=14
-		bclr=51
-	}
 }
 text {
 	object {
@@ -696,247 +325,64 @@ text {
 	textix="BUSY"
 	align="horiz. centered"
 }
-text {
+composite {
 	object {
 		x=0
-		y=25
-		width=20
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix=" 1"
-}
-text {
-	object {
-		x=0
-		y=50
-		width=20
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix=" 2"
-}
-text {
-	object {
-		x=0
-		y=75
-		width=20
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix=" 3"
-}
-text {
-	object {
-		x=0
-		y=100
-		width=20
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix=" 4"
-}
-rectangle {
-	object {
-		x=671
-		y=27
-		width=8
-		height=8
-	}
-	"basic attribute" {
-		clr=15
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)$(S).WTG1"
-	}
-}
-rectangle {
-	object {
-		x=671
-		y=52
-		width=8
-		height=8
-	}
-	"basic attribute" {
-		clr=15
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)$(S).WTG2"
-	}
-}
-rectangle {
-	object {
-		x=671
-		y=78
-		width=8
-		height=8
-	}
-	"basic attribute" {
-		clr=15
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)$(S).WTG3"
-	}
-}
-rectangle {
-	object {
-		x=671
-		y=102
-		width=8
-		height=8
-	}
-	"basic attribute" {
-		clr=15
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)$(S).WTG4"
-	}
-}
-rectangle {
-	object {
-		x=23
 		y=20
-		width=154
-		height=24
+		width=747
+		height=25
 	}
-	"basic attribute" {
-		clr=20
-		fill="outline"
-		width=2
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)$(S).DOL1V"
-	}
+	"composite name"=""
+	"composite file"="sseqElement_bare.adl;P=$(P),S=$(S),EL=1,ELN=01"
 }
-rectangle {
+composite {
 	object {
-		x=23
+		x=0
 		y=45
-		width=154
-		height=24
+		width=747
+		height=25
 	}
-	"basic attribute" {
-		clr=20
-		fill="outline"
-		width=2
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)$(S).DOL2V"
-	}
+	"composite name"=""
+	"composite file"="sseqElement_bare.adl;P=$(P),S=$(S),EL=2,ELN=02"
 }
-rectangle {
+composite {
 	object {
-		x=23
+		x=0
 		y=70
-		width=154
-		height=24
+		width=747
+		height=25
 	}
-	"basic attribute" {
-		clr=20
-		fill="outline"
-		width=2
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)$(S).DOL3V"
-	}
+	"composite name"=""
+	"composite file"="sseqElement_bare.adl;P=$(P),S=$(S),EL=3,ELN=03"
 }
-rectangle {
+composite {
 	object {
-		x=23
+		x=0
 		y=95
-		width=154
-		height=24
+		width=747
+		height=25
 	}
-	"basic attribute" {
-		clr=20
-		fill="outline"
-		width=2
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)$(S).DOL4V"
-	}
+	"composite name"=""
+	"composite file"="sseqElement_bare.adl;P=$(P),S=$(S),EL=4,ELN=04"
 }
-rectangle {
+text {
 	object {
-		x=518
-		y=20
-		width=154
-		height=24
+		x=25
+		y=125
+		width=140
+		height=14
 	}
 	"basic attribute" {
 		clr=20
-		fill="outline"
-		width=2
 	}
 	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)$(S).LNK1V"
+		vis="calc"
+		calc="a||b||c||d"
+		chan="$(P)$(S).WERR1"
+		chanB="$(P)$(S).WERR2"
+		chanC="$(P)$(S).WERR3"
+		chanD="$(P)$(S).WERR4"
 	}
-}
-rectangle {
-	object {
-		x=518
-		y=45
-		width=154
-		height=24
-	}
-	"basic attribute" {
-		clr=20
-		fill="outline"
-		width=2
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)$(S).LNK2V"
-	}
-}
-rectangle {
-	object {
-		x=518
-		y=70
-		width=154
-		height=24
-	}
-	"basic attribute" {
-		clr=20
-		fill="outline"
-		width=2
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)$(S).LNK3V"
-	}
-}
-rectangle {
-	object {
-		x=518
-		y=95
-		width=154
-		height=24
-	}
-	"basic attribute" {
-		clr=20
-		fill="outline"
-		width=2
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)$(S).LNK4V"
-	}
+	textix="WAIT requires CA link"
+	align="horiz. centered"
 }

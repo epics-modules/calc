@@ -1,7 +1,7 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/std/stdApp/op/adl/yySseq_help.adl"
-	version=030105
+	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/yySseq_help.adl"
+	version=030102
 }
 display {
 	object {
@@ -3742,7 +3742,7 @@ text {
 	"basic attribute" {
 		clr=14
 	}
-	textix="   action <n>, before waiting for"
+	textix="   and including action <n>, before"
 }
 text {
 	object {
@@ -3754,5 +3754,5 @@ text {
 	"basic attribute" {
 		clr=14
 	}
-	textix="   completion of this link."
+	textix="   waiting for completion of this link."
 }
