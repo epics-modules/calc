@@ -79,6 +79,7 @@ struct	linkGroup {
 	epicsInt16		dol_field_type;
 	epicsInt16		lnk_field_type;
 	epicsEnum16		usePutCallback;
+	epicsInt16		waitConfigErr;
 	epicsInt16		waiting;
 	epicsInt16		index;
 	epicsInt16		dol_status;
@@ -852,6 +853,24 @@ static void checkLinks(sseqRecord *pR)
 					db_post_events(pR, &plinkGroup->lnk_status, DBE_VALUE);
 				}
 			}
+			if (plinkGroup->waitConfigErr == 1) {
+				plinkGroup->waitConfigErr = 0;
+				db_post_events(pR, &plinkGroup->waitConfigErr, DBE_VALUE);
+			}
+		} else if (plinkGroup->lnk.type == DB_LINK) {
+			if (plinkGroup->usePutCallback != sseqWAIT_NoWait) {
+				/* we have a problem: user wants to wait, but has not specified "CA", so we can't wait */
+				if (plinkGroup->waitConfigErr == 0) {
+					plinkGroup->waitConfigErr = 1;
+					db_post_events(pR, &plinkGroup->waitConfigErr, DBE_VALUE);
+				}
+			} else if (plinkGroup->usePutCallback == sseqWAIT_NoWait) {
+				if (plinkGroup->waitConfigErr == 1) {
+					/* rescind error tate */
+					plinkGroup->waitConfigErr = 0;
+					db_post_events(pR, &plinkGroup->waitConfigErr, DBE_VALUE);
+				}
+			}
 		}
 		plinkGroup->lnk_field_type = DBF_unknown;
 		if (plinkGroup->lnk.value.pv_link.pvname &&
@@ -994,6 +1013,23 @@ static long special(struct dbAddr *paddr, int after)
 		if (sseqRecDebug > 5) printf("sseq:special:lnk_field_type=%d (%s)\n",
 			plinkGroup->lnk_field_type, plinkGroup->lnk_field_type>=0 ?
 				pamapdbfType[plinkGroup->lnk_field_type].strvalue : "");
+		return(0);
+
+	case(sseqRecordWAIT1):
+	case(sseqRecordWAIT2):
+	case(sseqRecordWAIT3):
+	case(sseqRecordWAIT4):
+	case(sseqRecordWAIT5):
+	case(sseqRecordWAIT6):
+	case(sseqRecordWAIT7):
+	case(sseqRecordWAIT8):
+	case(sseqRecordWAIT9):
+	case(sseqRecordWAITA):
+		/* check to see if new wait specification is consistent with link type */
+		if (!pcb->pending_checkLinksCB) {
+			pcb->pending_checkLinksCB = 1;
+			callbackRequestDelayed(&pcb->checkLinksCB, 0.5);
+		}
 		return(0);
 
 	case(sseqRecordDO1):
