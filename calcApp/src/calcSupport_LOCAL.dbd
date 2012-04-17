@@ -3,6 +3,7 @@
 include "transformRecord.dbd"
 include "sCalcoutRecord.dbd"
 include "aCalcoutRecord.dbd"
+include "sseqRecord.dbd"
 
 device(scalcout,CONSTANT,devsCalcoutSoft,"Soft Channel")
 device(acalcout,CONSTANT,devaCalcoutSoft,"Soft Channel")
@@ -30,3 +31,4 @@ registrar(interpRegister)
 
 variable(arrayTestDebug, int)
 registrar(arrayTestRegister)
+variable("sseqRecDebug", int)
