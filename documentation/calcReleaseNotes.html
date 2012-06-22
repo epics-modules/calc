@@ -32,6 +32,11 @@ with all of its databases, request files, and display files.
 <li>The sseq record now notifies the user if a WAITn field is inconsistent with the
 link attribute specified for the associated LNKn field.  (If WAITn, then LNKn
 must be a CA link.)
+
+<li>The unary operator "NOT" should always have meant logical NOT, but actually
+has been implemented as unary negative.  Now, "NOT" and "!" both mean logical
+NOT.
+
 </ul>
 
 <h1 align="center">calc Release Notes</h1>
