@@ -259,16 +259,17 @@ will be misinterpreted by the parser, which will interpret 'AA' as the name
 of a string variable.
 
 <A NAME="HEADING14-19"></A>
-<H2>
-4.1. Operands</H2>
-The expression can use the values retrieved from the input links as operands,
-though constants can also be used as operands. These values retrieved from
-the input links are stored in the A-L, and AA-LL fields. The values to
-be used in the expression are simply referenced by the field name. For
-example, the value obtained from the INPA link is stored in the field A,
-and the value obtained from INPB is stored in field B. The field names
-can be included in the expression which will operate on their respective
-values, as in "A+B".
+
+<H2> 4.1. Operands</H2> The expression can use as operands the values retrieved
+from the input links, and literal constants such as "abc", "1.5", and "23".
+(Numeric constants in expressions must be either floating-point numbers, or
+integers in base ten.  Numbers like "0x03" will not be understood by the
+expression parser.)  Values retrieved from the input links are stored in the
+A-L, and AA-LL fields. The values to be used in the expression are simply
+referenced by the field name. For example, the value obtained from the INPA link
+is stored in the field A, and the value obtained from INPB is stored in field B.
+The field names can be included in the expression which will operate on their
+respective values, as in "A+B".
 
 <P>
 <TABLE BORDER>
