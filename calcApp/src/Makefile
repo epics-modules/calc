@@ -51,6 +51,14 @@ include $(TOP)/configure/RULES
 #----------------------------------------
 #  ADD RULES AFTER THIS LINE
 
+# Parallel build sometimes fails.
+# Make dependences on new records explicit.
+aCalcoutRecord$(OBJ): $(COMMON_DIR)/aCalcoutRecord.h
+transformRecord$(OBJ): $(COMMON_DIR)/transformRecord.h
+sseqRecord$(OBJ): $(COMMON_DIR)/sseqRecord.h
+sCalcoutRecord$(OBJ): $(COMMON_DIR)/sCalcoutRecord.h
+swaitRecord$(OBJ): $(COMMON_DIR)/swaitRecord.h
+
 # calcSupport.dbd is for use by an ioc directory that needs stuff from the
 # calc module. We build this by hand so we can make it depend on the modules
 # defined in configure/RELEASE and also leave it unexpanded.  (We can't
