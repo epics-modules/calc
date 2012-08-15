@@ -85,7 +85,7 @@ epicsExportAddress(int, aCalcPerformDebug);
 #if DEBUG
 int aCalcStackHW = 0;	/* high-water mark */
 int aCalcStackLW = 0;	/* low-water mark */
-#define INC(ps) {if ((int)(++(ps)-top) > aCalcStackHW) aCalcStackHW = (int)((ps)-top); if ((ps-top)>STACKSIZE) {printf("aCalcPerform:underflow\n"); stackInUse=0;return(-1);}}
+#define INC(ps) {if ((int)(++(ps)-top) > aCalcStackHW) aCalcStackHW = (int)((ps)-top); if ((ps-top)>ACALC_STACKSIZE) {printf("aCalcPerform:underflow\n"); stackInUse=0;return(-1);}}
 #define DEC(ps) {if ((int)(--(ps)-top) < aCalcStackLW) aCalcStackLW = (int)((ps)-top); if ((ps-top)<-1) {printf("aCalcPerform:underflow\n"); stackInUse=0;return(-1);}}
 #define checkDoubleElement(pd,op) {if (isnan(*(pd))) printf("aCalcPerform: unexpected NaN in op %d\n", (op));}
 #define checkStackElement(ps,op) {if (((ps)->a == NULL) && isnan((ps)->d)) printf("aCalcPerform: unexpected NaN in op %d\n", (op));}
@@ -125,7 +125,6 @@ struct stackElement {
 	double *a;
 	double *array;
 };
-/* static struct stackElement stack[STACKSIZE];*/
 static struct stackElement *stack = 0;
 
 static int stackInUse=0;
@@ -148,14 +147,14 @@ long epicsShareAPI
 	}
 
 	if (stack == NULL) {
-		stack = malloc(STACKSIZE * sizeof(struct stackElement));
+		stack = malloc(ACALC_STACKSIZE * sizeof(struct stackElement));
 		if (stack == NULL) {
 			printf("aCalcPerform: Can't allocate stack.\n");
 			return(-1);
 		}
 		/* If aCalcArraySize wasn't specified, use arraySize from first call. */
 		if (aCalcArraySize < arraySize) aCalcArraySize = arraySize;
-		for (i=0; i<STACKSIZE; i++) {
+		for (i=0; i<ACALC_STACKSIZE; i++) {
 			stack[i].array = (double *)malloc(aCalcArraySize * sizeof(double));
 			if (stack[i].array == NULL) {
 				printf("aCalcPerform: Can't allocate array.\n");
@@ -188,7 +187,7 @@ long epicsShareAPI
 	}
 	stackInUse = 1;
 
-	for (i=0; i<STACKSIZE; i++) {
+	for (i=0; i<ACALC_STACKSIZE; i++) {
 		stack[i].d = 0.;
 		stack[i].a = NULL;
 		for (j=0; j<aCalcArraySize; j++) stack[i].array[j] = 0.;
