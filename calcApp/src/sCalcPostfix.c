@@ -77,6 +77,21 @@ typedef struct expression_element {
  * ':', you must modify that special handling.
  */
 
+/* comparison of operator precedence here and in EPICS base:
+ * sCalcPostfix									postfix
+ *=======================================================
+ * 0, 0		constants							0, 0
+ * 1, 1		||, |, OR, XOR						1, 1
+ * 2, 2		AND, &&, &, >>, <<					2, 2
+ * 3, 3		>?, <?								<not used>
+ * 4, 4		>=, >, <=, <, #, !=, ==, =			3, 3
+ * 5, 5		-|, |-, -, +						4, 4
+ * 6, 6		*, /, %								5, 5
+ * 7, 7		^, **								6, 6
+ * 8, 9		ABS, NOT, etc.						7, 8
+ * 0,10		[, {								<not used>
+ */
+
 static const ELEMENT operands[] = {
 /* name		prio's	stack	element type		opcode */
 {"\"",		0, 0,	1,		STRING_OPERAND,		LITERAL_STRING},    /* string constant */
