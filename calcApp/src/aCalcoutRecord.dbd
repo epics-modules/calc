@@ -693,7 +693,7 @@ recordtype(acalcout) {
 		asl(ASL0)
 		extra("double *paa")
 	}
-	field(NEW,DBF_ULONG) {
+	field(NEWM,DBF_ULONG) {
 		prompt("new array value mask")
 		asl(ASL0)
 		special(SPC_NOMOD)

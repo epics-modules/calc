@@ -893,11 +893,11 @@ static void monitor(acalcoutRecord *pcalc)
 	}
 
 	for (i=0, panew=&pcalc->aa; i<ARRAY_MAX_FIELDS; i++, panew++) {
-		if (*panew && (pcalc->new & (1<<i))) {
+		if (*panew && (pcalc->newm & (1<<i))) {
 			db_post_events(pcalc, *panew, monitor_mask|DBE_VALUE|DBE_LOG);
 		}
 	}
-	pcalc->new = 0;
+	pcalc->newm = 0;
 
 	/* Check OVAL field */
 	if (pcalc->povl != pcalc->oval) {
@@ -949,7 +949,7 @@ static int fetch_values(acalcoutRecord *pcalc)
 			if (!RTN_SUCCESS(status)) return(status);
 			/* compare new array value with saved value */
 			for (j=0; j<pcalc->nelm; j++) {
-				if (pcalc->paa[j] != (*pavalue)[j]) {pcalc->new |= 1<<i; break;}
+				if (pcalc->paa[j] != (*pavalue)[j]) {pcalc->newm |= 1<<i; break;}
 			}
 		}
 	}
