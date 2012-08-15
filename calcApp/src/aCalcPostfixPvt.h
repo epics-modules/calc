@@ -49,7 +49,7 @@
 #include "epicsMath.h"
 #endif
 
-#define STACKSIZE 20
+#define ACALC_STACKSIZE 20
 
 /*	defines for element table      */
 /* #define	BAD_EXPRESSION	0 */
