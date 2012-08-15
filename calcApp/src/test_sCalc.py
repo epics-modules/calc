@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 
-from ca_util import *
+#from ca_util import *
+import epics
 from math import *
 from string import *
+import time
 
 import os
 #os.environ['EPICS_CA_ADDR_LIST'] = "164.54.53.99"
@@ -42,8 +44,8 @@ JJ = "string 10"
 KK = "string 11"
 LL = "xxx:scan1.EXSC"
 for i in range(12):
-	caput(sCalcRecord + "." + A2L[i], eval(A2L[i]))
-	caput(sCalcRecord + "." + A2L[i] + A2L[i], eval(A2L[i]+A2L[i]) )
+	epics.caput(sCalcRecord + "." + A2L[i], eval(A2L[i]))
+	epics.caput(sCalcRecord + "." + A2L[i] + A2L[i], eval(A2L[i]+A2L[i]) )
 
 # List of expressions for testing
 # exp = [(sCalc_expression, equivalent_python_expression), ...]
@@ -61,7 +63,7 @@ exp = [
 	("A||B", "(A or B) != 0"),
 	("LL[0,'.']", "LL[0:LL.find('.')]"),
 	("A>B", None),
-	("A>B?BB:AA[A,A]", "(BB,AA[nint(A):nint(A+1)])[(A>B)==0]"),
+	("A>B?BB:AA[A,A]", "(AA[nint(A):nint(A+1)],BB)[A>B]"),
 	("A>=4", None),
 	("A=0?1:0", "(0,1)[A==0]"),
 	("A+B", None),
@@ -111,7 +113,7 @@ exp = [
 	("A&&C?A-1:B", "(A-1,B)[(A and C)==0]"),
 	("C+(A/D)*(B-C)", None),
 	("nint(4095*((A-C)/(B-C)))", None),
-#	("SSCANF(AA,'%*14c%f')", "?"),
+	("SSCANF(AA,'%*6c%f')", "1"),
 	(".005*A/8", None),
 	("A=0||a=2", "A==0 or A==2"),
 	("A?2:1", "(2,1)[A==0]"),
@@ -126,16 +128,17 @@ exp = [
 	('DBL("12345678"[4,7])', 'float("12345678"[4:7+1])'),
 	("DD+AA+EE+BB", None),
 	("log(A)", None),
-	("-(-2)**2", None),
+	("-(-2)**2", "--2**2"),
 	("--2**2", None),
-	("-(-2)^2", "-(-2)**2"),
 	("A--B",None),
 	("A--B*C",None),
 	("A+B*C",None),
 	("D*((A-B)/C)", None),
 	('SSCANF("-1","%d")', "-1"),
 	('SSCANF("-1","%hd")', "-1"),
-	('SSCANF("-1","%ld")', "-1")
+	('SSCANF("-1","%ld")', "-1"),
+	('"abcdef"{"bc","gh"}', '"aghdef"'),
+	("'yyy:'+'xxx:abc'-'xxx:'", '"yyy:abc"')
 ]
 
 def nint(x):
@@ -144,9 +147,10 @@ def nint(x):
 def test():
 	numErrors = 0
 	for e in exp:
-		caput(calc,e[0])
-		rtry = caget(result)
-		stry = caget(sresult)
+		epics.caput(calc,e[0], wait=True)
+		#time.sleep(5)
+		rtry = epics.caget(result)
+		stry = epics.caget(sresult)
 		if (e[1]):
 			r = eval(e[1])
 			print "\n", e[0], "-->", e[1]
