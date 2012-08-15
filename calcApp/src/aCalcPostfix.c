@@ -249,7 +249,7 @@ static struct expression_element	fetch_array_element = {
 };
 
 #if 0
-#define INC(ps) {if ((int)(++ps-top)>STACKSIZE) return(-1);}
+#define INC(ps) {if ((int)(++ps-top)>ACALC_STACKSIZE) return(-1);}
 #define DEC(ps) {if ((int)(--ps-top)<0) return(-1);}
 #else
 #define INC(ps) ++(ps)
@@ -257,7 +257,7 @@ static struct expression_element	fetch_array_element = {
 #endif
 long aCalcCheck(char *post, int forks_checked, int dir_mask)
 {
-	double 		stack[STACKSIZE], *top, *ps;
+	double 		stack[ACALC_STACKSIZE], *top, *ps;
 	int			i, this_fork = 0;
 	int			dir;
 	short 		got_if=0;
