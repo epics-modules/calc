@@ -350,7 +350,7 @@ epicsShareFunc long
 			post += strlen((char *)post)+1;
 			break;
 		case UNTIL:
-			printf("sCalcPerform: UNTIL at index %d\n", (int)(post-postfix));
+			/*printf("sCalcPerform: UNTIL at index %d\n", (int)(post-postfix));*/
 			until_scratch[i].until_loc = post;
 			i++;
 			if (i>9) {
@@ -362,8 +362,8 @@ epicsShareFunc long
 			for (k=i-1; k>=0; k--) {
 				if (until_scratch[k].until_end_loc == NULL) {
 					/* found unclaimed UNTIL */
-					printf("sCalcPerform: UNTIL_END at index %d, matches UNTIL at index %d (k=%d)\n",
-						(int)(post-postfix), (int)(until_scratch[k].until_loc-postfix), k);
+					/* printf("sCalcPerform: UNTIL_END at index %d, matches UNTIL at index %d (k=%d)\n",
+						(int)(post-postfix), (int)(until_scratch[k].until_loc-postfix), k);*/
 					until_scratch[k].until_end_loc = post;
 					break;
 				}
