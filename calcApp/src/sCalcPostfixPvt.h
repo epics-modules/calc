@@ -28,7 +28,7 @@ struct stackElement {
 epicsShareFunc void
 	sCalcExprDump(const unsigned char *pinst);
 
-void printOp(unsigned char op);
+void sCalcPrintOp(unsigned char op);
 
 /* RPN opcodes */
 typedef enum {
