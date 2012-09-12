@@ -113,7 +113,7 @@
 #include <callback.h>
 #include <taskwd.h>
 #include "sCalcPostfix.h"
-#include "sCalcPostfixPvt.h"	/* define BAD_EXPRESSION, END_STACK */
+#include "sCalcPostfixPvt.h"	/* define BAD_EXPRESSION */
 
 #define GEN_SIZE_OFFSET
 #include "transformRecord.h"
