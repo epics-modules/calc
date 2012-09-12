@@ -899,6 +899,6 @@ epicsShareFunc void
 	}
 }
 
-void printOp(unsigned char op) {
+void sCalcPrintOp(unsigned char op) {
 	printf("%s\n", opcodes[(int) op]);
 }
