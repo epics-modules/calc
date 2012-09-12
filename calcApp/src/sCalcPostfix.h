@@ -21,7 +21,6 @@
 #define SCALC_INFIX_TO_POSTFIX_SIZE(n) (2+n*21/6)
 
 #define	BAD_EXPRESSION	0
-#define	END_STACK		127
 
 /* Error numbers from postfix */
 
