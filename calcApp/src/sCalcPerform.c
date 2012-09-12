@@ -409,7 +409,7 @@ epicsShareFunc long
 
 		/* No string expressions */
 	    while ((op = *post++) != END_EXPRESSION){
-			if (sCalcPerformDebug) printOp(op);
+			if (sCalcPerformDebug) sCalcPrintOp(op);
 			if (sCalcPerformDebug>=15) showStack_noString(pd);
 
 			switch (op) {
@@ -857,7 +857,7 @@ epicsShareFunc long
 
 		/* string expressions and values handled */
 	    while ((op = *post++) != END_EXPRESSION){
-			if (sCalcPerformDebug) printOp(op);
+			if (sCalcPerformDebug) sCalcPrintOp(op);
 
 			switch (op) {
 
@@ -887,6 +887,7 @@ epicsShareFunc long
 			case STORE_A: case STORE_B: case STORE_C: case STORE_D: case STORE_E: case STORE_F:
 			case STORE_G: case STORE_H: case STORE_I: case STORE_J: case STORE_K: case STORE_L:
 			case STORE_M: case STORE_N: case STORE_O: case STORE_P:
+				toDouble(ps);
 				if (numArgs > (op - STORE_A)) {
 	    			parg[op - STORE_A] = ps->d;
 				}
@@ -1279,25 +1280,6 @@ epicsShareFunc long
 					ps->s = NULL;
 				}
 				break;
-
-#if 0
-			case RIGHT_SHIFT:
-				ps1 = ps;
-				DEC(ps);
-				toDouble(ps1);
-				toDouble(ps);
-				ps->d = (int)(ps->d) >> (int)(ps1->d);
-				break;
-
-			case LEFT_SHIFT:
-				ps1 = ps;
-				DEC(ps);
-				toDouble(ps1);
-				toDouble(ps);
-				ps->d = (int)(ps->d) << (int)(ps1->d);
-				break;
-
-#endif
 
 			case RIGHT_SHIFT:
 			case LEFT_SHIFT:
@@ -2025,6 +2007,8 @@ epicsShareFunc long
 
 			case UNTIL_END:
 				if (sCalcPerformDebug) printf("\tUNTIL_END:ps->d=%f\n", ps->d);
+				if (++loopsDone > sCalcLoopMax)
+					break;
 				if (ps->d==0) {
 					/* reset postfix to matching UNTIL code, stack to its loc at that time */
 					--post;
