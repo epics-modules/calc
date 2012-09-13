@@ -83,7 +83,7 @@ recordtype(acalcout) {
 		promptgroup(GUI_CALC)
 		special(SPC_MOD)
 		pp(TRUE)
-		size(40)
+		size(80)
 	}
 	field(CLCV,DBF_LONG) {
 		prompt("CALC Valid")
@@ -446,7 +446,7 @@ recordtype(acalcout) {
 		promptgroup(GUI_CALC)
 		special(SPC_MOD)
 		pp(TRUE)
-		size(36)
+		size(80)
 	}
 	field(OCLV,DBF_LONG) {
 		prompt("OCAL Valid")
@@ -798,12 +798,12 @@ recordtype(acalcout) {
 		prompt("Reverse Polish Calc")
 		special(SPC_NOMOD)
 		interest(4)
-		extra("char	rpcl[240]")
+		extra("unsigned char rpcl[282]")
 	}
 	field(ORPC,DBF_NOACCESS) {
 		prompt("Reverse Polish OCalc")
 		special(SPC_NOMOD)
 		interest(4)
-		extra("char	orpc[240]")
+		extra("unsigned char orpc[282]")
 	}
 }
