@@ -866,12 +866,19 @@ static void checkLinks(sseqRecord *pR)
 				}
 			} else if (plinkGroup->usePutCallback == sseqWAIT_NoWait) {
 				if (plinkGroup->waitConfigErr == 1) {
-					/* rescind error tate */
+					/* rescind error state */
 					plinkGroup->waitConfigErr = 0;
 					db_post_events(pR, &plinkGroup->waitConfigErr, DBE_VALUE);
 				}
 			}
+		} else {
+			if (plinkGroup->waitConfigErr == 1) {
+				/* rescind error state */
+				plinkGroup->waitConfigErr = 0;
+				db_post_events(pR, &plinkGroup->waitConfigErr, DBE_VALUE);
+			}
 		}
+
 		plinkGroup->lnk_field_type = DBF_unknown;
 		if (plinkGroup->lnk.value.pv_link.pvname &&
 		    plinkGroup->lnk.value.pv_link.pvname[0]) {
