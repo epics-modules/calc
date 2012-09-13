@@ -226,7 +226,7 @@ static long init_record(acalcoutRecord *pcalc, int pass)
 	}
 	db_post_events(pcalc,&pcalc->clcv,DBE_VALUE);
 
-	pcalc->oclv = aCalcPostfix(pcalc->ocal,(char *)pcalc->orpc,&error_number);
+	pcalc->oclv = aCalcPostfix(pcalc->ocal, pcalc->orpc,&error_number);
 	if (pcalc->oclv) {
 		recGblRecordError(S_db_badField,(void *)pcalc,
 			"acalcout: init_record: Illegal OCAL field");
@@ -255,7 +255,9 @@ static long process(acalcoutRecord *pcalc)
 {
 	rpvtStruct   *prpvt = (rpvtStruct *)pcalc->rpvt;
 	short		doOutput = 0;
-	long		i, stat;
+	long		i, j, stat;
+	double		*pnew, *pprev, **panew;
+	epicsUInt32	amask;
 
 	if (aCalcoutRecordDebug) printf("acalcoutRecord(%s):process: pact=%d\n",
 		pcalc->name, pcalc->pact);
@@ -273,6 +275,11 @@ static long process(acalcoutRecord *pcalc)
 	if (!pcalc->pact) {
 		pcalc->pact = TRUE;
 
+		/* record scalar-field values so we can tell which ones aCalcPerform wrote to. */
+		for (i=0, pnew=&pcalc->a, pprev=&pcalc->pa; i<MAX_FIELDS;  i++, pnew++, pprev++) {
+			*pprev = *pnew;
+		}
+
 		/* if some links are CA, check connections */
 		if (prpvt->caLinkStat != NO_CA_LINKS) checkLinks(pcalc);
 		if (fetch_values(pcalc)==0) {
@@ -281,11 +288,20 @@ static long process(acalcoutRecord *pcalc)
 			i = ((pcalc->nuse > 0) && (pcalc->nuse < pcalc->nelm)) ?
 				pcalc->nuse : pcalc->nelm;
 			stat = aCalcPerform(&pcalc->a, MAX_FIELDS, &pcalc->aa,
-					ARRAY_MAX_FIELDS, i, &pcalc->val, pcalc->aval, pcalc->rpcl);
+					ARRAY_MAX_FIELDS, i, &pcalc->val, pcalc->aval, pcalc->rpcl,
+					pcalc->nelm, &amask);
 			if (stat) printf("%s:process: error in aCalcPerform()\n", pcalc->name);
 			if (i < pcalc->nelm) {
 				for (; i<pcalc->nelm; i++) pcalc->aval[i] = 0;
 			}
+
+			/* post array fields that aCalcPerform wrote to. */
+			for (j=0, panew=&pcalc->aa; j<ARRAY_MAX_FIELDS; j++, panew++) {
+				if (*panew && (amask & (1<<j))) {
+					db_post_events(pcalc, *panew, DBE_VALUE|DBE_LOG);
+				}
+			}
+
 			if (aCalcoutRecordDebug >= 5) {
 				printf("acalcoutRecord(%s):aCalcPerform returns val=%f, aval=[%f %f...]\n",
 					pcalc->name, pcalc->val, pcalc->aval[0], pcalc->aval[1]);
@@ -413,7 +429,7 @@ static long special(dbAddr	*paddr, int after)
 		break;
 
 	case acalcoutRecordOCAL:
-		pcalc->oclv = aCalcPostfix(pcalc->ocal, (char *)pcalc->orpc, &error_number);
+		pcalc->oclv = aCalcPostfix(pcalc->ocal, pcalc->orpc, &error_number);
 		if (pcalc->oclv) {
 			recGblRecordError(S_db_badField,(void *)pcalc,
 				"acalcout: special(): Illegal OCAL field");
@@ -768,7 +784,9 @@ static void checkAlarms(acalcoutRecord *pcalc)
 
 static void execOutput(acalcoutRecord *pcalc)
 {
-	long	i, status;
+	long		i, j, status;
+	epicsUInt32	amask;
+	double		**panew;
 
 	/* Determine output data */
 	if (aCalcoutRecordDebug >= 10)
@@ -783,10 +801,18 @@ static void execOutput(acalcoutRecord *pcalc)
 		i = ((pcalc->nuse > 0) && (pcalc->nuse < pcalc->nelm)) ?
 			pcalc->nuse : pcalc->nelm;
 		if (aCalcPerform(&pcalc->a, MAX_FIELDS, &pcalc->aa,
-				ARRAY_MAX_FIELDS, i, &pcalc->oval, pcalc->oav, pcalc->rpcl)) {
+				ARRAY_MAX_FIELDS, i, &pcalc->oval, pcalc->oav, pcalc->rpcl, pcalc->nelm, &amask)) {
 			recGblSetSevr(pcalc,CALC_ALARM,INVALID_ALARM);
 			printf("%s:execOutput: error in aCalcPerform()\n", pcalc->name);
 		}
+
+		/* post array fields that aCalcPerform wrote to. */
+		for (j=0, panew=&pcalc->aa; j<ARRAY_MAX_FIELDS; j++, panew++) {
+			if (*panew && (amask & (1<<j))) {
+				db_post_events(pcalc, *panew, DBE_VALUE|DBE_LOG);
+			}
+		}
+
 		if (i < pcalc->nelm) {
 			for (; i<pcalc->nelm; i++) pcalc->oav[i] = 0;
 		}
