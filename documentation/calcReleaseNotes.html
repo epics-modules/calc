@@ -9,25 +9,27 @@ content="text/html; charset=iso-8859-1">
 <body bgcolor="#FFFFFF">
 
 <h1 align="center">calc Release Notes</h1>
-<h2 align="center">Release 2-10</h2>
+<h2 align="center">Release 3-0</h2>
 <ul>
 
 <li>In all .adl files displaying calc expressions, the expression widget has
-been  modified to have '$ "' appended to PV name, and to have the attribute
-'format=string'.  The space between the '$' and '"' is needed for MEDM versions
-earlier than 3-1-6, which assume '$' begins a macro substitution. 
+been  modified to have '$' appended to PV name, and to have the attribute
+'format=string'.  <b>The trailing '$' character will confound MEDM versions
+earlier than 3-1-7, which assume '$' begins a macro substitution.</b>
 
-<li>Modified scalcout, transform, and swait records to use 80-character
+<li>Modified scalcout, transform, swait, and acalcout records to use 80-character
 expression fields.  Modified associated autosave-request files to handle these
-fields by appending '$' to the field name.  Note that autosave R4.9 or higher is
-required to save and restore these fields.
+fields by appending '$' to the field name.  <b>Note that autosave R5-0 or higher is
+required to save and restore these fields.</b>
 
 <li>Modified interp.c and interpNew.* software to support interpolating an
 array of values to produce an array of results.  The interpolation of scalars
 and arrays uses the same interpolation tables and polynomial order.
 
-<li>The sseq record was moved from the std module to the calc module, along
-with all of its databases, request files, and display files.
+<li>The sseq record (and related databases, etc) was moved from the std module
+to the calc module, along with all of its databases, request files, and display
+files. <b>Command files that load userStringSeqs10.db must be modified to reflect
+its new location.</b> 
 
 <li>The sseq record now notifies the user if a WAITn field is inconsistent with the
 link attribute specified for the associated LNKn field.  (If WAITn, then LNKn
@@ -37,9 +39,29 @@ must be a CA link.)
 has been implemented as unary negative.  Now, "NOT" and "!" both mean logical
 NOT.
 
+<li>Rewrote string and array calcs following Andrew Johnson's new model for the
+calc software in EPICS base.  This model does a more robust job of handling
+functions with a variable number of arguments, and permits expressions to store
+values to input variables.  I departed slightly from the model to permit store
+operations at other than top level, which allows them to be made conditional. 
+This permitted the addition of the looping function "UNTIL".  String and array
+calcs now export the variables sCalcLoopMax and aCalcLoopMax, respectively, to
+limit the number of iterations of UNTIL loops.
+
+<li><b>WARNING! NON-BACKWARD-COMPATIBLE CHANGE:</b><br>
+
+Fixed the array calc {} (subrange in place) operator to treat array indices as
+documented - exactly as the [] (subrange) operator treats them.  Previously, for
+example, aa{0,n} was not the same as aa[0,n], but instead performed aa{0,n-1}.
+
+<li>Renamed aCalcoutRecord's NEW field as NEWM, to avoid conflict with c++ reserved word
+
+<li>Added python program test_aCalc.py to test array calcs.  The program uses pyepics to talk to
+an acalcout record.  Modified test_sCalc.py to use pyepics.
+
+
 </ul>
 
-<h1 align="center">calc Release Notes</h1>
 <h2 align="center">Release 2-9</h2>
 <ul>
 
