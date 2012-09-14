@@ -186,7 +186,7 @@ def test():
 	numErrors = 0
 	for e in exp:
 		epics.caput(calc,e[0], wait=True)
-		#time.sleep(5)
+		time.sleep(.1)
 		rtry = epics.caget(result)
 		atry = epics.caget(aresult)
 		if (e[1]):

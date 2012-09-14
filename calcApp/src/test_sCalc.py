@@ -43,6 +43,9 @@ II = "string 9"
 JJ = "string 10"
 KK = "string 11"
 LL = "xxx:scan1.EXSC"
+
+epics.caput(calc, "0")
+
 for i in range(12):
 	epics.caput(sCalcRecord + "." + A2L[i], eval(A2L[i]))
 	epics.caput(sCalcRecord + "." + A2L[i] + A2L[i], eval(A2L[i]+A2L[i]) )
@@ -148,7 +151,7 @@ def test():
 	numErrors = 0
 	for e in exp:
 		epics.caput(calc,e[0], wait=True)
-		#time.sleep(5)
+		time.sleep(.1)
 		rtry = epics.caget(result)
 		stry = epics.caget(sresult)
 		if (e[1]):
