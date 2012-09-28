@@ -1,2002 +1,504 @@
-<?xml version='1.0' encoding='UTF-8'?>
 <display typeId="org.csstudio.opibuilder.Display" version="1.0">
   <auto_zoom_to_fit_all>false</auto_zoom_to_fit_all>
   <macros>
     <include_parent_macros>true</include_parent_macros>
   </macros>
-  <scripts/>
+  <wuid>-35547c25:13a0384ab1a:-5c55</wuid>
+  <boy_version>3.1.2.20120830</boy_version>
+  <scripts />
   <show_ruler>true</show_ruler>
   <height>220</height>
   <name>userCalcs10</name>
   <snap_to_geometry>false</snap_to_geometry>
   <show_grid>false</show_grid>
   <background_color>
-    <color name="default_bg"/>
+    <color name="Gray_3" red="200" green="200" blue="200" />
   </background_color>
   <foreground_color>
-    <color name="MEDM_COLOR_64"/>
+    <color name="MEDM_COLOR_64" red="26" green="115" blue="9" />
   </foreground_color>
   <widget_type>Display</widget_type>
   <show_close_button>true</show_close_button>
   <width>160</width>
-  <rules/>
+  <rules />
   <show_edit_range>true</show_edit_range>
   <grid_space>5</grid_space>
-  <actions hook="false"/>
-  <y>49</y>
-  <x>582</x>
-  <widget typeId="org.csstudio.opibuilder.widgets.Rectangle" version="1.0">
-    <border_alarm_sensitive>false</border_alarm_sensitive>
+  <auto_scale_widgets>
+    <auto_scale_widgets>false</auto_scale_widgets>
+    <min_width>-1</min_width>
+    <min_height>-1</min_height>
+  </auto_scale_widgets>
+  <actions hook="false" hook_all="false" />
+  <y>40</y>
+  <x>919</x>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+      <N>1</N>
+    </macros>
     <visible>true</visible>
-    <fill_level>0.0</fill_level>
-    <line_color>
-      <color red="128" green="0" blue="255"/>
-    </line_color>
-    <scripts/>
-    <height>224</height>
-    <anti_alias>true</anti_alias>
-    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-    <name>Rectangle</name>
-    <transparent>false</transparent>
-    <pv_name/>
+    <wuid>-35547c25:13a0384ab1a:-5c53</wuid>
+    <auto_size>false</auto_size>
+    <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>20</height>
+    <name>Linking Container</name>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <opi_file>userCalc_bare.opi</opi_file>
     <background_color>
-      <color red="0" green="0" blue="0"/>
+      <color red="200" green="200" blue="200" />
     </background_color>
     <foreground_color>
-      <color red="255" green="0" blue="0"/>
+      <color red="26" green="115" blue="9" />
     </foreground_color>
-    <widget_type>Rectangle</widget_type>
+    <group_name></group_name>
+    <widget_type>Linking Container</widget_type>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
+    </font>
+    <width>160</width>
+    <border_style>3</border_style>
+    <rules />
+    <border_width>1</border_width>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <actions hook="false" hook_all="false" />
+    <y>20</y>
+    <tooltip></tooltip>
+    <x>0</x>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+      <N>2</N>
+    </macros>
+    <visible>true</visible>
+    <wuid>-35547c25:13a0384ab1a:-5c52</wuid>
+    <auto_size>false</auto_size>
+    <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>20</height>
+    <name>Linking Container</name>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <opi_file>userCalc_bare.opi</opi_file>
+    <background_color>
+      <color red="200" green="200" blue="200" />
+    </background_color>
+    <foreground_color>
+      <color red="26" green="115" blue="9" />
+    </foreground_color>
+    <group_name></group_name>
+    <widget_type>Linking Container</widget_type>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
+    </font>
+    <width>160</width>
+    <border_style>3</border_style>
+    <rules />
+    <border_width>1</border_width>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <actions hook="false" hook_all="false" />
+    <y>40</y>
+    <tooltip></tooltip>
+    <x>0</x>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+      <N>3</N>
+    </macros>
+    <visible>true</visible>
+    <wuid>-35547c25:13a0384ab1a:-5c51</wuid>
+    <auto_size>false</auto_size>
+    <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>20</height>
+    <name>Linking Container</name>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <opi_file>userCalc_bare.opi</opi_file>
+    <background_color>
+      <color red="200" green="200" blue="200" />
+    </background_color>
+    <foreground_color>
+      <color red="26" green="115" blue="9" />
+    </foreground_color>
+    <group_name></group_name>
+    <widget_type>Linking Container</widget_type>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
+    </font>
+    <width>160</width>
+    <border_style>3</border_style>
+    <rules />
+    <border_width>1</border_width>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <actions hook="false" hook_all="false" />
+    <y>60</y>
+    <tooltip></tooltip>
+    <x>0</x>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+      <N>4</N>
+    </macros>
+    <visible>true</visible>
+    <wuid>-35547c25:13a0384ab1a:-5c50</wuid>
+    <auto_size>false</auto_size>
+    <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>20</height>
+    <name>Linking Container</name>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <opi_file>userCalc_bare.opi</opi_file>
+    <background_color>
+      <color red="200" green="200" blue="200" />
+    </background_color>
+    <foreground_color>
+      <color red="26" green="115" blue="9" />
+    </foreground_color>
+    <group_name></group_name>
+    <widget_type>Linking Container</widget_type>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
+    </font>
+    <width>160</width>
+    <border_style>3</border_style>
+    <rules />
+    <border_width>1</border_width>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <actions hook="false" hook_all="false" />
+    <y>80</y>
+    <tooltip></tooltip>
+    <x>0</x>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+      <N>5</N>
+    </macros>
+    <visible>true</visible>
+    <wuid>-35547c25:13a0384ab1a:-5c4f</wuid>
+    <auto_size>false</auto_size>
+    <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>20</height>
+    <name>Linking Container</name>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <opi_file>userCalc_bare.opi</opi_file>
+    <background_color>
+      <color red="200" green="200" blue="200" />
+    </background_color>
+    <foreground_color>
+      <color red="26" green="115" blue="9" />
+    </foreground_color>
+    <group_name></group_name>
+    <widget_type>Linking Container</widget_type>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
+    </font>
+    <width>160</width>
+    <border_style>3</border_style>
+    <rules />
+    <border_width>1</border_width>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <actions hook="false" hook_all="false" />
+    <y>100</y>
+    <tooltip></tooltip>
+    <x>0</x>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+      <N>6</N>
+    </macros>
+    <visible>true</visible>
+    <wuid>-35547c25:13a0384ab1a:-5c4e</wuid>
+    <auto_size>false</auto_size>
+    <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>20</height>
+    <name>Linking Container</name>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <opi_file>userCalc_bare.opi</opi_file>
+    <background_color>
+      <color red="200" green="200" blue="200" />
+    </background_color>
+    <foreground_color>
+      <color red="26" green="115" blue="9" />
+    </foreground_color>
+    <group_name></group_name>
+    <widget_type>Linking Container</widget_type>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
+    </font>
+    <width>160</width>
+    <border_style>3</border_style>
+    <rules />
+    <border_width>1</border_width>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <actions hook="false" hook_all="false" />
+    <y>120</y>
+    <tooltip></tooltip>
+    <x>0</x>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+      <N>7</N>
+    </macros>
+    <visible>true</visible>
+    <wuid>-35547c25:13a0384ab1a:-5c4d</wuid>
+    <auto_size>false</auto_size>
+    <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>20</height>
+    <name>Linking Container</name>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <opi_file>userCalc_bare.opi</opi_file>
+    <background_color>
+      <color red="200" green="200" blue="200" />
+    </background_color>
+    <foreground_color>
+      <color red="26" green="115" blue="9" />
+    </foreground_color>
+    <group_name></group_name>
+    <widget_type>Linking Container</widget_type>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
+    </font>
+    <width>160</width>
+    <border_style>3</border_style>
+    <rules />
+    <border_width>1</border_width>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <actions hook="false" hook_all="false" />
+    <y>140</y>
+    <tooltip></tooltip>
+    <x>0</x>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+      <N>8</N>
+    </macros>
+    <visible>true</visible>
+    <wuid>-35547c25:13a0384ab1a:-5c4c</wuid>
+    <auto_size>false</auto_size>
+    <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>20</height>
+    <name>Linking Container</name>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <opi_file>userCalc_bare.opi</opi_file>
+    <background_color>
+      <color red="200" green="200" blue="200" />
+    </background_color>
+    <foreground_color>
+      <color red="26" green="115" blue="9" />
+    </foreground_color>
+    <group_name></group_name>
+    <widget_type>Linking Container</widget_type>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
+    </font>
+    <width>160</width>
+    <border_style>3</border_style>
+    <rules />
+    <border_width>1</border_width>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <actions hook="false" hook_all="false" />
+    <y>160</y>
+    <tooltip></tooltip>
+    <x>0</x>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+      <N>9</N>
+    </macros>
+    <visible>true</visible>
+    <wuid>-35547c25:13a0384ab1a:-5c4b</wuid>
+    <auto_size>false</auto_size>
+    <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>20</height>
+    <name>Linking Container</name>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <opi_file>userCalc_bare.opi</opi_file>
+    <background_color>
+      <color red="200" green="200" blue="200" />
+    </background_color>
+    <foreground_color>
+      <color red="26" green="115" blue="9" />
+    </foreground_color>
+    <group_name></group_name>
+    <widget_type>Linking Container</widget_type>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
+    </font>
+    <width>160</width>
+    <border_style>3</border_style>
+    <rules />
+    <border_width>1</border_width>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <actions hook="false" hook_all="false" />
+    <y>180</y>
+    <tooltip></tooltip>
+    <x>0</x>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.linkingContainer" version="1.0">
+    <macros>
+      <include_parent_macros>true</include_parent_macros>
+      <N>10</N>
+    </macros>
+    <visible>true</visible>
+    <wuid>-35547c25:13a0384ab1a:-5c4a</wuid>
+    <auto_size>false</auto_size>
+    <scripts />
+    <zoom_to_fit>true</zoom_to_fit>
+    <height>20</height>
+    <name>Linking Container</name>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <opi_file>userCalc_bare.opi</opi_file>
+    <background_color>
+      <color red="200" green="200" blue="200" />
+    </background_color>
+    <foreground_color>
+      <color red="26" green="115" blue="9" />
+    </foreground_color>
+    <group_name></group_name>
+    <widget_type>Linking Container</widget_type>
+    <enabled>true</enabled>
+    <font>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
+    </font>
+    <width>160</width>
+    <border_style>3</border_style>
+    <rules />
+    <border_width>1</border_width>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <actions hook="false" hook_all="false" />
+    <y>200</y>
+    <tooltip></tooltip>
+    <x>0</x>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.choiceButton" version="1.0">
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <visible>true</visible>
+    <wuid>-35547c25:13a0384ab1a:-5c54</wuid>
+    <scripts />
+    <height>20</height>
+    <name>Choice Button</name>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <pv_name>$(P)userCalcEnable.VAL</pv_name>
+    <background_color>
+      <color name="ioc_write_bg" red="115" green="223" blue="255" />
+    </background_color>
+    <foreground_color>
+      <color name="Gray_14" red="0" green="0" blue="0" />
+    </foreground_color>
+    <widget_type>Choice Button</widget_type>
     <enabled>true</enabled>
     <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
     <font>
-      <opifont.name>Default</opifont.name>
+      <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
-    <line_style>0</line_style>
-    <width>166</width>
+    <width>160</width>
     <border_style>0</border_style>
-    <rules/>
+    <selected_color>
+      <color red="255" green="255" blue="255" />
+    </selected_color>
+    <rules />
+    <pv_value />
+    <items>
+      <s>Choice 1</s>
+      <s>Choice 2</s>
+      <s>Choice 3</s>
+    </items>
     <border_width>1</border_width>
-    <line_width>0</line_width>
-    <horizontal_fill>true</horizontal_fill>
+    <horizontal>true</horizontal>
     <border_color>
-      <color red="0" green="128" blue="255"/>
+      <color red="0" green="128" blue="255" />
     </border_color>
-    <actions hook="false"/>
+    <items_from_pv>true</items_from_pv>
+    <actions hook="false" hook_all="false" />
     <y>0</y>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
-    <x>0</x>
-  </widget>
-  <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0">
-    <enabled>true</enabled>
-    <widget_type>Grouping Container</widget_type>
-    <macros>
-      <include_parent_macros>true</include_parent_macros>
-    </macros>
-    <visible>true</visible>
-    <font>
-      <opifont.name>Default</opifont.name>
-    </font>
-    <width>162</width>
-    <border_style>0</border_style>
-    <rules/>
-    <lock_children>false</lock_children>
-    <scripts/>
-    <height>220</height>
-    <border_width>1</border_width>
-    <name>Grouping Container</name>
-    <border_color>
-      <color red="0" green="128" blue="255"/>
-    </border_color>
-    <transparent>false</transparent>
-    <show_scrollbar>false</show_scrollbar>
-    <y>2</y>
-    <actions hook="false"/>
-    <foreground_color>
-      <color red="192" green="192" blue="192"/>
-    </foreground_color>
-    <background_color>
-      <color red="240" green="240" blue="240"/>
-    </background_color>
     <x>2</x>
-    <tooltip/>
-    <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="1.0">
-      <border_alarm_sensitive>false</border_alarm_sensitive>
-      <visible>true</visible>
-      <minimum>-1.7976931348623157E308</minimum>
-      <vertical_alignment>1</vertical_alignment>
-      <show_units>true</show_units>
-      <multiline_input>false</multiline_input>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>20</height>
-      <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-      <name>Text Input</name>
-      <format_type>1</format_type>
-      <precision_from_pv>true</precision_from_pv>
-      <transparent>false</transparent>
-      <selector_type>0</selector_type>
-      <pv_name>$(P)userCalc1.DESC</pv_name>
-      <background_color>
-        <color name="default_bg"/>
-      </background_color>
-      <foreground_color>
-        <color name="ioc_read_fg"/>
-      </foreground_color>
-      <widget_type>Text Input</widget_type>
-      <enabled>true</enabled>
-      <text/>
-      <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
-      <precision>0</precision>
-      <font>
-        <fontdata fontName="Sans" height="14" style="0"/>
-      </font>
-      <width>120</width>
-      <border_style>3</border_style>
-      <rules/>
-      <border_width>1</border_width>
-      <maximum>1.7976931348623157E308</maximum>
-      <limits_from_pv>false</limits_from_pv>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>20</y>
-      <tooltip>$(pv_name)
-$(pv_value)</tooltip>
-      <x>20</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
-      <border_alarm_sensitive>false</border_alarm_sensitive>
-      <visible>true</visible>
-      <actions_from_pv>false</actions_from_pv>
-      <scripts/>
-      <height>20</height>
-      <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-      <name>Menu Button</name>
-      <transparent>false</transparent>
-      <pv_name/>
-      <background_color>
-        <color name="callup_bg"/>
-      </background_color>
-      <foreground_color>
-        <color name="callup_fg"/>
-      </foreground_color>
-      <widget_type>Menu Button</widget_type>
-      <enabled>true</enabled>
-      <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
-      <font>
-        <opifont.name>Default</opifont.name>
-      </font>
-      <width>20</width>
-      <border_style>6</border_style>
-      <label>1</label>
-      <rules/>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <y>20</y>
-      <actions hook="false">
-        <action type="OPEN_OPI_IN_VIEW">
-          <path>userCalc.opi</path>
-          <macros>
-            <include_parent_macros>true</include_parent_macros>
-            <C>userCalc1</C>
-          </macros>
-          <Position>1</Position>
-          <description>user calc 1</description>
-        </action>
-        <action type="OPEN_OPI_IN_VIEW">
-          <path>userCalc_full.opi</path>
-          <macros>
-            <include_parent_macros>true</include_parent_macros>
-            <C>userCalc1</C>
-          </macros>
-          <Position>1</Position>
-          <description>user calc 1 (full)</description>
-        </action>
-      </actions>
-      <tooltip>$(pv_name)
-$(pv_value)</tooltip>
-      <x>0</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="1.0">
-      <border_alarm_sensitive>false</border_alarm_sensitive>
-      <visible>true</visible>
-      <minimum>-1.7976931348623157E308</minimum>
-      <vertical_alignment>1</vertical_alignment>
-      <show_units>true</show_units>
-      <multiline_input>false</multiline_input>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>20</height>
-      <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-      <name>Text Input</name>
-      <format_type>1</format_type>
-      <precision_from_pv>true</precision_from_pv>
-      <transparent>false</transparent>
-      <selector_type>0</selector_type>
-      <pv_name>$(P)userCalc2.DESC</pv_name>
-      <background_color>
-        <color name="default_bg"/>
-      </background_color>
-      <foreground_color>
-        <color name="ioc_read_fg"/>
-      </foreground_color>
-      <widget_type>Text Input</widget_type>
-      <enabled>true</enabled>
-      <text/>
-      <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
-      <precision>0</precision>
-      <font>
-        <fontdata fontName="Sans" height="14" style="0"/>
-      </font>
-      <width>120</width>
-      <border_style>3</border_style>
-      <rules/>
-      <border_width>1</border_width>
-      <maximum>1.7976931348623157E308</maximum>
-      <limits_from_pv>false</limits_from_pv>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>40</y>
-      <tooltip>$(pv_name)
-$(pv_value)</tooltip>
-      <x>20</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
-      <border_alarm_sensitive>false</border_alarm_sensitive>
-      <visible>true</visible>
-      <actions_from_pv>false</actions_from_pv>
-      <scripts/>
-      <height>20</height>
-      <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-      <name>Menu Button</name>
-      <transparent>false</transparent>
-      <pv_name/>
-      <background_color>
-        <color name="callup_bg"/>
-      </background_color>
-      <foreground_color>
-        <color name="callup_fg"/>
-      </foreground_color>
-      <widget_type>Menu Button</widget_type>
-      <enabled>true</enabled>
-      <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
-      <font>
-        <opifont.name>Default</opifont.name>
-      </font>
-      <width>20</width>
-      <border_style>6</border_style>
-      <label>2</label>
-      <rules/>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <y>40</y>
-      <actions hook="false">
-        <action type="OPEN_OPI_IN_VIEW">
-          <path>userCalc.opi</path>
-          <macros>
-            <include_parent_macros>true</include_parent_macros>
-            <C>userCalc2</C>
-          </macros>
-          <Position>1</Position>
-          <description>user calc 2</description>
-        </action>
-        <action type="OPEN_OPI_IN_VIEW">
-          <path>userCalc_full.opi</path>
-          <macros>
-            <include_parent_macros>true</include_parent_macros>
-            <C>userCalc2</C>
-          </macros>
-          <Position>1</Position>
-          <description>user calc 2 (full)</description>
-        </action>
-      </actions>
-      <tooltip>$(pv_name)
-$(pv_value)</tooltip>
-      <x>0</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="1.0">
-      <border_alarm_sensitive>false</border_alarm_sensitive>
-      <visible>true</visible>
-      <minimum>-1.7976931348623157E308</minimum>
-      <vertical_alignment>1</vertical_alignment>
-      <show_units>true</show_units>
-      <multiline_input>false</multiline_input>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>20</height>
-      <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-      <name>Text Input</name>
-      <format_type>1</format_type>
-      <precision_from_pv>true</precision_from_pv>
-      <transparent>false</transparent>
-      <selector_type>0</selector_type>
-      <pv_name>$(P)userCalc3.DESC</pv_name>
-      <background_color>
-        <color name="default_bg"/>
-      </background_color>
-      <foreground_color>
-        <color name="ioc_read_fg"/>
-      </foreground_color>
-      <widget_type>Text Input</widget_type>
-      <enabled>true</enabled>
-      <text/>
-      <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
-      <precision>0</precision>
-      <font>
-        <fontdata fontName="Sans" height="14" style="0"/>
-      </font>
-      <width>120</width>
-      <border_style>3</border_style>
-      <rules/>
-      <border_width>1</border_width>
-      <maximum>1.7976931348623157E308</maximum>
-      <limits_from_pv>false</limits_from_pv>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>60</y>
-      <tooltip>$(pv_name)
-$(pv_value)</tooltip>
-      <x>20</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
-      <border_alarm_sensitive>false</border_alarm_sensitive>
-      <visible>true</visible>
-      <actions_from_pv>false</actions_from_pv>
-      <scripts/>
-      <height>20</height>
-      <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-      <name>Menu Button</name>
-      <transparent>false</transparent>
-      <pv_name/>
-      <background_color>
-        <color name="callup_bg"/>
-      </background_color>
-      <foreground_color>
-        <color name="callup_fg"/>
-      </foreground_color>
-      <widget_type>Menu Button</widget_type>
-      <enabled>true</enabled>
-      <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
-      <font>
-        <opifont.name>Default</opifont.name>
-      </font>
-      <width>20</width>
-      <border_style>6</border_style>
-      <label>3</label>
-      <rules/>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <y>60</y>
-      <actions hook="false">
-        <action type="OPEN_OPI_IN_VIEW">
-          <path>userCalc.opi</path>
-          <macros>
-            <include_parent_macros>true</include_parent_macros>
-            <C>userCalc3</C>
-          </macros>
-          <Position>1</Position>
-          <description>user calc 3</description>
-        </action>
-        <action type="OPEN_OPI_IN_VIEW">
-          <path>userCalc_full.opi</path>
-          <macros>
-            <include_parent_macros>true</include_parent_macros>
-            <C>userCalc3</C>
-          </macros>
-          <Position>1</Position>
-          <description>user calc 3 (full)</description>
-        </action>
-      </actions>
-      <tooltip>$(pv_name)
-$(pv_value)</tooltip>
-      <x>0</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="1.0">
-      <border_alarm_sensitive>false</border_alarm_sensitive>
-      <visible>true</visible>
-      <minimum>-1.7976931348623157E308</minimum>
-      <vertical_alignment>1</vertical_alignment>
-      <show_units>true</show_units>
-      <multiline_input>false</multiline_input>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>20</height>
-      <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-      <name>Text Input</name>
-      <format_type>1</format_type>
-      <precision_from_pv>true</precision_from_pv>
-      <transparent>false</transparent>
-      <selector_type>0</selector_type>
-      <pv_name>$(P)userCalc4.DESC</pv_name>
-      <background_color>
-        <color name="default_bg"/>
-      </background_color>
-      <foreground_color>
-        <color name="ioc_read_fg"/>
-      </foreground_color>
-      <widget_type>Text Input</widget_type>
-      <enabled>true</enabled>
-      <text/>
-      <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
-      <precision>0</precision>
-      <font>
-        <fontdata fontName="Sans" height="14" style="0"/>
-      </font>
-      <width>120</width>
-      <border_style>3</border_style>
-      <rules/>
-      <border_width>1</border_width>
-      <maximum>1.7976931348623157E308</maximum>
-      <limits_from_pv>false</limits_from_pv>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>80</y>
-      <tooltip>$(pv_name)
-$(pv_value)</tooltip>
-      <x>20</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
-      <border_alarm_sensitive>false</border_alarm_sensitive>
-      <visible>true</visible>
-      <actions_from_pv>false</actions_from_pv>
-      <scripts/>
-      <height>20</height>
-      <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-      <name>Menu Button</name>
-      <transparent>false</transparent>
-      <pv_name/>
-      <background_color>
-        <color name="callup_bg"/>
-      </background_color>
-      <foreground_color>
-        <color name="callup_fg"/>
-      </foreground_color>
-      <widget_type>Menu Button</widget_type>
-      <enabled>true</enabled>
-      <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
-      <font>
-        <opifont.name>Default</opifont.name>
-      </font>
-      <width>20</width>
-      <border_style>6</border_style>
-      <label>4</label>
-      <rules/>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <y>80</y>
-      <actions hook="false">
-        <action type="OPEN_OPI_IN_VIEW">
-          <path>userCalc.opi</path>
-          <macros>
-            <include_parent_macros>true</include_parent_macros>
-            <C>userCalc4</C>
-          </macros>
-          <Position>1</Position>
-          <description>user calc 4</description>
-        </action>
-        <action type="OPEN_OPI_IN_VIEW">
-          <path>userCalc_full.opi</path>
-          <macros>
-            <include_parent_macros>true</include_parent_macros>
-            <C>userCalc4</C>
-          </macros>
-          <Position>1</Position>
-          <description>user calc 4 (full)</description>
-        </action>
-      </actions>
-      <tooltip>$(pv_name)
-$(pv_value)</tooltip>
-      <x>0</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="1.0">
-      <border_alarm_sensitive>false</border_alarm_sensitive>
-      <visible>true</visible>
-      <minimum>-1.7976931348623157E308</minimum>
-      <vertical_alignment>1</vertical_alignment>
-      <show_units>true</show_units>
-      <multiline_input>false</multiline_input>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>20</height>
-      <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-      <name>Text Input</name>
-      <format_type>1</format_type>
-      <precision_from_pv>true</precision_from_pv>
-      <transparent>false</transparent>
-      <selector_type>0</selector_type>
-      <pv_name>$(P)userCalc5.DESC</pv_name>
-      <background_color>
-        <color name="default_bg"/>
-      </background_color>
-      <foreground_color>
-        <color name="ioc_read_fg"/>
-      </foreground_color>
-      <widget_type>Text Input</widget_type>
-      <enabled>true</enabled>
-      <text/>
-      <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
-      <precision>0</precision>
-      <font>
-        <fontdata fontName="Sans" height="14" style="0"/>
-      </font>
-      <width>120</width>
-      <border_style>3</border_style>
-      <rules/>
-      <border_width>1</border_width>
-      <maximum>1.7976931348623157E308</maximum>
-      <limits_from_pv>false</limits_from_pv>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>100</y>
-      <tooltip>$(pv_name)
-$(pv_value)</tooltip>
-      <x>20</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
-      <border_alarm_sensitive>false</border_alarm_sensitive>
-      <visible>true</visible>
-      <actions_from_pv>false</actions_from_pv>
-      <scripts/>
-      <height>20</height>
-      <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-      <name>Menu Button</name>
-      <transparent>false</transparent>
-      <pv_name/>
-      <background_color>
-        <color name="callup_bg"/>
-      </background_color>
-      <foreground_color>
-        <color name="callup_fg"/>
-      </foreground_color>
-      <widget_type>Menu Button</widget_type>
-      <enabled>true</enabled>
-      <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
-      <font>
-        <opifont.name>Default</opifont.name>
-      </font>
-      <width>20</width>
-      <border_style>6</border_style>
-      <label>5</label>
-      <rules/>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <y>100</y>
-      <actions hook="false">
-        <action type="OPEN_OPI_IN_VIEW">
-          <path>userCalc.opi</path>
-          <macros>
-            <include_parent_macros>true</include_parent_macros>
-            <C>userCalc5</C>
-          </macros>
-          <Position>1</Position>
-          <description>user calc 5</description>
-        </action>
-        <action type="OPEN_OPI_IN_VIEW">
-          <path>userCalc_full.opi</path>
-          <macros>
-            <include_parent_macros>true</include_parent_macros>
-            <C>userCalc5</C>
-          </macros>
-          <Position>1</Position>
-          <description>user calc 5 (full)</description>
-        </action>
-      </actions>
-      <tooltip>$(pv_name)
-$(pv_value)</tooltip>
-      <x>0</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="1.0">
-      <border_alarm_sensitive>false</border_alarm_sensitive>
-      <visible>true</visible>
-      <minimum>-1.7976931348623157E308</minimum>
-      <vertical_alignment>1</vertical_alignment>
-      <show_units>true</show_units>
-      <multiline_input>false</multiline_input>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>20</height>
-      <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-      <name>Text Input</name>
-      <format_type>1</format_type>
-      <precision_from_pv>true</precision_from_pv>
-      <transparent>false</transparent>
-      <selector_type>0</selector_type>
-      <pv_name>$(P)userCalc6.DESC</pv_name>
-      <background_color>
-        <color name="default_bg"/>
-      </background_color>
-      <foreground_color>
-        <color name="ioc_read_fg"/>
-      </foreground_color>
-      <widget_type>Text Input</widget_type>
-      <enabled>true</enabled>
-      <text/>
-      <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
-      <precision>0</precision>
-      <font>
-        <fontdata fontName="Sans" height="14" style="0"/>
-      </font>
-      <width>120</width>
-      <border_style>3</border_style>
-      <rules/>
-      <border_width>1</border_width>
-      <maximum>1.7976931348623157E308</maximum>
-      <limits_from_pv>false</limits_from_pv>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>120</y>
-      <tooltip>$(pv_name)
-$(pv_value)</tooltip>
-      <x>20</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
-      <border_alarm_sensitive>false</border_alarm_sensitive>
-      <visible>true</visible>
-      <actions_from_pv>false</actions_from_pv>
-      <scripts/>
-      <height>20</height>
-      <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-      <name>Menu Button</name>
-      <transparent>false</transparent>
-      <pv_name/>
-      <background_color>
-        <color name="callup_bg"/>
-      </background_color>
-      <foreground_color>
-        <color name="callup_fg"/>
-      </foreground_color>
-      <widget_type>Menu Button</widget_type>
-      <enabled>true</enabled>
-      <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
-      <font>
-        <opifont.name>Default</opifont.name>
-      </font>
-      <width>20</width>
-      <border_style>6</border_style>
-      <label>6</label>
-      <rules/>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <y>120</y>
-      <actions hook="false">
-        <action type="OPEN_OPI_IN_VIEW">
-          <path>userCalc.opi</path>
-          <macros>
-            <include_parent_macros>true</include_parent_macros>
-            <C>userCalc6</C>
-          </macros>
-          <Position>1</Position>
-          <description>user calc 6</description>
-        </action>
-        <action type="OPEN_OPI_IN_VIEW">
-          <path>userCalc_full.opi</path>
-          <macros>
-            <include_parent_macros>true</include_parent_macros>
-            <C>userCalc6</C>
-          </macros>
-          <Position>1</Position>
-          <description>user calc 6 (full)</description>
-        </action>
-      </actions>
-      <tooltip>$(pv_name)
-$(pv_value)</tooltip>
-      <x>0</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="1.0">
-      <border_alarm_sensitive>false</border_alarm_sensitive>
-      <visible>true</visible>
-      <minimum>-1.7976931348623157E308</minimum>
-      <vertical_alignment>1</vertical_alignment>
-      <show_units>true</show_units>
-      <multiline_input>false</multiline_input>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>20</height>
-      <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-      <name>Text Input</name>
-      <format_type>1</format_type>
-      <precision_from_pv>true</precision_from_pv>
-      <transparent>false</transparent>
-      <selector_type>0</selector_type>
-      <pv_name>$(P)userCalc7.DESC</pv_name>
-      <background_color>
-        <color name="default_bg"/>
-      </background_color>
-      <foreground_color>
-        <color name="ioc_read_fg"/>
-      </foreground_color>
-      <widget_type>Text Input</widget_type>
-      <enabled>true</enabled>
-      <text/>
-      <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
-      <precision>0</precision>
-      <font>
-        <fontdata fontName="Sans" height="14" style="0"/>
-      </font>
-      <width>120</width>
-      <border_style>3</border_style>
-      <rules/>
-      <border_width>1</border_width>
-      <maximum>1.7976931348623157E308</maximum>
-      <limits_from_pv>false</limits_from_pv>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>140</y>
-      <tooltip>$(pv_name)
-$(pv_value)</tooltip>
-      <x>20</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
-      <border_alarm_sensitive>false</border_alarm_sensitive>
-      <visible>true</visible>
-      <actions_from_pv>false</actions_from_pv>
-      <scripts/>
-      <height>20</height>
-      <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-      <name>Menu Button</name>
-      <transparent>false</transparent>
-      <pv_name/>
-      <background_color>
-        <color name="callup_bg"/>
-      </background_color>
-      <foreground_color>
-        <color name="callup_fg"/>
-      </foreground_color>
-      <widget_type>Menu Button</widget_type>
-      <enabled>true</enabled>
-      <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
-      <font>
-        <opifont.name>Default</opifont.name>
-      </font>
-      <width>20</width>
-      <border_style>6</border_style>
-      <label>7</label>
-      <rules/>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <y>140</y>
-      <actions hook="false">
-        <action type="OPEN_OPI_IN_VIEW">
-          <path>userCalc.opi</path>
-          <macros>
-            <include_parent_macros>true</include_parent_macros>
-            <C>userCalc7</C>
-          </macros>
-          <Position>1</Position>
-          <description>user calc 7</description>
-        </action>
-        <action type="OPEN_OPI_IN_VIEW">
-          <path>userCalc_full.opi</path>
-          <macros>
-            <include_parent_macros>true</include_parent_macros>
-            <C>userCalc7</C>
-          </macros>
-          <Position>1</Position>
-          <description>user calc 7 (full)</description>
-        </action>
-      </actions>
-      <tooltip>$(pv_name)
-$(pv_value)</tooltip>
-      <x>0</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="1.0">
-      <border_alarm_sensitive>false</border_alarm_sensitive>
-      <visible>true</visible>
-      <minimum>-1.7976931348623157E308</minimum>
-      <vertical_alignment>1</vertical_alignment>
-      <show_units>true</show_units>
-      <multiline_input>false</multiline_input>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>20</height>
-      <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-      <name>Text Input</name>
-      <format_type>1</format_type>
-      <precision_from_pv>true</precision_from_pv>
-      <transparent>false</transparent>
-      <selector_type>0</selector_type>
-      <pv_name>$(P)userCalc8.DESC</pv_name>
-      <background_color>
-        <color name="default_bg"/>
-      </background_color>
-      <foreground_color>
-        <color name="ioc_read_fg"/>
-      </foreground_color>
-      <widget_type>Text Input</widget_type>
-      <enabled>true</enabled>
-      <text/>
-      <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
-      <precision>0</precision>
-      <font>
-        <fontdata fontName="Sans" height="14" style="0"/>
-      </font>
-      <width>120</width>
-      <border_style>3</border_style>
-      <rules/>
-      <border_width>1</border_width>
-      <maximum>1.7976931348623157E308</maximum>
-      <limits_from_pv>false</limits_from_pv>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>160</y>
-      <tooltip>$(pv_name)
-$(pv_value)</tooltip>
-      <x>20</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
-      <border_alarm_sensitive>false</border_alarm_sensitive>
-      <visible>true</visible>
-      <actions_from_pv>false</actions_from_pv>
-      <scripts/>
-      <height>20</height>
-      <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-      <name>Menu Button</name>
-      <transparent>false</transparent>
-      <pv_name/>
-      <background_color>
-        <color name="callup_bg"/>
-      </background_color>
-      <foreground_color>
-        <color name="callup_fg"/>
-      </foreground_color>
-      <widget_type>Menu Button</widget_type>
-      <enabled>true</enabled>
-      <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
-      <font>
-        <opifont.name>Default</opifont.name>
-      </font>
-      <width>20</width>
-      <border_style>6</border_style>
-      <label>8</label>
-      <rules/>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <y>160</y>
-      <actions hook="false">
-        <action type="OPEN_OPI_IN_VIEW">
-          <path>userCalc.opi</path>
-          <macros>
-            <include_parent_macros>true</include_parent_macros>
-            <C>userCalc8</C>
-          </macros>
-          <Position>1</Position>
-          <description>user calc 8</description>
-        </action>
-        <action type="OPEN_OPI_IN_VIEW">
-          <path>userCalc_full.opi</path>
-          <macros>
-            <include_parent_macros>true</include_parent_macros>
-            <C>userCalc8</C>
-          </macros>
-          <Position>1</Position>
-          <description>user calc 8 (full)</description>
-        </action>
-      </actions>
-      <tooltip>$(pv_name)
-$(pv_value)</tooltip>
-      <x>0</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="1.0">
-      <border_alarm_sensitive>false</border_alarm_sensitive>
-      <visible>true</visible>
-      <minimum>-1.7976931348623157E308</minimum>
-      <vertical_alignment>1</vertical_alignment>
-      <show_units>true</show_units>
-      <multiline_input>false</multiline_input>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>20</height>
-      <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-      <name>Text Input</name>
-      <format_type>1</format_type>
-      <precision_from_pv>true</precision_from_pv>
-      <transparent>false</transparent>
-      <selector_type>0</selector_type>
-      <pv_name>$(P)userCalc9.DESC</pv_name>
-      <background_color>
-        <color name="default_bg"/>
-      </background_color>
-      <foreground_color>
-        <color name="ioc_read_fg"/>
-      </foreground_color>
-      <widget_type>Text Input</widget_type>
-      <enabled>true</enabled>
-      <text/>
-      <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
-      <precision>0</precision>
-      <font>
-        <fontdata fontName="Sans" height="14" style="0"/>
-      </font>
-      <width>120</width>
-      <border_style>3</border_style>
-      <rules/>
-      <border_width>1</border_width>
-      <maximum>1.7976931348623157E308</maximum>
-      <limits_from_pv>false</limits_from_pv>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>180</y>
-      <tooltip>$(pv_name)
-$(pv_value)</tooltip>
-      <x>20</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
-      <border_alarm_sensitive>false</border_alarm_sensitive>
-      <visible>true</visible>
-      <actions_from_pv>false</actions_from_pv>
-      <scripts/>
-      <height>20</height>
-      <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-      <name>Menu Button</name>
-      <transparent>false</transparent>
-      <pv_name/>
-      <background_color>
-        <color name="callup_bg"/>
-      </background_color>
-      <foreground_color>
-        <color name="callup_fg"/>
-      </foreground_color>
-      <widget_type>Menu Button</widget_type>
-      <enabled>true</enabled>
-      <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
-      <font>
-        <opifont.name>Default</opifont.name>
-      </font>
-      <width>20</width>
-      <border_style>6</border_style>
-      <label>9</label>
-      <rules/>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <y>180</y>
-      <actions hook="false">
-        <action type="OPEN_OPI_IN_VIEW">
-          <path>userCalc.opi</path>
-          <macros>
-            <include_parent_macros>true</include_parent_macros>
-            <C>userCalc9</C>
-          </macros>
-          <Position>1</Position>
-          <description>user calc 9</description>
-        </action>
-        <action type="OPEN_OPI_IN_VIEW">
-          <path>userCalc_full.opi</path>
-          <macros>
-            <include_parent_macros>true</include_parent_macros>
-            <C>userCalc9</C>
-          </macros>
-          <Position>1</Position>
-          <description>user calc 9 (full)</description>
-        </action>
-      </actions>
-      <tooltip>$(pv_name)
-$(pv_value)</tooltip>
-      <x>0</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.TextInput" version="1.0">
-      <border_alarm_sensitive>false</border_alarm_sensitive>
-      <visible>true</visible>
-      <minimum>-1.7976931348623157E308</minimum>
-      <vertical_alignment>1</vertical_alignment>
-      <show_units>true</show_units>
-      <multiline_input>false</multiline_input>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>20</height>
-      <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-      <name>Text Input</name>
-      <format_type>1</format_type>
-      <precision_from_pv>true</precision_from_pv>
-      <transparent>false</transparent>
-      <selector_type>0</selector_type>
-      <pv_name>$(P)userCalc10.DESC</pv_name>
-      <background_color>
-        <color name="default_bg"/>
-      </background_color>
-      <foreground_color>
-        <color name="ioc_read_fg"/>
-      </foreground_color>
-      <widget_type>Text Input</widget_type>
-      <enabled>true</enabled>
-      <text/>
-      <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
-      <precision>0</precision>
-      <font>
-        <fontdata fontName="Sans" height="14" style="0"/>
-      </font>
-      <width>120</width>
-      <border_style>3</border_style>
-      <rules/>
-      <border_width>1</border_width>
-      <maximum>1.7976931348623157E308</maximum>
-      <limits_from_pv>false</limits_from_pv>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>200</y>
-      <tooltip>$(pv_name)
-$(pv_value)</tooltip>
-      <x>20</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.MenuButton" version="1.0">
-      <border_alarm_sensitive>false</border_alarm_sensitive>
-      <visible>true</visible>
-      <actions_from_pv>false</actions_from_pv>
-      <scripts/>
-      <height>20</height>
-      <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-      <name>Menu Button</name>
-      <transparent>false</transparent>
-      <pv_name/>
-      <background_color>
-        <color name="callup_bg"/>
-      </background_color>
-      <foreground_color>
-        <color name="callup_fg"/>
-      </foreground_color>
-      <widget_type>Menu Button</widget_type>
-      <enabled>true</enabled>
-      <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
-      <font>
-        <opifont.name>Default</opifont.name>
-      </font>
-      <width>20</width>
-      <border_style>6</border_style>
-      <label>10</label>
-      <rules/>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <y>200</y>
-      <actions hook="false">
-        <action type="OPEN_OPI_IN_VIEW">
-          <path>userCalc.opi</path>
-          <macros>
-            <include_parent_macros>true</include_parent_macros>
-            <C>userCalc10</C>
-          </macros>
-          <Position>1</Position>
-          <description>user calc 10</description>
-        </action>
-        <action type="OPEN_OPI_IN_VIEW">
-          <path>userCalc_full.opi</path>
-          <macros>
-            <include_parent_macros>true</include_parent_macros>
-            <C>userCalc10</C>
-          </macros>
-          <Position>1</Position>
-          <description>user calc 10 (full)</description>
-        </action>
-      </actions>
-      <tooltip>$(pv_name)
-$(pv_value)</tooltip>
-      <x>0</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.choiceButton" version="1.0">
-      <border_alarm_sensitive>false</border_alarm_sensitive>
-      <visible>true</visible>
-      <scripts/>
-      <height>20</height>
-      <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
-      <name>Choice Button</name>
-      <pv_name>$(P)userCalcEnable.VAL</pv_name>
-      <background_color>
-        <color name="ioc_write_bg"/>
-      </background_color>
-      <foreground_color>
-        <color name="default_fg"/>
-      </foreground_color>
-      <widget_type>Choice Button</widget_type>
-      <enabled>true</enabled>
-      <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
-      <font>
-        <opifont.name>Default</opifont.name>
-      </font>
-      <width>160</width>
-      <border_style>0</border_style>
-      <selected_color>
-        <color red="255" green="255" blue="255"/>
-      </selected_color>
-      <rules/>
-      <border_width>1</border_width>
-      <horizontal>true</horizontal>
-      <items_from_pv>true</items_from_pv>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <actions hook="false"/>
-      <y>0</y>
-      <tooltip>$(pv_name)
-$(pv_value)</tooltip>
-      <x>2</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
-      <visible>true</visible>
-      <vertical_alignment>1</vertical_alignment>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>10</height>
-      <name>Label</name>
-      <transparent>true</transparent>
-      <show_scrollbar>false</show_scrollbar>
-      <background_color>
-        <color red="255" green="255" blue="255"/>
-      </background_color>
-      <foreground_color>
-        <color name="default_fg"/>
-      </foreground_color>
-      <widget_type>Label</widget_type>
-      <enabled>true</enabled>
-      <text>ON</text>
-      <font>
-        <fontdata fontName="Sans" height="6" style="0"/>
-      </font>
-      <width>20</width>
-      <border_style>0</border_style>
-      <rules>
-        <rule name="Visibility" prop_id="visible" out_exp="false">
-          <exp bool_exp="pv0==0">
-            <value>false</value>
-          </exp>
-          <pv trig="true">$(P)userCalc1.SCAN</pv>
-        </rule>
-      </rules>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>20</y>
-      <wrap_words>true</wrap_words>
-      <tooltip/>
-      <x>140</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
-      <visible>true</visible>
-      <vertical_alignment>1</vertical_alignment>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>10</height>
-      <name>Label</name>
-      <transparent>true</transparent>
-      <show_scrollbar>false</show_scrollbar>
-      <background_color>
-        <color red="255" green="255" blue="255"/>
-      </background_color>
-      <foreground_color>
-        <color name="default_fg"/>
-      </foreground_color>
-      <widget_type>Label</widget_type>
-      <enabled>true</enabled>
-      <text>PUT</text>
-      <font>
-        <fontdata fontName="Sans" height="6" style="0"/>
-      </font>
-      <width>20</width>
-      <border_style>0</border_style>
-      <rules>
-        <rule name="Visibility" prop_id="visible" out_exp="false">
-          <exp bool_exp="!(pv0==0)">
-            <value>false</value>
-          </exp>
-          <pv trig="true">$(P)userCalc1.OUTV</pv>
-        </rule>
-      </rules>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>30</y>
-      <wrap_words>true</wrap_words>
-      <tooltip/>
-      <x>140</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
-      <visible>true</visible>
-      <vertical_alignment>1</vertical_alignment>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>10</height>
-      <name>Label</name>
-      <transparent>true</transparent>
-      <show_scrollbar>false</show_scrollbar>
-      <background_color>
-        <color red="255" green="255" blue="255"/>
-      </background_color>
-      <foreground_color>
-        <color name="default_fg"/>
-      </foreground_color>
-      <widget_type>Label</widget_type>
-      <enabled>true</enabled>
-      <text>ON</text>
-      <font>
-        <fontdata fontName="Sans" height="6" style="0"/>
-      </font>
-      <width>20</width>
-      <border_style>0</border_style>
-      <rules>
-        <rule name="Visibility" prop_id="visible" out_exp="false">
-          <exp bool_exp="pv0==0">
-            <value>false</value>
-          </exp>
-          <pv trig="true">$(P)userCalc2.SCAN</pv>
-        </rule>
-      </rules>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>40</y>
-      <wrap_words>true</wrap_words>
-      <tooltip/>
-      <x>140</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
-      <visible>true</visible>
-      <vertical_alignment>1</vertical_alignment>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>10</height>
-      <name>Label</name>
-      <transparent>true</transparent>
-      <show_scrollbar>false</show_scrollbar>
-      <background_color>
-        <color red="255" green="255" blue="255"/>
-      </background_color>
-      <foreground_color>
-        <color name="default_fg"/>
-      </foreground_color>
-      <widget_type>Label</widget_type>
-      <enabled>true</enabled>
-      <text>PUT</text>
-      <font>
-        <fontdata fontName="Sans" height="6" style="0"/>
-      </font>
-      <width>20</width>
-      <border_style>0</border_style>
-      <rules>
-        <rule name="Visibility" prop_id="visible" out_exp="false">
-          <exp bool_exp="!(pv0==0)">
-            <value>false</value>
-          </exp>
-          <pv trig="true">$(P)userCalc2.OUTV</pv>
-        </rule>
-      </rules>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>50</y>
-      <wrap_words>true</wrap_words>
-      <tooltip/>
-      <x>140</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
-      <visible>true</visible>
-      <vertical_alignment>1</vertical_alignment>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>10</height>
-      <name>Label</name>
-      <transparent>true</transparent>
-      <show_scrollbar>false</show_scrollbar>
-      <background_color>
-        <color red="255" green="255" blue="255"/>
-      </background_color>
-      <foreground_color>
-        <color name="default_fg"/>
-      </foreground_color>
-      <widget_type>Label</widget_type>
-      <enabled>true</enabled>
-      <text>ON</text>
-      <font>
-        <fontdata fontName="Sans" height="6" style="0"/>
-      </font>
-      <width>20</width>
-      <border_style>0</border_style>
-      <rules>
-        <rule name="Visibility" prop_id="visible" out_exp="false">
-          <exp bool_exp="pv0==0">
-            <value>false</value>
-          </exp>
-          <pv trig="true">$(P)userCalc3.SCAN</pv>
-        </rule>
-      </rules>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>60</y>
-      <wrap_words>true</wrap_words>
-      <tooltip/>
-      <x>140</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
-      <visible>true</visible>
-      <vertical_alignment>1</vertical_alignment>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>10</height>
-      <name>Label</name>
-      <transparent>true</transparent>
-      <show_scrollbar>false</show_scrollbar>
-      <background_color>
-        <color red="255" green="255" blue="255"/>
-      </background_color>
-      <foreground_color>
-        <color name="default_fg"/>
-      </foreground_color>
-      <widget_type>Label</widget_type>
-      <enabled>true</enabled>
-      <text>PUT</text>
-      <font>
-        <fontdata fontName="Sans" height="6" style="0"/>
-      </font>
-      <width>20</width>
-      <border_style>0</border_style>
-      <rules>
-        <rule name="Visibility" prop_id="visible" out_exp="false">
-          <exp bool_exp="!(pv0==0)">
-            <value>false</value>
-          </exp>
-          <pv trig="true">$(P)userCalc3.OUTV</pv>
-        </rule>
-      </rules>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>70</y>
-      <wrap_words>true</wrap_words>
-      <tooltip/>
-      <x>140</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
-      <visible>true</visible>
-      <vertical_alignment>1</vertical_alignment>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>10</height>
-      <name>Label</name>
-      <transparent>true</transparent>
-      <show_scrollbar>false</show_scrollbar>
-      <background_color>
-        <color red="255" green="255" blue="255"/>
-      </background_color>
-      <foreground_color>
-        <color name="default_fg"/>
-      </foreground_color>
-      <widget_type>Label</widget_type>
-      <enabled>true</enabled>
-      <text>ON</text>
-      <font>
-        <fontdata fontName="Sans" height="6" style="0"/>
-      </font>
-      <width>20</width>
-      <border_style>0</border_style>
-      <rules>
-        <rule name="Visibility" prop_id="visible" out_exp="false">
-          <exp bool_exp="pv0==0">
-            <value>false</value>
-          </exp>
-          <pv trig="true">$(P)userCalc4.SCAN</pv>
-        </rule>
-      </rules>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>80</y>
-      <wrap_words>true</wrap_words>
-      <tooltip/>
-      <x>140</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
-      <visible>true</visible>
-      <vertical_alignment>1</vertical_alignment>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>10</height>
-      <name>Label</name>
-      <transparent>true</transparent>
-      <show_scrollbar>false</show_scrollbar>
-      <background_color>
-        <color red="255" green="255" blue="255"/>
-      </background_color>
-      <foreground_color>
-        <color name="default_fg"/>
-      </foreground_color>
-      <widget_type>Label</widget_type>
-      <enabled>true</enabled>
-      <text>PUT</text>
-      <font>
-        <fontdata fontName="Sans" height="6" style="0"/>
-      </font>
-      <width>20</width>
-      <border_style>0</border_style>
-      <rules>
-        <rule name="Visibility" prop_id="visible" out_exp="false">
-          <exp bool_exp="!(pv0==0)">
-            <value>false</value>
-          </exp>
-          <pv trig="true">$(P)userCalc4.OUTV</pv>
-        </rule>
-      </rules>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>90</y>
-      <wrap_words>true</wrap_words>
-      <tooltip/>
-      <x>140</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
-      <visible>true</visible>
-      <vertical_alignment>1</vertical_alignment>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>10</height>
-      <name>Label</name>
-      <transparent>true</transparent>
-      <show_scrollbar>false</show_scrollbar>
-      <background_color>
-        <color red="255" green="255" blue="255"/>
-      </background_color>
-      <foreground_color>
-        <color name="default_fg"/>
-      </foreground_color>
-      <widget_type>Label</widget_type>
-      <enabled>true</enabled>
-      <text>ON</text>
-      <font>
-        <fontdata fontName="Sans" height="6" style="0"/>
-      </font>
-      <width>20</width>
-      <border_style>0</border_style>
-      <rules>
-        <rule name="Visibility" prop_id="visible" out_exp="false">
-          <exp bool_exp="pv0==0">
-            <value>false</value>
-          </exp>
-          <pv trig="true">$(P)userCalc5.SCAN</pv>
-        </rule>
-      </rules>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>100</y>
-      <wrap_words>true</wrap_words>
-      <tooltip/>
-      <x>140</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
-      <visible>true</visible>
-      <vertical_alignment>1</vertical_alignment>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>10</height>
-      <name>Label</name>
-      <transparent>true</transparent>
-      <show_scrollbar>false</show_scrollbar>
-      <background_color>
-        <color red="255" green="255" blue="255"/>
-      </background_color>
-      <foreground_color>
-        <color name="default_fg"/>
-      </foreground_color>
-      <widget_type>Label</widget_type>
-      <enabled>true</enabled>
-      <text>PUT</text>
-      <font>
-        <fontdata fontName="Sans" height="6" style="0"/>
-      </font>
-      <width>20</width>
-      <border_style>0</border_style>
-      <rules>
-        <rule name="Visibility" prop_id="visible" out_exp="false">
-          <exp bool_exp="!(pv0==0)">
-            <value>false</value>
-          </exp>
-          <pv trig="true">$(P)userCalc5.OUTV</pv>
-        </rule>
-      </rules>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>110</y>
-      <wrap_words>true</wrap_words>
-      <tooltip/>
-      <x>140</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
-      <visible>true</visible>
-      <vertical_alignment>1</vertical_alignment>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>10</height>
-      <name>Label</name>
-      <transparent>true</transparent>
-      <show_scrollbar>false</show_scrollbar>
-      <background_color>
-        <color red="255" green="255" blue="255"/>
-      </background_color>
-      <foreground_color>
-        <color name="default_fg"/>
-      </foreground_color>
-      <widget_type>Label</widget_type>
-      <enabled>true</enabled>
-      <text>ON</text>
-      <font>
-        <fontdata fontName="Sans" height="6" style="0"/>
-      </font>
-      <width>20</width>
-      <border_style>0</border_style>
-      <rules>
-        <rule name="Visibility" prop_id="visible" out_exp="false">
-          <exp bool_exp="pv0==0">
-            <value>false</value>
-          </exp>
-          <pv trig="true">$(P)userCalc6.SCAN</pv>
-        </rule>
-      </rules>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>120</y>
-      <wrap_words>true</wrap_words>
-      <tooltip/>
-      <x>140</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
-      <visible>true</visible>
-      <vertical_alignment>1</vertical_alignment>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>10</height>
-      <name>Label</name>
-      <transparent>true</transparent>
-      <show_scrollbar>false</show_scrollbar>
-      <background_color>
-        <color red="255" green="255" blue="255"/>
-      </background_color>
-      <foreground_color>
-        <color name="default_fg"/>
-      </foreground_color>
-      <widget_type>Label</widget_type>
-      <enabled>true</enabled>
-      <text>PUT</text>
-      <font>
-        <fontdata fontName="Sans" height="6" style="0"/>
-      </font>
-      <width>20</width>
-      <border_style>0</border_style>
-      <rules>
-        <rule name="Visibility" prop_id="visible" out_exp="false">
-          <exp bool_exp="!(pv0==0)">
-            <value>false</value>
-          </exp>
-          <pv trig="true">$(P)userCalc6.OUTV</pv>
-        </rule>
-      </rules>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>130</y>
-      <wrap_words>true</wrap_words>
-      <tooltip/>
-      <x>140</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
-      <visible>true</visible>
-      <vertical_alignment>1</vertical_alignment>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>10</height>
-      <name>Label</name>
-      <transparent>true</transparent>
-      <show_scrollbar>false</show_scrollbar>
-      <background_color>
-        <color red="255" green="255" blue="255"/>
-      </background_color>
-      <foreground_color>
-        <color name="default_fg"/>
-      </foreground_color>
-      <widget_type>Label</widget_type>
-      <enabled>true</enabled>
-      <text>ON</text>
-      <font>
-        <fontdata fontName="Sans" height="6" style="0"/>
-      </font>
-      <width>20</width>
-      <border_style>0</border_style>
-      <rules>
-        <rule name="Visibility" prop_id="visible" out_exp="false">
-          <exp bool_exp="pv0==0">
-            <value>false</value>
-          </exp>
-          <pv trig="true">$(P)userCalc9.SCAN</pv>
-        </rule>
-      </rules>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>180</y>
-      <wrap_words>true</wrap_words>
-      <tooltip/>
-      <x>140</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
-      <visible>true</visible>
-      <vertical_alignment>1</vertical_alignment>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>10</height>
-      <name>Label</name>
-      <transparent>true</transparent>
-      <show_scrollbar>false</show_scrollbar>
-      <background_color>
-        <color red="255" green="255" blue="255"/>
-      </background_color>
-      <foreground_color>
-        <color name="default_fg"/>
-      </foreground_color>
-      <widget_type>Label</widget_type>
-      <enabled>true</enabled>
-      <text>PUT</text>
-      <font>
-        <fontdata fontName="Sans" height="6" style="0"/>
-      </font>
-      <width>20</width>
-      <border_style>0</border_style>
-      <rules>
-        <rule name="Visibility" prop_id="visible" out_exp="false">
-          <exp bool_exp="!(pv0==0)">
-            <value>false</value>
-          </exp>
-          <pv trig="true">$(P)userCalc9.OUTV</pv>
-        </rule>
-      </rules>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>190</y>
-      <wrap_words>true</wrap_words>
-      <tooltip/>
-      <x>140</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
-      <visible>true</visible>
-      <vertical_alignment>1</vertical_alignment>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>10</height>
-      <name>Label</name>
-      <transparent>true</transparent>
-      <show_scrollbar>false</show_scrollbar>
-      <background_color>
-        <color red="255" green="255" blue="255"/>
-      </background_color>
-      <foreground_color>
-        <color name="default_fg"/>
-      </foreground_color>
-      <widget_type>Label</widget_type>
-      <enabled>true</enabled>
-      <text>ON</text>
-      <font>
-        <fontdata fontName="Sans" height="6" style="0"/>
-      </font>
-      <width>20</width>
-      <border_style>0</border_style>
-      <rules>
-        <rule name="Visibility" prop_id="visible" out_exp="false">
-          <exp bool_exp="pv0==0">
-            <value>false</value>
-          </exp>
-          <pv trig="true">$(P)userCalc10.SCAN</pv>
-        </rule>
-      </rules>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>200</y>
-      <wrap_words>true</wrap_words>
-      <tooltip/>
-      <x>140</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
-      <visible>true</visible>
-      <vertical_alignment>1</vertical_alignment>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>10</height>
-      <name>Label</name>
-      <transparent>true</transparent>
-      <show_scrollbar>false</show_scrollbar>
-      <background_color>
-        <color red="255" green="255" blue="255"/>
-      </background_color>
-      <foreground_color>
-        <color name="default_fg"/>
-      </foreground_color>
-      <widget_type>Label</widget_type>
-      <enabled>true</enabled>
-      <text>PUT</text>
-      <font>
-        <fontdata fontName="Sans" height="6" style="0"/>
-      </font>
-      <width>20</width>
-      <border_style>0</border_style>
-      <rules>
-        <rule name="Visibility" prop_id="visible" out_exp="false">
-          <exp bool_exp="!(pv0==0)">
-            <value>false</value>
-          </exp>
-          <pv trig="true">$(P)userCalc10.OUTV</pv>
-        </rule>
-      </rules>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>210</y>
-      <wrap_words>true</wrap_words>
-      <tooltip/>
-      <x>140</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
-      <visible>true</visible>
-      <vertical_alignment>1</vertical_alignment>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>10</height>
-      <name>Label</name>
-      <transparent>true</transparent>
-      <show_scrollbar>false</show_scrollbar>
-      <background_color>
-        <color red="255" green="255" blue="255"/>
-      </background_color>
-      <foreground_color>
-        <color name="default_fg"/>
-      </foreground_color>
-      <widget_type>Label</widget_type>
-      <enabled>true</enabled>
-      <text>ON</text>
-      <font>
-        <fontdata fontName="Sans" height="6" style="0"/>
-      </font>
-      <width>20</width>
-      <border_style>0</border_style>
-      <rules>
-        <rule name="Visibility" prop_id="visible" out_exp="false">
-          <exp bool_exp="pv0==0">
-            <value>false</value>
-          </exp>
-          <pv trig="true">$(P)userCalc7.SCAN</pv>
-        </rule>
-      </rules>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>140</y>
-      <wrap_words>true</wrap_words>
-      <tooltip/>
-      <x>140</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
-      <visible>true</visible>
-      <vertical_alignment>1</vertical_alignment>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>10</height>
-      <name>Label</name>
-      <transparent>true</transparent>
-      <show_scrollbar>false</show_scrollbar>
-      <background_color>
-        <color red="255" green="255" blue="255"/>
-      </background_color>
-      <foreground_color>
-        <color name="default_fg"/>
-      </foreground_color>
-      <widget_type>Label</widget_type>
-      <enabled>true</enabled>
-      <text>PUT</text>
-      <font>
-        <fontdata fontName="Sans" height="6" style="0"/>
-      </font>
-      <width>20</width>
-      <border_style>0</border_style>
-      <rules>
-        <rule name="Visibility" prop_id="visible" out_exp="false">
-          <exp bool_exp="!(pv0==0)">
-            <value>false</value>
-          </exp>
-          <pv trig="true">$(P)userCalc7.OUTV</pv>
-        </rule>
-      </rules>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>150</y>
-      <wrap_words>true</wrap_words>
-      <tooltip/>
-      <x>140</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
-      <visible>true</visible>
-      <vertical_alignment>1</vertical_alignment>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>10</height>
-      <name>Label</name>
-      <transparent>true</transparent>
-      <show_scrollbar>false</show_scrollbar>
-      <background_color>
-        <color red="255" green="255" blue="255"/>
-      </background_color>
-      <foreground_color>
-        <color name="default_fg"/>
-      </foreground_color>
-      <widget_type>Label</widget_type>
-      <enabled>true</enabled>
-      <text>ON</text>
-      <font>
-        <fontdata fontName="Sans" height="6" style="0"/>
-      </font>
-      <width>20</width>
-      <border_style>0</border_style>
-      <rules>
-        <rule name="Visibility" prop_id="visible" out_exp="false">
-          <exp bool_exp="pv0==0">
-            <value>false</value>
-          </exp>
-          <pv trig="true">$(P)userCalc8.SCAN</pv>
-        </rule>
-      </rules>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>160</y>
-      <wrap_words>true</wrap_words>
-      <tooltip/>
-      <x>140</x>
-    </widget>
-    <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0">
-      <visible>true</visible>
-      <vertical_alignment>1</vertical_alignment>
-      <auto_size>false</auto_size>
-      <scripts/>
-      <height>10</height>
-      <name>Label</name>
-      <transparent>true</transparent>
-      <show_scrollbar>false</show_scrollbar>
-      <background_color>
-        <color red="255" green="255" blue="255"/>
-      </background_color>
-      <foreground_color>
-        <color name="default_fg"/>
-      </foreground_color>
-      <widget_type>Label</widget_type>
-      <enabled>true</enabled>
-      <text>PUT</text>
-      <font>
-        <fontdata fontName="Sans" height="6" style="0"/>
-      </font>
-      <width>20</width>
-      <border_style>0</border_style>
-      <rules>
-        <rule name="Visibility" prop_id="visible" out_exp="false">
-          <exp bool_exp="!(pv0==0)">
-            <value>false</value>
-          </exp>
-          <pv trig="true">$(P)userCalc8.OUTV</pv>
-        </rule>
-      </rules>
-      <border_width>1</border_width>
-      <border_color>
-        <color red="0" green="128" blue="255"/>
-      </border_color>
-      <horizontal_alignment>0</horizontal_alignment>
-      <actions hook="false"/>
-      <y>170</y>
-      <wrap_words>true</wrap_words>
-      <tooltip/>
-      <x>140</x>
-    </widget>
   </widget>
 </display>
