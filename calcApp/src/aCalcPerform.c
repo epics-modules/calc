@@ -110,7 +110,7 @@ struct until_struct {
 	struct stackElement *ps;
 };
 
-long epicsShareAPI 
+long
 	aCalcPerform(double *p_dArg, int num_dArgs, double **pp_aArg,
 		int num_aArgs, int arraySize, double *p_dresult, double *p_aresult,
 		const unsigned char *postfix, const int allocSize, epicsUInt32 *amask)
