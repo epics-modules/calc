@@ -135,7 +135,7 @@ static const ELEMENT operands[] = {
 {"FF",		0, 0,	1,		OPERAND,			FETCH_FF},
 {"FINITE",	8, 9,	0,		VARARG_OPERATOR,	FINITE},
 {"FITPOLY",	8, 9,	0,		UNARY_OPERATOR,		FITPOLY},
-{"FITMPOLY",	8, 9,	0,		UNARY_OPERATOR,		FITMPOLY},
+{"FITMPOLY",	8, 9,	-1,		UNARY_OPERATOR,		FITMPOLY},
 {"FLOOR",	8, 9,	0,		UNARY_OPERATOR,		FLOOR},
 {"FWHM",	8, 9,	0,		UNARY_OPERATOR,		FWHM},
 {"G",		0, 0,	1,		OPERAND,			FETCH_G},
@@ -166,10 +166,10 @@ static const ELEMENT operands[] = {
 {"N",		0, 0,	1,		OPERAND,			FETCH_N},
 {"NINT",	8, 9,	0,		UNARY_OPERATOR,		NINT},
 {"NAN",		0, 0,	1,		LITERAL_OPERAND,	LITERAL_DOUBLE},
-{"NDERIV",	8, 9,	0,		UNARY_OPERATOR,		NDERIV},
+{"NDERIV",	8, 9,	-1,		UNARY_OPERATOR,		NDERIV},
 {"NOT",		8, 9,	0,		UNARY_OPERATOR,		BIT_NOT},
 {"NRNDM",	0, 0,	1,		OPERAND,			NORMAL_RNDM},   /* Normally Distributed Random Number */
-{"NSMOO",	8, 9,	0,		UNARY_OPERATOR,		NSMOOTH},
+{"NSMOO",	8, 9,	-1,		UNARY_OPERATOR,		NSMOOTH},
 {"O",		0, 0,	1,		OPERAND,			FETCH_O},
 {"P",		0, 0,	1,		OPERAND,			FETCH_P},
 {"PI",		0, 0,	1,		OPERAND,			CONST_PI},
@@ -401,6 +401,7 @@ epicsShareFunc long
 	char *pnext;
 	double lit_d;
 	int lit_i;
+	int handled;
 
 #if DEBUG
 	if (aCalcPostfixDebug) printf("aCalcPostfix: entry\n");
@@ -458,26 +459,32 @@ epicsShareFunc long
 			break;
 
 		case STORE_OPERATOR:
-			if (pout > ppostfix && pout[-1] >= FETCH_A && pout[-1] <= FETCH_P) {
-				/* Convert fetch into a store on the stack */
-				pout--;
-				*++pstacktop = *pel;
-				pstacktop->code = STORE_A + *pout - FETCH_A;
-			} else if (pout > ppostfix && pout[-1] >= FETCH_AA && pout[-1] <= FETCH_LL) {
-				pout--;
-				*++pstacktop = *pel;
-				pstacktop->code = STORE_AA + *pout - FETCH_AA;
-			} else {
-				/* search stack for A_FETCH or A_AFETCH */
-				for (ps1=pstacktop; ps1>stack; ps1--) {
-					printf("STORE_OPERATOR:stacktop code=%s (%d)\n",
-						opcodes[(int) ps1->code], ps1->code);
-					if ((ps1->code == A_FETCH) || (ps1->code == A_AFETCH)) break;
-				}
-				if (ps1->code == A_FETCH) {
-					*ps1 = *pel; ps1->code = A_STORE;
-				} else if (ps1->code == A_AFETCH) {
-					*ps1 = *pel; ps1->code = A_ASTORE;
+			handled = 0;
+			/* search stack for A_FETCH (@) or A_SFETCH (@@) */
+			for (ps1=pstacktop; ps1>stack; ps1--) {
+				if (aCalcPostfixDebug) printf("STORE_OPERATOR:stacktop code=%s (%d)\n",
+					opcodes[(int) ps1->code], ps1->code);
+				if ((ps1->code == A_FETCH) || (ps1->code == A_AFETCH)) break;
+			}
+			if (ps1->code == A_FETCH) {
+				handled = 1;
+				*ps1 = *pel; ps1->code = A_STORE;
+			} else if (ps1->code == A_AFETCH) {
+				handled = 1;
+				*ps1 = *pel; ps1->code = A_ASTORE;
+			}
+
+			if (!handled) {
+				/* convert FETCH_x or FETCH_xx (already posted to postfix string) */
+				if (pout > ppostfix && pout[-1] >= FETCH_A && pout[-1] <= FETCH_P) {
+					/* Convert fetch into a store on the stack */
+					pout--;
+					*++pstacktop = *pel;
+					pstacktop->code = STORE_A + *pout - FETCH_A;
+				} else if (pout > ppostfix && pout[-1] >= FETCH_AA && pout[-1] <= FETCH_LL) {
+					pout--;
+					*++pstacktop = *pel;
+					pstacktop->code = STORE_AA + *pout - FETCH_AA;
 				} else {
 					if (aCalcPostfixDebug) printf("***STORE_OPERATOR***\n");
 					*perror = CALC_ERR_BAD_ASSIGNMENT;
