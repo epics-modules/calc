@@ -418,6 +418,7 @@ epicsShareFunc long
 	double lit_d;
 	int lit_i;
 	char c;
+	int handled;
 
 	if (psrc == NULL || pout == NULL || perror == NULL) {
 		if (perror) *perror = CALC_ERR_NULL_ARG;
@@ -505,26 +506,34 @@ epicsShareFunc long
 			break;
 
 		case STORE_OPERATOR:
-			if (pout > ppostfix && pout[-1] >= FETCH_A && pout[-1] <= FETCH_P) {
-				/* Convert fetch into a store on the stack */
-				pout--;
-				*++pstacktop = *pel;
-				pstacktop->code = STORE_A + *pout - FETCH_A;
-			} else if (pout > ppostfix && pout[-1] >= FETCH_AA && pout[-1] <= FETCH_LL) {
-				pout--;
-				*++pstacktop = *pel;
-				pstacktop->code = STORE_AA + *pout - FETCH_AA;
-			} else {
-				/* search stack for A_FETCH or A_SFETCH */
-				for (ps1=pstacktop; ps1>stack; ps1--) {
-					printf("STORE_OPERATOR:stacktop code=%s (%d)\n",
-						opcodes[(int) ps1->code], ps1->code);
-					if ((ps1->code == A_FETCH) || (ps1->code == A_SFETCH)) break;
-				}
-				if (ps1->code == A_FETCH) {
-					*ps1 = *pel; ps1->code = A_STORE;
-				} else if (ps1->code == A_SFETCH) {
-					*ps1 = *pel; ps1->code = A_SSTORE;
+			handled = 0;
+			/* search stack for A_FETCH (@) or A_SFETCH (@@) */
+			for (ps1=pstacktop; ps1>stack; ps1--) {
+				if (sCalcPostfixDebug) printf("STORE_OPERATOR:stacktop code=%s (%d)\n",
+					opcodes[(int) ps1->code], ps1->code);
+				if ((ps1->code == A_FETCH) || (ps1->code == A_SFETCH)) break;
+			}
+			if (ps1->code == A_FETCH) {
+				handled = 1;
+				*ps1 = *pel; ps1->code = A_STORE;
+			} else if (ps1->code == A_SFETCH) {
+				handled = 1;
+				*ps1 = *pel; ps1->code = A_SSTORE;
+			}
+
+			if (!handled) {
+				/* convert FETCH_x or FETCH_xx (already posted to postfix string) */
+				if (pout > ppostfix && pout[-1] >= FETCH_A && pout[-1] <= FETCH_P) {
+					if (sCalcPostfixDebug) printf("STORE_OPERATOR:pout[-1] is a scalar fetch\n");
+					/* Convert fetch into a store on the stack */
+					pout--;
+					*++pstacktop = *pel;
+					pstacktop->code = STORE_A + *pout - FETCH_A;
+				} else if (pout > ppostfix && pout[-1] >= FETCH_AA && pout[-1] <= FETCH_LL) {
+					if (sCalcPostfixDebug) printf("STORE_OPERATOR:pout[-1] is a string fetch\n");
+					pout--;
+					*++pstacktop = *pel;
+					pstacktop->code = STORE_AA + *pout - FETCH_AA;
 				} else {
 					if (sCalcPostfixDebug) printf("***STORE_OPERATOR***\n");
 					*perror = CALC_ERR_BAD_ASSIGNMENT;
