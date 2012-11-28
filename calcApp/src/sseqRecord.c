@@ -188,7 +188,7 @@ init_record(sseqRecord *pR, int pass)
 		/* set delays to nearest multiple of clock period */
 		plinkGroup->dly = epicsThreadSleepQuantum() *
 			NINT(plinkGroup->dly/epicsThreadSleepQuantum());
-			db_post_events(pR, &plinkGroup->dly, DBE_VALUE);
+		db_post_events(pR, &plinkGroup->dly, DBE_VALUE);
 
 		/* init DOL*-related stuff (input links) */
 		if (plinkGroup->dol.type == CONSTANT) {
@@ -196,33 +196,34 @@ init_record(sseqRecord *pR, int pass)
 			recGblInitConstantLink(&plinkGroup->dol, DBF_STRING, plinkGroup->s);
 			plinkGroup->dol_field_type = DBF_NOACCESS;
 			plinkGroup->dol_status = sseqLNKV_CON;
-        } else if (!dbNameToAddr(plinkGroup->dol.value.pv_link.pvname, pAddr)) {
+        } else if ((plinkGroup->dol.type == DB_LINK)  && 
+				   !dbNameToAddr(plinkGroup->dol.value.pv_link.pvname, pAddr)) {
 			plinkGroup->dol_field_type = pAddr->field_type;
 			plinkGroup->dol_status = sseqLNKV_LOC;
 			if (sseqRecDebug > 5) printf("sseq:init:dol_field_type=%d (%s)\n",
 				plinkGroup->dol_field_type, plinkGroup->dol_field_type>=0 ?
 					pamapdbfType[plinkGroup->dol_field_type].strvalue : "");
 		} else {
-			/* pv is not on this ioc. Callback later for connection stat */
+			/* link not yet handled, or pv is not on this ioc. Callback later for connection stat */
 			plinkGroup->dol_status = sseqLNKV_EXT_NC;
 			pcb->linkStat = LINKS_NOT_OK;
 			plinkGroup->dol_field_type = DBF_unknown; /* don't know field type */
 		}
 		db_post_events(pR, &plinkGroup->dol_status, DBE_VALUE);
 
-
 		/* same for LNK* stuff (output links) */
 		if (plinkGroup->lnk.type == CONSTANT) {
 			plinkGroup->lnk_field_type = DBF_unknown;
 			plinkGroup->lnk_status = sseqLNKV_CON;
-        } else if (!dbNameToAddr(plinkGroup->lnk.value.pv_link.pvname, pAddr)) {
-			plinkGroup->lnk_field_type = pAddr->field_type;
-			plinkGroup->lnk_status = sseqLNKV_LOC;
-			if (sseqRecDebug > 5) printf("sseq:init:lnk_field_type=%d (%s)\n",
-				plinkGroup->lnk_field_type, plinkGroup->lnk_field_type>=0 ?
-					pamapdbfType[plinkGroup->lnk_field_type].strvalue : "");
+		} else if ((plinkGroup->lnk.type == DB_LINK)  && 
+				   !dbNameToAddr(plinkGroup->lnk.value.pv_link.pvname, pAddr)) {
+				plinkGroup->lnk_field_type = pAddr->field_type;
+				plinkGroup->lnk_status = sseqLNKV_LOC;
+				if (sseqRecDebug > 5) printf("sseq:init:lnk_field_type=%d (%s)\n",
+					plinkGroup->lnk_field_type, plinkGroup->lnk_field_type>=0 ?
+						pamapdbfType[plinkGroup->lnk_field_type].strvalue : "");
 		} else {
-			/* pv is not on this ioc. Callback later for connection stat */
+			/* link not yet handled, or pv is not on this ioc. Callback later for connection stat */
 			plinkGroup->lnk_status = sseqLNKV_EXT_NC;
 			pcb->linkStat = LINKS_NOT_OK;
 			plinkGroup->lnk_field_type = DBF_unknown; /* don't know field type */
@@ -499,16 +500,15 @@ void epicsShareAPI putCallbackCB(void *arg)
 	sseqRecord			*pR;
 	struct linkGroup	*plinkGroup;
 	int 				ix, numWaiting, linkIsOK;
-	dbAddr				Addr;
-	dbAddr				*pAddr = &Addr;
 
 	if (sseqRecDebug>=2) printf("sseq:putCallbackCB: entry\n");
 
 	/* Check that link is valid */
 	linkIsOK = 0;
-	if (!dbNameToAddr(plink->value.pv_link.pvname, pAddr)) {
+
+	if ((plink->type == CA_LINK) && dbCaIsLinkConnected(plink)) {
 		linkIsOK = 1;
-	} else if ((plink->type == CA_LINK) && dbCaIsLinkConnected(plink)) {
+	} else if (plink->type == DB_LINK) {
 		linkIsOK = 1;
 	}
 	if (!linkIsOK) {
@@ -806,14 +806,16 @@ static void checkLinks(sseqRecord *pR)
 	struct linkGroup *plinkGroup = (struct linkGroup *)(&(pR->dly1));
 	struct callbackSeq	*pcb = (struct callbackSeq *)pR->dpvt;
 	int i;
+	short linkStat;
 
 	if (sseqRecDebug > 10) printf("sseq:checkLinks(%s)\n", pR->name);
 
-	pcb->linkStat = LINKS_ALL_OK;
+	linkStat = LINKS_ALL_OK;
 	for (i = 0; i < NUM_LINKS; i++, plinkGroup++) {
 		if (sseqRecDebug > 10)
 			printf("sseq:checkLinks(%s): checking link %d\n", pR->name, i);
 
+		/* get dol status */
 		if (plinkGroup->dol.type == CA_LINK) {
 			if (dbCaIsLinkConnected(&(plinkGroup->dol))) {
 				if (plinkGroup->dol_status == sseqLNKV_EXT_NC) {
@@ -826,12 +828,17 @@ static void checkLinks(sseqRecord *pR)
 					db_post_events(pR, &plinkGroup->dol_status, DBE_VALUE);
 				}
 			}
+		} else if (plinkGroup->dol.type == DB_LINK) {
+			plinkGroup->dol_status = sseqLNKV_LOC;
+			db_post_events(pR, &plinkGroup->dol_status, DBE_VALUE);
 		}
+
+		/* get dol field type */
 		plinkGroup->dol_field_type = DBF_unknown;
 		if (plinkGroup->dol.value.pv_link.pvname &&
 		    plinkGroup->dol.value.pv_link.pvname[0]) {
 			plinkGroup->dol_field_type = dbGetLinkDBFtype(&plinkGroup->dol);
-			if (plinkGroup->dol_field_type < 0) pcb->linkStat = LINKS_NOT_OK;
+			if (plinkGroup->dol_field_type < 0) linkStat = LINKS_NOT_OK;
 			if (sseqRecDebug > 10) {
 				printf("sseq:checkLinks:dol_field_type=%d (%s), linked to %s\n",
 					plinkGroup->dol_field_type,
@@ -841,6 +848,7 @@ static void checkLinks(sseqRecord *pR)
 			}
 		}
 
+		/* get lnk status */
 		if (plinkGroup->lnk.type == CA_LINK) {
 			if (dbCaIsLinkConnected(&(plinkGroup->lnk))) {
 				if (plinkGroup->lnk_status == sseqLNKV_EXT_NC) {
@@ -858,6 +866,8 @@ static void checkLinks(sseqRecord *pR)
 				db_post_events(pR, &plinkGroup->waitConfigErr, DBE_VALUE);
 			}
 		} else if (plinkGroup->lnk.type == DB_LINK) {
+			plinkGroup->lnk_status = sseqLNKV_LOC;
+			db_post_events(pR, &plinkGroup->lnk_status, DBE_VALUE);
 			if (plinkGroup->usePutCallback != sseqWAIT_NoWait) {
 				/* we have a problem: user wants to wait, but has not specified "CA", so we can't wait */
 				if (plinkGroup->waitConfigErr == 0) {
@@ -883,7 +893,7 @@ static void checkLinks(sseqRecord *pR)
 		if (plinkGroup->lnk.value.pv_link.pvname &&
 		    plinkGroup->lnk.value.pv_link.pvname[0]) {
 			plinkGroup->lnk_field_type = dbGetLinkDBFtype(&plinkGroup->lnk);
-			if (plinkGroup->lnk_field_type < 0) pcb->linkStat = LINKS_NOT_OK;
+			if (plinkGroup->lnk_field_type < 0) linkStat = LINKS_NOT_OK;
 			if (plinkGroup->usePutCallback && (plinkGroup->lnk.type != CA_LINK))
 				pcb->linkStat = LINKS_NOT_OK;
 			if (sseqRecDebug > 10) {
@@ -895,6 +905,8 @@ static void checkLinks(sseqRecord *pR)
 			}
 		}
 	}
+	pcb->linkStat = linkStat;
+
 	if (pcb->linkStat == LINKS_NOT_OK) {
 		if (!pcb->pending_checkLinksCB) {
 			/* Schedule another callback */
