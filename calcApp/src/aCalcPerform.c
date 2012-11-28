@@ -61,13 +61,9 @@ int aCalcStackHW = 0;	/* high-water mark */
 int aCalcStackLW = 0;	/* low-water mark */
 #define INC(ps) {if ((int)(++(ps)-top) > aCalcStackHW) aCalcStackHW = (int)((ps)-top); if ((ps-top)>ACALC_STACKSIZE) {printf("aCalcPerform:underflow\n"); stackInUse = 0;return(-1);}}
 #define DEC(ps) {if ((int)(--(ps)-top) < aCalcStackLW) aCalcStackLW = (int)((ps)-top); if ((ps-top)<-1) {printf("aCalcPerform:underflow\n"); stackInUse = 0;return(-1);}}
-#define checkDoubleElement(pd,op) {if (isnan(*(pd))) printf("aCalcPerform: unexpected NaN in op %d\n", (op));}
-#define checkStackElement(ps,op) {if (((ps)->a == NULL) && isnan((ps)->d)) printf("aCalcPerform: unexpected NaN in op %d\n", (op));}
 #else
 #define INC(ps) ++ps
 #define DEC(ps) ps--
-#define checkDoubleElement(pd,op)
-#define checkStackElement(ps,op)
 #endif
 
 #define isDouble(ps) ((ps)->a==NULL)
@@ -408,10 +404,8 @@ long
 			break;
 
 		case NSMOOTH:
-			checkStackElement(ps, op);
 			j = ps->d; /* get npts */
 			DEC(ps);
-			checkStackElement(ps, op);
 			for(k=0; k<j; k++) {
 				d = ps->a[0]; e = ps->a[1]; f=ps->a[2];
 				for (i=2; i<arraySize-2; i++) {
@@ -422,11 +416,9 @@ long
 			break;
 
 		case NDERIV:
-			checkStackElement(ps, op);
 			toDouble(ps);
 			j = myMIN((arraySize-1)/2, ps->d);  /* points on either side of value for fit */
 			DEC(ps);
-			checkStackElement(ps, op);
 			toArray(ps);
 			ps1 = ps; /* y array */
 			INC(ps); ps->a = &(ps->array[0]);
@@ -447,10 +439,8 @@ long
 		case DIV:
 		case MODULO:
 		
-			checkStackElement(ps, op);
 			ps1 = ps;
 			DEC(ps);
-			checkStackElement(ps, op);
 			if (isArray(ps) || isArray(ps1)) {
 				toArray(ps);
 				toArray(ps1);
@@ -559,7 +549,6 @@ long
 		case ARRSUM:
 		case FITPOLY:
 		case FITMPOLY:
-			checkStackElement(ps, op);
 			if (isArray(ps)) {
 				switch (op) {
 				case ABS_VAL: for (i=0; i<arraySize; i++) {if (ps->a[i] < 0) ps->a[i] *= -1;} break;
@@ -907,10 +896,8 @@ long
 			break;
 
 		case POWER:
-			checkStackElement(ps, op);
 			ps1 = ps;
 			DEC(ps);
-			checkStackElement(ps, op);
 			toDouble(ps1);
 			/* if exponent is not integer, use nearest integer */
 			j = myNINT(ps1->d);
@@ -952,10 +939,8 @@ long
 		case BIT_AND:
 		case BIT_EXCL_OR:
  		case ATAN2:
-			checkStackElement(ps, op);
 			ps1 = ps;
 			DEC(ps);
-			checkStackElement(ps, op);
 			if (isArray(ps) || isArray(ps1)) {
 				toArray(ps);
 				toArray(ps1);
@@ -997,10 +982,8 @@ long
 
 		case RIGHT_SHIFT:
 		case LEFT_SHIFT:
-			checkStackElement(ps, op);
 			ps1 = ps;
 			DEC(ps);
-			checkStackElement(ps, op);
 			toDouble(ps1);
 			if (isDouble(ps)) {
 				/* scalar variable: bit shift by integer amount */
@@ -1043,7 +1026,6 @@ long
 			break;
 
 		case A_FETCH:
-			checkStackElement(ps, op);
 			if (isDouble(ps)) {
 				d = ps->d;
 			} else {
@@ -1055,7 +1037,6 @@ long
 			break;
 
 		case A_AFETCH:
-			checkStackElement(ps, op);
 			toDouble(ps);
 			d = ps->d;
 			ps->a = &(ps->array[0]);
@@ -1086,24 +1067,19 @@ long
 			break;
 
 		case TO_DOUBLE:
-			checkStackElement(ps, op);
 			toDouble(ps);
 			break;
 
 		case TO_ARRAY:
-			checkStackElement(ps, op);
 			toArray(ps);
 			break;
 
 		case SUBRANGE:
 		case SUBRANGE_IP:
-			checkStackElement(ps, op);
 			ps2 = ps;
 			DEC(ps);
-			checkStackElement(ps, op);
 			ps1 = ps;
 			DEC(ps);
-			checkStackElement(ps, op);
 			toArray(ps);
 			toDouble(ps1);
 			i = (int)ps1->d;
