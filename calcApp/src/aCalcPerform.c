@@ -171,7 +171,7 @@ long
 	for (i=0; i<ACALC_STACKSIZE; i++) {
 		stack[i].d = 0.;
 		stack[i].a = NULL;
-		for (j=0; j<aCalcArraySize; j++) stack[i].array[j] = 0.;
+		for (j=0; j<arraySize; j++) stack[i].array[j] = 0.;
 	}
 	if (arraySize > aCalcArraySize) {
 		printf("aCalcPerform: I've only allocated for %d-element arrays\n", aCalcArraySize);
