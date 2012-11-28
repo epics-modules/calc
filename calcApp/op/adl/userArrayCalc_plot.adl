@@ -1,7 +1,7 @@
 
 file {
-	name="C:\cygwin\home\mooney\epics\synApps\support\all_adl\userArrayCalc_plot.adl"
-	version=030004
+	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/userArrayCalc_plot.adl"
+	version=030107
 }
 display {
 	object {
@@ -1554,7 +1554,7 @@ composite {
 	display[0] {
 		label="plot"
 		name="userArrayCalcPlot.adl"
-		args="P=$(P),Y=$(P)$(C).OAV,YLABEL=$(P)$(C).OAV"
+		args="P=$(P),C=$(C),Y=$(P)$(C).OAV,YLABEL=$(P)$(C).OAV"
 	}
 	clr=0
 	bclr=63
@@ -1573,10 +1573,11 @@ composite {
 		bclr=0
 	}
 	style="line"
-	count="1000"
+	count="$(P)$(C).NUSE"
 	trace[0] {
 		ydata="$(P)$(C).AVAL"
 		data_clr=14
+		yaxis=0
 	}
 	x_axis {
 		rangeStyle="auto-scale"
@@ -1587,6 +1588,7 @@ composite {
 	y2_axis {
 		rangeStyle="auto-scale"
 	}
+	countPvName="$(P)$(C).NUSE"
 	eraseMode="if zero"
 }
 "related display" {
