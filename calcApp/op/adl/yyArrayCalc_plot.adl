@@ -765,12 +765,12 @@ rectangle {
 	display[0] {
 		label="plot"
 		name="userArrayCalcPlot.adl"
-		args="P=$(P),Y=$(P)$(C).AA,YLABEL=$(P)$(C).AA"
+		args="P=$(P),C=$(C),Y=$(P)$(C).AA,YLABEL=$(P)$(C).AA"
 	}
 	display[1] {
 		label="plot AA-HH"
 		name="arrayPlot8.adl"
-		args="P=$(P),Y1=$(P)$(C).AA,Y2=$(P)$(C).BB,Y3=$(P)$(C).CC,Y4=$(P)$(C).DD,Y5=$(P)$(C).EE,Y6=$(P)$(C).FF,Y7=$(P)$(C).GG,Y8=$(P)$(C).HH"
+		args="P=$(P),C=$(C),Y1=$(P)$(C).AA,Y2=$(P)$(C).BB,Y3=$(P)$(C).CC,Y4=$(P)$(C).DD,Y5=$(P)$(C).EE,Y6=$(P)$(C).FF,Y7=$(P)$(C).GG,Y8=$(P)$(C).HH"
 	}
 	clr=0
 	bclr=63
@@ -786,7 +786,7 @@ rectangle {
 	display[0] {
 		label="plot"
 		name="userArrayCalcPlot.adl"
-		args="P=$(P),Y=$(P)$(C).BB,YLABEL=$(P)$(C).BB"
+		args="P=$(P),C=$(C),Y=$(P)$(C).BB,YLABEL=$(P)$(C).BB"
 	}
 	clr=0
 	bclr=63
