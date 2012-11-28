@@ -29,6 +29,10 @@ menu(acalcoutWAIT) {
 	choice(acalcoutWAIT_NoWait,"NoWait")
 	choice(acalcoutWAIT_Wait,"Wait")
 }
+menu(acalcoutSIZE) {
+	choice(acalcoutSIZE_NELM,"NELM")
+	choice(acalcoutSIZE_NUSE,"NUSE")
+}
 recordtype(acalcout) {
 	include "dbCommon.dbd" 
 	field(VERS,DBF_DOUBLE) {
@@ -805,5 +809,25 @@ recordtype(acalcout) {
 		special(SPC_NOMOD)
 		interest(4)
 		extra("unsigned char orpc[282]")
+	}
+    field(CACT, DBF_UCHAR) {
+        special(SPC_NOMOD)
+        interest(1)
+        prompt("Calc active")
+    }
+	field(CSTAT, DBF_LONG) {
+        special(SPC_NOMOD)
+        interest(1)
+        prompt("Calc status")
+    }
+	field(AMASK, DBF_ULONG) {
+        special(SPC_NOMOD)
+        interest(1)
+        prompt("Array mod")
+    }
+	field(SIZE,DBF_MENU) {
+		prompt("Array size reported to clients")
+		interest(1)
+		menu(acalcoutSIZE)
 	}
 }
