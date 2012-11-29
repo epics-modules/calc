@@ -165,7 +165,7 @@ long
 		return(-1);
 	}
 	for (i=0; i<ACALC_STACKSIZE; i++) {
-		stack[i].array = (double *)freeListCalloc(flp);
+		stack[i].array = (double *)freeListMalloc(flp);
 		if (stack[i].array == NULL) {
 			printf("aCalcPerform: Can't allocate array.\n");
 			freeStack(flp, stack);
