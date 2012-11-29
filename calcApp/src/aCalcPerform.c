@@ -59,8 +59,8 @@ epicsExportAddress(int, aCalcLoopMax);
 #if DEBUG
 int aCalcStackHW = 0;	/* high-water mark */
 int aCalcStackLW = 0;	/* low-water mark */
-#define INC(ps) {if ((int)(++(ps)-top) > aCalcStackHW) aCalcStackHW = (int)((ps)-top); if ((ps-top)>ACALC_STACKSIZE) {printf("aCalcPerform:underflow\n"); stackInUse = 0;return(-1);}}
-#define DEC(ps) {if ((int)(--(ps)-top) < aCalcStackLW) aCalcStackLW = (int)((ps)-top); if ((ps-top)<-1) {printf("aCalcPerform:underflow\n"); stackInUse = 0;return(-1);}}
+#define INC(ps) {if ((int)(++(ps)-top) > aCalcStackHW) aCalcStackHW = (int)((ps)-top); if ((ps-top)>ACALC_STACKSIZE) {printf("aCalcPerform:underflow\n"); freeStack(flp, stack); return(-1);}}
+#define DEC(ps) {if ((int)(--(ps)-top) < aCalcStackLW) aCalcStackLW = (int)((ps)-top); if ((ps-top)<-1) {printf("aCalcPerform:underflow\n"); freeStack(flp, stack); return(-1);}}
 #else
 #define INC(ps) ++ps
 #define DEC(ps) ps--
@@ -90,83 +90,103 @@ int aCalcStackLW = 0;	/* low-water mark */
 
 volatile int aCalcArraySize = 1000;
 epicsExportAddress(int, aCalcArraySize);
-struct stackElement {
+
+/*******************************************************
+ * void freeListInitPvt(void **ppvt, int size, int nmalloc);
+ * void *freeListCalloc(void *pvt);
+ * void *freeListMalloc(void *pvt);
+ * void freeListFree(void *pvt, void*pmem);
+ * void freeListCleanup(void *pvt);
+ * size_t freeListItemsAvail(void *pvt);
+ */
+typedef struct {
+	void *freeListPvt;
+	int numDoubles;
+} freeListListElement;
+
+freeListListElement freeListList[10] = {{0}};
+
+void *findFreeList(int nuse) {
+	/* For now, only one freelist. */
+	if (freeListList[0].numDoubles == 0) {
+		freeListInitPvt(&freeListList[0].freeListPvt, nuse*sizeof(double), 1);
+		freeListList[0].numDoubles = nuse;
+	}
+	return(freeListList[0].freeListPvt);
+}
+
+/*******************************************************/
+
+typedef struct {
 	double d;
 	double *a;
 	double *array;
-};
-static struct stackElement *stack = 0;
-
-static int stackInUse = 0;
+} stackElement;
 
 struct until_struct {
 	const unsigned char *until_loc;
 	const unsigned char *until_end_loc;
 	double *pd;
-	struct stackElement *ps;
+	stackElement *ps;
 };
+
+void freeStack(void *flp, stackElement *stack) {
+	int i;
+	for (i=0; i<ACALC_STACKSIZE; i++) {
+		if (stack[i].array) freeListFree(flp, stack[i].array);
+	}
+	free(stack);
+}
 
 long
 	aCalcPerform(double *p_dArg, int num_dArgs, double **pp_aArg,
 		int num_aArgs, int arraySize, double *p_dresult, double *p_aresult,
 		const unsigned char *postfix, const int allocSize, epicsUInt32 *amask)
 {
-	struct stackElement *top;
-	struct stackElement *ps, *ps1, *ps2, *ps3;
+	stackElement *stack, *top;
+	stackElement *ps, *ps1, *ps2, *ps3;
 	int					i, j, k, found, status, op, nargs;
 	double				d, e, f, *pd;
-
 	const unsigned char *post = postfix;
 	struct until_struct	until_scratch[10];
 	int					loopsDone = 0;
+	void *flp;
 
-	*amask = 0; /* record the array fields we wrote to. */
+	flp = findFreeList(aCalcArraySize); /* for now, fixed array size */
 
-	if (aCalcPerformDebug>=10) {
-		printf("aCalcPerform:array-arg addresses: %p %p %p...\n",
-			(void *)pp_aArg[0], (void *)pp_aArg[1], (void *)pp_aArg[2]);
-	}
+	if (aCalcPerformDebug>1) printf("aCalcPerform: freeList size=%d\n", freeListItemsAvail(flp));
 
+	*amask = 0; /* init bit mask that will record the array fields we wrote to. */
+
+	/* Stack should also be allocated using freeList.  For now, leave as is. */
+	stack = malloc(ACALC_STACKSIZE * sizeof(stackElement));
 	if (stack == NULL) {
-		stack = malloc(ACALC_STACKSIZE * sizeof(struct stackElement));
-		if (stack == NULL) {
-			printf("aCalcPerform: Can't allocate stack.\n");
-			return(-1);
-		}
-		/* If aCalcArraySize wasn't specified, use arraySize from first call. */
-		if (aCalcArraySize < arraySize) aCalcArraySize = arraySize;
-		for (i=0; i<ACALC_STACKSIZE; i++) {
-			stack[i].array = (double *)malloc(aCalcArraySize * sizeof(double));
-			if (stack[i].array == NULL) {
-				printf("aCalcPerform: Can't allocate array.\n");
-				if (i>0) {
-					for (i--;i>=0; i--) free(stack[i].array);
-					free(stack);
-				}
-				return(-1);
-			}
-		}
-#if 0
-		printf("aCalcPerform: stack=%p\n", stack);
-		printf("aCalcPerform: &(stack[0])=%p\n", &(stack[0]));
-		printf("aCalcPerform: &(stack[0].d)=%p\n", &(stack[0].d));
-		printf("aCalcPerform: &(stack[0].a)=%p\n", &(stack[0].a));
-		printf("aCalcPerform: &(stack[0].array)=%p\n", &(stack[0].array));
-		printf("aCalcPerform: &(stack[0].array[0])=%p\n", &(stack[0].array[0]));
-
-		printf("aCalcPerform: &(stack[1])=%p\n", &(stack[1]));
-		printf("aCalcPerform: &(stack[1].d)=%p\n", &(stack[1].d));
-		printf("aCalcPerform: &(stack[1].a)=%p\n", &(stack[1].a));
-		printf("aCalcPerform: &(stack[1].array)=%p\n", &(stack[1].array));
-		printf("aCalcPerform: &(stack[1].array[1])=%p\n", &(stack[1].array[1]));
-#endif
-	}
-
-	if (stackInUse) {
-		printf("aCalcPerform: stack in use.  Nothing done\n");
+		printf("aCalcPerform: Can't allocate stack.\n");
 		return(-1);
 	}
-	stackInUse = 1;
+	for (i=0; i<ACALC_STACKSIZE; i++) {
+		stack[i].array = (double *)freeListCalloc(flp);
+		if (stack[i].array == NULL) {
+			printf("aCalcPerform: Can't allocate array.\n");
+			freeStack(flp, stack);
+			return(-1);
+		}
+	}
+#if 0
+	printf("aCalcPerform: stack=%p\n", stack);
+	printf("aCalcPerform: &(stack[0])=%p\n", &(stack[0]));
+	printf("aCalcPerform: &(stack[0].d)=%p\n", &(stack[0].d));
+	printf("aCalcPerform: &(stack[0].a)=%p\n", &(stack[0].a));
+	printf("aCalcPerform: &(stack[0].array)=%p\n", &(stack[0].array));
+	printf("aCalcPerform: &(stack[0].array[0])=%p\n", &(stack[0].array[0]));
+
+	printf("aCalcPerform: &(stack[1])=%p\n", &(stack[1]));
+	printf("aCalcPerform: &(stack[1].d)=%p\n", &(stack[1].d));
+	printf("aCalcPerform: &(stack[1].a)=%p\n", &(stack[1].a));
+	printf("aCalcPerform: &(stack[1].array)=%p\n", &(stack[1].array));
+	printf("aCalcPerform: &(stack[1].array[1])=%p\n", &(stack[1].array[1]));
+#endif
+
 
 	for (i=0; i<ACALC_STACKSIZE; i++) {
 		stack[i].d = 0.;
@@ -175,7 +195,7 @@ long
 	}
 	if (arraySize > aCalcArraySize) {
 		printf("aCalcPerform: I've only allocated for %d-element arrays\n", aCalcArraySize);
-		stackInUse = 0;
+		freeStack(flp, stack);
 		return(-1);
 	}
 
@@ -201,7 +221,7 @@ long
 			i++;
 			if (i>9) {
 				printf("sCalcPerform: too many UNTILs\n");
-				stackInUse = 0;
+				freeStack(flp, stack);
 				return(-1);
 			}
 			break;
@@ -217,7 +237,7 @@ long
 			}
 			if (k<0) {
 				printf("unmatched UNTIL_END\n");
-				stackInUse = 0;
+				freeStack(flp, stack);
 				return(-1);
 			}
 			break;
@@ -247,7 +267,7 @@ long
 #endif
 
 	if (*post == END_EXPRESSION) {
-		stackInUse = 0;
+		freeStack(flp, stack);
 		return(-1);
 	}
 
@@ -500,7 +520,7 @@ long
 			d = ps->d;
 			DEC(ps);
 			if (d == 0.0 &&	cond_search(&post, COND_ELSE)) {
-				stackInUse = 0;
+				freeStack(flp, stack);
 				return -1;
 			}
 			break;
@@ -508,7 +528,7 @@ long
 				
 		case COND_ELSE:
 			if (cond_search(&post, COND_END)) {
-				stackInUse = 0;
+				freeStack(flp, stack);
 				return -1;
 			}
 			break;
@@ -1099,11 +1119,11 @@ long
 			break;
 
  		case UNTIL:
-			if (aCalcPerformDebug) printf("\tUNTIL:ps->d=%f\n", ps->d);
-			if (aCalcPerformDebug) printf("\tpost-1=%p\n", post-1);
+			if (aCalcPerformDebug > 20) printf("\tUNTIL:ps->d=%f\n", ps->d);
+			if (aCalcPerformDebug > 20) printf("\tpost-1=%p\n", post-1);
 			for (i=0; i<10; i++) {
 				/* find ourselves in post, remembering that post was incremented at loop top */
-				if (aCalcPerformDebug > 10) printf("\tuntil_scratch[i].until_loc=%p\n", until_scratch[i].until_loc);
+				if (aCalcPerformDebug > 20) printf("\tuntil_scratch[i].until_loc=%p\n", until_scratch[i].until_loc);
 				if (until_scratch[i].until_loc == post-1) {
 					until_scratch[i].ps = ps;
 					break;
@@ -1111,13 +1131,13 @@ long
 			}
 			if (i==10) {
 				printf("aCalcPerform: UNTIL not found\n");
-				stackInUse = 0;
+				freeStack(flp, stack);
 				return(-1);
 			}
 			break;
 
 		case UNTIL_END:
-			if (aCalcPerformDebug) printf("\tUNTIL_END:ps->d=%f\n", ps->d);
+			if (aCalcPerformDebug > 20) printf("\tUNTIL_END:ps->d=%f\n", ps->d);
 			if (++loopsDone > aCalcLoopMax)
 				break;
 			if (ps->d==0) {
@@ -1127,13 +1147,13 @@ long
 					if (until_scratch[i].until_end_loc == post) {
 						ps = until_scratch[i].ps;
 						post = until_scratch[i].until_loc;
-						if (aCalcPerformDebug) printf("--loop--\n");
+						if (aCalcPerformDebug > 20) printf("--loop--\n");
 						break;
 					}
 				}
 				if (i==10) {
 					printf("aCalcPerform: UNTIL not found\n");
-					stackInUse = 0;
+					freeStack(flp, stack);
 					return(-1);
 				}
 				break;
@@ -1150,7 +1170,7 @@ long
 
 	if (aCalcPerformDebug>=20) printf("aCalcPerform:done with expression, status=%d\n", status);
 	if (status) {
-		stackInUse = 0;
+		freeStack(flp, stack);
 		return(status);
 	}
 
@@ -1163,7 +1183,7 @@ long
 			printf("aCalcPerform: ps->d=%f\n", ps->d);
 		}
 #endif
-		stackInUse = 0;
+		freeStack(flp, stack);
 		return(-1);
 	}
 	
@@ -1190,7 +1210,7 @@ long
 	if (aCalcPerformDebug) printf("aCalcPerform:stack lo=%d, hi=%d\n",
 		aCalcStackLW, aCalcStackHW);
 
-	stackInUse = 0;
+	freeStack(flp, stack);
 	return(((isnan(*p_dresult)||isinf(*p_dresult)) ? -1 : 0));
 }
 
