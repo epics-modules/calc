@@ -54,6 +54,8 @@
 #include	<menuIvoa.h>
 #include	<epicsExport.h>
 
+#define MIND_UNUSED_ELEMENTS 0
+
 /* Create RSET - Record Support Entry Table*/
 #define report NULL
 #define initialize NULL
@@ -263,10 +265,11 @@ static long afterCalc(acalcoutRecord *pcalc) {
 
 	i = ((pcalc->nuse > 0) && (pcalc->nuse < pcalc->nelm)) ?
 		pcalc->nuse : pcalc->nelm;
+#if MIND_UNUSED_ELEMENTS
 	if (i < pcalc->nelm) {
 		for (; i<pcalc->nelm; i++) pcalc->aval[i] = 0;
 	}
-
+#endif
 	/* post array fields that aCalcPerform wrote to. */
 	for (j=0, panew=&pcalc->aa; j<ARRAY_MAX_FIELDS; j++, panew++) {
 		if (*panew && (pcalc->amask & (1<<j))) {
@@ -656,9 +659,15 @@ static long put_array_info(struct dbAddr *paddr, long nNew)
 	if (aCalcoutRecordDebug >= 20) {
 		printf("acalcoutRecord(%s):put_array_info: pd=%p\n", pcalc->name, (void *)pd);
 	}
+
+#if MIND_UNUSED_ELEMENTS
 	if (pd && (nNew < pcalc->nelm))
 		for (i=nNew; i<pcalc->nelm; i++) pd[i] = 0.;
-	
+#else
+	if (pd && (nNew < pcalc->nuse))
+		for (i=nNew; i<pcalc->nuse; i++) pd[i] = 0.;
+#endif
+
 	/* We could set nuse to the number of elements just written, but that would also
 	 * affect the other arrays.  For now, with all arrays sharing a single value of nuse,
 	 * it seems better to require that nuse be set explicitly.  Currently, I'm leaving
@@ -827,7 +836,11 @@ static void execOutput(acalcoutRecord *pcalc)
 
 	if (pcalc->dopt == acalcoutDOPT_Use_VAL) {
 		pcalc->oval = pcalc->val;
+#if MIND_UNUSED_ELEMENTS
 		for (i=0; i<pcalc->nelm; i++) pcalc->oav[i] = pcalc->aval[i];
+#else
+		for (i=0; i<pcalc->nuse; i++) pcalc->oav[i] = pcalc->aval[i];
+#endif
 	}
 
 	/* Check to see what to do if INVALID */
@@ -872,6 +885,7 @@ static void monitor(acalcoutRecord *pcalc)
 	double			*pnew, *pprev;
 	double			**panew;
 	int				i, diff;
+	long			numElements;
 
 	if (aCalcoutRecordDebug >= 10)
 		printf("acalcoutRecord(%s):monitor:entry\n", pcalc->name);
@@ -903,22 +917,30 @@ static void monitor(acalcoutRecord *pcalc)
 	if (pcalc->poav == NULL)
 		pcalc->poav = (double *)calloc(pcalc->nelm, sizeof(double));
 
-	for (i=0, diff=0; i<pcalc->nelm; i++) {
+#if MIND_UNUSED_ELEMENTS
+	numElements = pcalc->nelm;
+#else
+	numElements = pcalc->nuse;
+#endif
+
+	for (i=0, diff=0; i<numElements; i++) {
 		if (pcalc->aval[i] != pcalc->pavl[i]) {diff = 1;break;}
 	}
+
 	if (diff) {
 		if (aCalcoutRecordDebug >= 1)
 			printf("acalcoutRecord(%s):posting .AVAL\n", pcalc->name);
 		db_post_events(pcalc, pcalc->aval, monitor_mask|DBE_VALUE|DBE_LOG);
-		for (i=0; i<pcalc->nelm; i++) pcalc->pavl[i] = pcalc->aval[i];
+		for (i=0; i<numElements; i++) pcalc->pavl[i] = pcalc->aval[i];
 	}
 
-	for (i=0, diff=0; i<pcalc->nelm; i++) {
+	for (i=0, diff=0; i<numElements; i++) {
 		if (pcalc->oav[i] != pcalc->poav[i]) {diff = 1;break;}
 	}
+
 	if (diff) {
 		db_post_events(pcalc, pcalc->oav, monitor_mask|DBE_VALUE|DBE_LOG);
-		for (i=0; i<pcalc->nelm; i++) pcalc->poav[i] = pcalc->oav[i];
+		for (i=0; i<numElements; i++) pcalc->poav[i] = pcalc->oav[i];
 	}
 
 	/* check all input fields for changes */
@@ -953,7 +975,13 @@ static int fetch_values(acalcoutRecord *pcalc)
 							pcalc->nuse : pcalc->nelm;
 	int		i, j;
 	unsigned short *plinkValid;
+	long numElements;
 
+#if MIND_UNUSED_ELEMENTS
+	numElements = pcalc->nelm;
+#else
+	numElements = pcalc->nuse;
+#endif
 	if (aCalcoutRecordDebug >= 10)
 		printf("acalcoutRecord(%s):fetch_values: entry\n", pcalc->name);
 	for (i=0, plink=&pcalc->inpa, pvalue=&pcalc->a; i<MAX_FIELDS; 
@@ -980,12 +1008,12 @@ static int fetch_values(acalcoutRecord *pcalc)
 					pcalc->name);
 				pcalc->paa = (double *)calloc(pcalc->nelm, sizeof(double));
 			}
-			for (j=0; j<pcalc->nelm; j++) pcalc->paa[j] = (*pavalue)[j];
+			for (j=0; j<numElements; j++) pcalc->paa[j] = (*pavalue)[j];
 			/* get new value */
 			status = dbGetLink(plink, DBR_DOUBLE, *pavalue, 0, &nRequest);
 			if (!RTN_SUCCESS(status)) return(status);
 			/* compare new array value with saved value */
-			for (j=0; j<pcalc->nelm; j++) {
+			for (j=0; j<numElements; j++) {
 				if (pcalc->paa[j] != (*pavalue)[j]) {pcalc->newm |= 1<<i; break;}
 			}
 		}
