@@ -146,7 +146,13 @@ exp = [
 	("A--B",None),
 	("A--B*C",None),
 	("A+B*C",None),
-	("D*((A-B)/C)", None)
+	("D*((A-B)/C)", None),
+	# the following two must be in order, because of the store to c
+	("A?0;C:=3.3:B", "(0,B)[A==0]"),
+	("C;C:=3", "3.3"),
+	# the following two must be in order, because of the store to c
+	("A?(0;C:=3.3):B", "(0,B)[A==0]"),
+	("C;C:=3", "3.3")
 ]
 
 def nint(x):
