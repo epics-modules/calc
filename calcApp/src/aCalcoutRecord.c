@@ -1152,7 +1152,8 @@ typedef struct {
 #define MAX_MSG  100                   /* max # of messages in queue    */
 #define MSG_SIZE sizeof(calcMessage)   /* size in bytes of the messages */
 #define PRIORITY epicsThreadPriorityMedium
-#define ASYNC_THRESHOLD 10000	/* array sizes larger than this get queued */
+volatile int aCalcAsyncThreshold = 10000; /* array sizes larger than this get queued */
+epicsExportAddress(int, aCalcAsyncThreshold);
 
 static void call_aCalcPerform(acalcoutRecord *pcalc) {
 	long i;
@@ -1182,14 +1183,7 @@ static long doCalc(acalcoutRecord *pcalc) {
 	if (aCalcoutRecordDebug >= 10)
 		printf("acalcoutRecord(%s):doCalc\n", pcalc->name);
 
-	/* Ideally, we should do short calculations in this thread, and queue long calculations.
-	 * But aCalcPerform is not reentrant (global value stack), so for now we queue everything.
-	 */
-#if 1
-	doAsync = 1;
-#else
-	if (pcalc->nuse > ASYNC_THRESHOLD) doAsync = 1;
-#endif
+	if (pcalc->nuse > aCalcAsyncThreshold) doAsync = 1;
 
 	/* if required infrastructure doesn't yet exist, create it */
 	if (doAsync && acalcMsgQueue == NULL) {
@@ -1215,11 +1209,13 @@ static long doCalc(acalcoutRecord *pcalc) {
 	 * But aCalcPerform is not reentrant (global value stack), so for now we queue everything.
 	 */
 	if (doAsync) {
+		if (aCalcoutRecordDebug >= 2) printf("acalcoutRecord(%s):doCalc async\n", pcalc->name);
 		pcalc->cact = 1; /* Tell caller that we went asynchronous */
 		msg.pcalc = pcalc;
 		epicsMessageQueueSend(acalcMsgQueue, (void *)&msg, MSG_SIZE);
 		return(0);
 	} else {
+		if (aCalcoutRecordDebug >= 2) printf("acalcoutRecord(%s):doCalc sync\n", pcalc->name);
 		call_aCalcPerform(pcalc);
 	}
 	return(0);
