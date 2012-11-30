@@ -1259,7 +1259,7 @@ is <CODE>"no"</CODE>.
 <hr>
 <A NAME="HEADING14-93"></A>
 <H3>
-Array</H3>
+Argument array</H3>
 
 <DL>
 <DT><B><CODE>@0</CODE></B>
@@ -1284,32 +1284,35 @@ of A and B.<P>
 Store</H3>
 
 The "Store" operator is the only string-calc operator that does not produce a
-value.  Thus, the expression <B><code>a:=0</code></B> is an incomplete calc expression,
-because it leaves us with nothing to set the record's <code>VAL</code> field to.
+value.  Thus, the expression <B><code>a:=0</code></B> is an incomplete and therefore illegal calc expression,
+because it leaves us with nothing to write to the record's <code>VAL</code> field.
 
 <DL>
-<DT><B><CODE>A:=A-1</CODE></B>
+<DT><B><CODE>A:=A-1;7</CODE></B>
 
-<DD>Evaluate the expression <CODE>A-1</CODE>, and store the result in the input
-variable <CODE>A</CODE>.<P>
+<DD>Evaluate the expression <CODE>A-1</CODE>, store the result in the input
+variable <CODE>A</CODE>, and set the VAL field to 7.<P>
 
-<DT><B><CODE>@0:=A-1</CODE></B>
+<DT><B><CODE>@0:=A-1;7</CODE></B>
 <DD>Same as above, because <CODE>@0</CODE> is just another name for <CODE>A</CODE><P>
 
-<DT><B><CODE>AA:="abc"</CODE></B>
-<DD>Overwrite the string input variable <CODE>AA</CODE> with the string 'abc'.<P>
+<DT><B><CODE>D:=0;@D:=A-1;7</CODE></B>
+<DD>Same as above, because <CODE>D==0</CODE>.<P>
 
-<DT><B><CODE>AA:="abc";b:=0;1</CODE></B>
+<DT><B><CODE>AA:="abc";7</CODE></B>
+<DD>Overwrite the string input variable <CODE>AA</CODE> with the string 'abc', and set the VAL field to 7.<P>
+
+<DT><B><CODE>AA:="abc";b:=0;7</CODE></B>
 
 <DD>Multiple store expressions, separated by ';' terminators, are legal at top
-level, but the expression as a whole must produce a value.  This expression
-produces the value <code>1</code>.
+level, but - as always - the expression as a whole must produce a value.  This expression
+produces the value <code>7</code>.<P>
 
-<DT><B><CODE>A+(AA:="abc";b:=0;1)</CODE></B>
+<DT><B><CODE>A+(AA:="abc";b:=0;7)</CODE></B>
 
 <DD>Multiple store expressions are also legal within parentheses, and again the
-parenthesized expression as a whole must produce a value.  The parenthesized
-expression in this example produces the value <code>1</code>, which is added to
+parenthesized subexpression must produce a value.  The parenthesized
+subexpression in this example produces the value <code>7</code>, which is added to
 <code>A</code>.
 
 </DL>
@@ -1319,7 +1322,7 @@ expression in this example produces the value <code>1</code>, which is added to
 <H3>
 Loop ("UNTIL")</H3>
 
-The <code>UNTIL</code> operator evaluates its expression repeatedly until the
+The <code>UNTIL</code> function evaluates its expression repeatedly until the
 expression returns a nonzero value, or the allowed number of iterations
 <code>sCalcLoopMax</code> has been reached.  When looping is done, or aborted,
 the expression value is returned.
@@ -1332,7 +1335,7 @@ do-nothing expression is equivalent to <code>(1)</code>.<P>
 
 <DT><B><CODE>B:=10;UNTIL(B:=B-1;B<1)</CODE></B> <DD>This do-almost-nothing
 expression initializes B to 10, decrements it repeatedly until its value is
-zero, and returns the value 1 (True).
+zero, and returns the value 1 (True).<P>
 
 <DT><B><CODE>B:=9; AA:=''; UNTIL(AA:=AA+CC[B,B]; B:=B-1; B<0)</CODE></B>
 
@@ -1342,7 +1345,7 @@ backwards through <CODE>CC</CODE>, appending characters to produce
 
 <DT><B><CODE>B:=0;AA:='';UNTIL(AA:=AA+(CC[b,b]==','?'':CC[b,b]);B:=B+1;B>LEN(CC))</CODE></B>
 
-<DD>This expression copies CC to AA, leaving out the commas..
+<DD>This expression copies CC to AA, leaving out the commas.<P>
 
 <DT><B><CODE>AA:='';B:=1;UNTIL(A:=0;C:=UNTIL(AA:=AA+(@@B)[A,A];A:=A+1;A>1);B:=B+1;B>12)</CODE></B>
 
@@ -2534,7 +2537,7 @@ record(scalcout, "$(P)SRS810:$(N):SetPhas") {
 
 <DT><A HREF="#HEADING14-92">String</A></DT>
 
-<DT><A HREF="#HEADING14-93">Array</A></DT>
+<DT><A HREF="#HEADING14-93">Argument Array</A></DT>
 
 <DT><A HREF="#HEADING14-94">Store</A></DT>
 
