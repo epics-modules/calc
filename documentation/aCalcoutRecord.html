@@ -46,7 +46,9 @@ aCalcout - Array Calculation Output Record</H1>
 
 <DT><A HREF="#ARGUMENT_ARRAY"><B>5.10. </B>- Argument-array Operators</A></DT>
 
-<DT><A HREF="#EXAMPLES"><B>5.11. </B>- Examples</A></DT>
+<DT><A HREF="#MISCELLANEOUS"><B>5.11. </B>- Miscellaneous Operators</A></DT>
+
+<DT><A HREF="#EXAMPLES"><B>5.12. </B>- Examples</A></DT>
 
 <DT><A HREF="#OUTPUT_PARAMETERS"><B>6. </B>- Output Parameters</A></DT>
 
@@ -1068,10 +1070,41 @@ Thus, <code>@@1</code> is another way of saying <code>BB</code>.
 
 </table>
 
+<A NAME="MISCELLANEOUS"></A>
+<H2>
+5.11. Miscellaneous Operators</H2>
+
+<table border>
+
+<tr>
+<th align=center valign=top>Op
+<th valign=top>Description
+<th valign=top>Examples
+
+<tr>
+<td align=center valign=top>:=
+<td>Store value of right hand side in location specified by left hand side.  (binary)
+<td><code>A:=1.2</code>
+<code><BR>@7:=3</code>
+<code><BR>AA:=IX</code>
+<code><BR>@@4:=sin(IX)</code>
+
+<tr>
+<td align=center valign=top>UNTIL
+<td>Execute expression until its value is TRUE.  (binary)<br>
+
+The total number of iterations is limited to the ioc-shell variable
+sCalcLoopMax, which defaults to 1000.
+
+<td><code>until(1)</code>
+<code><BR>until(a:=a+1;b:=b-1;b<1)</code>
+
+</table>
+
 
 <A NAME="EXAMPLES"></A>
 <H2>
-5.11. Examples</H2>
+5.12. Examples</H2>
 <H3>Algebraic</H3>
 
 <DL>
@@ -1079,6 +1112,7 @@ Thus, <code>@@1</code> is another way of saying <code>BB</code>.
 <DD>Result is <CODE>A + B + 10</CODE>
 </DL>
 
+<hr>
 <H3>Relational</H3>
 
 <DL>
@@ -1087,6 +1121,7 @@ Thus, <code>@@1</code> is another way of saying <code>BB</code>.
 <BR>Result is <CODE>0</CODE> if <CODE>(A+B) >= (C+D)</CODE>
 </DL>
 
+<hr>
 <H3>If-Else</H3>
 
 <DL>
@@ -1099,7 +1134,7 @@ Thus, <code>@@1</code> is another way of saying <code>BB</code>.
 <BR>Result is unchanged if <CODE>(A+B) >= (C+D)</CODE>
 </DL>
 
-<P><A NAME="HEADING14-91"></A>
+<hr>
 <H3>Logical</H3>
 
 <DL>
@@ -1114,6 +1149,7 @@ Thus, <code>@@1</code> is another way of saying <code>BB</code>.
 </OL>
 </DL>
 
+<hr>
 <H3>Array</H3>
 <P>Notation:  I'll use <code>(1,2,3)</code> to indicate an array.  Note that
 [1,2] is not an array, but the subrange operator with arguments 1 and 2.
@@ -1151,6 +1187,106 @@ but the selected subrange is left in place.)
 
 </DL>
 
+<hr>
+<H3>
+Argument array</H3>
+
+<DL>
+<DT><B><CODE>@0</CODE></B>
+<DD>Result is the value of the numeric variable <CODE>A</CODE>.  ("<CODE>@0</CODE>"
+is just another name for <CODE>A</CODE>.)<P>
+
+<DT><B><CODE>@@0</CODE></B>
+<DD>Result is the value of the array variable AA.<P>
+
+<DT><B><CODE>@(A+B)</CODE></B>
+<DD>Result is the value of the numeric variable whose number is given by the sum
+of A and B.<P>
+
+<DT><B></B>
+<DD>
+<P>
+</DL>
+
+<hr>
+<H3>Store</H3>
+
+The "Store" operator is the only array-calc operator that does not produce a
+value.  Thus, the expression <B><code>a:=0</code></B> is an incomplete and therefore illegal calc expression,
+because it leaves us with nothing to write to the record's <code>VAL</code> field.
+
+<DL>
+<DT><B><CODE>A:=A-1;7</CODE></B>
+
+<DD>Evaluate the expression <CODE>A-1</CODE>, store the result in the input
+variable <CODE>A</CODE>, set the VAL field to 7.<P>
+
+<DT><B><CODE>@0:=A-1;7</CODE></B>
+<DD>Same as above, because <CODE>@0</CODE> is just another name for <CODE>A</CODE><P>
+
+<DT><B><CODE>D:=0;@D:=A-1;7</CODE></B>
+<DD>Same as above, because <CODE>D==0</CODE>.<P>
+
+<DT><B><CODE>AA:=IX;7</CODE></B>
+<DD>Overwrite the array input variable <CODE>AA</CODE> with the array (0,1,2...), and set the VAL field to 7.<P>
+
+<DT><B><CODE>AA:=IX;b:=0;1</CODE></B>
+
+<DD>Multiple store expressions, separated by ';' terminators, are legal at top
+level, but - as always - the expression as a whole must produce a value.  This expression
+produces the value <code>1</code>.<P>
+
+<DT><B><CODE>A+(AA:="abc";b:=0;1)</CODE></B>
+
+<DD>Multiple store expressions are also legal within parentheses, and again the
+parenthesized subexpression must produce a value.  The parenthesized
+subexpression in this example produces the value <code>1</code>, which is added to
+<code>A</code>.<P>
+
+<DT><B><CODE>@0:=A-1;7</CODE></B>
+
+<DD>Evaluate the expression <CODE>A-1</CODE>, store the result in the input
+variable <CODE>A</CODE>, and set the VAL field to 7.<P>
+</DL>
+
+<hr>
+<H3>Loop ("UNTIL")</H3>
+
+The <code>UNTIL</code> function evaluates its expression repeatedly until the
+expression returns a nonzero value, or the allowed number of iterations
+<code>sCalcLoopMax</code> has been reached.  When looping is done, or aborted,
+the expression value is returned.
+
+<DL>
+<DT><B><CODE>UNTIL(1)</CODE></B>
+
+<DD>The expression 1 is evaluated, terminates the loop, and is returned.  This
+do-nothing expression is equivalent to <code>(1)</code>.<P>
+
+<DT><B><CODE>B:=10;UNTIL(B:=B-1;B<1)</CODE></B> <DD>This do-almost-nothing
+expression initializes B to 10, decrements it repeatedly until its value is
+zero, and returns the value 1 (True).<P>
+
+<DT><B><CODE>BB:=1; B:=1; AA:=BB; UNTIL(AA:=AA+(BB>>B); B:=B+1; B>10)</CODE></B>
+
+<DD>Initialize <CODE>BB</CODE> to <CODE>(1,1,1...)</CODE>.  Loop to integrate over <CODE>BB</CODE>, so that the N'th
+element of <CODE>AA</CODE> will be the sum of all elements of <CODE>BB[0,N]</CODE>.<P>
+This expression is useful for converting an array of step pulses accumulated by a multichannel scaler into an array of
+positions at which the multichannel scaler's channel-advance signal was triggered.<P>
+
+<DT><B><CODE>AA:=0;L:=0;UNTIL(AA:=AA+(ARR(@L)[0,0]>>L);L:=L+1;L>10)</CODE></B>
+
+<DD>Copy the 10 scalar input fields <code>A-J</code> to the first 10 elements of the array <code>AA</code>.<P>
+(This quite an inefficient way to do the job.  An asub record would be much more efficient.)<P>
+
+<DT><B><CODE>L:=0;AA:=IX;UNTIL(@L:=AA[L,L];L:=L+1;L>10)</CODE></B>
+
+<dd>Copy the first 10 elements of <code>AA</code> to the scalar input variables <code>A-J</code>.<P>
+(Again, this is quite an inefficient way to do the job.)
+
+</DL>
+
+<hr>
 <P>Here's a more complete example of array calcs in use.  Suppose we want to
 analyze results from a series of edge scans to find the conditions that produce
 the sharpest edge.  Lacking any hardware, we'll also have to make fake data to
@@ -1169,7 +1305,7 @@ aCalc1.CALC = "tanh((ix-a)/b)+c*arndm"
 aCalc1.A = &lt;edge position&gt;
 aCalc1.B = &lt;edge width control&gt;
 aCalc1.C = &lt;amount of noise added to data&gt;
-aCalc1.OUT = "aCalc2.A PP"
+aCalc1.OUT = "aCalc2.AA PP"
 
 aCalc2.CALC = "nderiv(aa,20)"
 aCalc2.OUT = "aCalc3.AA PP"
@@ -1177,25 +1313,7 @@ aCalc2.OUT = "aCalc3.AA PP"
 aCalc3.CALC = "fwhm(aa)"
 </pre>
 </ul>
-<H3>
-Argument-array</H3>
 
-<DL>
-<DT><B><CODE>@0</CODE></B>
-<DD>Result is the value of the numeric variable <CODE>A</CODE>.  ("<CODE>@0</CODE>"
-is just another name for <CODE>A</CODE>.)<P>
-
-<DT><B><CODE>@@0</CODE></B>
-<DD>Result is the value of the array variable AA.<P>
-
-<DT><B><CODE>@(A+B)</CODE></B>
-<DD>Result is the value of the numeric variable whose number is given by the sum
-of A and B.<P>
-
-<DT><B></B>
-<DD>
-<P>
-</DL>
 
 <P>&nbsp;
 <HR><A NAME="OUTPUT_PARAMETERS"></A>
