@@ -41,9 +41,9 @@ of from OCAL.
 <li>In calc R3-0, the array operators <code>fitmpoly</code>, <code>nderiv</code>,
 <code>nsmoo</code> were broken because they had incorrect stack-effect numbers.
 
-<li>In calc R3-0, stores to input-variable fields specified using the "@" and
-"@@" operators were not permitted.  For example, "@3:=7.8" (which means
-"D:=7.8") is now permitted.
+<li>In calc R3-0, for both acalcout and scalcout records, stores to
+input-variable fields specified using the "@" and "@@" operators were wrongly
+coded for some expressions.
 
 <li>Previously, the sseq record used database access to get the properties of a
 PV it linked to, even if it was making a CA link to that PV.  Also, the sseq
