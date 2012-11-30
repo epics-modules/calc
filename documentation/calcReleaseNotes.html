@@ -9,6 +9,49 @@ content="text/html; charset=iso-8859-1">
 <body bgcolor="#FFFFFF">
 
 <h1 align="center">calc Release Notes</h1>
+<h2 align="center">Release 3-1</h2>
+<ul>
+
+<li>Previously, only a single acalcout record could evaluate an expression at a
+time, because aCalcPerform() was not reentrant.
+
+<li>Previously, acalcout expression evaluation always occurred in the
+record-processing thread, regardless of how long expression evaluation was
+expected to take.  (On solaris, evaluations with million-element arrays can
+easily take over a second.)  Now, acalcout records queue expression evaluation
+to a separate thread, for array sizes larger than
+<code>aCalcAsyncThreshold</code> (default: 10000).
+
+<li>Previously, acalcout records reported NUSE as the array size on the initial
+connection by a link or channel-access client.  Now the size can be reported
+either as NELM (the default), or as NUSE, depending on the value of the record's
+SIZE field.
+
+<li>arrayCalc plot displays (MEDM files only, for now) now use NUSE to specify
+the array size.  This requires an additional macro (C, the record name) to be
+supplied when launching those displays.
+
+<li>All userCalcs of one kind (i.e., userTransforms10.db, userArrayCalcs10.db,
+etc.) have since EPICS 3.14 been in the same lock set, because they connected
+via NPP links to a common enable PV.  Now, userCalcs are enabled via CA links.
+
+<li>Previously, the acalcout record calculated OVAL and OAV from CALC, instead
+of from OCAL.
+
+<li>In calc R3-0, the array operators <code>fitmpoly</code>, <code>nderiv</code>,
+<code>nsmoo</code> were broken because they had incorrect stack-effect numbers.
+
+<li>In calc R3-0, stores to input-variable fields specified using the "@" and
+"@@" operators were not permitted.  For example, "@3:=7.8" (which means
+"D:=7.8") is now permitted.
+
+<li>Previously, the sseq record used database access to get the properties of a
+PV it linked to, even if it was making a CA link to that PV.  Also, the sseq
+record failed to update the status of an input link that had changed from a CA
+link to a DB link.
+
+</ul>
+
 <h2 align="center">Release 3-0</h2>
 <ul>
 
