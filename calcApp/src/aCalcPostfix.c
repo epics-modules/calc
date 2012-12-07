@@ -144,7 +144,6 @@ static const ELEMENT operands[] = {
 {"HH",			0, 0,	1,		OPERAND,			FETCH_HH},
 {"I",			0, 0,	1,		OPERAND,			FETCH_I},
 {"II",			0, 0,	1,		OPERAND,			FETCH_II},
-{"INF",			0, 0,	1,		LITERAL_OPERAND,	LITERAL_DOUBLE},
 {"INT",			9, 10,	0,		UNARY_OPERATOR,		NINT},
 {"ISINF",		9, 10,	0,		UNARY_OPERATOR,		ISINF},
 {"ISNAN",		9, 10,	0,		VARARG_OPERATOR,	ISNAN},
@@ -165,7 +164,6 @@ static const ELEMENT operands[] = {
 {"MIN",			9, 10,	0,		VARARG_OPERATOR,	MIN},
 {"N",			0, 0,	1,		OPERAND,			FETCH_N},
 {"NINT",		9, 10,	0,		UNARY_OPERATOR,		NINT},
-{"NAN",			0, 0,	1,		LITERAL_OPERAND,	LITERAL_DOUBLE},
 {"NDERIV",		9, 10,	-1,		UNARY_OPERATOR,		NDERIV},
 {"NOT",			9, 10,	0,		UNARY_OPERATOR,		BIT_NOT},
 {"NRNDM",		0, 0,	1,		OPERAND,			NORMAL_RNDM},   /* Normally Distributed Random Number */
