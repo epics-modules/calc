@@ -13,7 +13,14 @@ content="text/html; charset=iso-8859-1">
 <ul>
 
 <li>Previously, only a single acalcout record could evaluate an expression at a
-time, because aCalcPerform() was not reentrant.
+time, because aCalcPerform() was not reentrant, because it used a global value
+stack.  Now aCalcPerform allocates a new  value stack for each expression
+evaluation, using EPICS' freeList.  aCalcPerform manages an array of EPICS
+freeLists, selecting an appropriately sized list if possible, making a new one
+if an unclaimed list entry exists, commandeering the least recently used list
+with no outstanding allocations, or reporting failure.  As a consequence, the
+iocshell variable <code>aCalcArraySize</code> is no longer needed and no longer
+exists.
 
 <li>Previously, acalcout expression evaluation always occurred in the
 record-processing thread, regardless of how long expression evaluation was
@@ -24,8 +31,11 @@ to a separate thread, for array sizes larger than
 
 <li>Previously, acalcout records reported NUSE as the array size on the initial
 connection by a link or channel-access client.  Now the size can be reported
-either as NELM (the default), or as NUSE, depending on the value of the record's
-SIZE field.
+either as <code>NELM</code> (the default), or as <code>NUSE</code>, depending on
+the value of the record's <code>SIZE</code> field, which can be either "NELM" or
+"NUSE".  "NELM" always works, but is in some cases less efficient than "NUSE". 
+If "NUSE" is selected, the link or channel must be closed and reestablished when
+the record's <code>NUSE</code> field increases.
 
 <li>arrayCalc plot displays (MEDM files only, for now) now use NUSE to specify
 the array size.  This requires an additional macro (C, the record name) to be
