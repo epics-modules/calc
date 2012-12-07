@@ -29,7 +29,19 @@
 #include "aCalcPostfix.h"
 #include "aCalcPostfixPvt.h"
 #include <epicsExport.h>
+#include <epicsMutex.h>
+#include <epicsTime.h>
+
+/* base currently (3.15.0.1) does not have the freeList behavior needed to
+ * manage a list of freeLists as aCalcPerform needs.  If it ever gets the
+ * needed behavior, we should use it and get rid of myFreeList*.
+ */
+#define USE_BASE_FREELIST 0
+#if USE_BASE_FREELIST
 #include <freeList.h>
+#else
+#include <myFreeList.h>
+#endif
 
 /* Note value much larger than this breaks MEDM's plot */
 #define	myMAXFLOAT	((float)1e+35)
@@ -56,6 +68,12 @@ epicsExportAddress(int, aCalcPerformDebug);
 volatile int aCalcLoopMax = 1000;
 epicsExportAddress(int, aCalcLoopMax);
 
+typedef struct {
+	double d;
+	double *a;
+	double *array;
+} stackElement;
+
 #if DEBUG
 int aCalcStackHW = 0;	/* high-water mark */
 int aCalcStackLW = 0;	/* low-water mark */
@@ -66,6 +84,8 @@ int aCalcStackLW = 0;	/* low-water mark */
 #define DEC(ps) ps--
 #endif
 
+/*** begin convert stack element between array and double ***/
+
 #define isDouble(ps) ((ps)->a==NULL)
 #define isArray(ps) ((ps)->a != NULL)
 
@@ -75,53 +95,134 @@ int aCalcStackLW = 0;	/* low-water mark */
 /* convert array-valued stack element to double */
 #define to_double(ps) {(ps)->d = (ps)->a[0]; (ps)->a = NULL;}
 
-/* convert stack element of unknown type to array */
-#define toArray(ps) {if (isDouble(ps)) to_array(ps);}
 
 /* convert double-valued stack element to array */
-#define to_array(ps) {										\
-	int ii;													\
-	(ps)->a = &((ps)->array[0]);						\
-	if (isnan((ps)->d))										\
-		for(ii=0; ii<arraySize; ii++) (ps)->a[ii]=0.;		\
-	else													\
-		for(ii=0; ii<arraySize; ii++) (ps)->a[ii]=ps->d;	\
+int to_array(void *flp, stackElement *ps, int arraySize, int setValues) {
+	int ii;
+	if (ps->array == NULL) {
+		ps->array = (double *)freeListMalloc(flp);
+		if (ps->array == NULL) {
+			return(-1);
+		}
+	}
+	(ps)->a = &((ps)->array[0]);
+
+	if (setValues) {
+		if (isnan((ps)->d))
+			for(ii=0; ii<arraySize; ii++) (ps)->a[ii]=0.;
+		else
+			for(ii=0; ii<arraySize; ii++) (ps)->a[ii]=ps->d;
+	}
+
+	return(0);
 }
 
-volatile int aCalcArraySize = 1000;
-epicsExportAddress(int, aCalcArraySize);
+/* convert stack element of unknown type to array */
+#define toArray(ps, setValues) {									\
+	if (isDouble(ps)) {												\
+		if (to_array(flp, (ps), arraySize, (setValues)) == -1) {	\
+			printf("aCalcPerform: Can't allocate array.\n");		\
+			freeStack(flp, stack);									\
+			return(-1);												\
+		}															\
+	}																\
+}
 
-/*******************************************************
- * void freeListInitPvt(void **ppvt, int size, int nmalloc);
- * void *freeListCalloc(void *pvt);
- * void *freeListMalloc(void *pvt);
- * void freeListFree(void *pvt, void*pmem);
- * void freeListCleanup(void *pvt);
- * size_t freeListItemsAvail(void *pvt);
- */
+/*** end convert stack element between array and double ***/
+
+/*** begin manage an array of freeLists ***/
+
+/* an fList is a list of freeLists */
+epicsMutexId fListLock=0;
+
 typedef struct {
 	void *freeListPvt;
 	int numDoubles;
-} freeListListElement;
+} fListElement;
 
-freeListListElement freeListList[10] = {{0}};
+#define NLISTS 5
+fListElement fList[NLISTS] = {{0}};
 
-void *findFreeList(int nuse) {
-	/* For now, only one freelist. */
-	if (freeListList[0].numDoubles == 0) {
-		freeListInitPvt(&freeListList[0].freeListPvt, nuse*sizeof(double), 1);
-		freeListList[0].numDoubles = nuse;
+void *get_freeList(int nuse) {
+	int i, j, n;
+	void *flp;
+	epicsTimeStamp ts, ts1;
+
+	epicsMutexMustLock(fListLock);
+
+	/* exact size match? */
+	for (i=0; i<NLISTS; i++) {
+		if (fList[i].numDoubles == nuse) {
+			if (aCalcPerformDebug>1) printf("aCalcPerform:get_freeList found list of size %d\n", nuse);
+			epicsMutexUnlock(fListLock);
+			return(fList[i].freeListPvt);			
+		}
 	}
-	return(freeListList[0].freeListPvt);
+
+	/* good enough size match? */
+	for (i=0; i<NLISTS; i++) {
+		n = fList[i].numDoubles;
+		if (n >= nuse && n <= nuse*2) {
+			if (aCalcPerformDebug>1) printf("aCalcPerform:get_freeList wanted size %d, found %d\n", nuse, n);
+			epicsMutexUnlock(fListLock);
+			return(fList[i].freeListPvt);			
+		}
+	}
+
+	/* if there is an unused fListElement, take it */
+	for (i=0; i<NLISTS; i++) {
+		if (fList[i].freeListPvt == 0) {
+			if (aCalcPerformDebug>1) printf("aCalcPerform:get_freeList new list of size %d\n", nuse);
+			freeListInitPvt(&fList[i].freeListPvt, nuse*sizeof(double), 1);
+			fList[i].numDoubles = nuse;
+			epicsMutexUnlock(fListLock);
+			return(fList[i].freeListPvt);
+		}
+	}
+
+	/* if there is an list with no outstanding memory, clean it up and alloc for caller */
+	/* if more than one, take least recently used */
+	epicsTimeGetCurrent(&ts);
+	for (i=0, j=-1; i<NLISTS; i++) {
+		flp = fList[i].freeListPvt;
+		if (flp && (freeListItemsAvail(flp) == freeListItemsTotal(flp))) {
+			ts1 = freeListTimeLastUsed(flp);
+			if (epicsTimeGreaterThan(&ts, &ts1)) {
+				j = i;
+				ts = ts1;
+			}
+		}
+	}
+	if (j>=0) {
+		if (aCalcPerformDebug>1)
+			printf("aCalcPerform:get_freeList delete old list of %d; alloc new list of %d\n",
+				fList[j].numDoubles, nuse);
+		flp = fList[j].freeListPvt;
+		freeListCleanup(flp);
+		freeListInitPvt(&fList[j].freeListPvt, nuse*sizeof(double), 1);
+		fList[j].numDoubles = nuse;
+		epicsMutexUnlock(fListLock);
+		return(fList[j].freeListPvt);
+	}
+
+	/* size match that will at least work? */
+	for (i=0; i<NLISTS; i++) {
+		n = fList[i].numDoubles;
+		if (n >= nuse) {
+			if (aCalcPerformDebug>1) printf("aCalcPerform:get_freeList wanted size %d, found %d\n", nuse, n);
+			epicsMutexUnlock(fListLock);
+			return(fList[i].freeListPvt);			
+		}
+	}
+
+	/* caller is out of luck */
+	epicsMutexUnlock(fListLock);
+	return(0);
 }
 
-/*******************************************************/
+/*** end manage an array of freeLists ***/
 
-typedef struct {
-	double d;
-	double *a;
-	double *array;
-} stackElement;
+/*******************************************************/
 
 struct until_struct {
 	const unsigned char *until_loc;
@@ -152,52 +253,38 @@ long
 	int					loopsDone = 0;
 	void *flp;
 
-	flp = findFreeList(aCalcArraySize); /* for now, fixed array size */
+	if (fListLock==0) fListLock = epicsMutexMustCreate();
+	flp = get_freeList(arraySize);
+	if (flp == 0) {
+		printf("aCalcPerform: Can't allocate value stack\n");
+		return(-1);
+	}
 
-	if (aCalcPerformDebug>1) printf("aCalcPerform: freeList size=%d\n", freeListItemsAvail(flp));
+	if (aCalcPerformDebug>1) printf("aCalcPerform: freeListItemsAvail=%d of: %d\n",
+		freeListItemsAvail(flp), freeListItemsTotal(flp));
 
 	*amask = 0; /* init bit mask that will record the array fields we wrote to. */
 
-	/* Stack should also be allocated using freeList.  For now, leave as is. */
-	stack = malloc(ACALC_STACKSIZE * sizeof(stackElement));
+	stack = calloc(ACALC_STACKSIZE, sizeof(stackElement));
 	if (stack == NULL) {
 		printf("aCalcPerform: Can't allocate stack.\n");
 		return(-1);
 	}
-	for (i=0; i<ACALC_STACKSIZE; i++) {
-		stack[i].array = (double *)freeListMalloc(flp);
-		if (stack[i].array == NULL) {
-			printf("aCalcPerform: Can't allocate array.\n");
-			freeStack(flp, stack);
-			return(-1);
-		}
-	}
+
 #if 0
 	printf("aCalcPerform: stack=%p\n", stack);
 	printf("aCalcPerform: &(stack[0])=%p\n", &(stack[0]));
 	printf("aCalcPerform: &(stack[0].d)=%p\n", &(stack[0].d));
 	printf("aCalcPerform: &(stack[0].a)=%p\n", &(stack[0].a));
 	printf("aCalcPerform: &(stack[0].array)=%p\n", &(stack[0].array));
-	printf("aCalcPerform: &(stack[0].array[0])=%p\n", &(stack[0].array[0]));
+	/*printf("aCalcPerform: &(stack[0].array[0])=%p\n", &(stack[0].array[0]));*/
 
 	printf("aCalcPerform: &(stack[1])=%p\n", &(stack[1]));
 	printf("aCalcPerform: &(stack[1].d)=%p\n", &(stack[1].d));
 	printf("aCalcPerform: &(stack[1].a)=%p\n", &(stack[1].a));
 	printf("aCalcPerform: &(stack[1].array)=%p\n", &(stack[1].array));
-	printf("aCalcPerform: &(stack[1].array[1])=%p\n", &(stack[1].array[1]));
+	/*printf("aCalcPerform: &(stack[1].array[1])=%p\n", &(stack[1].array[1]));*/
 #endif
-
-
-	for (i=0; i<ACALC_STACKSIZE; i++) {
-		stack[i].d = 0.;
-		stack[i].a = NULL;
-		for (j=0; j<arraySize; j++) stack[i].array[j] = 0.;
-	}
-	if (arraySize > aCalcArraySize) {
-		printf("aCalcPerform: I've only allocated for %d-element arrays\n", aCalcArraySize);
-		freeStack(flp, stack);
-		return(-1);
-	}
 
 	for (i=0; i<10; i++) {
 		until_scratch[i].until_loc = NULL;
@@ -296,7 +383,7 @@ long
 		case FETCH_AA: case FETCH_BB: case FETCH_CC: case FETCH_DD: case FETCH_EE: case FETCH_FF:
 		case FETCH_GG: case FETCH_HH: case FETCH_II: case FETCH_JJ: case FETCH_KK: case FETCH_LL:
 			INC(ps);
-			ps->a = &(ps->array[0]);
+			toArray(ps,0);
 			ps->a[0] = 0.;
 			if (num_aArgs > (op - FETCH_AA)) {
 				if (pp_aArg[op - FETCH_AA]) {
@@ -307,8 +394,6 @@ long
 				if (aCalcPerformDebug>=20)
 					printf("aCalcPerform:fetch array %d = [%f %f...]\n",
 						(int)*post, ps->a[0], ps->a[1]);
-			} else {
-				/* caller didn't supply a large enough array */
 			}
 			break;
 
@@ -324,19 +409,23 @@ long
 
 		case STORE_AA: case STORE_BB: case STORE_CC: case STORE_DD: case STORE_EE: case STORE_FF:
 		case STORE_GG: case STORE_HH: case STORE_II: case STORE_JJ: case STORE_KK: case STORE_LL:
-			toArray(ps);
-			if (num_aArgs > (op - STORE_AA)) {
+			i = op - STORE_AA;
+			if (num_aArgs > i) {
 				/* Careful.  It's possible the record has not allocated the array */
-				if (pp_aArg[op - STORE_AA] == NULL) {
-					pp_aArg[op - STORE_AA] = (double *)calloc(allocSize, sizeof(double));
+				if (pp_aArg[i] == NULL) {
+					pp_aArg[i] = (double *)calloc(allocSize, sizeof(double));
 				}
-				pd = pp_aArg[op - STORE_AA];
+				pd = pp_aArg[i];
 				if (aCalcPerformDebug>=10) {
 					printf("aCalcPerform:store array to pointer %p \n", pd);
 				}
 				if (pd) {
-					for (i=0; i<arraySize; i++) pd[i] = ps->a[i];
-					*amask |= (1<<(op - STORE_AA));
+					if (isArray(ps)) {
+						for (j=0; j<arraySize; j++) pd[j] = ps->a[j];
+					} else {
+						for (j=0; j<arraySize; j++) pd[j] = ps->d;
+					}
+					*amask |= 1<<i;
 					if (aCalcPerformDebug>=10) printf("amask=%x\n", *amask);
 				}
 			}
@@ -357,15 +446,22 @@ long
 			break;
 
 		case A_ASTORE:
-			toArray(ps);
 			ps1 = ps; DEC(ps);
 			toDouble(ps);
 			i = (int)(ps->d); DEC(ps);
 			if (num_aArgs > i) {
 				/* Careful.  It's possible the record has not allocated the array */
-				if (pp_aArg[op - STORE_AA]) {
-					for (j=0; j<arraySize; j++) pp_aArg[i][j] = ps->a[j];
+				if (pp_aArg[i] == NULL) {
+					pp_aArg[i] = (double *)calloc(allocSize, sizeof(double));
 				}
+				if (pp_aArg[i]) {
+					if (isArray(ps1)) {
+						for (j=0; j<arraySize; j++) pp_aArg[i][j] = ps1->a[j];
+					} else {
+						for (j=0; j<arraySize; j++) pp_aArg[i][j] = ps1->d;
+					}
+				}
+				*amask |= 1<<i;
 			} else {
 				/* caller didn't supply a large enough array */
 				;
@@ -380,7 +476,7 @@ long
 
 		case FETCH_AVAL:
 			INC(ps);
-			ps->a = &(ps->array[0]);
+			toArray(ps,0);
 			ps->a[0] = 0.;
 			for (i=0; i<arraySize; i++) ps->a[i] = p_aresult[i];
 			break;
@@ -417,7 +513,7 @@ long
 
 		case CONST_IX:
 			INC(ps);
-			ps->a = &(ps->array[0]);
+			toArray(ps,0);
 			for (i=0; i<arraySize; i++) {
 				ps->a[i] = i;
 			}
@@ -439,14 +535,14 @@ long
 			toDouble(ps);
 			j = myMIN((arraySize-1)/2, ps->d);  /* points on either side of value for fit */
 			DEC(ps);
-			toArray(ps);
+			toArray(ps,1);
 			ps1 = ps; /* y array */
-			INC(ps); ps->a = &(ps->array[0]);
+			INC(ps); toArray(ps,0);
 			ps2 = ps; /* place in which to make an x array */
 			for (i=0; i<arraySize; i++) {ps2->a[i] = i;}
-			INC(ps); ps->a = &(ps->array[0]); /* place in which to calc derivative */
+			INC(ps); toArray(ps,0); /* place in which to calc derivative */
 			ps3 = ps;
-			INC(ps); ps->a = &(ps->array[0]); /* workspace for nderiv */
+			INC(ps); toArray(ps,0); /* workspace for nderiv */
 			status = nderiv(ps2->a, ps1->a, arraySize, ps3->a, j, ps->a);
 			for (i=0; i<arraySize; i++) {ps1->a[i] = ps3->a[i];}
 			DEC(ps); DEC(ps); DEC(ps);
@@ -462,30 +558,55 @@ long
 			ps1 = ps;
 			DEC(ps);
 			if (isArray(ps) || isArray(ps1)) {
-				toArray(ps);
-				toArray(ps1);
-				switch (op) {
-				case ADD: for (i=0; i<arraySize; i++) {ps->a[i] += ps1->a[i];} break;
-				case SUB: for (i=0; i<arraySize; i++) {ps->a[i] -= ps1->a[i];} break;
-				case MULT: for (i=0; i<arraySize; i++) {ps->a[i] *= ps1->a[i];} break;
-				case DIV:
-					for (i=0; i<arraySize; i++) {
-						if (ps1->a[i]==0) {
-							ps->a[i] = myMAXFLOAT;
-						} else {
-							ps->a[i] /= ps1->a[i];
+				toArray(ps,1);
+				if (isArray(ps1)) {
+					switch (op) {
+					case ADD: for (i=0; i<arraySize; i++) {ps->a[i] += ps1->a[i];} break;
+					case SUB: for (i=0; i<arraySize; i++) {ps->a[i] -= ps1->a[i];} break;
+					case MULT: for (i=0; i<arraySize; i++) {ps->a[i] *= ps1->a[i];} break;
+					case DIV:
+						for (i=0; i<arraySize; i++) {
+							if (ps1->a[i] == 0) {
+								ps->a[i] = myMAXFLOAT;
+							} else {
+								ps->a[i] /= ps1->a[i];
+							}
 						}
-					}
-					break;
-				case MODULO:
-					for (i=0; i<arraySize; i++) {
-						if ((int)ps1->a[i] == 0) {
-							ps->a[i] = myMAXFLOAT;
-						} else {
-							ps->a[i] = (double)((int)ps->a[i] % (int)ps1->a[i]);
+						break;
+					case MODULO:
+						for (i=0; i<arraySize; i++) {
+							if ((int)ps1->a[i] == 0) {
+								ps->a[i] = myMAXFLOAT;
+							} else {
+								ps->a[i] = (double)((int)ps->a[i] % (int)ps1->a[i]);
+							}
 						}
+						break;
 					}
-					break;
+				} else {
+					switch (op) {
+					case ADD: for (i=0; i<arraySize; i++) {ps->a[i] += ps1->d;} break;
+					case SUB: for (i=0; i<arraySize; i++) {ps->a[i] -= ps1->d;} break;
+					case MULT: for (i=0; i<arraySize; i++) {ps->a[i] *= ps1->d;} break;
+					case DIV:
+						for (i=0; i<arraySize; i++) {
+							if (ps1->d==0) {
+								ps->a[i] = myMAXFLOAT;
+							} else {
+								ps->a[i] /= ps1->d;
+							}
+						}
+						break;
+					case MODULO:
+						for (i=0; i<arraySize; i++) {
+							if ((int)ps1->d == 0) {
+								ps->a[i] = myMAXFLOAT;
+							} else {
+								ps->a[i] = (double)((int)ps->a[i] % (int)ps1->d);
+							}
+						}
+						break;
+					}
 				}
 				if (aCalcPerformDebug>=20) {
 					printf("aCalcPerform:binary array op result = [\n");
@@ -666,14 +787,14 @@ long
 							e = ps->a[i];
 						}
 					}
-					if (aCalcPerformDebug) {printf("max=%f, at %d; min=%f\n", d, j, e);}
+					if (aCalcPerformDebug>5) {printf("max=%f, at %d; min=%f\n", d, j, e);}
 					d = e + (d-e)/2;
 					/* walk forwards from peak */
 					for (i=j+1, found=0; i<arraySize; i++) {
 						if (ps->a[i] < d) {
 							found = 1;
 							e = (i-1) + (d - ps->a[i-1])/(ps->a[i] - ps->a[i-1]);
-							if (aCalcPerformDebug) {printf("halfmax at index %f\n", e);}
+							if (aCalcPerformDebug>5) {printf("halfmax at index %f\n", e);}
 							break;
 						}
 					}
@@ -683,7 +804,7 @@ long
 						if (ps->a[i] < d) {
 							found = 1;
 							d = i + (d - ps->a[i])/(ps->a[i+1] - ps->a[i]);
-							if (aCalcPerformDebug) {printf("halfmax at index %f\n", d);}
+							if (aCalcPerformDebug>5) {printf("halfmax at index %f\n", d);}
 							break;
 						}
 					}
@@ -701,11 +822,11 @@ long
 				case DERIV:
 					ps1 = ps; /* y values */
 					INC(ps);
-					ps->a = &(ps->array[0]);
+					toArray(ps,0);
 					ps2 = ps; /* x values */
 					for (i=0; i<arraySize; i++) {ps2->a[i] = i;}
 					INC(ps);
-					ps->a = &(ps->array[0]); /* place for deriv */
+					toArray(ps,0); /* place for deriv */
 					status = deriv(ps2->a, ps1->a, arraySize, ps->a);
 					for (i=0; i<arraySize; i++) {ps1->a[i] = ps->a[i];}
 					DEC(ps); DEC(ps);
@@ -720,11 +841,11 @@ long
 				case FITPOLY:
 					ps1 = ps; /* y values */
 					INC(ps);
-					ps->a = &(ps->array[0]);
+					toArray(ps,0);
 					ps2 = ps; /* x values */
 					for (i=0; i<arraySize; i++) {ps2->a[i] = i;}
 					INC(ps);
-					ps->a = &(ps->array[0]); /* place for deriv */
+					toArray(ps,0); /* place for deriv */
 					status = fitpoly(ps2->a, ps1->a, arraySize, &d, &e, &f, NULL);
 					for (i=0; i<arraySize; i++) {
 						ps1->a[i] = d + e*ps2->a[i] + f*(ps2->a[i])*(ps2->a[i]);
@@ -736,11 +857,11 @@ long
 					DEC(ps);
 					ps1 = ps; /* y values */
 					INC(ps); INC(ps); /* point to unused value-stack element */
-					ps->a = &(ps->array[0]);
+					toArray(ps,0);
 					ps2 = ps; /* x values */
 					for (i=0; i<arraySize; i++) {ps2->a[i] = i;}
 					INC(ps); /* point to unused value-stack element */
-					ps->a = &(ps->array[0]); /* place for deriv */
+					toArray(ps,0); /* place for deriv */
 					status = fitpoly(ps2->a, ps1->a, arraySize, &d, &e, &f, ps3->a);
 					for (i=0; i<arraySize; i++) {
 						ps1->a[i] = d + e*ps2->a[i] + f*(ps2->a[i])*(ps2->a[i]);
@@ -808,89 +929,88 @@ long
 			}
 			break;
 
-/* begin VARARGS functions: Start with only scalar for now */
+/* begin VARARGS functions: */
 
 		case FINITE:
 			nargs = *post++;
-			for (j=1; nargs; nargs--) {
+			if (isDouble(ps)) {
+				j = finite(ps->d);
+			} else {
+				for (i=0, j=1; i<arraySize; i++) {
+					j = j && finite(ps->a[i]);
+					if (aCalcPerformDebug>=10) printf("j=%d ", j);
+				}
+			}
+			while (--nargs) {
+				DEC(ps);
 				if (isDouble(ps)) {
-					j &= finite(ps->d);
+					j = j && finite(ps->d);
 				} else {
 					for (i=0; i<arraySize; i++) {
-						j &= finite(ps->a[i]);
+						j = j && finite(ps->a[i]);
 					}
 				}
-				DEC(ps);
 			}
+			toDouble(ps);
 			ps->d = j;
 			break;
 
 		case ISNAN:
 			nargs = *post++;
-			for (j=0; nargs; nargs--) {
+			if (isDouble(ps)) {
+				j = isnan(ps->d);
+			} else {
+				for (i=0, j=0; i<arraySize; i++) {
+					j = j || isnan(ps->a[i]);
+				}
+			}
+			while (--nargs) {
+				DEC(ps);
 				if (isDouble(ps)) {
-					j |= isnan(ps->d);
+					j = j || isnan(ps->d);
 				} else {
 					for (i=0; i<arraySize; i++) {
-						j |= isnan(ps->a[i]);
+						j = j || isnan(ps->a[i]);
 					}
 				}
-				DEC(ps);
 			}
+			toDouble(ps);
 			ps->d = j;
 			break;
 
 		case MAX:
+		case MIN:
 			nargs = *post++;
 			for (i=0, j=0; i<nargs; j |= isArray(ps-i), i++);
 			if (j) {
-				/* an arg is array.  coerce all to array */
-				toArray(ps);
+				ps1 = ps - (nargs-1); /* coerce bottommost stack element to array */
+				toArray(ps1,1);
 				while (--nargs) {
-					ps1 = ps;
-					DEC(ps);
-					toArray(ps);
-					for (i=0; i<arraySize; i++) {
-						if (ps1->a[i] > ps->a[i]) {
-							ps->a[i] = ps1->a[i];
+					if (isArray(ps)) {
+						if (op == MAX) {
+							for (i=0; i<arraySize; i++) if (ps->a[i] > ps1->a[i]) ps1->a[i] = ps->a[i];
+						} else {
+							for (i=0; i<arraySize; i++) if (ps->a[i] < ps1->a[i]) ps1->a[i] = ps->a[i];
+						}
+					} else {
+						if (op == MAX) {
+							for (i=0; i<arraySize; i++) if (ps->d > ps1->a[i]) ps1->a[i] = ps->d;
+						} else {
+							for (i=0; i<arraySize; i++) if (ps->d < ps1->a[i]) ps1->a[i] = ps->d;
 						}
 					}
+					DEC(ps);
 				}
 			} else {
 				/* all args are double */
 				while (--nargs) {
 					d = ps->d;
 					DEC(ps);
-					if (ps->d < d || isnan(d))
-						ps->d = d;
-				}
-			}
-			break;
-
-
-		case MIN:
-			nargs = *post++;
-			for(i=0, j=0; i<nargs; j |= isArray(ps-i), i++);
-			if (j) {
-				/* an arg is array.  coerce all to array */
-				toArray(ps);
-				while (--nargs) {
-					ps1 = ps;
-					DEC(ps);
-					toArray(ps);
-					for (i=0; i<arraySize; i++) {
-						if (ps1->a[i] < ps->a[i]) {
-							ps->a[i] = ps1->a[i];
-						}
+					if (op == MAX) {
+						if (ps->d < d || isnan(d)) ps->d = d;
+					} else {
+						if (ps->d > d || isnan(d)) ps->d = d;
 					}
-				}
-			} else {
-				/* all args are double */
-				while (--nargs) {
-					d = ps->d;
-					DEC(ps);
-					if (ps->d > d || isnan(d))
-						ps->d = d;
 				}
 			}
 			break;
@@ -899,7 +1019,7 @@ long
 
 		case ARANDOM:
 			INC(ps);
-			ps->a = &(ps->array[0]);
+			toArray(ps,0);
 			for (i=0; i<arraySize; i++) ps->a[i] = local_random();
 			break;
 
@@ -962,40 +1082,58 @@ long
 			ps1 = ps;
 			DEC(ps);
 			if (isArray(ps) || isArray(ps1)) {
-				toArray(ps);
-				toArray(ps1);
-				switch (op) {
-				case GR_OR_EQ: for (i=0; i<arraySize; i++) ps->a[i] = ps->a[i] >= ps1->a[i]; break;
-				case GR_THAN: for (i=0; i<arraySize; i++) ps->a[i] = ps->a[i] > ps1->a[i]; break;
-				case LESS_OR_EQ: for (i=0; i<arraySize; i++) ps->a[i] = ps->a[i] <= ps1->a[i]; break;
-				case LESS_THAN: for (i=0; i<arraySize; i++) ps->a[i] = ps->a[i] < ps1->a[i]; break;
-				case NOT_EQ: for (i=0; i<arraySize; i++) ps->a[i] = ps->a[i] != ps1->a[i]; break;
-				case EQUAL: for (i=0; i<arraySize; i++) ps->a[i] = ps->a[i] == ps1->a[i]; break;
-				case MAX_VAL: for (i=0; i<arraySize; i++) if (ps->a[i] < ps1->a[i]) ps->a[i] = ps1->a[i]; break;
-				case MIN_VAL: for (i=0; i<arraySize; i++) if (ps->a[i] > ps1->a[i]) ps->a[i] = ps1->a[i]; break;
-				case REL_OR: for (i=0; i<arraySize; i++) ps->a[i] = ps->a[i] || ps1->a[i]; break;
-				case REL_AND: for (i=0; i<arraySize; i++) ps->a[i] = ps->a[i] && ps1->a[i]; break;
-				case BIT_OR: for (i=0; i<arraySize; i++) ps->a[i] = (int)ps->a[i] | (int)ps1->a[i]; break;
-				case BIT_AND: for (i=0; i<arraySize; i++) ps->a[i] = (int)ps->a[i] & (int)ps1->a[i]; break;
-				case BIT_EXCL_OR: for (i=0; i<arraySize; i++) ps->a[i] = (int)ps->a[i] ^ (int)ps1->a[i]; break;
-		 		case ATAN2: for (i=0; i<arraySize; i++) ps->a[i] = atan2(ps1->a[i], ps->a[i]); break;
+				toArray(ps,1);
+				if (isArray(ps1)) {
+					switch (op) {
+					case GR_OR_EQ:		for (i=0; i<arraySize; i++) ps->a[i] = ps->a[i] >= ps1->a[i]; break;
+					case GR_THAN:		for (i=0; i<arraySize; i++) ps->a[i] = ps->a[i] > ps1->a[i]; break;
+					case LESS_OR_EQ:	for (i=0; i<arraySize; i++) ps->a[i] = ps->a[i] <= ps1->a[i]; break;
+					case LESS_THAN:		for (i=0; i<arraySize; i++) ps->a[i] = ps->a[i] < ps1->a[i]; break;
+					case NOT_EQ:		for (i=0; i<arraySize; i++) ps->a[i] = ps->a[i] != ps1->a[i]; break;
+					case EQUAL:			for (i=0; i<arraySize; i++) ps->a[i] = ps->a[i] == ps1->a[i]; break;
+					case MAX_VAL:		for (i=0; i<arraySize; i++) if (ps->a[i] < ps1->a[i]) ps->a[i] = ps1->a[i]; break;
+					case MIN_VAL:		for (i=0; i<arraySize; i++) if (ps->a[i] > ps1->a[i]) ps->a[i] = ps1->a[i]; break;
+					case REL_OR:		for (i=0; i<arraySize; i++) ps->a[i] = ps->a[i] || ps1->a[i]; break;
+					case REL_AND:		for (i=0; i<arraySize; i++) ps->a[i] = ps->a[i] && ps1->a[i]; break;
+					case BIT_OR:		for (i=0; i<arraySize; i++) ps->a[i] = (int)ps->a[i] | (int)ps1->a[i]; break;
+					case BIT_AND:		for (i=0; i<arraySize; i++) ps->a[i] = (int)ps->a[i] & (int)ps1->a[i]; break;
+					case BIT_EXCL_OR:	for (i=0; i<arraySize; i++) ps->a[i] = (int)ps->a[i] ^ (int)ps1->a[i]; break;
+			 		case ATAN2:			for (i=0; i<arraySize; i++) ps->a[i] = atan2(ps1->a[i], ps->a[i]); break;
+					}
+				} else {
+					switch (op) {
+					case GR_OR_EQ:		for (i=0; i<arraySize; i++) ps->a[i] = ps->a[i] >= ps1->d; break;
+					case GR_THAN:		for (i=0; i<arraySize; i++) ps->a[i] = ps->a[i] > ps1->d; break;
+					case LESS_OR_EQ:	for (i=0; i<arraySize; i++) ps->a[i] = ps->a[i] <= ps1->d; break;
+					case LESS_THAN:		for (i=0; i<arraySize; i++) ps->a[i] = ps->a[i] < ps1->d; break;
+					case NOT_EQ:		for (i=0; i<arraySize; i++) ps->a[i] = ps->a[i] != ps1->d; break;
+					case EQUAL:			for (i=0; i<arraySize; i++) ps->a[i] = ps->a[i] == ps1->d; break;
+					case MAX_VAL:		for (i=0; i<arraySize; i++) if (ps->a[i] < ps1->d) ps->a[i] = ps1->d; break;
+					case MIN_VAL:		for (i=0; i<arraySize; i++) if (ps->a[i] > ps1->d) ps->a[i] = ps1->d; break;
+					case REL_OR:		for (i=0; i<arraySize; i++) ps->a[i] = ps->a[i] || ps1->d; break;
+					case REL_AND:		for (i=0; i<arraySize; i++) ps->a[i] = ps->a[i] && ps1->d; break;
+					case BIT_OR:		for (i=0; i<arraySize; i++) ps->a[i] = (int)ps->a[i] | (int)ps1->d; break;
+					case BIT_AND:		for (i=0; i<arraySize; i++) ps->a[i] = (int)ps->a[i] & (int)ps1->d; break;
+					case BIT_EXCL_OR:	for (i=0; i<arraySize; i++) ps->a[i] = (int)ps->a[i] ^ (int)ps1->d; break;
+			 		case ATAN2:			for (i=0; i<arraySize; i++) ps->a[i] = atan2(ps1->d, ps->a[i]); break;
+					}
 				}
 			} else {
 				switch (op) {
-				case GR_OR_EQ: ps->d = ps->d >= ps1->d; break;
-				case GR_THAN: ps->d = ps->d > ps1->d; break;
-				case LESS_OR_EQ: ps->d = ps->d <= ps1->d; break;
-				case LESS_THAN: ps->d = ps->d < ps1->d; break;
-				case NOT_EQ: ps->d = ps->d != ps1->d; break;
-				case EQUAL: ps->d = ps->d == ps1->d; break;
-				case MAX_VAL: if (ps->d < ps1->d) ps->d = ps1->d; break;
-				case MIN_VAL: if (ps->d > ps1->d) ps->d = ps1->d; break;
-				case REL_OR: ps->d = ps->d || ps1->d; break;
-				case REL_AND: ps->d = ps->d && ps1->d; break;
-				case BIT_OR: ps->d = (int)ps->d | (int)ps1->d; break;
-				case BIT_AND: ps->d = (int)ps->d & (int)ps1->d; break;
-				case BIT_EXCL_OR: ps->d = (int)ps->d ^ (int)ps1->d; break;
-				case ATAN2: ps->d = atan2(ps1->d, ps->d);
+				case GR_OR_EQ:		ps->d = ps->d >= ps1->d; break;
+				case GR_THAN:		ps->d = ps->d > ps1->d; break;
+				case LESS_OR_EQ:	ps->d = ps->d <= ps1->d; break;
+				case LESS_THAN:		ps->d = ps->d < ps1->d; break;
+				case NOT_EQ:		ps->d = ps->d != ps1->d; break;
+				case EQUAL:			ps->d = ps->d == ps1->d; break;
+				case MAX_VAL:		if (ps->d < ps1->d) ps->d = ps1->d; break;
+				case MIN_VAL:		if (ps->d > ps1->d) ps->d = ps1->d; break;
+				case REL_OR:		ps->d = ps->d || ps1->d; break;
+				case REL_AND:		ps->d = ps->d && ps1->d; break;
+				case BIT_OR:		ps->d = (int)ps->d | (int)ps1->d; break;
+				case BIT_AND:		ps->d = (int)ps->d & (int)ps1->d; break;
+				case BIT_EXCL_OR:	ps->d = (int)ps->d ^ (int)ps1->d; break;
+				case ATAN2:			ps->d = atan2(ps1->d, ps->d);
 				}
 			}
 			break;
@@ -1059,7 +1197,7 @@ long
 		case A_AFETCH:
 			toDouble(ps);
 			d = ps->d;
-			ps->a = &(ps->array[0]);
+			toArray(ps,0);
 			ps->a[0] = '\0';
 			j = (int)(d >= 0 ? d+0.5 : 0);
 			if (j < num_aArgs) {
@@ -1091,7 +1229,7 @@ long
 			break;
 
 		case TO_ARRAY:
-			toArray(ps);
+			toArray(ps,1);
 			break;
 
 		case SUBRANGE:
@@ -1100,7 +1238,7 @@ long
 			DEC(ps);
 			ps1 = ps;
 			DEC(ps);
-			toArray(ps);
+			toArray(ps,1);
 			toDouble(ps1);
 			i = (int)ps1->d;
 			if (i < 0) i += arraySize;
@@ -1191,7 +1329,7 @@ long
 		if (aCalcPerformDebug>=20) printf("aCalcPerform:double result=%f\n", ps->d);
 		if (p_dresult) *p_dresult = ps->d;
 		if (p_aresult) {
-			to_array(ps);
+			toArray(ps,1);
 			for (i=0; i<arraySize; i++) p_aresult[i] = ps->a[i];
 		}
 	} else {
@@ -1214,7 +1352,7 @@ long
 	return(((isnan(*p_dresult)||isinf(*p_dresult)) ? -1 : 0));
 }
 
-
+
 /*
  * RAND
  *
@@ -1249,14 +1387,14 @@ static int cond_search(const unsigned char **ppinst, int match)
 	int count = 1;
 	int op;
 
-	if (aCalcPerformDebug) {
+	if (aCalcPerformDebug>5) {
 		printf("cond_search:entry:\n");
 		aCalcExprDump(pinst);
 		printf("\t-----\n");
 	}
 	while ((op = *pinst++) != END_EXPRESSION) {
 		if (op == match && --count == 0) {
-			if (aCalcPerformDebug) {
+			if (aCalcPerformDebug>5) {
 				printf("cond_search:exit:\n");
 				aCalcExprDump(pinst);
 				printf("\t-----\n");
@@ -1275,6 +1413,7 @@ static int cond_search(const unsigned char **ppinst, int match)
 		case MAX:
 		case FINITE:
 		case ISNAN:
+			/* variable argument function.  Skip numArgs */
 			pinst++;
 			break;
 		case COND_IF:
