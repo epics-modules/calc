@@ -135,6 +135,13 @@ arrays.  NELM must be specified at boot time, before any array is used.
 will forced into the range 0,NELM (inclusive).  If NUSE==0, the record will take
 it as NELM.
 
+<P>When a CA client connects to an array, the acalcout record can tell the
+client that the array size is either NELM, or NUSE, depending on the setting of
+the SIZE field, which takes values "NELM" and "NUSE".  "NELM" is the default,
+and it's the safer choice.  "NELM" is less efficient than "NUSE", in some cases.
+If SIZE is set to "NUSE", the CA connection must be broken and reestablished
+when the NUSE field increases. 
+
 <P>&nbsp;
 <HR><A NAME="INPUT_LINKS"></A>
 
@@ -245,7 +252,7 @@ database links.
 </TR>
 
 <TR>
-<TD>INFLL</TD>
+<TD>INLL</TD>
 <TD>Input Link LL</TD>
 <TD>INLINK</TD>
 <TD>Yes</TD>
@@ -523,7 +530,7 @@ not not permit it to be modified by a 'put' operation.
 
 <P>There are a few special operands not associated with input fields, but
 defined by the record (more exactly, defined by the calc engine the record uses
-to evaluate expressions).  All but <code>RNDM</code> and <code>ARNDM</code> are
+to evaluate expressions).  All but <code>RNDM</code>, <code>NRNDM</code>, and <code>ARNDM</code> are
 constants.
 
 <table border>
@@ -549,6 +556,11 @@ constants.
 <td valign=top>Radians to arc seconds (1/S2R)
 
 <tr>
+<td align=center valign=top>NRNDM
+<td valign=top>Random number from a normal (Gaussian) distribution about 0,
+with a standard deviation of 1.
+
+<tr>
 <td align=center valign=top>RNDM
 <td valign=top>Random number between 0 and 1.
 
@@ -558,7 +570,17 @@ constants.
 
 <tr>
 <td align=center valign=top>IX
-<td valign=top>Array [0,1,2,...].
+<td valign=top>The array (0,1,2,...,NUSE).
+
+<tr>
+<td align=center valign=top>VAL
+<td valign=top>The previous value of the VAL field.  (In an OCAL expression,
+"VAL" is the previous value of the OVAL field.)
+
+<tr>
+<td align=center valign=top>AVAL
+<td valign=top>The previous value of the AVAL field. (In an OCAL expression,
+"AVAL" is the previous value of the OAV field.)
 
 </table>
 
@@ -581,19 +603,39 @@ constants.
 <td><code>ABS(A)</code>
 
 <tr>
+<td align=center valign=top>DBL
+<td valign=top>Convert (array) to double (one-argument function)
+<td><code>DBL(AA)</code>
+
+<tr>
+<td align=center valign=top>FINITE
+<td valign=top>True if all arguments are finite (variable-argument function)
+<td><code>FINITE(A,B,...)</code>
+
+<tr>
+<td align=center valign=top>ISINF
+<td valign=top>True if argument is infinite (one-argument function)
+<td><code>ISINF(A)</code>
+
+<tr>
+<td align=center valign=top>ISNAN
+<td valign=top>True if argument is not a number (one-argument function)
+<td><code>ISNAN(A)</code>
+
+<tr>
 <td align=center valign=top>SQRT
 <td valign=top>Square root (one-argument function) (SQR is deprecated)
 <td><code>SQRT(A)</code>
 
 <tr>
 <td align=center valign=top>MIN
-<td valign=top>Minimum (two-argument function)
-<td><code>MIN(A,B)</code>
+<td valign=top>Minimum (variable-argument function)
+<td><code>MIN(A,B,...)</code>
 
 <tr>
 <td align=center valign=top>MAX
-<td valign=top>Maximum (two-argument function)
-<td><code>MAX(A,B)</code>
+<td valign=top>Maximum (variable-argument function)
+<td><code>MAX(A,B,...)</code>
 
 <tr>
 <td align=center valign=top>CEIL
@@ -1001,6 +1043,11 @@ Equivalent to NDERIV(AA,2).
 array, second argument is the mask array.  If mask-array element value is true (greater than zero),
 corresponding data-array element will be used to compute best-fit polynomial a + b*x + c*x^2.
 <td><code>FITPOLY(AA,AA>0)</code>
+
+<tr>
+<td align=center valign=top>IX
+<td valign=top>The array (0,1,2,3,...,NUSE)
+<td><code>IX</code>
 
 <tr>
 <td align=center valign=top>NDERIV
