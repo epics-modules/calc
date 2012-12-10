@@ -96,11 +96,11 @@ static const ELEMENT operands[] = {
 /* name		prio's	stack	element type		opcode */
 {"\"",		0, 0,	1,		STRING_OPERAND,		LITERAL_STRING},    /* string constant */
 {"'",		0, 0,	1,		STRING_OPERAND,		LITERAL_STRING},    /* string constant */
-{"@",		8, 9,	0,		UNARY_OPERATOR,		A_FETCH},     /* fetch numeric argument */
-{"@@",		8, 9,	0,		UNARY_OPERATOR,		A_SFETCH},    /* fetch string argument */
-{"!",		8, 9,	0,		UNARY_OPERATOR,		REL_NOT},
-{"(",		0, 9,	0,		UNARY_OPERATOR,		NOT_GENERATED},
-{"-",		8, 9,	0,		UNARY_OPERATOR,		UNARY_NEG},
+{"@",		9, 10,	0,		UNARY_OPERATOR,		A_FETCH},     /* fetch numeric argument */
+{"@@",		9, 10,	0,		UNARY_OPERATOR,		A_SFETCH},    /* fetch string argument */
+{"!",		9, 10,	0,		UNARY_OPERATOR,		REL_NOT},
+{"(",		0, 10,	0,		UNARY_OPERATOR,		NOT_GENERATED},
+{"-",		9, 10,	0,		UNARY_OPERATOR,		UNARY_NEG},
 {".",		0, 0,	1,		LITERAL_OPERAND,	LITERAL_DOUBLE},
 {"0",		0, 0,	1,		LITERAL_OPERAND,	LITERAL_DOUBLE},
 {"1",		0, 0,	1,		LITERAL_OPERAND,	LITERAL_DOUBLE},
@@ -114,32 +114,32 @@ static const ELEMENT operands[] = {
 {"9",		0, 0,	1,		LITERAL_OPERAND,	LITERAL_DOUBLE},
 {"A",		0, 0,	1,		OPERAND,			FETCH_A},
 {"AA",		0, 0,	1,		OPERAND,			FETCH_AA},
-{"ABS",		8, 9,	0,		UNARY_OPERATOR,		ABS_VAL},
-{"ACOS",	8, 9,	0,		UNARY_OPERATOR,		ACOS},
-{"ASIN",	8, 9,	0,		UNARY_OPERATOR,		ASIN},
-{"ATAN",	8, 9,	0,		UNARY_OPERATOR,		ATAN},
-{"ATAN2",	8, 9,	-1,		UNARY_OPERATOR,		ATAN2},
+{"ABS",		9, 10,	0,		UNARY_OPERATOR,		ABS_VAL},
+{"ACOS",	9, 10,	0,		UNARY_OPERATOR,		ACOS},
+{"ASIN",	9, 10,	0,		UNARY_OPERATOR,		ASIN},
+{"ATAN",	9, 10,	0,		UNARY_OPERATOR,		ATAN},
+{"ATAN2",	9, 10,	-1,		UNARY_OPERATOR,		ATAN2},
 {"B",		0, 0,	1,		OPERAND,			FETCH_B},
 {"BB",		0, 0,	1,		OPERAND,			FETCH_BB},
-{"BYTE",	8, 9,	0,		UNARY_OPERATOR,		BYTE},        /* string[0] to byte */
+{"BYTE",	9, 10,	0,		UNARY_OPERATOR,		BYTE},        /* string[0] to byte */
 {"C",		0, 0,	1,		OPERAND,			FETCH_C},
 {"CC",		0, 0,	1,		OPERAND,			FETCH_CC},
-{"CEIL",	8, 9,	0,		UNARY_OPERATOR,		CEIL},
-{"COS",		8, 9,	0,		UNARY_OPERATOR,		COS},
-{"COSH",	8, 9,	0,		UNARY_OPERATOR,		COSH},
+{"CEIL",	9, 10,	0,		UNARY_OPERATOR,		CEIL},
+{"COS",		9, 10,	0,		UNARY_OPERATOR,		COS},
+{"COSH",	9, 10,	0,		UNARY_OPERATOR,		COSH},
 {"D",		0, 0,	1,		OPERAND,			FETCH_D},
 {"DD",		0, 0,	1,		OPERAND,			FETCH_DD},
-{"DBL",		8, 9,	0,		UNARY_OPERATOR,		TO_DOUBLE},   /* convert to double */
+{"DBL",		9, 10,	0,		UNARY_OPERATOR,		TO_DOUBLE},   /* convert to double */
 {"D2R",		0, 0,	1,		OPERAND,			CONST_D2R},
 {"E",		0, 0,	1,		OPERAND,			FETCH_E},
 {"EE",		0, 0,	1,		OPERAND,			FETCH_EE},
-{"$E",		8, 9,	0,		UNARY_OPERATOR,		ESC},         /* translate escape */
-{"ESC",		8, 9,	0,		UNARY_OPERATOR,		ESC},         /* translate escape */
-{"EXP",		8, 9,	0,		UNARY_OPERATOR,		EXP},
+{"$E",		9, 10,	0,		UNARY_OPERATOR,		ESC},         /* translate escape */
+{"ESC",		9, 10,	0,		UNARY_OPERATOR,		ESC},         /* translate escape */
+{"EXP",		9, 10,	0,		UNARY_OPERATOR,		EXP},
 {"F",		0, 0,	1,		OPERAND,			FETCH_F},
 {"FF",		0, 0,	1,		OPERAND,			FETCH_FF},
-{"FINITE",	8, 9,	0,		VARARG_OPERATOR,	FINITE},
-{"FLOOR",	8, 9,	0,		UNARY_OPERATOR,		FLOOR},
+{"FINITE",	9, 10,	0,		VARARG_OPERATOR,	FINITE},
+{"FLOOR",	9, 10,	0,		UNARY_OPERATOR,		FLOOR},
 {"G",		0, 0,	1,		OPERAND,			FETCH_G},
 {"GG",		0, 0,	1,		OPERAND,			FETCH_GG},
 {"H",		0, 0,	1,		OPERAND,			FETCH_H},
@@ -147,103 +147,103 @@ static const ELEMENT operands[] = {
 {"I",		0, 0,	1,		OPERAND,			FETCH_I},
 {"II",		0, 0,	1,		OPERAND,			FETCH_II},
 {"INF",		0, 0,	1,		LITERAL_OPERAND,	LITERAL_DOUBLE},
-{"INT",		8, 9,	0,		UNARY_OPERATOR,		NINT},
-{"ISINF",	8, 9,	0,		UNARY_OPERATOR,		ISINF},
-{"ISNAN",	8, 9,	0,		VARARG_OPERATOR,	ISNAN},
+{"INT",		9, 10,	0,		UNARY_OPERATOR,		NINT},
+{"ISINF",	9, 10,	0,		UNARY_OPERATOR,		ISINF},
+{"ISNAN",	9, 10,	0,		VARARG_OPERATOR,	ISNAN},
 {"J",		0, 0,	1,		OPERAND,			FETCH_J},
 {"JJ",		0, 0,	1,		OPERAND,			FETCH_JJ},
 {"K",		0, 0,	1,		OPERAND,			FETCH_K},
 {"KK",		0, 0,	1,		OPERAND,			FETCH_KK},
 {"L",		0, 0,	1,		OPERAND,			FETCH_L},
 {"LL",		0, 0,	1,		OPERAND,			FETCH_LL},
-{"LN",		8, 9,	0,		UNARY_OPERATOR,		LOG_E},
-{"LOG",		8, 9,	0,		UNARY_OPERATOR,		LOG_10},
-{"LOGE",	8, 9,	0,		UNARY_OPERATOR,		LOG_E},
+{"LN",		9, 10,	0,		UNARY_OPERATOR,		LOG_E},
+{"LOG",		9, 10,	0,		UNARY_OPERATOR,		LOG_10},
+{"LOGE",	9, 10,	0,		UNARY_OPERATOR,		LOG_E},
 {"M",		0, 0,	1,		OPERAND,			FETCH_M},
-{"MAX",		8, 9,	0,		VARARG_OPERATOR,	MAX},
-{"MIN",		8, 9,	0,		VARARG_OPERATOR,	MIN},
+{"MAX",		9, 10,	0,		VARARG_OPERATOR,	MAX},
+{"MIN",		9, 10,	0,		VARARG_OPERATOR,	MIN},
 {"N",		0, 0,	1,		OPERAND,			FETCH_N},
-{"NINT",	8, 9,	0,		UNARY_OPERATOR,		NINT},
+{"NINT",	9, 10,	0,		UNARY_OPERATOR,		NINT},
 {"NAN",		0, 0,	1,		LITERAL_OPERAND,	LITERAL_DOUBLE},
-{"NOT",		8, 9,	0,		UNARY_OPERATOR,		BIT_NOT},
+{"NOT",		9, 10,	0,		UNARY_OPERATOR,		BIT_NOT},
 {"NRNDM",	0, 0,	1,		OPERAND,			NORMAL_RNDM},   /* Normally Distributed Random Number */
 {"O",		0, 0,	1,		OPERAND,			FETCH_O},
 {"P",		0, 0,	1,		OPERAND,			FETCH_P},
 {"PI",		0, 0,	1,		OPERAND,			CONST_PI},
-{"$P",		8, 9,	-1,		UNARY_OPERATOR,		PRINTF},      /* formatted print to string */
-{"PRINTF",	8, 9,	-1,		UNARY_OPERATOR,		PRINTF},      /* formatted print to string */
+{"$P",		9, 10,	-1,		UNARY_OPERATOR,		PRINTF},      /* formatted print to string */
+{"PRINTF",	9, 10,	-1,		UNARY_OPERATOR,		PRINTF},      /* formatted print to string */
 {"R2D",		0, 0,	1,		OPERAND,			CONST_R2D},
 {"R2S",		0, 0,	1,		OPERAND,			CONST_R2S},
-{"$R",		8, 9,	-1,		UNARY_OPERATOR,		BIN_READ},    /* binary read from raw string */
-{"READ",	8, 9,	-1,		UNARY_OPERATOR,		BIN_READ},    /* binary read from raw string */
+{"$R",		9, 10,	-1,		UNARY_OPERATOR,		BIN_READ},    /* binary read from raw string */
+{"READ",	9, 10,	-1,		UNARY_OPERATOR,		BIN_READ},    /* binary read from raw string */
 {"RNDM",	0, 0,	1,		OPERAND,			RANDOM},
-{"SIN",		8, 9,	0,		UNARY_OPERATOR,		SIN},
-{"SINH",	8, 9,	0,		UNARY_OPERATOR,		SINH},
-{"SQR",		8, 9,	0,		UNARY_OPERATOR,		SQU_RT},
-{"SQRT",	8, 9,	0,		UNARY_OPERATOR,		SQU_RT},
+{"SIN",		9, 10,	0,		UNARY_OPERATOR,		SIN},
+{"SINH",	9, 10,	0,		UNARY_OPERATOR,		SINH},
+{"SQR",		9, 10,	0,		UNARY_OPERATOR,		SQU_RT},
+{"SQRT",	9, 10,	0,		UNARY_OPERATOR,		SQU_RT},
 {"S2R",		0, 0,	1,		OPERAND,			CONST_S2R},
-{"$S",		8, 9,	-1,		UNARY_OPERATOR,		SSCANF},      /* scan string argument */
-{"SSCANF",	8, 9,	-1,		UNARY_OPERATOR,		SSCANF},      /* scan string argument */
-{"STR",		8, 9,	0,		UNARY_OPERATOR,		TO_STRING},   /* convert to string */
+{"$S",		9, 10,	-1,		UNARY_OPERATOR,		SSCANF},      /* scan string argument */
+{"SSCANF",	9, 10,	-1,		UNARY_OPERATOR,		SSCANF},      /* scan string argument */
+{"STR",		9, 10,	0,		UNARY_OPERATOR,		TO_STRING},   /* convert to string */
 {"SVAL",	0, 0,	1,		OPERAND,			FETCH_SVAL},
-{"TAN",		8, 9,	0,		UNARY_OPERATOR,		TAN},
-{"TANH",	8, 9,	0,		UNARY_OPERATOR,		TANH},
-{"$T",		8, 9,	0,		UNARY_OPERATOR,		TR_ESC},      /* translate escape */
-{"TR_ESC",	8, 9,	0,		UNARY_OPERATOR,		TR_ESC},      /* translate escape */
+{"TAN",		9, 10,	0,		UNARY_OPERATOR,		TAN},
+{"TANH",	9, 10,	0,		UNARY_OPERATOR,		TANH},
+{"$T",		9, 10,	0,		UNARY_OPERATOR,		TR_ESC},      /* translate escape */
+{"TR_ESC",	9, 10,	0,		UNARY_OPERATOR,		TR_ESC},      /* translate escape */
 {"VAL",		0, 0,	1,		OPERAND,			FETCH_VAL},
-{"$W",		8, 9,	-1,		UNARY_OPERATOR,		BIN_WRITE},   /* binary write to string */
-{"WRITE",	8, 9,	-1,		UNARY_OPERATOR,		BIN_WRITE},   /* binary write to string */
-{"CRC16",	8, 9,	0,		UNARY_OPERATOR,		CRC16},       /* CRC16 */
-{"MODBUS",	8, 9,	0,		UNARY_OPERATOR,		MODBUS},      /* MODBUS (append CRC16) */
-{"LRC",		8, 9,	0,		UNARY_OPERATOR,		LRC},         /* LRC */
-{"AMODBUS",	8, 9,	0,		UNARY_OPERATOR,		AMODBUS},     /* Ascii Modbus (append LRC) */
-{"XOR8",	8, 9,	0,		UNARY_OPERATOR,		XOR8},        /* XOR8 checksum */
-{"ADD_XOR8",8, 9,	0,		UNARY_OPERATOR,		ADD_XOR8},    /* Append XOR8 to string */
-{"LEN",		8, 9,	0,		UNARY_OPERATOR,		LEN},         /* String length */
-{"UNTIL",	0, 9,	0,		UNTIL_OPERATOR,		UNTIL},
-{"~",		8, 9,	0,		UNARY_OPERATOR, 	BIT_NOT},
+{"$W",		9, 10,	-1,		UNARY_OPERATOR,		BIN_WRITE},   /* binary write to string */
+{"WRITE",	9, 10,	-1,		UNARY_OPERATOR,		BIN_WRITE},   /* binary write to string */
+{"CRC16",	9, 10,	0,		UNARY_OPERATOR,		CRC16},       /* CRC16 */
+{"MODBUS",	9, 10,	0,		UNARY_OPERATOR,		MODBUS},      /* MODBUS (append CRC16) */
+{"LRC",		9, 10,	0,		UNARY_OPERATOR,		LRC},         /* LRC */
+{"AMODBUS",	9, 10,	0,		UNARY_OPERATOR,		AMODBUS},     /* Ascii Modbus (append LRC) */
+{"XOR8",	9, 10,	0,		UNARY_OPERATOR,		XOR8},        /* XOR8 checksum */
+{"ADD_XOR8",9, 10,	0,		UNARY_OPERATOR,		ADD_XOR8},    /* Append XOR8 to string */
+{"LEN",		9, 10,	0,		UNARY_OPERATOR,		LEN},         /* String length */
+{"UNTIL",	0, 10,	0,		UNTIL_OPERATOR,		UNTIL},
+{"~",		9, 10,	0,		UNARY_OPERATOR, 	BIT_NOT},
 };
 
 static const ELEMENT operators[] = {
 /* name 	prio's	stack	element type		opcode */
-{"!=",		4, 4,	-1,		BINARY_OPERATOR,	NOT_EQ},
-{"#",		4, 4,	-1,		BINARY_OPERATOR,	NOT_EQ},
-{"%",		6, 6,	-1,		BINARY_OPERATOR,	MODULO},
-{"&",		2, 2,	-1,		BINARY_OPERATOR,	BIT_AND},
-{"&&",		2, 2,	-1,		BINARY_OPERATOR,	REL_AND},
+{"!=",		5, 5,	-1,		BINARY_OPERATOR,	NOT_EQ},
+{"#",		5, 5,	-1,		BINARY_OPERATOR,	NOT_EQ},
+{"%",		7, 7,	-1,		BINARY_OPERATOR,	MODULO},
+{"&",		3, 3,	-1,		BINARY_OPERATOR,	BIT_AND},
+{"&&",		3, 3,	-1,		BINARY_OPERATOR,	REL_AND},
 {")",		0, 0,	0,		CLOSE_PAREN,		NOT_GENERATED},
-{"[",		0, 10,	-1,		BINARY_OPERATOR,	SUBRANGE},    /* string subrange */
-{"{",		0, 10,	-1,		BINARY_OPERATOR,	REPLACE},      /* string replace */
+{"[",		0, 11,	-1,		BINARY_OPERATOR,	SUBRANGE},    /* string subrange */
+{"{",		0, 11,	-1,		BINARY_OPERATOR,	REPLACE},      /* string replace */
 {"]",		0, 0,	0,		CLOSE_BRACKET,		NOT_GENERATED},
 {"}",		0, 0,	0,		CLOSE_CURLY,		NOT_GENERATED}, 
-{"*",		6, 6,	-1,		BINARY_OPERATOR,	MULT},
-{"**",		7, 7,	-1,		BINARY_OPERATOR,	POWER},
-{"+",		5, 5,	-1,		BINARY_OPERATOR,	ADD},
+{"*",		7, 7,	-1,		BINARY_OPERATOR,	MULT},
+{"**",		8, 8,	-1,		BINARY_OPERATOR,	POWER},
+{"+",		6, 6,	-1,		BINARY_OPERATOR,	ADD},
 {",",		0, 0,	0,		SEPARATOR,			NOT_GENERATED},
-{"-",		5, 5,	-1,		BINARY_OPERATOR,	SUB},
-{"/",		6, 6,	-1,		BINARY_OPERATOR,	DIV},
+{"-",		6, 6,	-1,		BINARY_OPERATOR,	SUB},
+{"/",		7, 7,	-1,		BINARY_OPERATOR,	DIV},
 {":",		0, 0,	-1,		CONDITIONAL,		COND_ELSE},
-{":=",		0, 0,	-1,		STORE_OPERATOR,		STORE_A},
+{":=",		1, 0,	-1,		STORE_OPERATOR,		STORE_A},
 {";",		0, 0,	0,		EXPR_TERMINATOR,	NOT_GENERATED},
-{"<",		4, 4,	-1,		BINARY_OPERATOR,	LESS_THAN},
-{"<<",		2, 2,	-1,		BINARY_OPERATOR,	LEFT_SHIFT},
-{"<=",		4, 4,	-1,		BINARY_OPERATOR,	LESS_OR_EQ},
-{"=",		4, 4,	-1,		BINARY_OPERATOR,	EQUAL},
-{"==",		4, 4,	-1,		BINARY_OPERATOR,	EQUAL},
-{">",		4, 4,	-1,		BINARY_OPERATOR,	GR_THAN},
-{">=",		4, 4,	-1,		BINARY_OPERATOR,	GR_OR_EQ},
-{">>",		2, 2,	-1,		BINARY_OPERATOR,	RIGHT_SHIFT},
+{"<",		5, 5,	-1,		BINARY_OPERATOR,	LESS_THAN},
+{"<<",		3, 3,	-1,		BINARY_OPERATOR,	LEFT_SHIFT},
+{"<=",		5, 5,	-1,		BINARY_OPERATOR,	LESS_OR_EQ},
+{"=",		5, 5,	-1,		BINARY_OPERATOR,	EQUAL},
+{"==",		5, 5,	-1,		BINARY_OPERATOR,	EQUAL},
+{">",		5, 5,	-1,		BINARY_OPERATOR,	GR_THAN},
+{">=",		5, 5,	-1,		BINARY_OPERATOR,	GR_OR_EQ},
+{">>",		3, 3,	-1,		BINARY_OPERATOR,	RIGHT_SHIFT},
 {"?",		0, 0,	-1,		CONDITIONAL,		COND_IF},
-{"AND",		2, 2,	-1,		BINARY_OPERATOR,	BIT_AND},
-{"OR",		1, 1,	-1,		BINARY_OPERATOR,	BIT_OR},
-{"XOR",		1, 1,	-1,		BINARY_OPERATOR,	BIT_EXCL_OR},
-{"^",		7, 7,	-1,		BINARY_OPERATOR,	POWER},
-{"|",		1, 1,	-1,		BINARY_OPERATOR,	BIT_OR},
-{"||",		1, 1,	-1,		BINARY_OPERATOR,	REL_OR},
-{"-|",		5, 5,	-1,		BINARY_OPERATOR,	SUB},         /* subtract first occurrence */
-{"|-",		5, 5,	-1,		BINARY_OPERATOR,	SUBLAST},     /* subtract last occurrence */
-{">?",		3, 3,	-1,		BINARY_OPERATOR,	MAX_VAL},     /* maximum of 2 args */
-{"<?",		3, 3,	-1,		BINARY_OPERATOR,	MIN_VAL},     /* minimum of 2 args */
+{"AND",		3, 3,	-1,		BINARY_OPERATOR,	BIT_AND},
+{"OR",		2, 2,	-1,		BINARY_OPERATOR,	BIT_OR},
+{"XOR",		2, 2,	-1,		BINARY_OPERATOR,	BIT_EXCL_OR},
+{"^",		8, 8,	-1,		BINARY_OPERATOR,	POWER},
+{"|",		2, 2,	-1,		BINARY_OPERATOR,	BIT_OR},
+{"||",		2, 2,	-1,		BINARY_OPERATOR,	REL_OR},
+{"-|",		6, 6,	-1,		BINARY_OPERATOR,	SUB},         /* subtract first occurrence */
+{"|-",		6, 6,	-1,		BINARY_OPERATOR,	SUBLAST},     /* subtract last occurrence */
+{">?",		4, 4,	-1,		BINARY_OPERATOR,	MAX_VAL},     /* maximum of 2 args */
+{"<?",		4, 4,	-1,		BINARY_OPERATOR,	MIN_VAL},     /* minimum of 2 args */
 };
 
 /* get_element
