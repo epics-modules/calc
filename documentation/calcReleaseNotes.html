@@ -55,6 +55,13 @@ of from OCAL.
 input-variable fields specified using the "@" and "@@" operators were wrongly
 coded for some expressions.
 
+<li>  Previously, the expression "a?1;b:=0:0" produced a evaluation-time error
+if a==0.  Actually, it <i>is</i> an error to have a store expression not at top
+level and not within parentheses, but postfix doesn't catch it, and anyway it's
+pretty easy to do the expected thing in this case.  Note that it's not possible
+to do the expected thing in the case "a?1:0;b:=0", because we can't know whether
+"(a?1:0);b:=0" or "a?1:(0;b:=0)" was intended.
+
 <li>Previously, the sseq record used database access to get the properties of a
 PV it linked to, even if it was making a CA link to that PV.  Also, the sseq
 record failed to update the status of an input link that had changed from a CA
