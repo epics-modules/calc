@@ -32,7 +32,6 @@
 #include	<string.h>
 #include	<math.h>
 
-#include	<epicsVersion.h>
 #include	<alarm.h>
 #include	<dbDefs.h>
 #include	<dbAccess.h>
@@ -53,6 +52,13 @@
 #undef  GEN_SIZE_OFFSET
 #include	<menuIvoa.h>
 #include	<epicsExport.h>
+
+#include	<epicsVersion.h>
+#ifndef EPICS_VERSION_INT
+#define VERSION_INT(V,R,M,P) ( ((V)<<24) | ((R)<<16) | ((M)<<8) | (P))
+#define EPICS_VERSION_INT VERSION_INT(EPICS_VERSION, EPICS_REVISION, EPICS_MODIFICATION, EPICS_PATCH_LEVEL)
+#endif
+#define LT_EPICSBASE(V,R,M,P) (EPICS_VERSION_INT < VERSION_INT((V),(R),(M),(P)))
 
 #define MIND_UNUSED_ELEMENTS 0
 
@@ -781,7 +787,11 @@ static void checkAlarms(acalcoutRecord *pcalc)
 	unsigned short	hhsv, llsv, hsv, lsv;
 
 	if (pcalc->udf == TRUE) {
+#if LT_EPICSBASE(3,15,0,2)
 		recGblSetSevr(pcalc,UDF_ALARM,INVALID_ALARM);
+#else
+		recGblSetSevr(pcalc,UDF_ALARM,pcalc->udfs);
+#endif
 		return;
 	}
 	hihi = pcalc->hihi; 
