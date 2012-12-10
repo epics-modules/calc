@@ -57,6 +57,13 @@
 #undef  GEN_SIZE_OFFSET
 #include        <epicsExport.h>
 
+#include	<epicsVersion.h>
+#ifndef EPICS_VERSION_INT
+#define VERSION_INT(V,R,M,P) ( ((V)<<24) | ((R)<<16) | ((M)<<8) | (P))
+#define EPICS_VERSION_INT VERSION_INT(EPICS_VERSION, EPICS_REVISION, EPICS_MODIFICATION, EPICS_PATCH_LEVEL)
+#endif
+#define LT_EPICSBASE(V,R,M,P) (EPICS_VERSION_INT < VERSION_INT((V),(R),(M),(P)))
+
 #define NINT(f) (long)((f)>0 ? (f)+0.5 : (f)-0.5)
 
 volatile int sseqRecDebug = 0;
