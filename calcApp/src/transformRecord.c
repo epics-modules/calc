@@ -120,6 +120,13 @@
 #undef GEN_SIZE_OFFSET
 #include "epicsExport.h"
 
+#include <epicsVersion.h>
+#ifndef EPICS_VERSION_INT
+#define VERSION_INT(V,R,M,P) ( ((V)<<24) | ((R)<<16) | ((M)<<8) | (P))
+#define EPICS_VERSION_INT VERSION_INT(EPICS_VERSION, EPICS_REVISION, EPICS_MODIFICATION, EPICS_PATCH_LEVEL)
+#endif
+#define LT_EPICSBASE(V,R,M,P) (EPICS_VERSION_INT < VERSION_INT((V),(R),(M),(P)))
+
 #ifdef NODEBUG
 #define Debug(l,FMT,V) ;
 #else
@@ -576,7 +583,11 @@ static void
 checkAlarms(transformRecord *ptran)
 {
 	if (ptran->udf == TRUE) {
-		recGblSetSevr(ptran, UDF_ALARM, INVALID_ALARM);
+#if LT_EPICSBASE(3,15,0,2)
+		recGblSetSevr(ptran,UDF_ALARM,INVALID_ALARM);
+#else
+		recGblSetSevr(ptran,UDF_ALARM,ptran->udfs);
+#endif
 		return;
 	}
 	return;
