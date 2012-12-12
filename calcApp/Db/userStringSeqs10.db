@@ -9,6 +9,9 @@ record(bo, "$(P)userStringSeqEnable") {
   field(DESC, "userSSeq enable")
   field(ZNAM, "Disable")
   field(ONAM, "Enable")
+  field(UDF, "0")
+  field(STAT, "NO_ALARM")
+  field(SEVR, "NO_ALARM")
 }
 
 record(sseq, "$(P)userStringSeq9") {
