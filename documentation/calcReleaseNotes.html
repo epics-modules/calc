@@ -67,6 +67,11 @@ PV it linked to, even if it was making a CA link to that PV.  Also, the sseq
 record failed to update the status of an input link that had changed from a CA
 link to a DB link.
 
+<li>Previously, userCalc collections were enabled by a record whose value was
+undefined until the enable state was changed.  Now the enables are made to be
+defined in the database file: field(UDF, "0"), field(STAT, "NO_ALARM"),
+field(SEVR, "NO_ALARM")
+
 </ul>
 
 <h2 align="center">Release 3-0</h2>
