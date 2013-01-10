@@ -137,7 +137,8 @@ typedef enum {
 	AMIN,
 	FITPOLY,
 	FITMPOLY,
-	ARANDOM	
+	ARANDOM,
+	CUM
 } aCalc_rpn_opcode;
 
 #endif /* INC_aCalcPostfixPvth */
