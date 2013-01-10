@@ -1569,3 +1569,20 @@ text {
 	limits {
 	}
 }
+"related display" {
+	object {
+		x=295
+		y=418
+		width=40
+		height=20
+	}
+	display[0] {
+		label="arrayCalc (small)"
+		name="yyArrayCalc_small.adl"
+		args="P=$(P),C=$(C)"
+		policy="replace display"
+	}
+	clr=0
+	bclr=63
+	label="-Less"
+}
