@@ -123,6 +123,7 @@ static const ELEMENT operands[] = {
 {"CEIL",		9, 10,	0,		UNARY_OPERATOR,		CEIL},
 {"COS",			9, 10,	0,		UNARY_OPERATOR,		COS},
 {"COSH",		9, 10,	0,		UNARY_OPERATOR,		COSH},
+{"CUM",			9, 10,	0,		UNARY_OPERATOR,		CUM},
 {"D",			0, 0,	1,		OPERAND,			FETCH_D},
 {"DD",			0, 0,	1,		OPERAND,			FETCH_DD},
 {"DBL",			9, 10,	0,		UNARY_OPERATOR,		TO_DOUBLE},   /* convert to double */
@@ -377,7 +378,8 @@ static const char *opcodes[] = {
 	"AMIN",
 	"FITPOLY",
 	"FITMPOLY",
-	"ARANDOM"
+	"ARANDOM",
+	"CUM"
 };
 
 /*
