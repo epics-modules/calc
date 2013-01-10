@@ -62,6 +62,7 @@
 
 #define MIND_UNUSED_ELEMENTS 0
 
+
 /* Create RSET - Record Support Entry Table*/
 #define report NULL
 #define initialize NULL
