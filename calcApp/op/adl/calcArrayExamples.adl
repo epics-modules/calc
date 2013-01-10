@@ -1,7 +1,7 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/calcArrayExamples.adl"
-	version=030105
+	name="/home/oxygen4/MOONEY/epics/synAppsSVN/support/calc/calcApp/op/adl/calcArrayExamples.adl"
+	version=030107
 }
 display {
 	object {
@@ -935,27 +935,62 @@ composite {
 		}
 	}
 }
-text {
+composite {
 	object {
 		x=5
 		y=755
+		width=230
+		height=25
+	}
+	"composite name"=""
+	children {
+		text {
+			object {
+				x=5
+				y=755
+				width=230
+				height=14
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="AA<<10"
+		}
+		text {
+			object {
+				x=15
+				y=770
+				width=220
+				height=10
+			}
+			"basic attribute" {
+				clr=47
+			}
+			textix="MOVE ARRAY ELEMENTS BACKWARD IN ARRAY"
+		}
+	}
+}
+text {
+	object {
+		x=5
+		y=785
 		width=230
 		height=14
 	}
 	"basic attribute" {
 		clr=14
 	}
-	textix="AA<<10"
+	textix="CUM(AA)"
 }
 text {
 	object {
 		x=15
-		y=770
+		y=800
 		width=220
 		height=10
 	}
 	"basic attribute" {
 		clr=47
 	}
-	textix="MOVE ARRAY ELEMENTS BACKWARD IN ARRAY"
+	textix="CALC RUNNING SUM OF ARRAY ELEMENTS"
 }
