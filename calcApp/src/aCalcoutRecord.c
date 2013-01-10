@@ -930,7 +930,8 @@ static void monitor(acalcoutRecord *pcalc)
 #if MIND_UNUSED_ELEMENTS
 	numElements = pcalc->nelm;
 #else
-	numElements = pcalc->nuse;
+	numElements = ((pcalc->nuse > 0) && (pcalc->nuse < pcalc->nelm)) ?
+							pcalc->nuse : pcalc->nelm;
 #endif
 
 	for (i=0, diff=0; i<numElements; i++) {
@@ -1020,8 +1021,12 @@ static int fetch_values(acalcoutRecord *pcalc)
 			}
 			for (j=0; j<numElements; j++) pcalc->paa[j] = (*pavalue)[j];
 			/* get new value */
+			nRequest = ((pcalc->nuse > 0) && (pcalc->nuse < pcalc->nelm)) ?	pcalc->nuse : pcalc->nelm;
 			status = dbGetLink(plink, DBR_DOUBLE, *pavalue, 0, &nRequest);
 			if (!RTN_SUCCESS(status)) return(status);
+			if (nRequest<numElements) {
+				for (j=nRequest; j<numElements; j++) (*pavalue)[j] = 0;
+			}
 			/* compare new array value with saved value */
 			for (j=0; j<numElements; j++) {
 				if (pcalc->paa[j] != (*pavalue)[j]) {pcalc->newm |= 1<<i; break;}
