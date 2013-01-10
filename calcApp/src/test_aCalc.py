@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-#from ca_util import *
 import epics
 from math import *
 from string import *
@@ -28,6 +27,14 @@ def arraySum(a1, a2):
 	for i in range(minlen):
 		result.append(a1[i]+a2[i])
 	print a1[:minlen], " + ", a2[:minlen], " = ", result
+	return result
+
+def arrayCum(a):
+	result = copy.copy(a)
+	for i in range(len(a)-1,-1,-1):
+		for j in range(0,i):
+			print "i=", i, "j=", j
+			result[i] = result[i]+a[j]
 	return result
 
 def same(a1, a2, l):
@@ -106,6 +113,7 @@ all_elements = {"@":0,
 "CEIL":0, 
 "COS":0, 
 "COSH":0, 
+"CUM":0, 
 "D":0, 
 "DD":0, 
 "DBL":0, 
@@ -306,7 +314,8 @@ expressions = [
 	("A?(0;C:=3.3):B", "r=(0,B)[A==0]"),
 	("C;C:=3", "r=3.3"),
 	# The following changes AA to BB, so python's proxy for AA is wrong
-	("@@0:=BB;AA", "r=BB")
+	("@@0:=BB;AA", "r=BB"),
+	("CUM(BB)", "r=arrayCum(BB)")
 ]
 
 def nint(x):
