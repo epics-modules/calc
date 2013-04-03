@@ -315,7 +315,8 @@ expressions = [
 	("C;C:=3", "r=3.3"),
 	# The following changes AA to BB, so python's proxy for AA is wrong
 	("@@0:=BB;AA", "r=BB"),
-	("CUM(BB)", "r=arrayCum(BB)")
+	("CUM(BB)", "r=arrayCum(BB)"),
+	("a:=-7;@@-a:=AA;HH;a:=1;hh:=ii", "r=AA")
 ]
 
 def nint(x):
