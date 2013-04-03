@@ -473,7 +473,20 @@ epicsShareFunc long
 				*ps1 = *pel; ps1->code = A_ASTORE;
 			}
 
-			if (!handled) {
+			if (handled) {
+				/* Move operators of >= priority to the output, but stop before ps1 */
+				while ((pstacktop > ps1) && (pstacktop > stack) &&
+					   (pstacktop->in_stack_pri >= pel->in_coming_pri)) {
+					*pout++ = pstacktop->code;
+					if (aCalcPostfixDebug>=5) printf("put %s to postfix\n", opcodes[(int) pstacktop->code]);
+					if (pstacktop->type == VARARG_OPERATOR) {
+						*pout++ = 1 - pstacktop->runtime_effect;
+						if (aCalcPostfixDebug>=5) printf("put run-time effect %d to postfix\n", 1 - pstacktop->runtime_effect);
+					}
+					runtime_depth += pstacktop->runtime_effect;
+					pstacktop--;
+				}
+			} else {
 				/* convert FETCH_x or FETCH_xx (already posted to postfix string) */
 				if (pout > ppostfix && pout[-1] >= FETCH_A && pout[-1] <= FETCH_P) {
 					/* Convert fetch into a store on the stack */
