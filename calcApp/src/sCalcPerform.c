@@ -438,12 +438,12 @@ epicsShareFunc long
 
 			case A_STORE:
 				pd1 = pd--;
-				i = (int)*pd--;
-				if (numArgs > i) {
-	    			parg[i] = *pd1;
+				d = *pd--;
+				i = myNINT(d);
+				if (i >= numArgs || i < 0) {
+					printf("sCalcPerform: fetch index, %d, out of range.\n", i);
 				} else {
-					/* caller didn't supply a large enough array */
-					;
+	    			parg[i] = *pd1;
 				}
 				break;
 
@@ -737,7 +737,7 @@ epicsShareFunc long
 
 			case A_FETCH:
 				d = *pd;
-				i = (int)(d >= 0 ? d+0.5 : 0);
+				i = myNINT(d);
 				if (i >= numArgs || i < 0) {
 					printf("sCalcPerform: fetch index, %d, out of range.\n", i);
 					*pd = 0;
@@ -907,12 +907,11 @@ epicsShareFunc long
 				toDouble(ps);
 				ps1 = ps; DEC(ps);
 				toDouble(ps);
-				i = (int)(ps->d); DEC(ps);
-				if (numArgs > i) {
-	    			parg[i] = ps1->d;
+				i = myNINT(ps->d); DEC(ps);
+				if (i >= numArgs || i < 0) {
+					printf("sCalcPerform: fetch index, %d, out of range.\n", i);
 				} else {
-					/* caller didn't supply a large enough array */
-					;
+	    			parg[i] = ps1->d;
 				}
 				break;
 
@@ -920,12 +919,11 @@ epicsShareFunc long
 				toString(ps);
 				ps1 = ps; DEC(ps);
 				toDouble(ps);
-				i = (int)(ps->d); DEC(ps);
-				if (numSArgs > i) {
-					strncpy(psarg[i], ps1->s, SCALC_STRING_SIZE);
+				i = myNINT(ps->d); DEC(ps);
+				if (i >= numSArgs || i < 0) {
+					printf("sCalcPerform: fetch index, %d, out of range.\n", i);
 				} else {
-					/* caller didn't supply a large enough array */
-					;
+					strncpy(psarg[i], ps1->s, SCALC_STRING_SIZE);
 				}
 				break;
 
@@ -1471,8 +1469,13 @@ epicsShareFunc long
 					d = atof(ps->s);
 					ps->s = NULL;
 				}
-				i = (int)(d >= 0 ? d+0.5 : 0);
-				ps->d = (i < numArgs) ? parg[i] : 0;
+				i = myNINT(d);
+				if (i >= numArgs || i < 0) {
+					printf("sCalcPerform: fetch index, %d, out of range.\n", i);
+					ps->d = 0;
+				} else {
+					ps->d = parg[i];
+				}
 				break;
 
 			case A_SFETCH:
@@ -1483,9 +1486,12 @@ epicsShareFunc long
 				}
 				ps->s = &(ps->local_string[0]);
 				ps->s[0] = '\0';
-				i = (int)(d >= 0 ? d+0.5 : 0);
-				if (i < numSArgs)
+				i = myNINT(d);
+				if (i >= numSArgs || i < 0) {
+					printf("sCalcPerform: fetch index, %d, out of range.\n", i);
+				} else {
 					strNcpy(ps->s, psarg[i], SCALC_STRING_SIZE);
+				}
 				break;
 
 			case LITERAL_DOUBLE:
