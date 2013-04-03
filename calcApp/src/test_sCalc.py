@@ -141,7 +141,9 @@ exp = [
 	('SSCANF("-1","%hd")', "-1"),
 	('SSCANF("-1","%ld")', "-1"),
 	('"abcdef"{"bc","gh"}', '"aghdef"'),
-	("'yyy:'+'xxx:abc'-'xxx:'", '"yyy:abc"')
+	("'yyy:'+'xxx:abc'-'xxx:'", '"yyy:abc"'),
+	("@@0:=BB;AA;aa:='string 1'", "BB"),
+	("a:=-1;@@-a:=AA;BB;a:=1;bb:='string 2'", "AA")
 ]
 
 def nint(x):
