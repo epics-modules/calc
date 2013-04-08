@@ -142,6 +142,55 @@ and it's the safer choice.  "NELM" is less efficient than "NUSE", in some cases.
 If SIZE is set to "NUSE", the CA connection must be broken and reestablished
 when the NUSE field increases. 
 
+<P><TABLE BORDER NOSAVE >
+<TR>
+<TH>Field</TH>
+<TH>Summary</TH>
+<TH>Type</TH>
+<TH>DCT</TH>
+<TH>Initial</TH>
+<TH>Access</TH>
+<TH>Modify</TH>
+<TH>Rec Proc Monitor</TH>
+</TR>
+
+<TR>
+<TD>NELM</TD>
+<TD>Number of allocated array elements</TD>
+<TD>DBF_ULONG</TD>
+<TD>Yes</TD>
+<TD>1</TD>
+<TD>Yes</TD>
+<TD>No</TD>
+<TD>N/A</TD>
+</TR>
+
+<TR>
+<TD>NUSE</TD>
+<TD>Number of array elements actually to be used</TD>
+<TD>DBF_ULONG</TD>
+<TD>Yes</TD>
+<TD>0</TD>
+<TD>Yes</TD>
+<TD>Yes</TD>
+<TD>Yes</TD>
+</TR>
+
+<TR>
+<TD>SIZE</TD>
+<TD>Specified whether NELM or NUSE is the array size declared to clients</TD>
+<TD>MENU("NELM","NUSE")</TD>
+<TD>Yes</TD>
+<TD>"NELM"</TD>
+<TD>Yes</TD>
+<TD>Yes</TD>
+<TD>N/A</TD>
+</TR>
+
+</TABLE>
+
+<P>&nbsp;
+
 <P>&nbsp;
 <HR><A NAME="INPUT_LINKS"></A>
 
@@ -174,14 +223,14 @@ database links.
 <TH>Rec Proc Monitor</TH>
 </TR>
 
-<TR NOSAVE>
-<TD NOSAVE>INPA</TD>
+<TR>
+<TD>INPA</TD>
 <TD>Input Link A</TD>
 <TD>INLINK</TD>
 <TD>Yes</TD>
 <TD>0</TD>
-<TD>No</TD>
-<TD>No</TD>
+<TD>Yes</TD>
+<TD>Yes</TD>
 <TD>N/A</TD>
 </TR>
 
@@ -191,8 +240,8 @@ database links.
 <TD>INLINK</TD>
 <TD>Yes</TD>
 <TD>0</TD>
-<TD>No</TD>
-<TD>No</TD>
+<TD>Yes</TD>
+<TD>Yes</TD>
 <TD>N/A</TD>
 </TR>
 
@@ -224,8 +273,8 @@ database links.
 <TD>INLINK</TD>
 <TD>Yes</TD>
 <TD>0</TD>
-<TD>No</TD>
-<TD>No</TD>
+<TD>Yes</TD>
+<TD>Yes</TD>
 <TD>N/A</TD>
 </TR>
 
@@ -235,8 +284,8 @@ database links.
 <TD>INLINK</TD>
 <TD>Yes</TD>
 <TD>0</TD>
-<TD>No</TD>
-<TD>No</TD>
+<TD>Yes</TD>
+<TD>Yes</TD>
 <TD>N/A</TD>
 </TR>
 
@@ -257,8 +306,8 @@ database links.
 <TD>INLINK</TD>
 <TD>Yes</TD>
 <TD>0</TD>
-<TD>No</TD>
-<TD>No</TD>
+<TD>Yes</TD>
+<TD>Yes</TD>
 <TD>N/A</TD>
 </TR>
 
@@ -993,12 +1042,14 @@ rendition of some scalar function.
 
 <tr>
 <td align=center valign=top>&gt;&gt;
-<td>Array shift right.  Move array elements by index.
+<td>Array shift right.  Move array elements by index.  If index is not an integer,
+the array is interpolated to move by the fractional part.
 <td><code>AA&gt;&gt;2</code>
 
 <tr>
 <td align=center valign=top>&lt;&lt;
-<td>Array shift left.    Move array elements by index. 
+<td>Array shift left.    Move array elements by index.  If index is not an integer,
+the array is interpolated to move by the fractional part.
 <td><code>AA&lt;&lt;2</code> (same as <code>AA&gt;&gt;-2</code>)
 
 <tr>
@@ -1020,6 +1071,12 @@ rendition of some scalar function.
 <td align=center valign=top>AVG
 <td valign=top>Average of array values
 <td><code>AVG(AA)</code>
+
+<tr>
+<td align=center valign=top>CUM
+<td valign=top>Running sum of array values.  For example, if AA=(1,2,3),
+CUM(AA)=(1,3,6).
+<td><code>CUM(AA)</code>
 
 <tr>
 <td align=center valign=top>DERIV
@@ -1316,10 +1373,12 @@ zero, and returns the value 1 (True).<P>
 
 <DT><B><CODE>BB:=1; B:=1; AA:=BB; UNTIL(AA:=AA+(BB>>B); B:=B+1; B>10)</CODE></B>
 
-<DD>Initialize <CODE>BB</CODE> to <CODE>(1,1,1...)</CODE>.  Loop to integrate over <CODE>BB</CODE>, so that the N'th
-element of <CODE>AA</CODE> will be the sum of all elements of <CODE>BB[0,N]</CODE>.<P>
-This expression is useful for converting an array of step pulses accumulated by a multichannel scaler into an array of
-positions at which the multichannel scaler's channel-advance signal was triggered.<P>
+<DD>Initialize <CODE>BB</CODE> to <CODE>(1,1,1...)</CODE>.  Loop to integrate
+over <CODE>BB</CODE>, so that the N'th element of <CODE>AA</CODE> will be the
+sum of all elements of <CODE>BB[0,N]</CODE>.<P> This expression is useful for
+converting an array of step pulses accumulated by a multichannel scaler into an
+array of positions at which the multichannel scaler's channel-advance signal was
+triggered.  (The "CUM" function does this operation.)<P>
 
 <DT><B><CODE>AA:=0;L:=0;UNTIL(AA:=AA+(ARR(@L)[0,0]>>L);L:=L+1;L>10)</CODE></B>
 
