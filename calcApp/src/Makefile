@@ -54,9 +54,11 @@ include $(TOP)/configure/RULES
 # Parallel build sometimes fails.
 # Make dependences on new records explicit.
 aCalcoutRecord$(OBJ): $(COMMON_DIR)/aCalcoutRecord.h
+devaCalcoutSoft$(OBJ): $(COMMON_DIR)/aCalcoutRecord.h
 transformRecord$(OBJ): $(COMMON_DIR)/transformRecord.h
 sseqRecord$(OBJ): $(COMMON_DIR)/sseqRecord.h
 sCalcoutRecord$(OBJ): $(COMMON_DIR)/sCalcoutRecord.h
+devsCalcoutSoft$(OBJ): $(COMMON_DIR)/sCalcoutRecord.h
 swaitRecord$(OBJ): $(COMMON_DIR)/swaitRecord.h
 
 # calcSupport.dbd is for use by an ioc directory that needs stuff from the
