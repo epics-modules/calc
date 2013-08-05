@@ -839,7 +839,7 @@ static void checkAlarms(acalcoutRecord *pcalc)
 
 static void execOutput(acalcoutRecord *pcalc)
 {
-	long		i, status;
+	long		i, status, nCopy=0;
 
 	/* Determine output data */
 	if (aCalcoutRecordDebug >= 10)
@@ -850,7 +850,9 @@ static void execOutput(acalcoutRecord *pcalc)
 #if MIND_UNUSED_ELEMENTS
 		for (i=0; i<pcalc->nelm; i++) pcalc->oav[i] = pcalc->aval[i];
 #else
-		for (i=0; i<pcalc->nuse; i++) pcalc->oav[i] = pcalc->aval[i];
+		nCopy = ((pcalc->nuse > 0) && (pcalc->nuse < pcalc->nelm)) ?
+			pcalc->nuse : pcalc->nelm;
+		for (i=0; i<nCopy; i++) pcalc->oav[i] = pcalc->aval[i];
 #endif
 	}
 
