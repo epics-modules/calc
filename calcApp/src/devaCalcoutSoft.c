@@ -18,7 +18,7 @@
  *      device support will use dbCaPutLinkCallback(), with the result that
  *      the record will wait for completion of any processing started by the
  *      'put' operation before executing recGblFwdLink.  The choice (sync or
- *      async) is made with the .WAIT field of the scalcoutRecord.  However,
+ *      async) is made with the .WAIT field of the acalcoutRecord.  However,
  *      if the OUT link is not a CA link, device support must fall back to
  *      synchronous behavior, because it's illegal to use dbCaPutLinkCallback()
  *      on a database link.
@@ -83,7 +83,7 @@ static long write_acalcout(acalcoutRecord *pacalcout)
 
     if ((plink->type==CA_LINK) && (pacalcout->wait)) {
 		/* asynchronous */
-		if (devaCalcoutSoftDebug) printf("write_scalcout: calling dbCPLCB..DBR_DOUBLE\n");
+		if (devaCalcoutSoftDebug) printf("write_acalcout: calling dbCPLCB..DBR_DOUBLE\n");
 		if (nelm == 1) {
 			status = dbCaPutLinkCallback(&(pacalcout->out), DBR_DOUBLE,
 				&(pacalcout->oval), 1, (dbCaCallback)dbCaCallbackProcess, plink);
