@@ -855,20 +855,6 @@ static void execOutput(acalcoutRecord *pcalc)
 	if (aCalcoutRecordDebug >= 10)
 		printf("acalcoutRecord(%s):execOutput:entry\n", pcalc->name);
 
-#if 0	/* Shouldn't need to copy aval to oval.  See write_acalcout() */
-	if (pcalc->dopt == acalcoutDOPT_Use_VAL) {
-		long	i, numElements;
-#if MIND_UNUSED_ELEMENTS
-		numElements = pcalc->nelm;
-#else
-		numElements = acalcGetNumElements( pcalc );
-#endif
-		pcalc->oval = pcalc->val;
-		for ( i = 0; i < numElements; i++ )
-			pcalc->oav[i] = pcalc->aval[i];
-	}
-#endif
-
 	/* Check to see what to do if INVALID */
 	if (pcalc->nsev < INVALID_ALARM) {
 		/* Output the value */
