@@ -707,10 +707,8 @@ long
 					break;
 				case CUM:
 					status = 0;
-					for (i=arraySize-1; i>0; i--) {
-						for (j=0; j<i; j++) {
-							ps->a[i] += ps->a[j];
-						}
+					for (i=1; i<arraySize; i++) {
+							ps->a[i] += ps->a[i-1];
 					}
 					break;
 				case EXP: for (i=0; i<arraySize; i++) {ps->a[i] = exp(ps->a[i]);} break;
