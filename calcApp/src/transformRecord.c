@@ -225,6 +225,18 @@ struct rpvtStruct {
 	struct macro macro[MAX_FIELDS];
 };
 
+/*****************************************************************************
+ * begin macro and shortcut substitution
+ * I want to support expressions like "($xp+$xn)/2", where "$xp" is defined by
+ * the user as a synonym (macro) for, say, the variable A.  However, I already
+ * support shortcuts like "$P(" means "$PRINTF(".  Shortcuts were handled by
+ * sCalcPostfix, but that's not going to work anymore, because the user could
+ * specify "$P" as a synonym for "A", and I don't want to involve the parser in
+ * macro replacement.  Therefore, I'm going to replace shortcuts here, before
+ * even looking for macros.  That means I might need a longer expression buffer,
+ * so I'll use 2*INFIX_SIZE to be safe.
+ */
+
 /* Sort macros according to length, longest first. */
 static void sortMacros(struct macro *m, int n) {
 
@@ -257,8 +269,8 @@ static long getMacros(transformRecord *ptran)
 		pcomment[COMMENT_SIZE-1] = '\0';
 		/* clear macro name */
 		macro->name[0] = '\0'; macro->c = '\0';
-		if (transformRecordDebug > 10) printf("pcomment[%d]='%s'\n", i, pcomment);
-		if (pcomment[0] == '_') {
+		if (transformRecordDebug >= 10) printf("pcomment[%d]='%s'\n", i, pcomment);
+		if (pcomment[0] == '$') {
 			macro->name[0] = pcomment[0];
 			for(j=1; j<COMMENT_SIZE-1 && isalnum((int)pcomment[j]); j++) {
 				macro->name[j] = pcomment[j];
@@ -266,22 +278,22 @@ static long getMacros(transformRecord *ptran)
 			macro->name[j] = '\0';
 			macro->c = Fldnames[i][0];
 		}
-		if (transformRecordDebug > 10) {
+		if (transformRecordDebug >= 10) {
 			if (macro->name[0]) printf("macro->name[%d]='%s':%c\n", i, macro->name, macro->c);
 		}
 	}
 
 	macro = (struct macro *) prpvt->macro;
 	sortMacros(macro, MAX_FIELDS);
-	if (transformRecordDebug) {
+	if (transformRecordDebug >= 5) {
 		for (i=0; i<MAX_FIELDS; i++, macro++) {
-			if (macro->name[0]) printf("macro->name[%d]='%s':%c\n", i, macro->name, macro->c);
+			if (macro->name[0]) printf("getMacros: macro->name[%d]='%s':%c\n", i, macro->name, macro->c);
 		}
 	}
 	return(0);
 }
 
-static long convertExpression(transformRecord *ptran, char *dest, const char *src) {
+static long convertMacros(transformRecord *ptran, char *dest, const char *src) {
 	struct rpvtStruct *prpvt;
 	struct macro *macro;
 	const char *c;
@@ -290,15 +302,15 @@ static long convertExpression(transformRecord *ptran, char *dest, const char *sr
 
 	prpvt = (struct rpvtStruct *)ptran->rpvt;
 	macro = (struct macro *) prpvt->macro;
-	if (transformRecordDebug) printf("src='%s'\n", src);
+	if (transformRecordDebug >= 10) printf("src='%s'\n", src);
 	for (c=src, d=dest; *c;) {
 		taken = 0;
-		if (*c == '_') {
+		if (*c == '$') {
 			for (i=0; *c && i<MAX_FIELDS && macro[i].name[0]; i++) {
-				if (transformRecordDebug) printf("checking macro '%s'\n", macro[i].name);
+				if (transformRecordDebug >= 10) printf("checking macro '%s'\n", macro[i].name);
 				lenMacro = strlen(macro[i].name);
 				if (epicsStrnCaseCmp(c, macro[i].name, lenMacro) == 0) {
-					if (transformRecordDebug) printf("replacing macro '%s'\n", macro[i].name);
+					if (transformRecordDebug >= 10) printf("replacing macro '%s'\n", macro[i].name);
 					*d++ = macro[i].c;
 					c += lenMacro;
 					taken = 1;
@@ -306,14 +318,78 @@ static long convertExpression(transformRecord *ptran, char *dest, const char *sr
 			}
 		}
 		if (!taken) {
-			if (transformRecordDebug) printf("copying char'%c'\n", *c);
+			if (transformRecordDebug > 10) printf("copying char'%c'\n", *c);
 			*d++ = *c++;
 		}
 	}
 	*d = '\0';
-	if (transformRecordDebug) printf("src='%s', dest='%s'\n", src, dest);
+	if (transformRecordDebug >= 10) printf("src='%s', dest='%s'\n", src, dest);
 	return(0);
 }
+
+#define NUMSHORTCUTS 6
+#define MAXSHORTCUT 10
+struct shortcut {
+	char target[4];
+	char replace[MAXSHORTCUT];
+} shortcuts[NUMSHORTCUTS] = {
+	{"$P(", "$PRINTF("},
+	{"$T(", "$TR_ESC("},
+	{"$W(", "$WRITE("},
+	{"$S(", "$SSCANF("},
+	{"$R(", "$READ("},
+	{"$E(", "$ESC("}
+};
+
+static int convertShortcut(transformRecord *ptran, char *dest, const char *src, const char *target, const char *replace) {
+	const char *c;
+	char *d;
+	int i, targetLen, replaceLen;
+	int numReplacements=0;
+
+	if (transformRecordDebug >= 10) printf("convertShortcut: src='%s', target='%s', replace='%s'\n", src, target, replace);
+	targetLen = strlen(target);
+	replaceLen = strlen(replace);
+	for (c=src, d=dest; *c;) {
+		if (epicsStrnCaseCmp(c, target, targetLen) == 0) {
+			for (i=0; i<replaceLen; i++) {
+				*d++ = replace[i];
+			}
+			c += targetLen;
+			numReplacements++;
+		} else {
+			*d++ = *c++;
+		}
+	}
+	*d = '\0';
+	if (transformRecordDebug >= 10) printf("convertShortcut: src='%s', dest='%s'\n", src, dest);
+	return(numReplacements);
+}
+
+static int convertShortcuts(transformRecord *ptran, char *dest, const char *src) {
+	char convertBuf[2*INFIX_SIZE];
+	int i;
+
+	(void) convertShortcut(ptran, dest, src, shortcuts[0].target, shortcuts[0].replace);
+	for (i=1; i<NUMSHORTCUTS; i++) {
+		if (convertShortcut(ptran, convertBuf, dest, shortcuts[i].target, shortcuts[i].replace) > 0) {
+			strcpy(dest, convertBuf);
+		}
+	}
+	return(0);
+}
+
+/* Convert shortcuts, then it's safe to convert macros. */
+static int convertExpression(transformRecord *ptran, char *dest, const char *src) {
+	char convertBuf[2*INFIX_SIZE];
+
+	(void) convertShortcuts(ptran, convertBuf, src);
+	(void) convertMacros(ptran, dest, convertBuf);
+	return(0);
+}
+
+/* end macro and shortcut substitution */
+/********************************************************************************/
 
 static long 
 init_record(transformRecord *ptran, int pass)
@@ -329,7 +405,7 @@ init_record(transformRecord *ptran, int pass)
 	unsigned short	*pInLinkValid, *pOutLinkValid;
 	struct dbAddr	dbAddr;
 	struct rpvtStruct	*prpvt;
-	char convertBuf[INFIX_SIZE];
+	char convertBuf[2*INFIX_SIZE];
 
 	Debug(15, "init_record: pass = %d\n", pass);
 
@@ -563,7 +639,7 @@ special(struct dbAddr *paddr, int after)
 	double			*pvalue;
 	long			status;
 	epicsInt32		*pcalcInvalid;
-	char convertBuf[INFIX_SIZE];
+	char convertBuf[2*INFIX_SIZE];
 
 	Debug(15, "special: after = %d\n", after);
 
