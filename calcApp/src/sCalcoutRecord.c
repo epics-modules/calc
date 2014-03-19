@@ -930,7 +930,7 @@ static void checkLinks(scalcoutRecord *pcalc)
 	dbAddr			Addr;
 	dbAddr			*pAddr = &Addr;
 	char 			tmpstr[100];
-	int linkWorks;
+	int isString, linkWorks;
 
 	if (sCalcoutRecordDebug) printf("checkLinks() for %s\n", pcalc->name);
 
@@ -942,11 +942,13 @@ static void checkLinks(scalcoutRecord *pcalc)
 			isCaLink = 1;
 
 			/* See if link is fully functional. (CA link to ENUM must wait for enum strings.) */
+			isString = 0;
 			linkWorks = 0;
 			if (dbCaIsLinkConnected(plink)) {
 				if (i >= MAX_FIELDS && i < MAX_FIELDS+STRING_MAX_FIELDS) {
 					/* this is a string link, do a trial dbGetLink() */
 					long	status;
+					isString = 1;
 					status = dbGetLink(plink, DBR_STRING, tmpstr, 0, 0);
 					if (RTN_SUCCESS(status)) {
 						linkWorks = 1;
@@ -957,8 +959,7 @@ static void checkLinks(scalcoutRecord *pcalc)
 				}
 			}
 
-			/* if (dbCaIsLinkConnected(plink)) { */
-			if (linkWorks) {
+			if (dbCaIsLinkConnected(plink) && (isString == linkWorks)) {
 				if (*plinkValid == scalcoutINAV_EXT_NC) {
 					if (!dbNameToAddr(plink->value.pv_link.pvname, pAddr)) {
 						/* PV resides on this ioc */
