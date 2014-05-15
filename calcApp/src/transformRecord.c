@@ -204,7 +204,7 @@ static void checkLinks();
 #define CA_LINKS_NOT_OK 2
 
 /* These must agree with the .dbd file. */
-#define INFIX_SIZE 80
+#define INFIX_SIZE 120
 #define POSTFIX_SIZE SCALC_INFIX_TO_POSTFIX_SIZE(INFIX_SIZE)
 #define MAX_FIELDS 16
 #define COMMENT_SIZE 39
