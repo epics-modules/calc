@@ -1023,7 +1023,7 @@ static int fetch_values(acalcoutRecord *pcalc)
 			for (j=0; j<numElements; j++) pcalc->paa[j] = (*pavalue)[j];
 			/* get new value */
 			nRequest = acalcGetNumElements( pcalc );
-			status = dbGetLinkValue(plink, DBR_DOUBLE, *pavalue, 0, &nRequest);
+			status = dbGetLink(plink, DBR_DOUBLE, *pavalue, 0, &nRequest);
 			if (!RTN_SUCCESS(status)) return(status);
 			if (nRequest<numElements) {
 				for (j=nRequest; j<numElements; j++) (*pavalue)[j] = 0;
