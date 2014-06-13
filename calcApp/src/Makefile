@@ -70,8 +70,10 @@ swaitRecord$(OBJ): $(COMMON_DIR)/swaitRecord.h
 
 ifdef SSCAN
 calcSupport.dbd: ../calcSupport_LOCAL.dbd ../calcSupport_withSSCAN.dbd
-	perl ../cat.pl ../calcSupport_LOCAL.dbd ../calcSupport_withSSCAN.dbd calcSupport.dbd
+	$(PERL) -MExtUtils::Command -e cat $^ > $@
+	#perl ../cat.pl ../calcSupport_LOCAL.dbd ../calcSupport_withSSCAN.dbd calcSupport.dbd
 else
 calcSupport.dbd: ../calcSupport_LOCAL.dbd
-	perl ../cat.pl ../calcSupport_LOCAL.dbd calcSupport.dbd
+	$(PERL) -MExtUtils::Command -e cat $^ > $@
+	#perl ../cat.pl ../calcSupport_LOCAL.dbd calcSupport.dbd
 endif
