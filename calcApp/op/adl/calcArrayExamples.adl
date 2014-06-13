@@ -1,14 +1,14 @@
 
 file {
-	name="/home/oxygen4/MOONEY/epics/synAppsSVN/support/calc/calcApp/op/adl/calcArrayExamples.adl"
+	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/calcArrayExamples.adl"
 	version=030107
 }
 display {
 	object {
-		x=192
-		y=38
+		x=686
+		y=49
 		width=240
-		height=820
+		height=940
 	}
 	clr=14
 	bclr=1
@@ -993,4 +993,100 @@ text {
 		clr=47
 	}
 	textix="CALC RUNNING SUM OF ARRAY ELEMENTS"
+}
+text {
+	object {
+		x=5
+		y=815
+		width=230
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="IXMAX(AA)"
+}
+text {
+	object {
+		x=15
+		y=830
+		width=220
+		height=10
+	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="INDEX OF MAX ARRAY VALUE"
+}
+text {
+	object {
+		x=5
+		y=845
+		width=230
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="IXMIN(AA)"
+}
+text {
+	object {
+		x=15
+		y=860
+		width=220
+		height=10
+	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="INDEX OF MIN ARRAY VALUE"
+}
+text {
+	object {
+		x=5
+		y=875
+		width=230
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="IXNZ(AA)"
+}
+text {
+	object {
+		x=15
+		y=890
+		width=220
+		height=10
+	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="INDEX OF FIRST NONZERO ELEMENT"
+}
+text {
+	object {
+		x=5
+		y=905
+		width=230
+		height=14
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="IXZ(AA)"
+}
+text {
+	object {
+		x=15
+		y=920
+		width=220
+		height=10
+	}
+	"basic attribute" {
+		clr=47
+	}
+	textix="INDEX OF FIRST ZERO CROSSING"
 }
