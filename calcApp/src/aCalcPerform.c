@@ -679,6 +679,10 @@ long
 		case NINT:
 		case AMAX:
 		case AMIN:
+		case IXMAX:
+		case IXMIN:
+		case IXZ:
+		case IXNZ:
 		case REL_NOT:
 		case BIT_NOT:
 		case AVERAGE:
@@ -762,6 +766,54 @@ long
 					toDouble(ps);
 					ps->d = d;
 					break;
+
+				case IXMAX:
+					for (i=1, j=0, d=ps->a[0]; i<arraySize; i++) {if (ps->a[i]>d) {d = ps->a[i]; j = i;}}
+					toDouble(ps);
+					ps->d = j;
+					break;
+
+				case IXMIN:
+					for (i=1, j=0, d=ps->a[0]; i<arraySize; i++) {if (ps->a[i]<d) {d = ps->a[i]; j = i;}}
+					toDouble(ps);
+					ps->d = j;
+					break;
+#if 0
+				case IXZ:
+					for (i=0, j=-1; i<arraySize; i++) {
+						if (fabs(ps->a[i]) < SMALL) {
+							j = i;
+							break;
+						}
+					}
+					toDouble(ps);
+					ps->d = j;
+					break;
+#endif
+				case IXZ:
+					for (i=1, j=ps->a[0]>0; i<arraySize; i++) {
+						if ((ps->a[i]>0)!=j) {
+							j = i-1;
+							d = fabs(ps->a[j])/fabs(ps->a[j]-ps->a[j+1]);
+							break;
+						}
+					}
+					toDouble(ps);
+					ps->d = j+d;
+					break;
+
+				case IXNZ:
+					for (i=0, j=-1; i<arraySize; i++) {
+						if (fabs(ps->a[i]) > SMALL) {
+							j = i;
+							if (aCalcPerformDebug>1) printf("aCalcPerform:IXNZ at index %d\n", j);
+							break;
+						}
+					}
+					toDouble(ps);
+					ps->d = j;
+					break;
+
 				case REL_NOT: for (i=0; i<arraySize; i++) {ps->a[i] = (ps->a[i] ? 0 : 1);} break;
 				case BIT_NOT: for (i=0; i<arraySize; i++) {ps->a[i] = ~(int)(ps->a[i]);} break;
 				case AVERAGE:
@@ -920,6 +972,10 @@ long
 				case NINT: ps->d = (double)(long)(ps->d >= 0 ? ps->d+0.5 : ps->d-0.5); break;
 				case AMAX: break;
 				case AMIN: break;
+				case IXMAX: ps->d = 0; break;
+				case IXMIN: ps->d = 0; break;
+				case IXZ: ps->d = fabs(ps->d)<SMALL?0:-1; break;
+				case IXNZ: ps->d = fabs(ps->d)>SMALL?0:-1; break;
 				case REL_NOT: ps->d = (ps->d ? 0 : 1); break;
 				case BIT_NOT: ps->d = ~(int)(ps->d); break;
 				case AVERAGE: break;
