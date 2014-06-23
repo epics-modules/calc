@@ -5,6 +5,7 @@ import epics
 from math import *
 from string import *
 import time
+import sys
 
 import os
 #os.environ['EPICS_CA_ADDR_LIST'] = "164.54.53.99"
@@ -44,11 +45,12 @@ JJ = "string 10"
 KK = "string 11"
 LL = "xxx:scan1.EXSC"
 
-epics.caput(calc, "0")
-
-for i in range(12):
-	epics.caput(sCalcRecord + "." + A2L[i], eval(A2L[i]))
-	epics.caput(sCalcRecord + "." + A2L[i] + A2L[i], eval(A2L[i]+A2L[i]) )
+def init(sCalcRecord):
+	calc = sCalcRecord + ".CALC"
+	epics.caput(calc, "0")
+	for i in range(12):
+		epics.caput(sCalcRecord + "." + A2L[i], eval(A2L[i]))
+		epics.caput(sCalcRecord + "." + A2L[i] + A2L[i], eval(A2L[i]+A2L[i]) )
 
 # List of expressions for testing
 # exp = [(sCalc_expression, equivalent_python_expression), ...]
@@ -149,8 +151,13 @@ exp = [
 def nint(x):
 	return int(floor(x+.5))
 
-def test():
+def test(sCalcRecord):
 	numErrors = 0
+	init(sCalcRecord)
+	calc = sCalcRecord + ".CALC"
+	result = sCalcRecord + ".VAL"
+	sresult = sCalcRecord + ".SVAL"
+
 	for e in exp:
 		epics.caput(calc,e[0], wait=True)
 		time.sleep(.1)
@@ -184,5 +191,8 @@ def test():
 	print "  ", numErrors, " errors."
 	print "------------------------"
 
-if __name__ == "__main__":
-	test()
+if __name__ == '__main__':
+	if (len(sys.argv) > 1) :
+		test(sys.argv[1])
+	else:
+		test("xxx:userStringCalc10")
