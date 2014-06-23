@@ -551,17 +551,7 @@ epicsShareFunc long
 
 			case POWER:
 				--pd;
-				if (fabs(*pd) < SMALL) break;
-				if (*pd < 0) {
-					i = (int) pd[1];
-					/* is exponent an integer? */
-					if ((pd[1] - (double)i) != 0) return (-1);
-        			*pd = exp(pd[1] * log(-(*pd)));
-					/* is value negative */
-					if ((i % 2) > 0) *pd = -(*pd);
-				} else {
-	        		*pd = exp(pd[1] * log(*pd));
-				}
+				*pd = pow(*pd, pd[1]);
 				break;
 
 			case MODULO:
@@ -1105,17 +1095,7 @@ epicsShareFunc long
 				DEC(ps);
 				toDouble(ps1);
 				toDouble(ps);
-				if (ps->d == 0) break;
-				if (ps->d < 0) {
-					i = (int) ps1->d;
-					/* is exponent an integer? */
-					if ((ps1->d - (double)i) != 0) return (-1);
-        			ps->d = exp(ps1->d * log(-(ps->d)));
-					/* is value negative */
-					if ((i % 2) > 0) ps->d = -ps->d;
-				} else {
-					ps->d = exp(ps1->d * log(ps->d));
-				}
+				ps->d = pow(ps->d, ps1->d);
 				break;
 
 			case MODULO:
