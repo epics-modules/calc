@@ -1,14 +1,47 @@
 <html>
 
 <head>
-<meta http-equiv="Content-Type"
-content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <title>calcReleaseNotes</title>
 </head>
 
 <body bgcolor="#FFFFFF">
 
 <h1 align="center">calc Release Notes</h1>
+
+<h2 align="center">Release 3-4</h2>
+
+<ul>
+<li>acalcout record: new functions, better treatment of subranges:
+<ul>
+<li>IXMAX: index of largest array element
+<li>IXMIN: index of smallest array element
+<li>IXZ: index of first zero crossing in array
+<li>IXNZ: index of first nonzero array element
+<li>FITQ, FITMQ: fit to quadratic and optionally return fit coefficients. 
+(Replacements for deprecated FITPOLY, FITMPOLY.)
+<li>CAT: concatenate array subranges, or an array subrange and a double.
+
+<li>operators <code>^</code> and <code>**</code> reimplemented to permit
+noninteger exponents.
+
+
+<li>acalcout expressions now maintain array extents on the stack, so, for
+example, the expression <code>avg(aa[1,10])</code> really is an average of just
+<code>aa[1,10]</code>.  Previously, <code>avg(aa[1,10])</code> actually
+performed <code>sum(aa[1,10])/arraySize</code>.  Now it does
+<code>sum(aa[1,10])/10</code>.
+
+</ul>
+<li>scalcout and transform records: operators <code>^</code> and <code>**</code> reimplemented to permit
+noninteger exponents.
+
+<li>use Perl's ExtUtils::Command to concatenate .dbd files, instead of local
+cat.pl. Left old stuff in place, for now, in case someone has a problem with the
+new method.
+
+</ul>
+
 <h2 align="center">Release 3-3</h2>
 
 <ul>
