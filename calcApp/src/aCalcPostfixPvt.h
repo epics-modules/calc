@@ -142,7 +142,10 @@ typedef enum {
 	IXMAX,
 	IXMIN,
 	IXZ,
-	IXNZ
+	IXNZ,
+	FITQ,
+	FITMQ,
+	CAT
 } aCalc_rpn_opcode;
 
 #endif /* INC_aCalcPostfixPvth */
