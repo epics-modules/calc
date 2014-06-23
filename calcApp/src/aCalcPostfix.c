@@ -64,10 +64,11 @@ typedef struct expression_element {
 
 /*
  * NOTE: DO NOT CHANGE WITHOUT READING THIS NOTICE !!!!!!!!!!!!!!!!!!!!
- * Because the routine that looks for a match in this table takes the first 
- * match it finds, elements whose designations are contained in other elements
- * MUST come first in this list. (e.g. ABS will match A if A preceeds ABS and
- * then try to find BS.  Therefore ABS must be first in this list.)
+ * Because the routine that looks for a match in this table works from the end
+ * to the start, and takes the first match it finds, elements whose designations
+ * are contained in other elements MUST come later in this list. (e.g. ABS will
+ * match A if A follows ABS and then try to find BS.  Therefore ABS must come
+ * after A in this list.)
  * ':' receives special handling, so if you add an operator that includes
  * ':', you must modify that special handling.
  */
@@ -119,6 +120,7 @@ static const ELEMENT operands[] = {
 {"B",			0, 0,	1,		OPERAND,			FETCH_B},
 {"BB",			0, 0,	1,		OPERAND,			FETCH_BB},
 {"C",			0, 0,	1,		OPERAND,			FETCH_C},
+{"CAT",			9, 10,	-1,		UNARY_OPERATOR,		CAT},
 {"CC",			0, 0,	1,		OPERAND,			FETCH_CC},
 {"CEIL",		9, 10,	0,		UNARY_OPERATOR,		CEIL},
 {"COS",			9, 10,	0,		UNARY_OPERATOR,		COS},
@@ -135,6 +137,8 @@ static const ELEMENT operands[] = {
 {"F",			0, 0,	1,		OPERAND,			FETCH_F},
 {"FF",			0, 0,	1,		OPERAND,			FETCH_FF},
 {"FINITE",		9, 10,	0,		VARARG_OPERATOR,	FINITE},
+{"FITQ",		9, 10,	0,		VARARG_OPERATOR,	FITQ},
+{"FITMQ",		9, 10,	0,		VARARG_OPERATOR,	FITMQ},
 {"FITPOLY",		9, 10,	0,		UNARY_OPERATOR,		FITPOLY},
 {"FITMPOLY",	9, 10,	-1,		UNARY_OPERATOR,		FITMPOLY},
 {"FLOOR",		9, 10,	0,		UNARY_OPERATOR,		FLOOR},
@@ -383,7 +387,14 @@ static const char *opcodes[] = {
 	"FITPOLY",
 	"FITMPOLY",
 	"ARANDOM",
-	"CUM"
+	"CUM",
+	"IXMAX",
+	"IXMIN",
+	"IXZ",
+	"IXNZ",
+	"FITQ",
+	"FITMQ",
+	"CAT"
 };
 
 /*
