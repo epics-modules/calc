@@ -1068,11 +1068,19 @@ the array is interpolated to move by the fractional part.
 <tr>
 <td align=center valign=top>AVG
 <td valign=top>Average of array values
-<td><code>AVG(AA)</code>
+
+<td><code>AVG(AA)=SUM(AA)/arraySize</code>
+<code>AVG(AA[4,9])=SUM(AA[4,9])/6</code>
 
 <tr>
 <td align=center valign=top>CAT
-<td valign=top>Concatenate array subranges, or an array subrange and a double value.
+
+<td valign=top>Concatenate array subranges, or an array subrange and a double
+value.  If the second argument is a scalar, it is not converted to an array
+before being appended to the first argument.  Note that CAT does nothing if its
+first argument is not a subrange, because a full array has no free space in
+which to append new values.
+
 <td><code>CAT(AA[0,2],BB[0,2])</code>
 <code>CAT(AA[0,2],B)</code>
 
@@ -1095,12 +1103,12 @@ Equivalent to NDERIV(AA,2).
 
 <tr>
 <td align=center valign=top>FITPOLY
-<td valign=top>(deprecated) Fit array to second order polynomial a + b*x + c*x^2.
+<td valign=top>(Deprecated.  Use FITQ.) Fit array to second order polynomial a + b*x + c*x^2.
 <td><code>FITPOLY(AA)</code>
 
 <tr>
 <td align=center valign=top>FITMPOLY
-<td valign=top>(deprecated) Fit masked array to second order polynomial.  First argument is input-data
+<td valign=top>(Deprecated.  Use FITMQ.) Fit masked array to second order polynomial.  First argument is input-data
 array, second argument is the mask array.  If mask-array element value is true (greater than zero),
 corresponding data-array element will be used to compute best-fit polynomial a + b*x + c*x^2.
 <td><code>FITPOLY(AA,AA>0)</code>
@@ -1111,7 +1119,8 @@ corresponding data-array element will be used to compute best-fit polynomial a +
 <td valign=top>Fit array to quadratic a + b*x + c*x^2, and optionally return fit
 coefficients.  If the second, third, and fourth arguments are specified as the
 names of double variables, fit coefficients will be stored to those
-acalcoutRecord fields, in the order a,b,c.
+acalcoutRecord fields, in the order a,b,c. If any of the second, third, and
+fourth arguments is an array variable, it will be ignored.
 
 <td><code>FITQ(AA)</code><br><code>FITQ(AA,J,K,L)</code>
 
@@ -1124,36 +1133,37 @@ array.  If mask-array element value is true (greater than zero), corresponding
 data-array element will be used to compute best-fit polynomial a + b*x + c*x^2.
 If the third, fourth, and fifth arguments are specified as the names of double
 variables, fit coefficients will be stored to those acalcoutRecord fields, in
-the order a,b,c.
+the order a,b,c. If any of the second, third, and fourth arguments is an array
+variable, it will be ignored.
 
 <td><code>FITMQ(AA,AA>0)</code><br><code>FITMQ(AA,AA>0,J,K,L)</code>
 
 <tr>
 <td align=center valign=top>IX
 <td valign=top>The array (0,1,2,3,...,NUSE)
-<td><code>IX</code>
+<td><code>IX(AA)</code>
 
 <tr>
 <td align=center valign=top>IXMAX
 <td valign=top>The index of the largest (most positive) element of the array.
-<td><code>IXMAX</code>
+<td><code>IXMAX(AA)</code>
 
 <tr>
 <td align=center valign=top>IXMIN
 <td valign=top>The index of the smallest (most negative) element of the array.
-<td><code>IXMIN</code>
+<td><code>IXMIN(AA)</code>
 
 <tr>
 <td align=center valign=top>IXZ
 <td valign=top>The (floating-point) index of the first zero crossing in the array, calculated by
 linear interpolation.
-<td><code>IXZ</code>
+<td><code>IXZ(AA)</code>
 
 <tr>
 <td align=center valign=top>IXNZ
 <td valign=top>The index of the first nonzero element of the array.  (The first
 element whose absolute value is greater than 1.e-9.)
-<td><code>IXNZ</code>
+<td><code>IXNZ(AA)</code>
 
 <tr>
 <td align=center valign=top>NDERIV
