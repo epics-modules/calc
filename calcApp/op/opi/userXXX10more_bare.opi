@@ -3,12 +3,12 @@
   <macros>
     <include_parent_macros>true</include_parent_macros>
   </macros>
-  <wuid>-41ce3bf8:146ee9d5016:-6ff5</wuid>
+  <wuid>-41ce3bf8:146ee9d5016:-63aa</wuid>
   <boy_version>3.2.10.20140131</boy_version>
   <scripts />
   <show_ruler>true</show_ruler>
   <height>220</height>
-  <name>userCalcOuts10</name>
+  <name>userXXX10more_bare</name>
   <snap_to_geometry>false</snap_to_geometry>
   <show_grid>false</show_grid>
   <background_color>
@@ -29,14 +29,14 @@
     <min_height>-1</min_height>
   </auto_scale_widgets>
   <actions hook="false" hook_all="false" />
-  <y>96</y>
-  <x>649</x>
+  <y>87</y>
+  <x>466</x>
   <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
     <macros>
       <include_parent_macros>true</include_parent_macros>
     </macros>
     <visible>true</visible>
-    <wuid>-41ce3bf8:146ee9d5016:-6fe9</wuid>
+    <wuid>-41ce3bf8:146ee9d5016:-639e</wuid>
     <scripts />
     <height>200</height>
     <name>Grouping Container</name>
@@ -102,7 +102,7 @@
       <minimum>-Infinity</minimum>
       <next_focus>0</next_focus>
       <show_units>false</show_units>
-      <wuid>-41ce3bf8:146ee9d5016:-6fe8</wuid>
+      <wuid>-41ce3bf8:146ee9d5016:-639d</wuid>
       <rotation_angle>0.0</rotation_angle>
       <style>0</style>
       <name>Text Input</name>
@@ -114,7 +114,7 @@
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)userCalcOut1.DESC</pv_name>
+      <pv_name>$(P)user$(TYPE)$(N1).DESC</pv_name>
       <foreground_color>
         <color name="ioc_read_fg" red="10" green="0" blue="184" />
       </foreground_color>
@@ -164,7 +164,7 @@ $(pv_value)</tooltip>
       <minimum>-Infinity</minimum>
       <next_focus>0</next_focus>
       <show_units>false</show_units>
-      <wuid>-41ce3bf8:146ee9d5016:-6fe7</wuid>
+      <wuid>-41ce3bf8:146ee9d5016:-639c</wuid>
       <rotation_angle>0.0</rotation_angle>
       <style>0</style>
       <name>Text Input</name>
@@ -176,7 +176,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)userCalcOut2.DESC</pv_name>
+      <pv_name>$(P)user$(TYPE)$(N2).DESC</pv_name>
       <foreground_color>
         <color name="ioc_read_fg" red="10" green="0" blue="184" />
       </foreground_color>
@@ -226,7 +226,7 @@ $(pv_value)</tooltip>
       <minimum>-Infinity</minimum>
       <next_focus>0</next_focus>
       <show_units>false</show_units>
-      <wuid>-41ce3bf8:146ee9d5016:-6fe6</wuid>
+      <wuid>-41ce3bf8:146ee9d5016:-639b</wuid>
       <rotation_angle>0.0</rotation_angle>
       <style>0</style>
       <name>Text Input</name>
@@ -238,7 +238,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)userCalcOut3.DESC</pv_name>
+      <pv_name>$(P)user$(TYPE)$(N3).DESC</pv_name>
       <foreground_color>
         <color name="ioc_read_fg" red="10" green="0" blue="184" />
       </foreground_color>
@@ -288,7 +288,7 @@ $(pv_value)</tooltip>
       <minimum>-Infinity</minimum>
       <next_focus>0</next_focus>
       <show_units>false</show_units>
-      <wuid>-41ce3bf8:146ee9d5016:-6fe5</wuid>
+      <wuid>-41ce3bf8:146ee9d5016:-639a</wuid>
       <rotation_angle>0.0</rotation_angle>
       <style>0</style>
       <name>Text Input</name>
@@ -300,7 +300,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)userCalcOut4.DESC</pv_name>
+      <pv_name>$(P)user$(TYPE)$(N4).DESC</pv_name>
       <foreground_color>
         <color name="ioc_read_fg" red="10" green="0" blue="184" />
       </foreground_color>
@@ -350,7 +350,7 @@ $(pv_value)</tooltip>
       <minimum>-Infinity</minimum>
       <next_focus>0</next_focus>
       <show_units>false</show_units>
-      <wuid>-41ce3bf8:146ee9d5016:-6fe4</wuid>
+      <wuid>-41ce3bf8:146ee9d5016:-6399</wuid>
       <rotation_angle>0.0</rotation_angle>
       <style>0</style>
       <name>Text Input</name>
@@ -362,7 +362,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)userCalcOut5.DESC</pv_name>
+      <pv_name>$(P)user$(TYPE)$(N5).DESC</pv_name>
       <foreground_color>
         <color name="ioc_read_fg" red="10" green="0" blue="184" />
       </foreground_color>
@@ -412,7 +412,7 @@ $(pv_value)</tooltip>
       <minimum>-Infinity</minimum>
       <next_focus>0</next_focus>
       <show_units>false</show_units>
-      <wuid>-41ce3bf8:146ee9d5016:-6fe3</wuid>
+      <wuid>-41ce3bf8:146ee9d5016:-6398</wuid>
       <rotation_angle>0.0</rotation_angle>
       <style>0</style>
       <name>Text Input</name>
@@ -424,7 +424,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)userCalcOut6.DESC</pv_name>
+      <pv_name>$(P)user$(TYPE)$(N6).DESC</pv_name>
       <foreground_color>
         <color name="ioc_read_fg" red="10" green="0" blue="184" />
       </foreground_color>
@@ -474,7 +474,7 @@ $(pv_value)</tooltip>
       <minimum>-Infinity</minimum>
       <next_focus>0</next_focus>
       <show_units>false</show_units>
-      <wuid>-41ce3bf8:146ee9d5016:-6fe2</wuid>
+      <wuid>-41ce3bf8:146ee9d5016:-6397</wuid>
       <rotation_angle>0.0</rotation_angle>
       <style>0</style>
       <name>Text Input</name>
@@ -486,7 +486,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)userCalcOut7.DESC</pv_name>
+      <pv_name>$(P)user$(TYPE)$(N7).DESC</pv_name>
       <foreground_color>
         <color name="ioc_read_fg" red="10" green="0" blue="184" />
       </foreground_color>
@@ -536,7 +536,7 @@ $(pv_value)</tooltip>
       <minimum>-Infinity</minimum>
       <next_focus>0</next_focus>
       <show_units>false</show_units>
-      <wuid>-41ce3bf8:146ee9d5016:-6fe1</wuid>
+      <wuid>-41ce3bf8:146ee9d5016:-6396</wuid>
       <rotation_angle>0.0</rotation_angle>
       <style>0</style>
       <name>Text Input</name>
@@ -548,7 +548,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)userCalcOut8.DESC</pv_name>
+      <pv_name>$(P)user$(TYPE)$(N8).DESC</pv_name>
       <foreground_color>
         <color name="ioc_read_fg" red="10" green="0" blue="184" />
       </foreground_color>
@@ -598,7 +598,7 @@ $(pv_value)</tooltip>
       <minimum>-Infinity</minimum>
       <next_focus>0</next_focus>
       <show_units>false</show_units>
-      <wuid>-41ce3bf8:146ee9d5016:-6fe0</wuid>
+      <wuid>-41ce3bf8:146ee9d5016:-6395</wuid>
       <rotation_angle>0.0</rotation_angle>
       <style>0</style>
       <name>Text Input</name>
@@ -610,7 +610,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)userCalcOut9.DESC</pv_name>
+      <pv_name>$(P)user$(TYPE)$(N9).DESC</pv_name>
       <foreground_color>
         <color name="ioc_read_fg" red="10" green="0" blue="184" />
       </foreground_color>
@@ -660,7 +660,7 @@ $(pv_value)</tooltip>
       <minimum>-Infinity</minimum>
       <next_focus>0</next_focus>
       <show_units>false</show_units>
-      <wuid>-41ce3bf8:146ee9d5016:-6fdf</wuid>
+      <wuid>-41ce3bf8:146ee9d5016:-6394</wuid>
       <rotation_angle>0.0</rotation_angle>
       <style>0</style>
       <name>Text Input</name>
@@ -672,7 +672,7 @@ $(pv_value)</tooltip>
       </scale_options>
       <selector_type>0</selector_type>
       <transparent>false</transparent>
-      <pv_name>$(P)userCalcOut10.DESC</pv_name>
+      <pv_name>$(P)user$(TYPE)$(N10).DESC</pv_name>
       <foreground_color>
         <color name="ioc_read_fg" red="10" green="0" blue="184" />
       </foreground_color>
@@ -695,7 +695,7 @@ $(pv_value)</tooltip>
   <widget typeId="org.csstudio.opibuilder.widgets.choiceButton" version="1.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
-    <wuid>-41ce3bf8:146ee9d5016:-6ff4</wuid>
+    <wuid>-41ce3bf8:146ee9d5016:-63a9</wuid>
     <scripts />
     <height>20</height>
     <name>Choice Button</name>
@@ -705,7 +705,7 @@ $(pv_value)</tooltip>
       <height_scalable>true</height_scalable>
       <keep_wh_ratio>false</keep_wh_ratio>
     </scale_options>
-    <pv_name>$(P)userCalcOutEnable.VAL</pv_name>
+    <pv_name>$(P)user$(TYPE)Enable.VAL</pv_name>
     <background_color>
       <color name="ioc_write_bg" red="115" green="223" blue="255" />
     </background_color>
@@ -746,7 +746,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-41ce3bf8:146ee9d5016:-6ff3</wuid>
+    <wuid>-41ce3bf8:146ee9d5016:-63a8</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -772,7 +772,7 @@ $(pv_value)</tooltip>
     </font>
     <width>25</width>
     <border_style>6</border_style>
-    <label>1</label>
+    <label>$(N1)</label>
     <rules />
     <pv_value />
     <border_width>1</border_width>
@@ -782,31 +782,31 @@ $(pv_value)</tooltip>
     <y>20</y>
     <actions hook="false" hook_all="false">
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut.opi</path>
+        <path>user$(TYPE).opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut1</C>
+          <C>user$(TYPE)$(N1)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 1</description>
+        <description>user $(TYPE) $(N1)</description>
       </action>
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut_full.opi</path>
+        <path>user$(TYPE)_full.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut1</C>
+          <C>user$(TYPE)$(N1)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 1 (full)</description>
+        <description>user $(TYPE) $(N1) (full)</description>
       </action>
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut_demo.opi</path>
+        <path>user$(TYPE)_demo.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut1</C>
+          <C>user$(TYPE)$(N1)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 1 (demo)</description>
+        <description>user $(TYPE) $(N1) (demo)</description>
       </action>
     </actions>
     <tooltip>$(pv_name)
@@ -817,7 +817,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-41ce3bf8:146ee9d5016:-6ff2</wuid>
+    <wuid>-41ce3bf8:146ee9d5016:-63a7</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -843,7 +843,7 @@ $(pv_value)</tooltip>
     </font>
     <width>25</width>
     <border_style>6</border_style>
-    <label>2</label>
+    <label>$(N2)</label>
     <rules />
     <pv_value />
     <border_width>1</border_width>
@@ -853,31 +853,31 @@ $(pv_value)</tooltip>
     <y>40</y>
     <actions hook="false" hook_all="false">
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut.opi</path>
+        <path>user$(TYPE).opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut2</C>
+          <C>user$(TYPE)$(N2)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 2</description>
+        <description>user $(TYPE) $(N2)</description>
       </action>
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut_full.opi</path>
+        <path>user$(TYPE)_full.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut2</C>
+          <C>user$(TYPE)$(N2)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 2 (full)</description>
+        <description>user $(TYPE) $(N2) (full)</description>
       </action>
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut_demo.opi</path>
+        <path>user$(TYPE)_demo.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut2</C>
+          <C>user$(TYPE)$(N2)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 2 (demo)</description>
+        <description>user $(TYPE) $(N2) (demo)</description>
       </action>
     </actions>
     <tooltip>$(pv_name)
@@ -888,7 +888,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-41ce3bf8:146ee9d5016:-6ff1</wuid>
+    <wuid>-41ce3bf8:146ee9d5016:-63a6</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -914,7 +914,7 @@ $(pv_value)</tooltip>
     </font>
     <width>25</width>
     <border_style>6</border_style>
-    <label>3</label>
+    <label>$(N3)</label>
     <rules />
     <pv_value />
     <border_width>1</border_width>
@@ -924,31 +924,31 @@ $(pv_value)</tooltip>
     <y>60</y>
     <actions hook="false" hook_all="false">
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut.opi</path>
+        <path>user$(TYPE).opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut3</C>
+          <C>user$(TYPE)$(N3)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 3</description>
+        <description>user $(TYPE) $(N3)</description>
       </action>
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut_full.opi</path>
+        <path>user$(TYPE)_full.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut3</C>
+          <C>user$(TYPE)$(N3)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 3 (full)</description>
+        <description>user $(TYPE) $(N3) (full)</description>
       </action>
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut_demo.opi</path>
+        <path>user$(TYPE)_demo.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut3</C>
+          <C>user$(TYPE)$(N3)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 3 (demo)</description>
+        <description>user $(TYPE) $(N3) (demo)</description>
       </action>
     </actions>
     <tooltip>$(pv_name)
@@ -959,7 +959,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-41ce3bf8:146ee9d5016:-6ff0</wuid>
+    <wuid>-41ce3bf8:146ee9d5016:-63a5</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -985,7 +985,7 @@ $(pv_value)</tooltip>
     </font>
     <width>25</width>
     <border_style>6</border_style>
-    <label>4</label>
+    <label>$(N4)</label>
     <rules />
     <pv_value />
     <border_width>1</border_width>
@@ -995,31 +995,31 @@ $(pv_value)</tooltip>
     <y>80</y>
     <actions hook="false" hook_all="false">
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut.opi</path>
+        <path>user$(TYPE).opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut4</C>
+          <C>user$(TYPE)$(N4)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 4</description>
+        <description>user $(TYPE) $(N4)</description>
       </action>
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut_full.opi</path>
+        <path>user$(TYPE)_full.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut4</C>
+          <C>user$(TYPE)$(N4)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 4 (full)</description>
+        <description>user $(TYPE) $(N4) (full)</description>
       </action>
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut_demo.opi</path>
+        <path>user$(TYPE)_demo.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut4</C>
+          <C>user$(TYPE)$(N4)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 4 (demo)</description>
+        <description>user $(TYPE) $(N4) (demo)</description>
       </action>
     </actions>
     <tooltip>$(pv_name)
@@ -1030,7 +1030,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-41ce3bf8:146ee9d5016:-6fef</wuid>
+    <wuid>-41ce3bf8:146ee9d5016:-63a4</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1056,7 +1056,7 @@ $(pv_value)</tooltip>
     </font>
     <width>25</width>
     <border_style>6</border_style>
-    <label>5</label>
+    <label>$(N5)</label>
     <rules />
     <pv_value />
     <border_width>1</border_width>
@@ -1066,31 +1066,31 @@ $(pv_value)</tooltip>
     <y>100</y>
     <actions hook="false" hook_all="false">
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut.opi</path>
+        <path>user$(TYPE).opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut5</C>
+          <C>user$(TYPE)$(N5)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 5</description>
+        <description>user $(TYPE) $(N5)</description>
       </action>
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut_full.opi</path>
+        <path>user$(TYPE)_full.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut5</C>
+          <C>user$(TYPE)$(N5)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 5 (full)</description>
+        <description>user $(TYPE) $(N5) (full)</description>
       </action>
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut_demo.opi</path>
+        <path>user$(TYPE)_demo.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut5</C>
+          <C>user$(TYPE)$(N5)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 5 (demo)</description>
+        <description>user $(TYPE) $(N5) (demo)</description>
       </action>
     </actions>
     <tooltip>$(pv_name)
@@ -1101,7 +1101,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-41ce3bf8:146ee9d5016:-6fee</wuid>
+    <wuid>-41ce3bf8:146ee9d5016:-63a3</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1127,7 +1127,7 @@ $(pv_value)</tooltip>
     </font>
     <width>25</width>
     <border_style>6</border_style>
-    <label>6</label>
+    <label>$(N6)</label>
     <rules />
     <pv_value />
     <border_width>1</border_width>
@@ -1137,31 +1137,31 @@ $(pv_value)</tooltip>
     <y>120</y>
     <actions hook="false" hook_all="false">
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut.opi</path>
+        <path>user$(TYPE).opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut6</C>
+          <C>user$(TYPE)$(N6)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 6</description>
+        <description>user $(TYPE) $(N6)</description>
       </action>
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut_full.opi</path>
+        <path>user$(TYPE)_full.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut6</C>
+          <C>user$(TYPE)$(N6)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 6 (full)</description>
+        <description>user $(TYPE) $(N6) (full)</description>
       </action>
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut_demo.opi</path>
+        <path>user$(TYPE)_demo.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut6</C>
+          <C>user$(TYPE)$(N6)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 6 (demo)</description>
+        <description>user $(TYPE) $(N6) (demo)</description>
       </action>
     </actions>
     <tooltip>$(pv_name)
@@ -1172,7 +1172,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-41ce3bf8:146ee9d5016:-6fed</wuid>
+    <wuid>-41ce3bf8:146ee9d5016:-63a2</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1198,7 +1198,7 @@ $(pv_value)</tooltip>
     </font>
     <width>25</width>
     <border_style>6</border_style>
-    <label>7</label>
+    <label>$(N7)</label>
     <rules />
     <pv_value />
     <border_width>1</border_width>
@@ -1208,31 +1208,31 @@ $(pv_value)</tooltip>
     <y>140</y>
     <actions hook="false" hook_all="false">
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut.opi</path>
+        <path>user$(TYPE).opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut7</C>
+          <C>user$(TYPE)$(N7)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 7</description>
+        <description>user $(TYPE) $(N7)</description>
       </action>
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut_full.opi</path>
+        <path>user$(TYPE)_full.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut7</C>
+          <C>user$(TYPE)$(N7)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 7 (full)</description>
+        <description>user $(TYPE) $(N7) (full)</description>
       </action>
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut_demo.opi</path>
+        <path>user$(TYPE)_demo.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut7</C>
+          <C>user$(TYPE)$(N7)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 7 (demo)</description>
+        <description>user $(TYPE) $(N7) (demo)</description>
       </action>
     </actions>
     <tooltip>$(pv_name)
@@ -1243,7 +1243,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-41ce3bf8:146ee9d5016:-6fec</wuid>
+    <wuid>-41ce3bf8:146ee9d5016:-63a1</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1269,7 +1269,7 @@ $(pv_value)</tooltip>
     </font>
     <width>25</width>
     <border_style>6</border_style>
-    <label>8</label>
+    <label>$(N8)</label>
     <rules />
     <pv_value />
     <border_width>1</border_width>
@@ -1279,31 +1279,31 @@ $(pv_value)</tooltip>
     <y>160</y>
     <actions hook="false" hook_all="false">
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut.opi</path>
+        <path>user$(TYPE).opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut8</C>
+          <C>user$(TYPE)$(N8)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 8</description>
+        <description>user $(TYPE) $(N8)</description>
       </action>
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut_full.opi</path>
+        <path>user$(TYPE)_full.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut8</C>
+          <C>user$(TYPE)$(N8)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 8 (full)</description>
+        <description>user $(TYPE) $(N8) (full)</description>
       </action>
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut_demo.opi</path>
+        <path>user$(TYPE)_demo.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut8</C>
+          <C>user$(TYPE)$(N8)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 8 (demo)</description>
+        <description>user $(TYPE) $(N8) (demo)</description>
       </action>
     </actions>
     <tooltip>$(pv_name)
@@ -1314,7 +1314,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-41ce3bf8:146ee9d5016:-6feb</wuid>
+    <wuid>-41ce3bf8:146ee9d5016:-63a0</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1340,7 +1340,7 @@ $(pv_value)</tooltip>
     </font>
     <width>25</width>
     <border_style>6</border_style>
-    <label>9</label>
+    <label>$(N9)</label>
     <rules />
     <pv_value />
     <border_width>1</border_width>
@@ -1350,31 +1350,31 @@ $(pv_value)</tooltip>
     <y>180</y>
     <actions hook="false" hook_all="false">
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut.opi</path>
+        <path>user$(TYPE).opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut9</C>
+          <C>user$(TYPE)$(N9)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 9</description>
+        <description>user $(TYPE) $(N9)</description>
       </action>
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut_full.opi</path>
+        <path>user$(TYPE)_full.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut9</C>
+          <C>user$(TYPE)$(N9)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 9 (full)</description>
+        <description>user $(TYPE) $(N9) (full)</description>
       </action>
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut_demo.opi</path>
+        <path>user$(TYPE)_demo.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut9</C>
+          <C>user$(TYPE)$(N9)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 9 (demo)</description>
+        <description>user $(TYPE) $(N9) (demo)</description>
       </action>
     </actions>
     <tooltip>$(pv_name)
@@ -1385,7 +1385,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-41ce3bf8:146ee9d5016:-6fea</wuid>
+    <wuid>-41ce3bf8:146ee9d5016:-639f</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -1411,7 +1411,7 @@ $(pv_value)</tooltip>
     </font>
     <width>25</width>
     <border_style>6</border_style>
-    <label>10</label>
+    <label>$(N10)</label>
     <rules />
     <pv_value />
     <border_width>1</border_width>
@@ -1421,31 +1421,31 @@ $(pv_value)</tooltip>
     <y>200</y>
     <actions hook="false" hook_all="false">
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut.opi</path>
+        <path>user$(TYPE).opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut10</C>
+          <C>user$(TYPE)$(N10)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 10</description>
+        <description>user $(TYPE) $(N10)</description>
       </action>
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut_full.opi</path>
+        <path>user$(TYPE)_full.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut10</C>
+          <C>user$(TYPE)$(N10)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 10 (full)</description>
+        <description>user $(TYPE) $(N10) (full)</description>
       </action>
       <action type="OPEN_DISPLAY">
-        <path>userCalcOut_demo.opi</path>
+        <path>user$(TYPE)_demo.opi</path>
         <macros>
           <include_parent_macros>true</include_parent_macros>
-          <C>userCalcOut10</C>
+          <C>user$(TYPE)$(N10)</C>
         </macros>
         <replace>0</replace>
-        <description>user calcOut 10 (demo)</description>
+        <description>user $(TYPE) $(N10) (demo)</description>
       </action>
     </actions>
     <tooltip>$(pv_name)
