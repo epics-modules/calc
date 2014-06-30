@@ -22,14 +22,6 @@ QWidget#centralWidget {background: rgba(255, 255, 255, 255);}
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
-            <property name="geometry">
-                <rect>
-                    <x>0</x>
-                    <y>0</y>
-                    <width>200</width>
-                    <height>14</height>
-                </rect>
-            </property>
             <property name="foreground">
                 <color alpha="255">
                     <red>0</red>
@@ -48,23 +40,23 @@ QWidget#centralWidget {background: rgba(255, 255, 255, 255);}
                 <string>$(P)userArrayCalcs 1-5</string>
             </property>
             <property name="fontScaleMode">
-                <enum>ESimpleLabel::Height</enum>
+                <enum>ESimpleLabel::WidthAndHeight</enum>
             </property>
             <property name="alignment">
                 <set>Qt::AlignAbsolute|Qt::AlignHCenter|Qt::AlignVCenter</set>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>200</width>
+                    <height>14</height>
+                </rect>
             </property>
         </widget>
         <widget class="caLabel" name="caLabel_1">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>200</x>
-                    <y>0</y>
-                    <width>200</width>
-                    <height>14</height>
-                </rect>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -84,10 +76,18 @@ QWidget#centralWidget {background: rgba(255, 255, 255, 255);}
                 <string>$(P)userArrayCalcs 6-10</string>
             </property>
             <property name="fontScaleMode">
-                <enum>ESimpleLabel::Height</enum>
+                <enum>ESimpleLabel::WidthAndHeight</enum>
             </property>
             <property name="alignment">
                 <set>Qt::AlignAbsolute|Qt::AlignHCenter|Qt::AlignVCenter</set>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>200</x>
+                    <y>0</y>
+                    <width>200</width>
+                    <height>14</height>
+                </rect>
             </property>
         </widget>
         <widget class="caCartesianPlot" name="caCartesianPlot_0">
@@ -909,7 +909,7 @@ QWidget#centralWidget {background: rgba(255, 255, 255, 255);}
                     </rect>
                 </property>
                 <property name="fontScaleMode">
-                    <enum>caLineEdit::Height</enum>
+                    <enum>caLineEdit::WidthAndHeight</enum>
                 </property>
                 <property name="channel">
                     <string>$(P)userArrayCalc6.CALC</string>
@@ -960,7 +960,7 @@ QWidget#centralWidget {background: rgba(255, 255, 255, 255);}
                     </rect>
                 </property>
                 <property name="fontScaleMode">
-                    <enum>caLineEdit::Height</enum>
+                    <enum>caLineEdit::WidthAndHeight</enum>
                 </property>
                 <property name="channel">
                     <string>$(P)userArrayCalc1.CALC</string>
@@ -1021,7 +1021,7 @@ QWidget#centralWidget {background: rgba(255, 255, 255, 255);}
                     </rect>
                 </property>
                 <property name="fontScaleMode">
-                    <enum>caLineEdit::Height</enum>
+                    <enum>caLineEdit::WidthAndHeight</enum>
                 </property>
                 <property name="channel">
                     <string>$(P)userArrayCalc7.CALC</string>
@@ -1072,7 +1072,7 @@ QWidget#centralWidget {background: rgba(255, 255, 255, 255);}
                     </rect>
                 </property>
                 <property name="fontScaleMode">
-                    <enum>caLineEdit::Height</enum>
+                    <enum>caLineEdit::WidthAndHeight</enum>
                 </property>
                 <property name="channel">
                     <string>$(P)userArrayCalc2.CALC</string>
@@ -1133,7 +1133,7 @@ QWidget#centralWidget {background: rgba(255, 255, 255, 255);}
                     </rect>
                 </property>
                 <property name="fontScaleMode">
-                    <enum>caLineEdit::Height</enum>
+                    <enum>caLineEdit::WidthAndHeight</enum>
                 </property>
                 <property name="channel">
                     <string>$(P)userArrayCalc8.CALC</string>
@@ -1184,7 +1184,7 @@ QWidget#centralWidget {background: rgba(255, 255, 255, 255);}
                     </rect>
                 </property>
                 <property name="fontScaleMode">
-                    <enum>caLineEdit::Height</enum>
+                    <enum>caLineEdit::WidthAndHeight</enum>
                 </property>
                 <property name="channel">
                     <string>$(P)userArrayCalc3.CALC</string>
@@ -1245,7 +1245,7 @@ QWidget#centralWidget {background: rgba(255, 255, 255, 255);}
                     </rect>
                 </property>
                 <property name="fontScaleMode">
-                    <enum>caLineEdit::Height</enum>
+                    <enum>caLineEdit::WidthAndHeight</enum>
                 </property>
                 <property name="channel">
                     <string>$(P)userArrayCalc9.CALC</string>
@@ -1296,7 +1296,7 @@ QWidget#centralWidget {background: rgba(255, 255, 255, 255);}
                     </rect>
                 </property>
                 <property name="fontScaleMode">
-                    <enum>caLineEdit::Height</enum>
+                    <enum>caLineEdit::WidthAndHeight</enum>
                 </property>
                 <property name="channel">
                     <string>$(P)userArrayCalc4.CALC</string>
@@ -1357,7 +1357,7 @@ QWidget#centralWidget {background: rgba(255, 255, 255, 255);}
                     </rect>
                 </property>
                 <property name="fontScaleMode">
-                    <enum>caLineEdit::Height</enum>
+                    <enum>caLineEdit::WidthAndHeight</enum>
                 </property>
                 <property name="channel">
                     <string>$(P)userArrayCalc10.CALC</string>
@@ -1408,7 +1408,7 @@ QWidget#centralWidget {background: rgba(255, 255, 255, 255);}
                     </rect>
                 </property>
                 <property name="fontScaleMode">
-                    <enum>caLineEdit::Height</enum>
+                    <enum>caLineEdit::WidthAndHeight</enum>
                 </property>
                 <property name="channel">
                     <string>$(P)userArrayCalc5.CALC</string>

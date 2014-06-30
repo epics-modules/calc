@@ -4,8 +4,8 @@
 <widget class="QMainWindow" name="MainWindow">
     <property name="geometry">
         <rect>
-            <x>649</x>
-            <y>96</y>
+            <x>466</x>
+            <y>87</y>
             <width>150</width>
             <height>220</height>
         </rect>
@@ -28,7 +28,7 @@ QWidget#centralWidget {background: rgba(200, 200, 200, 255);}
                 </rect>
             </property>
             <property name="channel">
-                <string>$(P)userCalcOutEnable.VAL</string>
+                <string>$(P)user$(TYPE)Enable.VAL</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -75,19 +75,19 @@ QWidget#centralWidget {background: rgba(200, 200, 200, 255);}
                 </color>
             </property>
             <property name="label">
-                <string>-1</string>
+                <string>-$(N1)</string>
             </property>
             <property name="stackingMode">
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>user calcOut 1;user calcOut 1 (full);user calcOut 1 (demo)</string>
+                <string>user $(TYPE) $(N1);user $(TYPE) $(N1) (full);user $(TYPE) $(N1) (demo)</string>
             </property>
             <property name="files">
-                <string>userCalcOut.adl;userCalcOut_full.adl;userCalcOut_demo.adl</string>
+                <string>user$(TYPE).adl;user$(TYPE)_full.adl;user$(TYPE)_demo.adl</string>
             </property>
             <property name="args">
-                <string>P=$(P),C=userCalcOut1;P=$(P),C=userCalcOut1;P=$(P),C=userCalcOut1</string>
+                <string>P=$(P),C=user$(TYPE)$(N1);P=$(P),C=user$(TYPE)$(N1);P=$(P),C=user$(TYPE)$(N1)</string>
             </property>
             <property name="removeParent">
                 <string>false;false;false</string>
@@ -117,19 +117,19 @@ QWidget#centralWidget {background: rgba(200, 200, 200, 255);}
                 </color>
             </property>
             <property name="label">
-                <string>-2</string>
+                <string>-$(N2)</string>
             </property>
             <property name="stackingMode">
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>user calcOut 2;user calcOut 2 (full);user calcOut 2 (demo)</string>
+                <string>user $(TYPE) $(N2);user $(TYPE) $(N2) (full);user $(TYPE) $(N2) (demo)</string>
             </property>
             <property name="files">
-                <string>userCalcOut.adl;userCalcOut_full.adl;userCalcOut_demo.adl</string>
+                <string>user$(TYPE).adl;user$(TYPE)_full.adl;user$(TYPE)_demo.adl</string>
             </property>
             <property name="args">
-                <string>P=$(P),C=userCalcOut2;P=$(P),C=userCalcOut2;P=$(P),C=userCalcOut2</string>
+                <string>P=$(P),C=user$(TYPE)$(N2);P=$(P),C=user$(TYPE)$(N2);P=$(P),C=user$(TYPE)$(N2)</string>
             </property>
             <property name="removeParent">
                 <string>false;false;false</string>
@@ -159,19 +159,19 @@ QWidget#centralWidget {background: rgba(200, 200, 200, 255);}
                 </color>
             </property>
             <property name="label">
-                <string>-3</string>
+                <string>-$(N3)</string>
             </property>
             <property name="stackingMode">
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>user calcOut 3;user calcOut 3 (full);user calcOut 3 (demo)</string>
+                <string>user $(TYPE) $(N3);user $(TYPE) $(N3) (full);user $(TYPE) $(N3) (demo)</string>
             </property>
             <property name="files">
-                <string>userCalcOut.adl;userCalcOut_full.adl;userCalcOut_demo.adl</string>
+                <string>user$(TYPE).adl;user$(TYPE)_full.adl;user$(TYPE)_demo.adl</string>
             </property>
             <property name="args">
-                <string>P=$(P),C=userCalcOut3;P=$(P),C=userCalcOut3;P=$(P),C=userCalcOut3</string>
+                <string>P=$(P),C=user$(TYPE)$(N3);P=$(P),C=user$(TYPE)$(N3);P=$(P),C=user$(TYPE)$(N3)</string>
             </property>
             <property name="removeParent">
                 <string>false;false;false</string>
@@ -201,19 +201,19 @@ QWidget#centralWidget {background: rgba(200, 200, 200, 255);}
                 </color>
             </property>
             <property name="label">
-                <string>-4</string>
+                <string>-$(N4)</string>
             </property>
             <property name="stackingMode">
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>user calcOut 4;user calcOut 4 (full);user calcOut 4 (demo)</string>
+                <string>user $(TYPE) $(N4);user $(TYPE) $(N4) (full);user $(TYPE) $(N4) (demo)</string>
             </property>
             <property name="files">
-                <string>userCalcOut.adl;userCalcOut_full.adl;userCalcOut_demo.adl</string>
+                <string>user$(TYPE).adl;user$(TYPE)_full.adl;user$(TYPE)_demo.adl</string>
             </property>
             <property name="args">
-                <string>P=$(P),C=userCalcOut4;P=$(P),C=userCalcOut4;P=$(P),C=userCalcOut4</string>
+                <string>P=$(P),C=user$(TYPE)$(N4);P=$(P),C=user$(TYPE)$(N4);P=$(P),C=user$(TYPE)$(N4)</string>
             </property>
             <property name="removeParent">
                 <string>false;false;false</string>
@@ -243,19 +243,19 @@ QWidget#centralWidget {background: rgba(200, 200, 200, 255);}
                 </color>
             </property>
             <property name="label">
-                <string>-5</string>
+                <string>-$(N5)</string>
             </property>
             <property name="stackingMode">
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>user calcOut 5;user calcOut 5 (full);user calcOut 5 (demo)</string>
+                <string>user $(TYPE) $(N5);user $(TYPE) $(N5) (full);user $(TYPE) $(N5) (demo)</string>
             </property>
             <property name="files">
-                <string>userCalcOut.adl;userCalcOut_full.adl;userCalcOut_demo.adl</string>
+                <string>user$(TYPE).adl;user$(TYPE)_full.adl;user$(TYPE)_demo.adl</string>
             </property>
             <property name="args">
-                <string>P=$(P),C=userCalcOut5;P=$(P),C=userCalcOut5;P=$(P),C=userCalcOut5</string>
+                <string>P=$(P),C=user$(TYPE)$(N5);P=$(P),C=user$(TYPE)$(N5);P=$(P),C=user$(TYPE)$(N5)</string>
             </property>
             <property name="removeParent">
                 <string>false;false;false</string>
@@ -285,19 +285,19 @@ QWidget#centralWidget {background: rgba(200, 200, 200, 255);}
                 </color>
             </property>
             <property name="label">
-                <string>-6</string>
+                <string>-$(N6)</string>
             </property>
             <property name="stackingMode">
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>user calcOut 6;user calcOut 6 (full);user calcOut 6 (demo)</string>
+                <string>user $(TYPE) $(N6);user $(TYPE) $(N6) (full);user $(TYPE) $(N6) (demo)</string>
             </property>
             <property name="files">
-                <string>userCalcOut.adl;userCalcOut_full.adl;userCalcOut_demo.adl</string>
+                <string>user$(TYPE).adl;user$(TYPE)_full.adl;user$(TYPE)_demo.adl</string>
             </property>
             <property name="args">
-                <string>P=$(P),C=userCalcOut6;P=$(P),C=userCalcOut6;P=$(P),C=userCalcOut6</string>
+                <string>P=$(P),C=user$(TYPE)$(N6);P=$(P),C=user$(TYPE)$(N6);P=$(P),C=user$(TYPE)$(N6)</string>
             </property>
             <property name="removeParent">
                 <string>false;false;false</string>
@@ -327,19 +327,19 @@ QWidget#centralWidget {background: rgba(200, 200, 200, 255);}
                 </color>
             </property>
             <property name="label">
-                <string>-7</string>
+                <string>-$(N7)</string>
             </property>
             <property name="stackingMode">
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>user calcOut 7;user calcOut 7 (full);user calcOut 7 (demo)</string>
+                <string>user $(TYPE) $(N7);user $(TYPE) $(N7) (full);user $(TYPE) $(N7) (demo)</string>
             </property>
             <property name="files">
-                <string>userCalcOut.adl;userCalcOut_full.adl;userCalcOut_demo.adl</string>
+                <string>user$(TYPE).adl;user$(TYPE)_full.adl;user$(TYPE)_demo.adl</string>
             </property>
             <property name="args">
-                <string>P=$(P),C=userCalcOut7;P=$(P),C=userCalcOut7;P=$(P),C=userCalcOut7</string>
+                <string>P=$(P),C=user$(TYPE)$(N7);P=$(P),C=user$(TYPE)$(N7);P=$(P),C=user$(TYPE)$(N7)</string>
             </property>
             <property name="removeParent">
                 <string>false;false;false</string>
@@ -369,19 +369,19 @@ QWidget#centralWidget {background: rgba(200, 200, 200, 255);}
                 </color>
             </property>
             <property name="label">
-                <string>-8</string>
+                <string>-$(N8)</string>
             </property>
             <property name="stackingMode">
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>user calcOut 8;user calcOut 8 (full);user calcOut 8 (demo)</string>
+                <string>user $(TYPE) $(N8);user $(TYPE) $(N8) (full);user $(TYPE) $(N8) (demo)</string>
             </property>
             <property name="files">
-                <string>userCalcOut.adl;userCalcOut_full.adl;userCalcOut_demo.adl</string>
+                <string>user$(TYPE).adl;user$(TYPE)_full.adl;user$(TYPE)_demo.adl</string>
             </property>
             <property name="args">
-                <string>P=$(P),C=userCalcOut8;P=$(P),C=userCalcOut8;P=$(P),C=userCalcOut8</string>
+                <string>P=$(P),C=user$(TYPE)$(N8);P=$(P),C=user$(TYPE)$(N8);P=$(P),C=user$(TYPE)$(N8)</string>
             </property>
             <property name="removeParent">
                 <string>false;false;false</string>
@@ -411,19 +411,19 @@ QWidget#centralWidget {background: rgba(200, 200, 200, 255);}
                 </color>
             </property>
             <property name="label">
-                <string>-9</string>
+                <string>-$(N9)</string>
             </property>
             <property name="stackingMode">
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>user calcOut 9;user calcOut 9 (full);user calcOut 9 (demo)</string>
+                <string>user $(TYPE) $(N9);user $(TYPE) $(N9) (full);user $(TYPE) $(N9) (demo)</string>
             </property>
             <property name="files">
-                <string>userCalcOut.adl;userCalcOut_full.adl;userCalcOut_demo.adl</string>
+                <string>user$(TYPE).adl;user$(TYPE)_full.adl;user$(TYPE)_demo.adl</string>
             </property>
             <property name="args">
-                <string>P=$(P),C=userCalcOut9;P=$(P),C=userCalcOut9;P=$(P),C=userCalcOut9</string>
+                <string>P=$(P),C=user$(TYPE)$(N9);P=$(P),C=user$(TYPE)$(N9);P=$(P),C=user$(TYPE)$(N9)</string>
             </property>
             <property name="removeParent">
                 <string>false;false;false</string>
@@ -453,19 +453,19 @@ QWidget#centralWidget {background: rgba(200, 200, 200, 255);}
                 </color>
             </property>
             <property name="label">
-                <string>-10</string>
+                <string>-$(N10)</string>
             </property>
             <property name="stackingMode">
                 <enum>Menu</enum>
             </property>
             <property name="labels">
-                <string>user calcOut 10;user calcOut 10 (full);user calcOut 10 (demo)</string>
+                <string>user $(TYPE) $(N10);user $(TYPE) $(N10) (full);user $(TYPE) $(N10) (demo)</string>
             </property>
             <property name="files">
-                <string>userCalcOut.adl;userCalcOut_full.adl;userCalcOut_demo.adl</string>
+                <string>user$(TYPE).adl;user$(TYPE)_full.adl;user$(TYPE)_demo.adl</string>
             </property>
             <property name="args">
-                <string>P=$(P),C=userCalcOut10;P=$(P),C=userCalcOut10;P=$(P),C=userCalcOut10</string>
+                <string>P=$(P),C=user$(TYPE)$(N10);P=$(P),C=user$(TYPE)$(N10);P=$(P),C=user$(TYPE)$(N10)</string>
             </property>
             <property name="removeParent">
                 <string>false;false;false</string>
@@ -493,7 +493,7 @@ QWidget#centralWidget {background: rgba(200, 200, 200, 255);}
                     <enum>caLineEdit::WidthAndHeight</enum>
                 </property>
                 <property name="channel">
-                    <string>$(P)userCalcOut1.DESC</string>
+                    <string>$(P)user$(TYPE)$(N1).DESC</string>
                 </property>
                 <property name="foreground">
                     <color alpha="255">
@@ -544,7 +544,7 @@ QWidget#centralWidget {background: rgba(200, 200, 200, 255);}
                     <enum>caLineEdit::WidthAndHeight</enum>
                 </property>
                 <property name="channel">
-                    <string>$(P)userCalcOut2.DESC</string>
+                    <string>$(P)user$(TYPE)$(N2).DESC</string>
                 </property>
                 <property name="foreground">
                     <color alpha="255">
@@ -595,7 +595,7 @@ QWidget#centralWidget {background: rgba(200, 200, 200, 255);}
                     <enum>caLineEdit::WidthAndHeight</enum>
                 </property>
                 <property name="channel">
-                    <string>$(P)userCalcOut3.DESC</string>
+                    <string>$(P)user$(TYPE)$(N3).DESC</string>
                 </property>
                 <property name="foreground">
                     <color alpha="255">
@@ -646,7 +646,7 @@ QWidget#centralWidget {background: rgba(200, 200, 200, 255);}
                     <enum>caLineEdit::WidthAndHeight</enum>
                 </property>
                 <property name="channel">
-                    <string>$(P)userCalcOut4.DESC</string>
+                    <string>$(P)user$(TYPE)$(N4).DESC</string>
                 </property>
                 <property name="foreground">
                     <color alpha="255">
@@ -697,7 +697,7 @@ QWidget#centralWidget {background: rgba(200, 200, 200, 255);}
                     <enum>caLineEdit::WidthAndHeight</enum>
                 </property>
                 <property name="channel">
-                    <string>$(P)userCalcOut5.DESC</string>
+                    <string>$(P)user$(TYPE)$(N5).DESC</string>
                 </property>
                 <property name="foreground">
                     <color alpha="255">
@@ -748,7 +748,7 @@ QWidget#centralWidget {background: rgba(200, 200, 200, 255);}
                     <enum>caLineEdit::WidthAndHeight</enum>
                 </property>
                 <property name="channel">
-                    <string>$(P)userCalcOut6.DESC</string>
+                    <string>$(P)user$(TYPE)$(N6).DESC</string>
                 </property>
                 <property name="foreground">
                     <color alpha="255">
@@ -799,7 +799,7 @@ QWidget#centralWidget {background: rgba(200, 200, 200, 255);}
                     <enum>caLineEdit::WidthAndHeight</enum>
                 </property>
                 <property name="channel">
-                    <string>$(P)userCalcOut7.DESC</string>
+                    <string>$(P)user$(TYPE)$(N7).DESC</string>
                 </property>
                 <property name="foreground">
                     <color alpha="255">
@@ -850,7 +850,7 @@ QWidget#centralWidget {background: rgba(200, 200, 200, 255);}
                     <enum>caLineEdit::WidthAndHeight</enum>
                 </property>
                 <property name="channel">
-                    <string>$(P)userCalcOut8.DESC</string>
+                    <string>$(P)user$(TYPE)$(N8).DESC</string>
                 </property>
                 <property name="foreground">
                     <color alpha="255">
@@ -901,7 +901,7 @@ QWidget#centralWidget {background: rgba(200, 200, 200, 255);}
                     <enum>caLineEdit::WidthAndHeight</enum>
                 </property>
                 <property name="channel">
-                    <string>$(P)userCalcOut9.DESC</string>
+                    <string>$(P)user$(TYPE)$(N9).DESC</string>
                 </property>
                 <property name="foreground">
                     <color alpha="255">
@@ -952,7 +952,7 @@ QWidget#centralWidget {background: rgba(200, 200, 200, 255);}
                     <enum>caLineEdit::WidthAndHeight</enum>
                 </property>
                 <property name="channel">
-                    <string>$(P)userCalcOut10.DESC</string>
+                    <string>$(P)user$(TYPE)$(N10).DESC</string>
                 </property>
                 <property name="foreground">
                     <color alpha="255">

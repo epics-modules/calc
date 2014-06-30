@@ -4,10 +4,10 @@
 <widget class="QMainWindow" name="MainWindow">
     <property name="geometry">
         <rect>
-            <x>686</x>
-            <y>49</y>
-            <width>240</width>
-            <height>940</height>
+            <x>382</x>
+            <y>128</y>
+            <width>480</width>
+            <height>610</height>
         </rect>
     </property>
     <property name="styleSheet">
@@ -18,711 +18,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
 </string>
     </property>
     <widget class="QWidget" name="centralWidget">
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_0">
-            <property name="geometry">
-                <rect>
-                    <x>0</x>
-                    <y>0</y>
-                    <width>30</width>
-                    <height>16</height>
-                </rect>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>255</red>
-                    <green>255</green>
-                    <blue>255</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>51</red>
-                    <green>153</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="label">
-                <string>-TOP</string>
-            </property>
-            <property name="stackingMode">
-                <enum>Menu</enum>
-            </property>
-            <property name="labels">
-                <string></string>
-            </property>
-            <property name="files">
-                <string>calcExamples.adl</string>
-            </property>
-            <property name="args">
-                <string></string>
-            </property>
-            <property name="removeParent">
-                <string>true</string>
-            </property>
-        </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_1">
-            <property name="geometry">
-                <rect>
-                    <x>30</x>
-                    <y>0</y>
-                    <width>30</width>
-                    <height>16</height>
-                </rect>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>255</red>
-                    <green>255</green>
-                    <blue>255</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>51</red>
-                    <green>153</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="label">
-                <string>-ALG</string>
-            </property>
-            <property name="stackingMode">
-                <enum>Menu</enum>
-            </property>
-            <property name="labels">
-                <string></string>
-            </property>
-            <property name="files">
-                <string>calcAlgebraicExamples.adl</string>
-            </property>
-            <property name="args">
-                <string></string>
-            </property>
-            <property name="removeParent">
-                <string>true</string>
-            </property>
-        </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_2">
-            <property name="geometry">
-                <rect>
-                    <x>60</x>
-                    <y>0</y>
-                    <width>30</width>
-                    <height>16</height>
-                </rect>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>255</red>
-                    <green>255</green>
-                    <blue>255</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>51</red>
-                    <green>153</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="label">
-                <string>-TRIG</string>
-            </property>
-            <property name="stackingMode">
-                <enum>Menu</enum>
-            </property>
-            <property name="labels">
-                <string></string>
-            </property>
-            <property name="files">
-                <string>calcTrigExamples.adl</string>
-            </property>
-            <property name="args">
-                <string></string>
-            </property>
-            <property name="removeParent">
-                <string>true</string>
-            </property>
-        </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_3">
-            <property name="geometry">
-                <rect>
-                    <x>90</x>
-                    <y>0</y>
-                    <width>30</width>
-                    <height>16</height>
-                </rect>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>255</red>
-                    <green>255</green>
-                    <blue>255</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>51</red>
-                    <green>153</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="label">
-                <string>-REL</string>
-            </property>
-            <property name="stackingMode">
-                <enum>Menu</enum>
-            </property>
-            <property name="labels">
-                <string></string>
-            </property>
-            <property name="files">
-                <string>calcRelationalExamples.adl</string>
-            </property>
-            <property name="args">
-                <string></string>
-            </property>
-            <property name="removeParent">
-                <string>true</string>
-            </property>
-        </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_4">
-            <property name="geometry">
-                <rect>
-                    <x>120</x>
-                    <y>0</y>
-                    <width>30</width>
-                    <height>16</height>
-                </rect>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>255</red>
-                    <green>255</green>
-                    <blue>255</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>51</red>
-                    <green>153</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="label">
-                <string>-BIT</string>
-            </property>
-            <property name="stackingMode">
-                <enum>Menu</enum>
-            </property>
-            <property name="labels">
-                <string></string>
-            </property>
-            <property name="files">
-                <string>calcBitwiseExamples.adl</string>
-            </property>
-            <property name="args">
-                <string></string>
-            </property>
-            <property name="removeParent">
-                <string>true</string>
-            </property>
-        </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_5">
-            <property name="geometry">
-                <rect>
-                    <x>150</x>
-                    <y>0</y>
-                    <width>30</width>
-                    <height>16</height>
-                </rect>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>255</red>
-                    <green>255</green>
-                    <blue>255</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>51</red>
-                    <green>153</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="label">
-                <string>-MISC</string>
-            </property>
-            <property name="stackingMode">
-                <enum>Menu</enum>
-            </property>
-            <property name="labels">
-                <string></string>
-            </property>
-            <property name="files">
-                <string>calcMiscExamples.adl</string>
-            </property>
-            <property name="args">
-                <string></string>
-            </property>
-            <property name="removeParent">
-                <string>true</string>
-            </property>
-        </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_6">
-            <property name="geometry">
-                <rect>
-                    <x>180</x>
-                    <y>0</y>
-                    <width>30</width>
-                    <height>16</height>
-                </rect>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>255</red>
-                    <green>255</green>
-                    <blue>255</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>51</red>
-                    <green>153</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="label">
-                <string>-STR</string>
-            </property>
-            <property name="stackingMode">
-                <enum>Menu</enum>
-            </property>
-            <property name="labels">
-                <string></string>
-            </property>
-            <property name="files">
-                <string>calcStringExamples.adl</string>
-            </property>
-            <property name="args">
-                <string></string>
-            </property>
-            <property name="removeParent">
-                <string>true</string>
-            </property>
-        </widget>
-        <widget class="caPolyLine" name="caPolyLine_0">
-            <property name="geometry">
-                <rect>
-                    <x>0</x>
-                    <y>60</y>
-                    <width>244</width>
-                    <height>3</height>
-                </rect>
-            </property>
-            <property name="lineSize">
-                <number>3</number>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>10</red>
-                    <green>0</green>
-                    <blue>184</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>10</red>
-                    <green>0</green>
-                    <blue>184</blue>
-                </color>
-            </property>
-            <property name="lineColor">
-                <color alpha="255">
-                    <red>10</red>
-                    <green>0</green>
-                    <blue>184</blue>
-                </color>
-            </property>
-            <property name="linestyle">
-                <enum>Solid</enum>
-            </property>
-            <property name="xyPairs">
-                <string>1,1;242,1;</string>
-            </property>
-        </widget>
         <widget class="caLabel" name="caLabel_0">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>10</red>
-                    <green>0</green>
-                    <blue>184</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>10</red>
-                    <green>0</green>
-                    <blue>184</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>expressions</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignHCenter|Qt::AlignVCenter</set>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>5</x>
-                    <y>40</y>
-                    <width>235</width>
-                    <height>20</height>
-                </rect>
-            </property>
-        </widget>
-        <widget class="caLabel" name="caLabel_1">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>10</red>
-                    <green>0</green>
-                    <blue>184</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>10</red>
-                    <green>0</green>
-                    <blue>184</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>Array</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignHCenter|Qt::AlignVCenter</set>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>5</x>
-                    <y>20</y>
-                    <width>235</width>
-                    <height>20</height>
-                </rect>
-            </property>
-        </widget>
-        <widget class="caPolyLine" name="caPolyLine_1">
-            <property name="geometry">
-                <rect>
-                    <x>0</x>
-                    <y>15</y>
-                    <width>244</width>
-                    <height>3</height>
-                </rect>
-            </property>
-            <property name="lineSize">
-                <number>3</number>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>10</red>
-                    <green>0</green>
-                    <blue>184</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>10</red>
-                    <green>0</green>
-                    <blue>184</blue>
-                </color>
-            </property>
-            <property name="lineColor">
-                <color alpha="255">
-                    <red>10</red>
-                    <green>0</green>
-                    <blue>184</blue>
-                </color>
-            </property>
-            <property name="linestyle">
-                <enum>Solid</enum>
-            </property>
-            <property name="xyPairs">
-                <string>1,1;242,1;</string>
-            </property>
-        </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_7">
-            <property name="geometry">
-                <rect>
-                    <x>210</x>
-                    <y>0</y>
-                    <width>30</width>
-                    <height>16</height>
-                </rect>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>255</red>
-                    <green>255</green>
-                    <blue>255</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>51</red>
-                    <green>153</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="label">
-                <string>-ARR</string>
-            </property>
-            <property name="stackingMode">
-                <enum>Menu</enum>
-            </property>
-            <property name="labels">
-                <string></string>
-            </property>
-            <property name="files">
-                <string>calcArrayExamples.adl</string>
-            </property>
-            <property name="args">
-                <string></string>
-            </property>
-            <property name="removeParent">
-                <string>true</string>
-            </property>
-        </widget>
-        <widget class="caLabel" name="caLabel_2">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>All functions and operators</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>5</x>
-                    <y>65</y>
-                    <width>230</width>
-                    <height>14</height>
-                </rect>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-        </widget>
-        <widget class="caLabel" name="caLabel_3">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>that can take a scalar value</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>5</x>
-                    <y>80</y>
-                    <width>235</width>
-                    <height>14</height>
-                </rect>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-        </widget>
-        <widget class="caLabel" name="caLabel_4">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>can also take an array value.</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>5</x>
-                    <y>95</y>
-                    <width>243</width>
-                    <height>14</height>
-                </rect>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-        </widget>
-        <widget class="caLabel" name="caLabel_5">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>Only array-specific functions</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>5</x>
-                    <y>110</y>
-                    <width>243</width>
-                    <height>14</height>
-                </rect>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-        </widget>
-        <widget class="caLabel" name="caLabel_6">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>are listed here.</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>5</x>
-                    <y>125</y>
-                    <width>230</width>
-                    <height>14</height>
-                </rect>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-        </widget>
-        <widget class="caLabel" name="caLabel_7">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>AVG(AA)</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>5</x>
-                    <y>145</y>
-                    <width>230</width>
-                    <height>14</height>
-                </rect>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-        </widget>
-        <widget class="caLabel" name="caLabel_8">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -758,7 +54,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_9">
+        <widget class="caLabel" name="caLabel_1">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -794,7 +90,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_10">
+        <widget class="caLabel" name="caLabel_2">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -830,43 +126,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_11">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>164</red>
-                    <green>126</green>
-                    <blue>60</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>164</red>
-                    <green>126</green>
-                    <blue>60</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>AVERAGE OF ARRAY VALUES</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>15</x>
-                    <y>160</y>
-                    <width>220</width>
-                    <height>10</height>
-                </rect>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-        </widget>
-        <widget class="caLabel" name="caLabel_12">
+        <widget class="caLabel" name="caLabel_3">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -902,7 +162,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_13">
+        <widget class="caLabel" name="caLabel_4">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -938,7 +198,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_14">
+        <widget class="caLabel" name="caLabel_5">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -974,12 +234,12 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
-        <widget class="caPolyLine" name="caPolyLine_2">
+        <widget class="caPolyLine" name="caPolyLine_0">
             <property name="geometry">
                 <rect>
                     <x>5</x>
                     <y>140</y>
-                    <width>243</width>
+                    <width>483</width>
                     <height>1</height>
                 </rect>
             </property>
@@ -1011,7 +271,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <enum>Solid</enum>
             </property>
             <property name="xyPairs">
-                <string>0,0;242,0;</string>
+                <string>0,0;482,0;</string>
             </property>
         </widget>
         <widget class="caFrame" name="caFrame_0">
@@ -1023,7 +283,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                     <height>27</height>
                 </rect>
             </property>
-            <widget class="caLabel" name="caLabel_15">
+            <widget class="caLabel" name="caLabel_6">
                 <property name="frameShape">
                     <enum>QFrame::NoFrame</enum>
                 </property>
@@ -1059,7 +319,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                     <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
                 </property>
             </widget>
-            <widget class="caLabel" name="caLabel_16">
+            <widget class="caLabel" name="caLabel_7">
                 <property name="frameShape">
                     <enum>QFrame::NoFrame</enum>
                 </property>
@@ -1105,7 +365,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                     <height>57</height>
                 </rect>
             </property>
-            <widget class="caLabel" name="caLabel_17">
+            <widget class="caLabel" name="caLabel_8">
                 <property name="frameShape">
                     <enum>QFrame::NoFrame</enum>
                 </property>
@@ -1141,7 +401,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                     <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
                 </property>
             </widget>
-            <widget class="caLabel" name="caLabel_18">
+            <widget class="caLabel" name="caLabel_9">
                 <property name="frameShape">
                     <enum>QFrame::NoFrame</enum>
                 </property>
@@ -1177,7 +437,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                     <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
                 </property>
             </widget>
-            <widget class="caLabel" name="caLabel_19">
+            <widget class="caLabel" name="caLabel_10">
                 <property name="frameShape">
                     <enum>QFrame::NoFrame</enum>
                 </property>
@@ -1213,7 +473,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                     <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
                 </property>
             </widget>
-            <widget class="caLabel" name="caLabel_20">
+            <widget class="caLabel" name="caLabel_11">
                 <property name="frameShape">
                     <enum>QFrame::NoFrame</enum>
                 </property>
@@ -1250,7 +510,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 </property>
             </widget>
         </widget>
-        <widget class="caLabel" name="caLabel_21">
+        <widget class="caLabel" name="caLabel_12">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -1286,7 +546,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_22">
+        <widget class="caLabel" name="caLabel_13">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -1322,7 +582,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_23">
+        <widget class="caLabel" name="caLabel_14">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -1358,7 +618,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_24">
+        <widget class="caLabel" name="caLabel_15">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -1394,7 +654,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_25">
+        <widget class="caLabel" name="caLabel_16">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -1439,7 +699,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                     <height>27</height>
                 </rect>
             </property>
-            <widget class="caLabel" name="caLabel_26">
+            <widget class="caLabel" name="caLabel_17">
                 <property name="frameShape">
                     <enum>QFrame::NoFrame</enum>
                 </property>
@@ -1475,7 +735,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                     <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
                 </property>
             </widget>
-            <widget class="caLabel" name="caLabel_27">
+            <widget class="caLabel" name="caLabel_18">
                 <property name="frameShape">
                     <enum>QFrame::NoFrame</enum>
                 </property>
@@ -1512,7 +772,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 </property>
             </widget>
         </widget>
-        <widget class="caLabel" name="caLabel_28">
+        <widget class="caLabel" name="caLabel_19">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -1548,7 +808,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_29">
+        <widget class="caLabel" name="caLabel_20">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -1593,7 +853,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                     <height>27</height>
                 </rect>
             </property>
-            <widget class="caLabel" name="caLabel_30">
+            <widget class="caLabel" name="caLabel_21">
                 <property name="frameShape">
                     <enum>QFrame::NoFrame</enum>
                 </property>
@@ -1629,7 +889,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                     <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
                 </property>
             </widget>
-            <widget class="caLabel" name="caLabel_31">
+            <widget class="caLabel" name="caLabel_22">
                 <property name="frameShape">
                     <enum>QFrame::NoFrame</enum>
                 </property>
@@ -1675,7 +935,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                     <height>27</height>
                 </rect>
             </property>
-            <widget class="caLabel" name="caLabel_32">
+            <widget class="caLabel" name="caLabel_23">
                 <property name="frameShape">
                     <enum>QFrame::NoFrame</enum>
                 </property>
@@ -1711,7 +971,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                     <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
                 </property>
             </widget>
-            <widget class="caLabel" name="caLabel_33">
+            <widget class="caLabel" name="caLabel_24">
                 <property name="frameShape">
                     <enum>QFrame::NoFrame</enum>
                 </property>
@@ -1757,7 +1017,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                     <height>27</height>
                 </rect>
             </property>
-            <widget class="caLabel" name="caLabel_34">
+            <widget class="caLabel" name="caLabel_25">
                 <property name="frameShape">
                     <enum>QFrame::NoFrame</enum>
                 </property>
@@ -1793,7 +1053,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                     <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
                 </property>
             </widget>
-            <widget class="caLabel" name="caLabel_35">
+            <widget class="caLabel" name="caLabel_26">
                 <property name="frameShape">
                     <enum>QFrame::NoFrame</enum>
                 </property>
@@ -1839,7 +1099,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                     <height>27</height>
                 </rect>
             </property>
-            <widget class="caLabel" name="caLabel_36">
+            <widget class="caLabel" name="caLabel_27">
                 <property name="frameShape">
                     <enum>QFrame::NoFrame</enum>
                 </property>
@@ -1875,7 +1135,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                     <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
                 </property>
             </widget>
-            <widget class="caLabel" name="caLabel_37">
+            <widget class="caLabel" name="caLabel_28">
                 <property name="frameShape">
                     <enum>QFrame::NoFrame</enum>
                 </property>
@@ -1912,36 +1172,778 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 </property>
             </widget>
         </widget>
-        <widget class="caLabel" name="caLabel_38">
+        <widget class="caPolyLine" name="caPolyLine_1">
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>60</y>
+                    <width>482</width>
+                    <height>3</height>
+                </rect>
+            </property>
+            <property name="lineSize">
+                <number>3</number>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>10</red>
+                    <green>0</green>
+                    <blue>184</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="0">
+                    <red>10</red>
+                    <green>0</green>
+                    <blue>184</blue>
+                </color>
+            </property>
+            <property name="lineColor">
+                <color alpha="255">
+                    <red>10</red>
+                    <green>0</green>
+                    <blue>184</blue>
+                </color>
+            </property>
+            <property name="linestyle">
+                <enum>Solid</enum>
+            </property>
+            <property name="xyPairs">
+                <string>1,1;480,1;</string>
+            </property>
+        </widget>
+        <widget class="caLabel" name="caLabel_29">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
             <property name="foreground">
                 <color alpha="255">
-                    <red>164</red>
-                    <green>126</green>
-                    <blue>60</blue>
+                    <red>10</red>
+                    <green>0</green>
+                    <blue>184</blue>
                 </color>
             </property>
             <property name="background">
                 <color alpha="0">
-                    <red>164</red>
-                    <green>126</green>
-                    <blue>60</blue>
+                    <red>10</red>
+                    <green>0</green>
+                    <blue>184</blue>
                 </color>
             </property>
             <property name="text">
-                <string>SMOO(AA) B TIMES</string>
+                <string>expressions</string>
+            </property>
+            <property name="fontScaleMode">
+                <enum>ESimpleLabel::WidthAndHeight</enum>
+            </property>
+            <property name="alignment">
+                <set>Qt::AlignAbsolute|Qt::AlignHCenter|Qt::AlignVCenter</set>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>5</x>
+                    <y>40</y>
+                    <width>470</width>
+                    <height>20</height>
+                </rect>
+            </property>
+        </widget>
+        <widget class="caLabel" name="caLabel_30">
+            <property name="frameShape">
+                <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>10</red>
+                    <green>0</green>
+                    <blue>184</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="0">
+                    <red>10</red>
+                    <green>0</green>
+                    <blue>184</blue>
+                </color>
+            </property>
+            <property name="text">
+                <string>Array</string>
+            </property>
+            <property name="fontScaleMode">
+                <enum>ESimpleLabel::WidthAndHeight</enum>
+            </property>
+            <property name="alignment">
+                <set>Qt::AlignAbsolute|Qt::AlignHCenter|Qt::AlignVCenter</set>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>5</x>
+                    <y>20</y>
+                    <width>470</width>
+                    <height>20</height>
+                </rect>
+            </property>
+        </widget>
+        <widget class="caPolyLine" name="caPolyLine_2">
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>15</y>
+                    <width>482</width>
+                    <height>3</height>
+                </rect>
+            </property>
+            <property name="lineSize">
+                <number>3</number>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>10</red>
+                    <green>0</green>
+                    <blue>184</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="0">
+                    <red>10</red>
+                    <green>0</green>
+                    <blue>184</blue>
+                </color>
+            </property>
+            <property name="lineColor">
+                <color alpha="255">
+                    <red>10</red>
+                    <green>0</green>
+                    <blue>184</blue>
+                </color>
+            </property>
+            <property name="linestyle">
+                <enum>Solid</enum>
+            </property>
+            <property name="xyPairs">
+                <string>1,1;480,1;</string>
+            </property>
+        </widget>
+        <widget class="caFrame" name="caFrame_7">
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>482</width>
+                    <height>18</height>
+                </rect>
+            </property>
+            <widget class="caRelatedDisplay" name="caRelatedDisplay_0">
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>0</y>
+                        <width>60</width>
+                        <height>16</height>
+                    </rect>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>255</red>
+                        <green>255</green>
+                        <blue>255</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="255">
+                        <red>51</red>
+                        <green>153</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="label">
+                    <string>-TOP</string>
+                </property>
+                <property name="stackingMode">
+                    <enum>Menu</enum>
+                </property>
+                <property name="labels">
+                    <string></string>
+                </property>
+                <property name="files">
+                    <string>calcExamples.adl</string>
+                </property>
+                <property name="args">
+                    <string></string>
+                </property>
+                <property name="removeParent">
+                    <string>true</string>
+                </property>
+            </widget>
+            <widget class="caRelatedDisplay" name="caRelatedDisplay_1">
+                <property name="geometry">
+                    <rect>
+                        <x>60</x>
+                        <y>0</y>
+                        <width>60</width>
+                        <height>16</height>
+                    </rect>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>255</red>
+                        <green>255</green>
+                        <blue>255</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="255">
+                        <red>51</red>
+                        <green>153</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="label">
+                    <string>-ALG</string>
+                </property>
+                <property name="stackingMode">
+                    <enum>Menu</enum>
+                </property>
+                <property name="labels">
+                    <string></string>
+                </property>
+                <property name="files">
+                    <string>calcAlgebraicExamples.adl</string>
+                </property>
+                <property name="args">
+                    <string></string>
+                </property>
+                <property name="removeParent">
+                    <string>true</string>
+                </property>
+            </widget>
+            <widget class="caRelatedDisplay" name="caRelatedDisplay_2">
+                <property name="geometry">
+                    <rect>
+                        <x>120</x>
+                        <y>0</y>
+                        <width>60</width>
+                        <height>16</height>
+                    </rect>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>255</red>
+                        <green>255</green>
+                        <blue>255</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="255">
+                        <red>51</red>
+                        <green>153</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="label">
+                    <string>-TRIG</string>
+                </property>
+                <property name="stackingMode">
+                    <enum>Menu</enum>
+                </property>
+                <property name="labels">
+                    <string></string>
+                </property>
+                <property name="files">
+                    <string>calcTrigExamples.adl</string>
+                </property>
+                <property name="args">
+                    <string></string>
+                </property>
+                <property name="removeParent">
+                    <string>true</string>
+                </property>
+            </widget>
+            <widget class="caRelatedDisplay" name="caRelatedDisplay_3">
+                <property name="geometry">
+                    <rect>
+                        <x>180</x>
+                        <y>0</y>
+                        <width>60</width>
+                        <height>16</height>
+                    </rect>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>255</red>
+                        <green>255</green>
+                        <blue>255</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="255">
+                        <red>51</red>
+                        <green>153</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="label">
+                    <string>-REL</string>
+                </property>
+                <property name="stackingMode">
+                    <enum>Menu</enum>
+                </property>
+                <property name="labels">
+                    <string></string>
+                </property>
+                <property name="files">
+                    <string>calcRelationalExamples.adl</string>
+                </property>
+                <property name="args">
+                    <string></string>
+                </property>
+                <property name="removeParent">
+                    <string>true</string>
+                </property>
+            </widget>
+            <widget class="caRelatedDisplay" name="caRelatedDisplay_4">
+                <property name="geometry">
+                    <rect>
+                        <x>240</x>
+                        <y>0</y>
+                        <width>60</width>
+                        <height>16</height>
+                    </rect>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>255</red>
+                        <green>255</green>
+                        <blue>255</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="255">
+                        <red>51</red>
+                        <green>153</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="label">
+                    <string>-BIT</string>
+                </property>
+                <property name="stackingMode">
+                    <enum>Menu</enum>
+                </property>
+                <property name="labels">
+                    <string></string>
+                </property>
+                <property name="files">
+                    <string>calcBitwiseExamples.adl</string>
+                </property>
+                <property name="args">
+                    <string></string>
+                </property>
+                <property name="removeParent">
+                    <string>true</string>
+                </property>
+            </widget>
+            <widget class="caRelatedDisplay" name="caRelatedDisplay_5">
+                <property name="geometry">
+                    <rect>
+                        <x>300</x>
+                        <y>0</y>
+                        <width>60</width>
+                        <height>16</height>
+                    </rect>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>255</red>
+                        <green>255</green>
+                        <blue>255</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="255">
+                        <red>51</red>
+                        <green>153</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="label">
+                    <string>-MISC</string>
+                </property>
+                <property name="stackingMode">
+                    <enum>Menu</enum>
+                </property>
+                <property name="labels">
+                    <string></string>
+                </property>
+                <property name="files">
+                    <string>calcMiscExamples.adl</string>
+                </property>
+                <property name="args">
+                    <string></string>
+                </property>
+                <property name="removeParent">
+                    <string>true</string>
+                </property>
+            </widget>
+            <widget class="caRelatedDisplay" name="caRelatedDisplay_6">
+                <property name="geometry">
+                    <rect>
+                        <x>360</x>
+                        <y>0</y>
+                        <width>60</width>
+                        <height>16</height>
+                    </rect>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>255</red>
+                        <green>255</green>
+                        <blue>255</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="255">
+                        <red>51</red>
+                        <green>153</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="label">
+                    <string>-STR</string>
+                </property>
+                <property name="stackingMode">
+                    <enum>Menu</enum>
+                </property>
+                <property name="labels">
+                    <string></string>
+                </property>
+                <property name="files">
+                    <string>calcStringExamples.adl</string>
+                </property>
+                <property name="args">
+                    <string></string>
+                </property>
+                <property name="removeParent">
+                    <string>true</string>
+                </property>
+            </widget>
+            <widget class="caRelatedDisplay" name="caRelatedDisplay_7">
+                <property name="geometry">
+                    <rect>
+                        <x>420</x>
+                        <y>0</y>
+                        <width>60</width>
+                        <height>16</height>
+                    </rect>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>255</red>
+                        <green>255</green>
+                        <blue>255</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="255">
+                        <red>51</red>
+                        <green>153</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="label">
+                    <string>-ARR</string>
+                </property>
+                <property name="stackingMode">
+                    <enum>Menu</enum>
+                </property>
+                <property name="labels">
+                    <string></string>
+                </property>
+                <property name="files">
+                    <string>calcArrayExamples.adl</string>
+                </property>
+                <property name="args">
+                    <string></string>
+                </property>
+                <property name="removeParent">
+                    <string>true</string>
+                </property>
+            </widget>
+        </widget>
+        <widget class="caLabel" name="caLabel_31">
+            <property name="frameShape">
+                <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="0">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="text">
+                <string>All functions and operators that can take a scalar value can also</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>15</x>
-                    <y>620</y>
-                    <width>220</width>
-                    <height>10</height>
+                    <x>5</x>
+                    <y>65</y>
+                    <width>546</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="alignment">
+                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+        </widget>
+        <widget class="caLabel" name="caLabel_32">
+            <property name="frameShape">
+                <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="0">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="text">
+                <string>take an array value.  Only array-specific functions are listed here.</string>
+            </property>
+            <property name="fontScaleMode">
+                <enum>ESimpleLabel::WidthAndHeight</enum>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>5</x>
+                    <y>80</y>
+                    <width>571</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="alignment">
+                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+        </widget>
+        <widget class="caLabel" name="caLabel_33">
+            <property name="frameShape">
+                <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="0">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>5</x>
+                    <y>95</y>
+                    <width>470</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="alignment">
+                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+        </widget>
+        <widget class="caLabel" name="caLabel_34">
+            <property name="frameShape">
+                <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="0">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>5</x>
+                    <y>110</y>
+                    <width>470</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="alignment">
+                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+        </widget>
+        <widget class="caLabel" name="caLabel_35">
+            <property name="frameShape">
+                <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="0">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>5</x>
+                    <y>125</y>
+                    <width>470</width>
+                    <height>14</height>
+                </rect>
+            </property>
+            <property name="alignment">
+                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+        </widget>
+        <widget class="caFrame" name="caFrame_8">
+            <property name="geometry">
+                <rect>
+                    <x>5</x>
+                    <y>145</y>
+                    <width>232</width>
+                    <height>27</height>
+                </rect>
+            </property>
+            <widget class="caLabel" name="caLabel_36">
+                <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="0">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="text">
+                    <string>AVG(AA)</string>
+                </property>
+                <property name="fontScaleMode">
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>0</y>
+                        <width>230</width>
+                        <height>14</height>
+                    </rect>
+                </property>
+                <property name="alignment">
+                    <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+            </widget>
+            <widget class="caLabel" name="caLabel_37">
+                <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>164</red>
+                        <green>126</green>
+                        <blue>60</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="0">
+                        <red>164</red>
+                        <green>126</green>
+                        <blue>60</blue>
+                    </color>
+                </property>
+                <property name="text">
+                    <string>AVERAGE OF ARRAY VALUES</string>
+                </property>
+                <property name="fontScaleMode">
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>10</x>
+                        <y>15</y>
+                        <width>220</width>
+                        <height>10</height>
+                    </rect>
+                </property>
+                <property name="alignment">
+                    <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+            </widget>
+        </widget>
+        <widget class="caLabel" name="caLabel_38">
+            <property name="frameShape">
+                <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="0">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="text">
+                <string>UNTIL(&lt;expr&gt;;&lt;expr&gt;;...)</string>
+            </property>
+            <property name="fontScaleMode">
+                <enum>ESimpleLabel::WidthAndHeight</enum>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>245</x>
+                    <y>145</y>
+                    <width>230</width>
+                    <height>14</height>
                 </rect>
             </property>
             <property name="alignment">
@@ -1954,30 +1956,30 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
             </property>
             <property name="foreground">
                 <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
+                    <red>164</red>
+                    <green>126</green>
+                    <blue>60</blue>
                 </color>
             </property>
             <property name="background">
                 <color alpha="0">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
+                    <red>164</red>
+                    <green>126</green>
+                    <blue>60</blue>
                 </color>
             </property>
             <property name="text">
-                <string>NSMOO(AA,B)</string>
+                <string>EXECUTE REPEATEDLY UNTIL RESULT != 0</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>5</x>
-                    <y>605</y>
-                    <width>230</width>
-                    <height>14</height>
+                    <x>255</x>
+                    <y>160</y>
+                    <width>220</width>
+                    <height>10</height>
                 </rect>
             </property>
             <property name="alignment">
@@ -1990,42 +1992,6 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
             </property>
             <property name="foreground">
                 <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>NDERIV(AA,B)</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>5</x>
-                    <y>635</y>
-                    <width>230</width>
-                    <height>14</height>
-                </rect>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-        </widget>
-        <widget class="caLabel" name="caLabel_41">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
                     <red>164</red>
                     <green>126</green>
                     <blue>60</blue>
@@ -2039,16 +2005,16 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 </color>
             </property>
             <property name="text">
-                <string>DERIV BY FITTING 2B+1 POINT SEGMENTS</string>
+                <string>EXACTLY ONE &lt;expr&gt; CAN RETURN A VALUE</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>15</x>
-                    <y>650</y>
-                    <width>220</width>
+                    <x>255</x>
+                    <y>170</y>
+                    <width>222</width>
                     <height>10</height>
                 </rect>
             </property>
@@ -2056,129 +2022,139 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_42">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>FITPOLY(AA)</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
+        <widget class="caFrame" name="caFrame_9">
             <property name="geometry">
                 <rect>
-                    <x>5</x>
-                    <y>665</y>
-                    <width>230</width>
-                    <height>14</height>
-                </rect>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-        </widget>
-        <widget class="caLabel" name="caLabel_43">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>164</red>
-                    <green>126</green>
-                    <blue>60</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>164</red>
-                    <green>126</green>
-                    <blue>60</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>FIT TO 2ND ORDER POLYNOMIAL</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>15</x>
-                    <y>680</y>
-                    <width>220</width>
-                    <height>10</height>
-                </rect>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-        </widget>
-        <widget class="caFrame" name="caFrame_7">
-            <property name="geometry">
-                <rect>
-                    <x>5</x>
-                    <y>695</y>
+                    <x>245</x>
+                    <y>205</y>
                     <width>232</width>
-                    <height>27</height>
+                    <height>387</height>
                 </rect>
             </property>
+            <widget class="caFrame" name="caFrame_10">
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>0</y>
+                        <width>232</width>
+                        <height>27</height>
+                    </rect>
+                </property>
+                <widget class="caLabel" name="caLabel_41">
+                    <property name="frameShape">
+                        <enum>QFrame::NoFrame</enum>
+                    </property>
+                    <property name="foreground">
+                        <color alpha="255">
+                            <red>0</red>
+                            <green>0</green>
+                            <blue>0</blue>
+                        </color>
+                    </property>
+                    <property name="background">
+                        <color alpha="0">
+                            <red>0</red>
+                            <green>0</green>
+                            <blue>0</blue>
+                        </color>
+                    </property>
+                    <property name="text">
+                        <string>CAT(AA[M,N],B)</string>
+                    </property>
+                    <property name="fontScaleMode">
+                        <enum>ESimpleLabel::WidthAndHeight</enum>
+                    </property>
+                    <property name="geometry">
+                        <rect>
+                            <x>0</x>
+                            <y>0</y>
+                            <width>230</width>
+                            <height>14</height>
+                        </rect>
+                    </property>
+                    <property name="alignment">
+                        <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                </widget>
+                <widget class="caLabel" name="caLabel_42">
+                    <property name="frameShape">
+                        <enum>QFrame::NoFrame</enum>
+                    </property>
+                    <property name="foreground">
+                        <color alpha="255">
+                            <red>164</red>
+                            <green>126</green>
+                            <blue>60</blue>
+                        </color>
+                    </property>
+                    <property name="background">
+                        <color alpha="0">
+                            <red>164</red>
+                            <green>126</green>
+                            <blue>60</blue>
+                        </color>
+                    </property>
+                    <property name="text">
+                        <string>APPEND B TO SUBRANGE AA[m,n]</string>
+                    </property>
+                    <property name="fontScaleMode">
+                        <enum>ESimpleLabel::WidthAndHeight</enum>
+                    </property>
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>15</y>
+                            <width>220</width>
+                            <height>10</height>
+                        </rect>
+                    </property>
+                    <property name="alignment">
+                        <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                </widget>
+            </widget>
+            <widget class="caLabel" name="caLabel_43">
+                <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="0">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="text">
+                    <string>CAT(AA[M,N],BB[x,y])</string>
+                </property>
+                <property name="fontScaleMode">
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>30</y>
+                        <width>230</width>
+                        <height>14</height>
+                    </rect>
+                </property>
+                <property name="alignment">
+                    <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+            </widget>
             <widget class="caLabel" name="caLabel_44">
                 <property name="frameShape">
                     <enum>QFrame::NoFrame</enum>
                 </property>
                 <property name="foreground">
                     <color alpha="255">
-                        <red>0</red>
-                        <green>0</green>
-                        <blue>0</blue>
-                    </color>
-                </property>
-                <property name="background">
-                    <color alpha="0">
-                        <red>0</red>
-                        <green>0</green>
-                        <blue>0</blue>
-                    </color>
-                </property>
-                <property name="text">
-                    <string>FITMPOLY(AA,BB)</string>
-                </property>
-                <property name="fontScaleMode">
-                    <enum>ESimpleLabel::WidthAndHeight</enum>
-                </property>
-                <property name="geometry">
-                    <rect>
-                        <x>0</x>
-                        <y>0</y>
-                        <width>230</width>
-                        <height>14</height>
-                    </rect>
-                </property>
-                <property name="alignment">
-                    <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
-                </property>
-            </widget>
-            <widget class="caLabel" name="caLabel_45">
-                <property name="frameShape">
-                    <enum>QFrame::NoFrame</enum>
-                </property>
-                <property name="foreground">
-                    <color alpha="255">
                         <red>164</red>
                         <green>126</green>
                         <blue>60</blue>
@@ -2192,7 +2168,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                     </color>
                 </property>
                 <property name="text">
-                    <string>FITPOLY, IGNORING AA[I] IF BB[I]==0</string>
+                    <string>APPEND BB[x,y] TO SUBRANGE AA[m,n]</string>
                 </property>
                 <property name="fontScaleMode">
                     <enum>ESimpleLabel::WidthAndHeight</enum>
@@ -2200,7 +2176,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <property name="geometry">
                     <rect>
                         <x>10</x>
-                        <y>15</y>
+                        <y>45</y>
                         <width>220</width>
                         <height>10</height>
                     </rect>
@@ -2209,133 +2185,169 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                     <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
                 </property>
             </widget>
-        </widget>
-        <widget class="caFrame" name="caFrame_8">
-            <property name="geometry">
-                <rect>
-                    <x>5</x>
-                    <y>725</y>
-                    <width>232</width>
-                    <height>27</height>
-                </rect>
-            </property>
-            <widget class="caLabel" name="caLabel_46">
-                <property name="frameShape">
-                    <enum>QFrame::NoFrame</enum>
-                </property>
-                <property name="foreground">
-                    <color alpha="255">
-                        <red>0</red>
-                        <green>0</green>
-                        <blue>0</blue>
-                    </color>
-                </property>
-                <property name="background">
-                    <color alpha="0">
-                        <red>0</red>
-                        <green>0</green>
-                        <blue>0</blue>
-                    </color>
-                </property>
-                <property name="text">
-                    <string>AA&gt;&gt;10</string>
-                </property>
-                <property name="fontScaleMode">
-                    <enum>ESimpleLabel::WidthAndHeight</enum>
-                </property>
+            <widget class="caFrame" name="caFrame_11">
                 <property name="geometry">
                     <rect>
                         <x>0</x>
-                        <y>0</y>
-                        <width>230</width>
-                        <height>14</height>
+                        <y>60</y>
+                        <width>232</width>
+                        <height>27</height>
                     </rect>
                 </property>
-                <property name="alignment">
-                    <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
-                </property>
+                <widget class="caLabel" name="caLabel_45">
+                    <property name="frameShape">
+                        <enum>QFrame::NoFrame</enum>
+                    </property>
+                    <property name="foreground">
+                        <color alpha="255">
+                            <red>0</red>
+                            <green>0</green>
+                            <blue>0</blue>
+                        </color>
+                    </property>
+                    <property name="background">
+                        <color alpha="0">
+                            <red>0</red>
+                            <green>0</green>
+                            <blue>0</blue>
+                        </color>
+                    </property>
+                    <property name="text">
+                        <string>AA&gt;&gt;10</string>
+                    </property>
+                    <property name="fontScaleMode">
+                        <enum>ESimpleLabel::WidthAndHeight</enum>
+                    </property>
+                    <property name="geometry">
+                        <rect>
+                            <x>0</x>
+                            <y>0</y>
+                            <width>230</width>
+                            <height>14</height>
+                        </rect>
+                    </property>
+                    <property name="alignment">
+                        <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                </widget>
+                <widget class="caLabel" name="caLabel_46">
+                    <property name="frameShape">
+                        <enum>QFrame::NoFrame</enum>
+                    </property>
+                    <property name="foreground">
+                        <color alpha="255">
+                            <red>164</red>
+                            <green>126</green>
+                            <blue>60</blue>
+                        </color>
+                    </property>
+                    <property name="background">
+                        <color alpha="0">
+                            <red>164</red>
+                            <green>126</green>
+                            <blue>60</blue>
+                        </color>
+                    </property>
+                    <property name="text">
+                        <string>MOVE ARRAY ELEMENTS FORWARD IN ARRAY</string>
+                    </property>
+                    <property name="fontScaleMode">
+                        <enum>ESimpleLabel::WidthAndHeight</enum>
+                    </property>
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>15</y>
+                            <width>220</width>
+                            <height>10</height>
+                        </rect>
+                    </property>
+                    <property name="alignment">
+                        <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                </widget>
             </widget>
-            <widget class="caLabel" name="caLabel_47">
-                <property name="frameShape">
-                    <enum>QFrame::NoFrame</enum>
-                </property>
-                <property name="foreground">
-                    <color alpha="255">
-                        <red>164</red>
-                        <green>126</green>
-                        <blue>60</blue>
-                    </color>
-                </property>
-                <property name="background">
-                    <color alpha="0">
-                        <red>164</red>
-                        <green>126</green>
-                        <blue>60</blue>
-                    </color>
-                </property>
-                <property name="text">
-                    <string>MOVE ARRAY ELEMENTS FORWARD IN ARRAY</string>
-                </property>
-                <property name="fontScaleMode">
-                    <enum>ESimpleLabel::WidthAndHeight</enum>
-                </property>
-                <property name="geometry">
-                    <rect>
-                        <x>10</x>
-                        <y>15</y>
-                        <width>220</width>
-                        <height>10</height>
-                    </rect>
-                </property>
-                <property name="alignment">
-                    <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
-                </property>
-            </widget>
-        </widget>
-        <widget class="caFrame" name="caFrame_9">
-            <property name="geometry">
-                <rect>
-                    <x>5</x>
-                    <y>755</y>
-                    <width>232</width>
-                    <height>27</height>
-                </rect>
-            </property>
-            <widget class="caLabel" name="caLabel_48">
-                <property name="frameShape">
-                    <enum>QFrame::NoFrame</enum>
-                </property>
-                <property name="foreground">
-                    <color alpha="255">
-                        <red>0</red>
-                        <green>0</green>
-                        <blue>0</blue>
-                    </color>
-                </property>
-                <property name="background">
-                    <color alpha="0">
-                        <red>0</red>
-                        <green>0</green>
-                        <blue>0</blue>
-                    </color>
-                </property>
-                <property name="text">
-                    <string>AA&lt;&lt;10</string>
-                </property>
-                <property name="fontScaleMode">
-                    <enum>ESimpleLabel::WidthAndHeight</enum>
-                </property>
+            <widget class="caFrame" name="caFrame_12">
                 <property name="geometry">
                     <rect>
                         <x>0</x>
-                        <y>0</y>
-                        <width>230</width>
-                        <height>14</height>
+                        <y>90</y>
+                        <width>232</width>
+                        <height>27</height>
                     </rect>
                 </property>
-                <property name="alignment">
-                    <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
-                </property>
+                <widget class="caLabel" name="caLabel_47">
+                    <property name="frameShape">
+                        <enum>QFrame::NoFrame</enum>
+                    </property>
+                    <property name="foreground">
+                        <color alpha="255">
+                            <red>0</red>
+                            <green>0</green>
+                            <blue>0</blue>
+                        </color>
+                    </property>
+                    <property name="background">
+                        <color alpha="0">
+                            <red>0</red>
+                            <green>0</green>
+                            <blue>0</blue>
+                        </color>
+                    </property>
+                    <property name="text">
+                        <string>AA&lt;&lt;10</string>
+                    </property>
+                    <property name="fontScaleMode">
+                        <enum>ESimpleLabel::WidthAndHeight</enum>
+                    </property>
+                    <property name="geometry">
+                        <rect>
+                            <x>0</x>
+                            <y>0</y>
+                            <width>230</width>
+                            <height>14</height>
+                        </rect>
+                    </property>
+                    <property name="alignment">
+                        <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                </widget>
+                <widget class="caLabel" name="caLabel_48">
+                    <property name="frameShape">
+                        <enum>QFrame::NoFrame</enum>
+                    </property>
+                    <property name="foreground">
+                        <color alpha="255">
+                            <red>164</red>
+                            <green>126</green>
+                            <blue>60</blue>
+                        </color>
+                    </property>
+                    <property name="background">
+                        <color alpha="0">
+                            <red>164</red>
+                            <green>126</green>
+                            <blue>60</blue>
+                        </color>
+                    </property>
+                    <property name="text">
+                        <string>MOVE ARRAY ELEMENTS BACKWARD IN ARRAY</string>
+                    </property>
+                    <property name="fontScaleMode">
+                        <enum>ESimpleLabel::WidthAndHeight</enum>
+                    </property>
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>15</y>
+                            <width>222</width>
+                            <height>10</height>
+                        </rect>
+                    </property>
+                    <property name="alignment">
+                        <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                </widget>
             </widget>
             <widget class="caLabel" name="caLabel_49">
                 <property name="frameShape">
@@ -2343,6 +2355,42 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 </property>
                 <property name="foreground">
                     <color alpha="255">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="0">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="text">
+                    <string>CUM(AA)</string>
+                </property>
+                <property name="fontScaleMode">
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>120</y>
+                        <width>230</width>
+                        <height>14</height>
+                    </rect>
+                </property>
+                <property name="alignment">
+                    <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+            </widget>
+            <widget class="caLabel" name="caLabel_50">
+                <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
                         <red>164</red>
                         <green>126</green>
                         <blue>60</blue>
@@ -2356,7 +2404,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                     </color>
                 </property>
                 <property name="text">
-                    <string>MOVE ARRAY ELEMENTS BACKWARD IN ARRAY</string>
+                    <string>CALC RUNNING SUM OF ARRAY ELEMENTS</string>
                 </property>
                 <property name="fontScaleMode">
                     <enum>ESimpleLabel::WidthAndHeight</enum>
@@ -2364,8 +2412,8 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <property name="geometry">
                     <rect>
                         <x>10</x>
-                        <y>15</y>
-                        <width>222</width>
+                        <y>135</y>
+                        <width>220</width>
                         <height>10</height>
                     </rect>
                 </property>
@@ -2373,44 +2421,594 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                     <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
                 </property>
             </widget>
+            <widget class="caLabel" name="caLabel_51">
+                <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="0">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="text">
+                    <string>IXMAX(AA)</string>
+                </property>
+                <property name="fontScaleMode">
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>150</y>
+                        <width>230</width>
+                        <height>14</height>
+                    </rect>
+                </property>
+                <property name="alignment">
+                    <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+            </widget>
+            <widget class="caLabel" name="caLabel_52">
+                <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>164</red>
+                        <green>126</green>
+                        <blue>60</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="0">
+                        <red>164</red>
+                        <green>126</green>
+                        <blue>60</blue>
+                    </color>
+                </property>
+                <property name="text">
+                    <string>INDEX OF MAX ARRAY VALUE</string>
+                </property>
+                <property name="fontScaleMode">
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>10</x>
+                        <y>165</y>
+                        <width>220</width>
+                        <height>10</height>
+                    </rect>
+                </property>
+                <property name="alignment">
+                    <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+            </widget>
+            <widget class="caLabel" name="caLabel_53">
+                <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="0">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="text">
+                    <string>IXMIN(AA)</string>
+                </property>
+                <property name="fontScaleMode">
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>180</y>
+                        <width>230</width>
+                        <height>14</height>
+                    </rect>
+                </property>
+                <property name="alignment">
+                    <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+            </widget>
+            <widget class="caLabel" name="caLabel_54">
+                <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>164</red>
+                        <green>126</green>
+                        <blue>60</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="0">
+                        <red>164</red>
+                        <green>126</green>
+                        <blue>60</blue>
+                    </color>
+                </property>
+                <property name="text">
+                    <string>INDEX OF MIN ARRAY VALUE</string>
+                </property>
+                <property name="fontScaleMode">
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>10</x>
+                        <y>195</y>
+                        <width>220</width>
+                        <height>10</height>
+                    </rect>
+                </property>
+                <property name="alignment">
+                    <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+            </widget>
+            <widget class="caLabel" name="caLabel_55">
+                <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="0">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="text">
+                    <string>IXNZ(AA)</string>
+                </property>
+                <property name="fontScaleMode">
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>210</y>
+                        <width>230</width>
+                        <height>14</height>
+                    </rect>
+                </property>
+                <property name="alignment">
+                    <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+            </widget>
+            <widget class="caLabel" name="caLabel_56">
+                <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>164</red>
+                        <green>126</green>
+                        <blue>60</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="0">
+                        <red>164</red>
+                        <green>126</green>
+                        <blue>60</blue>
+                    </color>
+                </property>
+                <property name="text">
+                    <string>INDEX OF FIRST NONZERO ELEMENT</string>
+                </property>
+                <property name="fontScaleMode">
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>10</x>
+                        <y>225</y>
+                        <width>220</width>
+                        <height>10</height>
+                    </rect>
+                </property>
+                <property name="alignment">
+                    <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+            </widget>
+            <widget class="caLabel" name="caLabel_57">
+                <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="0">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="text">
+                    <string>IXZ(AA)</string>
+                </property>
+                <property name="fontScaleMode">
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>240</y>
+                        <width>230</width>
+                        <height>14</height>
+                    </rect>
+                </property>
+                <property name="alignment">
+                    <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+            </widget>
+            <widget class="caLabel" name="caLabel_58">
+                <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>164</red>
+                        <green>126</green>
+                        <blue>60</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="0">
+                        <red>164</red>
+                        <green>126</green>
+                        <blue>60</blue>
+                    </color>
+                </property>
+                <property name="text">
+                    <string>INDEX OF FIRST ZERO CROSSING</string>
+                </property>
+                <property name="fontScaleMode">
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>10</x>
+                        <y>255</y>
+                        <width>220</width>
+                        <height>10</height>
+                    </rect>
+                </property>
+                <property name="alignment">
+                    <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+            </widget>
+            <widget class="caLabel" name="caLabel_59">
+                <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>164</red>
+                        <green>126</green>
+                        <blue>60</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="0">
+                        <red>164</red>
+                        <green>126</green>
+                        <blue>60</blue>
+                    </color>
+                </property>
+                <property name="text">
+                    <string>SMOO(AA) B TIMES</string>
+                </property>
+                <property name="fontScaleMode">
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>10</x>
+                        <y>285</y>
+                        <width>220</width>
+                        <height>10</height>
+                    </rect>
+                </property>
+                <property name="alignment">
+                    <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+            </widget>
+            <widget class="caLabel" name="caLabel_60">
+                <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="0">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="text">
+                    <string>NSMOO(AA,B)</string>
+                </property>
+                <property name="fontScaleMode">
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>270</y>
+                        <width>230</width>
+                        <height>14</height>
+                    </rect>
+                </property>
+                <property name="alignment">
+                    <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+            </widget>
+            <widget class="caLabel" name="caLabel_61">
+                <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="0">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="text">
+                    <string>NDERIV(AA,B)</string>
+                </property>
+                <property name="fontScaleMode">
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>300</y>
+                        <width>230</width>
+                        <height>14</height>
+                    </rect>
+                </property>
+                <property name="alignment">
+                    <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+            </widget>
+            <widget class="caLabel" name="caLabel_62">
+                <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>164</red>
+                        <green>126</green>
+                        <blue>60</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="0">
+                        <red>164</red>
+                        <green>126</green>
+                        <blue>60</blue>
+                    </color>
+                </property>
+                <property name="text">
+                    <string>DERIV BY FITTING 2B+1 POINT SEGMENTS</string>
+                </property>
+                <property name="fontScaleMode">
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>10</x>
+                        <y>315</y>
+                        <width>220</width>
+                        <height>10</height>
+                    </rect>
+                </property>
+                <property name="alignment">
+                    <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+            </widget>
+            <widget class="caLabel" name="caLabel_63">
+                <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="0">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="text">
+                    <string>FITPOLY(AA)</string>
+                </property>
+                <property name="fontScaleMode">
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>330</y>
+                        <width>230</width>
+                        <height>14</height>
+                    </rect>
+                </property>
+                <property name="alignment">
+                    <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+            </widget>
+            <widget class="caLabel" name="caLabel_64">
+                <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>164</red>
+                        <green>126</green>
+                        <blue>60</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="0">
+                        <red>164</red>
+                        <green>126</green>
+                        <blue>60</blue>
+                    </color>
+                </property>
+                <property name="text">
+                    <string>FIT TO 2ND ORDER POLYNOMIAL</string>
+                </property>
+                <property name="fontScaleMode">
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>10</x>
+                        <y>345</y>
+                        <width>220</width>
+                        <height>10</height>
+                    </rect>
+                </property>
+                <property name="alignment">
+                    <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+            </widget>
+            <widget class="caFrame" name="caFrame_13">
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>360</y>
+                        <width>232</width>
+                        <height>27</height>
+                    </rect>
+                </property>
+                <widget class="caLabel" name="caLabel_65">
+                    <property name="frameShape">
+                        <enum>QFrame::NoFrame</enum>
+                    </property>
+                    <property name="foreground">
+                        <color alpha="255">
+                            <red>0</red>
+                            <green>0</green>
+                            <blue>0</blue>
+                        </color>
+                    </property>
+                    <property name="background">
+                        <color alpha="0">
+                            <red>0</red>
+                            <green>0</green>
+                            <blue>0</blue>
+                        </color>
+                    </property>
+                    <property name="text">
+                        <string>FITMPOLY(AA,BB)</string>
+                    </property>
+                    <property name="fontScaleMode">
+                        <enum>ESimpleLabel::WidthAndHeight</enum>
+                    </property>
+                    <property name="geometry">
+                        <rect>
+                            <x>0</x>
+                            <y>0</y>
+                            <width>230</width>
+                            <height>14</height>
+                        </rect>
+                    </property>
+                    <property name="alignment">
+                        <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                </widget>
+                <widget class="caLabel" name="caLabel_66">
+                    <property name="frameShape">
+                        <enum>QFrame::NoFrame</enum>
+                    </property>
+                    <property name="foreground">
+                        <color alpha="255">
+                            <red>164</red>
+                            <green>126</green>
+                            <blue>60</blue>
+                        </color>
+                    </property>
+                    <property name="background">
+                        <color alpha="0">
+                            <red>164</red>
+                            <green>126</green>
+                            <blue>60</blue>
+                        </color>
+                    </property>
+                    <property name="text">
+                        <string>FITPOLY, IGNORING AA[I] IF BB[I]==0</string>
+                    </property>
+                    <property name="fontScaleMode">
+                        <enum>ESimpleLabel::WidthAndHeight</enum>
+                    </property>
+                    <property name="geometry">
+                        <rect>
+                            <x>10</x>
+                            <y>15</y>
+                            <width>220</width>
+                            <height>10</height>
+                        </rect>
+                    </property>
+                    <property name="alignment">
+                        <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                </widget>
+            </widget>
         </widget>
-        <widget class="caLabel" name="caLabel_50">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>CUM(AA)</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>5</x>
-                    <y>785</y>
-                    <width>230</width>
-                    <height>14</height>
-                </rect>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-        </widget>
-        <widget class="caLabel" name="caLabel_51">
+        <widget class="caLabel" name="caLabel_67">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -2429,15 +3027,15 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 </color>
             </property>
             <property name="text">
-                <string>CALC RUNNING SUM OF ARRAY ELEMENTS</string>
+                <string>   UNTIL(B:=B+1;B&gt;1) IS LEGAL</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>15</x>
-                    <y>800</y>
+                    <x>255</x>
+                    <y>180</y>
                     <width>220</width>
                     <height>10</height>
                 </rect>
@@ -2446,43 +3044,7 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_52">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>IXMAX(AA)</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>5</x>
-                    <y>815</y>
-                    <width>230</width>
-                    <height>14</height>
-                </rect>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-        </widget>
-        <widget class="caLabel" name="caLabel_53">
+        <widget class="caLabel" name="caLabel_68">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -2501,15 +3063,15 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 </color>
             </property>
             <property name="text">
-                <string>INDEX OF MAX ARRAY VALUE</string>
+                <string>   UNTIL(B:=B+1;B:=1) IS NOT</string>
             </property>
             <property name="fontScaleMode">
                 <enum>ESimpleLabel::WidthAndHeight</enum>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>15</x>
-                    <y>830</y>
+                    <x>255</x>
+                    <y>190</y>
                     <width>220</width>
                     <height>10</height>
                 </rect>
@@ -2518,285 +3080,71 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_54">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>IXMIN(AA)</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>5</x>
-                    <y>845</y>
-                    <width>230</width>
-                    <height>14</height>
-                </rect>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-        </widget>
-        <widget class="caLabel" name="caLabel_55">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>164</red>
-                    <green>126</green>
-                    <blue>60</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>164</red>
-                    <green>126</green>
-                    <blue>60</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>INDEX OF MIN ARRAY VALUE</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>15</x>
-                    <y>860</y>
-                    <width>220</width>
-                    <height>10</height>
-                </rect>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-        </widget>
-        <widget class="caLabel" name="caLabel_56">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>IXNZ(AA)</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>5</x>
-                    <y>875</y>
-                    <width>230</width>
-                    <height>14</height>
-                </rect>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-        </widget>
-        <widget class="caLabel" name="caLabel_57">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>164</red>
-                    <green>126</green>
-                    <blue>60</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>164</red>
-                    <green>126</green>
-                    <blue>60</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>INDEX OF FIRST NONZERO ELEMENT</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>15</x>
-                    <y>890</y>
-                    <width>220</width>
-                    <height>10</height>
-                </rect>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-        </widget>
-        <widget class="caLabel" name="caLabel_58">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>IXZ(AA)</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>5</x>
-                    <y>905</y>
-                    <width>230</width>
-                    <height>14</height>
-                </rect>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-        </widget>
-        <widget class="caLabel" name="caLabel_59">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>164</red>
-                    <green>126</green>
-                    <blue>60</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>164</red>
-                    <green>126</green>
-                    <blue>60</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>INDEX OF FIRST ZERO CROSSING</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>15</x>
-                    <y>920</y>
-                    <width>220</width>
-                    <height>10</height>
-                </rect>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-        </widget>
-        <zorder>caPolyLine_0</zorder>
         <zorder>caLabel_0</zorder>
         <zorder>caLabel_1</zorder>
-        <zorder>caPolyLine_1</zorder>
         <zorder>caLabel_2</zorder>
         <zorder>caLabel_3</zorder>
         <zorder>caLabel_4</zorder>
         <zorder>caLabel_5</zorder>
+        <zorder>caPolyLine_0</zorder>
         <zorder>caLabel_6</zorder>
         <zorder>caLabel_7</zorder>
+        <zorder>caFrame_0</zorder>
         <zorder>caLabel_8</zorder>
         <zorder>caLabel_9</zorder>
         <zorder>caLabel_10</zorder>
         <zorder>caLabel_11</zorder>
+        <zorder>caFrame_1</zorder>
         <zorder>caLabel_12</zorder>
         <zorder>caLabel_13</zorder>
         <zorder>caLabel_14</zorder>
-        <zorder>caPolyLine_2</zorder>
         <zorder>caLabel_15</zorder>
         <zorder>caLabel_16</zorder>
-        <zorder>caFrame_0</zorder>
         <zorder>caLabel_17</zorder>
         <zorder>caLabel_18</zorder>
+        <zorder>caFrame_2</zorder>
         <zorder>caLabel_19</zorder>
         <zorder>caLabel_20</zorder>
-        <zorder>caFrame_1</zorder>
         <zorder>caLabel_21</zorder>
         <zorder>caLabel_22</zorder>
+        <zorder>caFrame_3</zorder>
         <zorder>caLabel_23</zorder>
         <zorder>caLabel_24</zorder>
+        <zorder>caFrame_4</zorder>
         <zorder>caLabel_25</zorder>
         <zorder>caLabel_26</zorder>
+        <zorder>caFrame_5</zorder>
         <zorder>caLabel_27</zorder>
-        <zorder>caFrame_2</zorder>
         <zorder>caLabel_28</zorder>
+        <zorder>caFrame_6</zorder>
+        <zorder>caPolyLine_1</zorder>
         <zorder>caLabel_29</zorder>
         <zorder>caLabel_30</zorder>
+        <zorder>caPolyLine_2</zorder>
+        <zorder>caFrame_7</zorder>
         <zorder>caLabel_31</zorder>
-        <zorder>caFrame_3</zorder>
         <zorder>caLabel_32</zorder>
         <zorder>caLabel_33</zorder>
-        <zorder>caFrame_4</zorder>
         <zorder>caLabel_34</zorder>
         <zorder>caLabel_35</zorder>
-        <zorder>caFrame_5</zorder>
         <zorder>caLabel_36</zorder>
         <zorder>caLabel_37</zorder>
-        <zorder>caFrame_6</zorder>
+        <zorder>caFrame_8</zorder>
         <zorder>caLabel_38</zorder>
         <zorder>caLabel_39</zorder>
         <zorder>caLabel_40</zorder>
         <zorder>caLabel_41</zorder>
         <zorder>caLabel_42</zorder>
+        <zorder>caFrame_10</zorder>
         <zorder>caLabel_43</zorder>
         <zorder>caLabel_44</zorder>
         <zorder>caLabel_45</zorder>
-        <zorder>caFrame_7</zorder>
         <zorder>caLabel_46</zorder>
+        <zorder>caFrame_11</zorder>
         <zorder>caLabel_47</zorder>
-        <zorder>caFrame_8</zorder>
         <zorder>caLabel_48</zorder>
+        <zorder>caFrame_12</zorder>
         <zorder>caLabel_49</zorder>
-        <zorder>caFrame_9</zorder>
         <zorder>caLabel_50</zorder>
         <zorder>caLabel_51</zorder>
         <zorder>caLabel_52</zorder>
@@ -2807,6 +3155,17 @@ QWidget#centralWidget {background: rgba(236, 236, 236, 255);}
         <zorder>caLabel_57</zorder>
         <zorder>caLabel_58</zorder>
         <zorder>caLabel_59</zorder>
+        <zorder>caLabel_60</zorder>
+        <zorder>caLabel_61</zorder>
+        <zorder>caLabel_62</zorder>
+        <zorder>caLabel_63</zorder>
+        <zorder>caLabel_64</zorder>
+        <zorder>caLabel_65</zorder>
+        <zorder>caLabel_66</zorder>
+        <zorder>caFrame_13</zorder>
+        <zorder>caFrame_9</zorder>
+        <zorder>caLabel_67</zorder>
+        <zorder>caLabel_68</zorder>
         <zorder>caRelatedDisplay_0</zorder>
         <zorder>caRelatedDisplay_1</zorder>
         <zorder>caRelatedDisplay_2</zorder>
