@@ -75,6 +75,7 @@
 #include	<callback.h>
 #include	<taskwd.h>
 #include	<epicsString.h>	/* for epicsStrSnPrintEscaped() */
+#include	<epicsStdio.h> /* for epicsSnprintf() */
 #include	"sCalcPostfix.h"
 
 #define GEN_SIZE_OFFSET
@@ -184,7 +185,10 @@ epicsExportAddress(int, sCalcoutRecordDebug);
  * is allocated in init_record) are known to be of this length.
  */
 #define STRING_SIZE 40
-
+
+static char sFldnames[MAX_FIELDS][3] =
+{"AA","BB","CC","DD","EE","FF","GG","HH","II","JJ","KK","LL"};
+
 static long init_record(scalcoutRecord *pcalc, int pass)
 {
 	DBLINK *plink;
@@ -893,7 +897,9 @@ static int fetch_values(scalcoutRecord *pcalc)
 					printf("fetch_values('%s'): dbGetLink(%d) DBR_STRING, returned %ld\n", pcalc->name, i, status);
 			}
 		}
-		if (!RTN_SUCCESS(status)) {strcpy(*psvalue, "Huh?");}
+		if (!RTN_SUCCESS(status)) {
+			epicsSnprintf(*psvalue, STRING_SIZE-1, "%s:fetch(%s) failed", pcalc->name, sFldnames[i]);
+		}
 	}
 	return(0);
 }
