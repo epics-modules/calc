@@ -587,7 +587,7 @@ process(transformRecord *ptran)
 		if (((no_inlink && !new_value) || ptran->copt==transformCOPT_ALWAYS)
 				&& postfix_ok) {
 			Debug(15, "process: calculating for field %s\n", Fldnames[i]);
-			if (sCalcPerform(&ptran->a, 16, NULL,0, pval, NULL,0, prpcbuf)) {
+			if (sCalcPerform(&ptran->a, 16, NULL,0, pval, NULL,0, prpcbuf, ptran->prec)) {
 				recGblSetSevr(ptran, CALC_ALARM, INVALID_ALARM);
 				ptran->udf = TRUE;
 			}
