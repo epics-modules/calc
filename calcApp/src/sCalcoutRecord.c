@@ -333,7 +333,7 @@ static long process(scalcoutRecord *pcalc)
 		if (fetch_values(pcalc)==0) {
 			stat = sCalcPerform(&pcalc->a, MAX_FIELDS, (char **)(pcalc->strs),
 					STRING_MAX_FIELDS, &pcalc->val, pcalc->sval, STRING_SIZE,
-					pcalc->rpcl);
+					pcalc->rpcl, pcalc->prec);
 			if (stat) {
 				pcalc->val = -1;
 				strcpy(pcalc->sval,"***ERROR***");
@@ -739,7 +739,7 @@ static void execOutput(scalcoutRecord *pcalc)
 	case scalcoutDOPT_Use_OVAL:
 		if (sCalcPerform(&pcalc->a, MAX_FIELDS, (char **)(pcalc->strs),
 				STRING_MAX_FIELDS, &pcalc->oval, pcalc->osv, STRING_SIZE,
-				pcalc->orpc)) {
+				pcalc->orpc, pcalc->prec)) {
 			pcalc->val = -1;
 			strcpy(pcalc->osv,"***ERROR***");
 			recGblSetSevr(pcalc,CALC_ALARM,INVALID_ALARM);
