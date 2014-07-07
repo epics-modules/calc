@@ -55,13 +55,13 @@ first 39 characters, because the sseq record uses EPICS string PVs internally.
 states of its input and output links (but not its forward link), and posts
 PVs that indicate which output links are waiting for callbacks.
 
-<P>When writing to a PV of type <tt>DBF_MENU</tt> or <tt>DBF_ENUM</tt>, the
-<b>sseq</b> record <i>always</i> writes its string value.  (Examples of such PVs
-are any record's <tt>SCAN</tt> field, and the <tt>VAL</tt> field of a <b>bo</b>
-or <b>mbbo</b> record.)  This is awkward, because it's common practice to write
-numeric values to such fields, but doing so with the <b>sseq</b> record will not
-have the expected result.  Worse, if there are no strings defined for such a PV,
-then the <b>sseq</b> record simply cannot write to that PV.
+<P>To write successfully to a DBF_MENU or DBF_ENUM (for example, the VAL field
+of a <code>bo</code> or <code>mbbo</code> record) the record's string value must
+be one of the possible strings for the PV, or it must an integer specifying the
+string number [0..N] for the PV.  For example, when writing to a <code>bo</code>
+record whose ZNAM is "No" and whose ONAM is "Yes", the string value must be one
+of the following: "No", "Yes", "0", and "1".  To ensure that numeric values are
+converted to integers, set the precision (the PREC field) to zero.
 
 <h1><a NAME="ScanFields"></a>
 2. Scan/Control Fields</h1>
