@@ -50,7 +50,7 @@ epicsShareFunc long
 
 epicsShareFunc long 
 	sCalcPerform(double *parg, int numArgs, char **psarg, int numSArgs, double *presult,
-	char *psresult, int lenSresult, const unsigned char *post);
+	char *psresult, int lenSresult, const unsigned char *post, const int precision);
 
 epicsShareFunc const char *
 	sCalcErrorStr(short error);
