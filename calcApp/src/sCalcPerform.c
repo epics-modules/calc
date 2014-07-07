@@ -310,7 +310,7 @@ struct until_struct {
 #define TMPSTR_SIZE 1000
 epicsShareFunc long 
 	sCalcPerform(double *parg, int numArgs, char **psarg, int numSArgs, double *presult, char *psresult,
-	int lenSresult, const unsigned char *postfix)
+	int lenSresult, const unsigned char *postfix, int precision)
 {
 	struct stackElement stack[SCALC_STACKSIZE], *top;
 	struct stackElement *ps, *ps1, *ps2;
@@ -827,7 +827,7 @@ epicsShareFunc long
 			if (isnan(*pd))
 				strcpy(psresult,"NaN");
 			else
-				(void)cvtDoubleToString(*pd, psresult, 8);
+				(void)cvtDoubleToString(*pd, psresult, precision);
 		}
 
 		return(((isnan(*presult)||isinf(*presult)) ? -1 : 0));
