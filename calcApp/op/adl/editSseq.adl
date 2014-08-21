@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/xxx/xxxApp/op/adl/editSseq.adl"
+	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/editSseq.adl"
 	version=030107
 }
 display {
@@ -155,24 +155,6 @@ text {
 	}
 	textix="msg"
 }
-rectangle {
-	object {
-		x=45
-		y=61
-		width=307
-		height=28
-	}
-	"basic attribute" {
-		clr=20
-		fill="outline"
-		width=3
-	}
-	"dynamic attribute" {
-		vis="calc"
-		calc="a"
-		chan="$(P)$(Q)Alert"
-	}
-}
 "message button" {
 	object {
 		x=355
@@ -187,22 +169,6 @@ rectangle {
 	}
 	label="OK"
 	press_msg="1"
-}
-"text entry" {
-	object {
-		x=49
-		y=65
-		width=300
-		height=20
-	}
-	control {
-		chan="$(P)$(Q)message"
-		clr=14
-		bclr=51
-	}
-	format="string"
-	limits {
-	}
 }
 text {
 	object {
@@ -232,4 +198,49 @@ text {
 	clr=0
 	bclr=17
 	label="-More"
+}
+composite {
+	object {
+		x=45
+		y=65
+		width=307
+		height=21
+	}
+	"composite name"=""
+	children {
+		rectangle {
+			object {
+				x=45
+				y=65
+				width=307
+				height=21
+			}
+			"basic attribute" {
+				clr=20
+				fill="outline"
+				width=3
+			}
+			"dynamic attribute" {
+				vis="calc"
+				calc="a"
+				chan="$(P)$(Q)Alert"
+			}
+		}
+		"text update" {
+			object {
+				x=49
+				y=69
+				width=300
+				height=14
+			}
+			monitor {
+				chan="$(P)$(Q)message"
+				clr=54
+				bclr=1
+			}
+			format="string"
+			limits {
+			}
+		}
+	}
 }
