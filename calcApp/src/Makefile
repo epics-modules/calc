@@ -36,6 +36,10 @@ ifdef SSCAN
 	calc_SRCS += swaitRecord.c
 	calc_LIBS += sscan
 endif
+ifdef SNCSEQ
+	calc_SRCS += editSseq.st
+	calc_LIBS += seqDev seq pv
+endif
 
 calc_SRCS += interp.c
 calc_SRCS += arrayTest.c
@@ -68,12 +72,13 @@ swaitRecord$(OBJ): $(COMMON_DIR)/swaitRecord.h
 # mustn't do that.  Otherwise the ioc directory would inherit an expanded copy
 # of base.dbd from each support module.)
 
+dbdlist = ../calcSupport_LOCAL.dbd
 ifdef SSCAN
-calcSupport.dbd: ../calcSupport_LOCAL.dbd ../calcSupport_withSSCAN.dbd
-	$(PERL) -MExtUtils::Command -e cat $^ > $@
-	#perl ../cat.pl ../calcSupport_LOCAL.dbd ../calcSupport_withSSCAN.dbd calcSupport.dbd
-else
-calcSupport.dbd: ../calcSupport_LOCAL.dbd
-	$(PERL) -MExtUtils::Command -e cat $^ > $@
-	#perl ../cat.pl ../calcSupport_LOCAL.dbd calcSupport.dbd
+dbdlist += ../calcSupport_withSSCAN.dbd
 endif
+ifdef SNCSEQ
+dbdlist += ../calcSupport_withSNCSEQ.dbd
+endif
+
+calcSupport.dbd: $(dbdlist)
+	$(PERL) -MExtUtils::Command -e cat $^ > $@
