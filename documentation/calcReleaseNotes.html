@@ -16,6 +16,14 @@
 <li>scalcout record: conversion from numeric expression result to string now
 honors the PREC field.
 
+<li>editSseq: new support for editing sseq and seq records at run time. 
+editSseq allows user to move a sseqRecord <i>line</i> up or down, or to swap two
+lines. (A <i>line</i> is the set (DLYn, DOLn, STRn, DOn, LNKn, WAITn).)
+
+<li>calc now requires the seq module by default.  If the seq module is not
+available, the definition of SNCSEQ must be commented out of configure/RELEASE,
+and calc will then build everything but editSseq.
+
 </ul>
 
 <h2 align="center">Release 3-4</h2>

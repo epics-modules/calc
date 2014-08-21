@@ -19,13 +19,15 @@ The <b>sseq</b> (string sequence) record</h1>
 <li><a href="#Display">Operator Display Fields</a>
 <li><a href="#Alarms">Alarm Fields</a>
 <li><a href="#code">Record Support Routines</a>
+<li><a href="#editSseq">Editing a sseq record at run time</a>
 </ol>
 
+<hr>
 <a NAME="Introduction"></a>
-<h1>
-1. Introduction</h1>
+<h2>
+1. Introduction</h2>
 
-<hr>The <b>sseq</b> (String Sequence) record is derived from the <b>seq</b>
+The <b>sseq</b> (String Sequence) record is derived from the <b>seq</b>
 (Sequence) record, and has all of its capabilities. In addition, the <b>sseq</b>
 record can read from either string or numeric fields, and write to either string
 or numeric fields; it can wait for processing that any of its output links
@@ -63,11 +65,22 @@ record whose ZNAM is "No" and whose ONAM is "Yes", the string value must be one
 of the following: "No", "Yes", "0", and "1".  To ensure that numeric values are
 converted to integers, set the precision (the PREC field) to zero.
 
-<h1><a NAME="ScanFields"></a>
-2. Scan/Control Fields</h1>
+<P>Here's a sample MEDM display of some of the the sseq record fields.
+
+Each "line" in the display consists of the fields <tt>DOLn</tt>, <tt>DLYn</tt>,
+<tt>STRn</tt>, <tt>DOn</tt>, <tt>LNKn</tt>, and <tt>WAITn</tt>, from left to
+right.
+
+</blockquote>
+
+<P><center><IMG SRC="sseqRecord.adl.jpg"><br>sseqRecord.adl</IMG></center>
+
+<hr>
+<h2><a NAME="ScanFields"></a>
+2. Scan/Control Fields</h2>
 
 
-<hr>Like all other EPICS records, the sequence record has the standard set of
+Like all other EPICS records, the sequence record has the standard set of
 fields (<tt>SCAN</tt>, <tt>PINI</tt>, <tt>FLNK</tt>, <tt>PROC</tt>, etc.) for
 specifying when or under what circumstances it should process, and what record,
 if any, should process immediately afterward.  See the <i>EPICS Record Reference
@@ -134,11 +147,12 @@ R3-0), users were cautioned not to write to the <tt>ABORT</tt> the record via a
 the abort had succeeded.  The record now defends itself against this possibility,
 by clearing its <tt>RPRO</tt> field as the last step of an abort. </blockquote> 
 
+<hr>
 <p><a NAME="DesiredOutput"></a>
-<h1>
-3. Desired Output Fields</h1>
+<h2>
+3. Desired Output Fields</h2>
 
-<hr>These link fields hold the values the record is to write to other records, or
+These link fields hold the values the record is to write to other records, or
 determine from where those values are to be read.
 
 <p>The sequence record can fetch up to 10 values from 10 locations. The user
@@ -240,11 +254,12 @@ links successfully retrieve values.
 
 </table>
 
+<hr>
 <p><a NAME="Output"></a>
-<h1>
-4. Output/Wait Fields</h1>
+<h2>
+4. Output/Wait Fields</h2>
 
-<hr>When the <b>sseq</b> record is processed, desired output values
+When the <b>sseq</b> record is processed, desired output values
 (<tt>DO<i>n</i></tt> or <tt>STR<i>n</i></tt>) are written to the corresponding
 output links (<tt>LNK<i>n</i></tt>). These output links should either be blank
 (in which case no writing will occur), or contain the name of an EPICS PV; they
@@ -443,11 +458,12 @@ complete, and <i>then</i> pause for <tt>DLY<i>(n+1)</i></tt> seconds.
 to write to link fields (its own, or those of another record).  This use can
 succeed only if the link field doing the writing has the attribute <tt>CA</tt>.
 
+<hr>
 <p><a NAME="Selection"></a>
-<h1>
-5. Selection Algorithm Fields</h1>
+<h2>
+5. Selection Algorithm Fields</h2>
 
-<hr>When the <b>sseq</b> record is processed, it uses a selection algorithm similar to
+When the <b>sseq</b> record is processed, it uses a selection algorithm similar to
 that of the sel (selection) record to decide which links to process.  The select
 mechanism field (<tt>SELM</tt>) provides three algorithms to choose from: <tt>All</tt>,
 <tt>Specified</tt> or <tt>Mask</tt>.
@@ -532,11 +548,12 @@ write them to the locations in <tt>LNK1</tt> and <tt>LNK2</tt>, respectively. If
 </tr>
 </table>
 
+<hr>
 <p><a NAME="Delay"></a>
-<h1>
-6. Delay Fields</h1>
+<h2>
+6. Delay Fields</h2>
 
-<hr>There are ten delay-related fields, one for each I/O link discussed
+There are ten delay-related fields, one for each I/O link discussed
 above. These fields cause the record to delay processing before fetching data
 from the associated input link, or writing to the associated output link. For
 example, if the user gives the <tt>DLY1</tt> field a value of 3.0, each time the record
@@ -611,11 +628,12 @@ to the <tt>DLY<i>n</i></tt> field.
 </tr>
 </table>
 
+<hr>
 <p><a NAME="Display"></a>
-<h1>
-7. Operator Display Fields</h1>
+<h2>
+7. Operator Display Fields</h2>
 
-<hr>These fields are used to present meaningful data to the operator.
+These fields are used to present meaningful data to the operator.
 The Precision field (<tt>PREC</tt>) determines the decimal precision for the <tt>VAL</tt>
 field when it is displayed. It is used when the <tt>get_precision</tt>
 record routine is called.
@@ -685,17 +703,20 @@ record routine is called.
 </tr>
 </table>
 
+<hr>
 <p><a NAME="Alarms"></a>
-<h1>
-8. Alarm Fields</h1>
+<h2>
+8. Alarm Fields</h2>
 
-<hr>The sequence record has the alarm fields common to all record types.
+The sequence record has the alarm fields common to all record types.
 See the <i>EPICS Record Reference Manual</i> for details.
-<p><a NAME="code"></a>
-<h1>
-9. Record Support Routines</h1>
 
-<hr>The only record support routine is process.
+<hr>
+<p><a NAME="code"></a>
+<h2>
+9. Record Support Routines</h2>
+
+The only record support routine is process.
 <br>
 <br>
 <dl>
@@ -733,8 +754,64 @@ has nothing to do.) The processing of the links is done via callback tasks at th
 priority set in the <tt>PRIO</tt> field in dbCommon (see the <i>EPICS Application
 Developer's Guide</i> for more information.
 
-
 <hr>
+<p><a NAME="editSseq"></a>
+<h2>10. Editing a sseq record at run time</h2>
+
+Editing sseq record fields (rearranging lines in the sequence, inserting new
+lines, etc.) is a tedious and error prone process, because sseq-record fields
+can refer to each other.  For example, the <tt>WAIT1</tt> field can have the
+value "After3", so that the record will wait for the operation started by
+<tt>LNK1</tt> before processing line 4.  If the lines 1-3 are moved to lines
+2-4, then one would like for <tt>WAIT2</tt> to be set to to "After4", to
+preserve the old behavior of lines 1-3.  Also, <tt>LNK</tt> and <tt>DOL</tt>
+fields can refer to <tt>DO</tt> and <tt>STR</tt> fields, and one would want
+these to be modified as well.
+
+<p><b>editSseq</b> does all these things, with a simple command-based interface. 
+Here's a sample MEDM display of editSseq:
+
+<P><center><IMG SRC="editSseq_more.adl.jpg"><br>editSseq_more.adl</IMG></center>
+
+<p>To accomplish the change described above (move lines 1-3 of a sseq record to
+lines 2-4 of the same record), one would do the following:
+
+<ol>
+
+<li>Type the record name into the <tt>recName</tt> field. (Or use DragAndDrop;
+editSseq will strip off the field name.)
+
+<li>Type <tt>3+</tt> into the <tt>command</tt> field.
+
+<li>Type <tt>2+</tt> into the <tt>command</tt> field.
+
+<li>Type <tt>1+</tt> into the <tt>command</tt> field.
+
+</ol>
+
+<p>editSseq also works on seq records.
+
+<P>To use editSseq, add the following commands to an ioc's startup file:
+<ol>
+
+<li>dbLoadRecords("$(CALC)/calcApp/Db/editSseq.db", "P=xxx:,Q=ES:")
+
+
+<li>seq &editSseq, "P=xxx:,Q=ES:"
+
+
+</ol>
+
+<P>and add the following menu item to an MEDM display file:
+
+<pre>
+	display[0] {
+		label="editSseq"
+		name="editSseq.adl"
+		args="P=xxx:,Q=ES:"
+	}
+</pre>
+
 <br>
 </body>
 </html>
