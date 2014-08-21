@@ -1,8 +1,10 @@
 record(longout, "$(P)$(Q)Debug") {
 }
 record(stringout, "$(P)$(Q)message") {
+	field(VAL, "editSseq SNL program is not running")
 }
 record(bo, "$(P)$(Q)Alert") {
+	field(DOL, "1")
 }
 record(bo, "$(P)$(Q)OperAck") {
 }
