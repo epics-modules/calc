@@ -31,6 +31,10 @@ option +r;
  *      Q - instance of editSseq
  */
 
+#include <seq_release.h> /* definition of MAGIC */
+#define VERSION_INT(MAJ,MIN) ((MAJ)*1000000+(MIN)*1000)
+#define LT_SEQ_VERSION(MAJ,MIN) ((MAGIC) < VERSION_INT(MAJ,MIN))
+
 /* Define escaped C functions at end of file */
 %% static int lineNum(char c);
 %% static char fieldChar(int n);
@@ -303,11 +307,11 @@ ss editSseq
 
 				/* if moved line <n>, and LNK<i>==<recordName>.DO<n> */
 				sprintf(pattern, "%s.DO%c", recordName, c_src);
-				reconcilePVs(ssId, pVar, pattern, LNK, LNKIndex, c_dest);
+				%%reconcilePVs(ssId, pVar, pVar->pattern, pVar->LNK, pVar->LNKIndex, pVar->c_dest);
 
 				/* if moved line <n>, and DOL<i>==<recordName>.DO<n> */
 				sprintf(pattern, "%s.DO%c", recordName, c_src);
-				reconcilePVs(ssId, pVar, pattern, DOL, DOLIndex, c_dest);
+				%%reconcilePVs(ssId, pVar, pVar->pattern, pVar->DOL, pVar->DOLIndex, pVar->c_dest);
 
 				pvPut(DOL[src]);
 				pvPut(DOL[dest]);
@@ -326,15 +330,15 @@ ss editSseq
 
 					/* if moved line <n>, and WAIT<k>==After<n> */
 					sprintf(pattern, "After%c", c_src);
-					reconcilePVs(ssId, pVar, pattern, WAIT, WAITIndex, c_dest);
+					%%reconcilePVs(ssId, pVar, pVar->pattern, pVar->WAIT, pVar->WAITIndex, pVar->c_dest);
 
 					/* if moved line <n>, and LNK<k>==<recordName>.STR<n> */
 					sprintf(pattern, "%s.STR%c", recordName, c_src);
-					reconcilePVs(ssId, pVar, pattern, LNK, LNKIndex, c_dest);
+					%%reconcilePVs(ssId, pVar, pVar->pattern, pVar->LNK, pVar->LNKIndex, pVar->c_dest);
 
 					/* if moved line <n>, and DOL<k>==<recordName>.STR<n> */
 					sprintf(pattern, "%s.STR%c", recordName, c_src);
-					reconcilePVs(ssId, pVar, pattern, DOL, DOLIndex, c_dest);
+					%%reconcilePVs(ssId, pVar, pVar->pattern, pVar->DOL, pVar->DOLIndex, pVar->c_dest);
 
 					pvPut(STR[src]);
 					pvPut(STR[dest]);
@@ -374,19 +378,19 @@ ss editSseq
 
 				/* if swapped lines <m> and <n>, and LNK<k>==<recordName>.DO<n>or<m> */
 				sprintf(pattern, "%s.DO%c", recordName, c_src);
-				reconcilePVs(ssId, pVar, pattern, LNK, LNKIndex, '*');
+				%%reconcilePVs(ssId, pVar, pVar->pattern, pVar->LNK, pVar->LNKIndex, '*');
 				sprintf(pattern, "%s.DO%c", recordName, c_dest);
-				reconcilePVs(ssId, pVar, pattern, LNK, LNKIndex, c_src);
+				%%reconcilePVs(ssId, pVar, pVar->pattern, pVar->LNK, pVar->LNKIndex, pVar->c_src);
 				sprintf(pattern, "%s.DO%c", recordName, '*');
-				reconcilePVs(ssId, pVar, pattern, LNK, LNKIndex, c_dest);
+				%%reconcilePVs(ssId, pVar, pVar->pattern, pVar->LNK, pVar->LNKIndex, pVar->c_dest);
 
 				/* if swapped lines <m> and <n>, and DOL<k>==<recordName>.DO<n>or<m> */
 				sprintf(pattern, "%s.DO%c", recordName, c_src);
-				reconcilePVs(ssId, pVar, pattern, DOL, DOLIndex, '*');
+				%%reconcilePVs(ssId, pVar, pVar->pattern, pVar->DOL, pVar->DOLIndex, '*');
 				sprintf(pattern, "%s.DO%c", recordName, c_dest);
-				reconcilePVs(ssId, pVar, pattern, DOL, DOLIndex, c_src);
+				%%reconcilePVs(ssId, pVar, pVar->pattern, pVar->DOL, pVar->DOLIndex, pVar->c_src);
 				sprintf(pattern, "%s.DO%c", recordName, '*');
-				reconcilePVs(ssId, pVar, pattern, DOL, DOLIndex, c_dest);
+				%%reconcilePVs(ssId, pVar, pVar->pattern, pVar->DOL, pVar->DOLIndex, pVar->c_dest);
 
 				pvPut(DOL[src]);
 				pvPut(DOL[dest]);
@@ -408,27 +412,27 @@ ss editSseq
 
 					/* if swapped lines <m> and <n>, and WAIT<k>==After<n>or<m> */
 					sprintf(pattern, "After%c", c_src);
-					reconcilePVs(ssId, pVar, pattern, WAIT, WAITIndex, '*');
+					%%reconcilePVs(ssId, pVar, pVar->pattern, pVar->WAIT, pVar->WAITIndex, '*');
 					sprintf(pattern, "After%c", c_dest);
-					reconcilePVs(ssId, pVar, pattern, WAIT, WAITIndex, c_src);
+					%%reconcilePVs(ssId, pVar, pVar->pattern, pVar->WAIT, pVar->WAITIndex, pVar->c_src);
 					sprintf(pattern, "After%c", '*');
-					reconcilePVs(ssId, pVar, pattern, WAIT, WAITIndex, c_dest);
+					%%reconcilePVs(ssId, pVar, pVar->pattern, pVar->WAIT, pVar->WAITIndex, pVar->c_dest);
 
 					/* if swapped lines <m> and <n>, and LNK<k>==<recordName>.STR<n>or<m> */
 					sprintf(pattern, "%s.STR%c", recordName, c_src);
-					reconcilePVs(ssId, pVar, pattern, LNK, LNKIndex, '*');
+					%%reconcilePVs(ssId, pVar, pVar->pattern, pVar->LNK, pVar->LNKIndex, '*');
 					sprintf(pattern, "%s.STR%c", recordName, c_dest);
-					reconcilePVs(ssId, pVar, pattern, LNK, LNKIndex, c_src);
+					%%reconcilePVs(ssId, pVar, pVar->pattern, pVar->LNK, pVar->LNKIndex, pVar->c_src);
 					sprintf(pattern, "%s.STR%c", recordName, '*');
-					reconcilePVs(ssId, pVar, pattern, LNK, LNKIndex, c_dest);
+					%%reconcilePVs(ssId, pVar, pVar->pattern, pVar->LNK, pVar->LNKIndex, pVar->c_dest);
 
 					/* if swapped lines <m> and <n>, and DOL<k>==<recordName>.STR<n>or<m> */
 					sprintf(pattern, "%s.STR%c", recordName, c_src);
-					reconcilePVs(ssId, pVar, pattern, DOL, DOLIndex, '*');
+					%%reconcilePVs(ssId, pVar, pVar->pattern, pVar->DOL, pVar->DOLIndex, '*');
 					sprintf(pattern, "%s.STR%c", recordName, c_dest);
-					reconcilePVs(ssId, pVar, pattern, DOL, DOLIndex, c_src);
+					%%reconcilePVs(ssId, pVar, pVar->pattern, pVar->DOL, pVar->DOLIndex, pVar->c_src);
 					sprintf(pattern, "%s.STR%c", recordName, '*');
-					reconcilePVs(ssId, pVar, pattern, DOL, DOLIndex, c_dest);
+					%%reconcilePVs(ssId, pVar, pVar->pattern, pVar->DOL, pVar->DOLIndex, pVar->c_dest);
 
 					pvPut(STR[src]);
 					pvPut(STR[dest]);
@@ -494,7 +498,11 @@ static int reconcilePVs(SS_ID ssId, struct UserVar *pVar,
 		if (strstr(PV[i], pattern) != 0) {
 			PV[i][strlen(pattern)-1] = c_dest;
 			if (c_dest != '*') {
+#if LT_SEQ_VERSION(2,2)
 				seq_pvPut(ssId, PVIndex[i], 0);
+#else
+				seq_pvPut(ssId, PVIndex[i], 0, DEFAULT_TIMEOUT);
+#endif
 			}
 		}	
 	}

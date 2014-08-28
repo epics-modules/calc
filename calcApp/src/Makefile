@@ -38,7 +38,7 @@ ifdef SSCAN
 endif
 ifdef SNCSEQ
 	calc_SRCS += editSseq.st
-	calc_LIBS += seqDev seq pv
+	calc_LIBS += seq pv
 endif
 
 calc_SRCS += interp.c
