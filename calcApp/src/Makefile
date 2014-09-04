@@ -18,6 +18,9 @@ endif
 
 # <name>.dbd will be created from <name>Include.dbd, if it exists
 DBD_INSTALLS += calcSupport.dbd
+ifdef SNCSEQ
+	DBD_INSTALLS += editSseq.dbd
+endif
 
 #=============================
 
