@@ -114,13 +114,13 @@
 #include <callback.h>
 #include <taskwd.h>
 #include <epicsString.h>
+
+#include "epicsExport.h"
 #include "sCalcPostfix.h"
 #include "sCalcPostfixPvt.h"	/* define BAD_EXPRESSION */
-
 #define GEN_SIZE_OFFSET
 #include "transformRecord.h"
 #undef GEN_SIZE_OFFSET
-#include "epicsExport.h"
 
 #include <epicsVersion.h>
 #ifndef EPICS_VERSION_INT
