@@ -120,6 +120,11 @@ ss editSseq
 			rewroteRecordName = 0;
 			strcpy(recordType, "");
 			recType = RECTYPE_NONE;
+			strcpy(message, "");
+			pvPut(message);
+			opAlert = 0;
+			pvPut(opAlert);
+			efClear(commandMon);
 		} state waitForCmnd
 	}
 
@@ -211,13 +216,15 @@ ss editSseq
 				printf("editSseq:newCommand: recType=%d\n", recType);
 			}
 			for (i=0; i<NLINES; i++) {
-				pvGet(DOL[i]);
-				pvGet(DLY[i]);
-				pvGet(DO[i]);
-				pvGet(LNK[i]);
-				if (recType == RECTYPE_SSEQ) {
-					pvGet(STR[i]);
-					pvGet(WAIT[i]);
+				if (recType == RECTYPE_SEQ || recType == RECTYPE_SSEQ) {
+					pvGet(DOL[i]);
+					pvGet(DLY[i]);
+					pvGet(DO[i]);
+					pvGet(LNK[i]);
+					if (recType == RECTYPE_SSEQ) {
+						pvGet(STR[i]);
+						pvGet(WAIT[i]);
+					}
 				}
 			}
 			strcpy(message, "");
