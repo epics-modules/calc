@@ -1,7 +1,7 @@
 
 file {
 	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/userArrayCalcs10.adl"
-	version=030004
+	version=030107
 }
 display {
 	object {
@@ -87,456 +87,6 @@ display {
 		1a7309,
 	}
 }
-"text entry" {
-	object {
-		x=20
-		y=20
-		width=120
-		height=20
-	}
-	control {
-		chan="$(P)userArrayCalc1.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"related display" {
-	object {
-		x=0
-		y=20
-		width=20
-		height=20
-	}
-	display[0] {
-		label="user arrayCalc 1"
-		name="userArrayCalc.adl"
-		args="P=$(P),C=userArrayCalc1"
-	}
-	display[1] {
-		label="user arrayCalc 1 (w/plot)"
-		name="userArrayCalc_plot.adl"
-		args="P=$(P),C=userArrayCalc1"
-	}
-	display[2] {
-		label="user arrayCalc 1 (full)"
-		name="userArrayCalc_full.adl"
-		args="P=$(P),C=userArrayCalc1"
-	}
-	display[3] {
-		label="user arrayCalc 1 (demo)"
-		name="userArrayCalc_demo.adl"
-		args="P=$(P),C=userArrayCalc1"
-	}
-	clr=0
-	bclr=63
-}
-"text entry" {
-	object {
-		x=20
-		y=40
-		width=120
-		height=20
-	}
-	control {
-		chan="$(P)userArrayCalc2.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"related display" {
-	object {
-		x=0
-		y=40
-		width=20
-		height=20
-	}
-	display[0] {
-		label="user arrayCalc 2"
-		name="userArrayCalc.adl"
-		args="P=$(P),C=userArrayCalc2"
-	}
-	display[1] {
-		label="user arrayCalc 2 (w/plot)"
-		name="userArrayCalc_plot.adl"
-		args="P=$(P),C=userArrayCalc2"
-	}
-	display[2] {
-		label="user arrayCalc 2 (full)"
-		name="userArrayCalc_full.adl"
-		args="P=$(P),C=userArrayCalc2"
-	}
-	display[3] {
-		label="user arrayCalc 2 (demo)"
-		name="userArrayCalc_demo.adl"
-		args="P=$(P),C=userArrayCalc2"
-	}
-	clr=0
-	bclr=63
-}
-"text entry" {
-	object {
-		x=20
-		y=60
-		width=120
-		height=20
-	}
-	control {
-		chan="$(P)userArrayCalc3.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"related display" {
-	object {
-		x=0
-		y=60
-		width=20
-		height=20
-	}
-	display[0] {
-		label="user arrayCalc 3"
-		name="userArrayCalc.adl"
-		args="P=$(P),C=userArrayCalc3"
-	}
-	display[1] {
-		label="user arrayCalc 3 (w/plot)"
-		name="userArrayCalc_plot.adl"
-		args="P=$(P),C=userArrayCalc3"
-	}
-	display[2] {
-		label="user arrayCalc 3 (full)"
-		name="userArrayCalc_full.adl"
-		args="P=$(P),C=userArrayCalc3"
-	}
-	display[3] {
-		label="user arrayCalc 3 (demo)"
-		name="userArrayCalc_demo.adl"
-		args="P=$(P),C=userArrayCalc3"
-	}
-	clr=0
-	bclr=63
-}
-"text entry" {
-	object {
-		x=20
-		y=80
-		width=120
-		height=20
-	}
-	control {
-		chan="$(P)userArrayCalc4.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"related display" {
-	object {
-		x=0
-		y=80
-		width=20
-		height=20
-	}
-	display[0] {
-		label="user arrayCalc 4"
-		name="userArrayCalc.adl"
-		args="P=$(P),C=userArrayCalc4"
-	}
-	display[1] {
-		label="user arrayCalc 4 (w/plot)"
-		name="userArrayCalc_plot.adl"
-		args="P=$(P),C=userArrayCalc4"
-	}
-	display[2] {
-		label="user arrayCalc 4 (full)"
-		name="userArrayCalc_full.adl"
-		args="P=$(P),C=userArrayCalc4"
-	}
-	display[3] {
-		label="user arrayCalc 4 (demo)"
-		name="userArrayCalc_demo.adl"
-		args="P=$(P),C=userArrayCalc4"
-	}
-	clr=0
-	bclr=63
-}
-"text entry" {
-	object {
-		x=20
-		y=100
-		width=120
-		height=20
-	}
-	control {
-		chan="$(P)userArrayCalc5.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"related display" {
-	object {
-		x=0
-		y=100
-		width=20
-		height=20
-	}
-	display[0] {
-		label="user arrayCalc 5"
-		name="userArrayCalc.adl"
-		args="P=$(P),C=userArrayCalc5"
-	}
-	display[1] {
-		label="user arrayCalc 5 (w/plot)"
-		name="userArrayCalc_plot.adl"
-		args="P=$(P),C=userArrayCalc5"
-	}
-	display[2] {
-		label="user arrayCalc 5 (full)"
-		name="userArrayCalc_full.adl"
-		args="P=$(P),C=userArrayCalc5"
-	}
-	display[3] {
-		label="user arrayCalc 5 (demo)"
-		name="userArrayCalc_demo.adl"
-		args="P=$(P),C=userArrayCalc5"
-	}
-	clr=0
-	bclr=63
-}
-"text entry" {
-	object {
-		x=20
-		y=120
-		width=120
-		height=20
-	}
-	control {
-		chan="$(P)userArrayCalc6.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"related display" {
-	object {
-		x=0
-		y=120
-		width=20
-		height=20
-	}
-	display[0] {
-		label="user arrayCalc 6"
-		name="userArrayCalc.adl"
-		args="P=$(P),C=userArrayCalc6"
-	}
-	display[1] {
-		label="user arrayCalc 6 (w/plot)"
-		name="userArrayCalc_plot.adl"
-		args="P=$(P),C=userArrayCalc6"
-	}
-	display[2] {
-		label="user arrayCalc 6 (full)"
-		name="userArrayCalc_full.adl"
-		args="P=$(P),C=userArrayCalc6"
-	}
-	display[3] {
-		label="user arrayCalc 6 (demo)"
-		name="userArrayCalc_demo.adl"
-		args="P=$(P),C=userArrayCalc6"
-	}
-	clr=0
-	bclr=63
-}
-"text entry" {
-	object {
-		x=20
-		y=140
-		width=120
-		height=20
-	}
-	control {
-		chan="$(P)userArrayCalc7.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"related display" {
-	object {
-		x=0
-		y=140
-		width=20
-		height=20
-	}
-	display[0] {
-		label="user arrayCalc 7"
-		name="userArrayCalc.adl"
-		args="P=$(P),C=userArrayCalc7"
-	}
-	display[1] {
-		label="user arrayCalc 7 (w/plot)"
-		name="userArrayCalc_plot.adl"
-		args="P=$(P),C=userArrayCalc7"
-	}
-	display[2] {
-		label="user arrayCalc 7 (full)"
-		name="userArrayCalc_full.adl"
-		args="P=$(P),C=userArrayCalc7"
-	}
-	display[3] {
-		label="user arrayCalc 7 (demo)"
-		name="userArrayCalc_demo.adl"
-		args="P=$(P),C=userArrayCalc7"
-	}
-	clr=0
-	bclr=63
-}
-"text entry" {
-	object {
-		x=20
-		y=160
-		width=120
-		height=20
-	}
-	control {
-		chan="$(P)userArrayCalc8.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"related display" {
-	object {
-		x=0
-		y=160
-		width=20
-		height=20
-	}
-	display[0] {
-		label="user arrayCalc 8"
-		name="userArrayCalc.adl"
-		args="P=$(P),C=userArrayCalc8"
-	}
-	display[1] {
-		label="user arrayCalc 8 (w/plot)"
-		name="userArrayCalc_plot.adl"
-		args="P=$(P),C=userArrayCalc8"
-	}
-	display[2] {
-		label="user arrayCalc 8 (full)"
-		name="userArrayCalc_full.adl"
-		args="P=$(P),C=userArrayCalc8"
-	}
-	display[3] {
-		label="user arrayCalc 8 (demo)"
-		name="userArrayCalc_demo.adl"
-		args="P=$(P),C=userArrayCalc8"
-	}
-	clr=0
-	bclr=63
-}
-"text entry" {
-	object {
-		x=20
-		y=180
-		width=120
-		height=20
-	}
-	control {
-		chan="$(P)userArrayCalc9.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"related display" {
-	object {
-		x=0
-		y=180
-		width=20
-		height=20
-	}
-	display[0] {
-		label="user arrayCalc 9"
-		name="userArrayCalc.adl"
-		args="P=$(P),C=userArrayCalc9"
-	}
-	display[1] {
-		label="user arrayCalc 9 (w/plot)"
-		name="userArrayCalc_plot.adl"
-		args="P=$(P),C=userArrayCalc9"
-	}
-	display[2] {
-		label="user arrayCalc 9 (full)"
-		name="userArrayCalc_full.adl"
-		args="P=$(P),C=userArrayCalc9"
-	}
-	display[3] {
-		label="user arrayCalc 9 (demo)"
-		name="userArrayCalc_demo.adl"
-		args="P=$(P),C=userArrayCalc9"
-	}
-	clr=0
-	bclr=63
-}
-"text entry" {
-	object {
-		x=20
-		y=200
-		width=120
-		height=20
-	}
-	control {
-		chan="$(P)userArrayCalc10.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"related display" {
-	object {
-		x=0
-		y=200
-		width=20
-		height=20
-	}
-	display[0] {
-		label="user arrayCalc 10"
-		name="userArrayCalc.adl"
-		args="P=$(P),C=userArrayCalc10"
-	}
-	display[1] {
-		label="user arrayCalc 10 (w/plot)"
-		name="userArrayCalc_plot.adl"
-		args="P=$(P),C=userArrayCalc10"
-	}
-	display[2] {
-		label="user arrayCalc 10 (full)"
-		name="userArrayCalc_full.adl"
-		args="P=$(P),C=userArrayCalc10"
-	}
-	display[3] {
-		label="user arrayCalc 10 (demo)"
-		name="userArrayCalc_demo.adl"
-		args="P=$(P),C=userArrayCalc10"
-	}
-	clr=0
-	bclr=63
-}
 "choice button" {
 	object {
 		x=0
@@ -566,4 +116,464 @@ display {
 	clr=0
 	bclr=63
 	label="-All Plots"
+}
+"text entry" {
+	object {
+		x=25
+		y=20
+		width=115
+		height=20
+	}
+	control {
+		chan="$(P)userArrayCalc1.DESC"
+		clr=54
+		bclr=3
+	}
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=25
+		y=40
+		width=115
+		height=20
+	}
+	control {
+		chan="$(P)userArrayCalc2.DESC"
+		clr=54
+		bclr=3
+	}
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=25
+		y=60
+		width=115
+		height=20
+	}
+	control {
+		chan="$(P)userArrayCalc3.DESC"
+		clr=54
+		bclr=3
+	}
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=25
+		y=80
+		width=115
+		height=20
+	}
+	control {
+		chan="$(P)userArrayCalc4.DESC"
+		clr=54
+		bclr=3
+	}
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=25
+		y=100
+		width=115
+		height=20
+	}
+	control {
+		chan="$(P)userArrayCalc5.DESC"
+		clr=54
+		bclr=3
+	}
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=25
+		y=120
+		width=115
+		height=20
+	}
+	control {
+		chan="$(P)userArrayCalc6.DESC"
+		clr=54
+		bclr=3
+	}
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=25
+		y=140
+		width=115
+		height=20
+	}
+	control {
+		chan="$(P)userArrayCalc7.DESC"
+		clr=54
+		bclr=3
+	}
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=25
+		y=160
+		width=115
+		height=20
+	}
+	control {
+		chan="$(P)userArrayCalc8.DESC"
+		clr=54
+		bclr=3
+	}
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=25
+		y=180
+		width=115
+		height=20
+	}
+	control {
+		chan="$(P)userArrayCalc9.DESC"
+		clr=54
+		bclr=3
+	}
+	limits {
+	}
+}
+"text entry" {
+	object {
+		x=25
+		y=200
+		width=115
+		height=20
+	}
+	control {
+		chan="$(P)userArrayCalc10.DESC"
+		clr=54
+		bclr=3
+	}
+	limits {
+	}
+}
+"related display" {
+	object {
+		x=0
+		y=20
+		width=25
+		height=20
+	}
+	display[0] {
+		label="user arrayCalc 1"
+		name="userArrayCalc.adl"
+		args="P=$(P),C=userArrayCalc1"
+	}
+	display[1] {
+		label="user arrayCalc 1 (w/plot)"
+		name="userArrayCalc_plot.adl"
+		args="P=$(P),C=userArrayCalc1"
+	}
+	display[2] {
+		label="user arrayCalc 1 (full)"
+		name="userArrayCalc_full.adl"
+		args="P=$(P),C=userArrayCalc1"
+	}
+	display[3] {
+		label="user arrayCalc 1 (demo)"
+		name="userArrayCalc_demo.adl"
+		args="P=$(P),C=userArrayCalc1"
+	}
+	clr=0
+	bclr=63
+	label="-1"
+}
+"related display" {
+	object {
+		x=0
+		y=40
+		width=25
+		height=20
+	}
+	display[0] {
+		label="user arrayCalc 2"
+		name="userArrayCalc.adl"
+		args="P=$(P),C=userArrayCalc2"
+	}
+	display[1] {
+		label="user arrayCalc 2 (w/plot)"
+		name="userArrayCalc_plot.adl"
+		args="P=$(P),C=userArrayCalc2"
+	}
+	display[2] {
+		label="user arrayCalc 2 (full)"
+		name="userArrayCalc_full.adl"
+		args="P=$(P),C=userArrayCalc2"
+	}
+	display[3] {
+		label="user arrayCalc 2 (demo)"
+		name="userArrayCalc_demo.adl"
+		args="P=$(P),C=userArrayCalc2"
+	}
+	clr=0
+	bclr=63
+	label="-2"
+}
+"related display" {
+	object {
+		x=0
+		y=60
+		width=25
+		height=20
+	}
+	display[0] {
+		label="user arrayCalc 3"
+		name="userArrayCalc.adl"
+		args="P=$(P),C=userArrayCalc3"
+	}
+	display[1] {
+		label="user arrayCalc 3 (w/plot)"
+		name="userArrayCalc_plot.adl"
+		args="P=$(P),C=userArrayCalc3"
+	}
+	display[2] {
+		label="user arrayCalc 3 (full)"
+		name="userArrayCalc_full.adl"
+		args="P=$(P),C=userArrayCalc3"
+	}
+	display[3] {
+		label="user arrayCalc 3 (demo)"
+		name="userArrayCalc_demo.adl"
+		args="P=$(P),C=userArrayCalc3"
+	}
+	clr=0
+	bclr=63
+	label="-3"
+}
+"related display" {
+	object {
+		x=0
+		y=80
+		width=25
+		height=20
+	}
+	display[0] {
+		label="user arrayCalc 4"
+		name="userArrayCalc.adl"
+		args="P=$(P),C=userArrayCalc4"
+	}
+	display[1] {
+		label="user arrayCalc 4 (w/plot)"
+		name="userArrayCalc_plot.adl"
+		args="P=$(P),C=userArrayCalc4"
+	}
+	display[2] {
+		label="user arrayCalc 4 (full)"
+		name="userArrayCalc_full.adl"
+		args="P=$(P),C=userArrayCalc4"
+	}
+	display[3] {
+		label="user arrayCalc 4 (demo)"
+		name="userArrayCalc_demo.adl"
+		args="P=$(P),C=userArrayCalc4"
+	}
+	clr=0
+	bclr=63
+	label="-4"
+}
+"related display" {
+	object {
+		x=0
+		y=100
+		width=25
+		height=20
+	}
+	display[0] {
+		label="user arrayCalc 5"
+		name="userArrayCalc.adl"
+		args="P=$(P),C=userArrayCalc5"
+	}
+	display[1] {
+		label="user arrayCalc 5 (w/plot)"
+		name="userArrayCalc_plot.adl"
+		args="P=$(P),C=userArrayCalc5"
+	}
+	display[2] {
+		label="user arrayCalc 5 (full)"
+		name="userArrayCalc_full.adl"
+		args="P=$(P),C=userArrayCalc5"
+	}
+	display[3] {
+		label="user arrayCalc 5 (demo)"
+		name="userArrayCalc_demo.adl"
+		args="P=$(P),C=userArrayCalc5"
+	}
+	clr=0
+	bclr=63
+	label="-5"
+}
+"related display" {
+	object {
+		x=0
+		y=120
+		width=25
+		height=20
+	}
+	display[0] {
+		label="user arrayCalc 6"
+		name="userArrayCalc.adl"
+		args="P=$(P),C=userArrayCalc6"
+	}
+	display[1] {
+		label="user arrayCalc 6 (w/plot)"
+		name="userArrayCalc_plot.adl"
+		args="P=$(P),C=userArrayCalc6"
+	}
+	display[2] {
+		label="user arrayCalc 6 (full)"
+		name="userArrayCalc_full.adl"
+		args="P=$(P),C=userArrayCalc6"
+	}
+	display[3] {
+		label="user arrayCalc 6 (demo)"
+		name="userArrayCalc_demo.adl"
+		args="P=$(P),C=userArrayCalc6"
+	}
+	clr=0
+	bclr=63
+	label="-6"
+}
+"related display" {
+	object {
+		x=0
+		y=140
+		width=25
+		height=20
+	}
+	display[0] {
+		label="user arrayCalc 7"
+		name="userArrayCalc.adl"
+		args="P=$(P),C=userArrayCalc7"
+	}
+	display[1] {
+		label="user arrayCalc 7 (w/plot)"
+		name="userArrayCalc_plot.adl"
+		args="P=$(P),C=userArrayCalc7"
+	}
+	display[2] {
+		label="user arrayCalc 7 (full)"
+		name="userArrayCalc_full.adl"
+		args="P=$(P),C=userArrayCalc7"
+	}
+	display[3] {
+		label="user arrayCalc 7 (demo)"
+		name="userArrayCalc_demo.adl"
+		args="P=$(P),C=userArrayCalc7"
+	}
+	clr=0
+	bclr=63
+	label="-7"
+}
+"related display" {
+	object {
+		x=0
+		y=160
+		width=25
+		height=20
+	}
+	display[0] {
+		label="user arrayCalc 8"
+		name="userArrayCalc.adl"
+		args="P=$(P),C=userArrayCalc8"
+	}
+	display[1] {
+		label="user arrayCalc 8 (w/plot)"
+		name="userArrayCalc_plot.adl"
+		args="P=$(P),C=userArrayCalc8"
+	}
+	display[2] {
+		label="user arrayCalc 8 (full)"
+		name="userArrayCalc_full.adl"
+		args="P=$(P),C=userArrayCalc8"
+	}
+	display[3] {
+		label="user arrayCalc 8 (demo)"
+		name="userArrayCalc_demo.adl"
+		args="P=$(P),C=userArrayCalc8"
+	}
+	clr=0
+	bclr=63
+	label="-8"
+}
+"related display" {
+	object {
+		x=0
+		y=180
+		width=25
+		height=20
+	}
+	display[0] {
+		label="user arrayCalc 9"
+		name="userArrayCalc.adl"
+		args="P=$(P),C=userArrayCalc9"
+	}
+	display[1] {
+		label="user arrayCalc 9 (w/plot)"
+		name="userArrayCalc_plot.adl"
+		args="P=$(P),C=userArrayCalc9"
+	}
+	display[2] {
+		label="user arrayCalc 9 (full)"
+		name="userArrayCalc_full.adl"
+		args="P=$(P),C=userArrayCalc9"
+	}
+	display[3] {
+		label="user arrayCalc 9 (demo)"
+		name="userArrayCalc_demo.adl"
+		args="P=$(P),C=userArrayCalc9"
+	}
+	clr=0
+	bclr=63
+	label="-9"
+}
+"related display" {
+	object {
+		x=0
+		y=200
+		width=25
+		height=20
+	}
+	display[0] {
+		label="user arrayCalc 10"
+		name="userArrayCalc.adl"
+		args="P=$(P),C=userArrayCalc10"
+	}
+	display[1] {
+		label="user arrayCalc 10 (w/plot)"
+		name="userArrayCalc_plot.adl"
+		args="P=$(P),C=userArrayCalc10"
+	}
+	display[2] {
+		label="user arrayCalc 10 (full)"
+		name="userArrayCalc_full.adl"
+		args="P=$(P),C=userArrayCalc10"
+	}
+	display[3] {
+		label="user arrayCalc 10 (demo)"
+		name="userArrayCalc_demo.adl"
+		args="P=$(P),C=userArrayCalc10"
+	}
+	clr=0
+	bclr=63
+	label="-10"
 }
