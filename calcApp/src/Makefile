@@ -19,7 +19,8 @@ endif
 # <name>.dbd will be created from <name>Include.dbd, if it exists
 DBD_INSTALLS += calcSupport.dbd
 ifdef SNCSEQ
-	DBD_INSTALLS += editSseq.dbd
+	#DBD_INSTALLS += editSseq.dbd this doesn't work for base-3.15
+	DBD += editSseq.dbd
 endif
 
 #=============================
@@ -83,5 +84,5 @@ ifdef SNCSEQ
 dbdlist += ../calcSupport_withSNCSEQ.dbd
 endif
 
-calcSupport.dbd: $(dbdlist)
+calcSupport.dbd: $(dbdlist) ../editSseq.dbd
 	$(PERL) -MExtUtils::Command -e cat $^ > $@
