@@ -163,7 +163,7 @@ ss editSseq
 					rewroteRecordName = 1;
 				}
 			}
-			printf("editSseq:newRecordName: recordName='%s'\n", recordName);
+			if (Debug) printf("editSseq:newRecordName: recordName='%s'\n", recordName);
 			strcpy(recordType, "");
 			recType = RECTYPE_NONE;
 		}

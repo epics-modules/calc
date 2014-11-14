@@ -193,42 +193,6 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>string</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_2">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>msg</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>10</x>
-                    <y>65</y>
-                    <width>36</width>
-                    <height>20</height>
-                </rect>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
-            </property>
-        </widget>
         <widget class="caMessageButton" name="caMessageButton_0">
             <property name="geometry">
                 <rect>
@@ -268,7 +232,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>caMessageButton::Static</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_3">
+        <widget class="caLabel" name="caLabel_2">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -346,7 +310,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>true</string>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_4">
+        <widget class="caLabel" name="caLabel_3">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -382,7 +346,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_5">
+        <widget class="caLabel" name="caLabel_4">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -418,7 +382,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_6">
+        <widget class="caLabel" name="caLabel_5">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -454,7 +418,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_7">
+        <widget class="caLabel" name="caLabel_6">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -490,7 +454,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_8">
+        <widget class="caLabel" name="caLabel_7">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -518,7 +482,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>60</x>
                     <y>200</y>
-                    <width>320</width>
+                    <width>260</width>
                     <height>20</height>
                 </rect>
             </property>
@@ -526,7 +490,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_9">
+        <widget class="caLabel" name="caLabel_8">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -562,7 +526,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_10">
+        <widget class="caLabel" name="caLabel_9">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -598,7 +562,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_11">
+        <widget class="caLabel" name="caLabel_10">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -634,7 +598,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_12">
+        <widget class="caLabel" name="caLabel_11">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -670,7 +634,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_13">
+        <widget class="caLabel" name="caLabel_12">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -709,21 +673,57 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <widget class="caFrame" name="caFrame_0">
             <property name="geometry">
                 <rect>
-                    <x>45</x>
+                    <x>10</x>
                     <y>65</y>
-                    <width>309</width>
+                    <width>344</width>
                     <height>23</height>
                 </rect>
             </property>
+            <widget class="caLabel" name="caLabel_13">
+                <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="0">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="text">
+                    <string>msg:</string>
+                </property>
+                <property name="fontScaleMode">
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>0</y>
+                        <width>48</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property name="alignment">
+                    <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+            </widget>
             <widget class="caGraphics" name="caRectangle_0">
                 <property name="form">
                     <enum>caGraphics::Rectangle</enum>
                 </property>
                 <property name="geometry">
                     <rect>
-                        <x>0</x>
+                        <x>40</x>
                         <y>0</y>
-                        <width>307</width>
+                        <width>302</width>
                         <height>21</height>
                     </rect>
                 </property>
@@ -767,9 +767,9 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
             <widget class="caLineEdit" name="caLineEdit_0">
                 <property name="geometry">
                     <rect>
-                        <x>4</x>
+                        <x>44</x>
                         <y>4</y>
-                        <width>300</width>
+                        <width>295</width>
                         <height>14</height>
                     </rect>
                 </property>
@@ -788,9 +788,9 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 </property>
                 <property name="background">
                     <color alpha="255">
-                        <red>236</red>
-                        <green>236</green>
-                        <blue>236</blue>
+                        <red>255</red>
+                        <green>255</green>
+                        <blue>255</blue>
                     </color>
                 </property>
                 <property name="limitsMode">
@@ -819,6 +819,90 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 </property>
             </widget>
         </widget>
+        <widget class="caTextEntry" name="caTextEntry_2">
+            <property name="geometry">
+                <rect>
+                    <x>359</x>
+                    <y>205</y>
+                    <width>20</width>
+                    <height>15</height>
+                </rect>
+            </property>
+            <property name="fontScaleMode">
+                <enum>caLineEdit::WidthAndHeight</enum>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="255">
+                    <red>115</red>
+                    <green>223</green>
+                    <blue>255</blue>
+                </color>
+            </property>
+            <property name="limitsMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="limitsMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="precisionMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="minValue">
+                <double>0.0</double>
+            </property>
+            <property name="maxValue">
+                <double>1.0</double>
+            </property>
+            <property name="colorMode">
+                <enum>caLineEdit::Static</enum>
+            </property>
+            <property name="formatType">
+                <enum>decimal</enum>
+            </property>
+        </widget>
+        <widget class="caLabel" name="caLabel_14">
+            <property name="frameShape">
+                <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="0">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="text">
+                <string>DEBUG</string>
+            </property>
+            <property name="fontScaleMode">
+                <enum>ESimpleLabel::WidthAndHeight</enum>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>325</x>
+                    <y>208</y>
+                    <width>30</width>
+                    <height>10</height>
+                </rect>
+            </property>
+            <property name="alignment">
+                <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+            </property>
+        </widget>
         <zorder>caLabel_0</zorder>
         <zorder>caLabel_1</zorder>
         <zorder>caLabel_2</zorder>
@@ -835,11 +919,13 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <zorder>caLabel_13</zorder>
         <zorder>caRectangle_0</zorder>
         <zorder>caFrame_0</zorder>
+        <zorder>caLabel_14</zorder>
         <zorder>caTextEntry_0</zorder>
         <zorder>caTextEntry_1</zorder>
         <zorder>caMessageButton_0</zorder>
         <zorder>caRelatedDisplay_0</zorder>
         <zorder>caLineEdit_0</zorder>
+        <zorder>caTextEntry_2</zorder>
     </widget>
 </widget>
 </ui>
