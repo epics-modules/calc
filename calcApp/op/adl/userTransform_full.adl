@@ -1,14 +1,14 @@
 
 file {
 	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/userTransform_full.adl"
-	version=030102
+	version=030107
 }
 display {
 	object {
-		x=162
-		y=529
+		x=164
+		y=554
 		width=710
-		height=485
+		height=490
 	}
 	clr=14
 	bclr=3
@@ -2611,7 +2611,7 @@ text {
 }
 composite {
 	object {
-		x=268
+		x=200
 		y=468
 		width=197
 		height=16
@@ -2620,7 +2620,7 @@ composite {
 	children {
 		menu {
 			object {
-				x=345
+				x=277
 				y=468
 				width=120
 				height=16
@@ -2633,7 +2633,7 @@ composite {
 		}
 		text {
 			object {
-				x=268
+				x=200
 				y=471
 				width=75
 				height=10
@@ -2643,6 +2643,46 @@ composite {
 			}
 			textix="CALC OPTION:"
 			align="horiz. centered"
+		}
+	}
+}
+composite {
+	object {
+		x=410
+		y=468
+		width=245
+		height=20
+	}
+	"composite name"=""
+	children {
+		text {
+			object {
+				x=410
+				y=472
+				width=80
+				height=10
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="FORWARD LINK"
+			align="horiz. centered"
+		}
+		"text entry" {
+			object {
+				x=505
+				y=468
+				width=150
+				height=20
+			}
+			control {
+				chan="$(P)$(T).FLNK"
+				clr=14
+				bclr=40
+			}
+			format="string"
+			limits {
+			}
 		}
 	}
 }
