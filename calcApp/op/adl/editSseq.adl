@@ -143,18 +143,6 @@ text {
 	limits {
 	}
 }
-text {
-	object {
-		x=10
-		y=65
-		width=30
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="msg"
-}
 "message button" {
 	object {
 		x=355
@@ -201,18 +189,30 @@ text {
 }
 composite {
 	object {
-		x=45
+		x=10
 		y=65
-		width=307
+		width=342
 		height=21
 	}
 	"composite name"=""
 	children {
+		text {
+			object {
+				x=10
+				y=65
+				width=35
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="msg:"
+		}
 		rectangle {
 			object {
-				x=45
+				x=50
 				y=65
-				width=307
+				width=302
 				height=21
 			}
 			"basic attribute" {
@@ -228,15 +228,15 @@ composite {
 		}
 		"text update" {
 			object {
-				x=49
+				x=54
 				y=69
-				width=300
+				width=295
 				height=14
 			}
 			monitor {
 				chan="$(P)$(Q)message"
 				clr=54
-				bclr=1
+				bclr=0
 			}
 			format="string"
 			limits {
