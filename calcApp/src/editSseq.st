@@ -505,11 +505,7 @@ static int reconcilePVs(SS_ID ssId, struct UserVar *pVar,
 		if (strstr(PV[i], pattern) != 0) {
 			PV[i][strlen(pattern)-1] = c_dest;
 			if (c_dest != '*') {
-#if LT_SEQ_VERSION(2,2)
 				seq_pvPut(ssId, PVIndex[i], 0);
-#else
-				seq_pvPut(ssId, PVIndex[i], 0, DEFAULT_TIMEOUT);
-#endif
 			}
 		}	
 	}
