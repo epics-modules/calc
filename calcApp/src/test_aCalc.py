@@ -9,7 +9,7 @@ import os
 import sys
 #os.environ['EPICS_CA_ADDR_LIST'] = "164.54.53.99"
 
-aCalcRecord = "xxxL:userArrayCalc10"
+aCalcRecord = "xxx:userArrayCalc10"
 calc = aCalcRecord + ".CALC"
 result = aCalcRecord + ".VAL"
 aresult = aCalcRecord + ".AVAL"
@@ -464,5 +464,5 @@ if __name__ == '__main__':
 	if (len(sys.argv) > 1) :
 		test(sys.argv[1])
 	else:
-		test("xxx:userStringCalc10")
+		test("xxx:userArrayCalc10")
 	showCoverage()
