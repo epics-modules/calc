@@ -1,7 +1,7 @@
 
 file {
-	name="/home/oxygen4/MOONEY/epics/synApps/support/xxx/xxxApp/op/adl/FuncGen_full.adl"
-	version=030104
+	name="/home/oxygen/MOONEY/epics/synApps_3.15/support/calc/calcApp/op/adl/FuncGen_full.adl"
+	version=030107
 }
 display {
 	object {
@@ -317,6 +317,7 @@ text {
 		clr=14
 		bclr=41
 	}
+	format="string"
 	limits {
 	}
 }
@@ -549,6 +550,7 @@ polyline {
 		clr=14
 		bclr=41
 	}
+	format="string"
 	limits {
 	}
 }
