@@ -20,7 +20,6 @@ endif
 DBD_INSTALLS += calcSupport.dbd
 DBD_INSTALLS += calc.dbd
 ifdef SNCSEQ
-	#DBD_INSTALLS += editSseq.dbd this doesn't work for base-3.15
 	DBD += editSseq.dbd
 endif
 
