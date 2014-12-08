@@ -25,6 +25,11 @@ available, the definition of SNCSEQ must be commented out of configure/RELEASE,
 and calc will then build everything but editSseq.  This version of calc will
 build with either seq-2-1-16 or seq-2-2-0-2.
 
+<li>calc.dbd: new file, which is exactly the same as calcSupport.dbd.  Modules
+using the calc module should now include calc.dbd in their .dbd files, and link
+against calc.x.  calcSupport.dbd will be retained for a while, and eventually
+deleted.
+
 </ul>
 
 <h2 align="center">Release 3-4</h2>

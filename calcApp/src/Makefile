@@ -18,6 +18,7 @@ endif
 
 # <name>.dbd will be created from <name>Include.dbd, if it exists
 DBD_INSTALLS += calcSupport.dbd
+DBD_INSTALLS += calc.dbd
 ifdef SNCSEQ
 	#DBD_INSTALLS += editSseq.dbd this doesn't work for base-3.15
 	DBD += editSseq.dbd
@@ -76,6 +77,8 @@ swaitRecord$(OBJ): $(COMMON_DIR)/swaitRecord.h
 # mustn't do that.  Otherwise the ioc directory would inherit an expanded copy
 # of base.dbd from each support module.)
 
+# calc.dbd is exactly the same as calcSupport.dbd
+
 dbdlist = ../calcSupport_LOCAL.dbd
 ifdef SSCAN
 dbdlist += ../calcSupport_withSSCAN.dbd
@@ -85,4 +88,7 @@ dbdlist += ../calcSupport_withSNCSEQ.dbd
 endif
 
 calcSupport.dbd: $(dbdlist) ../editSseq.dbd
+	$(PERL) -MExtUtils::Command -e cat $^ > $@
+
+calc.dbd: $(dbdlist) ../editSseq.dbd
 	$(PERL) -MExtUtils::Command -e cat $^ > $@

@@ -318,11 +318,19 @@ yySseq*.adl
 <ul>
 
 <li>Edit <code>configure/RELEASE</code> to specify the paths to <b>EPICS
-base</b>, and to the <b>sscan</b> module.  If you don't have <b>sscan</b>, or
-don't want it to be used by the <b>calc</b> module, comment the definition out,
-and the <b>calc</b> module will adjust its build accordingly.  The only thing
-<b>calc</b> can't build without <b>sscan</b> is the swait record, which is
-retained in <b>calc</b> mostly for historical reasons.
+base</b>, and to the <b>sscan</b> and <b>seq</b> modules.  If you don't have
+<b>sscan</b>, or don't want it to be used by the <b>calc</b> module, comment the
+definition out, and the <b>calc</b> module will adjust its build accordingly.
+Same for <b>seq</b>. The only thing <b>calc</b> can't build without <b>sscan</b>
+is the swait record, which is retained in <b>calc</b> mostly for historical
+reasons.  The only thing <b>calc</b> can't build without <b>sscan</b> is the
+editSseq program and database, which support run-time editing of sseq and seq
+records.
+
+<blockquote>
+If <b>calc</b> was built with <b>sscan</b> or <b>seq</b>, modules
+that depend on calc should also be built with those modules.
+</blockquote>
 
 <blockquote>
 
@@ -338,7 +346,7 @@ only produces code that can be used by other modules.  (A good example of a modu
 the calc module is synApps' <b>xxx</b> module.) An application that uses <b>calc</b> must
 specify the path to the calc module in its configure/RELEASE file; it must add
 
-<pre>include calcSupport.dbd</pre>
+<pre>include calc.dbd</pre>
 
 to its <code>xxxInclude.dbd</code> file, and it must link with
 <code>libcalc</code>, by adding a line like
