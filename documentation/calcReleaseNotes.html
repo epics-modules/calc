@@ -9,6 +9,15 @@
 
 <h1 align="center">calc Release Notes</h1>
 
+<h2 align="center">Release 3-4-2</h2>
+
+<ul>
+<li>calc was adding editSeq.dbd to calcSupport.dbd even when SNCSEQ wasn't defined in RELEASE
+
+<li>sseq record: previously, sseq could segfault when .WAIT=="After&lt;n&gt;".
+Thanks to Matt Pearson for finding and characterizing the problem.
+</ul>
+
 <h2 align="center">Release 3-4-1</h2>
 
 <ul>
@@ -27,8 +36,6 @@ build with either seq-2-1-18 or seq-2-2-1.
 
 <li>calc.dbd: new file, which is exactly the same as calcSupport.dbd.
 
-<li>sseq record: previously, sseq could segfault when .WAIT=="After&lt;n&gt;".
-Thanks to Matt Pearson for finding and characterizing the problem.
 
 </ul>
 
