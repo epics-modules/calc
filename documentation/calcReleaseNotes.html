@@ -23,9 +23,12 @@ lines. (A <i>line</i> is the set (DLYn, DOLn, STRn, DOn, LNKn, WAITn).)
 <li>calc now requires the seq module by default.  If the seq module is not
 available, the definition of SNCSEQ must be commented out of configure/RELEASE,
 and calc will then build everything but editSseq.  This version of calc will
-build with either seq-2-1-16 or seq-2-2-0-2.
+build with either seq-2-1-18 or seq-2-2-1.
 
 <li>calc.dbd: new file, which is exactly the same as calcSupport.dbd.
+
+<li>sseq record: previously, sseq could segfault when .WAIT=="After&lt;n&gt;".
+Thanks to Matt Pearson for finding and characterizing the problem.
 
 </ul>
 
