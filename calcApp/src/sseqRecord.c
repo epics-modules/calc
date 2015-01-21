@@ -713,9 +713,15 @@ processCallback(CALLBACK *pCallback)
 				printf("sseq:processCallback: calling dbCaPutLinkCallback\n");
 			status = dbCaPutLinkCallback(&(plinkGroup->lnk), DBR_STRING,
 				&(plinkGroup->s), 1, (dbCaCallback) putCallbackCB, (void *)plinkGroup);
-			plinkGroup->waiting = 1;
-			db_post_events(pR, &plinkGroup->waiting, DBE_VALUE);
-			did_putCallback = 1;
+			if (status) {
+				pR->abort = 1;
+				db_post_events(pR, &pR->abort, DBE_VALUE);
+				printf("sseq:processCallback: dbCaPutLinkCallback for link %d failed.  Aborting.\n", pcb->index);
+			} else {
+				plinkGroup->waiting = 1;
+				db_post_events(pR, &plinkGroup->waiting, DBE_VALUE);
+				did_putCallback = 1;
+			}
 		} else {
 			if (sseqRecDebug >= 5)
 				printf("sseq:processCallback: calling dbPutLink\n");
@@ -729,9 +735,15 @@ processCallback(CALLBACK *pCallback)
 				printf("sseq:processCallback: calling dbCaPutLinkCallback\n");
 			status = dbCaPutLinkCallback(&(plinkGroup->lnk), DBR_DOUBLE,
 				&(plinkGroup->dov), 1, (dbCaCallback) putCallbackCB, (void *)plinkGroup);
-			plinkGroup->waiting = 1;
-			db_post_events(pR, &plinkGroup->waiting, DBE_VALUE);
-			did_putCallback = 1;
+			if (status) {
+				pR->abort = 1;
+				db_post_events(pR, &pR->abort, DBE_VALUE);
+				printf("sseq:processCallback: dbCaPutLinkCallback for link %d failed.  Aborting.\n", pcb->index);
+			} else {
+				plinkGroup->waiting = 1;
+				db_post_events(pR, &plinkGroup->waiting, DBE_VALUE);
+				did_putCallback = 1;
+			}
 		} else {
 			if (sseqRecDebug >= 5)
 				printf("sseq:processCallback: calling dbPutLink\n");
@@ -753,9 +765,15 @@ processCallback(CALLBACK *pCallback)
 				status = dbCaPutLinkCallback(&(plinkGroup->lnk), DBR_DOUBLE,
 					&(plinkGroup->dov), 1, (dbCaCallback) putCallbackCB, (void *)plinkGroup);
 			}
-			plinkGroup->waiting = 1;
-			db_post_events(pR, &plinkGroup->waiting, DBE_VALUE);
-			did_putCallback = 1;
+			if (status) {
+				pR->abort = 1;
+				db_post_events(pR, &pR->abort, DBE_VALUE);
+				printf("sseq:processCallback: dbCaPutLinkCallback for link %d failed.  Aborting.\n", pcb->index);
+			} else {
+				plinkGroup->waiting = 1;
+				db_post_events(pR, &plinkGroup->waiting, DBE_VALUE);
+				did_putCallback = 1;
+			}
 		} else {
 			if (sseqRecDebug >= 5)
 				printf("sseq:processCallback: calling dbPutLink\n");
