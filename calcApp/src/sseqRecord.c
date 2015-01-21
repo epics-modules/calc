@@ -103,6 +103,7 @@ struct callbackSeq {
 	CALLBACK			callback;	/* used for the callback task */
 	struct linkGroup	*plinkGroups[NUM_LINKS+1]; /* Pointers to links to process */
 	int					index;
+	int					waitingForPutCallback;
 	/* the following are for maintaining links */
 	CALLBACK			checkLinksCB;
 	short				pending_checkLinksCB;
@@ -333,6 +334,7 @@ process(sseqRecord *pR)
 	}
 
 	/* Clear all 'waiting' fields */
+	pcb->waitingForPutCallback = 0;
 	plinkGroup = (struct linkGroup *)(&(pR->dly1));
 	for (i=0; i<10; i++, plinkGroup++) {
 		plinkGroup->waiting = 0;
@@ -418,15 +420,19 @@ static int processNextLink(sseqRecord *pR)
 		plinkGroup = pcb->plinkGroups[ix];
 		if (plinkGroup->waiting) {
 			if (plinkGroup->usePutCallback == sseqWAIT_Wait) {
+				/* .WAIT == "Wait" */
 				if (sseqRecDebug >= 2)
 					printf("sseq:processNextLink: waiting for link index %d (waitIx='next')\n",
 						plinkGroup->index);
+				pcb->waitingForPutCallback = 1;
 				return(0);
 			}
 			if ((plinkGroup->usePutCallback-2) < plinkGroupCurrent->index) {
+				/* .WAIT == "After<n>" */
 				if (sseqRecDebug >= 2)
 					printf("sseq:processNextLink: waiting for link index %d (waitIx=%d)\n",
 						plinkGroup->index, plinkGroup->usePutCallback-2);
+				pcb->waitingForPutCallback = 1;
 				return(0);
 			}
 		}
@@ -507,6 +513,8 @@ void putCallbackCB(void *arg)
 	sseqRecord			*pR;
 	struct linkGroup	*plinkGroup;
 	int 				ix, numWaiting, linkIsOK;
+	struct callbackSeq	*pcb;
+	struct linkGroup	*plinkGroupCurrent;
 
 	if (sseqRecDebug>=2) printf("sseq:putCallbackCB: entry\n");
 
@@ -526,7 +534,8 @@ void putCallbackCB(void *arg)
 
 
 	pR = (sseqRecord *)(plink->value.pv_link.precord);
-	/* If sequence was aborted, waitinf fields may have been cleared. */
+	pcb = (struct callbackSeq *) (pR->dpvt);
+	/* If sequence was aborted, waiting fields may already have been cleared. */
 	if (plinkGroupThis->waiting == 0) {
 		if (sseqRecDebug)
 			printf("sseq(%s):putCallbackCB: ignoring abandoned callback from link %d (0..9)\n", 
@@ -535,6 +544,8 @@ void putCallbackCB(void *arg)
 	}
 
 	dbScanLock((struct dbCommon *)pR);
+
+	plinkGroupCurrent = pcb->plinkGroups[pcb->index];
 
 	/* Clear the 'waiting' field for the linkGroup whose callback we received. */
 	if (sseqRecDebug>=2) printf("sseq:putCallbackCB: Got callback for link %d (0..9)\n", plinkGroupThis->index);
@@ -556,7 +567,10 @@ void putCallbackCB(void *arg)
 	}
 
 	/* Find the 'next' link-seq that is ready for processing. */
-	processNextLink(pR);
+	if (pcb->waitingForPutCallback || (plinkGroupCurrent == NULL)) {
+		pcb->waitingForPutCallback = 0;
+		processNextLink(pR);
+	}
 
 	dbScanUnlock((struct dbCommon *)pR);
 	return;
@@ -566,9 +580,8 @@ void putCallbackCB(void *arg)
  *
  * Link-group processing function.
  * This routine runs only as the result of a callbackRequest() or a
- * callbackRequestDelayed().  Because the sseq record currently does not process
- * a link group until all previous link groups are done, when this routine runs,
- * there are no outstanding delays or dbCaPutLinkCallbacks.  Thus, abort is simple.
+ * callbackRequestDelayed().  There may be outstanding delays or dbCaPutLinkCallbacks
+ * when this routine runs.
  * 
  * if the input link is not a constant
  *   call dbGetLink() to get the link value
@@ -700,9 +713,15 @@ processCallback(CALLBACK *pCallback)
 				printf("sseq:processCallback: calling dbCaPutLinkCallback\n");
 			status = dbCaPutLinkCallback(&(plinkGroup->lnk), DBR_STRING,
 				&(plinkGroup->s), 1, (dbCaCallback) putCallbackCB, (void *)plinkGroup);
-			plinkGroup->waiting = 1;
-			db_post_events(pR, &plinkGroup->waiting, DBE_VALUE);
-			did_putCallback = 1;
+			if (status) {
+				pR->abort = 1;
+				db_post_events(pR, &pR->abort, DBE_VALUE);
+				printf("sseq:processCallback: dbCaPutLinkCallback for link %d failed.  Aborting.\n", pcb->index);
+			} else {
+				plinkGroup->waiting = 1;
+				db_post_events(pR, &plinkGroup->waiting, DBE_VALUE);
+				did_putCallback = 1;
+			}
 		} else {
 			if (sseqRecDebug >= 5)
 				printf("sseq:processCallback: calling dbPutLink\n");
@@ -716,9 +735,15 @@ processCallback(CALLBACK *pCallback)
 				printf("sseq:processCallback: calling dbCaPutLinkCallback\n");
 			status = dbCaPutLinkCallback(&(plinkGroup->lnk), DBR_DOUBLE,
 				&(plinkGroup->dov), 1, (dbCaCallback) putCallbackCB, (void *)plinkGroup);
-			plinkGroup->waiting = 1;
-			db_post_events(pR, &plinkGroup->waiting, DBE_VALUE);
-			did_putCallback = 1;
+			if (status) {
+				pR->abort = 1;
+				db_post_events(pR, &pR->abort, DBE_VALUE);
+				printf("sseq:processCallback: dbCaPutLinkCallback for link %d failed.  Aborting.\n", pcb->index);
+			} else {
+				plinkGroup->waiting = 1;
+				db_post_events(pR, &plinkGroup->waiting, DBE_VALUE);
+				did_putCallback = 1;
+			}
 		} else {
 			if (sseqRecDebug >= 5)
 				printf("sseq:processCallback: calling dbPutLink\n");
@@ -740,9 +765,15 @@ processCallback(CALLBACK *pCallback)
 				status = dbCaPutLinkCallback(&(plinkGroup->lnk), DBR_DOUBLE,
 					&(plinkGroup->dov), 1, (dbCaCallback) putCallbackCB, (void *)plinkGroup);
 			}
-			plinkGroup->waiting = 1;
-			db_post_events(pR, &plinkGroup->waiting, DBE_VALUE);
-			did_putCallback = 1;
+			if (status) {
+				pR->abort = 1;
+				db_post_events(pR, &pR->abort, DBE_VALUE);
+				printf("sseq:processCallback: dbCaPutLinkCallback for link %d failed.  Aborting.\n", pcb->index);
+			} else {
+				plinkGroup->waiting = 1;
+				db_post_events(pR, &plinkGroup->waiting, DBE_VALUE);
+				did_putCallback = 1;
+			}
 		} else {
 			if (sseqRecDebug >= 5)
 				printf("sseq:processCallback: calling dbPutLink\n");

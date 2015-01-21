@@ -86,8 +86,8 @@ ifdef SNCSEQ
 dbdlist += ../calcSupport_withSNCSEQ.dbd
 endif
 
-calcSupport.dbd: $(dbdlist) ../editSseq.dbd
+calcSupport.dbd: $(dbdlist)
 	$(PERL) -MExtUtils::Command -e cat $^ > $@
 
-calc.dbd: $(dbdlist) ../editSseq.dbd
+calc.dbd: $(dbdlist)
 	$(PERL) -MExtUtils::Command -e cat $^ > $@
