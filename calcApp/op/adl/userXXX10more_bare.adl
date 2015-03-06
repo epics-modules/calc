@@ -1,6 +1,6 @@
 
 file {
-	name="/home/oxygen4/MOONEY/epics/synAppsSVN/support/calc/calcApp/op/adl/userXXX10more_bare.adl"
+	name="/net/s2dserv/xorApps/epics/synApps_5_6/ioc/2bmb/2bmbApp/op/adl/userXXX10more_bare.adl"
 	version=030107
 }
 display {
@@ -111,17 +111,17 @@ display {
 	display[0] {
 		label="user $(TYPE) $(N1)"
 		name="user$(TYPE).adl"
-		args="P=$(P),C=user$(TYPE)$(N1)"
+		args="P=$(P),C=user$(TYPE)$(N1),S=user$(TYPE)$(N1)"
 	}
 	display[1] {
 		label="user $(TYPE) $(N1) (full)"
 		name="user$(TYPE)_full.adl"
-		args="P=$(P),C=user$(TYPE)$(N1)"
+		args="P=$(P),C=user$(TYPE)$(N1),S=user$(TYPE)$(N1)"
 	}
 	display[2] {
 		label="user $(TYPE) $(N1) (demo)"
 		name="user$(TYPE)_demo.adl"
-		args="P=$(P),C=user$(TYPE)$(N1)"
+		args="P=$(P),C=user$(TYPE)$(N1),S=user$(TYPE)$(N1)"
 	}
 	clr=0
 	bclr=63
@@ -137,17 +137,17 @@ display {
 	display[0] {
 		label="user $(TYPE) $(N2)"
 		name="user$(TYPE).adl"
-		args="P=$(P),C=user$(TYPE)$(N2)"
+		args="P=$(P),C=user$(TYPE)$(N2),S=user$(TYPE)$(N2)"
 	}
 	display[1] {
 		label="user $(TYPE) $(N2) (full)"
 		name="user$(TYPE)_full.adl"
-		args="P=$(P),C=user$(TYPE)$(N2)"
+		args="P=$(P),C=user$(TYPE)$(N2),S=user$(TYPE)$(N2)"
 	}
 	display[2] {
 		label="user $(TYPE) $(N2) (demo)"
 		name="user$(TYPE)_demo.adl"
-		args="P=$(P),C=user$(TYPE)$(N2)"
+		args="P=$(P),C=user$(TYPE)$(N2),S=user$(TYPE)$(N2)"
 	}
 	clr=0
 	bclr=63
@@ -163,17 +163,17 @@ display {
 	display[0] {
 		label="user $(TYPE) $(N3)"
 		name="user$(TYPE).adl"
-		args="P=$(P),C=user$(TYPE)$(N3)"
+		args="P=$(P),C=user$(TYPE)$(N3),S=user$(TYPE)$(N3)"
 	}
 	display[1] {
 		label="user $(TYPE) $(N3) (full)"
 		name="user$(TYPE)_full.adl"
-		args="P=$(P),C=user$(TYPE)$(N3)"
+		args="P=$(P),C=user$(TYPE)$(N3),S=user$(TYPE)$(N3)"
 	}
 	display[2] {
 		label="user $(TYPE) $(N3) (demo)"
 		name="user$(TYPE)_demo.adl"
-		args="P=$(P),C=user$(TYPE)$(N3)"
+		args="P=$(P),C=user$(TYPE)$(N3),S=user$(TYPE)$(N3)"
 	}
 	clr=0
 	bclr=63
@@ -189,17 +189,17 @@ display {
 	display[0] {
 		label="user $(TYPE) $(N4)"
 		name="user$(TYPE).adl"
-		args="P=$(P),C=user$(TYPE)$(N4)"
+		args="P=$(P),C=user$(TYPE)$(N4),S=user$(TYPE)$(N4)"
 	}
 	display[1] {
 		label="user $(TYPE) $(N4) (full)"
 		name="user$(TYPE)_full.adl"
-		args="P=$(P),C=user$(TYPE)$(N4)"
+		args="P=$(P),C=user$(TYPE)$(N4),S=user$(TYPE)$(N4)"
 	}
 	display[2] {
 		label="user $(TYPE) $(N4) (demo)"
 		name="user$(TYPE)_demo.adl"
-		args="P=$(P),C=user$(TYPE)$(N4)"
+		args="P=$(P),C=user$(TYPE)$(N4),S=user$(TYPE)$(N4)"
 	}
 	clr=0
 	bclr=63
@@ -215,17 +215,17 @@ display {
 	display[0] {
 		label="user $(TYPE) $(N5)"
 		name="user$(TYPE).adl"
-		args="P=$(P),C=user$(TYPE)$(N5)"
+		args="P=$(P),C=user$(TYPE)$(N5),S=user$(TYPE)$(N5)"
 	}
 	display[1] {
 		label="user $(TYPE) $(N5) (full)"
 		name="user$(TYPE)_full.adl"
-		args="P=$(P),C=user$(TYPE)$(N5)"
+		args="P=$(P),C=user$(TYPE)$(N5),S=user$(TYPE)$(N5)"
 	}
 	display[2] {
 		label="user $(TYPE) $(N5) (demo)"
 		name="user$(TYPE)_demo.adl"
-		args="P=$(P),C=user$(TYPE)$(N5)"
+		args="P=$(P),C=user$(TYPE)$(N5),S=user$(TYPE)$(N5)"
 	}
 	clr=0
 	bclr=63
@@ -241,17 +241,17 @@ display {
 	display[0] {
 		label="user $(TYPE) $(N6)"
 		name="user$(TYPE).adl"
-		args="P=$(P),C=user$(TYPE)$(N6)"
+		args="P=$(P),C=user$(TYPE)$(N6),S=user$(TYPE)$(N6)"
 	}
 	display[1] {
 		label="user $(TYPE) $(N6) (full)"
 		name="user$(TYPE)_full.adl"
-		args="P=$(P),C=user$(TYPE)$(N6)"
+		args="P=$(P),C=user$(TYPE)$(N6),S=user$(TYPE)$(N6)"
 	}
 	display[2] {
 		label="user $(TYPE) $(N6) (demo)"
 		name="user$(TYPE)_demo.adl"
-		args="P=$(P),C=user$(TYPE)$(N6)"
+		args="P=$(P),C=user$(TYPE)$(N6),S=user$(TYPE)$(N6)"
 	}
 	clr=0
 	bclr=63
@@ -267,17 +267,17 @@ display {
 	display[0] {
 		label="user $(TYPE) $(N7)"
 		name="user$(TYPE).adl"
-		args="P=$(P),C=user$(TYPE)$(N7)"
+		args="P=$(P),C=user$(TYPE)$(N7),S=user$(TYPE)$(N7)"
 	}
 	display[1] {
 		label="user $(TYPE) $(N7) (full)"
 		name="user$(TYPE)_full.adl"
-		args="P=$(P),C=user$(TYPE)$(N7)"
+		args="P=$(P),C=user$(TYPE)$(N7),S=user$(TYPE)$(N7)"
 	}
 	display[2] {
 		label="user $(TYPE) $(N7) (demo)"
 		name="user$(TYPE)_demo.adl"
-		args="P=$(P),C=user$(TYPE)$(N7)"
+		args="P=$(P),C=user$(TYPE)$(N7),S=user$(TYPE)$(N7)"
 	}
 	clr=0
 	bclr=63
@@ -293,17 +293,17 @@ display {
 	display[0] {
 		label="user $(TYPE) $(N8)"
 		name="user$(TYPE).adl"
-		args="P=$(P),C=user$(TYPE)$(N8)"
+		args="P=$(P),C=user$(TYPE)$(N8),S=user$(TYPE)$(N8)"
 	}
 	display[1] {
 		label="user $(TYPE) $(N8) (full)"
 		name="user$(TYPE)_full.adl"
-		args="P=$(P),C=user$(TYPE)$(N8)"
+		args="P=$(P),C=user$(TYPE)$(N8),S=user$(TYPE)$(N8)"
 	}
 	display[2] {
 		label="user $(TYPE) $(N8) (demo)"
 		name="user$(TYPE)_demo.adl"
-		args="P=$(P),C=user$(TYPE)$(N8)"
+		args="P=$(P),C=user$(TYPE)$(N8),S=user$(TYPE)$(N8)"
 	}
 	clr=0
 	bclr=63
@@ -319,17 +319,17 @@ display {
 	display[0] {
 		label="user $(TYPE) $(N9)"
 		name="user$(TYPE).adl"
-		args="P=$(P),C=user$(TYPE)$(N9)"
+		args="P=$(P),C=user$(TYPE)$(N9),S=user$(TYPE)$(N9)"
 	}
 	display[1] {
 		label="user $(TYPE) $(N9) (full)"
 		name="user$(TYPE)_full.adl"
-		args="P=$(P),C=user$(TYPE)$(N9)"
+		args="P=$(P),C=user$(TYPE)$(N9),S=user$(TYPE)$(N9)"
 	}
 	display[2] {
 		label="user $(TYPE) $(N9) (demo)"
 		name="user$(TYPE)_demo.adl"
-		args="P=$(P),C=user$(TYPE)$(N9)"
+		args="P=$(P),C=user$(TYPE)$(N9),S=user$(TYPE)$(N9)"
 	}
 	clr=0
 	bclr=63
@@ -345,17 +345,17 @@ display {
 	display[0] {
 		label="user $(TYPE) $(N10)"
 		name="user$(TYPE).adl"
-		args="P=$(P),C=user$(TYPE)$(N10)"
+		args="P=$(P),C=user$(TYPE)$(N10),S=user$(TYPE)$(N10)"
 	}
 	display[1] {
 		label="user $(TYPE) $(N10) (full)"
 		name="user$(TYPE)_full.adl"
-		args="P=$(P),C=user$(TYPE)$(N10)"
+		args="P=$(P),C=user$(TYPE)$(N10),S=user$(TYPE)$(N10)"
 	}
 	display[2] {
 		label="user $(TYPE) $(N10) (demo)"
 		name="user$(TYPE)_demo.adl"
-		args="P=$(P),C=user$(TYPE)$(N10)"
+		args="P=$(P),C=user$(TYPE)$(N10),S=user$(TYPE)$(N10)"
 	}
 	clr=0
 	bclr=63
