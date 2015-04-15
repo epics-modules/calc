@@ -272,7 +272,8 @@ static long getMacros(transformRecord *ptran)
 		if (transformRecordDebug >= 10) printf("pcomment[%d]='%s'\n", i, pcomment);
 		if (pcomment[0] == '$') {
 			macro->name[0] = pcomment[0];
-			for(j=1; j<COMMENT_SIZE-1 && isalnum((int)pcomment[j]); j++) {
+			/* for(j=1; j<COMMENT_SIZE-1 && isalnum((int)pcomment[j]); j++) { */
+			for(j=1; j<COMMENT_SIZE-1 && !isspace((int)pcomment[j]); j++) {
 				macro->name[j] = pcomment[j];
 			}
 			macro->name[j] = '\0';
