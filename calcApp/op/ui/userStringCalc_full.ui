@@ -321,7 +321,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>caLabel::IfNotZero</enum>
             </property>
             <property name="channel">
-                <string>$(P)userStringCalcEnable.VAL</string>
+                <string>$(P)userStringCalc$(N)EnableCalc.VAL</string>
             </property>
             <property name="text">
                 <string>($(P)$(C))</string>
@@ -562,7 +562,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>caLabel::IfZero</enum>
             </property>
             <property name="channel">
-                <string>$(P)userStringCalcEnable.VAL</string>
+                <string>$(P)userStringCalc$(N)EnableCalc.VAL</string>
             </property>
             <property name="text">
                 <string>DISABLED</string>
@@ -579,81 +579,6 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                     <y>5</y>
                     <width>155</width>
                     <height>20</height>
-                </rect>
-            </property>
-        </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_0">
-            <property name="geometry">
-                <rect>
-                    <x>320</x>
-                    <y>33</y>
-                    <width>15</width>
-                    <height>15</height>
-                </rect>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>255</red>
-                    <green>255</green>
-                    <blue>255</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>40</red>
-                    <green>147</green>
-                    <blue>21</blue>
-                </color>
-            </property>
-            <property name="stackingMode">
-                <enum>Menu</enum>
-            </property>
-            <property name="labels">
-                <string>user stringCalcs (all)</string>
-            </property>
-            <property name="files">
-                <string>userStringCalcs10.adl</string>
-            </property>
-            <property name="args">
-                <string>P=$(P)</string>
-            </property>
-            <property name="removeParent">
-                <string>false</string>
-            </property>
-        </widget>
-        <widget class="caLabel" name="caLabel_6">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>ENABLE ALL</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignHCenter|Qt::AlignVCenter</set>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>335</x>
-                    <y>37</y>
-                    <width>60</width>
-                    <height>10</height>
                 </rect>
             </property>
         </widget>
@@ -697,7 +622,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>0,0;398,0;</string>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_7">
+        <widget class="caLabel" name="caLabel_6">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -733,7 +658,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_8">
+        <widget class="caLabel" name="caLabel_7">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -809,7 +734,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>1,1;379,1;</string>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_9">
+        <widget class="caLabel" name="caLabel_8">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -993,7 +918,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>string</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_10">
+        <widget class="caLabel" name="caLabel_9">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -1177,7 +1102,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>string</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_11">
+        <widget class="caLabel" name="caLabel_10">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -1361,7 +1286,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>string</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_12">
+        <widget class="caLabel" name="caLabel_11">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -1693,7 +1618,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>string</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_13">
+        <widget class="caLabel" name="caLabel_12">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -1877,7 +1802,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>string</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_14">
+        <widget class="caLabel" name="caLabel_13">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -2060,7 +1985,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>string</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_15">
+        <widget class="caLabel" name="caLabel_14">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -2096,7 +2021,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 </rect>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_16">
+        <widget class="caLabel" name="caLabel_15">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -2138,7 +2063,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 </rect>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_17">
+        <widget class="caLabel" name="caLabel_16">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -2174,7 +2099,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_18">
+        <widget class="caLabel" name="caLabel_17">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -2324,7 +2249,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>2,56;1,1;</string>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_19">
+        <widget class="caLabel" name="caLabel_18">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -2568,7 +2493,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>caMenu::Static</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_20">
+        <widget class="caLabel" name="caLabel_19">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -2736,7 +2661,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>decimal</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_21">
+        <widget class="caLabel" name="caLabel_20">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -2772,7 +2697,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 </rect>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_22">
+        <widget class="caLabel" name="caLabel_21">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -3120,7 +3045,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                             <height>22</height>
                         </rect>
                     </property>
-                    <widget class="caLabel" name="caLabel_23">
+                    <widget class="caLabel" name="caLabel_22">
                         <property name="frameShape">
                             <enum>QFrame::NoFrame</enum>
                         </property>
@@ -3156,7 +3081,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                             </rect>
                         </property>
                     </widget>
-                    <widget class="caLabel" name="caLabel_24">
+                    <widget class="caLabel" name="caLabel_23">
                         <property name="frameShape">
                             <enum>QFrame::NoFrame</enum>
                         </property>
@@ -3392,7 +3317,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>string</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_25">
+        <widget class="caLabel" name="caLabel_24">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -3434,7 +3359,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 </rect>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_26">
+        <widget class="caLabel" name="caLabel_25">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -3510,7 +3435,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>1,1;379,1;</string>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_27">
+        <widget class="caLabel" name="caLabel_26">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -3640,7 +3565,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>0,0;283,0;</string>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_28">
+        <widget class="caLabel" name="caLabel_27">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -3824,7 +3749,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>string</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_29">
+        <widget class="caLabel" name="caLabel_28">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -4008,7 +3933,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>string</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_30">
+        <widget class="caLabel" name="caLabel_29">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -4192,7 +4117,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>string</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_31">
+        <widget class="caLabel" name="caLabel_30">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -4524,7 +4449,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>string</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_32">
+        <widget class="caLabel" name="caLabel_31">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -4708,7 +4633,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>string</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_33">
+        <widget class="caLabel" name="caLabel_32">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -4790,7 +4715,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>$(P)$(C).INAV</string>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_34">
+        <widget class="caLabel" name="caLabel_33">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -4877,7 +4802,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>string</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_35">
+        <widget class="caLabel" name="caLabel_34">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -5010,7 +4935,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>string</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_36">
+        <widget class="caLabel" name="caLabel_35">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -5143,7 +5068,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>string</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_37">
+        <widget class="caLabel" name="caLabel_36">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -5276,7 +5201,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>string</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_38">
+        <widget class="caLabel" name="caLabel_37">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -5409,7 +5334,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>string</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_39">
+        <widget class="caLabel" name="caLabel_38">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -5542,7 +5467,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>string</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_40">
+        <widget class="caLabel" name="caLabel_39">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -5675,7 +5600,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>string</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_41">
+        <widget class="caLabel" name="caLabel_40">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -5808,7 +5733,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>string</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_42">
+        <widget class="caLabel" name="caLabel_41">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -5941,7 +5866,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>string</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_43">
+        <widget class="caLabel" name="caLabel_42">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -6074,7 +5999,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>string</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_44">
+        <widget class="caLabel" name="caLabel_43">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -6207,7 +6132,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>string</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_45">
+        <widget class="caLabel" name="caLabel_44">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -6952,7 +6877,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>decimal</enum>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_1">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_0">
             <property name="geometry">
                 <rect>
                     <x>5</x>
@@ -6994,7 +6919,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_2">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_1">
             <property name="geometry">
                 <rect>
                     <x>5</x>
@@ -7036,284 +6961,264 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false</string>
             </property>
         </widget>
-        <widget class="caFrame" name="caFrame_4">
+        <widget class="caPolyLine" name="caPolyLine_14">
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>818</y>
-                    <width>401</width>
-                    <height>29</height>
+                    <width>399</width>
+                    <height>3</height>
                 </rect>
             </property>
-            <widget class="caPolyLine" name="caPolyLine_14">
+            <property name="lineSize">
+                <number>3</number>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>10</red>
+                    <green>0</green>
+                    <blue>184</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="0">
+                    <red>10</red>
+                    <green>0</green>
+                    <blue>184</blue>
+                </color>
+            </property>
+            <property name="lineColor">
+                <color alpha="255">
+                    <red>10</red>
+                    <green>0</green>
+                    <blue>184</blue>
+                </color>
+            </property>
+            <property name="linestyle">
+                <enum>Solid</enum>
+            </property>
+            <property name="xyPairs">
+                <string>1,1;397,1;</string>
+            </property>
+        </widget>
+        <widget class="caFrame" name="caFrame_4">
+            <property name="geometry">
+                <rect>
+                    <x>5</x>
+                    <y>824</y>
+                    <width>238</width>
+                    <height>22</height>
+                </rect>
+            </property>
+            <widget class="caTextEntry" name="caTextEntry_57">
                 <property name="geometry">
                     <rect>
-                        <x>0</x>
+                        <x>50</x>
                         <y>0</y>
-                        <width>399</width>
-                        <height>3</height>
+                        <width>186</width>
+                        <height>20</height>
                     </rect>
                 </property>
-                <property name="lineSize">
-                    <number>3</number>
+                <property name="fontScaleMode">
+                    <enum>caLineEdit::WidthAndHeight</enum>
+                </property>
+                <property name="channel">
+                    <string>$(P)$(C).FLNK</string>
                 </property>
                 <property name="foreground">
                     <color alpha="255">
-                        <red>10</red>
+                        <red>0</red>
                         <green>0</green>
-                        <blue>184</blue>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="255">
+                        <red>164</red>
+                        <green>170</green>
+                        <blue>255</blue>
+                    </color>
+                </property>
+                <property name="limitsMode">
+                    <enum>caLineEdit::Channel</enum>
+                </property>
+                <property name="limitsMode">
+                    <enum>caLineEdit::Channel</enum>
+                </property>
+                <property name="precisionMode">
+                    <enum>caLineEdit::Channel</enum>
+                </property>
+                <property name="minValue">
+                    <double>0.0</double>
+                </property>
+                <property name="maxValue">
+                    <double>1.0</double>
+                </property>
+                <property name="colorMode">
+                    <enum>caLineEdit::Static</enum>
+                </property>
+                <property name="formatType">
+                    <enum>string</enum>
+                </property>
+            </widget>
+            <widget class="caLabel" name="caLabel_45">
+                <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
                     </color>
                 </property>
                 <property name="background">
                     <color alpha="0">
-                        <red>10</red>
+                        <red>0</red>
                         <green>0</green>
-                        <blue>184</blue>
+                        <blue>0</blue>
                     </color>
                 </property>
-                <property name="lineColor">
+                <property name="text">
+                    <string>FORWARD</string>
+                </property>
+                <property name="fontScaleMode">
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="alignment">
+                    <set>Qt::AlignAbsolute|Qt::AlignHCenter|Qt::AlignVCenter</set>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>0</y>
+                        <width>42</width>
+                        <height>10</height>
+                    </rect>
+                </property>
+            </widget>
+            <widget class="caLabel" name="caLabel_46">
+                <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="foreground">
                     <color alpha="255">
-                        <red>10</red>
+                        <red>0</red>
                         <green>0</green>
-                        <blue>184</blue>
+                        <blue>0</blue>
                     </color>
                 </property>
-                <property name="linestyle">
-                    <enum>Solid</enum>
+                <property name="background">
+                    <color alpha="0">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
                 </property>
-                <property name="xyPairs">
-                    <string>1,1;397,1;</string>
+                <property name="text">
+                    <string>LINK</string>
                 </property>
-            </widget>
-            <widget class="caFrame" name="caFrame_5">
+                <property name="fontScaleMode">
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="alignment">
+                    <set>Qt::AlignAbsolute|Qt::AlignHCenter|Qt::AlignVCenter</set>
+                </property>
                 <property name="geometry">
                     <rect>
-                        <x>5</x>
-                        <y>6</y>
-                        <width>238</width>
-                        <height>22</height>
+                        <x>0</x>
+                        <y>10</y>
+                        <width>40</width>
+                        <height>10</height>
                     </rect>
                 </property>
-                <widget class="caTextEntry" name="caTextEntry_57">
-                    <property name="geometry">
-                        <rect>
-                            <x>50</x>
-                            <y>0</y>
-                            <width>186</width>
-                            <height>20</height>
-                        </rect>
-                    </property>
-                    <property name="fontScaleMode">
-                        <enum>caLineEdit::WidthAndHeight</enum>
-                    </property>
-                    <property name="channel">
-                        <string>$(P)$(C).FLNK</string>
-                    </property>
-                    <property name="foreground">
-                        <color alpha="255">
-                            <red>0</red>
-                            <green>0</green>
-                            <blue>0</blue>
-                        </color>
-                    </property>
-                    <property name="background">
-                        <color alpha="255">
-                            <red>164</red>
-                            <green>170</green>
-                            <blue>255</blue>
-                        </color>
-                    </property>
-                    <property name="limitsMode">
-                        <enum>caLineEdit::Channel</enum>
-                    </property>
-                    <property name="limitsMode">
-                        <enum>caLineEdit::Channel</enum>
-                    </property>
-                    <property name="precisionMode">
-                        <enum>caLineEdit::Channel</enum>
-                    </property>
-                    <property name="minValue">
-                        <double>0.0</double>
-                    </property>
-                    <property name="maxValue">
-                        <double>1.0</double>
-                    </property>
-                    <property name="colorMode">
-                        <enum>caLineEdit::Static</enum>
-                    </property>
-                    <property name="formatType">
-                        <enum>string</enum>
-                    </property>
-                </widget>
-                <widget class="caLabel" name="caLabel_46">
-                    <property name="frameShape">
-                        <enum>QFrame::NoFrame</enum>
-                    </property>
-                    <property name="foreground">
-                        <color alpha="255">
-                            <red>0</red>
-                            <green>0</green>
-                            <blue>0</blue>
-                        </color>
-                    </property>
-                    <property name="background">
-                        <color alpha="0">
-                            <red>0</red>
-                            <green>0</green>
-                            <blue>0</blue>
-                        </color>
-                    </property>
-                    <property name="text">
-                        <string>FORWARD</string>
-                    </property>
-                    <property name="fontScaleMode">
-                        <enum>ESimpleLabel::WidthAndHeight</enum>
-                    </property>
-                    <property name="alignment">
-                        <set>Qt::AlignAbsolute|Qt::AlignHCenter|Qt::AlignVCenter</set>
-                    </property>
-                    <property name="geometry">
-                        <rect>
-                            <x>0</x>
-                            <y>0</y>
-                            <width>42</width>
-                            <height>10</height>
-                        </rect>
-                    </property>
-                </widget>
-                <widget class="caLabel" name="caLabel_47">
-                    <property name="frameShape">
-                        <enum>QFrame::NoFrame</enum>
-                    </property>
-                    <property name="foreground">
-                        <color alpha="255">
-                            <red>0</red>
-                            <green>0</green>
-                            <blue>0</blue>
-                        </color>
-                    </property>
-                    <property name="background">
-                        <color alpha="0">
-                            <red>0</red>
-                            <green>0</green>
-                            <blue>0</blue>
-                        </color>
-                    </property>
-                    <property name="text">
-                        <string>LINK</string>
-                    </property>
-                    <property name="fontScaleMode">
-                        <enum>ESimpleLabel::WidthAndHeight</enum>
-                    </property>
-                    <property name="alignment">
-                        <set>Qt::AlignAbsolute|Qt::AlignHCenter|Qt::AlignVCenter</set>
-                    </property>
-                    <property name="geometry">
-                        <rect>
-                            <x>0</x>
-                            <y>10</y>
-                            <width>40</width>
-                            <height>10</height>
-                        </rect>
-                    </property>
-                </widget>
-            </widget>
-            <widget class="caFrame" name="caFrame_6">
-                <property name="geometry">
-                    <rect>
-                        <x>295</x>
-                        <y>7</y>
-                        <width>82</width>
-                        <height>22</height>
-                    </rect>
-                </property>
-                <widget class="caRelatedDisplay" name="caRelatedDisplay_3">
-                    <property name="geometry">
-                        <rect>
-                            <x>40</x>
-                            <y>0</y>
-                            <width>40</width>
-                            <height>20</height>
-                        </rect>
-                    </property>
-                    <property name="foreground">
-                        <color alpha="255">
-                            <red>255</red>
-                            <green>255</green>
-                            <blue>255</blue>
-                        </color>
-                    </property>
-                    <property name="background">
-                        <color alpha="255">
-                            <red>40</red>
-                            <green>147</green>
-                            <blue>21</blue>
-                        </color>
-                    </property>
-                    <property name="label">
-                        <string>-More</string>
-                    </property>
-                    <property name="stackingMode">
-                        <enum>Menu</enum>
-                    </property>
-                    <property name="labels">
-                        <string>user stringCalc (demo)</string>
-                    </property>
-                    <property name="files">
-                        <string>userStringCalc_demo.adl</string>
-                    </property>
-                    <property name="args">
-                        <string>P=$(P),C=$(C)</string>
-                    </property>
-                    <property name="removeParent">
-                        <string>true</string>
-                    </property>
-                </widget>
-                <widget class="caRelatedDisplay" name="caRelatedDisplay_4">
-                    <property name="geometry">
-                        <rect>
-                            <x>0</x>
-                            <y>0</y>
-                            <width>40</width>
-                            <height>20</height>
-                        </rect>
-                    </property>
-                    <property name="foreground">
-                        <color alpha="255">
-                            <red>255</red>
-                            <green>255</green>
-                            <blue>255</blue>
-                        </color>
-                    </property>
-                    <property name="background">
-                        <color alpha="255">
-                            <red>40</red>
-                            <green>147</green>
-                            <blue>21</blue>
-                        </color>
-                    </property>
-                    <property name="label">
-                        <string>-Less</string>
-                    </property>
-                    <property name="stackingMode">
-                        <enum>Menu</enum>
-                    </property>
-                    <property name="labels">
-                        <string>user stringCalc</string>
-                    </property>
-                    <property name="files">
-                        <string>userStringCalc.adl</string>
-                    </property>
-                    <property name="args">
-                        <string>P=$(P),C=$(C)</string>
-                    </property>
-                    <property name="removeParent">
-                        <string>true</string>
-                    </property>
-                </widget>
             </widget>
         </widget>
-        <widget class="caFrame" name="caFrame_7">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_2">
+            <property name="geometry">
+                <rect>
+                    <x>335</x>
+                    <y>825</y>
+                    <width>40</width>
+                    <height>20</height>
+                </rect>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>255</red>
+                    <green>255</green>
+                    <blue>255</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="255">
+                    <red>40</red>
+                    <green>147</green>
+                    <blue>21</blue>
+                </color>
+            </property>
+            <property name="label">
+                <string>-More</string>
+            </property>
+            <property name="stackingMode">
+                <enum>Menu</enum>
+            </property>
+            <property name="labels">
+                <string>user stringCalc (demo)</string>
+            </property>
+            <property name="files">
+                <string>userStringCalc_demo.adl</string>
+            </property>
+            <property name="args">
+                <string>P=$(P),C=$(C),N=$(N)</string>
+            </property>
+            <property name="removeParent">
+                <string>true</string>
+            </property>
+        </widget>
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_3">
+            <property name="geometry">
+                <rect>
+                    <x>295</x>
+                    <y>825</y>
+                    <width>40</width>
+                    <height>20</height>
+                </rect>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>255</red>
+                    <green>255</green>
+                    <blue>255</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="255">
+                    <red>40</red>
+                    <green>147</green>
+                    <blue>21</blue>
+                </color>
+            </property>
+            <property name="label">
+                <string>-Less</string>
+            </property>
+            <property name="stackingMode">
+                <enum>Menu</enum>
+            </property>
+            <property name="labels">
+                <string>user stringCalc</string>
+            </property>
+            <property name="files">
+                <string>userStringCalc.adl</string>
+            </property>
+            <property name="args">
+                <string>P=$(P),C=$(C),N=$(N)</string>
+            </property>
+            <property name="removeParent">
+                <string>true</string>
+            </property>
+        </widget>
+        <widget class="caFrame" name="caFrame_5">
             <property name="geometry">
                 <rect>
                     <x>164</x>
@@ -7352,7 +7257,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                     <enum>caMenu::Static</enum>
                 </property>
             </widget>
-            <widget class="caLabel" name="caLabel_48">
+            <widget class="caLabel" name="caLabel_47">
                 <property name="frameShape">
                     <enum>QFrame::NoFrame</enum>
                 </property>
@@ -7398,104 +7303,100 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <zorder>caLabel_4</zorder>
         <zorder>caPolyLine_1</zorder>
         <zorder>caLabel_5</zorder>
-        <zorder>caLabel_6</zorder>
         <zorder>caPolyLine_2</zorder>
+        <zorder>caLabel_6</zorder>
         <zorder>caLabel_7</zorder>
-        <zorder>caLabel_8</zorder>
         <zorder>caPolyLine_3</zorder>
-        <zorder>caLabel_9</zorder>
+        <zorder>caLabel_8</zorder>
         <zorder>caRectangle_1</zorder>
-        <zorder>caLabel_10</zorder>
+        <zorder>caLabel_9</zorder>
         <zorder>caRectangle_2</zorder>
-        <zorder>caLabel_11</zorder>
+        <zorder>caLabel_10</zorder>
         <zorder>caRectangle_3</zorder>
-        <zorder>caLabel_12</zorder>
+        <zorder>caLabel_11</zorder>
         <zorder>caRectangle_4</zorder>
         <zorder>caRectangle_5</zorder>
-        <zorder>caLabel_13</zorder>
+        <zorder>caLabel_12</zorder>
         <zorder>caRectangle_6</zorder>
-        <zorder>caLabel_14</zorder>
+        <zorder>caLabel_13</zorder>
         <zorder>caPolyLine_4</zorder>
+        <zorder>caLabel_14</zorder>
         <zorder>caLabel_15</zorder>
         <zorder>caLabel_16</zorder>
         <zorder>caLabel_17</zorder>
-        <zorder>caLabel_18</zorder>
         <zorder>caPolyLine_5</zorder>
         <zorder>caPolyLine_6</zorder>
-        <zorder>caLabel_19</zorder>
+        <zorder>caLabel_18</zorder>
         <zorder>caPolyLine_7</zorder>
         <zorder>caPolyLine_8</zorder>
         <zorder>caPolyLine_9</zorder>
+        <zorder>caLabel_19</zorder>
         <zorder>caLabel_20</zorder>
         <zorder>caLabel_21</zorder>
-        <zorder>caLabel_22</zorder>
         <zorder>caPolygon_0</zorder>
         <zorder>caPolyLine_10</zorder>
         <zorder>caFrame_0</zorder>
         <zorder>caRectangle_7</zorder>
         <zorder>caPolyLine_11</zorder>
+        <zorder>caLabel_22</zorder>
         <zorder>caLabel_23</zorder>
-        <zorder>caLabel_24</zorder>
         <zorder>caFrame_3</zorder>
         <zorder>caFrame_2</zorder>
         <zorder>caFrame_1</zorder>
         <zorder>caRectangle_8</zorder>
         <zorder>caRectangle_9</zorder>
+        <zorder>caLabel_24</zorder>
         <zorder>caLabel_25</zorder>
-        <zorder>caLabel_26</zorder>
         <zorder>caPolyLine_12</zorder>
-        <zorder>caLabel_27</zorder>
+        <zorder>caLabel_26</zorder>
         <zorder>caPolyLine_13</zorder>
-        <zorder>caLabel_28</zorder>
+        <zorder>caLabel_27</zorder>
         <zorder>caRectangle_10</zorder>
-        <zorder>caLabel_29</zorder>
+        <zorder>caLabel_28</zorder>
         <zorder>caRectangle_11</zorder>
-        <zorder>caLabel_30</zorder>
+        <zorder>caLabel_29</zorder>
         <zorder>caRectangle_12</zorder>
-        <zorder>caLabel_31</zorder>
+        <zorder>caLabel_30</zorder>
         <zorder>caRectangle_13</zorder>
         <zorder>caRectangle_14</zorder>
-        <zorder>caLabel_32</zorder>
+        <zorder>caLabel_31</zorder>
         <zorder>caRectangle_15</zorder>
-        <zorder>caLabel_33</zorder>
+        <zorder>caLabel_32</zorder>
         <zorder>caRectangle_16</zorder>
+        <zorder>caLabel_33</zorder>
         <zorder>caLabel_34</zorder>
-        <zorder>caLabel_35</zorder>
         <zorder>caRectangle_17</zorder>
-        <zorder>caLabel_36</zorder>
+        <zorder>caLabel_35</zorder>
         <zorder>caRectangle_18</zorder>
-        <zorder>caLabel_37</zorder>
+        <zorder>caLabel_36</zorder>
         <zorder>caRectangle_19</zorder>
-        <zorder>caLabel_38</zorder>
+        <zorder>caLabel_37</zorder>
         <zorder>caRectangle_20</zorder>
-        <zorder>caLabel_39</zorder>
+        <zorder>caLabel_38</zorder>
         <zorder>caRectangle_21</zorder>
-        <zorder>caLabel_40</zorder>
+        <zorder>caLabel_39</zorder>
         <zorder>caRectangle_22</zorder>
-        <zorder>caLabel_41</zorder>
+        <zorder>caLabel_40</zorder>
         <zorder>caRectangle_23</zorder>
-        <zorder>caLabel_42</zorder>
+        <zorder>caLabel_41</zorder>
         <zorder>caRectangle_24</zorder>
-        <zorder>caLabel_43</zorder>
+        <zorder>caLabel_42</zorder>
         <zorder>caRectangle_25</zorder>
-        <zorder>caLabel_44</zorder>
+        <zorder>caLabel_43</zorder>
         <zorder>caRectangle_26</zorder>
-        <zorder>caLabel_45</zorder>
+        <zorder>caLabel_44</zorder>
         <zorder>caRectangle_27</zorder>
         <zorder>caPolyLine_14</zorder>
+        <zorder>caLabel_45</zorder>
         <zorder>caLabel_46</zorder>
+        <zorder>caFrame_4</zorder>
         <zorder>caLabel_47</zorder>
         <zorder>caFrame_5</zorder>
-        <zorder>caFrame_6</zorder>
-        <zorder>caFrame_4</zorder>
-        <zorder>caLabel_48</zorder>
-        <zorder>caFrame_7</zorder>
         <zorder>caMenu_0</zorder>
         <zorder>caMessageButton_0</zorder>
         <zorder>caTextEntry_0</zorder>
         <zorder>caTextEntry_1</zorder>
         <zorder>caTextEntry_2</zorder>
-        <zorder>caRelatedDisplay_0</zorder>
         <zorder>caTextEntry_3</zorder>
         <zorder>caTextEntry_4</zorder>
         <zorder>caTextEntry_5</zorder>
@@ -7557,11 +7458,11 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <zorder>caTextEntry_54</zorder>
         <zorder>caTextEntry_55</zorder>
         <zorder>caTextEntry_56</zorder>
+        <zorder>caRelatedDisplay_0</zorder>
         <zorder>caRelatedDisplay_1</zorder>
-        <zorder>caRelatedDisplay_2</zorder>
         <zorder>caTextEntry_57</zorder>
+        <zorder>caRelatedDisplay_2</zorder>
         <zorder>caRelatedDisplay_3</zorder>
-        <zorder>caRelatedDisplay_4</zorder>
         <zorder>caMenu_4</zorder>
     </widget>
 </widget>

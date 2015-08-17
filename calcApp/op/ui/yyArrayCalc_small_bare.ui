@@ -191,48 +191,6 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                     <blue>0</blue>
                 </color>
             </property>
-            <property name="visibility">
-                <enum>caLabel::IfNotZero</enum>
-            </property>
-            <property name="channel">
-                <string>$(P)userArrayCalcEnable.VAL</string>
-            </property>
-            <property name="text">
-                <string>($(P)$(C))</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignHCenter|Qt::AlignVCenter</set>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>240</x>
-                    <y>6</y>
-                    <width>160</width>
-                    <height>14</height>
-                </rect>
-            </property>
-        </widget>
-        <widget class="caLabel" name="caLabel_1">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
             <property name="text">
                 <string>PV NAME</string>
             </property>
@@ -251,7 +209,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_2">
+        <widget class="caLabel" name="caLabel_1">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -373,7 +331,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>$(P)$(C).INAV</string>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_3">
+        <widget class="caLabel" name="caLabel_2">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -460,7 +418,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>string</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_4">
+        <widget class="caLabel" name="caLabel_3">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -593,7 +551,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>string</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_5">
+        <widget class="caLabel" name="caLabel_4">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -726,7 +684,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>string</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_6">
+        <widget class="caLabel" name="caLabel_5">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -859,7 +817,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>string</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_7">
+        <widget class="caLabel" name="caLabel_6">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -895,7 +853,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_8">
+        <widget class="caLabel" name="caLabel_7">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -1264,7 +1222,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>string</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_9">
+        <widget class="caLabel" name="caLabel_8">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -1300,7 +1258,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 </rect>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_10">
+        <widget class="caLabel" name="caLabel_9">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -1342,7 +1300,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 </rect>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_11">
+        <widget class="caLabel" name="caLabel_10">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -1378,7 +1336,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_12">
+        <widget class="caLabel" name="caLabel_11">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -1972,7 +1930,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>caMenu::Static</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_13">
+        <widget class="caLabel" name="caLabel_12">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -2134,7 +2092,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false</string>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_14">
+        <widget class="caLabel" name="caLabel_13">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -2260,7 +2218,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>caMessageButton::Static</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_15">
+        <widget class="caLabel" name="caLabel_14">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -2347,7 +2305,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>decimal</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_16">
+        <widget class="caLabel" name="caLabel_15">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -2434,7 +2392,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>decimal</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_17">
+        <widget class="caLabel" name="caLabel_16">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
             </property>
@@ -2571,33 +2529,32 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <zorder>caPolyLine_0</zorder>
         <zorder>caLabel_0</zorder>
         <zorder>caLabel_1</zorder>
-        <zorder>caLabel_2</zorder>
         <zorder>caPolyLine_1</zorder>
         <zorder>caRectangle_1</zorder>
+        <zorder>caLabel_2</zorder>
         <zorder>caLabel_3</zorder>
-        <zorder>caLabel_4</zorder>
         <zorder>caRectangle_2</zorder>
-        <zorder>caLabel_5</zorder>
+        <zorder>caLabel_4</zorder>
         <zorder>caRectangle_3</zorder>
-        <zorder>caLabel_6</zorder>
+        <zorder>caLabel_5</zorder>
         <zorder>caRectangle_4</zorder>
+        <zorder>caLabel_6</zorder>
         <zorder>caLabel_7</zorder>
-        <zorder>caLabel_8</zorder>
         <zorder>caPolyLine_2</zorder>
         <zorder>caRectangle_5</zorder>
         <zorder>caPolyLine_3</zorder>
+        <zorder>caLabel_8</zorder>
         <zorder>caLabel_9</zorder>
         <zorder>caLabel_10</zorder>
         <zorder>caLabel_11</zorder>
-        <zorder>caLabel_12</zorder>
         <zorder>caPolyLine_4</zorder>
         <zorder>caPolyLine_5</zorder>
         <zorder>caRectangle_6</zorder>
+        <zorder>caLabel_12</zorder>
         <zorder>caLabel_13</zorder>
         <zorder>caLabel_14</zorder>
         <zorder>caLabel_15</zorder>
         <zorder>caLabel_16</zorder>
-        <zorder>caLabel_17</zorder>
         <zorder>caRectangle_7</zorder>
         <zorder>caMenu_0</zorder>
         <zorder>caTextEntry_0</zorder>

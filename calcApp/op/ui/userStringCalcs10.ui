@@ -4,9 +4,9 @@
 <widget class="QMainWindow" name="MainWindow">
     <property name="geometry">
         <rect>
-            <x>466</x>
-            <y>87</y>
-            <width>140</width>
+            <x>1192</x>
+            <y>245</y>
+            <width>195</width>
             <height>220</height>
         </rect>
     </property>
@@ -24,7 +24,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>0</x>
                     <y>0</y>
-                    <width>140</width>
+                    <width>195</width>
                     <height>20</height>
                 </rect>
             </property>
@@ -52,957 +52,257 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>caChoice::Static</enum>
             </property>
         </widget>
-        <widget class="caTextEntry" name="caTextEntry_0">
-            <property name="geometry">
-                <rect>
-                    <x>25</x>
-                    <y>20</y>
-                    <width>115</width>
-                    <height>20</height>
-                </rect>
-            </property>
-            <property name="fontScaleMode">
-                <enum>caLineEdit::WidthAndHeight</enum>
-            </property>
-            <property name="channel">
-                <string>$(P)userStringCalc1.DESC</string>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>10</red>
-                    <green>0</green>
-                    <blue>184</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>200</red>
-                    <green>200</green>
-                    <blue>200</blue>
-                </color>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="precisionMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="minValue">
-                <double>0.0</double>
-            </property>
-            <property name="maxValue">
-                <double>1.0</double>
-            </property>
-            <property name="colorMode">
-                <enum>caLineEdit::Static</enum>
-            </property>
-            <property name="formatType">
-                <enum>decimal</enum>
-            </property>
-        </widget>
-        <widget class="caTextEntry" name="caTextEntry_1">
-            <property name="geometry">
-                <rect>
-                    <x>25</x>
-                    <y>40</y>
-                    <width>115</width>
-                    <height>20</height>
-                </rect>
-            </property>
-            <property name="fontScaleMode">
-                <enum>caLineEdit::WidthAndHeight</enum>
-            </property>
-            <property name="channel">
-                <string>$(P)userStringCalc2.DESC</string>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>10</red>
-                    <green>0</green>
-                    <blue>184</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>200</red>
-                    <green>200</green>
-                    <blue>200</blue>
-                </color>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="precisionMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="minValue">
-                <double>0.0</double>
-            </property>
-            <property name="maxValue">
-                <double>1.0</double>
-            </property>
-            <property name="colorMode">
-                <enum>caLineEdit::Static</enum>
-            </property>
-            <property name="formatType">
-                <enum>decimal</enum>
-            </property>
-        </widget>
-        <widget class="caTextEntry" name="caTextEntry_2">
-            <property name="geometry">
-                <rect>
-                    <x>25</x>
-                    <y>60</y>
-                    <width>115</width>
-                    <height>20</height>
-                </rect>
-            </property>
-            <property name="fontScaleMode">
-                <enum>caLineEdit::WidthAndHeight</enum>
-            </property>
-            <property name="channel">
-                <string>$(P)userStringCalc3.DESC</string>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>10</red>
-                    <green>0</green>
-                    <blue>184</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>200</red>
-                    <green>200</green>
-                    <blue>200</blue>
-                </color>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="precisionMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="minValue">
-                <double>0.0</double>
-            </property>
-            <property name="maxValue">
-                <double>1.0</double>
-            </property>
-            <property name="colorMode">
-                <enum>caLineEdit::Static</enum>
-            </property>
-            <property name="formatType">
-                <enum>decimal</enum>
-            </property>
-        </widget>
-        <widget class="caTextEntry" name="caTextEntry_3">
-            <property name="geometry">
-                <rect>
-                    <x>25</x>
-                    <y>80</y>
-                    <width>115</width>
-                    <height>20</height>
-                </rect>
-            </property>
-            <property name="fontScaleMode">
-                <enum>caLineEdit::WidthAndHeight</enum>
-            </property>
-            <property name="channel">
-                <string>$(P)userStringCalc4.DESC</string>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>10</red>
-                    <green>0</green>
-                    <blue>184</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>200</red>
-                    <green>200</green>
-                    <blue>200</blue>
-                </color>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="precisionMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="minValue">
-                <double>0.0</double>
-            </property>
-            <property name="maxValue">
-                <double>1.0</double>
-            </property>
-            <property name="colorMode">
-                <enum>caLineEdit::Static</enum>
-            </property>
-            <property name="formatType">
-                <enum>decimal</enum>
-            </property>
-        </widget>
-        <widget class="caTextEntry" name="caTextEntry_4">
-            <property name="geometry">
-                <rect>
-                    <x>25</x>
-                    <y>100</y>
-                    <width>115</width>
-                    <height>20</height>
-                </rect>
-            </property>
-            <property name="fontScaleMode">
-                <enum>caLineEdit::WidthAndHeight</enum>
-            </property>
-            <property name="channel">
-                <string>$(P)userStringCalc5.DESC</string>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>10</red>
-                    <green>0</green>
-                    <blue>184</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>200</red>
-                    <green>200</green>
-                    <blue>200</blue>
-                </color>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="precisionMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="minValue">
-                <double>0.0</double>
-            </property>
-            <property name="maxValue">
-                <double>1.0</double>
-            </property>
-            <property name="colorMode">
-                <enum>caLineEdit::Static</enum>
-            </property>
-            <property name="formatType">
-                <enum>decimal</enum>
-            </property>
-        </widget>
-        <widget class="caTextEntry" name="caTextEntry_5">
-            <property name="geometry">
-                <rect>
-                    <x>25</x>
-                    <y>120</y>
-                    <width>115</width>
-                    <height>20</height>
-                </rect>
-            </property>
-            <property name="fontScaleMode">
-                <enum>caLineEdit::WidthAndHeight</enum>
-            </property>
-            <property name="channel">
-                <string>$(P)userStringCalc6.DESC</string>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>10</red>
-                    <green>0</green>
-                    <blue>184</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>200</red>
-                    <green>200</green>
-                    <blue>200</blue>
-                </color>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="precisionMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="minValue">
-                <double>0.0</double>
-            </property>
-            <property name="maxValue">
-                <double>1.0</double>
-            </property>
-            <property name="colorMode">
-                <enum>caLineEdit::Static</enum>
-            </property>
-            <property name="formatType">
-                <enum>decimal</enum>
-            </property>
-        </widget>
-        <widget class="caTextEntry" name="caTextEntry_6">
-            <property name="geometry">
-                <rect>
-                    <x>25</x>
-                    <y>140</y>
-                    <width>115</width>
-                    <height>20</height>
-                </rect>
-            </property>
-            <property name="fontScaleMode">
-                <enum>caLineEdit::WidthAndHeight</enum>
-            </property>
-            <property name="channel">
-                <string>$(P)userStringCalc7.DESC</string>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>10</red>
-                    <green>0</green>
-                    <blue>184</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>200</red>
-                    <green>200</green>
-                    <blue>200</blue>
-                </color>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="precisionMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="minValue">
-                <double>0.0</double>
-            </property>
-            <property name="maxValue">
-                <double>1.0</double>
-            </property>
-            <property name="colorMode">
-                <enum>caLineEdit::Static</enum>
-            </property>
-            <property name="formatType">
-                <enum>decimal</enum>
-            </property>
-        </widget>
-        <widget class="caTextEntry" name="caTextEntry_7">
-            <property name="geometry">
-                <rect>
-                    <x>25</x>
-                    <y>160</y>
-                    <width>115</width>
-                    <height>20</height>
-                </rect>
-            </property>
-            <property name="fontScaleMode">
-                <enum>caLineEdit::WidthAndHeight</enum>
-            </property>
-            <property name="channel">
-                <string>$(P)userStringCalc8.DESC</string>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>10</red>
-                    <green>0</green>
-                    <blue>184</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>200</red>
-                    <green>200</green>
-                    <blue>200</blue>
-                </color>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="precisionMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="minValue">
-                <double>0.0</double>
-            </property>
-            <property name="maxValue">
-                <double>1.0</double>
-            </property>
-            <property name="colorMode">
-                <enum>caLineEdit::Static</enum>
-            </property>
-            <property name="formatType">
-                <enum>decimal</enum>
-            </property>
-        </widget>
-        <widget class="caTextEntry" name="caTextEntry_8">
-            <property name="geometry">
-                <rect>
-                    <x>25</x>
-                    <y>180</y>
-                    <width>115</width>
-                    <height>20</height>
-                </rect>
-            </property>
-            <property name="fontScaleMode">
-                <enum>caLineEdit::WidthAndHeight</enum>
-            </property>
-            <property name="channel">
-                <string>$(P)userStringCalc9.DESC</string>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>10</red>
-                    <green>0</green>
-                    <blue>184</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>200</red>
-                    <green>200</green>
-                    <blue>200</blue>
-                </color>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="precisionMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="minValue">
-                <double>0.0</double>
-            </property>
-            <property name="maxValue">
-                <double>1.0</double>
-            </property>
-            <property name="colorMode">
-                <enum>caLineEdit::Static</enum>
-            </property>
-            <property name="formatType">
-                <enum>decimal</enum>
-            </property>
-        </widget>
-        <widget class="caTextEntry" name="caTextEntry_9">
-            <property name="geometry">
-                <rect>
-                    <x>25</x>
-                    <y>200</y>
-                    <width>115</width>
-                    <height>20</height>
-                </rect>
-            </property>
-            <property name="fontScaleMode">
-                <enum>caLineEdit::WidthAndHeight</enum>
-            </property>
-            <property name="channel">
-                <string>$(P)userStringCalc10.DESC</string>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>10</red>
-                    <green>0</green>
-                    <blue>184</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>200</red>
-                    <green>200</green>
-                    <blue>200</blue>
-                </color>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="precisionMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="minValue">
-                <double>0.0</double>
-            </property>
-            <property name="maxValue">
-                <double>1.0</double>
-            </property>
-            <property name="colorMode">
-                <enum>caLineEdit::Static</enum>
-            </property>
-            <property name="formatType">
-                <enum>decimal</enum>
-            </property>
-        </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_0">
+        <widget class="caInclude" name="caInclude_0">
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>20</y>
-                    <width>25</width>
+                    <width>197</width>
+                    <height>22</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>20</y>
+                    <width>195</width>
                     <height>20</height>
                 </rect>
             </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>255</red>
-                    <green>255</green>
-                    <blue>255</blue>
-                </color>
+            <property name="filename">
+                <string>userStringCalcs_line.adl</string>
             </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>40</red>
-                    <green>147</green>
-                    <blue>21</blue>
-                </color>
-            </property>
-            <property name="label">
-                <string>-1</string>
-            </property>
-            <property name="stackingMode">
-                <enum>Menu</enum>
-            </property>
-            <property name="labels">
-                <string>user stringCalc 1;user stringCalc 1 (full);user stringCalc 1 (demo)</string>
-            </property>
-            <property name="files">
-                <string>userStringCalc.adl;userStringCalc_full.adl;userStringCalc_demo.adl</string>
-            </property>
-            <property name="args">
-                <string>P=$(P),C=userStringCalc1;P=$(P),C=userStringCalc1;P=$(P),C=userStringCalc1</string>
-            </property>
-            <property name="removeParent">
-                <string>false;false;false</string>
+            <property name="macro">
+                <string>P=$(P),N=$(N1)</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_1">
+        <widget class="caInclude" name="caInclude_1">
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>40</y>
-                    <width>25</width>
+                    <width>197</width>
+                    <height>22</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>40</y>
+                    <width>195</width>
                     <height>20</height>
                 </rect>
             </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>255</red>
-                    <green>255</green>
-                    <blue>255</blue>
-                </color>
+            <property name="filename">
+                <string>userStringCalcs_line.adl</string>
             </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>40</red>
-                    <green>147</green>
-                    <blue>21</blue>
-                </color>
-            </property>
-            <property name="label">
-                <string>-2</string>
-            </property>
-            <property name="stackingMode">
-                <enum>Menu</enum>
-            </property>
-            <property name="labels">
-                <string>user stringCalc 2;user stringCalc 2 (full);user stringCalc 2 (demo)</string>
-            </property>
-            <property name="files">
-                <string>userStringCalc.adl;userStringCalc_full.adl;userStringCalc_demo.adl</string>
-            </property>
-            <property name="args">
-                <string>P=$(P),C=userStringCalc2;P=$(P),C=userStringCalc2;P=$(P),C=userStringCalc2</string>
-            </property>
-            <property name="removeParent">
-                <string>false;false;false</string>
+            <property name="macro">
+                <string>P=$(P),N=$(N2)</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_2">
+        <widget class="caInclude" name="caInclude_2">
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>60</y>
-                    <width>25</width>
+                    <width>197</width>
+                    <height>22</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>60</y>
+                    <width>195</width>
                     <height>20</height>
                 </rect>
             </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>255</red>
-                    <green>255</green>
-                    <blue>255</blue>
-                </color>
+            <property name="filename">
+                <string>userStringCalcs_line.adl</string>
             </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>40</red>
-                    <green>147</green>
-                    <blue>21</blue>
-                </color>
-            </property>
-            <property name="label">
-                <string>-3</string>
-            </property>
-            <property name="stackingMode">
-                <enum>Menu</enum>
-            </property>
-            <property name="labels">
-                <string>user stringCalc 3;user stringCalc 3 (full);user stringCalc 3 (demo)</string>
-            </property>
-            <property name="files">
-                <string>userStringCalc.adl;userStringCalc_full.adl;userStringCalc_demo.adl</string>
-            </property>
-            <property name="args">
-                <string>P=$(P),C=userStringCalc3;P=$(P),C=userStringCalc3;P=$(P),C=userStringCalc3</string>
-            </property>
-            <property name="removeParent">
-                <string>false;false;false</string>
+            <property name="macro">
+                <string>P=$(P),N=$(N3)</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_3">
+        <widget class="caInclude" name="caInclude_3">
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>80</y>
-                    <width>25</width>
+                    <width>197</width>
+                    <height>22</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>80</y>
+                    <width>195</width>
                     <height>20</height>
                 </rect>
             </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>255</red>
-                    <green>255</green>
-                    <blue>255</blue>
-                </color>
+            <property name="filename">
+                <string>userStringCalcs_line.adl</string>
             </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>40</red>
-                    <green>147</green>
-                    <blue>21</blue>
-                </color>
-            </property>
-            <property name="label">
-                <string>-4</string>
-            </property>
-            <property name="stackingMode">
-                <enum>Menu</enum>
-            </property>
-            <property name="labels">
-                <string>user stringCalc 4;user stringCalc 4 (full);user stringCalc 4 (demo)</string>
-            </property>
-            <property name="files">
-                <string>userStringCalc.adl;userStringCalc_full.adl;userStringCalc_demo.adl</string>
-            </property>
-            <property name="args">
-                <string>P=$(P),C=userStringCalc4;P=$(P),C=userStringCalc4;P=$(P),C=userStringCalc4</string>
-            </property>
-            <property name="removeParent">
-                <string>false;false;false</string>
+            <property name="macro">
+                <string>P=$(P),N=$(N4)</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_4">
+        <widget class="caInclude" name="caInclude_4">
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>100</y>
-                    <width>25</width>
+                    <width>197</width>
+                    <height>22</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>100</y>
+                    <width>195</width>
                     <height>20</height>
                 </rect>
             </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>255</red>
-                    <green>255</green>
-                    <blue>255</blue>
-                </color>
+            <property name="filename">
+                <string>userStringCalcs_line.adl</string>
             </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>40</red>
-                    <green>147</green>
-                    <blue>21</blue>
-                </color>
-            </property>
-            <property name="label">
-                <string>-5</string>
-            </property>
-            <property name="stackingMode">
-                <enum>Menu</enum>
-            </property>
-            <property name="labels">
-                <string>user stringCalc 5;user stringCalc 5 (full);user stringCalc 5 (demo)</string>
-            </property>
-            <property name="files">
-                <string>userStringCalc.adl;userStringCalc_full.adl;userStringCalc_demo.adl</string>
-            </property>
-            <property name="args">
-                <string>P=$(P),C=userStringCalc5;P=$(P),C=userStringCalc5;P=$(P),C=userStringCalc5</string>
-            </property>
-            <property name="removeParent">
-                <string>false;false;false</string>
+            <property name="macro">
+                <string>P=$(P),N=$(N5)</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_5">
+        <widget class="caInclude" name="caInclude_5">
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>120</y>
-                    <width>25</width>
+                    <width>197</width>
+                    <height>22</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>120</y>
+                    <width>195</width>
                     <height>20</height>
                 </rect>
             </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>255</red>
-                    <green>255</green>
-                    <blue>255</blue>
-                </color>
+            <property name="filename">
+                <string>userStringCalcs_line.adl</string>
             </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>40</red>
-                    <green>147</green>
-                    <blue>21</blue>
-                </color>
-            </property>
-            <property name="label">
-                <string>-6</string>
-            </property>
-            <property name="stackingMode">
-                <enum>Menu</enum>
-            </property>
-            <property name="labels">
-                <string>user stringCalc 6;user stringCalc 6 (full);user stringCalc 6 (demo)</string>
-            </property>
-            <property name="files">
-                <string>userStringCalc.adl;userStringCalc_full.adl;userStringCalc_demo.adl</string>
-            </property>
-            <property name="args">
-                <string>P=$(P),C=userStringCalc6;P=$(P),C=userStringCalc6;P=$(P),C=userStringCalc6</string>
-            </property>
-            <property name="removeParent">
-                <string>false;false;false</string>
+            <property name="macro">
+                <string>P=$(P),N=$(N6)</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_6">
+        <widget class="caInclude" name="caInclude_6">
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>140</y>
-                    <width>25</width>
+                    <width>197</width>
+                    <height>22</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>140</y>
+                    <width>195</width>
                     <height>20</height>
                 </rect>
             </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>255</red>
-                    <green>255</green>
-                    <blue>255</blue>
-                </color>
+            <property name="filename">
+                <string>userStringCalcs_line.adl</string>
             </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>40</red>
-                    <green>147</green>
-                    <blue>21</blue>
-                </color>
-            </property>
-            <property name="label">
-                <string>-7</string>
-            </property>
-            <property name="stackingMode">
-                <enum>Menu</enum>
-            </property>
-            <property name="labels">
-                <string>user stringCalc 7;user stringCalc 7 (full);user stringCalc 7 (demo)</string>
-            </property>
-            <property name="files">
-                <string>userStringCalc.adl;userStringCalc_full.adl;userStringCalc_demo.adl</string>
-            </property>
-            <property name="args">
-                <string>P=$(P),C=userStringCalc7;P=$(P),C=userStringCalc7;P=$(P),C=userStringCalc7</string>
-            </property>
-            <property name="removeParent">
-                <string>false;false;false</string>
+            <property name="macro">
+                <string>P=$(P),N=$(N7)</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_7">
+        <widget class="caInclude" name="caInclude_7">
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>160</y>
-                    <width>25</width>
+                    <width>197</width>
+                    <height>22</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>160</y>
+                    <width>195</width>
                     <height>20</height>
                 </rect>
             </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>255</red>
-                    <green>255</green>
-                    <blue>255</blue>
-                </color>
+            <property name="filename">
+                <string>userStringCalcs_line.adl</string>
             </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>40</red>
-                    <green>147</green>
-                    <blue>21</blue>
-                </color>
-            </property>
-            <property name="label">
-                <string>-8</string>
-            </property>
-            <property name="stackingMode">
-                <enum>Menu</enum>
-            </property>
-            <property name="labels">
-                <string>user stringCalc 8;user stringCalc 8 (full);user stringCalc 8 (demo)</string>
-            </property>
-            <property name="files">
-                <string>userStringCalc.adl;userStringCalc_full.adl;userStringCalc_demo.adl</string>
-            </property>
-            <property name="args">
-                <string>P=$(P),C=userStringCalc8;P=$(P),C=userStringCalc8;P=$(P),C=userStringCalc8</string>
-            </property>
-            <property name="removeParent">
-                <string>false;false;false</string>
+            <property name="macro">
+                <string>P=$(P),N=$(N8)</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_8">
+        <widget class="caInclude" name="caInclude_8">
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>180</y>
-                    <width>25</width>
+                    <width>197</width>
+                    <height>22</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>180</y>
+                    <width>195</width>
                     <height>20</height>
                 </rect>
             </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>255</red>
-                    <green>255</green>
-                    <blue>255</blue>
-                </color>
+            <property name="filename">
+                <string>userStringCalcs_line.adl</string>
             </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>40</red>
-                    <green>147</green>
-                    <blue>21</blue>
-                </color>
-            </property>
-            <property name="label">
-                <string>-9</string>
-            </property>
-            <property name="stackingMode">
-                <enum>Menu</enum>
-            </property>
-            <property name="labels">
-                <string>user stringCalc 9;user stringCalc 9 (full);user stringCalc 9 (demo)</string>
-            </property>
-            <property name="files">
-                <string>userStringCalc.adl;userStringCalc_full.adl;userStringCalc_demo.adl</string>
-            </property>
-            <property name="args">
-                <string>P=$(P),C=userStringCalc9;P=$(P),C=userStringCalc9;P=$(P),C=userStringCalc9</string>
-            </property>
-            <property name="removeParent">
-                <string>false;false;false</string>
+            <property name="macro">
+                <string>P=$(P),N=$(N9)</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_9">
+        <widget class="caInclude" name="caInclude_9">
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>200</y>
-                    <width>25</width>
+                    <width>197</width>
+                    <height>22</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>200</y>
+                    <width>195</width>
                     <height>20</height>
                 </rect>
             </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>255</red>
-                    <green>255</green>
-                    <blue>255</blue>
-                </color>
+            <property name="filename">
+                <string>userStringCalcs_line.adl</string>
             </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>40</red>
-                    <green>147</green>
-                    <blue>21</blue>
-                </color>
-            </property>
-            <property name="label">
-                <string>-10</string>
-            </property>
-            <property name="stackingMode">
-                <enum>Menu</enum>
-            </property>
-            <property name="labels">
-                <string>user stringCalc 10;user stringCalc 10 (full);user stringCalc 10 (demo)</string>
-            </property>
-            <property name="files">
-                <string>userStringCalc.adl;userStringCalc_full.adl;userStringCalc_demo.adl</string>
-            </property>
-            <property name="args">
-                <string>P=$(P),C=userStringCalc10;P=$(P),C=userStringCalc10;P=$(P),C=userStringCalc10</string>
-            </property>
-            <property name="removeParent">
-                <string>false;false;false</string>
+            <property name="macro">
+                <string>P=$(P),N=$(N10)</string>
             </property>
         </widget>
+        <zorder>caInclude_0</zorder>
+        <zorder>caInclude_1</zorder>
+        <zorder>caInclude_2</zorder>
+        <zorder>caInclude_3</zorder>
+        <zorder>caInclude_4</zorder>
+        <zorder>caInclude_5</zorder>
+        <zorder>caInclude_6</zorder>
+        <zorder>caInclude_7</zorder>
+        <zorder>caInclude_8</zorder>
+        <zorder>caInclude_9</zorder>
         <zorder>caChoice_0</zorder>
-        <zorder>caTextEntry_0</zorder>
-        <zorder>caTextEntry_1</zorder>
-        <zorder>caTextEntry_2</zorder>
-        <zorder>caTextEntry_3</zorder>
-        <zorder>caTextEntry_4</zorder>
-        <zorder>caTextEntry_5</zorder>
-        <zorder>caTextEntry_6</zorder>
-        <zorder>caTextEntry_7</zorder>
-        <zorder>caTextEntry_8</zorder>
-        <zorder>caTextEntry_9</zorder>
-        <zorder>caRelatedDisplay_0</zorder>
-        <zorder>caRelatedDisplay_1</zorder>
-        <zorder>caRelatedDisplay_2</zorder>
-        <zorder>caRelatedDisplay_3</zorder>
-        <zorder>caRelatedDisplay_4</zorder>
-        <zorder>caRelatedDisplay_5</zorder>
-        <zorder>caRelatedDisplay_6</zorder>
-        <zorder>caRelatedDisplay_7</zorder>
-        <zorder>caRelatedDisplay_8</zorder>
-        <zorder>caRelatedDisplay_9</zorder>
     </widget>
 </widget>
 </ui>

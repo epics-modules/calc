@@ -1220,7 +1220,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>userTransform_full.adl</string>
             </property>
             <property name="args">
-                <string>P=$(P),T=$(T)</string>
+                <string>P=$(P),T=$(T),N=$(N)</string>
             </property>
             <property name="removeParent">
                 <string>true</string>
@@ -1615,7 +1615,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>caLabel::IfZero</enum>
             </property>
             <property name="channel">
-                <string>$(P)userTranEnable.VAL</string>
+                <string>$(P)userTran$(N)EnableCalc.VAL</string>
             </property>
             <property name="text">
                 <string>** ** DISABLED ** **</string>
@@ -2207,92 +2207,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>$(P)$(T).OCV</string>
             </property>
         </widget>
-        <widget class="caFrame" name="caFrame_0">
-            <property name="geometry">
-                <rect>
-                    <x>623</x>
-                    <y>32</y>
-                    <width>77</width>
-                    <height>17</height>
-                </rect>
-            </property>
-            <widget class="caRelatedDisplay" name="caRelatedDisplay_1">
-                <property name="geometry">
-                    <rect>
-                        <x>0</x>
-                        <y>0</y>
-                        <width>15</width>
-                        <height>15</height>
-                    </rect>
-                </property>
-                <property name="foreground">
-                    <color alpha="255">
-                        <red>0</red>
-                        <green>0</green>
-                        <blue>0</blue>
-                    </color>
-                </property>
-                <property name="background">
-                    <color alpha="255">
-                        <red>115</red>
-                        <green>223</green>
-                        <blue>255</blue>
-                    </color>
-                </property>
-                <property name="stackingMode">
-                    <enum>Menu</enum>
-                </property>
-                <property name="labels">
-                    <string>userTrans (all)</string>
-                </property>
-                <property name="files">
-                    <string>userTransforms10.adl</string>
-                </property>
-                <property name="args">
-                    <string>P=$(P)</string>
-                </property>
-                <property name="removeParent">
-                    <string>false</string>
-                </property>
-            </widget>
-            <widget class="caLabel" name="caLabel_9">
-                <property name="frameShape">
-                    <enum>QFrame::NoFrame</enum>
-                </property>
-                <property name="foreground">
-                    <color alpha="255">
-                        <red>0</red>
-                        <green>0</green>
-                        <blue>0</blue>
-                    </color>
-                </property>
-                <property name="background">
-                    <color alpha="0">
-                        <red>0</red>
-                        <green>0</green>
-                        <blue>0</blue>
-                    </color>
-                </property>
-                <property name="text">
-                    <string>ENABLE ALL</string>
-                </property>
-                <property name="fontScaleMode">
-                    <enum>ESimpleLabel::WidthAndHeight</enum>
-                </property>
-                <property name="alignment">
-                    <set>Qt::AlignAbsolute|Qt::AlignHCenter|Qt::AlignVCenter</set>
-                </property>
-                <property name="geometry">
-                    <rect>
-                        <x>15</x>
-                        <y>4</y>
-                        <width>60</width>
-                        <height>10</height>
-                    </rect>
-                </property>
-            </widget>
-        </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_2">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_1">
             <property name="geometry">
                 <rect>
                     <x>112</x>
@@ -2334,7 +2249,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_3">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_2">
             <property name="geometry">
                 <rect>
                     <x>267</x>
@@ -2376,7 +2291,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_4">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_3">
             <property name="geometry">
                 <rect>
                     <x>552</x>
@@ -2418,7 +2333,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false</string>
             </property>
         </widget>
-        <widget class="caFrame" name="caFrame_1">
+        <widget class="caFrame" name="caFrame_0">
             <property name="geometry">
                 <rect>
                     <x>268</x>
@@ -2457,7 +2372,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                     <enum>caMenu::Static</enum>
                 </property>
             </widget>
-            <widget class="caLabel" name="caLabel_10">
+            <widget class="caLabel" name="caLabel_9">
                 <property name="frameShape">
                     <enum>QFrame::NoFrame</enum>
                 </property>
@@ -2519,8 +2434,6 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <zorder>caRectangle_12</zorder>
         <zorder>caLabel_9</zorder>
         <zorder>caFrame_0</zorder>
-        <zorder>caLabel_10</zorder>
-        <zorder>caFrame_1</zorder>
         <zorder>caTextEntry_0</zorder>
         <zorder>caTextEntry_1</zorder>
         <zorder>caTextEntry_2</zorder>
@@ -2549,7 +2462,6 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <zorder>caRelatedDisplay_1</zorder>
         <zorder>caRelatedDisplay_2</zorder>
         <zorder>caRelatedDisplay_3</zorder>
-        <zorder>caRelatedDisplay_4</zorder>
         <zorder>caMenu_1</zorder>
     </widget>
 </widget>

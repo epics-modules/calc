@@ -4177,48 +4177,6 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 </rect>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_20">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>253</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>253</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="visibility">
-                <enum>caLabel::IfZero</enum>
-            </property>
-            <property name="channel">
-                <string>$(P)userTranEnable.VAL</string>
-            </property>
-            <property name="text">
-                <string>** ** DISABLED ** **</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignHCenter|Qt::AlignVCenter</set>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>390</x>
-                    <y>32</y>
-                    <width>240</width>
-                    <height>20</height>
-                </rect>
-            </property>
-        </widget>
         <widget class="caGraphics" name="caRectangle_17">
             <property name="form">
                 <enum>caGraphics::Rectangle</enum>
@@ -7333,82 +7291,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>$(P)$(T).OPV</string>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_21">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>ENABLE ALL</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignHCenter|Qt::AlignVCenter</set>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>608</x>
-                    <y>36</y>
-                    <width>60</width>
-                    <height>10</height>
-                </rect>
-            </property>
-        </widget>
         <widget class="caRelatedDisplay" name="caRelatedDisplay_0">
-            <property name="geometry">
-                <rect>
-                    <x>593</x>
-                    <y>32</y>
-                    <width>15</width>
-                    <height>15</height>
-                </rect>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>115</red>
-                    <green>223</green>
-                    <blue>255</blue>
-                </color>
-            </property>
-            <property name="stackingMode">
-                <enum>Menu</enum>
-            </property>
-            <property name="labels">
-                <string>userTrans (all)</string>
-            </property>
-            <property name="files">
-                <string>userTransforms10.adl</string>
-            </property>
-            <property name="args">
-                <string>P=$(P)</string>
-            </property>
-            <property name="removeParent">
-                <string>false</string>
-            </property>
-        </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_1">
             <property name="geometry">
                 <rect>
                     <x>660</x>
@@ -7444,13 +7327,13 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>userTransform.adl</string>
             </property>
             <property name="args">
-                <string>P=$(P),T=$(T)</string>
+                <string>P=$(P),T=$(T),N=$(N)</string>
             </property>
             <property name="removeParent">
                 <string>true</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_2">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_1">
             <property name="geometry">
                 <rect>
                     <x>112</x>
@@ -7492,7 +7375,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_3">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_2">
             <property name="geometry">
                 <rect>
                     <x>267</x>
@@ -7534,7 +7417,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_4">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_3">
             <property name="geometry">
                 <rect>
                     <x>552</x>
@@ -7615,7 +7498,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                     <enum>caMenu::Static</enum>
                 </property>
             </widget>
-            <widget class="caLabel" name="caLabel_22">
+            <widget class="caLabel" name="caLabel_20">
                 <property name="frameShape">
                     <enum>QFrame::NoFrame</enum>
                 </property>
@@ -7661,7 +7544,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                     <height>22</height>
                 </rect>
             </property>
-            <widget class="caLabel" name="caLabel_23">
+            <widget class="caLabel" name="caLabel_21">
                 <property name="frameShape">
                     <enum>QFrame::NoFrame</enum>
                 </property>
@@ -7749,6 +7632,48 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 </property>
             </widget>
         </widget>
+        <widget class="caLabel" name="caLabel_22">
+            <property name="frameShape">
+                <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>253</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="0">
+                    <red>253</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="visibility">
+                <enum>caLabel::IfZero</enum>
+            </property>
+            <property name="channel">
+                <string>$(P)userTran$(N)EnableCalc.VAL</string>
+            </property>
+            <property name="text">
+                <string>** ** DISABLED ** **</string>
+            </property>
+            <property name="fontScaleMode">
+                <enum>ESimpleLabel::WidthAndHeight</enum>
+            </property>
+            <property name="alignment">
+                <set>Qt::AlignAbsolute|Qt::AlignHCenter|Qt::AlignVCenter</set>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>390</x>
+                    <y>32</y>
+                    <width>240</width>
+                    <height>20</height>
+                </rect>
+            </property>
+        </widget>
         <zorder>caRectangle_0</zorder>
         <zorder>caRectangle_1</zorder>
         <zorder>caRectangle_2</zorder>
@@ -7788,7 +7713,6 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <zorder>caLabel_17</zorder>
         <zorder>caLabel_18</zorder>
         <zorder>caLabel_19</zorder>
-        <zorder>caLabel_20</zorder>
         <zorder>caRectangle_17</zorder>
         <zorder>caFrame_1</zorder>
         <zorder>caRectangle_18</zorder>
@@ -7822,11 +7746,11 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <zorder>caRectangle_46</zorder>
         <zorder>caRectangle_47</zorder>
         <zorder>caRectangle_48</zorder>
-        <zorder>caLabel_21</zorder>
-        <zorder>caLabel_22</zorder>
+        <zorder>caLabel_20</zorder>
         <zorder>caFrame_2</zorder>
-        <zorder>caLabel_23</zorder>
+        <zorder>caLabel_21</zorder>
         <zorder>caFrame_3</zorder>
+        <zorder>caLabel_22</zorder>
         <zorder>caTextEntry_0</zorder>
         <zorder>caTextEntry_1</zorder>
         <zorder>caTextEntry_2</zorder>
@@ -7915,7 +7839,6 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <zorder>caRelatedDisplay_1</zorder>
         <zorder>caRelatedDisplay_2</zorder>
         <zorder>caRelatedDisplay_3</zorder>
-        <zorder>caRelatedDisplay_4</zorder>
         <zorder>caMenu_1</zorder>
         <zorder>caTextEntry_82</zorder>
     </widget>

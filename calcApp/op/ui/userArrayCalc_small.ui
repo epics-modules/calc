@@ -41,7 +41,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>caLabel::IfZero</enum>
             </property>
             <property name="channel">
-                <string>$(P)userArrayCalcEnable.VAL</string>
+                <string>$(P)userArrayCalc$(N)EnableCalc.VAL</string>
             </property>
             <property name="text">
                 <string>DISABLED</string>
@@ -59,48 +59,6 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                     <width>160</width>
                     <height>20</height>
                 </rect>
-            </property>
-        </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_0">
-            <property name="geometry">
-                <rect>
-                    <x>345</x>
-                    <y>33</y>
-                    <width>50</width>
-                    <height>16</height>
-                </rect>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>255</red>
-                    <green>255</green>
-                    <blue>255</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>40</red>
-                    <green>147</green>
-                    <blue>21</blue>
-                </color>
-            </property>
-            <property name="label">
-                <string>-ENABLE</string>
-            </property>
-            <property name="stackingMode">
-                <enum>Menu</enum>
-            </property>
-            <property name="labels">
-                <string>userArrayCalcs (all)</string>
-            </property>
-            <property name="files">
-                <string>userArrayCalcs10.adl</string>
-            </property>
-            <property name="args">
-                <string>P=$(P)</string>
-            </property>
-            <property name="removeParent">
-                <string>false</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_0">
@@ -127,7 +85,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>P=$(P),C=$(C)</string>
             </property>
         </widget>
-        <widget class="caRelatedDisplay" name="caRelatedDisplay_1">
+        <widget class="caRelatedDisplay" name="caRelatedDisplay_0">
             <property name="geometry">
                 <rect>
                     <x>330</x>
@@ -163,16 +121,58 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>userArrayCalc.adl</string>
             </property>
             <property name="args">
-                <string>P=$(P),C=$(C)</string>
+                <string>P=$(P),C=$(C),N=$(N)</string>
             </property>
             <property name="removeParent">
                 <string>true</string>
             </property>
         </widget>
+        <widget class="caLabel" name="caLabel_1">
+            <property name="frameShape">
+                <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="0">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="visibility">
+                <enum>caLabel::IfNotZero</enum>
+            </property>
+            <property name="channel">
+                <string>$(P)userArrayCalc$(N)EnableCalc.VAL</string>
+            </property>
+            <property name="text">
+                <string>($(P)$(C))</string>
+            </property>
+            <property name="fontScaleMode">
+                <enum>ESimpleLabel::WidthAndHeight</enum>
+            </property>
+            <property name="alignment">
+                <set>Qt::AlignAbsolute|Qt::AlignHCenter|Qt::AlignVCenter</set>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>240</x>
+                    <y>6</y>
+                    <width>160</width>
+                    <height>14</height>
+                </rect>
+            </property>
+        </widget>
         <zorder>caLabel_0</zorder>
         <zorder>caInclude_0</zorder>
+        <zorder>caLabel_1</zorder>
         <zorder>caRelatedDisplay_0</zorder>
-        <zorder>caRelatedDisplay_1</zorder>
     </widget>
 </widget>
 </ui>
