@@ -1,3 +1,254 @@
+record(bo, "$(P)userAve$(N1)Enable") {
+  field(DESC, "userAve $(N1) Enable")
+  field(ZNAM, "D")
+  field(ONAM, "E")
+  field(UDF, "0")
+  field(STAT, "NO_ALARM")
+  field(SEVR, "NO_ALARM")
+  field(DOL, "1")
+}
+record(calc, "$(P)userAve$(N1)EnableCalc") {
+	field(INPA, "$(P)userAve$(N1)Enable CP")
+	field(INPB, "$(P)userAveEnable CP")
+	field(INPC, "$(P)userCalcGlobalEnable CP")
+	field(CALC, "a+b+c==3")
+}
+record(sub, "$(P)userAve$(N1)") {
+  field(DESC, "User Average $(N1)")
+  field(DISV, "0")
+  field(SDIS, "$(P)userAve$(N1)EnableCalc  CA NMS")
+  field(INAM, "initSubAve")
+  field(SNAM, "SubAve")
+  field(INPD, "$(P)userAve$(N1)_mode.VAL  NPP NMS")
+  field(INPF, "$(P)userAve$(N1)_algorithm.VAL  NPP NMS")
+}
+
+record(bo, "$(P)userAve$(N2)Enable") {
+  field(DESC, "userAve $(N2) Enable")
+  field(ZNAM, "D")
+  field(ONAM, "E")
+  field(UDF, "0")
+  field(STAT, "NO_ALARM")
+  field(SEVR, "NO_ALARM")
+  field(DOL, "1")
+}
+record(calc, "$(P)userAve$(N2)EnableCalc") {
+	field(INPA, "$(P)userAve$(N2)Enable CP")
+	field(INPB, "$(P)userAveEnable CP")
+	field(INPC, "$(P)userCalcGlobalEnable CP")
+	field(CALC, "a+b+c==3")
+}
+record(sub, "$(P)userAve$(N2)") {
+  field(DESC, "User Average $(N2)")
+  field(DISV, "0")
+  field(SDIS, "$(P)userAve$(N2)EnableCalc  CA NMS")
+  field(INAM, "initSubAve")
+  field(SNAM, "SubAve")
+  field(INPD, "$(P)userAve$(N2)_mode.VAL  NPP NMS")
+  field(INPF, "$(P)userAve$(N2)_algorithm.VAL  NPP NMS")
+}
+
+record(bo, "$(P)userAve$(N3)Enable") {
+  field(DESC, "userAve $(N3) Enable")
+  field(ZNAM, "D")
+  field(ONAM, "E")
+  field(UDF, "0")
+  field(STAT, "NO_ALARM")
+  field(SEVR, "NO_ALARM")
+  field(DOL, "1")
+}
+record(calc, "$(P)userAve$(N3)EnableCalc") {
+	field(INPA, "$(P)userAve$(N3)Enable CP")
+	field(INPB, "$(P)userAveEnable CP")
+	field(INPC, "$(P)userCalcGlobalEnable CP")
+	field(CALC, "a+b+c==3")
+}
+record(sub, "$(P)userAve$(N3)") {
+  field(DESC, "User Average $(N3)")
+  field(DISV, "0")
+  field(SDIS, "$(P)userAve$(N3)EnableCalc  CA NMS")
+  field(INAM, "initSubAve")
+  field(SNAM, "SubAve")
+  field(INPD, "$(P)userAve$(N3)_mode.VAL  NPP NMS")
+  field(INPF, "$(P)userAve$(N3)_algorithm.VAL  NPP NMS")
+}
+
+record(bo, "$(P)userAve$(N4)Enable") {
+  field(DESC, "userAve $(N4) Enable")
+  field(ZNAM, "D")
+  field(ONAM, "E")
+  field(UDF, "0")
+  field(STAT, "NO_ALARM")
+  field(SEVR, "NO_ALARM")
+  field(DOL, "1")
+}
+record(calc, "$(P)userAve$(N4)EnableCalc") {
+	field(INPA, "$(P)userAve$(N4)Enable CP")
+	field(INPB, "$(P)userAveEnable CP")
+	field(INPC, "$(P)userCalcGlobalEnable CP")
+	field(CALC, "a+b+c==3")
+}
+record(sub, "$(P)userAve$(N4)") {
+  field(DESC, "User Average $(N4)")
+  field(DISV, "0")
+  field(SDIS, "$(P)userAve$(N4)EnableCalc  CA NMS")
+  field(INAM, "initSubAve")
+  field(SNAM, "SubAve")
+  field(INPD, "$(P)userAve$(N4)_mode.VAL  NPP NMS")
+  field(INPF, "$(P)userAve$(N4)_algorithm.VAL  NPP NMS")
+}
+
+record(bo, "$(P)userAve$(N5)Enable") {
+  field(DESC, "userAve $(N5) Enable")
+  field(ZNAM, "D")
+  field(ONAM, "E")
+  field(UDF, "0")
+  field(STAT, "NO_ALARM")
+  field(SEVR, "NO_ALARM")
+  field(DOL, "1")
+}
+record(calc, "$(P)userAve$(N5)EnableCalc") {
+	field(INPA, "$(P)userAve$(N5)Enable CP")
+	field(INPB, "$(P)userAveEnable CP")
+	field(INPC, "$(P)userCalcGlobalEnable CP")
+	field(CALC, "a+b+c==3")
+}
+record(sub, "$(P)userAve$(N5)") {
+  field(DESC, "User Average $(N5)")
+  field(DISV, "0")
+  field(SDIS, "$(P)userAve$(N5)EnableCalc  CA NMS")
+  field(INAM, "initSubAve")
+  field(SNAM, "SubAve")
+  field(INPD, "$(P)userAve$(N5)_mode.VAL  NPP NMS")
+  field(INPF, "$(P)userAve$(N5)_algorithm.VAL  NPP NMS")
+}
+
+record(bo, "$(P)userAve$(N6)Enable") {
+  field(DESC, "userAve $(N6) Enable")
+  field(ZNAM, "D")
+  field(ONAM, "E")
+  field(UDF, "0")
+  field(STAT, "NO_ALARM")
+  field(SEVR, "NO_ALARM")
+  field(DOL, "1")
+}
+record(calc, "$(P)userAve$(N6)EnableCalc") {
+	field(INPA, "$(P)userAve$(N6)Enable CP")
+	field(INPB, "$(P)userAveEnable CP")
+	field(INPC, "$(P)userCalcGlobalEnable CP")
+	field(CALC, "a+b+c==3")
+}
+record(sub, "$(P)userAve$(N6)") {
+  field(DESC, "User Average $(N6)")
+  field(DISV, "0")
+  field(SDIS, "$(P)userAve$(N6)EnableCalc  CA NMS")
+  field(INAM, "initSubAve")
+  field(SNAM, "SubAve")
+  field(INPD, "$(P)userAve$(N6)_mode.VAL  NPP NMS")
+  field(INPF, "$(P)userAve$(N6)_algorithm.VAL  NPP NMS")
+}
+
+record(bo, "$(P)userAve$(N7)Enable") {
+  field(DESC, "userAve $(N7) Enable")
+  field(ZNAM, "D")
+  field(ONAM, "E")
+  field(UDF, "0")
+  field(STAT, "NO_ALARM")
+  field(SEVR, "NO_ALARM")
+  field(DOL, "1")
+}
+record(calc, "$(P)userAve$(N7)EnableCalc") {
+	field(INPA, "$(P)userAve$(N7)Enable CP")
+	field(INPB, "$(P)userAveEnable CP")
+	field(INPC, "$(P)userCalcGlobalEnable CP")
+	field(CALC, "a+b+c==3")
+}
+record(sub, "$(P)userAve$(N7)") {
+  field(DESC, "User Average $(N7)")
+  field(DISV, "0")
+  field(SDIS, "$(P)userAve$(N7)EnableCalc  CA NMS")
+  field(INAM, "initSubAve")
+  field(SNAM, "SubAve")
+  field(INPD, "$(P)userAve$(N7)_mode.VAL  NPP NMS")
+  field(INPF, "$(P)userAve$(N7)_algorithm.VAL  NPP NMS")
+}
+
+record(bo, "$(P)userAve$(N8)Enable") {
+  field(DESC, "userAve $(N8) Enable")
+  field(ZNAM, "D")
+  field(ONAM, "E")
+  field(UDF, "0")
+  field(STAT, "NO_ALARM")
+  field(SEVR, "NO_ALARM")
+  field(DOL, "1")
+}
+record(calc, "$(P)userAve$(N8)EnableCalc") {
+	field(INPA, "$(P)userAve$(N8)Enable CP")
+	field(INPB, "$(P)userAveEnable CP")
+	field(INPC, "$(P)userCalcGlobalEnable CP")
+	field(CALC, "a+b+c==3")
+}
+record(sub, "$(P)userAve$(N8)") {
+  field(DESC, "User Average $(N8)")
+  field(DISV, "0")
+  field(SDIS, "$(P)userAve$(N8)EnableCalc  CA NMS")
+  field(INAM, "initSubAve")
+  field(SNAM, "SubAve")
+  field(INPD, "$(P)userAve$(N8)_mode.VAL  NPP NMS")
+  field(INPF, "$(P)userAve$(N8)_algorithm.VAL  NPP NMS")
+}
+
+record(bo, "$(P)userAve$(N9)Enable") {
+  field(DESC, "userAve $(N9) Enable")
+  field(ZNAM, "D")
+  field(ONAM, "E")
+  field(UDF, "0")
+  field(STAT, "NO_ALARM")
+  field(SEVR, "NO_ALARM")
+  field(DOL, "1")
+}
+record(calc, "$(P)userAve$(N9)EnableCalc") {
+	field(INPA, "$(P)userAve$(N9)Enable CP")
+	field(INPB, "$(P)userAveEnable CP")
+	field(INPC, "$(P)userCalcGlobalEnable CP")
+	field(CALC, "a+b+c==3")
+}
+record(sub, "$(P)userAve$(N9)") {
+  field(DESC, "User Average $(N9)")
+  field(DISV, "0")
+  field(SDIS, "$(P)userAve$(N9)EnableCalc  CA NMS")
+  field(INAM, "initSubAve")
+  field(SNAM, "SubAve")
+  field(INPD, "$(P)userAve$(N9)_mode.VAL  NPP NMS")
+  field(INPF, "$(P)userAve$(N9)_algorithm.VAL  NPP NMS")
+}
+
+record(bo, "$(P)userAve$(N10)Enable") {
+  field(DESC, "userAve $(N10) Enable")
+  field(ZNAM, "D")
+  field(ONAM, "E")
+  field(UDF, "0")
+  field(STAT, "NO_ALARM")
+  field(SEVR, "NO_ALARM")
+  field(DOL, "1")
+}
+record(calc, "$(P)userAve$(N10)EnableCalc") {
+	field(INPA, "$(P)userAve$(N10)Enable CP")
+	field(INPB, "$(P)userAveEnable CP")
+	field(INPC, "$(P)userCalcGlobalEnable CP")
+	field(CALC, "a+b+c==3")
+}
+record(sub, "$(P)userAve$(N10)") {
+  field(DESC, "User Average $(N10)")
+  field(DISV, "0")
+  field(SDIS, "$(P)userAve$(N10)EnableCalc  CA NMS")
+  field(INAM, "initSubAve")
+  field(SNAM, "SubAve")
+  field(INPD, "$(P)userAve$(N10)_mode.VAL  NPP NMS")
+  field(INPF, "$(P)userAve$(N10)_algorithm.VAL  NPP NMS")
+}
+
+
 record(bo, "$(P)userAve$(N10)_mode") {
   field(DTYP, "Soft Channel")
   field(ZNAM, "CONTINUOUS")
@@ -128,112 +379,7 @@ record(mbbo, "$(P)userAve$(N1)_algorithm") {
   field(TWST, "AUTO")
 }
 
-record(bo, "$(P)DisableUserAves") {
-  field(DTYP, "Soft Channel")
-  field(OMSL, "closed_loop")
-  field(OUT, "$(P)userAveEnable.VAL  PP MS")
-  field(DOL, "0")
-}
 
-record(sub, "$(P)userAve$(N1)") {
-  field(DESC, "User Average 1")
-  field(DISV, "0")
-  field(SDIS, "$(P)userAveEnable.VAL  CA NMS")
-  field(INAM, "initSubAve")
-  field(SNAM, "SubAve")
-  field(INPD, "$(P)userAve$(N1)_mode.VAL  NPP NMS")
-  field(INPF, "$(P)userAve$(N1)_algorithm.VAL  NPP NMS")
-}
-
-record(sub, "$(P)userAve$(N10)") {
-  field(DESC, "User Average 10")
-  field(DISV, "0")
-  field(SDIS, "$(P)userAveEnable.VAL  CA NMS")
-  field(INAM, "initSubAve")
-  field(SNAM, "SubAve")
-  field(INPD, "$(P)userAve$(N10)_mode.VAL  NPP NMS")
-  field(INPF, "$(P)userAve$(N10)_algorithm.VAL  NPP NMS")
-}
-
-record(sub, "$(P)userAve$(N2)") {
-  field(DESC, "User Average 2")
-  field(DISV, "0")
-  field(SDIS, "$(P)userAveEnable.VAL  CA NMS")
-  field(INAM, "initSubAve")
-  field(SNAM, "SubAve")
-  field(INPD, "$(P)userAve$(N2)_mode.VAL  NPP NMS")
-  field(INPF, "$(P)userAve$(N2)_algorithm.VAL  NPP NMS")
-}
-
-record(sub, "$(P)userAve$(N3)") {
-  field(DESC, "User Average 3")
-  field(DISV, "0")
-  field(SDIS, "$(P)userAveEnable.VAL  CA NMS")
-  field(INAM, "initSubAve")
-  field(SNAM, "SubAve")
-  field(INPD, "$(P)userAve$(N3)_mode.VAL  NPP NMS")
-  field(INPF, "$(P)userAve$(N3)_algorithm.VAL  NPP NMS")
-}
-
-record(sub, "$(P)userAve$(N4)") {
-  field(DESC, "User Average 4")
-  field(DISV, "0")
-  field(SDIS, "$(P)userAveEnable.VAL  CA NMS")
-  field(INAM, "initSubAve")
-  field(SNAM, "SubAve")
-  field(INPD, "$(P)userAve$(N4)_mode.VAL  NPP NMS")
-  field(INPF, "$(P)userAve$(N4)_algorithm.VAL  NPP NMS")
-}
-
-record(sub, "$(P)userAve$(N5)") {
-  field(DESC, "User Average 5")
-  field(DISV, "0")
-  field(SDIS, "$(P)userAveEnable.VAL  CA NMS")
-  field(INAM, "initSubAve")
-  field(SNAM, "SubAve")
-  field(INPD, "$(P)userAve$(N5)_mode.VAL  NPP NMS")
-  field(INPF, "$(P)userAve$(N5)_algorithm.VAL  NPP NMS")
-}
-
-record(sub, "$(P)userAve$(N6)") {
-  field(DESC, "User Average 6")
-  field(DISV, "0")
-  field(SDIS, "$(P)userAveEnable.VAL  CA NMS")
-  field(INAM, "initSubAve")
-  field(SNAM, "SubAve")
-  field(INPD, "$(P)userAve$(N6)_mode.VAL  NPP NMS")
-  field(INPF, "$(P)userAve$(N6)_algorithm.VAL  NPP NMS")
-}
-
-record(sub, "$(P)userAve$(N7)") {
-  field(DESC, "User Average 7")
-  field(DISV, "0")
-  field(SDIS, "$(P)userAveEnable.VAL  CA NMS")
-  field(INAM, "initSubAve")
-  field(SNAM, "SubAve")
-  field(INPD, "$(P)userAve$(N7)_mode.VAL  NPP NMS")
-  field(INPF, "$(P)userAve$(N7)_algorithm.VAL  NPP NMS")
-}
-
-record(sub, "$(P)userAve$(N8)") {
-  field(DESC, "User Average 8")
-  field(DISV, "0")
-  field(SDIS, "$(P)userAveEnable.VAL  CA NMS")
-  field(INAM, "initSubAve")
-  field(SNAM, "SubAve")
-  field(INPD, "$(P)userAve$(N8)_mode.VAL  NPP NMS")
-  field(INPF, "$(P)userAve$(N8)_algorithm.VAL  NPP NMS")
-}
-
-record(sub, "$(P)userAve$(N9)") {
-  field(DESC, "User Average 9")
-  field(DISV, "0")
-  field(SDIS, "$(P)userAveEnable.VAL  CA NMS")
-  field(INAM, "initSubAve")
-  field(SNAM, "SubAve")
-  field(INPD, "$(P)userAve$(N9)_mode.VAL  NPP NMS")
-  field(INPF, "$(P)userAve$(N9)_algorithm.VAL  NPP NMS")
-}
 
 
 # We want to behave correctly when driven by a putCallback to either
