@@ -1,13 +1,13 @@
 
 file {
-	name="/home/oxygen4/MOONEY/epics/synAppsSVN/support/calc/calcApp/op/adl/userTransforms10more.adl"
+	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/userTransforms10.adl"
 	version=030107
 }
 display {
 	object {
-		x=854
-		y=97
-		width=150
+		x=1192
+		y=245
+		width=195
 		height=220
 	}
 	clr=64
@@ -15,7 +15,7 @@ display {
 	cmap=""
 	gridSpacing=5
 	gridOn=0
-	snapToGrid=0
+	snapToGrid=1
 }
 "color map" {
 	ncolors=65
@@ -87,13 +87,117 @@ display {
 		1a7309,
 	}
 }
-composite {
+"choice button" {
 	object {
 		x=0
 		y=0
-		width=150
-		height=220
+		width=195
+		height=20
+	}
+	control {
+		chan="$(P)userTranEnable.VAL"
+		clr=14
+		bclr=51
+	}
+	stacking="column"
+}
+composite {
+	object {
+		x=0
+		y=20
+		width=195
+		height=20
 	}
 	"composite name"=""
-	"composite file"="userXXX10more_bare.adl;P=$(P),TYPE=StringSeq,N1=$(N1),N2=$(N2),N3=$(N3),N4=$(N4),N5=$(N5),N6=$(N6),N7=$(N7),N8=$(N8),N9=$(N9),N10=$(N10)"
+	"composite file"="userTransforms_line.adl;P=$(P),N=$(N1)"
+}
+composite {
+	object {
+		x=0
+		y=40
+		width=195
+		height=20
+	}
+	"composite name"=""
+	"composite file"="userTransforms_line.adl;P=$(P),N=$(N2)"
+}
+composite {
+	object {
+		x=0
+		y=60
+		width=195
+		height=20
+	}
+	"composite name"=""
+	"composite file"="userTransforms_line.adl;P=$(P),N=$(N3)"
+}
+composite {
+	object {
+		x=0
+		y=80
+		width=195
+		height=20
+	}
+	"composite name"=""
+	"composite file"="userTransforms_line.adl;P=$(P),N=$(N4)"
+}
+composite {
+	object {
+		x=0
+		y=100
+		width=195
+		height=20
+	}
+	"composite name"=""
+	"composite file"="userTransforms_line.adl;P=$(P),N=$(N5)"
+}
+composite {
+	object {
+		x=0
+		y=120
+		width=195
+		height=20
+	}
+	"composite name"=""
+	"composite file"="userTransforms_line.adl;P=$(P),N=$(N6)"
+}
+composite {
+	object {
+		x=0
+		y=140
+		width=195
+		height=20
+	}
+	"composite name"=""
+	"composite file"="userTransforms_line.adl;P=$(P),N=$(N7)"
+}
+composite {
+	object {
+		x=0
+		y=160
+		width=195
+		height=20
+	}
+	"composite name"=""
+	"composite file"="userTransforms_line.adl;P=$(P),N=$(N8)"
+}
+composite {
+	object {
+		x=0
+		y=180
+		width=195
+		height=20
+	}
+	"composite name"=""
+	"composite file"="userTransforms_line.adl;P=$(P),N=$(N9)"
+}
+composite {
+	object {
+		x=0
+		y=200
+		width=195
+		height=20
+	}
+	"composite name"=""
+	"composite file"="userTransforms_line.adl;P=$(P),N=$(N10)"
 }
