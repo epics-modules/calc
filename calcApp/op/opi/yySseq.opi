@@ -3,7 +3,7 @@
   <macros>
     <include_parent_macros>true</include_parent_macros>
   </macros>
-  <wuid>-41ce3bf8:146ee9d5016:-5dc0</wuid>
+  <wuid>12fcb58a:14f3d035f59:-5d6f</wuid>
   <boy_version>3.2.10.20140131</boy_version>
   <scripts />
   <show_ruler>true</show_ruler>
@@ -38,7 +38,7 @@
     <line_color>
       <color red="128" green="0" blue="255" />
     </line_color>
-    <wuid>-41ce3bf8:146ee9d5016:-5dbf</wuid>
+    <wuid>12fcb58a:14f3d035f59:-5d6e</wuid>
     <bg_gradient_color>
       <color red="255" green="255" blue="255" />
     </bg_gradient_color>
@@ -93,7 +93,7 @@ $(pv_value)</tooltip>
       <include_parent_macros>true</include_parent_macros>
     </macros>
     <visible>true</visible>
-    <wuid>-41ce3bf8:146ee9d5016:-5db6</wuid>
+    <wuid>12fcb58a:14f3d035f59:-5d65</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -117,7 +117,7 @@ $(pv_value)</tooltip>
     <font>
       <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
-    <width>746</width>
+    <width>747</width>
     <border_style>3</border_style>
     <rules />
     <border_width>1</border_width>
@@ -133,7 +133,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>true</actions_from_pv>
-    <wuid>-41ce3bf8:146ee9d5016:-5dbe</wuid>
+    <wuid>12fcb58a:14f3d035f59:-5d6d</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -175,7 +175,7 @@ $(pv_value)</tooltip>
   <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
-    <wuid>-41ce3bf8:146ee9d5016:-5dbd</wuid>
+    <wuid>12fcb58a:14f3d035f59:-5d6c</wuid>
     <scripts />
     <height>20</height>
     <style>1</style>
@@ -256,7 +256,7 @@ $(pv_value)</tooltip>
     <minimum>-Infinity</minimum>
     <next_focus>0</next_focus>
     <show_units>false</show_units>
-    <wuid>-41ce3bf8:146ee9d5016:-5dbc</wuid>
+    <wuid>12fcb58a:14f3d035f59:-5d6b</wuid>
     <rotation_angle>0.0</rotation_angle>
     <style>0</style>
     <name>Text Input</name>
@@ -290,7 +290,7 @@ $(pv_value)</tooltip>
   <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
     <visible>true</visible>
     <vertical_alignment>1</vertical_alignment>
-    <wuid>-41ce3bf8:146ee9d5016:-5dbb</wuid>
+    <wuid>12fcb58a:14f3d035f59:-5d6a</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <height>10</height>
@@ -334,7 +334,7 @@ $(pv_value)</tooltip>
     <arrow_length>20</arrow_length>
     <visible>true</visible>
     <fill_level>100.0</fill_level>
-    <wuid>-41ce3bf8:146ee9d5016:-5dba</wuid>
+    <wuid>12fcb58a:14f3d035f59:-5d69</wuid>
     <rotation_angle>0.0</rotation_angle>
     <scripts />
     <arrows>0</arrows>
@@ -414,7 +414,7 @@ $(pv_value)</tooltip>
     <minimum>-Infinity</minimum>
     <next_focus>0</next_focus>
     <show_units>false</show_units>
-    <wuid>-41ce3bf8:146ee9d5016:-5db9</wuid>
+    <wuid>12fcb58a:14f3d035f59:-5d68</wuid>
     <rotation_angle>0.0</rotation_angle>
     <style>0</style>
     <name>Text Input</name>
@@ -448,7 +448,7 @@ $(pv_value)</tooltip>
   <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
     <visible>true</visible>
     <vertical_alignment>1</vertical_alignment>
-    <wuid>-41ce3bf8:146ee9d5016:-5db8</wuid>
+    <wuid>12fcb58a:14f3d035f59:-5d67</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <height>14</height>
@@ -490,7 +490,7 @@ $(pv_value)</tooltip>
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-41ce3bf8:146ee9d5016:-5db7</wuid>
+    <wuid>12fcb58a:14f3d035f59:-5d66</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -523,7 +523,7 @@ $(pv_value)</tooltip>
     <border_color>
       <color red="0" green="128" blue="255" />
     </border_color>
-    <y>30</y>
+    <y>168</y>
     <actions hook="false" hook_all="false">
       <action type="OPEN_DISPLAY">
         <path>yySseq_full.opi</path>
@@ -536,6 +536,6 @@ $(pv_value)</tooltip>
     </actions>
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
-    <x>320</x>
+    <x>700</x>
   </widget>
 </display>

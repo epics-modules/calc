@@ -3,7 +3,7 @@
   <macros>
     <include_parent_macros>true</include_parent_macros>
   </macros>
-  <wuid>-41ce3bf8:146ee9d5016:-6094</wuid>
+  <wuid>12fcb58a:14f3d035f59:-6043</wuid>
   <boy_version>3.2.10.20140131</boy_version>
   <scripts />
   <show_ruler>true</show_ruler>
@@ -36,7 +36,7 @@
       <include_parent_macros>true</include_parent_macros>
     </macros>
     <visible>true</visible>
-    <wuid>-41ce3bf8:146ee9d5016:-6092</wuid>
+    <wuid>12fcb58a:14f3d035f59:-6041</wuid>
     <auto_size>false</auto_size>
     <scripts />
     <zoom_to_fit>true</zoom_to_fit>
@@ -60,7 +60,7 @@
     <font>
       <opifont.name fontName="Sans" height="10" style="0">Default</opifont.name>
     </font>
-    <width>401</width>
+    <width>400</width>
     <border_style>3</border_style>
     <rules />
     <border_width>1</border_width>
@@ -76,7 +76,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
     <visible>true</visible>
     <actions_from_pv>false</actions_from_pv>
-    <wuid>-41ce3bf8:146ee9d5016:-6093</wuid>
+    <wuid>12fcb58a:14f3d035f59:-6042</wuid>
     <scripts />
     <height>20</height>
     <name>Menu Button</name>
@@ -123,5 +123,46 @@
     <tooltip>$(pv_name)
 $(pv_value)</tooltip>
     <x>330</x>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
+    <visible>true</visible>
+    <vertical_alignment>1</vertical_alignment>
+    <wuid>12fcb58a:14f3d035f59:-6040</wuid>
+    <auto_size>false</auto_size>
+    <scripts />
+    <height>14</height>
+    <name>Label</name>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <transparent>true</transparent>
+    <show_scrollbar>false</show_scrollbar>
+    <background_color>
+      <color red="255" green="255" blue="255" />
+    </background_color>
+    <foreground_color>
+      <color name="Gray_14" red="0" green="0" blue="0" />
+    </foreground_color>
+    <widget_type>Label</widget_type>
+    <enabled>true</enabled>
+    <text>($(P)$(C))</text>
+    <font>
+      <fontdata fontName="Sans" height="8" style="0" />
+    </font>
+    <width>160</width>
+    <border_style>0</border_style>
+    <rules />
+    <border_width>1</border_width>
+    <border_color>
+      <color red="0" green="128" blue="255" />
+    </border_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <actions hook="false" hook_all="false" />
+    <y>6</y>
+    <wrap_words>false</wrap_words>
+    <tooltip></tooltip>
+    <x>240</x>
   </widget>
 </display>
