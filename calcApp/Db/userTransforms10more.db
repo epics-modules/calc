@@ -16,7 +16,7 @@ record(calc, "$(P)userTran$(N1)EnableCalc") {
 record(transform, "$(P)userTran$(N1)") {
   field(DESC, "user Transform $(N1)")
   field(DISV, "0")
-  field(SDIS, "$(P)$(P)userTran$(N1)EnableCalc.VAL  CA NMS")
+  field(SDIS, "$(P)userTran$(N1)EnableCalc.VAL  CA NMS")
   field(PREC, "3")
   field(CMTA, "a")
   field(CMTB, "b")
