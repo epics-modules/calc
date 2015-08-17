@@ -4,9 +4,9 @@
 <widget class="QMainWindow" name="MainWindow">
     <property name="geometry">
         <rect>
-            <x>599</x>
-            <y>268</y>
-            <width>320</width>
+            <x>962</x>
+            <y>248</y>
+            <width>440</width>
             <height>420</height>
         </rect>
     </property>
@@ -22,9 +22,9 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <widget class="caChoice" name="caChoice_0">
             <property name="geometry">
                 <rect>
-                    <x>2</x>
+                    <x>0</x>
                     <y>0</y>
-                    <width>160</width>
+                    <width>440</width>
                     <height>20</height>
                 </rect>
             </property>
@@ -57,23 +57,23 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>0</x>
                     <y>20</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>20</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=1</string>
+                <string>P=$(P),N=$(N1)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_1">
@@ -81,23 +81,23 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>0</x>
                     <y>40</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>40</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=2</string>
+                <string>P=$(P),N=$(N2)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_2">
@@ -105,23 +105,23 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>0</x>
                     <y>60</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>60</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=3</string>
+                <string>P=$(P),N=$(N3)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_3">
@@ -129,23 +129,23 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>0</x>
                     <y>80</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>80</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=4</string>
+                <string>P=$(P),N=$(N4)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_4">
@@ -153,23 +153,23 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>0</x>
                     <y>100</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>100</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=5</string>
+                <string>P=$(P),N=$(N5)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_5">
@@ -177,23 +177,23 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>0</x>
                     <y>120</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>120</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=6</string>
+                <string>P=$(P),N=$(N6)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_6">
@@ -201,23 +201,23 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>0</x>
                     <y>140</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>140</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=7</string>
+                <string>P=$(P),N=$(N7)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_7">
@@ -225,23 +225,23 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>0</x>
                     <y>160</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>160</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=8</string>
+                <string>P=$(P),N=$(N8)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_8">
@@ -249,23 +249,23 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>0</x>
                     <y>180</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>180</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=9</string>
+                <string>P=$(P),N=$(N9)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_9">
@@ -273,23 +273,23 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>0</x>
                     <y>200</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>200</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=10</string>
+                <string>P=$(P),N=$(N10)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_10">
@@ -297,23 +297,23 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>0</x>
                     <y>220</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>220</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=11</string>
+                <string>P=$(P),N=$(N11)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_11">
@@ -321,23 +321,23 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>0</x>
                     <y>240</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>240</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=12</string>
+                <string>P=$(P),N=$(N12)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_12">
@@ -345,23 +345,23 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>0</x>
                     <y>260</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>260</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=13</string>
+                <string>P=$(P),N=$(N13)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_13">
@@ -369,23 +369,23 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>0</x>
                     <y>280</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>280</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=14</string>
+                <string>P=$(P),N=$(N14)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_14">
@@ -393,23 +393,23 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>0</x>
                     <y>300</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>300</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=15</string>
+                <string>P=$(P),N=$(N15)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_15">
@@ -417,23 +417,23 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>0</x>
                     <y>320</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>320</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=16</string>
+                <string>P=$(P),N=$(N16)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_16">
@@ -441,23 +441,23 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>0</x>
                     <y>340</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>340</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=17</string>
+                <string>P=$(P),N=$(N17)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_17">
@@ -465,23 +465,23 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>0</x>
                     <y>360</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>360</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=18</string>
+                <string>P=$(P),N=$(N18)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_18">
@@ -489,23 +489,23 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>0</x>
                     <y>380</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>380</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=19</string>
+                <string>P=$(P),N=$(N19)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_19">
@@ -513,503 +513,503 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <rect>
                     <x>0</x>
                     <y>400</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>0</x>
                     <y>400</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=20</string>
+                <string>P=$(P),N=$(N20)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_20">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>20</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>20</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=21</string>
+                <string>P=$(P),N=$(N21)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_21">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>40</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>40</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=22</string>
+                <string>P=$(P),N=$(N22)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_22">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>60</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>60</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=23</string>
+                <string>P=$(P),N=$(N23)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_23">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>80</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>80</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=24</string>
+                <string>P=$(P),N=$(N24)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_24">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>100</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>100</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=25</string>
+                <string>P=$(P),N=$(N25)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_25">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>120</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>120</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=26</string>
+                <string>P=$(P),N=$(N26)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_26">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>140</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>140</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=27</string>
+                <string>P=$(P),N=$(N27)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_27">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>160</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>160</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=28</string>
+                <string>P=$(P),N=$(N28)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_28">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>180</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>180</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=29</string>
+                <string>P=$(P),N=$(N29)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_29">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>200</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>200</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=30</string>
+                <string>P=$(P),N=$(N30)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_30">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>220</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>220</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=31</string>
+                <string>P=$(P),N=$(N31)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_31">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>240</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>240</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=32</string>
+                <string>P=$(P),N=$(N32)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_32">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>260</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>260</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=33</string>
+                <string>P=$(P),N=$(N33)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_33">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>280</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>280</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=34</string>
+                <string>P=$(P),N=$(N34)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_34">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>300</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>300</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=35</string>
+                <string>P=$(P),N=$(N35)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_35">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>320</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>320</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=36</string>
+                <string>P=$(P),N=$(N36)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_36">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>340</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>340</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=37</string>
+                <string>P=$(P),N=$(N37)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_37">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>360</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>360</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=38</string>
+                <string>P=$(P),N=$(N38)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_38">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>380</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>380</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=39</string>
+                <string>P=$(P),N=$(N39)</string>
             </property>
         </widget>
         <widget class="caInclude" name="caInclude_39">
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>400</y>
-                    <width>162</width>
-                    <height>22</height>
+                    <width>219</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
-                    <x>160</x>
+                    <x>225</x>
                     <y>400</y>
-                    <width>160</width>
-                    <height>20</height>
+                    <width>217</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalc_bare.adl</string>
+                <string>userCalcs_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),N=40</string>
+                <string>P=$(P),N=$(N40)</string>
             </property>
         </widget>
         <zorder>caInclude_0</zorder>
