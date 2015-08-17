@@ -9,6 +9,21 @@
 
 <h1 align="center">calc Release Notes</h1>
 
+<h2 align="center">Release 3-5</h2>
+<ul>
+
+<li>usercalcs now have a global enable, a usercalc-type enable, and individual
+enables.
+
+<li>calc.iocsh (in iocBoot/iocCalc) is now the preferred way to load usercalcs.
+
+<li>transformRecord: any nonwhitespace character is now permitted in a variable
+name
+
+<li>sseq_settings.req is deprecated.  Use sseqRecord_settings.req instead.
+
+</ul>
+
 <h2 align="center">Release 3-4-2-1</h2>
 <ul>
 <li>Not all userCalc displays use $(C); some use $(S).  Specify both
@@ -97,6 +112,9 @@ variable names.
 
 <li>Make it easier to add 10 more usercalcs by writing, e.g.,
 userCalcouts10more.db
+
+<li>scalcout: fix for enum fields in R2-9 broke the code that checks if links are
+ok.  This is now fixed.
 
 </ul>
 

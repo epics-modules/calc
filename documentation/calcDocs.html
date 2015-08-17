@@ -146,8 +146,11 @@ userAve10.db<br>
 userAve10_settings.req<br>
 userAve.adl<br>
 userAve10.adl<br>
+userAve10more.db<br>
+userAve10more_settings.req<br>
+userAve_settings.req<br>
 
-<dd>These files implement, manage, and display a set of 10 <b>sub</b> records
+<dd>These files implement, manage, and display sets of 10 <b>sub</b> records
 programmed (thanks to Frank Lenkszus) to calculate the average of M values,
 where M is given by "$(P)userAve$(N).A", which are read via the input link
 "$(P)userAve$(N).INPB".  Alternatively, the <b>sub</b> record can be made to fit
@@ -182,11 +185,10 @@ alarm (STAT=="SOFT", SEVR=="MAJOR").  After M readings have been treated,
 STAT=="NO_ALARM", SEVR=="NO_ALARM".
 
 <P><dt>
-userCalcN.db<br>
-userCalcN_noDisable.db<br>
 userCalcs10.db<br>
-userCalcN_settings.req<br>
 userCalcs10_settings.req<br>
+userCalcs10more.db<br>
+userCalcs10more_settings.req<br>
 swait_settings.req<br>
 userCalc.adl<br>
 userCalcMeter.adl<br>
@@ -194,6 +196,11 @@ userCalc_full.adl<br>
 userCalc_help.adl<br>
 userCalcs10.adl<br>
 userCalcs20.adl<br>
+userCalcs40.adl<br>
+
+userCalcN.db<br>
+userCalcN_noDisable.db<br>
+userCalcN_settings.req<br>
 
 <dd>A <i>userCalc</i> is simply a <b>swait</b> record implemented for use in
 run-time programming.  "Implemented" means that a database containing several
@@ -213,6 +220,8 @@ without the link attributes (e.g., NPP, NMS) that standard EPICS links have.
 <P><dt>
 userCalcOuts10.db<br>
 userCalcOuts10_settings.req<br>
+userCalcOuts10more.db<br>
+userCalcOuts10more_settings.req<br>
 userCalcOut.adl<br>
 userCalcOut_full.adl<br>
 userCalcOuts10.adl<br>
@@ -223,6 +232,8 @@ the <b>swait</b> record.
 <P><dt>
 userArrayCalcs10.db<br>
 userArrayCalcs10_settings.req<br>
+userArrayCalcs10more.db<br>
+userArrayCalcs10more_settings.req<br>
 acalcout_settings.req<br>
 userArrayCalc.adl<br>
 userArrayCalcPlot.adl<br>
@@ -238,6 +249,8 @@ record, instead of the <b>swait</b> record.
 <P><dt>
 userStringCalcs10.db<br>
 userStringCalcs10_settings.req<br>
+userStringCalcs10more.db<br>
+userStringCalcs10more_settings.req<br>
 scalcout_settings.req<br>
 userStringCalc.adl<br>
 userStringCalc_demo.adl<br>
@@ -260,13 +273,16 @@ a userStringCalc.
 <P><dt>
 userTransform.db<br>
 userTransforms10.db<br>
-userTransforms20.db<br>
 userTransforms10_settings.req<br>
-userTransforms20_settings.req<br>
+userTransforms10more.db<br>
+userTransforms10more_settings.req<br>
 userTransform.adl<br>
 userTransform_full.adl<br>
 userTransforms10.adl<br>
 userTransforms20.adl<br>
+
+userTransforms20.db<br> (deprecated)
+userTransforms20_settings.req<br> (deprecated)
 
 <dd>Just like a <i>userCalc</i>, but based on the <b>transform</b> record, instead
 of the <b>swait</b> record.
@@ -301,7 +317,10 @@ retained mostly for backward compatibility.
 
 <P><dt>
 userStringSeqs10.db<br>
-userStringSeq*.adl
+userStringSeqs10_settings.req<br>
+userStringSeqs10more_settings.req<br>
+userStringSeqs10more.db<br>
+userStringSeq*.adl<br>
 
 <dd>Ten string-sequence records.
 
