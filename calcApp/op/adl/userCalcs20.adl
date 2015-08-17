@@ -5,9 +5,9 @@ file {
 }
 display {
 	object {
-		x=919
-		y=40
-		width=160
+		x=1192
+		y=245
+		width=215
 		height=420
 	}
 	clr=64
@@ -89,9 +89,9 @@ display {
 }
 "choice button" {
 	object {
-		x=2
+		x=0
 		y=0
-		width=160
+		width=215
 		height=20
 	}
 	control {
@@ -101,1363 +101,203 @@ display {
 	}
 	stacking="column"
 }
-text {
-	object {
-		x=140
-		y=20
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userCalc1.SCAN"
-	}
-	textix="ON"
-}
-text {
-	object {
-		x=140
-		y=30
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)userCalc1.OUTV"
-	}
-	textix="PUT"
-}
-text {
-	object {
-		x=140
-		y=40
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userCalc2.SCAN"
-	}
-	textix="ON"
-}
-text {
-	object {
-		x=140
-		y=50
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)userCalc2.OUTV"
-	}
-	textix="PUT"
-}
-text {
-	object {
-		x=140
-		y=60
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userCalc3.SCAN"
-	}
-	textix="ON"
-}
-text {
-	object {
-		x=140
-		y=70
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)userCalc3.OUTV"
-	}
-	textix="PUT"
-}
-text {
-	object {
-		x=140
-		y=80
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userCalc4.SCAN"
-	}
-	textix="ON"
-}
-text {
-	object {
-		x=140
-		y=90
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)userCalc4.OUTV"
-	}
-	textix="PUT"
-}
-text {
-	object {
-		x=140
-		y=100
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userCalc5.SCAN"
-	}
-	textix="ON"
-}
-text {
-	object {
-		x=140
-		y=110
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)userCalc5.OUTV"
-	}
-	textix="PUT"
-}
-text {
-	object {
-		x=140
-		y=120
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userCalc6.SCAN"
-	}
-	textix="ON"
-}
-text {
-	object {
-		x=140
-		y=130
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)userCalc6.OUTV"
-	}
-	textix="PUT"
-}
-text {
-	object {
-		x=140
-		y=140
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userCalc7.SCAN"
-	}
-	textix="ON"
-}
-text {
-	object {
-		x=140
-		y=150
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)userCalc7.OUTV"
-	}
-	textix="PUT"
-}
-text {
-	object {
-		x=140
-		y=160
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userCalc8.SCAN"
-	}
-	textix="ON"
-}
-text {
-	object {
-		x=140
-		y=170
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)userCalc8.OUTV"
-	}
-	textix="PUT"
-}
-text {
-	object {
-		x=140
-		y=180
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userCalc9.SCAN"
-	}
-	textix="ON"
-}
-text {
-	object {
-		x=140
-		y=190
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)userCalc9.OUTV"
-	}
-	textix="PUT"
-}
-text {
-	object {
-		x=140
-		y=200
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userCalc10.SCAN"
-	}
-	textix="ON"
-}
-text {
-	object {
-		x=140
-		y=210
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)userCalc10.OUTV"
-	}
-	textix="PUT"
-}
-text {
-	object {
-		x=140
-		y=220
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userCalc11.SCAN"
-	}
-	textix="ON"
-}
-text {
-	object {
-		x=140
-		y=230
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)userCalc11.OUTV"
-	}
-	textix="PUT"
-}
-text {
-	object {
-		x=140
-		y=240
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userCalc12.SCAN"
-	}
-	textix="ON"
-}
-text {
-	object {
-		x=140
-		y=250
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)userCalc12.OUTV"
-	}
-	textix="PUT"
-}
-text {
-	object {
-		x=140
-		y=260
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userCalc13.SCAN"
-	}
-	textix="ON"
-}
-text {
-	object {
-		x=140
-		y=270
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)userCalc13.OUTV"
-	}
-	textix="PUT"
-}
-text {
-	object {
-		x=140
-		y=280
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userCalc14.SCAN"
-	}
-	textix="ON"
-}
-text {
-	object {
-		x=140
-		y=290
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)userCalc14.OUTV"
-	}
-	textix="PUT"
-}
-text {
-	object {
-		x=140
-		y=300
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userCalc15.SCAN"
-	}
-	textix="ON"
-}
-text {
-	object {
-		x=140
-		y=310
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)userCalc15.OUTV"
-	}
-	textix="PUT"
-}
-text {
-	object {
-		x=140
-		y=320
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userCalc16.SCAN"
-	}
-	textix="ON"
-}
-text {
-	object {
-		x=140
-		y=330
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)userCalc16.OUTV"
-	}
-	textix="PUT"
-}
-text {
-	object {
-		x=140
-		y=340
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userCalc17.SCAN"
-	}
-	textix="ON"
-}
-text {
-	object {
-		x=140
-		y=350
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)userCalc17.OUTV"
-	}
-	textix="PUT"
-}
-text {
-	object {
-		x=140
-		y=360
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userCalc18.SCAN"
-	}
-	textix="ON"
-}
-text {
-	object {
-		x=140
-		y=370
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)userCalc18.OUTV"
-	}
-	textix="PUT"
-}
-text {
-	object {
-		x=140
-		y=380
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userCalc19.SCAN"
-	}
-	textix="ON"
-}
-text {
-	object {
-		x=140
-		y=390
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)userCalc19.OUTV"
-	}
-	textix="PUT"
-}
-text {
-	object {
-		x=140
-		y=400
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userCalc20.SCAN"
-	}
-	textix="ON"
-}
-text {
-	object {
-		x=140
-		y=410
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)userCalc20.OUTV"
-	}
-	textix="PUT"
-}
-"text entry" {
-	object {
-		x=25
-		y=20
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userCalc1.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=40
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userCalc2.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=60
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userCalc3.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=80
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userCalc4.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=100
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userCalc5.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=120
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userCalc6.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=140
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userCalc7.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=160
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userCalc8.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=180
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userCalc9.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=200
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userCalc10.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=220
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userCalc11.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=240
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userCalc12.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=260
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userCalc13.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=280
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userCalc14.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=300
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userCalc15.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=320
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userCalc16.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=340
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userCalc17.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=360
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userCalc18.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=380
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userCalc19.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=400
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userCalc20.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"related display" {
+composite {
 	object {
 		x=0
 		y=20
-		width=25
+		width=215
 		height=20
 	}
-	display[0] {
-		label="user calc 1"
-		name="userCalc.adl"
-		args="P=$(P),C=userCalc1"
-	}
-	display[1] {
-		label="user calc 1 (full)"
-		name="userCalc_full.adl"
-		args="P=$(P),C=userCalc1"
-	}
-	clr=0
-	bclr=17
-	label="-1"
+	"composite name"=""
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N1)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=40
-		width=25
+		width=215
 		height=20
 	}
-	display[0] {
-		label="user calc 2"
-		name="userCalc.adl"
-		args="P=$(P),C=userCalc2"
-	}
-	display[1] {
-		label="user calc 2 (full)"
-		name="userCalc_full.adl"
-		args="P=$(P),C=userCalc2"
-	}
-	clr=0
-	bclr=17
-	label="-2"
+	"composite name"=""
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N2)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=60
-		width=25
+		width=215
 		height=20
 	}
-	display[0] {
-		label="user calc 3"
-		name="userCalc.adl"
-		args="P=$(P),C=userCalc3"
-	}
-	display[1] {
-		label="user calc 3 (full)"
-		name="userCalc_full.adl"
-		args="P=$(P),C=userCalc3"
-	}
-	clr=0
-	bclr=17
-	label="-3"
+	"composite name"=""
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N3)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=80
-		width=25
+		width=215
 		height=20
 	}
-	display[0] {
-		label="user calc 4"
-		name="userCalc.adl"
-		args="P=$(P),C=userCalc4"
-	}
-	display[1] {
-		label="user calc 4 (full)"
-		name="userCalc_full.adl"
-		args="P=$(P),C=userCalc4"
-	}
-	clr=0
-	bclr=17
-	label="-4"
+	"composite name"=""
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N4)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=100
-		width=25
+		width=215
 		height=20
 	}
-	display[0] {
-		label="user calc 5"
-		name="userCalc.adl"
-		args="P=$(P),C=userCalc5"
-	}
-	display[1] {
-		label="user calc 5 (full)"
-		name="userCalc_full.adl"
-		args="P=$(P),C=userCalc5"
-	}
-	clr=0
-	bclr=17
-	label="-5"
+	"composite name"=""
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N5)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=120
-		width=25
+		width=215
 		height=20
 	}
-	display[0] {
-		label="user calc 6"
-		name="userCalc.adl"
-		args="P=$(P),C=userCalc6"
-	}
-	display[1] {
-		label="user calc 6 (full)"
-		name="userCalc_full.adl"
-		args="P=$(P),C=userCalc6"
-	}
-	clr=0
-	bclr=17
-	label="-6"
+	"composite name"=""
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N6)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=140
-		width=25
+		width=215
 		height=20
 	}
-	display[0] {
-		label="user calc 7"
-		name="userCalc.adl"
-		args="P=$(P),C=userCalc7"
-	}
-	display[1] {
-		label="user calc 7 (full)"
-		name="userCalc_full.adl"
-		args="P=$(P),C=userCalc7"
-	}
-	clr=0
-	bclr=17
-	label="-7"
+	"composite name"=""
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N7)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=160
-		width=25
+		width=215
 		height=20
 	}
-	display[0] {
-		label="user calc 8"
-		name="userCalc.adl"
-		args="P=$(P),C=userCalc8"
-	}
-	display[1] {
-		label="user calc 8 (full)"
-		name="userCalc_full.adl"
-		args="P=$(P),C=userCalc8"
-	}
-	clr=0
-	bclr=17
-	label="-8"
+	"composite name"=""
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N8)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=180
-		width=25
+		width=215
 		height=20
 	}
-	display[0] {
-		label="user calc 9"
-		name="userCalc.adl"
-		args="P=$(P),C=userCalc9"
-	}
-	display[1] {
-		label="user calc 9 (full)"
-		name="userCalc_full.adl"
-		args="P=$(P),C=userCalc9"
-	}
-	clr=0
-	bclr=17
-	label="-9"
+	"composite name"=""
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N9)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=200
-		width=25
+		width=215
 		height=20
 	}
-	display[0] {
-		label="user calc 10"
-		name="userCalc.adl"
-		args="P=$(P),C=userCalc10"
-	}
-	display[1] {
-		label="user calc 10 (full)"
-		name="userCalc_full.adl"
-		args="P=$(P),C=userCalc10"
-	}
-	clr=0
-	bclr=17
-	label="-10"
+	"composite name"=""
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N10)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=220
-		width=25
+		width=215
 		height=20
 	}
-	display[0] {
-		label="user calc 11"
-		name="userCalc.adl"
-		args="P=$(P),C=userCalc11"
-	}
-	display[1] {
-		label="user calc 11 (full)"
-		name="userCalc_full.adl"
-		args="P=$(P),C=userCalc11"
-	}
-	clr=0
-	bclr=17
-	label="-11"
+	"composite name"=""
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N11)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=240
-		width=25
+		width=215
 		height=20
 	}
-	display[0] {
-		label="user calc 12"
-		name="userCalc.adl"
-		args="P=$(P),C=userCalc12"
-	}
-	display[1] {
-		label="user calc 12 (full)"
-		name="userCalc_full.adl"
-		args="P=$(P),C=userCalc12"
-	}
-	clr=0
-	bclr=17
-	label="-12"
+	"composite name"=""
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N12)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=260
-		width=25
+		width=215
 		height=20
 	}
-	display[0] {
-		label="user calc 13"
-		name="userCalc.adl"
-		args="P=$(P),C=userCalc13"
-	}
-	display[1] {
-		label="user calc 13 (full)"
-		name="userCalc_full.adl"
-		args="P=$(P),C=userCalc13"
-	}
-	clr=0
-	bclr=17
-	label="-13"
+	"composite name"=""
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N13)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=280
-		width=25
+		width=215
 		height=20
 	}
-	display[0] {
-		label="user calc 14"
-		name="userCalc.adl"
-		args="P=$(P),C=userCalc14"
-	}
-	display[1] {
-		label="user calc 14 (full)"
-		name="userCalc_full.adl"
-		args="P=$(P),C=userCalc14"
-	}
-	clr=0
-	bclr=17
-	label="-14"
+	"composite name"=""
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N14)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=300
-		width=25
+		width=215
 		height=20
 	}
-	display[0] {
-		label="user calc 15"
-		name="userCalc.adl"
-		args="P=$(P),C=userCalc15"
-	}
-	display[1] {
-		label="user calc 15 (full)"
-		name="userCalc_full.adl"
-		args="P=$(P),C=userCalc15"
-	}
-	clr=0
-	bclr=17
-	label="-15"
+	"composite name"=""
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N15)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=320
-		width=25
+		width=215
 		height=20
 	}
-	display[0] {
-		label="user calc 16"
-		name="userCalc.adl"
-		args="P=$(P),C=userCalc16"
-	}
-	display[1] {
-		label="user calc 16 (full)"
-		name="userCalc_full.adl"
-		args="P=$(P),C=userCalc16"
-	}
-	clr=0
-	bclr=17
-	label="-16"
+	"composite name"=""
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N16)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=340
-		width=25
+		width=215
 		height=20
 	}
-	display[0] {
-		label="user calc 17"
-		name="userCalc.adl"
-		args="P=$(P),C=userCalc17"
-	}
-	display[1] {
-		label="user calc 17 (full)"
-		name="userCalc_full.adl"
-		args="P=$(P),C=userCalc17"
-	}
-	clr=0
-	bclr=17
-	label="-17"
+	"composite name"=""
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N17)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=360
-		width=25
+		width=215
 		height=20
 	}
-	display[0] {
-		label="user calc 18"
-		name="userCalc.adl"
-		args="P=$(P),C=userCalc18"
-	}
-	display[1] {
-		label="user calc 18 (full)"
-		name="userCalc_full.adl"
-		args="P=$(P),C=userCalc18"
-	}
-	clr=0
-	bclr=17
-	label="-18"
+	"composite name"=""
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N18)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=380
-		width=25
+		width=215
 		height=20
 	}
-	display[0] {
-		label="user calc 19"
-		name="userCalc.adl"
-		args="P=$(P),C=userCalc19"
-	}
-	display[1] {
-		label="user calc 19 (full)"
-		name="userCalc_full.adl"
-		args="P=$(P),C=userCalc19"
-	}
-	clr=0
-	bclr=17
-	label="-19"
+	"composite name"=""
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N19)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=400
-		width=25
+		width=215
 		height=20
 	}
-	display[0] {
-		label="user calc 20"
-		name="userCalc.adl"
-		args="P=$(P),C=userCalc20"
-	}
-	display[1] {
-		label="user calc 20 (full)"
-		name="userCalc_full.adl"
-		args="P=$(P),C=userCalc20"
-	}
-	clr=0
-	bclr=17
-	label="-20"
+	"composite name"=""
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N20)"
 }

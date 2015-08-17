@@ -1,13 +1,13 @@
 
 file {
 	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/userCalcs40.adl"
-	version=030105
+	version=030107
 }
 display {
 	object {
-		x=599
-		y=268
-		width=320
+		x=962
+		y=248
+		width=440
 		height=420
 	}
 	clr=64
@@ -89,9 +89,9 @@ display {
 }
 "choice button" {
 	object {
-		x=2
+		x=0
 		y=0
-		width=160
+		width=440
 		height=20
 	}
 	control {
@@ -105,399 +105,399 @@ composite {
 	object {
 		x=0
 		y=20
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=1"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N1)"
 }
 composite {
 	object {
 		x=0
 		y=40
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=2"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N2)"
 }
 composite {
 	object {
 		x=0
 		y=60
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=3"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N3)"
 }
 composite {
 	object {
 		x=0
 		y=80
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=4"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N4)"
 }
 composite {
 	object {
 		x=0
 		y=100
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=5"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N5)"
 }
 composite {
 	object {
 		x=0
 		y=120
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=6"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N6)"
 }
 composite {
 	object {
 		x=0
 		y=140
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=7"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N7)"
 }
 composite {
 	object {
 		x=0
 		y=160
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=8"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N8)"
 }
 composite {
 	object {
 		x=0
 		y=180
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=9"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N9)"
 }
 composite {
 	object {
 		x=0
 		y=200
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=10"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N10)"
 }
 composite {
 	object {
 		x=0
 		y=220
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=11"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N11)"
 }
 composite {
 	object {
 		x=0
 		y=240
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=12"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N12)"
 }
 composite {
 	object {
 		x=0
 		y=260
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=13"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N13)"
 }
 composite {
 	object {
 		x=0
 		y=280
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=14"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N14)"
 }
 composite {
 	object {
 		x=0
 		y=300
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=15"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N15)"
 }
 composite {
 	object {
 		x=0
 		y=320
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=16"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N16)"
 }
 composite {
 	object {
 		x=0
 		y=340
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=17"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N17)"
 }
 composite {
 	object {
 		x=0
 		y=360
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=18"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N18)"
 }
 composite {
 	object {
 		x=0
 		y=380
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=19"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N19)"
 }
 composite {
 	object {
 		x=0
 		y=400
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=20"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N20)"
 }
 composite {
 	object {
-		x=160
+		x=225
 		y=20
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=21"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N21)"
 }
 composite {
 	object {
-		x=160
+		x=225
 		y=40
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=22"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N22)"
 }
 composite {
 	object {
-		x=160
+		x=225
 		y=60
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=23"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N23)"
 }
 composite {
 	object {
-		x=160
+		x=225
 		y=80
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=24"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N24)"
 }
 composite {
 	object {
-		x=160
+		x=225
 		y=100
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=25"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N25)"
 }
 composite {
 	object {
-		x=160
+		x=225
 		y=120
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=26"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N26)"
 }
 composite {
 	object {
-		x=160
+		x=225
 		y=140
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=27"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N27)"
 }
 composite {
 	object {
-		x=160
+		x=225
 		y=160
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=28"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N28)"
 }
 composite {
 	object {
-		x=160
+		x=225
 		y=180
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=29"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N29)"
 }
 composite {
 	object {
-		x=160
+		x=225
 		y=200
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=30"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N30)"
 }
 composite {
 	object {
-		x=160
+		x=225
 		y=220
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=31"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N31)"
 }
 composite {
 	object {
-		x=160
+		x=225
 		y=240
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=32"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N32)"
 }
 composite {
 	object {
-		x=160
+		x=225
 		y=260
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=33"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N33)"
 }
 composite {
 	object {
-		x=160
+		x=225
 		y=280
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=34"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N34)"
 }
 composite {
 	object {
-		x=160
+		x=225
 		y=300
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=35"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N35)"
 }
 composite {
 	object {
-		x=160
+		x=225
 		y=320
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=36"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N36)"
 }
 composite {
 	object {
-		x=160
+		x=225
 		y=340
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=37"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N37)"
 }
 composite {
 	object {
-		x=160
+		x=225
 		y=360
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=38"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N38)"
 }
 composite {
 	object {
-		x=160
+		x=225
 		y=380
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=39"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N39)"
 }
 composite {
 	object {
-		x=160
+		x=225
 		y=400
-		width=160
+		width=215
 		height=20
 	}
 	"composite name"=""
-	"composite file"="userCalc_bare.adl;P=$(P),N=40"
+	"composite file"="userCalcs_line.adl;P=$(P),N=$(N40)"
 }
