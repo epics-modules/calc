@@ -4,9 +4,9 @@
 <widget class="QMainWindow" name="MainWindow">
     <property name="geometry">
         <rect>
-            <x>854</x>
-            <y>97</y>
-            <width>150</width>
+            <x>1192</x>
+            <y>245</y>
+            <width>195</width>
             <height>220</height>
         </rect>
     </property>
@@ -19,31 +19,290 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
 </string>
     </property>
     <widget class="QWidget" name="centralWidget">
+        <widget class="caChoice" name="caChoice_0">
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>0</y>
+                    <width>195</width>
+                    <height>20</height>
+                </rect>
+            </property>
+            <property name="channel">
+                <string>$(P)userCalcOutEnable.VAL</string>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="255">
+                    <red>115</red>
+                    <green>223</green>
+                    <blue>255</blue>
+                </color>
+            </property>
+            <property name="stackingMode">
+                <enum>Column</enum>
+            </property>
+            <property name="colorMode">
+                <enum>caChoice::Static</enum>
+            </property>
+        </widget>
         <widget class="caInclude" name="caInclude_0">
             <property name="geometry">
                 <rect>
                     <x>0</x>
-                    <y>0</y>
-                    <width>152</width>
-                    <height>222</height>
+                    <y>20</y>
+                    <width>199</width>
+                    <height>24</height>
                 </rect>
             </property>
             <property name="geometry">
                 <rect>
                     <x>0</x>
-                    <y>0</y>
-                    <width>150</width>
-                    <height>220</height>
+                    <y>20</y>
+                    <width>197</width>
+                    <height>22</height>
                 </rect>
             </property>
             <property name="filename">
-                <string>userXXX10more_bare.adl</string>
+                <string>userCalcOuts_line.adl</string>
             </property>
             <property name="macro">
-                <string>P=$(P),TYPE=CalcOut,N1=$(N1),N2=$(N2),N3=$(N3),N4=$(N4),N5=$(N5),N6=$(N6),N7=$(N7),N8=$(N8),N9=$(N9),N10=$(N10)</string>
+                <string>P=$(P),N=$(N1)</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_1">
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>40</y>
+                    <width>199</width>
+                    <height>24</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>40</y>
+                    <width>197</width>
+                    <height>22</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>userCalcOuts_line.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),N=$(N2)</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_2">
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>60</y>
+                    <width>199</width>
+                    <height>24</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>60</y>
+                    <width>197</width>
+                    <height>22</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>userCalcOuts_line.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),N=$(N3)</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_3">
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>80</y>
+                    <width>199</width>
+                    <height>24</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>80</y>
+                    <width>197</width>
+                    <height>22</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>userCalcOuts_line.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),N=$(N4)</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_4">
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>100</y>
+                    <width>199</width>
+                    <height>24</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>100</y>
+                    <width>197</width>
+                    <height>22</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>userCalcOuts_line.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),N=$(N5)</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_5">
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>120</y>
+                    <width>199</width>
+                    <height>24</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>120</y>
+                    <width>197</width>
+                    <height>22</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>userCalcOuts_line.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),N=$(N6)</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_6">
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>140</y>
+                    <width>199</width>
+                    <height>24</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>140</y>
+                    <width>197</width>
+                    <height>22</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>userCalcOuts_line.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),N=$(N7)</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_7">
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>160</y>
+                    <width>199</width>
+                    <height>24</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>160</y>
+                    <width>197</width>
+                    <height>22</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>userCalcOuts_line.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),N=$(N8)</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_8">
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>180</y>
+                    <width>199</width>
+                    <height>24</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>180</y>
+                    <width>197</width>
+                    <height>22</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>userCalcOuts_line.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),N=$(N9)</string>
+            </property>
+        </widget>
+        <widget class="caInclude" name="caInclude_9">
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>200</y>
+                    <width>199</width>
+                    <height>24</height>
+                </rect>
+            </property>
+            <property name="geometry">
+                <rect>
+                    <x>0</x>
+                    <y>200</y>
+                    <width>197</width>
+                    <height>22</height>
+                </rect>
+            </property>
+            <property name="filename">
+                <string>userCalcOuts_line.adl</string>
+            </property>
+            <property name="macro">
+                <string>P=$(P),N=$(N10)</string>
             </property>
         </widget>
         <zorder>caInclude_0</zorder>
+        <zorder>caInclude_1</zorder>
+        <zorder>caInclude_2</zorder>
+        <zorder>caInclude_3</zorder>
+        <zorder>caInclude_4</zorder>
+        <zorder>caInclude_5</zorder>
+        <zorder>caInclude_6</zorder>
+        <zorder>caInclude_7</zorder>
+        <zorder>caInclude_8</zorder>
+        <zorder>caInclude_9</zorder>
+        <zorder>caChoice_0</zorder>
     </widget>
 </widget>
 </ui>
