@@ -1,21 +1,21 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/yyArrayCalc_small.adl"
+	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/userCalcsGlobalEnable.adl"
 	version=030107
 }
 display {
 	object {
-		x=1173
-		y=303
-		width=400
-		height=315
+		x=1055
+		y=233
+		width=195
+		height=20
 	}
-	clr=14
+	clr=64
 	bclr=3
 	cmap=""
 	gridSpacing=5
 	gridOn=0
-	snapToGrid=0
+	snapToGrid=1
 }
 "color map" {
 	ncolors=65
@@ -87,43 +87,17 @@ display {
 		1a7309,
 	}
 }
-"related display" {
-	object {
-		x=330
-		y=286
-		width=40
-		height=20
-	}
-	display[0] {
-		label="user arrayCalc (w/plot)"
-		name="yyArrayCalc.adl"
-		args="P=$(P),C=$(C)"
-		policy="replace display"
-	}
-	clr=0
-	bclr=63
-	label="-More"
-}
-composite {
+"choice button" {
 	object {
 		x=0
 		y=0
-		width=400
-		height=311
+		width=195
+		height=20
 	}
-	"composite name"=""
-	"composite file"="yyArrayCalc_small_bare.adl;P=$(P),C=$(C)"
-}
-text {
-	object {
-		x=240
-		y=6
-		width=160
-		height=14
-	}
-	"basic attribute" {
+	control {
+		chan="$(P)userCalcGlobalEnable"
 		clr=14
+		bclr=51
 	}
-	textix="($(P)$(C))"
-	align="horiz. centered"
+	stacking="column"
 }

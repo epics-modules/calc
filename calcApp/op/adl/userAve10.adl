@@ -5,9 +5,9 @@ file {
 }
 display {
 	object {
-		x=583
-		y=556
-		width=160
+		x=1192
+		y=245
+		width=195
 		height=220
 	}
 	clr=64
@@ -15,7 +15,7 @@ display {
 	cmap=""
 	gridSpacing=5
 	gridOn=0
-	snapToGrid=0
+	snapToGrid=1
 }
 "color map" {
 	ncolors=65
@@ -89,9 +89,9 @@ display {
 }
 "choice button" {
 	object {
-		x=2
+		x=0
 		y=0
-		width=160
+		width=195
 		height=20
 	}
 	control {
@@ -101,473 +101,103 @@ display {
 	}
 	stacking="column"
 }
-text {
-	object {
-		x=140
-		y=25
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userAve1.SCAN"
-	}
-	textix="ON"
-}
-text {
-	object {
-		x=140
-		y=45
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userAve2.SCAN"
-	}
-	textix="ON"
-}
-text {
-	object {
-		x=140
-		y=65
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userAve3.SCAN"
-	}
-	textix="ON"
-}
-text {
-	object {
-		x=140
-		y=85
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userAve4.SCAN"
-	}
-	textix="ON"
-}
-text {
-	object {
-		x=140
-		y=105
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userAve5.SCAN"
-	}
-	textix="ON"
-}
-text {
-	object {
-		x=140
-		y=125
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userAve6.SCAN"
-	}
-	textix="ON"
-}
-text {
-	object {
-		x=140
-		y=185
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userAve9.SCAN"
-	}
-	textix="ON"
-}
-text {
-	object {
-		x=140
-		y=205
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userAve10.SCAN"
-	}
-	textix="ON"
-}
-text {
-	object {
-		x=140
-		y=145
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userAve7.SCAN"
-	}
-	textix="ON"
-}
-text {
-	object {
-		x=140
-		y=165
-		width=20
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userAve8.SCAN"
-	}
-	textix="ON"
-}
-"text entry" {
-	object {
-		x=25
-		y=20
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userAve1.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=40
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userAve2.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=60
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userAve3.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=80
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userAve4.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=100
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userAve5.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=120
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userAve6.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=140
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userAve7.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=160
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userAve8.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=180
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userAve9.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=200
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userAve10.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"related display" {
+composite {
 	object {
 		x=0
 		y=20
-		width=25
+		width=195
 		height=20
 	}
-	display[0] {
-		label="user ave 1"
-		name="userAve.adl"
-		args="P=$(P),C=userAve1"
-	}
-	clr=0
-	bclr=63
-	label="-1"
+	"composite name"=""
+	"composite file"="userAves_line.adl;P=$(P),N=$(N1)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=40
-		width=25
+		width=195
 		height=20
 	}
-	display[0] {
-		label="user ave 2"
-		name="userAve.adl"
-		args="P=$(P),C=userAve2"
-	}
-	clr=0
-	bclr=63
-	label="-2"
+	"composite name"=""
+	"composite file"="userAves_line.adl;P=$(P),N=$(N2)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=60
-		width=25
+		width=195
 		height=20
 	}
-	display[0] {
-		label="user ave 3"
-		name="userAve.adl"
-		args="P=$(P),C=userAve3"
-	}
-	clr=0
-	bclr=63
-	label="-3"
+	"composite name"=""
+	"composite file"="userAves_line.adl;P=$(P),N=$(N3)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=80
-		width=25
+		width=195
 		height=20
 	}
-	display[0] {
-		label="user ave 4"
-		name="userAve.adl"
-		args="P=$(P),C=userAve4"
-	}
-	clr=0
-	bclr=63
-	label="-4"
+	"composite name"=""
+	"composite file"="userAves_line.adl;P=$(P),N=$(N4)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=100
-		width=25
+		width=195
 		height=20
 	}
-	display[0] {
-		label="user ave 5"
-		name="userAve.adl"
-		args="P=$(P),C=userAve5"
-	}
-	clr=0
-	bclr=63
-	label="-5"
+	"composite name"=""
+	"composite file"="userAves_line.adl;P=$(P),N=$(N5)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=120
-		width=25
+		width=195
 		height=20
 	}
-	display[0] {
-		label="user ave 6"
-		name="userAve.adl"
-		args="P=$(P),C=userAve6"
-	}
-	clr=0
-	bclr=63
-	label="-6"
+	"composite name"=""
+	"composite file"="userAves_line.adl;P=$(P),N=$(N6)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=140
-		width=25
+		width=195
 		height=20
 	}
-	display[0] {
-		label="user ave 7"
-		name="userAve.adl"
-		args="P=$(P),C=userAve7"
-	}
-	clr=0
-	bclr=63
-	label="-7"
+	"composite name"=""
+	"composite file"="userAves_line.adl;P=$(P),N=$(N7)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=160
-		width=25
+		width=195
 		height=20
 	}
-	display[0] {
-		label="user ave 8"
-		name="userAve.adl"
-		args="P=$(P),C=userAve8"
-	}
-	clr=0
-	bclr=63
-	label="-8"
+	"composite name"=""
+	"composite file"="userAves_line.adl;P=$(P),N=$(N8)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=180
-		width=25
+		width=195
 		height=20
 	}
-	display[0] {
-		label="user ave 9"
-		name="userAve.adl"
-		args="P=$(P),C=userAve9"
-	}
-	clr=0
-	bclr=63
-	label="-9"
+	"composite name"=""
+	"composite file"="userAves_line.adl;P=$(P),N=$(N9)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=200
-		width=25
+		width=195
 		height=20
 	}
-	display[0] {
-		label="user ave 10"
-		name="userAve.adl"
-		args="P=$(P),C=userAve10"
-	}
-	clr=0
-	bclr=63
-	label="-10"
+	"composite name"=""
+	"composite file"="userAves_line.adl;P=$(P),N=$(N10)"
 }

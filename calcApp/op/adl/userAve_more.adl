@@ -1,7 +1,7 @@
 
 file {
 	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/userAve_more.adl"
-	version=030103
+	version=030107
 }
 display {
 	object {
@@ -422,67 +422,6 @@ menu {
 		bclr=51
 	}
 }
-"related display" {
-	object {
-		x=305
-		y=33
-		width=70
-		height=16
-	}
-	display[0] {
-		label="userAverages (all)"
-		name="userAve10.adl"
-		args="P=$(P)"
-	}
-	clr=0
-	bclr=17
-	label="-ENABLE ALL"
-}
-composite {
-	object {
-		x=294
-		y=5
-		width=80
-		height=20
-	}
-	"composite name"=""
-	children {
-		text {
-			object {
-				x=294
-				y=5
-				width=80
-				height=20
-			}
-			"basic attribute" {
-				clr=20
-			}
-			"dynamic attribute" {
-				vis="if zero"
-				chan="$(P)userAveEnable.VAL"
-			}
-			textix="DISABLED"
-			align="horiz. centered"
-		}
-		text {
-			object {
-				x=299
-				y=6
-				width=70
-				height=15
-			}
-			"basic attribute" {
-				clr=54
-			}
-			"dynamic attribute" {
-				vis="if not zero"
-				chan="$(P)userAveEnable.VAL"
-			}
-			textix="ENABLED"
-			align="horiz. centered"
-		}
-	}
-}
 "choice button" {
 	object {
 		x=140
@@ -520,9 +459,9 @@ composite {
 }
 "message button" {
 	object {
-		x=250
+		x=245
 		y=30
-		width=50
+		width=60
 		height=20
 	}
 	control {
@@ -543,7 +482,7 @@ composite {
 	display[0] {
 		label="Less"
 		name="userAve.adl"
-		args="P=$(P),C=$(C)"
+		args="P=$(P),C=$(C),N=$(N)"
 		policy="replace display"
 	}
 	clr=0
@@ -700,5 +639,50 @@ text {
 	}
 	format="string"
 	limits {
+	}
+}
+composite {
+	object {
+		x=294
+		y=6
+		width=80
+		height=20
+	}
+	"composite name"=""
+	children {
+		text {
+			object {
+				x=294
+				y=6
+				width=80
+				height=20
+			}
+			"basic attribute" {
+				clr=20
+			}
+			"dynamic attribute" {
+				vis="if zero"
+				chan="$(P)userAve$(N)EnableCalc"
+			}
+			textix="DISABLED"
+			align="horiz. centered"
+		}
+		text {
+			object {
+				x=299
+				y=6
+				width=70
+				height=20
+			}
+			"basic attribute" {
+				clr=54
+			}
+			"dynamic attribute" {
+				vis="if not zero"
+				chan="$(P)userAve$(N)EnableCalc"
+			}
+			textix="ENABLED"
+			align="horiz. centered"
+		}
 	}
 }

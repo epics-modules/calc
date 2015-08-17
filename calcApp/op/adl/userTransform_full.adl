@@ -1436,23 +1436,6 @@ text {
 	textix="COMMENT"
 	align="horiz. centered"
 }
-text {
-	object {
-		x=390
-		y=32
-		width=200
-		height=20
-	}
-	"basic attribute" {
-		clr=20
-	}
-	"dynamic attribute" {
-		vis="if zero"
-		chan="$(P)userTranEnable.VAL"
-	}
-	textix="** ** DISABLED ** **"
-	align="horiz. centered"
-}
 rectangle {
 	object {
 		x=265
@@ -2520,34 +2503,6 @@ rectangle {
 		chan="$(P)$(T).OPV"
 	}
 }
-text {
-	object {
-		x=608
-		y=36
-		width=60
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="ENABLE ALL"
-	align="horiz. centered"
-}
-"related display" {
-	object {
-		x=593
-		y=32
-		width=15
-		height=15
-	}
-	display[0] {
-		label="userTrans (all)"
-		name="userTransforms10.adl"
-		args="P=$(P)"
-	}
-	clr=14
-	bclr=51
-}
 "related display" {
 	object {
 		x=660
@@ -2558,7 +2513,7 @@ text {
 	display[0] {
 		label="Show fewer fields"
 		name="userTransform.adl"
-		args="P=$(P),T=$(T)"
+		args="P=$(P),T=$(T),N=$(N)"
 		policy="replace display"
 	}
 	clr=0
@@ -2685,4 +2640,21 @@ composite {
 			}
 		}
 	}
+}
+text {
+	object {
+		x=390
+		y=32
+		width=200
+		height=20
+	}
+	"basic attribute" {
+		clr=20
+	}
+	"dynamic attribute" {
+		vis="if zero"
+		chan="$(P)userTran$(N)EnableCalc.VAL"
+	}
+	textix="** ** DISABLED ** **"
+	align="horiz. centered"
 }

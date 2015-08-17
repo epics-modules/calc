@@ -155,7 +155,7 @@ text {
 	}
 	"dynamic attribute" {
 		vis="if not zero"
-		chan="$(P)userArrayCalcEnable.VAL"
+		chan="$(P)userArrayCalc$(N)EnableCalc.VAL"
 	}
 	textix="($(P)$(C))"
 	align="horiz. centered"
@@ -213,7 +213,7 @@ text {
 	}
 	"dynamic attribute" {
 		vis="if zero"
-		chan="$(P)userArrayCalcEnable.VAL"
+		chan="$(P)userArrayCalc$(N)EnableCalc.VAL"
 	}
 	textix="DISABLED"
 	align="horiz. centered"
@@ -1371,7 +1371,7 @@ composite {
 	display[0] {
 		label="user arrayCalc (w/plot)"
 		name="userArrayCalc_plot.adl"
-		args="P=$(P),C=$(C)"
+		args="P=$(P),C=$(C),N=$(N)"
 		policy="replace display"
 	}
 	clr=0
@@ -1489,128 +1489,101 @@ composite {
 	bclr=63
 	label="-BB"
 }
-composite {
+text {
 	object {
 		x=105
+		y=36
+		width=20
+		height=10
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="EVT"
+	align="horiz. centered"
+}
+"text entry" {
+	object {
+		x=125
 		y=30
-		width=290
+		width=20
 		height=20
 	}
-	"composite name"=""
-	children {
-		text {
-			object {
-				x=105
-				y=36
-				width=20
-				height=10
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="EVT"
-			align="horiz. centered"
-		}
-		"text entry" {
-			object {
-				x=125
-				y=30
-				width=20
-				height=20
-			}
-			control {
-				chan="$(P)$(C).EVNT"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-		"message button" {
-			object {
-				x=150
-				y=30
-				width=40
-				height=20
-			}
-			control {
-				chan="$(P)$(C).PROC"
-				clr=14
-				bclr=51
-			}
-			label="PROC"
-			press_msg="1"
-		}
-		text {
-			object {
-				x=200
-				y=36
-				width=25
-				height=10
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="#DIG"
-		}
-		"text entry" {
-			object {
-				x=225
-				y=30
-				width=25
-				height=20
-			}
-			control {
-				chan="$(P)$(C).PREC"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-		text {
-			object {
-				x=260
-				y=36
-				width=25
-				height=10
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="NUSE"
-		}
-		"text entry" {
-			object {
-				x=285
-				y=30
-				width=55
-				height=20
-			}
-			control {
-				chan="$(P)$(C).NUSE"
-				clr=14
-				bclr=51
-			}
-			limits {
-			}
-		}
-		"related display" {
-			object {
-				x=345
-				y=33
-				width=50
-				height=16
-			}
-			display[0] {
-				label="userArrayCalcs (all)"
-				name="userArrayCalcs10.adl"
-				args="P=$(P)"
-			}
-			clr=0
-			bclr=63
-			label="-ENABLE"
-		}
+	control {
+		chan="$(P)$(C).EVNT"
+		clr=14
+		bclr=51
+	}
+	limits {
+	}
+}
+"message button" {
+	object {
+		x=150
+		y=30
+		width=40
+		height=20
+	}
+	control {
+		chan="$(P)$(C).PROC"
+		clr=14
+		bclr=51
+	}
+	label="PROC"
+	press_msg="1"
+}
+text {
+	object {
+		x=200
+		y=36
+		width=25
+		height=10
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="#DIG"
+}
+"text entry" {
+	object {
+		x=225
+		y=30
+		width=25
+		height=20
+	}
+	control {
+		chan="$(P)$(C).PREC"
+		clr=14
+		bclr=51
+	}
+	limits {
+	}
+}
+text {
+	object {
+		x=260
+		y=36
+		width=25
+		height=10
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="NUSE"
+}
+"text entry" {
+	object {
+		x=285
+		y=30
+		width=55
+		height=20
+	}
+	control {
+		chan="$(P)$(C).NUSE"
+		clr=14
+		bclr=51
+	}
+	limits {
 	}
 }
 "related display" {
@@ -1623,7 +1596,7 @@ composite {
 	display[0] {
 		label="user arrayCalc (w/plot)"
 		name="userArrayCalc_small.adl"
-		args="P=$(P),C=$(C)"
+		args="P=$(P),C=$(C),N=$(N)"
 		policy="replace display"
 	}
 	clr=0

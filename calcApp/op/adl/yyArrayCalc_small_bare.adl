@@ -145,23 +145,6 @@ polyline {
 }
 text {
 	object {
-		x=240
-		y=6
-		width=160
-		height=14
-	}
-	"basic attribute" {
-		clr=14
-	}
-	"dynamic attribute" {
-		vis="if not zero"
-		chan="$(P)userArrayCalcEnable.VAL"
-	}
-	textix="($(P)$(C))"
-	align="horiz. centered"
-}
-text {
-	object {
 		x=125
 		y=54
 		width=50

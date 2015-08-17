@@ -1,7 +1,7 @@
 
 file {
 	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/userTransform.adl"
-	version=030102
+	version=030107
 }
 display {
 	object {
@@ -481,7 +481,7 @@ text {
 	display[0] {
 		label="Show all fields"
 		name="userTransform_full.adl"
-		args="P=$(P),T=$(T)"
+		args="P=$(P),T=$(T),N=$(N)"
 		policy="replace display"
 	}
 	clr=0
@@ -618,7 +618,7 @@ text {
 	}
 	"dynamic attribute" {
 		vis="if zero"
-		chan="$(P)userTranEnable.VAL"
+		chan="$(P)userTran$(N)EnableCalc.VAL"
 	}
 	textix="** ** DISABLED ** **"
 	align="horiz. centered"
@@ -821,45 +821,6 @@ rectangle {
 	"dynamic attribute" {
 		vis="if zero"
 		chan="$(P)$(T).OCV"
-	}
-}
-composite {
-	object {
-		x=623
-		y=32
-		width=75
-		height=15
-	}
-	"composite name"=""
-	children {
-		"related display" {
-			object {
-				x=623
-				y=32
-				width=15
-				height=15
-			}
-			display[0] {
-				label="userTrans (all)"
-				name="userTransforms10.adl"
-				args="P=$(P)"
-			}
-			clr=14
-			bclr=51
-		}
-		text {
-			object {
-				x=638
-				y=36
-				width=60
-				height=10
-			}
-			"basic attribute" {
-				clr=14
-			}
-			textix="ENABLE ALL"
-			align="horiz. centered"
-		}
 	}
 }
 "related display" {

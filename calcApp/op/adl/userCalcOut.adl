@@ -168,6 +168,10 @@ text {
 	"basic attribute" {
 		clr=14
 	}
+	"dynamic attribute" {
+		vis="if not zero"
+		chan="$(P)userCalcOut$(N)EnableCalc"
+	}
 	textix="($(P)$(C))"
 	align="horiz. centered"
 }
@@ -252,7 +256,7 @@ text {
 	}
 	"dynamic attribute" {
 		vis="if zero"
-		chan="$(P)userCalcOutEnable.VAL"
+		chan="$(P)userCalcOut$(N)EnableCalc.VAL"
 	}
 	textix="DISABLED"
 	align="horiz. centered"
@@ -294,34 +298,6 @@ composite {
 			textix="#DIGITS"
 		}
 	}
-}
-"related display" {
-	object {
-		x=320
-		y=33
-		width=15
-		height=15
-	}
-	display[0] {
-		label="userCalcOuts (all)"
-		name="userCalcOuts10.adl"
-		args="P=$(P)"
-	}
-	clr=0
-	bclr=63
-}
-text {
-	object {
-		x=335
-		y=37
-		width=60
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="ENABLE ALL"
-	align="horiz. centered"
 }
 rectangle {
 	object {
@@ -643,7 +619,7 @@ composite {
 	display[0] {
 		label="user calcOut (full)"
 		name="userCalcOut_full.adl"
-		args="P=$(P),C=$(C)"
+		args="P=$(P),C=$(C),N=$(N)"
 		policy="replace display"
 	}
 	clr=0

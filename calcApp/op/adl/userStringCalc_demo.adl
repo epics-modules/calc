@@ -1,7 +1,7 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps_5_1/support/calc/cvs/calcApp/op/adl/userStringCalc_demo.adl"
-	version=030004
+	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/userStringCalc_demo.adl"
+	version=030107
 }
 display {
 	object {
@@ -3182,6 +3182,10 @@ text {
 	"basic attribute" {
 		clr=14
 	}
+	"dynamic attribute" {
+		vis="if not zero"
+		chan="$(P)userStringCalc$(N)EnableCalc"
+	}
 	textix="($(P)$(C))"
 	align="horiz. centered"
 }
@@ -3240,34 +3244,6 @@ text {
 	}
 	textix="E.G., 'A:B.VAL' - '.VAL' = "
 }
-"related display" {
-	object {
-		x=320
-		y=33
-		width=15
-		height=15
-	}
-	display[0] {
-		label="userStringCalcs (all)"
-		name="userStringCalcs10.adl"
-		args="P=$(P)"
-	}
-	clr=0
-	bclr=63
-}
-text {
-	object {
-		x=335
-		y=37
-		width=60
-		height=10
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="ENABLE ALL"
-	align="horiz. centered"
-}
 text {
 	object {
 		x=240
@@ -3280,7 +3256,7 @@ text {
 	}
 	"dynamic attribute" {
 		vis="if zero"
-		chan="$(P)userStringCalcEnable.VAL"
+		chan="$(P)userStringCalc$(N)EnableCalc.VAL"
 	}
 	textix="DISABLED"
 	align="horiz. centered"
@@ -3313,101 +3289,90 @@ text {
 	bclr=63
 	label="-?"
 }
-composite {
+polyline {
 	object {
 		x=0
 		y=818
 		width=399
-		height=26
+		height=3
+	}
+	"basic attribute" {
+		clr=54
+		fill="outline"
+		width=3
+	}
+	points {
+		(1,819)
+		(397,819)
+	}
+}
+"related display" {
+	object {
+		x=335
+		y=824
+		width=40
+		height=20
+	}
+	display[0] {
+		label="no examples"
+		name="userStringCalc_full.adl"
+		args="P=$(P),C=$(C),N=$(N)"
+		policy="replace display"
+	}
+	clr=0
+	bclr=63
+	label="-Less"
+}
+composite {
+	object {
+		x=5
+		y=824
+		width=236
+		height=20
 	}
 	"composite name"=""
 	children {
-		polyline {
+		"text entry" {
 			object {
-				x=0
-				y=818
-				width=399
-				height=3
-			}
-			"basic attribute" {
-				clr=54
-				fill="outline"
-				width=3
-			}
-			points {
-				(1,819)
-				(397,819)
-			}
-		}
-		"related display" {
-			object {
-				x=335
+				x=55
 				y=824
-				width=40
+				width=186
 				height=20
 			}
-			display[0] {
-				label="no examples"
-				name="yysCalcoutRecord_full.adl"
-				args="P=$(P),C=$(C)"
-				policy="replace display"
+			control {
+				chan="$(P)$(C).FLNK"
+				clr=14
+				bclr=40
 			}
-			clr=0
-			bclr=63
-			label="-Less"
+			format="string"
+			limits {
+			}
 		}
-		composite {
+		text {
 			object {
 				x=5
 				y=824
-				width=236
-				height=20
+				width=40
+				height=10
 			}
-			"composite name"=""
-			children {
-				"text entry" {
-					object {
-						x=55
-						y=824
-						width=186
-						height=20
-					}
-					control {
-						chan="$(P)$(C).FLNK"
-						clr=14
-						bclr=40
-					}
-					format="string"
-					limits {
-					}
-				}
-				text {
-					object {
-						x=5
-						y=824
-						width=40
-						height=10
-					}
-					"basic attribute" {
-						clr=14
-					}
-					textix="FORWARD"
-					align="horiz. centered"
-				}
-				text {
-					object {
-						x=5
-						y=834
-						width=40
-						height=10
-					}
-					"basic attribute" {
-						clr=14
-					}
-					textix="LINK"
-					align="horiz. centered"
-				}
+			"basic attribute" {
+				clr=14
 			}
+			textix="FORWARD"
+			align="horiz. centered"
+		}
+		text {
+			object {
+				x=5
+				y=834
+				width=40
+				height=10
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="LINK"
+			align="horiz. centered"
 		}
 	}
 }

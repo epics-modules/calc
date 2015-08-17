@@ -97,7 +97,7 @@ text {
 	"basic attribute" {
 		clr=14
 	}
-	textix="$(P)userArrayCalcs 1-5"
+	textix="$(P)userArrayCalcs $(N1)-$(N5)"
 	align="horiz. centered"
 }
 text {
@@ -110,7 +110,7 @@ text {
 	"basic attribute" {
 		clr=14
 	}
-	textix="$(P)userArrayCalcs 6-10"
+	textix="$(P)userArrayCalcs $(N6)-$(N10)"
 	align="horiz. centered"
 }
 "cartesian plot" {
@@ -126,9 +126,9 @@ text {
 		bclr=0
 	}
 	style="line"
-	count="$(P)userArrayCalc1.NUSE"
+	count="$(P)userArrayCalc$(N1).NUSE"
 	trace[0] {
-		ydata="$(P)userArrayCalc1.AVAL"
+		ydata="$(P)userArrayCalc$(N1).AVAL"
 		data_clr=14
 		yaxis=0
 	}
@@ -141,7 +141,7 @@ text {
 	y2_axis {
 		rangeStyle="auto-scale"
 	}
-	countPvName="$(P)userArrayCalc1.NUSE"
+	countPvName="$(P)userArrayCalc$(N1).NUSE"
 	eraseMode="if zero"
 }
 "cartesian plot" {
@@ -157,9 +157,9 @@ text {
 		bclr=0
 	}
 	style="line"
-	count="$(P)userArrayCalc6.NUSE"
+	count="$(P)userArrayCalc$(N6).NUSE"
 	trace[0] {
-		ydata="$(P)userArrayCalc6.AVAL"
+		ydata="$(P)userArrayCalc$(N6).AVAL"
 		data_clr=14
 		yaxis=0
 	}
@@ -172,7 +172,7 @@ text {
 	y2_axis {
 		rangeStyle="auto-scale"
 	}
-	countPvName="$(P)userArrayCalc6.NUSE"
+	countPvName="$(P)userArrayCalc$(N6).NUSE"
 	eraseMode="if zero"
 }
 "cartesian plot" {
@@ -188,9 +188,9 @@ text {
 		bclr=0
 	}
 	style="line"
-	count="$(P)userArrayCalc2.NUSE"
+	count="$(P)userArrayCalc$(N2).NUSE"
 	trace[0] {
-		ydata="$(P)userArrayCalc2.AVAL"
+		ydata="$(P)userArrayCalc$(N2).AVAL"
 		data_clr=14
 		yaxis=0
 	}
@@ -203,7 +203,7 @@ text {
 	y2_axis {
 		rangeStyle="auto-scale"
 	}
-	countPvName="$(P)userArrayCalc2.NUSE"
+	countPvName="$(P)userArrayCalc$(N2).NUSE"
 	eraseMode="if zero"
 }
 "cartesian plot" {
@@ -219,9 +219,9 @@ text {
 		bclr=0
 	}
 	style="line"
-	count="$(P)userArrayCalc7.NUSE"
+	count="$(P)userArrayCalc$(N7).NUSE"
 	trace[0] {
-		ydata="$(P)userArrayCalc7.AVAL"
+		ydata="$(P)userArrayCalc$(N7).AVAL"
 		data_clr=14
 		yaxis=0
 	}
@@ -234,7 +234,7 @@ text {
 	y2_axis {
 		rangeStyle="auto-scale"
 	}
-	countPvName="$(P)userArrayCalc7.NUSE"
+	countPvName="$(P)userArrayCalc$(N7).NUSE"
 	eraseMode="if zero"
 }
 "cartesian plot" {
@@ -250,9 +250,9 @@ text {
 		bclr=0
 	}
 	style="line"
-	count="$(P)userArrayCalc3.NUSE"
+	count="$(P)userArrayCalc$(N3).NUSE"
 	trace[0] {
-		ydata="$(P)userArrayCalc3.AVAL"
+		ydata="$(P)userArrayCalc$(N3).AVAL"
 		data_clr=14
 		yaxis=0
 	}
@@ -265,7 +265,7 @@ text {
 	y2_axis {
 		rangeStyle="auto-scale"
 	}
-	countPvName="$(P)userArrayCalc3.NUSE"
+	countPvName="$(P)userArrayCalc$(N3).NUSE"
 	eraseMode="if zero"
 }
 "cartesian plot" {
@@ -281,9 +281,9 @@ text {
 		bclr=0
 	}
 	style="line"
-	count="$(P)userArrayCalc8.NUSE"
+	count="$(P)userArrayCalc$(N8).NUSE"
 	trace[0] {
-		ydata="$(P)userArrayCalc8.AVAL"
+		ydata="$(P)userArrayCalc$(N8).AVAL"
 		data_clr=14
 		yaxis=0
 	}
@@ -296,7 +296,7 @@ text {
 	y2_axis {
 		rangeStyle="auto-scale"
 	}
-	countPvName="$(P)userArrayCalc8.NUSE"
+	countPvName="$(P)userArrayCalc$(N8).NUSE"
 	eraseMode="if zero"
 }
 "cartesian plot" {
@@ -312,9 +312,9 @@ text {
 		bclr=0
 	}
 	style="line"
-	count="$(P)userArrayCalc5.NUSE"
+	count="$(P)userArrayCalc$(N5).NUSE"
 	trace[0] {
-		ydata="$(P)userArrayCalc5.AVAL"
+		ydata="$(P)userArrayCalc$(N5).AVAL"
 		data_clr=14
 		yaxis=0
 	}
@@ -327,7 +327,7 @@ text {
 	y2_axis {
 		rangeStyle="auto-scale"
 	}
-	countPvName="$(P)userArrayCalc5.NUSE"
+	countPvName="$(P)userArrayCalc$(N5).NUSE"
 	eraseMode="if zero"
 }
 "cartesian plot" {
@@ -343,9 +343,9 @@ text {
 		bclr=0
 	}
 	style="line"
-	count="$(P)userArrayCalc10.NUSE"
+	count="$(P)userArrayCalc$(N10).NUSE"
 	trace[0] {
-		ydata="$(P)userArrayCalc10.AVAL"
+		ydata="$(P)userArrayCalc$(N10).AVAL"
 		data_clr=14
 		yaxis=0
 	}
@@ -358,7 +358,7 @@ text {
 	y2_axis {
 		rangeStyle="auto-scale"
 	}
-	countPvName="$(P)userArrayCalc10.NUSE"
+	countPvName="$(P)userArrayCalc$(N10).NUSE"
 	eraseMode="if zero"
 }
 "cartesian plot" {
@@ -374,9 +374,9 @@ text {
 		bclr=0
 	}
 	style="line"
-	count="$(P)userArrayCalc4.NUSE"
+	count="$(P)userArrayCalc$(N4).NUSE"
 	trace[0] {
-		ydata="$(P)userArrayCalc4.AVAL"
+		ydata="$(P)userArrayCalc$(N4).AVAL"
 		data_clr=14
 		yaxis=0
 	}
@@ -389,7 +389,7 @@ text {
 	y2_axis {
 		rangeStyle="auto-scale"
 	}
-	countPvName="$(P)userArrayCalc4.NUSE"
+	countPvName="$(P)userArrayCalc$(N4).NUSE"
 	eraseMode="if zero"
 }
 "cartesian plot" {
@@ -405,9 +405,9 @@ text {
 		bclr=0
 	}
 	style="line"
-	count="$(P)userArrayCalc9.NUSE"
+	count="$(P)userArrayCalc$(N9).NUSE"
 	trace[0] {
-		ydata="$(P)userArrayCalc9.AVAL"
+		ydata="$(P)userArrayCalc$(N9).AVAL"
 		data_clr=14
 		yaxis=0
 	}
@@ -420,7 +420,7 @@ text {
 	y2_axis {
 		rangeStyle="auto-scale"
 	}
-	countPvName="$(P)userArrayCalc9.NUSE"
+	countPvName="$(P)userArrayCalc$(N9).NUSE"
 	eraseMode="if zero"
 }
 composite {
@@ -440,7 +440,7 @@ composite {
 				height=16
 			}
 			control {
-				chan="$(P)userArrayCalc6.CALC"
+				chan="$(P)userArrayCalc$(N6).CALC"
 				clr=14
 				bclr=51
 			}
@@ -455,7 +455,7 @@ composite {
 				height=16
 			}
 			control {
-				chan="$(P)userArrayCalc1.CALC"
+				chan="$(P)userArrayCalc$(N1).CALC"
 				clr=14
 				bclr=51
 			}
@@ -481,7 +481,7 @@ composite {
 				height=16
 			}
 			control {
-				chan="$(P)userArrayCalc7.CALC"
+				chan="$(P)userArrayCalc$(N7).CALC"
 				clr=14
 				bclr=51
 			}
@@ -496,7 +496,7 @@ composite {
 				height=16
 			}
 			control {
-				chan="$(P)userArrayCalc2.CALC"
+				chan="$(P)userArrayCalc$(N2).CALC"
 				clr=14
 				bclr=51
 			}
@@ -522,7 +522,7 @@ composite {
 				height=16
 			}
 			control {
-				chan="$(P)userArrayCalc8.CALC"
+				chan="$(P)userArrayCalc$(N8).CALC"
 				clr=14
 				bclr=51
 			}
@@ -537,7 +537,7 @@ composite {
 				height=16
 			}
 			control {
-				chan="$(P)userArrayCalc3.CALC"
+				chan="$(P)userArrayCalc$(N3).CALC"
 				clr=14
 				bclr=51
 			}
@@ -563,7 +563,7 @@ composite {
 				height=16
 			}
 			control {
-				chan="$(P)userArrayCalc9.CALC"
+				chan="$(P)userArrayCalc$(N9).CALC"
 				clr=14
 				bclr=51
 			}
@@ -578,7 +578,7 @@ composite {
 				height=16
 			}
 			control {
-				chan="$(P)userArrayCalc4.CALC"
+				chan="$(P)userArrayCalc$(N4).CALC"
 				clr=14
 				bclr=51
 			}
@@ -604,7 +604,7 @@ composite {
 				height=16
 			}
 			control {
-				chan="$(P)userArrayCalc10.CALC"
+				chan="$(P)userArrayCalc$(N10).CALC"
 				clr=14
 				bclr=51
 			}
@@ -619,7 +619,7 @@ composite {
 				height=16
 			}
 			control {
-				chan="$(P)userArrayCalc5.CALC"
+				chan="$(P)userArrayCalc$(N5).CALC"
 				clr=14
 				bclr=51
 			}

@@ -1,16 +1,16 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/yyArrayCalc_small.adl"
+	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/userArrayCalcs_line.adl"
 	version=030107
 }
 display {
 	object {
-		x=1173
-		y=303
-		width=400
-		height=315
+		x=1685
+		y=176
+		width=195
+		height=32
 	}
-	clr=14
+	clr=64
 	bclr=3
 	cmap=""
 	gridSpacing=5
@@ -87,43 +87,69 @@ display {
 		1a7309,
 	}
 }
-"related display" {
+"text entry" {
 	object {
-		x=330
-		y=286
-		width=40
+		x=65
+		y=0
+		width=120
 		height=20
 	}
-	display[0] {
-		label="user arrayCalc (w/plot)"
-		name="yyArrayCalc.adl"
-		args="P=$(P),C=$(C)"
-		policy="replace display"
+	control {
+		chan="$(P)userArrayCalc$(N).DESC"
+		clr=54
+		bclr=3
 	}
-	clr=0
-	bclr=63
-	label="-More"
+	limits {
+	}
 }
-composite {
+"related display" {
 	object {
 		x=0
 		y=0
-		width=400
-		height=311
+		width=25
+		height=20
 	}
-	"composite name"=""
-	"composite file"="yyArrayCalc_small_bare.adl;P=$(P),C=$(C)"
+	display[0] {
+		label="user Array Calc $(N)"
+		name="userArrayCalc.adl"
+		args="P=$(P),N=$(N),C=userArrayCalc$(N)"
+	}
+	display[1] {
+		label="user Array Calc $(N) (full)"
+		name="userArrayCalc_full.adl"
+		args="P=$(P),N=$(N),C=userArrayCalc$(N)"
+	}
+	clr=0
+	bclr=63
+	label="-$(N)"
 }
-text {
+"choice button" {
 	object {
-		x=240
-		y=6
-		width=160
-		height=14
+		x=25
+		y=0
+		width=40
+		height=20
+	}
+	control {
+		chan="$(P)userArrayCalc$(N)Enable"
+		clr=14
+		bclr=51
+	}
+	stacking="column"
+}
+rectangle {
+	object {
+		x=185
+		y=0
+		width=10
+		height=20
 	}
 	"basic attribute" {
 		clr=14
 	}
-	textix="($(P)$(C))"
-	align="horiz. centered"
+	"dynamic attribute" {
+		vis="calc"
+		calc="a=0"
+		chan="$(P)userArrayCalc$(N)EnableCalc"
+	}
 }

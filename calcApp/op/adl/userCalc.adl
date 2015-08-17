@@ -1,7 +1,7 @@
 
 file {
-	name="C:\cygwin\home\mooney\epics\synApps\support\all_adl\userCalc.adl"
-	version=030004
+	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/userCalc.adl"
+	version=030107
 }
 display {
 	object {
@@ -713,7 +713,7 @@ text {
 	display[0] {
 		label="All fields"
 		name="userCalc_full.adl"
-		args="P=$(P),C=$(C)"
+		args="P=$(P),C=$(C),N=$(N)"
 		policy="replace display"
 	}
 	clr=0
@@ -764,7 +764,7 @@ text {
 	}
 	"dynamic attribute" {
 		vis="if not zero"
-		chan="$(P)userCalcEnable.VAL"
+		chan="$(P)userCalc$(N)EnableCalc.VAL"
 	}
 	textix="($(P)$(C))"
 	align="horiz. centered"
@@ -1142,7 +1142,7 @@ text {
 	}
 	"dynamic attribute" {
 		vis="if zero"
-		chan="$(P)userCalcEnable.VAL"
+		chan="$(P)userCalc$(N)EnableCalc.VAL"
 	}
 	textix="DISABLED"
 	align="horiz. centered"

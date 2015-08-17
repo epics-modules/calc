@@ -5,17 +5,17 @@ file {
 }
 display {
 	object {
-		x=466
-		y=87
-		width=140
-		height=220
+		x=1192
+		y=245
+		width=195
+		height=240
 	}
 	clr=64
 	bclr=3
 	cmap=""
 	gridSpacing=5
 	gridOn=0
-	snapToGrid=0
+	snapToGrid=1
 }
 "color map" {
 	ncolors=65
@@ -91,7 +91,7 @@ display {
 	object {
 		x=0
 		y=0
-		width=140
+		width=195
 		height=20
 	}
 	control {
@@ -101,413 +101,119 @@ display {
 	}
 	stacking="column"
 }
-"text entry" {
-	object {
-		x=25
-		y=20
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userStringSeq1.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=40
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userStringSeq2.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=60
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userStringSeq3.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=80
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userStringSeq4.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=100
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userStringSeq5.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=120
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userStringSeq6.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=140
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userStringSeq7.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=160
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userStringSeq8.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=180
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userStringSeq9.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=200
-		width=115
-		height=20
-	}
-	control {
-		chan="$(P)userStringSeq10.DESC"
-		clr=54
-		bclr=3
-	}
-	limits {
-	}
-}
-"related display" {
+composite {
 	object {
 		x=0
 		y=20
-		width=25
+		width=195
 		height=20
 	}
-	display[0] {
-		label="userStringSeq 1"
-		name="userStringSeq.adl"
-		args="P=$(P),S=userStringSeq1"
-	}
-	display[1] {
-		label="userStringSeq 1 (full)"
-		name="userStringSeq_full.adl"
-		args="P=$(P),S=userStringSeq1"
-	}
-	display[2] {
-		label="userStringSeq 1 (demo)"
-		name="userStringSeq_demo.adl"
-		args="P=$(P),S=userStringSeq1"
-	}
-	clr=0
-	bclr=63
-	label="-1"
+	"composite name"=""
+	"composite file"="userStringSeqs_line.adl;P=$(P),N=$(N1)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=40
-		width=25
+		width=195
 		height=20
 	}
-	display[0] {
-		label="userStringSeq 2"
-		name="userStringSeq.adl"
-		args="P=$(P),S=userStringSeq2"
-	}
-	display[1] {
-		label="userStringSeq 2 (full)"
-		name="userStringSeq_full.adl"
-		args="P=$(P),S=userStringSeq2"
-	}
-	display[2] {
-		label="userStringSeq 2 (demo)"
-		name="userStringSeq_demo.adl"
-		args="P=$(P),S=userStringSeq2"
-	}
-	clr=0
-	bclr=63
-	label="-2"
+	"composite name"=""
+	"composite file"="userStringSeqs_line.adl;P=$(P),N=$(N2)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=60
-		width=25
+		width=195
 		height=20
 	}
-	display[0] {
-		label="userStringSeq 3"
-		name="userStringSeq.adl"
-		args="P=$(P),S=userStringSeq3"
-	}
-	display[1] {
-		label="userStringSeq 3 (full)"
-		name="userStringSeq_full.adl"
-		args="P=$(P),S=userStringSeq3"
-	}
-	display[2] {
-		label="userStringSeq 3 (demo)"
-		name="userStringSeq_demo.adl"
-		args="P=$(P),S=userStringSeq3"
-	}
-	clr=0
-	bclr=63
-	label="-3"
+	"composite name"=""
+	"composite file"="userStringSeqs_line.adl;P=$(P),N=$(N3)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=80
-		width=25
+		width=195
 		height=20
 	}
-	display[0] {
-		label="userStringSeq 4"
-		name="userStringSeq.adl"
-		args="P=$(P),S=userStringSeq4"
-	}
-	display[1] {
-		label="userStringSeq 4 (full)"
-		name="userStringSeq_full.adl"
-		args="P=$(P),S=userStringSeq4"
-	}
-	display[2] {
-		label="userStringSeq 4 (demo)"
-		name="userStringSeq_demo.adl"
-		args="P=$(P),S=userStringSeq4"
-	}
-	clr=0
-	bclr=63
-	label="-4"
+	"composite name"=""
+	"composite file"="userStringSeqs_line.adl;P=$(P),N=$(N4)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=100
-		width=25
+		width=195
 		height=20
 	}
-	display[0] {
-		label="userStringSeq 5"
-		name="userStringSeq.adl"
-		args="P=$(P),S=userStringSeq5"
-	}
-	display[1] {
-		label="userStringSeq 5 (full)"
-		name="userStringSeq_full.adl"
-		args="P=$(P),S=userStringSeq5"
-	}
-	display[2] {
-		label="userStringSeq 5 (demo)"
-		name="userStringSeq_demo.adl"
-		args="P=$(P),S=userStringSeq5"
-	}
-	clr=0
-	bclr=63
-	label="-5"
+	"composite name"=""
+	"composite file"="userStringSeqs_line.adl;P=$(P),N=$(N5)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=120
-		width=25
+		width=195
 		height=20
 	}
-	display[0] {
-		label="userStringSeq 6"
-		name="userStringSeq.adl"
-		args="P=$(P),S=userStringSeq6"
-	}
-	display[1] {
-		label="userStringSeq 6 (full)"
-		name="userStringSeq_full.adl"
-		args="P=$(P),S=userStringSeq6"
-	}
-	display[2] {
-		label="userStringSeq 6 (demo)"
-		name="userStringSeq_demo.adl"
-		args="P=$(P),S=userStringSeq6"
-	}
-	clr=0
-	bclr=63
-	label="-6"
+	"composite name"=""
+	"composite file"="userStringSeqs_line.adl;P=$(P),N=$(N6)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=140
-		width=25
+		width=195
 		height=20
 	}
-	display[0] {
-		label="userStringSeq 7"
-		name="userStringSeq.adl"
-		args="P=$(P),S=userStringSeq7"
-	}
-	display[1] {
-		label="userStringSeq 7 (full)"
-		name="userStringSeq_full.adl"
-		args="P=$(P),S=userStringSeq7"
-	}
-	display[2] {
-		label="userStringSeq 7 (demo)"
-		name="userStringSeq_demo.adl"
-		args="P=$(P),S=userStringSeq7"
-	}
-	clr=0
-	bclr=63
-	label="-7"
+	"composite name"=""
+	"composite file"="userStringSeqs_line.adl;P=$(P),N=$(N7)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=160
-		width=25
+		width=195
 		height=20
 	}
-	display[0] {
-		label="userStringSeq 8"
-		name="userStringSeq.adl"
-		args="P=$(P),S=userStringSeq8"
-	}
-	display[1] {
-		label="userStringSeq 8 (full)"
-		name="userStringSeq_full.adl"
-		args="P=$(P),S=userStringSeq8"
-	}
-	display[2] {
-		label="userStringSeq 8 (demo)"
-		name="userStringSeq_demo.adl"
-		args="P=$(P),S=userStringSeq8"
-	}
-	clr=0
-	bclr=63
-	label="-8"
+	"composite name"=""
+	"composite file"="userStringSeqs_line.adl;P=$(P),N=$(N8)"
 }
-"related display" {
+composite {
 	object {
 		x=0
 		y=180
-		width=25
+		width=195
 		height=20
 	}
-	display[0] {
-		label="userStringSeq 9"
-		name="userStringSeq.adl"
-		args="P=$(P),S=userStringSeq9"
+	"composite name"=""
+	"composite file"="userStringSeqs_line.adl;P=$(P),N=$(N9)"
+}
+composite {
+	object {
+		x=0
+		y=200
+		width=195
+		height=20
 	}
-	display[1] {
-		label="userStringSeq 9 (full)"
-		name="userStringSeq_full.adl"
-		args="P=$(P),S=userStringSeq9"
-	}
-	display[2] {
-		label="userStringSeq 9 (demo)"
-		name="userStringSeq_demo.adl"
-		args="P=$(P),S=userStringSeq9"
-	}
-	clr=0
-	bclr=63
-	label="-9"
+	"composite name"=""
+	"composite file"="userStringSeqs_line.adl;P=$(P),N=$(N10)"
 }
 "related display" {
 	object {
 		x=0
-		y=200
-		width=25
+		y=220
+		width=70
 		height=20
 	}
 	display[0] {
-		label="userStringSeq 10"
-		name="userStringSeq.adl"
-		args="P=$(P),S=userStringSeq10"
-	}
-	display[1] {
-		label="userStringSeq 10 (full)"
-		name="userStringSeq_full.adl"
-		args="P=$(P),S=userStringSeq10"
-	}
-	display[2] {
-		label="userStringSeq 10 (demo)"
-		name="userStringSeq_demo.adl"
-		args="P=$(P),S=userStringSeq10"
+		label="editSseq"
+		name="editSseq.adl"
+		args="P=$(P),Q=ES:"
 	}
 	clr=0
-	bclr=63
-	label="-10"
+	bclr=17
+	label="-editSeq"
 }
