@@ -1,14 +1,14 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/yySseq_full_bare.adl"
+	name="/home/oxygen4/MOONEY/epics/synAppsGIT/support/calc/calcApp/op/adl/yySseq_full_bare.adl"
 	version=030107
 }
 display {
 	object {
-		x=718
-		y=458
+		x=678
+		y=334
 		width=750
-		height=295
+		height=330
 	}
 	clr=14
 	bclr=3
@@ -507,4 +507,98 @@ text {
 	}
 	textix="WAIT requires CA link"
 	align="horiz. centered"
+}
+"text entry" {
+	object {
+		x=5
+		y=305
+		width=150
+		height=20
+	}
+	control {
+		chan="$(P)$(S).SELL"
+		clr=14
+		bclr=40
+	}
+	format="string"
+	limits {
+	}
+}
+text {
+	object {
+		x=5
+		y=295
+		width=150
+		height=10
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="SELL"
+	align="horiz. centered"
+}
+"text entry" {
+	object {
+		x=160
+		y=305
+		width=45
+		height=20
+	}
+	control {
+		chan="$(P)$(S).SELN"
+		clr=14
+		bclr=51
+	}
+	limits {
+	}
+}
+text {
+	object {
+		x=160
+		y=295
+		width=45
+		height=10
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="SELN"
+	align="horiz. centered"
+}
+composite {
+	object {
+		x=210
+		y=295
+		width=80
+		height=30
+	}
+	"composite name"=""
+	children {
+		text {
+			object {
+				x=210
+				y=295
+				width=80
+				height=10
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="SELM"
+			align="horiz. centered"
+		}
+		menu {
+			object {
+				x=210
+				y=305
+				width=80
+				height=20
+			}
+			control {
+				chan="$(P)$(S).SELM"
+				clr=14
+				bclr=51
+			}
+		}
+	}
 }

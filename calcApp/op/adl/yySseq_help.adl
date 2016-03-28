@@ -1,12 +1,12 @@
 
 file {
 	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/yySseq_help.adl"
-	version=030102
+	version=030107
 }
 display {
 	object {
-		x=12
-		y=422
+		x=33
+		y=234
 		width=1100
 		height=590
 	}
@@ -156,8 +156,8 @@ text {
 }
 "related display" {
 	object {
-		x=621
-		y=230
+		x=1002
+		y=372
 		width=50
 		height=20
 	}
@@ -3755,4 +3755,19 @@ text {
 		clr=14
 	}
 	textix="   waiting for completion of this link."
+}
+"related display" {
+	object {
+		x=978
+		y=365
+		width=25
+		height=27
+	}
+	display[0] {
+		label="annotated display"
+		name="yySseq_help.adl"
+	}
+	clr=0
+	bclr=17
+	label="-?"
 }
