@@ -57,6 +57,9 @@ first 39 characters, because the sseq record uses EPICS string PVs internally.
 states of its input and output links (but not its forward link), and posts
 PVs that indicate which output links are waiting for callbacks.
 
+<P>Beginning with std-module version R3-2, and calc-module version R3-0, the
+<b>sseq</b> record moved from the std module to the calc module.
+
 <P>To write successfully to a DBF_MENU or DBF_ENUM (for example, the VAL field
 of a <code>bo</code> or <code>mbbo</code> record) the record's string value must
 be one of the possible strings for the PV, or it must an integer specifying the
@@ -493,7 +496,7 @@ groups to process. For example, if <tt>SELN</tt> is 1, then the value from
 <tt>DO1</tt> will be written to the location in <tt>LNK1</tt>. If <tt>SELN</tt>
 is 3, the record will fetch the values from <tt>DO1</tt> and <tt>DO2</tt> and
 write them to the locations in <tt>LNK1</tt> and <tt>LNK2</tt>, respectively. If
-<tt>SELN</tt> is 63, <tt>DO1</tt>...<tt>DO6</tt> will be written to
+<tt>SELN</tt> is 63 (0x3F), <tt>DO1</tt>...<tt>DO6</tt> will be written to
 <tt>LNK1</tt>...<tt>LNK6</tt>.
 
 </DL>
