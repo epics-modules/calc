@@ -533,7 +533,7 @@ void putCallbackCB(void *arg)
 	}
 
 
-	pR = (sseqRecord *)(plink->value.pv_link.precord);
+	pR = (sseqRecord *)(plink->precord);
 	pcb = (struct callbackSeq *) (pR->dpvt);
 	/* If sequence was aborted, waiting fields may already have been cleared. */
 	if (plinkGroupThis->waiting == 0) {
