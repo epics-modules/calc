@@ -533,7 +533,11 @@ void putCallbackCB(void *arg)
 	}
 
 
+#if LT_EPICSBASE(3,16,0,1)
 	pR = (sseqRecord *)(plink->value.pv_link.precord);
+#else
+	pR = (sseqRecord *)(plink->precord);
+#endif
 	pcb = (struct callbackSeq *) (pR->dpvt);
 	/* If sequence was aborted, waiting fields may already have been cleared. */
 	if (plinkGroupThis->waiting == 0) {
