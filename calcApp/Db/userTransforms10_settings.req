@@ -1,6 +1,6 @@
 # FILE... userTransforms10_settings.req
 # USAGE.. userTransforms10.db fields autosave'd.
-#$(P)userTranEnable.VAL
+
 file transform_settings.req P=$(P)userTran1
 $(P)userTran1Enable
 file transform_settings.req P=$(P)userTran2
@@ -22,3 +22,4 @@ $(P)userTran9Enable
 file transform_settings.req P=$(P)userTran10
 $(P)userTran10Enable
 
+$(P)userTranEnable
