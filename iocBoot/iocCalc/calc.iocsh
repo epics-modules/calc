@@ -3,7 +3,7 @@ epicsEnvSet("PREFIX", "xxx:")
 
 iocshLoad("$(CALC)/iocsh/userCalc.iocsh",       "PREFIX=$(PREFIX)")
 iocshLoad("$(CALC)/iocsh/userCalc_extra.iocsh", "PREFIX=$(PREFIX),N=1")
-iocshLoad("$(CALC)/iocsh/sseq.iocsh",           "PREFIX=$(PREFIX),Q=ES:")
+iocshLoad("$(CALC)/iocsh/sseq.iocsh",           "PREFIX=$(PREFIX),INSTANCE=ES:")
 
 # interpolation
 #dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=$(PREFIX),N=2000")

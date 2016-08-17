@@ -2,13 +2,13 @@
 
 #- ###################################################
 #- PREFIX         - IOC Prefix
+#- INSTANCE       - Instance Prefix
 #- CALC           - Location of Calc module
-#- Q              - String Sequence Editor PV ID
 #- ###################################################
 
 #- string sequence (sseq) records
 dbLoadRecords("$(CALC)/calcApp/Db/userStringSeqs10.db","P=$(PREFIX)")
 
 #- editSseq - edit any sseq or seq record
-dbLoadRecords("$(CALC)/calcApp/Db/editSseq.db", "P=$(PREFIX),Q=$(Q)")
-doAfterIocInit("seq &editSseq, 'P=$(PREFIX),Q=$(Q)'")
+dbLoadRecords("$(CALC)/calcApp/Db/editSseq.db", "P=$(PREFIX),Q=$(INSTANCE)")
+doAfterIocInit("seq &editSseq, 'P=$(PREFIX),Q=$(INSTANCE)'")
