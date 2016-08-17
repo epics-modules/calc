@@ -1,9 +1,9 @@
 ### Stuff for user programming ###
 epicsEnvSet("PREFIX", "xxx:")
 
-iocshLoad("$(CALC)/cmds/userCalc.iocsh",       "PREFIX=$(PREFIX)")
-iocshLoad("$(CALC)/cmds/userCalc_extra.iocsh", "PREFIX=$(PREFIX),N=1")
-iocshLoad("$(CALC)/cmds/sseq.iocsh",           "PREFIX=$(PREFIX),Q=ES:")
+iocshLoad("$(CALC)/iocsh/userCalc.iocsh",       "PREFIX=$(PREFIX)")
+iocshLoad("$(CALC)/iocsh/userCalc_extra.iocsh", "PREFIX=$(PREFIX),N=1")
+iocshLoad("$(CALC)/iocsh/sseq.iocsh",           "PREFIX=$(PREFIX),Q=ES:")
 
 # interpolation
 #dbLoadRecords("$(CALC)/calcApp/Db/interp.db", "P=$(PREFIX),N=2000")
