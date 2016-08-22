@@ -1,0 +1,18 @@
+# ### userCalc.iocsh ###
+
+#- ###################################################
+#- PREFIX         - IOC Prefix
+#- CALC           - Location of Calc module
+#- ARRAY_SIZE     - Optional: Size of userArrayCalc array
+#-                  Default:  8000
+#- ###################################################
+
+
+#- ## Stuff for user programming ###
+dbLoadRecords("$(CALC)/calcApp/Db/userCalcGlobalEnable.db", "P=$(PREFIX)")
+dbLoadRecords("$(CALC)/calcApp/Db/userCalcs10.db",          "P=$(PREFIX)")
+dbLoadRecords("$(CALC)/calcApp/Db/userCalcOuts10.db",       "P=$(PREFIX)")
+dbLoadRecords("$(CALC)/calcApp/Db/userStringCalcs10.db",    "P=$(PREFIX)")
+dbLoadRecords("$(CALC)/calcApp/Db/userArrayCalcs10.db",     "P=$(PREFIX), N=$(ARRAY_SIZE=8000)")
+dbLoadRecords("$(CALC)/calcApp/Db/userTransforms10.db",     "P=$(PREFIX)")
+dbLoadRecords("$(CALC)/calcApp/Db/userAve10.db",            "P=$(PREFIX)")
