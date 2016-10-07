@@ -13,7 +13,17 @@
 <ul>
 <li>seq and sseq record displays now expose the SELL, SELN, and SELM fields,
 and related .req files autosave those fields.
-<li>made sCalc and aCalc header files public.
+<li>Made sCalc and aCalc header files public.
+<li>Modified sseqRecord_settings.req to restore DOn before STRn, because the
+sseq record modifies both when either is written, and this messes up runtime
+restore (manual restore or configMenu restore).  Test: set STRn to "1!", save
+and restore.  Without the fix, STRn gets restored as "1".
+
+<li>Modified the scalcout record's treatment of null characters in strings
+received from DBF_CHAR and DBF_UCHAR PVs.  Previously, one or more trailing
+"\000" fragments were appended (by epicsStrSnPrintEscaped) to the string.
+These fragments are now stripped.
+
 </ul>
 
 <h2 align="center">Release 3-6-1</h2>
