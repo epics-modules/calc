@@ -160,11 +160,12 @@ These fields indicate whether or not the specified PV was found and a link
 to it established. See <A HREF="#MARKER-9-2">Section 6, <I>Operator Display
 Parameters</I></A> for an explanation of these fields.
 
-<P>From most types of PV's, the scalcout record's string input links fetch data as
-strings, and depend on EPICS to convert a PV's native value to string.  But when an
-scalcout record's string input link names a PV whose data type is an array of
-DBF_CHAR or DBF_UCHAR, the record fetches up to 39 array elements from the array in
-their native form, translates the result using epicsStrSnPrintEscaped(), and
+<P>From most types of PV's, the scalcout record's string input links fetch data
+as strings, and depend on EPICS to convert a PV's native value to string.  But
+when an scalcout record's string input link names a PV whose data type is an
+array of DBF_CHAR or DBF_UCHAR, the record fetches up to 39 array elements from
+the array in their native form, translates the result using
+epicsStrSnPrintEscaped(), strips any trailing "\000" string fragments, and
 truncates the result to fit into a 40-character string.
 
 <P>&nbsp;See the EPICS Record Reference Manual for information on how to specify database links.
