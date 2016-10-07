@@ -886,11 +886,16 @@ static int fetch_values(scalcoutRecord *pcalc)
 				if (sCalcoutRecordDebug > 1) {
 					printf("fetch_values('%s'): dbGetLink(%d) link type '%d'\n", pcalc->name, i, plink->type);
 					printf("fetch_values('%s'): dbGetLink(%d) field_type %d, returned %lx\n", pcalc->name, i, field_type, status);
+					printf("fetch_values('%s'): dbGetLink(%d) nelm = %ld\n", pcalc->name, i, nelm);
 					printf("fetch_values('%s'): dbGetLink(%d) yielded '%s'\n", pcalc->name, i, tmpstr);
 				}
 				if (nelm>0) {
-					epicsStrSnPrintEscaped(*psvalue, STRING_SIZE-1, tmpstr, nelm);
+					/*epicsStrSnPrintEscaped(*psvalue, STRING_SIZE-1, tmpstr, nelm);*/
+					epicsStrSnPrintEscaped(*psvalue, STRING_SIZE-1, tmpstr, strlen(tmpstr));
 					(*psvalue)[STRING_SIZE-1] = '\0';
+					if (sCalcoutRecordDebug > 1) {
+						printf("fetch_values('%s'): epicsStrSnPrintEscaped() returned '%s'\n", pcalc->name, *psvalue);
+					}
 				} else {
 					(*psvalue)[0] = '\0';
 				}
@@ -941,7 +946,7 @@ static void checkLinks(scalcoutRecord *pcalc)
 	char 			tmpstr[100];
 	int isString, linkWorks;
 
-	if (sCalcoutRecordDebug) printf("checkLinks() for %s\n", pcalc->name);
+	if (sCalcoutRecordDebug>5) printf("checkLinks() for %s\n", pcalc->name);
 
 	plink   = &pcalc->inpa;
 	plinkValid = &pcalc->inav;
