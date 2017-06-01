@@ -2,7 +2,7 @@ TOP=..
 
 include $(TOP)/configure/CONFIG
 
-INC_DIRS += $(TOP)/calcApp/src
+SRC_DIRS += $(TOP)/calcApp/src
 
 TESTPROD_HOST += acalcTest
 acalcTest_SRCS += acalcTest.cpp
