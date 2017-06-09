@@ -373,8 +373,14 @@ static long process(acalcoutRecord *pcalc)
 	}
 
 	/* If we're getting processed, we can no longer put off allocating memory */
-	if (pcalc->aval == NULL) pcalc->aval = (double *)calloc(pcalc->nelm, sizeof(double));
-	if (pcalc->oav == NULL) pcalc->oav = (double *)calloc(pcalc->nelm, sizeof(double));
+	if (pcalc->aval == NULL) {
+		pcalc->aval = (double *)calloc(pcalc->nelm, sizeof(double));
+		pcalc->amem += pcalc->nelm * sizeof(double);
+	}
+	if (pcalc->oav == NULL) {
+		pcalc->oav = (double *)calloc(pcalc->nelm, sizeof(double));
+		pcalc->amem += pcalc->nelm * sizeof(double);
+	}
 
 	if (!pcalc->pact) {
 		pcalc->pact = TRUE;
@@ -583,13 +589,26 @@ static long cvt_dbaddr(dbAddr *paddr)
 			if (aCalcoutRecordDebug) printf("acalcoutRecord(%s):cvt_dbaddr: allocating for field %c%c\n",
 				pcalc->name, (int)('A'+i), (int)('A'+i));
 			ppd[i] = (double *)calloc(pcalc->nelm, sizeof(double));
+			pcalc->amem += pcalc->nelm * sizeof(double);
+			db_post_events(pcalc, &pcalc->amem, DBE_VALUE|DBE_LOG);
+			pcalc->pmem = pcalc->amem;
 		}
 		paddr->pfield = ppd[i];
 	} else if (fieldIndex==acalcoutRecordAVAL) {
-		if (pcalc->aval == NULL) pcalc->aval = (double *)calloc(pcalc->nelm, sizeof(double));
+		if (pcalc->aval == NULL) {
+			pcalc->aval = (double *)calloc(pcalc->nelm, sizeof(double));
+			pcalc->amem += pcalc->nelm * sizeof(double);
+			db_post_events(pcalc, &pcalc->amem, DBE_VALUE|DBE_LOG);
+			pcalc->pmem = pcalc->amem;
+		}
 		paddr->pfield = pcalc->aval;
 	} else if (fieldIndex==acalcoutRecordOAV) {
-		if (pcalc->oav == NULL) pcalc->oav = (double *)calloc(pcalc->nelm, sizeof(double));
+		if (pcalc->oav == NULL) {
+			pcalc->oav = (double *)calloc(pcalc->nelm, sizeof(double));
+			pcalc->amem += pcalc->nelm * sizeof(double);
+			db_post_events(pcalc, &pcalc->amem, DBE_VALUE|DBE_LOG);
+			pcalc->pmem = pcalc->amem;
+		}
 		paddr->pfield = pcalc->oav;
 	}
 
@@ -629,13 +648,22 @@ static long get_array_info(struct dbAddr *paddr, long *no_elements, long *offset
 			if (aCalcoutRecordDebug) printf("acalcoutRecord(%s):get_array_info: allocating for field %c%c\n",
 				pcalc->name, (int)('A'+i), (int)('A'+i));
 			ppd[i] = (double *)calloc(pcalc->nelm, sizeof(double));
+			pcalc->amem += pcalc->nelm * sizeof(double);
+			db_post_events(pcalc, &pcalc->amem, DBE_VALUE|DBE_LOG);
+			pcalc->pmem = pcalc->amem;
 		}
 	}
 	if ((fieldIndex==acalcoutRecordAVAL) && (pcalc->aval == NULL)) {
 		pcalc->aval = (double *)calloc(pcalc->nelm, sizeof(double));
+		pcalc->amem += pcalc->nelm * sizeof(double);
+		db_post_events(pcalc, &pcalc->amem, DBE_VALUE|DBE_LOG);
+		pcalc->pmem = pcalc->amem;
 	}
 	if ((fieldIndex==acalcoutRecordOAV) && (pcalc->oav == NULL)) {
 		pcalc->oav = (double *)calloc(pcalc->nelm, sizeof(double));
+		pcalc->amem += pcalc->nelm * sizeof(double);
+		db_post_events(pcalc, &pcalc->amem, DBE_VALUE|DBE_LOG);
+		pcalc->pmem = pcalc->amem;
 	}
     *no_elements = acalcGetNumElements( pcalc );
     *offset = 0;
@@ -662,13 +690,26 @@ static long put_array_info(struct dbAddr *paddr, long nNew)
 			if (aCalcoutRecordDebug) printf("acalcoutRecord(%s):put_array_info: allocating for field %c%c\n",
 				pcalc->name, (int)('A'+i), (int)('A'+i));
 			ppd[i] = (double *)calloc(pcalc->nelm, sizeof(double));
+			pcalc->amem += pcalc->nelm * sizeof(double);
+			db_post_events(pcalc, &pcalc->amem, DBE_VALUE|DBE_LOG);
+			pcalc->pmem = pcalc->amem;
 		}
 		pd = ppd[i];
 	} else if (fieldIndex==acalcoutRecordAVAL) {
-		if (pcalc->aval == NULL) pcalc->aval = (double *)calloc(pcalc->nelm, sizeof(double));
+		if (pcalc->aval == NULL) {
+			pcalc->aval = (double *)calloc(pcalc->nelm, sizeof(double));
+			pcalc->amem += pcalc->nelm * sizeof(double);
+			db_post_events(pcalc, &pcalc->amem, DBE_VALUE|DBE_LOG);
+			pcalc->pmem = pcalc->amem;
+		}
 		pd = pcalc->aval;
 	} else if (fieldIndex==acalcoutRecordOAV) {
-		if (pcalc->oav == NULL) pcalc->oav = (double *)calloc(pcalc->nelm, sizeof(double));
+		if (pcalc->oav == NULL) {
+			pcalc->oav = (double *)calloc(pcalc->nelm, sizeof(double));
+			pcalc->amem += pcalc->nelm * sizeof(double);
+			db_post_events(pcalc, &pcalc->amem, DBE_VALUE|DBE_LOG);
+			pcalc->pmem = pcalc->amem;
+		}
 		pd = pcalc->oav;
 	}
 
@@ -924,10 +965,14 @@ static void monitor(acalcoutRecord *pcalc)
 	if (monitor_mask) db_post_events(pcalc,&pcalc->val,monitor_mask);
 
 	/* If we haven't allocated previous-value fields, do it now. */
-	if (pcalc->pavl == NULL)
+	if (pcalc->pavl == NULL) {
 		pcalc->pavl = (double *)calloc(pcalc->nelm, sizeof(double));
-	if (pcalc->poav == NULL)
+		pcalc->amem += pcalc->nelm * sizeof(double);
+	}
+	if (pcalc->poav == NULL) {
 		pcalc->poav = (double *)calloc(pcalc->nelm, sizeof(double));
+		pcalc->amem += pcalc->nelm * sizeof(double);
+	}
 
 #if MIND_UNUSED_ELEMENTS
 	numElements = pcalc->nelm;
@@ -975,6 +1020,11 @@ static void monitor(acalcoutRecord *pcalc)
 		db_post_events(pcalc, &pcalc->oval, monitor_mask|DBE_VALUE|DBE_LOG);
 		pcalc->povl = pcalc->oval;
 	}
+
+	if (pcalc->amem != pcalc->pmem) {
+		db_post_events(pcalc, &pcalc->amem, monitor_mask|DBE_VALUE|DBE_LOG);
+		pcalc->pmem = pcalc->amem;
+	}
 	return;
 }
 
@@ -1013,12 +1063,14 @@ static int fetch_values(acalcoutRecord *pcalc)
 				if (aCalcoutRecordDebug) printf("acalcoutRecord(%s): allocating for field %c%c\n",
 					pcalc->name, (int)('A'+i), (int)('A'+i));
 				*pavalue = (double *)calloc(pcalc->nelm, sizeof(double));
+				pcalc->amem += pcalc->nelm * sizeof(double);
 			}
 			/* save current array value */
 			if (pcalc->paa == NULL) {
 				if (aCalcoutRecordDebug) printf("acalcoutRecord(%s): allocating for field PAA\n",
 					pcalc->name);
 				pcalc->paa = (double *)calloc(pcalc->nelm, sizeof(double));
+				pcalc->amem += pcalc->nelm * sizeof(double);
 			}
 			for (j=0; j<numElements; j++) pcalc->paa[j] = (*pavalue)[j];
 			/* get new value */
@@ -1174,8 +1226,18 @@ epicsExportAddress(int, aCalcAsyncThreshold);
 static void call_aCalcPerform(acalcoutRecord *pcalc) {
 	long numElements;
 	epicsUInt32 amask;
+	int i;
+	long numAllocatedArraysPre=0, numAllocatedArraysPost=0;
 
 	if (aCalcoutRecordDebug >= 10) printf("call_aCalcPerform:entry\n");
+
+	/* aCalcPerform will allocate memory for an array field (AA..LL) if it needs to write to it
+	 * and it hasn't yet been allocated.  To keep track of allocated array memory, we need to
+	 * count number of arrays for which memory has been allocated before and after .
+	 */
+	for (i=0; i<ARRAY_MAX_FIELDS; i++) {
+		if ((pcalc->aa+i) != 0) numAllocatedArraysPre++;
+	}
 
 	/* Note that we want to permit nuse == 0 as a way of saying "use nelm". */
 	numElements = acalcGetNumElements( pcalc );
@@ -1188,6 +1250,13 @@ static void call_aCalcPerform(acalcoutRecord *pcalc) {
 			ARRAY_MAX_FIELDS, numElements, &pcalc->oval, pcalc->oav, pcalc->orpc,
 			pcalc->nelm, &amask);
 		pcalc->amask |= amask;
+	}
+	for (i=0; i<ARRAY_MAX_FIELDS; i++) {
+		if ((pcalc->aa+i) != 0) numAllocatedArraysPost++;
+	}
+	if (numAllocatedArraysPost > numAllocatedArraysPre) {
+		pcalc->amem += (numAllocatedArraysPost-numAllocatedArraysPre) * pcalc->nelm * sizeof(double);
+		db_post_events(pcalc,&pcalc->amem, DBE_VALUE|DBE_LOG);
 	}
 }
 

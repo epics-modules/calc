@@ -830,4 +830,14 @@ recordtype(acalcout) {
 		interest(1)
 		menu(acalcoutSIZE)
 	}
+	field(AMEM, DBF_LONG) {
+        special(SPC_NOMOD)
+        interest(1)
+        prompt("Allocated array memory")
+    }
+	field(PMEM, DBF_LONG) {
+        special(SPC_NOMOD)
+        interest(1)
+        prompt("Prev array memory")
+    }
 }

@@ -36,3 +36,9 @@ registrar(interpRegister)
 variable(arrayTestDebug, int)
 registrar(arrayTestRegister)
 variable("sseqRecDebug", int)
+
+# allocated memory in acalcout records
+registrar(aCalcMonitorMemRegister)
+variable(aCalcMonitorMem_debug)
+# allocated memory in acalc engine
+registrar(acalcTotalAllocatedMemoryRegister)

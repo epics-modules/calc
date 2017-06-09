@@ -28,9 +28,10 @@
 #define epicsExportSharedSymbols
 #include "aCalcPostfix.h"
 #include "aCalcPostfixPvt.h"
-#include <epicsExport.h>
+#include <iocsh.h>
 #include <epicsMutex.h>
 #include <epicsTime.h>
+#include <epicsExport.h>
 
 /* base currently (3.15.0.1) does not have the freeList behavior needed to
  * manage a list of freeLists as aCalcPerform needs.  If it ever gets the
@@ -241,6 +242,23 @@ void *get_freeList(int nuse) {
 	/* caller is out of luck */
 	epicsMutexUnlock(fListLock);
 	return(0);
+}
+
+long acalcTotalAllocatedMemory(void) {
+	int i;
+	long blocks, total=0;
+	epicsMutexMustLock(fListLock);
+	for (i=0; i<NLISTS; i++) {
+		if (fList[i].freeListPvt) {
+			blocks = freeListItemsTotal(fList[i].freeListPvt);
+			total += fList[i].numDoubles*8*blocks;
+			if (aCalcPerformDebug>1) printf("aCalcPerform:fList[%d].numDoubles=%d, blocks=%ld\n",
+				i, fList[i].numDoubles, blocks);
+		}
+	}
+	epicsMutexUnlock(fListLock);
+	if (aCalcPerformDebug>1) printf("aCalcPerform:total memory %f MB\n", total/1.e6);
+	return(total);
 }
 
 /*** end manage an array of freeLists ***/
@@ -1687,3 +1705,19 @@ static int cond_search(const unsigned char **ppinst, int match)
 	}
 	return 1;
 }
+
+
+static const iocshFuncDef acalcTotalAllocatedMemoryDef  = {"acalcTotalAllocatedMemory", 0, NULL};
+
+static void acalcTotalAllocatedMemoryCallFunc(const iocshArgBuf *args)
+{
+    acalcTotalAllocatedMemory();
+}
+
+
+static void acalcTotalAllocatedMemoryRegister(void)
+{
+    iocshRegister(&acalcTotalAllocatedMemoryDef,  acalcTotalAllocatedMemoryCallFunc);
+}
+
+epicsExportRegistrar(acalcTotalAllocatedMemoryRegister);
