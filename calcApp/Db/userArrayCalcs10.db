@@ -256,3 +256,15 @@ record(acalcout, "$(P)userArrayCalc10") {
   field(NELM, "$(N)")
   field(NUSE, "$(N)")
 }
+record(ao, "$(P)acalcRecMem") {
+	field(PREC, "3")
+	field(EGU, "MB")
+}
+record(ao, "$(P)acalcCalcMem") {
+	field(PREC, "3")
+	field(EGU, "MB")
+}
+record(ao, "$(P)acalcTotMem") {
+	field(PREC, "3")
+	field(EGU, "MB")
+}
