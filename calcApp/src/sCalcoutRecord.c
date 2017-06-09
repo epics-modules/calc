@@ -142,6 +142,15 @@ typedef struct scalcoutDSET {
 
 epicsExportAddress(rset, scalcoutRSET);
 
+/* strncpy sucks (may copy extra characters, may not null-terminate) */
+#define strNcpy(dest, src, N) {			\
+	int ii;								\
+	char *dd=(dest), *ss=(src);				\
+	for (ii=0; *ss && ii < (N)-1; ii++)	\
+		*dd++ = *ss++;					\
+	*dd = '\0';							\
+}
+
 /* To provide feedback to the user as to the connection status of the 
  * links (.INxV and .OUTV), the following algorithm has been implemented ...
  *
@@ -208,8 +217,12 @@ static long init_record(scalcoutRecord *pcalc, int pass)
 		pcalc->rpvt = (void *)calloc(1, sizeof(struct rpvtStruct));
 		/* allocate space for previous-value strings */
 		s = (char *)calloc(STRING_MAX_FIELDS, STRING_SIZE);
+		if (sCalcoutRecordDebug) printf("sCalcoutRecord:init_record(%s): s=%p\n", pcalc->name, s);
 		for (i=0, ps=(char **)&(pcalc->paa); i<STRING_MAX_FIELDS; i++, ps++)
 			*ps = &s[i*STRING_SIZE];
+		if (sCalcoutRecordDebug) printf("sCalcoutRecord:init_record(%s): paa=%p\n",
+			pcalc->name, pcalc->paa);
+
 		/* allocate and fill in array of pointers to strings AA... */
 		pcalc->strs = (char **)calloc(STRING_MAX_FIELDS, sizeof(char *));
 		if (sCalcoutRecordDebug) printf("sCalcoutRecord:init_record: strs=%p\n",
@@ -327,7 +340,13 @@ static long process(scalcoutRecord *pcalc)
 		}
 		for (i=0, pscurr=pcalc->strs, psprev=&pcalc->paa; i<STRING_MAX_FIELDS;
 				i++, pscurr++, psprev++) {
-			strcpy(*psprev, *pscurr);
+			/* strcpy(*psprev, *pscurr);*/
+			if (sCalcoutRecordDebug>5) {
+				printf("sCalcoutRecord(%s):process: copying '%s' from %p to %p\n",
+					pcalc->name, *pscurr, *pscurr, *psprev);
+			}
+
+			strNcpy(*psprev, *pscurr, STRING_SIZE);
 		}
 
 		if (fetch_values(pcalc)==0) {
@@ -336,7 +355,8 @@ static long process(scalcoutRecord *pcalc)
 					pcalc->rpcl, pcalc->prec);
 			if (stat) {
 				pcalc->val = -1;
-				strcpy(pcalc->sval,"***ERROR***");
+				/* strcpy(pcalc->sval,"***ERROR***"); */
+				strNcpy(pcalc->sval, "***ERROR***", STRING_SIZE);
 				recGblSetSevr(pcalc,CALC_ALARM,INVALID_ALARM);
 			} else {
 				pcalc->udf = FALSE;
@@ -565,10 +585,13 @@ static long cvt_dbaddr(dbAddr *paddr)
 	if ((fieldIndex>=scalcoutRecordPAA) && (fieldIndex<=scalcoutRecordPLL)) {
 		i = pfield - paa;
 		paddr->pfield = paa[i];
+		if (sCalcoutRecordDebug > 5) printf("sCalcout: cvt_dbaddr: setting paddr->pfield = %p\n",
+			(void *)paddr->pfield);
+		if (sCalcoutRecordDebug > 5) printf("sCalcout: cvt_dbaddr: i= %d %d\n", i, fieldIndex - scalcoutRecordPAA);
 		paddr->no_elements = STRING_SIZE;
 	}
 	paddr->field_type = DBF_STRING;
-	paddr->field_size = STRING_SIZE;
+	paddr->field_size = 1;
 	paddr->dbr_field_type = DBR_STRING;
 	return(0);
 }
@@ -733,7 +756,8 @@ static void execOutput(scalcoutRecord *pcalc)
 	switch (pcalc->dopt) {
 	case scalcoutDOPT_Use_VAL:
 		pcalc->oval = pcalc->val;
-		strcpy(pcalc->osv, pcalc->sval);
+		/* strcpy(pcalc->osv, pcalc->sval); */
+		strNcpy(pcalc->osv, pcalc->sval, STRING_SIZE);
 		break;
 
 	case scalcoutDOPT_Use_OVAL:
@@ -741,7 +765,8 @@ static void execOutput(scalcoutRecord *pcalc)
 				STRING_MAX_FIELDS, &pcalc->oval, pcalc->osv, STRING_SIZE,
 				pcalc->orpc, pcalc->prec)) {
 			pcalc->val = -1;
-			strcpy(pcalc->osv,"***ERROR***");
+			/* strcpy(pcalc->osv,"***ERROR***"); */
+			strNcpy(pcalc->osv,"***ERROR***", STRING_SIZE);
 			recGblSetSevr(pcalc,CALC_ALARM,INVALID_ALARM);
 		}
 		break;
@@ -810,13 +835,15 @@ static void monitor(scalcoutRecord *pcalc)
 	/* send out monitors connected to the value field */
 	if (monitor_mask) db_post_events(pcalc,&pcalc->val,monitor_mask);
 
-	if (strcmp(pcalc->sval, pcalc->psvl)) {
+	if (strncmp(pcalc->sval, pcalc->psvl, STRING_SIZE)) {
 		db_post_events(pcalc, pcalc->sval, monitor_mask|DBE_VALUE|DBE_LOG);
-		strcpy(pcalc->psvl, pcalc->sval);
+		/* strcpy(pcalc->psvl, pcalc->sval); */
+		strNcpy(pcalc->psvl, pcalc->sval, STRING_SIZE);
 	}
-	if (strcmp(pcalc->osv, pcalc->posv)) {
+	if (strncmp(pcalc->osv, pcalc->posv, STRING_SIZE)) {
 		db_post_events(pcalc, pcalc->osv, monitor_mask|DBE_VALUE|DBE_LOG);
-		strcpy(pcalc->posv, pcalc->osv);
+		/* strcpy(pcalc->posv, pcalc->osv); */
+		strNcpy(pcalc->posv, pcalc->osv, STRING_SIZE);
 	}
 
 	/* check all input fields for changes */
@@ -827,7 +854,7 @@ static void monitor(scalcoutRecord *pcalc)
 	}
 	for (i=0, psnew=pcalc->strs, psprev=&pcalc->paa; i<STRING_MAX_FIELDS;
 			i++, psnew++, psprev++) {
-		if (strcmp(*psnew, *psprev)) {
+		if (strncmp(*psnew, *psprev, STRING_SIZE)) {
 			db_post_events(pcalc, *psnew, monitor_mask|DBE_VALUE|DBE_LOG);
 		}
 	}
@@ -946,7 +973,7 @@ static void checkLinks(scalcoutRecord *pcalc)
 	char 			tmpstr[100];
 	int isString, linkWorks;
 
-	if (sCalcoutRecordDebug>5) printf("checkLinks() for %s\n", pcalc->name);
+	if (sCalcoutRecordDebug>10) printf("checkLinks() for %s\n", pcalc->name);
 
 	plink   = &pcalc->inpa;
 	plinkValid = &pcalc->inav;
