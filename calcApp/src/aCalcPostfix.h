@@ -53,6 +53,9 @@ epicsShareFunc long
 epicsShareFunc const char *
 	aCalcErrorStr(short error);
 
+epicsShareFunc long
+	acalcTotalAllocatedMemory(void);
+
 #ifdef __cplusplus
 }
 #endif
