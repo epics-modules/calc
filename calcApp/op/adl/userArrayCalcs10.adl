@@ -8,7 +8,7 @@ display {
 		x=1055
 		y=233
 		width=195
-		height=240
+		height=310
 	}
 	clr=64
 	bclr=3
@@ -216,4 +216,91 @@ composite {
 	clr=0
 	bclr=63
 	label="-All Plots"
+}
+"text update" {
+	object {
+		x=75
+		y=265
+		width=100
+		height=18
+	}
+	monitor {
+		chan="$(P)acalcRecMem"
+		clr=54
+		bclr=3
+	}
+	format="compact"
+	limits {
+	}
+}
+text {
+	object {
+		x=0
+		y=265
+		width=70
+		height=18
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="recMem"
+	align="horiz. right"
+}
+text {
+	object {
+		x=0
+		y=285
+		width=70
+		height=18
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="calcMem"
+	align="horiz. right"
+}
+"text update" {
+	object {
+		x=75
+		y=285
+		width=100
+		height=18
+	}
+	monitor {
+		chan="$(P)acalcCalcMem"
+		clr=54
+		bclr=3
+	}
+	format="compact"
+	limits {
+	}
+}
+text {
+	object {
+		x=0
+		y=245
+		width=70
+		height=20
+	}
+	"basic attribute" {
+		clr=14
+	}
+	textix="totMem"
+	align="horiz. right"
+}
+"text update" {
+	object {
+		x=75
+		y=245
+		width=100
+		height=20
+	}
+	monitor {
+		chan="$(P)acalcTotMem"
+		clr=54
+		bclr=3
+	}
+	format="compact"
+	limits {
+	}
 }
