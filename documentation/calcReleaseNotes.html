@@ -24,6 +24,22 @@ received from DBF_CHAR and DBF_UCHAR PVs.  Previously, one or more trailing
 "\000" fragments were appended (by epicsStrSnPrintEscaped) to the string.
 These fragments are now stripped.
 
+<li>Added iocsh directory, and populated with scripts callable from st.cmd
+
+<li>userArrayCalcs10more_settings.req had incorrect Enable PV
+
+<li>fix verious .adl files for better translation with adl2ui
+
+<li>remake all ui files with adl2ui from caqtdm 4.1.3
+
+<li>userStringCalcs10.db: Update SDIS links to include individual and global enable/disable
+
+<li>Added acalc and scalc unit tests
+
+<li>array calcs monitor and display allocated memory
+
+<li>sCalcoutRecord.c: strcpy -> strNcpy; strcmp -> strncmp; paddr->field_size = STRING_SIZE changed to paddr->field_size = 1 in cvt_dbaddr()
+
 </ul>
 
 <h2 align="center">Release 3-6-1</h2>
