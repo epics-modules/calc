@@ -247,6 +247,7 @@ void *get_freeList(int nuse) {
 long acalcTotalAllocatedMemory(void) {
 	int i;
 	long blocks, total=0;
+	if (fListLock==0) fListLock = epicsMutexMustCreate();
 	epicsMutexMustLock(fListLock);
 	for (i=0; i<NLISTS; i++) {
 		if (fList[i].freeListPvt) {
