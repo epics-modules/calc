@@ -41,7 +41,7 @@ static int aCalcMonitorMem_task(void *);
 
 typedef struct acalcoutRecord_info
 {
-    char name[PVNAME_SZ];      /* pv names limited to 60 chars + term. in dbDefs.h */
+	char name[PVNAME_SZ];      /* pv names limited to 60 chars + term. in dbDefs.h */
 	struct dbAddr Addr;
 	long AMEM;
 } AcalcoutRecord_info;
@@ -63,63 +63,60 @@ struct dbAddr *acalcRecMem_pAddr=0, *acalcCalcMem_pAddr=0, *acalcTotMem_pAddr=0,
 
 char **getRecordList()
 {
-    DBENTRY dbentry, *pdbentry = &dbentry;
-    long    status, a_status;
-    char    **paprecords = 0, temp[PVNAME_STRINGSZ];
-    int     num_entries = 0, length = 0, index = 0;
+	DBENTRY dbentry, *pdbentry = &dbentry;
+	long    status, a_status;
+	char    **paprecords = 0, temp[PVNAME_STRINGSZ];
+	int     num_entries = 0, length = 0, index = 0;
 
-    dbInitEntry(pdbbase,pdbentry);
-    status = dbFindRecordType(pdbentry,"acalcout");
-    if (status)
-        errlogPrintf("getRecordList(): No record description\n");
+	dbInitEntry(pdbbase,pdbentry);
+	status = dbFindRecordType(pdbentry,"acalcout");
+	if (status)
+		errlogPrintf("getRecordList(): No record description\n");
 
-    while (!status)
-    {
-        num_entries = dbGetNRecords(pdbentry);
-        paprecords = (char **) callocMustSucceed(num_entries, sizeof(char *),
-                                                 "getRecordList(1st)");
-        status = dbFirstRecord(pdbentry);
-        while (!status)
-        {
-            a_status = dbIsAlias(pdbentry);
-	    if (a_status == 0)
-	    {
-                length = sprintf(temp, "%s", dbGetRecordName(pdbentry));
-                paprecords[index] = (char *) callocMustSucceed(length+1,
-                                           sizeof(char), "getRecordList(2nd)");
-                strcpy(paprecords[index], temp);
+	while (!status) {
+		num_entries = dbGetNRecords(pdbentry);
+		paprecords = (char **) callocMustSucceed(num_entries, sizeof(char *),
+								"getRecordList(1st)");
+		status = dbFirstRecord(pdbentry);
+		while (!status) {
+			a_status = dbIsAlias(pdbentry);
+			if (a_status == 0) {
+				length = sprintf(temp, "%s", dbGetRecordName(pdbentry));
+				paprecords[index] = (char *) callocMustSucceed(length+1,
+				sizeof(char), "getRecordList(2nd)");
+				strcpy(paprecords[index], temp);
 				if (aCalcMonitorMem_debug) {
-					printf("acalcout record name %s\n", temp);
+					printf("aCalcMonitorMem:getRecordList: acalcout record name %s\n", temp);
 				}
-                index++;
-	    }
-            status = dbNextRecord(pdbentry);
-        }
-        numRecords = index;
-    }
+				index++;
+			}
+			status = dbNextRecord(pdbentry);
+		}
+		numRecords = index;
+	}
 
-    dbFinishEntry(pdbentry);
-    return(paprecords);
+	dbFinishEntry(pdbentry);
+	return(paprecords);
 }
 
 int aCalcMonitorMemInit(char *ioc_prefix)
 {
-    int status = 0;
-    static int initialized = 0;	/* aCalcMonitorMem initialized indicator. */
+	int status = 0;
+	static int initialized = 0;	/* aCalcMonitorMem initialized indicator. */
     
-    if (initialized)
-    {
-        printf( "aCalcMonitorMem already initialized. Exiting\n");
-        return(-1);
-    }
+	if (initialized)
+	{
+		printf( "aCalcMonitorMem already initialized. Exiting\n");
+		return(-1);
+	}
 
-    initialized = 1;
-    prefix = epicsStrDup(ioc_prefix);
+	initialized = 1;
+	prefix = epicsStrDup(ioc_prefix);
 
-    epicsThreadCreate((char *) "aCalcMonitorMem", epicsThreadPriorityMedium,
-                      epicsThreadGetStackSize(epicsThreadStackMedium),
-                      (EPICSTHREADFUNC) aCalcMonitorMem_task, (void *) NULL);
-    return(status);
+	epicsThreadCreate((char *) "aCalcMonitorMem", epicsThreadPriorityMedium,
+					epicsThreadGetStackSize(epicsThreadStackMedium),
+					(EPICSTHREADFUNC) aCalcMonitorMem_task, (void *) NULL);
+	return(status);
 }
 
 
@@ -132,7 +129,7 @@ static int aCalcMonitorMem_task(void *arg)
 
     recordlist = getRecordList();
     if (aCalcMonitorMem_debug) {
-		errlogPrintf("There are %i acalcout records\n", numRecords);
+		printf("aCalcMonitorMem_task: There are %i acalcout records\n", numRecords);
 	}
 
 	if (numRecords > 0) {
@@ -202,7 +199,7 @@ static int aCalcMonitorMem_task(void *arg)
 		}
 		if (totalMem !=prevTotalMem) {
 			prevTotalMem = totalMem;
-		    if (aCalcMonitorMem_debug) {
+			if (aCalcMonitorMem_debug) {
 				printf("aCalcMonitorMem_task: allocated memory=%f MB (max=%f)\n", totalMem, freeMem);
 			}
 			if (freeMem_pAddr && (totalMem > freeMem/2)) {
@@ -211,7 +208,7 @@ static int aCalcMonitorMem_task(void *arg)
 		}
 		epicsThreadSleep(10);
 	}
-    return(0);
+	return(0);
 }
 
 
