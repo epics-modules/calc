@@ -34,7 +34,7 @@ static void testValExpr(const char* expr, double* args, double** aargs, double e
 	
 	bool pass;
 	
-	if (finite(expected) and finite(val))
+	if (finite(expected) && finite(val))
 	{
 		pass = fabs(expected - val) < 1e-8;
 	}
@@ -80,7 +80,7 @@ static void testAValExpr(const char* expr, double* args, double** aargs, double*
 	
 	for (i = 0; i < length; i += 1)
 	{
-		if (finite(expected[i]) and finite(aval[i]))
+		if (finite(expected[i]) && finite(aval[i]))
 		{
 			if (fabs(expected[i] - aval[i]) > 1e-8)
 			{
@@ -88,7 +88,7 @@ static void testAValExpr(const char* expr, double* args, double** aargs, double*
 				break;
 			}
 		}
-		else if (isnan(expected[i]) and not isnan(aval[i]))
+		else if (isnan(expected[i]) && !isnan(aval[i]))
 		{
 			pass = false;
 			break;
@@ -166,15 +166,15 @@ MAIN(acalcTest)
 	testValExpr("1.e7/A", args, aargs, (1e7 / A));
 	testValExpr("A>9?1:0", args, aargs, (A > 9) ? 1 : 0);
 	testValExpr("A%10+1", args, aargs, (int) A % 10 + 1);
-	testValExpr("!A", args, aargs, not A);
+	testValExpr("!A", args, aargs, !A);
 	testValExpr("C+((A-E)/(D-E))*(B-C)", args, aargs, C+((A-E)/(D-E))*(B-C));
 	testValExpr("A#B", args, aargs, A != B);
 	testValExpr("E+nint(D*((A-C)/(B-C)))", args, aargs, E + (int)(D*(A - C)/(B-C)));
 	testValExpr("(A+1)*1000", args, aargs, (A + 1) * 1000);
-	testValExpr("B?0:!A", args, aargs, B ? 0 : (not A));
+	testValExpr("B?0:!A", args, aargs, B ? 0 : (!A));
 	testValExpr("1", args, aargs, 1);
 	testValExpr("A?0:B", args, aargs, A ? 0 : B);
-	testValExpr("A&&B&&!I", args, aargs, A && B && (not I));
+	testValExpr("A&&B&&!I", args, aargs, A && B && (!I));
 	testValExpr("(A&B&C&D)=1", args, aargs, ((int) A & (int) B & (int) C & (int) D) == 1);
 	testValExpr("(A&B&C&D&E&F&G&H)=1", args, aargs, ((int) A & (int) B & (int) C & (int) D & (int) E & (int) F & (int) G & (int) H) == 1);
 	testValExpr("(A>15)&&B", args, aargs, (A > 15) && B);
@@ -194,8 +194,8 @@ MAIN(acalcTest)
 	testValExpr("D?4:C?3:B?2:A?1:0", args, aargs, D ? 4 : C ? 3 : B ? 2 : A ? 1 : 0);
 	testValExpr("a>0?1:0", args, aargs, A > 0 ? 1 : 0);
 	testValExpr("A=1", args, aargs, A == 1);
-	testValExpr("A&(I||!J)&(K||!L)", args, aargs, (int) A & (int) (I || not J) & (int) (K || not L));
-	testValExpr("(A||!B)&(C||!D)&(E||!F)&(G||!H)", args, aargs, (int) (A || not B) & (int) (C || not D) & (int) (E || not F) & (int) (G || not H));
+	testValExpr("A&(I||!J)&(K||!L)", args, aargs, (int) A & (int) (I || !J) & (int) (K || !L));
+	testValExpr("(A||!B)&(C||!D)&(E||!F)&(G||!H)", args, aargs, (int) (A || !B) & (int) (C || !D) & (int) (E || !F) & (int) (G || !H));
 	testValExpr("(A-1.0)", args, aargs, (A - 1.0));
 	testValExpr("A&&C?A-1:B", args, aargs, A && C ? A - 1 : B);
 	testValExpr("C+(A/D)*(B-C)", args, aargs, C + (A / D) * (B - C));
@@ -205,8 +205,8 @@ MAIN(acalcTest)
 	testValExpr("A?2:1", args, aargs, A ? 2 : 1);
 	testValExpr("A*1.0", args, aargs, A * 1.0);
 	testValExpr("log(A)", args, aargs, std::log(A));
-	testValExpr("-(-2)**2", args, aargs, pow(-1 * -2, 2));
-	testValExpr("--2**2", args, aargs, pow(-1 * -2, 2));
+	testValExpr("-(-2)**2", args, aargs, powl(-1 * -2, 2));
+	testValExpr("--2**2", args, aargs, powl(-1 * -2, 2));
 	testValExpr("A--B", args, aargs, A - -B);
 	testValExpr("A--B*C", args, aargs, A - -B * C);
 	testValExpr("A+B*C", args, aargs, A + B * C);
@@ -224,11 +224,11 @@ MAIN(acalcTest)
 	testValExpr("cosh(pi)", args, aargs, cosh(3.14159265358979323846));
 	testValExpr("sinh(pi)", args, aargs, sinh(3.14159265358979323846));
 	testValExpr("tanh(pi)", args, aargs, tanh(3.14159265358979323846));
-	testValExpr("atan2(10,5)", args, aargs, atan2(5, 10));
-	testValExpr("sqr(10)", args, aargs, sqrt(10));
-	testValExpr("sqrt(10)", args, aargs, sqrt(10));
-	testValExpr("2^3", args, aargs, pow(2,3));
-	testValExpr("2**3", args, aargs, pow(2,3));
+	testValExpr("atan2(10,5)", args, aargs, atan2l(5, 10));
+	testValExpr("sqr(10)", args, aargs, sqrtl(10));
+	testValExpr("sqrt(10)", args, aargs, sqrtl(10));
+	testValExpr("2^3", args, aargs, powl(2,3));
+	testValExpr("2**3", args, aargs, powl(2,3));
 	testValExpr("a<?b", args, aargs, std::min(A,B));
 	testValExpr("a>?b", args, aargs, std::max(A,B));
 	testValExpr("5xor3", args, aargs, 5 ^ 3);
