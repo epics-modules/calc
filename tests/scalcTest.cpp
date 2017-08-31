@@ -186,8 +186,8 @@ MAIN(scalcTest)
 	testValExpr("A?2:1", args, sargs, A ? 2 : 1);
 	testValExpr("A*1.0", args, sargs, A * 1.0);
 	testValExpr("log(A)", args, sargs, std::log(A));
-	testValExpr("-(-2)**2", args, sargs, powl(-1 * -2, 2));
-	testValExpr("--2**2", args, sargs, powl(-1 * -2, 2));
+	testValExpr("-(-2)**2", args, sargs, pow(-1 * -2., 2));
+	testValExpr("--2**2", args, sargs, pow(-1 * -2., 2));
 	testValExpr("A--B", args, sargs, A - -B);
 	testValExpr("A--B*C", args, sargs, A - -B * C);
 	testValExpr("A+B*C", args, sargs, A + B * C);
@@ -205,11 +205,11 @@ MAIN(scalcTest)
 	testValExpr("cosh(pi)", args, sargs, cosh(3.14159265358979323846));
 	testValExpr("sinh(pi)", args, sargs, sinh(3.14159265358979323846));
 	testValExpr("tanh(pi)", args, sargs, tanh(3.14159265358979323846));
-	testValExpr("atan2(10,5)", args, sargs, atan2l(5, 10));
-	testValExpr("sqr(10)", args, sargs, sqrtl(10));
-	testValExpr("sqrt(10)", args, sargs, sqrtl(10));
-	testValExpr("2^3", args, sargs, powl(2,3));
-	testValExpr("2**3", args, sargs, powl(2,3));
+	testValExpr("atan2(10,5)", args, sargs, atan2(5., 10));
+	testValExpr("sqr(10)", args, sargs, sqrt(10.));
+	testValExpr("sqrt(10)", args, sargs, sqrt(10.));
+	testValExpr("2^3", args, sargs, pow(2.,3));
+	testValExpr("2**3", args, sargs, pow(2.,3));
 	testValExpr("a<?b", args, sargs, std::min(A,B));
 	testValExpr("a>?b", args, sargs, std::max(A,B));
 	testValExpr("5xor3", args, sargs, 5 ^ 3);
