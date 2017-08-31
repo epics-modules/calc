@@ -337,7 +337,9 @@ MAIN(acalcTest)
 	testAValExpr("A<B?BB:AA[A,A]", args, aargs, A<B ? BB : &temp[0], A<B ? 3 : 1);
 	
 	testAValExpr("ix[1,3]", args, aargs, AA, 3);
-	testAValExpr("@@0:=BB;AA;aa:=aa-3[0,2]", args, aargs, BB, 3);
+	
+	double BB_check[3] = {4.0, 5.0, 6.0};
+	testAValExpr("@@0:=BB;AA;aa:=aa-3[0,2]", args, aargs, BB_check, 3);
 	testAValExpr("a:=-7;@@-a:=BB;HH;a:=1;hh:=ii", args, aargs, BB, 3);
 
 	return testDone();
