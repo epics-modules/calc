@@ -3,6 +3,8 @@ dist: trusty
 language: c
 compiler:
   - gcc
+notifications:
+  email: false
 cache:
   directories:
     - $HOME/.cache
