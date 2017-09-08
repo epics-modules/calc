@@ -21,9 +21,9 @@ env:
     - BASE=R3.15.5    STATIC=shared SSCAN=R2-10-2 SNCSEQ=2.2.4
     - BASE=R3.14.12.6 STATIC=shared SSCAN=R2-10-2 SNCSEQ=2.2.4
     
-before_install: chmod +x ./.ci/travis-prepare.sh
+before_install: chmod +x ./.ci/assemble_synApps.sh
 
-install: ./.ci/travis-prepare.sh
+install: ./.ci/assemble_synApps.sh
     
     
 script: 
