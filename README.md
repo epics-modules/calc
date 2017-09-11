@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/epics-modules/calc.svg?branch=master)](https://travis-ci.org/epics-modules/calc)
+
 # calc
 APS BCDA synApps module: calc
 

@@ -1,0 +1,34 @@
+sudo: false
+dist: trusty
+language: c
+compiler:
+  - gcc
+notifications:
+  email: false
+cache:
+  directories:
+    - $HOME/.cache
+addons:
+  apt:
+    packages:
+    - libreadline6-dev
+    - libncurses5-dev
+    - perl
+    - clang
+    - g++-mingw-w64-i686
+    - re2c
+env:
+    - BASE=R3.15.5    STATIC=shared SSCAN=R2-10-2 SNCSEQ=2.2.4
+    - BASE=R3.14.12.6 STATIC=shared SSCAN=R2-10-2 SNCSEQ=2.2.4
+    
+before_install: chmod +x ./.ci/assemble_synApps.sh
+
+install: ./.ci/assemble_synApps.sh
+    
+    
+script: 
+  # Build the module
+  - make
+  - $TRAVIS_BUILD_DIR/tests/O.linux-x86_64/acalcTest
+  - $TRAVIS_BUILD_DIR/tests/O.linux-x86_64/scalcTest
+ 
