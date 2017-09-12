@@ -12,7 +12,7 @@ shallow_repo()
 	RELEASE_NAME=$3
 	TAG=$4
 	
-		FOLDER_NAME=$MODULE_NAME-${TAG/./-}
+		FOLDER_NAME=$MODULE_NAME-${TAG//./-}
 	
 			echo
 	echo "Grabbing $MODULE_NAME at tag: $TAG"
@@ -159,9 +159,9 @@ then
 wget http://www-csr.bessy.de/control/SoftDist/sequencer/releases/seq-$SNCSEQ.tar.gz
 tar zxf seq-$SNCSEQ.tar.gz
 # The synApps build can't handle '.'
-mv seq-$SNCSEQ seq-${SNCSEQ/./-}
+mv seq-$SNCSEQ seq-${SNCSEQ//./-}
 rm -f seq-$SNCSEQ.tar.gz
-echo 'SNCSEQ=$(SUPPORT)/seq-${SNCSEQ/./-}' >> ./configure/RELEASE
+echo "SNCSEQ=\$(SUPPORT)/seq-${SNCSEQ//./-}" >> ./configure/RELEASE
 
 fi
 
