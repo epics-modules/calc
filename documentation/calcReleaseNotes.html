@@ -9,7 +9,7 @@
 
 <h1 align="center">calc Release Notes</h1>
 
-<h2 align="center">Release 3-7 (unreleased)</h2>
+<h2 align="center">Release 3-7 (12/5/2017)</h2>
 <ul>
 <li>seq and sseq record displays now expose the SELL, SELN, and SELM fields,
 and related .req files autosave those fields.
@@ -39,6 +39,16 @@ These fragments are now stripped.
 <li>array calcs monitor and display allocated memory
 
 <li>sCalcoutRecord.c: strcpy -> strNcpy; strcmp -> strncmp; paddr->field_size = STRING_SIZE changed to paddr->field_size = 1 in cvt_dbaddr()
+
+<li>Changed order of STR* and DO* in sCalcout request file, so manual restore
+works (string value overrides numeric value).
+
+<li> Fixes to compile with Visual Studio 2010
+
+<li> aCalcTest.cpp: Restored powl, atan2l, sqrtl to pow, atan2, sqrt; change
+first arg to double to eliminate errors on Windows.
+
+<li> Update CONFIG to use CONFIG_SITE.
 
 </ul>
 
