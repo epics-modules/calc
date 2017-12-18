@@ -937,7 +937,7 @@ static void monitor(acalcoutRecord *pcalc)
 	double			delta;
 	double			*pnew, *pprev;
 	double			**panew;
-	int				i, diff;
+	int				i, diff_mdel, diff_adel;
 	long			numElements;
 
 	if (aCalcoutRecordDebug >= 10)
@@ -980,23 +980,39 @@ static void monitor(acalcoutRecord *pcalc)
 	numElements = acalcGetNumElements( pcalc );
 #endif
 
-	for (i=0, diff=0; i<numElements; i++) {
-		if (pcalc->aval[i] != pcalc->pavl[i]) {diff = 1;break;}
+	for (i=0, diff_mdel=0, diff_adel=0; i<numElements; i++) {
+		delta = fabs(pcalc->pavl[i] - pcalc->aval[i]);
+
+		if (delta > pcalc->mdel) diff_mdel = 1;
+		if (delta > pcalc->adel) diff_adel = 1;
 	}
 
-	if (diff) {
+	if (diff_mdel || diff_adel) {
+		unsigned short mask = monitor_mask;
+
+		if (diff_mdel) mask |= DBE_VALUE;
+		if (diff_adel) mask |= DBE_LOG;
+
 		if (aCalcoutRecordDebug >= 1)
 			printf("acalcoutRecord(%s):posting .AVAL\n", pcalc->name);
-		db_post_events(pcalc, pcalc->aval, monitor_mask|DBE_VALUE|DBE_LOG);
+		db_post_events(pcalc, pcalc->aval, mask);
 		for (i=0; i<numElements; i++) pcalc->pavl[i] = pcalc->aval[i];
 	}
 
-	for (i=0, diff=0; i<numElements; i++) {
-		if (pcalc->oav[i] != pcalc->poav[i]) {diff = 1;break;}
+	for (i=0, diff_mdel=0, diff_adel=0; i<numElements; i++) {
+		delta = fabs(pcalc->poav[i] - pcalc->oav[i]);
+
+		if (delta > pcalc->mdel) diff_mdel = 1;
+		if (delta > pcalc->adel) diff_adel = 1;
 	}
 
-	if (diff) {
-		db_post_events(pcalc, pcalc->oav, monitor_mask|DBE_VALUE|DBE_LOG);
+	if (diff_mdel || diff_adel) {
+		unsigned short mask = monitor_mask;
+
+		if (diff_mdel) mask |= DBE_VALUE;
+		if (diff_adel) mask |= DBE_LOG;
+
+		db_post_events(pcalc, pcalc->oav, mask);
 		for (i=0; i<numElements; i++) pcalc->poav[i] = pcalc->oav[i];
 	}
 
