@@ -1,0 +1,694 @@
+4 0 0
+beginScreenProperties
+major 4
+minor 0
+release 0
+x 466
+y 87
+w 150
+h 220
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-medium-r-8.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor index 64
+bgColor index 3
+textColor index 14
+ctlFgColor1 index 30
+ctlFgColor2 index 32
+ctlBgColor1 index 34
+ctlBgColor2 index 35
+topShadowColor index 37
+botShadowColor index 44
+snapToGrid
+gridSize 5
+endScreenProperties
+
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 25
+y 20
+w 125
+h 200
+
+beginGroup
+
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 25
+y 20
+w 125
+h 20
+controlPv "$(P)user$(TYPE)$(N1).DESC"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 54
+bgColor index 3
+editable
+autoHeight
+format decimal
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 25
+y 40
+w 125
+h 20
+controlPv "$(P)user$(TYPE)$(N2).DESC"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 54
+bgColor index 3
+editable
+autoHeight
+format decimal
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 25
+y 60
+w 125
+h 20
+controlPv "$(P)user$(TYPE)$(N3).DESC"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 54
+bgColor index 3
+editable
+autoHeight
+format decimal
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 25
+y 80
+w 125
+h 20
+controlPv "$(P)user$(TYPE)$(N4).DESC"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 54
+bgColor index 3
+editable
+autoHeight
+format decimal
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 25
+y 100
+w 125
+h 20
+controlPv "$(P)user$(TYPE)$(N5).DESC"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 54
+bgColor index 3
+editable
+autoHeight
+format decimal
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 25
+y 120
+w 125
+h 20
+controlPv "$(P)user$(TYPE)$(N6).DESC"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 54
+bgColor index 3
+editable
+autoHeight
+format decimal
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 25
+y 140
+w 125
+h 20
+controlPv "$(P)user$(TYPE)$(N7).DESC"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 54
+bgColor index 3
+editable
+autoHeight
+format decimal
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 25
+y 160
+w 125
+h 20
+controlPv "$(P)user$(TYPE)$(N8).DESC"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 54
+bgColor index 3
+editable
+autoHeight
+format decimal
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 25
+y 180
+w 125
+h 20
+controlPv "$(P)user$(TYPE)$(N9).DESC"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 54
+bgColor index 3
+editable
+autoHeight
+format decimal
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 25
+y 200
+w 125
+h 20
+controlPv "$(P)user$(TYPE)$(N10).DESC"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 54
+bgColor index 3
+editable
+autoHeight
+format decimal
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 150
+h 20
+fgColor index 14
+bgColor index 51
+selectColor index 51
+inconsistentColor index 14
+topShadowColor index 0
+botShadowColor index 14
+controlPv "$(P)user$(TYPE)Enable.VAL"
+font "helvetica-medium-r-10.0"
+orientation "horizontal"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 20
+w 25
+h 20
+fgColor index 0
+bgColor index 63
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "$(N1)"
+numPvs 6
+numDsps 3
+displayFileName {
+  0 user$(TYPE).adl
+  1 user$(TYPE)_full.adl
+  2 user$(TYPE)_demo.adl
+}
+menuLabel {
+  0 user $(TYPE) $(N1)
+  1 user $(TYPE) $(N1) (full)
+  2 user $(TYPE) $(N1) (demo)
+}
+symbols {
+  0 "P=$(P),C=user$(TYPE)$(N1),S=user$(TYPE)$(N1)"
+  1 "P=$(P),C=user$(TYPE)$(N1),S=user$(TYPE)$(N1)"
+  2 "P=$(P),C=user$(TYPE)$(N1),S=user$(TYPE)$(N1)"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 40
+w 25
+h 20
+fgColor index 0
+bgColor index 63
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "$(N2)"
+numPvs 6
+numDsps 3
+displayFileName {
+  0 user$(TYPE).adl
+  1 user$(TYPE)_full.adl
+  2 user$(TYPE)_demo.adl
+}
+menuLabel {
+  0 user $(TYPE) $(N2)
+  1 user $(TYPE) $(N2) (full)
+  2 user $(TYPE) $(N2) (demo)
+}
+symbols {
+  0 "P=$(P),C=user$(TYPE)$(N2),S=user$(TYPE)$(N2)"
+  1 "P=$(P),C=user$(TYPE)$(N2),S=user$(TYPE)$(N2)"
+  2 "P=$(P),C=user$(TYPE)$(N2),S=user$(TYPE)$(N2)"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 60
+w 25
+h 20
+fgColor index 0
+bgColor index 63
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "$(N3)"
+numPvs 6
+numDsps 3
+displayFileName {
+  0 user$(TYPE).adl
+  1 user$(TYPE)_full.adl
+  2 user$(TYPE)_demo.adl
+}
+menuLabel {
+  0 user $(TYPE) $(N3)
+  1 user $(TYPE) $(N3) (full)
+  2 user $(TYPE) $(N3) (demo)
+}
+symbols {
+  0 "P=$(P),C=user$(TYPE)$(N3),S=user$(TYPE)$(N3)"
+  1 "P=$(P),C=user$(TYPE)$(N3),S=user$(TYPE)$(N3)"
+  2 "P=$(P),C=user$(TYPE)$(N3),S=user$(TYPE)$(N3)"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 80
+w 25
+h 20
+fgColor index 0
+bgColor index 63
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "$(N4)"
+numPvs 6
+numDsps 3
+displayFileName {
+  0 user$(TYPE).adl
+  1 user$(TYPE)_full.adl
+  2 user$(TYPE)_demo.adl
+}
+menuLabel {
+  0 user $(TYPE) $(N4)
+  1 user $(TYPE) $(N4) (full)
+  2 user $(TYPE) $(N4) (demo)
+}
+symbols {
+  0 "P=$(P),C=user$(TYPE)$(N4),S=user$(TYPE)$(N4)"
+  1 "P=$(P),C=user$(TYPE)$(N4),S=user$(TYPE)$(N4)"
+  2 "P=$(P),C=user$(TYPE)$(N4),S=user$(TYPE)$(N4)"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 100
+w 25
+h 20
+fgColor index 0
+bgColor index 63
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "$(N5)"
+numPvs 6
+numDsps 3
+displayFileName {
+  0 user$(TYPE).adl
+  1 user$(TYPE)_full.adl
+  2 user$(TYPE)_demo.adl
+}
+menuLabel {
+  0 user $(TYPE) $(N5)
+  1 user $(TYPE) $(N5) (full)
+  2 user $(TYPE) $(N5) (demo)
+}
+symbols {
+  0 "P=$(P),C=user$(TYPE)$(N5),S=user$(TYPE)$(N5)"
+  1 "P=$(P),C=user$(TYPE)$(N5),S=user$(TYPE)$(N5)"
+  2 "P=$(P),C=user$(TYPE)$(N5),S=user$(TYPE)$(N5)"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 120
+w 25
+h 20
+fgColor index 0
+bgColor index 63
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "$(N6)"
+numPvs 6
+numDsps 3
+displayFileName {
+  0 user$(TYPE).adl
+  1 user$(TYPE)_full.adl
+  2 user$(TYPE)_demo.adl
+}
+menuLabel {
+  0 user $(TYPE) $(N6)
+  1 user $(TYPE) $(N6) (full)
+  2 user $(TYPE) $(N6) (demo)
+}
+symbols {
+  0 "P=$(P),C=user$(TYPE)$(N6),S=user$(TYPE)$(N6)"
+  1 "P=$(P),C=user$(TYPE)$(N6),S=user$(TYPE)$(N6)"
+  2 "P=$(P),C=user$(TYPE)$(N6),S=user$(TYPE)$(N6)"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 140
+w 25
+h 20
+fgColor index 0
+bgColor index 63
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "$(N7)"
+numPvs 6
+numDsps 3
+displayFileName {
+  0 user$(TYPE).adl
+  1 user$(TYPE)_full.adl
+  2 user$(TYPE)_demo.adl
+}
+menuLabel {
+  0 user $(TYPE) $(N7)
+  1 user $(TYPE) $(N7) (full)
+  2 user $(TYPE) $(N7) (demo)
+}
+symbols {
+  0 "P=$(P),C=user$(TYPE)$(N7),S=user$(TYPE)$(N7)"
+  1 "P=$(P),C=user$(TYPE)$(N7),S=user$(TYPE)$(N7)"
+  2 "P=$(P),C=user$(TYPE)$(N7),S=user$(TYPE)$(N7)"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 160
+w 25
+h 20
+fgColor index 0
+bgColor index 63
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "$(N8)"
+numPvs 6
+numDsps 3
+displayFileName {
+  0 user$(TYPE).adl
+  1 user$(TYPE)_full.adl
+  2 user$(TYPE)_demo.adl
+}
+menuLabel {
+  0 user $(TYPE) $(N8)
+  1 user $(TYPE) $(N8) (full)
+  2 user $(TYPE) $(N8) (demo)
+}
+symbols {
+  0 "P=$(P),C=user$(TYPE)$(N8),S=user$(TYPE)$(N8)"
+  1 "P=$(P),C=user$(TYPE)$(N8),S=user$(TYPE)$(N8)"
+  2 "P=$(P),C=user$(TYPE)$(N8),S=user$(TYPE)$(N8)"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 180
+w 25
+h 20
+fgColor index 0
+bgColor index 63
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "$(N9)"
+numPvs 6
+numDsps 3
+displayFileName {
+  0 user$(TYPE).adl
+  1 user$(TYPE)_full.adl
+  2 user$(TYPE)_demo.adl
+}
+menuLabel {
+  0 user $(TYPE) $(N9)
+  1 user $(TYPE) $(N9) (full)
+  2 user $(TYPE) $(N9) (demo)
+}
+symbols {
+  0 "P=$(P),C=user$(TYPE)$(N9),S=user$(TYPE)$(N9)"
+  1 "P=$(P),C=user$(TYPE)$(N9),S=user$(TYPE)$(N9)"
+  2 "P=$(P),C=user$(TYPE)$(N9),S=user$(TYPE)$(N9)"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 200
+w 25
+h 20
+fgColor index 0
+bgColor index 63
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "$(N10)"
+numPvs 6
+numDsps 3
+displayFileName {
+  0 user$(TYPE).adl
+  1 user$(TYPE)_full.adl
+  2 user$(TYPE)_demo.adl
+}
+menuLabel {
+  0 user $(TYPE) $(N10)
+  1 user $(TYPE) $(N10) (full)
+  2 user $(TYPE) $(N10) (demo)
+}
+symbols {
+  0 "P=$(P),C=user$(TYPE)$(N10),S=user$(TYPE)$(N10)"
+  1 "P=$(P),C=user$(TYPE)$(N10),S=user$(TYPE)$(N10)"
+  2 "P=$(P),C=user$(TYPE)$(N10),S=user$(TYPE)$(N10)"
+}
+endObjectProperties
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 25
+y 20
+w 125
+h 200
+
+beginGroup
+
+
+endGroup
+
+endObjectProperties
+
+

@@ -1,0 +1,125 @@
+4 0 0
+beginScreenProperties
+major 4
+minor 0
+release 0
+x 1685
+y 176
+w 195
+h 20
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-medium-r-8.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor index 64
+bgColor index 3
+textColor index 14
+ctlFgColor1 index 30
+ctlFgColor2 index 32
+ctlBgColor1 index 34
+ctlBgColor2 index 35
+topShadowColor index 37
+botShadowColor index 44
+snapToGrid
+gridSize 5
+endScreenProperties
+
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 65
+y 0
+w 120
+h 20
+controlPv "$(P)userStringCalc$(N).DESC"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 54
+bgColor index 3
+editable
+autoHeight
+format decimal
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 185
+y 0
+w 9
+h 19
+lineColor index 14
+fill
+fillColor index 14
+lineWidth 0
+visPv "CALC\\\{(a=0)\}($(P)userStringCalc$(N)EnableCalc)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 25
+h 20
+fgColor index 0
+bgColor index 63
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "$(N)"
+numPvs 4
+numDsps 2
+displayFileName {
+  0 userStringCalc.edl
+  1 userStringCalc_full.edl
+}
+menuLabel {
+  0 user String Calc $(N)
+  1 user String Calc $(N) (full)
+}
+symbols {
+  0 "P=$(P),N=$(N),C=userStringCalc$(N)"
+  1 "P=$(P),N=$(N),C=userStringCalc$(N)"
+}
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 25
+y 0
+w 40
+h 20
+fgColor index 14
+bgColor index 51
+selectColor index 51
+inconsistentColor index 14
+topShadowColor index 0
+botShadowColor index 14
+controlPv "$(P)userStringCalc$(N)Enable"
+font "helvetica-medium-r-10.0"
+orientation "horizontal"
+endObjectProperties
+

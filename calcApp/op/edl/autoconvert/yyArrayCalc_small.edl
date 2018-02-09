@@ -1,0 +1,121 @@
+4 0 0
+beginScreenProperties
+major 4
+minor 0
+release 0
+x 1173
+y 303
+w 400
+h 315
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-medium-r-8.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor index 14
+bgColor index 3
+textColor index 14
+ctlFgColor1 index 30
+ctlFgColor2 index 32
+ctlBgColor1 index 34
+ctlBgColor2 index 35
+topShadowColor index 37
+botShadowColor index 44
+snapToGrid
+gridSize 5
+endScreenProperties
+
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 400
+h 311
+
+beginGroup
+
+# (Embedded Window)
+object activePipClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 400
+h 311
+fgColor index 14
+bgColor index 0
+topShadowColor index 0
+botShadowColor index 14
+noScroll
+displaySource "file"
+file "	composite file yyArrayCalc_small_bare.edl;P=$(P),C=$(C)"
+sizeOfs 5
+numDsps 0
+endObjectProperties
+
+endGroup
+
+visPv ""
+visMin "A"
+visMax "1"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 240
+y 6
+w 160
+h 14
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 14
+useDisplayBg
+value {
+ "($(P)$(C))"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 330
+y 286
+w 40
+h 20
+fgColor index 0
+bgColor index 63
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "More"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 yyArrayCalc.edl
+}
+menuLabel {
+  0 user arrayCalc (w/plot)
+}
+symbols {
+  0 "P=$(P),C=$(C)"
+}
+closeAction {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+

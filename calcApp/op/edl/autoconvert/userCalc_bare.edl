@@ -1,0 +1,127 @@
+4 0 0
+beginScreenProperties
+major 4
+minor 0
+release 0
+x 934
+y 242
+w 160
+h 20
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-medium-r-8.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor index 64
+bgColor index 3
+textColor index 14
+ctlFgColor1 index 30
+ctlFgColor2 index 32
+ctlBgColor1 index 34
+ctlBgColor2 index 35
+topShadowColor index 37
+botShadowColor index 44
+snapToGrid
+gridSize 5
+endScreenProperties
+
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 20
+y 0
+w 120
+h 20
+controlPv "$(P)userCalc$(N).DESC"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 54
+bgColor index 3
+editable
+autoHeight
+format decimal
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 140
+y 0
+w 20
+h 10
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "ON"
+}
+visPv "CALC\\\{(A)\}($(P)userCalc$(N).SCAN)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 140
+y 10
+w 20
+h 10
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "PUT"
+}
+visPv "CALC\\\{(A)\}($(P)userCalc$(N).OUTV)"
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 20
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "$(N)"
+numPvs 4
+numDsps 2
+displayFileName {
+  0 userCalc.edl
+  1 userCalc_full.edl
+}
+menuLabel {
+  0 user calc $(N)
+  1 user calc $(N) (full)
+}
+symbols {
+  0 "P=$(P),C=userCalc$(N)"
+  1 "P=$(P),C=userCalc$(N)"
+}
+endObjectProperties
+

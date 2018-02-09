@@ -1,0 +1,920 @@
+4 0 0
+beginScreenProperties
+major 4
+minor 0
+release 0
+x 643
+y 418
+w 480
+h 400
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-medium-r-8.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor index 14
+bgColor index 2
+textColor index 14
+ctlFgColor1 index 30
+ctlFgColor2 index 32
+ctlBgColor1 index 34
+ctlBgColor2 index 35
+topShadowColor index 37
+botShadowColor index 44
+snapToGrid
+gridSize 5
+endScreenProperties
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 40
+w 80
+h 14
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 14
+useDisplayBg
+value {
+ "X (input)"
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 55
+w 80
+h 20
+controlPv "$(P)interp$(Q)_x.VAL"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 14
+bgColor index 51
+editable
+autoHeight
+format decimal
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 482
+h 25
+
+beginGroup
+
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 479
+h 24
+lineColor index 0
+fill
+fillColor index 0
+lineWidth 0
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 480
+h 20
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 14
+useDisplayBg
+value {
+ "Lookup table interpolator"
+}
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 22
+w 481
+h 3
+lineColor index 53
+fillColor index 53
+lineWidth 3
+numPoints 2 {
+xPoints  {
+0 1
+1 479
+}
+yPoints  {
+0 23
+1 23
+}
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 110
+w 450
+h 15
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "There are two ways to load interpolation tables:"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 80
+y 159
+w 390
+h 15
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "Y1: $(P)interp$(Q).VALB"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 80
+y 144
+w 390
+h 15
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "X:  $(P)interp$(Q).VALA"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 80
+y 174
+w 390
+h 15
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "Y2: $(P)interp$(Q).VALC"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 129
+w 460
+h 15
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "1) Write arrays to the following PV's:"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 80
+y 219
+w 390
+h 15
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "$(P)interp$(Q).VALN"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 204
+w 460
+h 15
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "   Write the number of points in the arrays to"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 189
+w 460
+h 15
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "  (X values must increase with array index.)"
+}
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 45
+y 30
+w 400
+h 71
+
+beginGroup
+
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 45
+y 90
+w 40
+h 10
+controlPv "$(P)interp$(Q)_n"
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+smartRefresh
+fastUpdate
+fgColor index 54
+bgColor index 2
+autoHeight
+format decimal
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 90
+y 90
+w 50
+h 10
+font "helvetica-medium-r-8.0"
+fgColor index 64
+useDisplayBg
+value {
+ " VALUES)"
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 270
+y 85
+w 30
+h 16
+controlPv "$(P)interp$(Q).F"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 14
+bgColor index 51
+editable
+autoHeight
+format "string"
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 160
+y 90
+w 100
+h 10
+font "helvetica-medium-r-8.0"
+fgColor index 64
+useDisplayBg
+value {
+ "POLYNOMIAL ORDER:"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 130
+y 30
+w 80
+h 14
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 14
+useDisplayBg
+value {
+ "Description"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 90
+y 35
+w 40
+h 10
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 14
+useDisplayBg
+value {
+ "SHOW"
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 130
+y 45
+w 80
+h 20
+controlPv "$(P)interp$(Q)_y1.DESC"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 14
+bgColor index 0
+editable
+autoHeight
+format "string"
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 130
+y 65
+w 80
+h 20
+controlPv "$(P)interp$(Q)_y2.DESC"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 14
+bgColor index 0
+editable
+autoHeight
+format "string"
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 295
+y 30
+w 150
+h 14
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 14
+useDisplayBg
+value {
+ "Output Link"
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 295
+y 45
+w 150
+h 20
+controlPv "$(P)interp$(Q)_y1.OUT"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 14
+bgColor index 40
+editable
+autoHeight
+format "string"
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 295
+y 65
+w 150
+h 20
+controlPv "$(P)interp$(Q)_y2.OUT"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 14
+bgColor index 40
+editable
+autoHeight
+format "string"
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 215
+y 30
+w 80
+h 14
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 14
+useDisplayBg
+value {
+ "Y (output)"
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 212
+y 45
+w 80
+h 20
+controlPv "$(P)interp$(Q)_y1.VAL"
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+smartRefresh
+fastUpdate
+fgColor index 54
+bgColor index 2
+autoHeight
+format decimal
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 212
+y 65
+w 80
+h 20
+controlPv "$(P)interp$(Q)_y1.VAL"
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+smartRefresh
+fastUpdate
+fgColor index 54
+bgColor index 2
+autoHeight
+format decimal
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 344
+w 460
+h 15
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "To use interpolation tables, write a value to X."
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 239
+w 460
+h 15
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "2) Load tables point by point:"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 359
+w 460
+h 15
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "Y's will be updated, and values will be written to"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 374
+w 460
+h 15
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "output links (if links have been specified)."
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 40
+y 254
+w 430
+h 15
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "1) Click 'More/Less' button; select 'Data Entry'."
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 40
+y 269
+w 430
+h 15
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "2) Enter values for X, Y1, and Y2.  (Manually"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 40
+y 304
+w 430
+h 15
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "3) Press the 'Add Entry' button."
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 40
+y 319
+w 430
+h 15
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "4) Check that number of values has increased."
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 40
+y 285
+w 430
+h 15
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "   entered data may be entered in any order.)"
+}
+endObjectProperties
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 482
+h 25
+
+beginGroup
+
+
+endGroup
+
+endObjectProperties
+
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 400
+y 90
+w 40
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Less"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 interpNew.edl
+}
+menuLabel {
+  0 interp
+}
+symbols {
+  0 "P=$(P),Q=$(Q)"
+}
+closeAction {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 45
+y 30
+w 400
+h 71
+
+beginGroup
+
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 90
+y 45
+w 40
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Y1(X)"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 arrayPlot.edl
+}
+menuLabel {
+  0 plot
+}
+symbols {
+  0 "P=$(P),X=$(P)interp$(Q).VALA,Y=$(P)interp$(Q).VALB,YLABEL=Y1"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 90
+y 65
+w 40
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Y2(X)"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 arrayPlot.edl
+}
+menuLabel {
+  0 plot
+}
+symbols {
+  0 "P=$(P),X=$(P)interp$(Q).VALA,Y=$(P)interp$(Q).VALC,YLABEL=Y2"
+}
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+

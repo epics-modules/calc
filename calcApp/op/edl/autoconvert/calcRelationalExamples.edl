@@ -1,0 +1,758 @@
+4 0 0
+beginScreenProperties
+major 4
+minor 0
+release 0
+x 313
+y 91
+w 240
+h 320
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-medium-r-8.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor index 14
+bgColor index 1
+textColor index 14
+ctlFgColor1 index 30
+ctlFgColor2 index 32
+ctlBgColor1 index 34
+ctlBgColor2 index 35
+topShadowColor index 37
+botShadowColor index 44
+snapToGrid
+gridSize 5
+endScreenProperties
+
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 15
+w 244
+h 3
+lineColor index 54
+fillColor index 54
+lineWidth 3
+numPoints 2 {
+xPoints  {
+0 1
+1 242
+}
+yPoints  {
+0 16
+1 16
+}
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 55
+w 244
+h 3
+lineColor index 54
+fillColor index 54
+lineWidth 3
+numPoints 2 {
+xPoints  {
+0 1
+1 242
+}
+yPoints  {
+0 56
+1 56
+}
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 60
+w 230
+h 44
+
+beginGroup
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 75
+w 230
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "expression is either"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 90
+w 230
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "0 (FALSE) or 1 (TRUE)"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 60
+w 230
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "The value of a relational"
+}
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 105
+w 234
+h 1
+lineColor index 54
+fillColor index 54
+numPoints 2 {
+xPoints  {
+0 0
+1 233
+}
+yPoints  {
+0 105
+1 105
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 20
+w 235
+h 20
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 14
+useDisplayBg
+value {
+ "Relational"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 35
+w 235
+h 20
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 14
+useDisplayBg
+value {
+ "expressions"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 230
+w 230
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "A=B"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 215
+w 230
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "A==B"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 185
+w 230
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "A#B"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 170
+w 230
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "A!=B"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 140
+w 230
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "A>B"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 110
+w 230
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "A>=B"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 15
+y 125
+w 220
+h 10
+font "helvetica-medium-r-8.0"
+fgColor index 47
+useDisplayBg
+value {
+ "A GREATER THAN OR EQUAL TO B"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 15
+y 155
+w 220
+h 10
+font "helvetica-medium-r-8.0"
+fgColor index 47
+useDisplayBg
+value {
+ "A GREATER THAN B"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 15
+y 200
+w 220
+h 10
+font "helvetica-medium-r-8.0"
+fgColor index 47
+useDisplayBg
+value {
+ "A NOT EQUAL TO B"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 15
+y 245
+w 220
+h 10
+font "helvetica-medium-r-8.0"
+fgColor index 47
+useDisplayBg
+value {
+ "A EQUALS B"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 15
+y 275
+w 220
+h 10
+font "helvetica-medium-r-8.0"
+fgColor index 47
+useDisplayBg
+value {
+ "IF (A==0) THEN 1, ELSE 0"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 260
+w 230
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "NOT A"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 15
+y 305
+w 220
+h 10
+font "helvetica-medium-r-8.0"
+fgColor index 47
+useDisplayBg
+value {
+ "IF (A==0) THEN 1, ELSE 0"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 290
+w 230
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "!A"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 30
+h 16
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "TOP"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 calcExamples.edl
+}
+menuLabel {
+  0 
+}
+symbols {
+  0 
+}
+closeAction {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 30
+y 0
+w 30
+h 16
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "ALG"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 calcAlgebraicExamples.edl
+}
+menuLabel {
+  0 
+}
+symbols {
+  0 
+}
+closeAction {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 60
+y 0
+w 30
+h 16
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "TRIG"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 calcTrigExamples.edl
+}
+menuLabel {
+  0 
+}
+symbols {
+  0 
+}
+closeAction {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 90
+y 0
+w 30
+h 16
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "REL"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 calcRelationalExamples.edl
+}
+menuLabel {
+  0 
+}
+symbols {
+  0 
+}
+closeAction {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 120
+y 0
+w 30
+h 16
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "BIT"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 calcBitwiseExamples.edl
+}
+menuLabel {
+  0 
+}
+symbols {
+  0 
+}
+closeAction {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 150
+y 0
+w 30
+h 16
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "MISC"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 calcMiscExamples.edl
+}
+menuLabel {
+  0 
+}
+symbols {
+  0 
+}
+closeAction {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 180
+y 0
+w 30
+h 16
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "STR"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 calcStringExamples.edl
+}
+menuLabel {
+  0 
+}
+symbols {
+  0 
+}
+closeAction {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 60
+w 230
+h 44
+
+beginGroup
+
+
+endGroup
+
+endObjectProperties
+
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 210
+y 0
+w 30
+h 16
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "ARR"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 calcArrayExamples.edl
+}
+menuLabel {
+  0 
+}
+symbols {
+  0 
+}
+closeAction {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+

@@ -1,0 +1,1268 @@
+4 0 0
+beginScreenProperties
+major 4
+minor 0
+release 0
+x 800
+y 546
+w 450
+h 430
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-medium-r-8.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor index 14
+bgColor index 3
+textColor index 14
+ctlFgColor1 index 30
+ctlFgColor2 index 32
+ctlBgColor1 index 34
+ctlBgColor2 index 35
+topShadowColor index 37
+botShadowColor index 44
+snapToGrid
+gridSize 5
+endScreenProperties
+
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 449
+h 24
+lineColor index 0
+fill
+fillColor index 0
+lineWidth 0
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 85
+y 88
+w 65
+h 14
+font "helvetica-medium-r-8.0"
+fontAlign "right"
+fgColor index 14
+useDisplayBg
+value {
+ "Offset"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 85
+y 63
+w 65
+h 14
+font "helvetica-medium-r-8.0"
+fontAlign "right"
+fgColor index 14
+useDisplayBg
+value {
+ "Amplitude"
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 155
+y 85
+w 80
+h 20
+controlPv "$(P)$(Q):Offset"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 14
+bgColor index 51
+editable
+autoHeight
+format decimal
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 155
+y 60
+w 80
+h 20
+controlPv "$(P)$(Q):Amplitude"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 14
+bgColor index 51
+editable
+autoHeight
+format decimal
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 260
+y 63
+w 100
+h 14
+font "helvetica-medium-r-8.0"
+fontAlign "right"
+fgColor index 14
+useDisplayBg
+value {
+ "Frequency (Hz)"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 260
+y 88
+w 100
+h 14
+font "helvetica-medium-r-8.0"
+fontAlign "right"
+fgColor index 14
+useDisplayBg
+value {
+ "Period (s)"
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 360
+y 60
+w 80
+h 20
+controlPv "$(P)$(Q):Frequency"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 14
+bgColor index 51
+editable
+autoHeight
+format decimal
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 360
+y 85
+w 80
+h 20
+controlPv "$(P)$(Q):Period"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 14
+bgColor index 51
+editable
+autoHeight
+format decimal
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 35
+y 125
+w 80
+h 20
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 14
+useDisplayBg
+value {
+ "Output"
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 35
+y 170
+w 70
+h 20
+controlPv "$(P)$(Q):Output"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 54
+bgColor index 3
+autoHeight
+format decimal
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 35
+y 150
+w 80
+h 20
+controlPv "$(P)$(Q):Output.DRVH"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 14
+bgColor index 51
+editable
+autoHeight
+format decimal
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 35
+y 190
+w 80
+h 20
+controlPv "$(P)$(Q):Output.DRVL"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 14
+bgColor index 51
+editable
+autoHeight
+format decimal
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 195
+w 20
+h 10
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "MIN"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 155
+w 20
+h 10
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "MAX"
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 280
+y 170
+w 160
+h 20
+controlPv "$(P)$(Q):OutDrive.OUT"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 14
+bgColor index 41
+editable
+autoHeight
+format "string"
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 120
+y 174
+w 150
+h 10
+
+beginGroup
+
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 120
+y 178
+w 142
+h 2
+lineColor index 14
+fillColor index 14
+lineWidth 2
+numPoints 2 {
+xPoints  {
+0 121
+1 261
+}
+yPoints  {
+0 179
+1 179
+}
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 260
+y 174
+w 10
+h 10
+lineColor index 14
+fill
+fillColor index 14
+lineWidth 0
+closePolygon
+numPoints 4 {
+xPoints  {
+0 260
+1 270
+2 260
+3 260
+}
+yPoints  {
+0 174
+1 178
+2 184
+3 174
+}
+endObjectProperties
+
+endGroup
+
+visPv "CALC\\\{(A)\}($(P)$(Q):EnableOutput)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 2
+w 225
+h 20
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 14
+useDisplayBg
+value {
+ "Function Generator"
+}
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 22
+w 454
+h 3
+lineColor index 54
+fillColor index 54
+lineWidth 3
+numPoints 2 {
+xPoints  {
+0 1
+1 452
+}
+yPoints  {
+0 23
+1 23
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 225
+y 4
+w 225
+h 14
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 14
+useDisplayBg
+value {
+ "$(P)$(Q)"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 215
+w 400
+h 10
+font "helvetica-medium-r-8.0"
+fgColor index 10
+useDisplayBg
+value {
+ "NOTE: STRIP CHART RESCALES TO MAX/MIN WHEN CLOSED AND REOPENED"
+}
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x -1
+y 119
+w 452
+h 2
+lineColor index 14
+fillColor index 14
+lineWidth 2
+numPoints 2 {
+xPoints  {
+0 0
+1 450
+}
+yPoints  {
+0 120
+1 120
+}
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x -2
+y 230
+w 452
+h 2
+lineColor index 14
+fillColor index 14
+lineWidth 2
+numPoints 2 {
+xPoints  {
+0 -1
+1 449
+}
+yPoints  {
+0 231
+1 231
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 280
+y 235
+w 160
+h 20
+controlPv "$(P)$(Q):Readback.INPA"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 14
+bgColor index 41
+editable
+autoHeight
+format "string"
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 260
+w 450
+h 170
+
+beginGroup
+
+
+# (X-Y Graph)
+object xyGraphClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+# Geometry
+x 0
+y 260
+w 450
+h 170
+# Appearance
+border
+plotAreaBorder
+graphTitle 
+xLabel 
+yLabel 
+fgColor index 14
+bgColor index 0
+gridColor index 14
+font "helvetica-medium-r-18.0"
+# Operating Modes
+plotMode "plotLastNPts"
+nPts 200
+#  X axis properties
+xAxisSrc "AutoScale"
+xMax 1
+xLablePrecision 1
+#  Y axis properties
+showYAxis
+yAxisSrc "AutoScale"
+yMax 1
+#  Y2 axis properties
+showY2Axis
+y2AxisSrc "AutoScale"
+y2Max 1
+#  Trace Properties
+numTraces 2
+yPv {
+  0 "$(P)$(Q):Output"
+  1 "$(P)$(Q):Readback"
+}
+plotUpdateMode {
+  0 "y"
+  1 "y"
+}
+opMode {
+  0 "plot"
+  1 "plot"
+}
+plotColor {
+  0 index 14
+  1 index 20
+}
+endObjectProperties
+
+endGroup
+
+visPv "CALC\\\{(a==0)\}($(P)$(Q):ChartPeriod)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 260
+w 450
+h 170
+
+beginGroup
+
+
+# (X-Y Graph)
+object xyGraphClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+# Geometry
+x 0
+y 260
+w 450
+h 170
+# Appearance
+border
+plotAreaBorder
+graphTitle 
+xLabel 
+yLabel 
+fgColor index 14
+bgColor index 0
+gridColor index 14
+font "helvetica-medium-r-18.0"
+# Operating Modes
+plotMode "plotLastNPts"
+nPts 200
+#  X axis properties
+xAxisSrc "AutoScale"
+xMax 1
+xLablePrecision 1
+#  Y axis properties
+showYAxis
+yAxisSrc "AutoScale"
+yMax 1
+#  Y2 axis properties
+showY2Axis
+y2AxisSrc "AutoScale"
+y2Max 1
+#  Trace Properties
+numTraces 2
+yPv {
+  0 "$(P)$(Q):Output"
+  1 "$(P)$(Q):Readback"
+}
+plotUpdateMode {
+  0 "y"
+  1 "y"
+}
+opMode {
+  0 "plot"
+  1 "plot"
+}
+plotColor {
+  0 index 14
+  1 index 20
+}
+endObjectProperties
+
+endGroup
+
+visPv "CALC\\\{(a==1)\}($(P)$(Q):ChartPeriod)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 260
+w 450
+h 170
+
+beginGroup
+
+
+# (X-Y Graph)
+object xyGraphClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+# Geometry
+x 0
+y 260
+w 450
+h 170
+# Appearance
+border
+plotAreaBorder
+graphTitle 
+xLabel 
+yLabel 
+fgColor index 14
+bgColor index 0
+gridColor index 14
+font "helvetica-medium-r-18.0"
+# Operating Modes
+plotMode "plotLastNPts"
+nPts 200
+#  X axis properties
+xAxisSrc "AutoScale"
+xMax 1
+xLablePrecision 1
+#  Y axis properties
+showYAxis
+yAxisSrc "AutoScale"
+yMax 1
+#  Y2 axis properties
+showY2Axis
+y2AxisSrc "AutoScale"
+y2Max 1
+#  Trace Properties
+numTraces 2
+yPv {
+  0 "$(P)$(Q):Output"
+  1 "$(P)$(Q):Readback"
+}
+plotUpdateMode {
+  0 "y"
+  1 "y"
+}
+opMode {
+  0 "plot"
+  1 "plot"
+}
+plotColor {
+  0 index 14
+  1 index 20
+}
+endObjectProperties
+
+endGroup
+
+visPv "CALC\\\{(a==2)\}($(P)$(Q):ChartPeriod)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 175
+y 140
+w 200
+h 20
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 14
+useDisplayBg
+value {
+ "Write output to a PV"
+}
+endObjectProperties
+
+# (Rectangle)
+object activeRectangleClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 140
+y 135
+w 303
+h 60
+lineColor index 14
+fillColor index 14
+lineWidth 0
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 238
+w 85
+h 14
+font "helvetica-medium-r-8.0"
+fontAlign "right"
+fgColor index 14
+useDisplayBg
+value {
+ "Chart period"
+}
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 260
+w 450
+h 170
+
+beginGroup
+
+
+# (X-Y Graph)
+object xyGraphClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+# Geometry
+x 0
+y 260
+w 450
+h 170
+# Appearance
+border
+plotAreaBorder
+graphTitle 
+xLabel 
+yLabel 
+fgColor index 14
+bgColor index 0
+gridColor index 14
+font "helvetica-medium-r-18.0"
+# Operating Modes
+plotMode "plotLastNPts"
+nPts 200
+#  X axis properties
+xAxisSrc "AutoScale"
+xMax 1
+xLablePrecision 1
+#  Y axis properties
+showYAxis
+yAxisSrc "AutoScale"
+yMax 1
+#  Y2 axis properties
+showY2Axis
+y2AxisSrc "AutoScale"
+y2Max 1
+#  Trace Properties
+numTraces 2
+yPv {
+  0 "$(P)$(Q):Output"
+  1 "$(P)$(Q):Readback"
+}
+plotUpdateMode {
+  0 "y"
+  1 "y"
+}
+opMode {
+  0 "plot"
+  1 "plot"
+}
+plotColor {
+  0 index 14
+  1 index 20
+}
+endObjectProperties
+
+endGroup
+
+visPv "CALC\\\{(a==3)\}($(P)$(Q):ChartPeriod)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 10
+y 50
+w 68
+h 60
+fgColor index 14
+bgColor index 51
+selectColor index 51
+inconsistentColor index 14
+topShadowColor index 0
+botShadowColor index 14
+controlPv "$(P)$(Q):Function"
+font "helvetica-medium-r-10.0"
+endObjectProperties
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 156
+y 159
+w 68
+h 30
+fgColor index 14
+bgColor index 51
+selectColor index 51
+inconsistentColor index 14
+topShadowColor index 0
+botShadowColor index 14
+controlPv "$(P)$(Q):EnableOutput"
+font "helvetica-medium-r-10.0"
+endObjectProperties
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 120
+y 174
+w 150
+h 10
+
+beginGroup
+
+
+endGroup
+
+visPv "CALC\\\{(A)\}($(P)$(Q):EnableOutput)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 100
+y 235
+w 85
+h 20
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
+controlPv "$(P)$(Q):ChartPeriod"
+indicatorPv "$(P)$(Q):ChartPeriod"
+font "helvetica-medium-r-10.0"
+endObjectProperties
+
+# (Menu Button)
+object activeMenuButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 26
+w 100
+h 20
+fgColor index 14
+bgColor index 51
+inconsistentColor index 12
+topShadowColor index 2
+botShadowColor index 12
+controlPv "$(P)$(Q):Tran.SCAN"
+indicatorPv "$(P)$(Q):Tran.SCAN"
+font "helvetica-medium-r-10.0"
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 400
+y 200
+w 40
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Less"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 FuncGen.edl
+}
+menuLabel {
+  0 
+}
+symbols {
+  0 "P=$(P),Q=$(Q)"
+}
+closeAction {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 409
+y 26
+w 40
+h 16
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "DEBUG"
+numPvs 6
+numDsps 3
+displayFileName {
+  0 yyTransform_full.edl
+  1 yyTransform.edl
+  2 yyCalcoutRecord.edl
+}
+menuLabel {
+  0 freqGen
+  1 freq/period
+  2 readback
+}
+symbols {
+  0 "P=$(P),T=$(Q):Tran"
+  1 "P=$(P),T=$(Q):FreqPeriod"
+  2 "P=$(P),C=$(Q):Readback"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 213
+y 235
+w 65
+h 20
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "Readback"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 yyCalcoutRecord.edl
+}
+menuLabel {
+  0 readback
+}
+symbols {
+  0 "P=$(P),C=$(Q):Readback"
+}
+endObjectProperties
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 260
+w 450
+h 170
+
+beginGroup
+
+
+endGroup
+
+visPv "CALC\\\{(a==0)\}($(P)$(Q):ChartPeriod)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 260
+w 450
+h 170
+
+beginGroup
+
+
+endGroup
+
+visPv "CALC\\\{(a==1)\}($(P)$(Q):ChartPeriod)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 260
+w 450
+h 170
+
+beginGroup
+
+
+endGroup
+
+visPv "CALC\\\{(a==2)\}($(P)$(Q):ChartPeriod)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 260
+w 450
+h 170
+
+beginGroup
+
+
+endGroup
+
+visPv "CALC\\\{(a==3)\}($(P)$(Q):ChartPeriod)"
+visInvert
+visMin 0
+visMax 1
+endObjectProperties
+
+

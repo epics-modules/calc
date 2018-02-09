@@ -1,0 +1,660 @@
+4 0 0
+beginScreenProperties
+major 4
+minor 0
+release 0
+x 715
+y 370
+w 240
+h 295
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-medium-r-8.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor index 14
+bgColor index 1
+textColor index 14
+ctlFgColor1 index 30
+ctlFgColor2 index 32
+ctlBgColor1 index 34
+ctlBgColor2 index 35
+topShadowColor index 37
+botShadowColor index 44
+snapToGrid
+gridSize 5
+endScreenProperties
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 20
+w 235
+h 20
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "Bitwise/Logical"
+}
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 40
+w 244
+h 3
+lineColor index 54
+fillColor index 54
+lineWidth 3
+numPoints 2 {
+xPoints  {
+0 1
+1 242
+}
+yPoints  {
+0 41
+1 41
+}
+endObjectProperties
+
+# (Lines)
+object activeLineClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 15
+w 244
+h 3
+lineColor index 54
+fillColor index 54
+lineWidth 3
+numPoints 2 {
+xPoints  {
+0 1
+1 242
+}
+yPoints  {
+0 16
+1 16
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 45
+w 230
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "3|5 = 7"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 75
+w 230
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "3&5 = 1"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 105
+w 230
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "3^5 = 6"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 135
+w 230
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "2<<2 = 8"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 15
+y 60
+w 220
+h 10
+font "helvetica-medium-r-8.0"
+fgColor index 47
+useDisplayBg
+value {
+ "BITWISE OR: 011 | 101 = 111"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 15
+y 90
+w 220
+h 10
+font "helvetica-medium-r-8.0"
+fgColor index 47
+useDisplayBg
+value {
+ "BITWISE AND: 011 & 101 = 001"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 15
+y 120
+w 220
+h 10
+font "helvetica-medium-r-8.0"
+fgColor index 47
+useDisplayBg
+value {
+ "BITWISE XOR: 011 XOR 101 = 110"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 15
+y 150
+w 220
+h 10
+font "helvetica-medium-r-8.0"
+fgColor index 47
+useDisplayBg
+value {
+ "BIT SHIFT: 0010 << 2 = 1000"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 165
+w 230
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "8>>1 = 4"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 15
+y 180
+w 220
+h 10
+font "helvetica-medium-r-8.0"
+fgColor index 47
+useDisplayBg
+value {
+ "BIT SHIFT: 1000 >> 1 = 0100"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 195
+w 230
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "8||1 = 1"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 15
+y 210
+w 220
+h 10
+font "helvetica-medium-r-8.0"
+fgColor index 47
+useDisplayBg
+value {
+ "LOGICAL OR"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 225
+w 230
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "8&&1 = 1"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 15
+y 240
+w 220
+h 10
+font "helvetica-medium-r-8.0"
+fgColor index 47
+useDisplayBg
+value {
+ "LOGICAL AND"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 5
+y 255
+w 230
+h 14
+font "helvetica-medium-r-8.0"
+fgColor index 14
+useDisplayBg
+value {
+ "3 XOR 5 = 6"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 15
+y 270
+w 220
+h 10
+font "helvetica-medium-r-8.0"
+fgColor index 47
+useDisplayBg
+value {
+ "BITWISE XOR: 011 XOR 101 = 110"
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 90
+y 0
+w 30
+h 16
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "REL"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 calcRelationalExamples.edl
+}
+menuLabel {
+  0 
+}
+symbols {
+  0 
+}
+closeAction {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 30
+h 16
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "TOP"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 calcExamples.edl
+}
+menuLabel {
+  0 
+}
+symbols {
+  0 
+}
+closeAction {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 30
+y 0
+w 30
+h 16
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "ALG"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 calcAlgebraicExamples.edl
+}
+menuLabel {
+  0 
+}
+symbols {
+  0 
+}
+closeAction {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 60
+y 0
+w 30
+h 16
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "TRIG"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 calcTrigExamples.edl
+}
+menuLabel {
+  0 
+}
+symbols {
+  0 
+}
+closeAction {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 120
+y 0
+w 30
+h 16
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "BIT"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 calcBitwiseExamples.edl
+}
+menuLabel {
+  0 
+}
+symbols {
+  0 
+}
+closeAction {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 150
+y 0
+w 30
+h 16
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "MISC"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 calcMiscExamples.edl
+}
+menuLabel {
+  0 
+}
+symbols {
+  0 
+}
+closeAction {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 180
+y 0
+w 30
+h 16
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "STR"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 calcStringExamples.edl
+}
+menuLabel {
+  0 
+}
+symbols {
+  0 
+}
+closeAction {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+
+# (Related Display)
+object relatedDisplayClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 210
+y 0
+w 30
+h 16
+fgColor index 0
+bgColor index 17
+topShadowColor index 2
+botShadowColor index 12
+font "helvetica-medium-r-10.0"
+buttonLabel "ARR"
+numPvs 2
+numDsps 1
+displayFileName {
+  0 calcArrayExamples.edl
+}
+menuLabel {
+  0 
+}
+symbols {
+  0 
+}
+closeAction {
+  0 1
+}
+closeDisplay {
+  0 1
+}
+endObjectProperties
+

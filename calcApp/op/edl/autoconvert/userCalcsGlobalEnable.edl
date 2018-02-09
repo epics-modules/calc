@@ -1,0 +1,47 @@
+4 0 0
+beginScreenProperties
+major 4
+minor 0
+release 0
+x 1055
+y 233
+w 195
+h 20
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-medium-r-8.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor index 64
+bgColor index 3
+textColor index 14
+ctlFgColor1 index 30
+ctlFgColor2 index 32
+ctlBgColor1 index 34
+ctlBgColor2 index 35
+topShadowColor index 37
+botShadowColor index 44
+snapToGrid
+gridSize 5
+endScreenProperties
+
+
+# (Choice Button)
+object activeChoiceButtonClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 0
+w 195
+h 20
+fgColor index 14
+bgColor index 51
+selectColor index 51
+inconsistentColor index 14
+topShadowColor index 0
+botShadowColor index 14
+controlPv "$(P)userCalcGlobalEnable"
+font "helvetica-medium-r-10.0"
+orientation "horizontal"
+endObjectProperties
+

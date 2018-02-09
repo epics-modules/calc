@@ -1,0 +1,221 @@
+4 0 0
+beginScreenProperties
+major 4
+minor 0
+release 0
+x 10
+y 20
+w 200
+h 190
+font "helvetica-medium-r-18.0"
+ctlFont "helvetica-medium-r-8.0"
+btnFont "helvetica-medium-r-18.0"
+fgColor index 14
+bgColor index 3
+textColor index 14
+ctlFgColor1 index 30
+ctlFgColor2 index 32
+ctlBgColor1 index 34
+ctlBgColor2 index 35
+topShadowColor index 37
+botShadowColor index 44
+snapToGrid
+gridSize 5
+endScreenProperties
+
+# (Meter)
+object activeMeterClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 38
+w 200
+h 150
+caseColor index 2
+scaleColor index 14
+labelColor index 14
+fgColor index 14
+bgColor index 2
+topShadowColor index 14
+botShadowColor index 14
+readPv "$(P)$(C).VAL"
+showScale 
+scaleFormat "FFloat"
+scaleLimitsFromDb 
+useDisplayBg 
+labelIntervals 2
+majorIntervals 2
+minorIntervals 0
+complexNeedle 
+3d 
+labelFontTag "helvetica-medium-r-18.0"
+scaleFontTag "helvetica-medium-r-8.0"
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 26
+w 200
+h 8
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 64
+useDisplayBg
+value {
+ "WHEN DISPLAY IS CLOSED AND REPOENED"
+}
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 18
+w 200
+h 8
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 64
+useDisplayBg
+value {
+ "CHANGES TO MIN AND MAX TAKE EFFECT"
+}
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 30
+y 0
+w 50
+h 18
+controlPv "$(P)$(C).LOPR"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 14
+bgColor index 51
+editable
+autoHeight
+format decimal
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 120
+y 0
+w 80
+h 18
+
+beginGroup
+
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 150
+y 0
+w 50
+h 18
+controlPv "$(P)$(C).HOPR"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 14
+bgColor index 51
+editable
+autoHeight
+format decimal
+motifWidget
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 120
+y 0
+w 30
+h 14
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 14
+useDisplayBg
+value {
+ "MAX"
+}
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 2
+w 30
+h 14
+font "helvetica-medium-r-8.0"
+fontAlign "center"
+fgColor index 14
+useDisplayBg
+value {
+ "MIN"
+}
+endObjectProperties
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 120
+y 0
+w 80
+h 18
+
+beginGroup
+
+
+endGroup
+
+endObjectProperties
+
+
