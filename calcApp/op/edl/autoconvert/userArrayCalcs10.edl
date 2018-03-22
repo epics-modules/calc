@@ -434,30 +434,19 @@ visMin "A"
 visMax "1"
 endObjectProperties
 
-# (Text Control)
-object activeXTextDspClass
+# (Group)
+object activeGroupClass
 beginObjectProperties
 major 4
 minor 0
 release 0
-x 75
-y 265
-w 100
-h 18
-controlPv "$(P)acalcRecMem"
-font "helvetica-medium-r-8.0"
-smartRefresh
-fastUpdate
-fgColor index 54
-bgColor index 3
-autoHeight
-format "decimal"
-precision 2
-nullColor index 32
-useHexPrefix
-objType "controls"
-newPos
-endObjectProperties
+x 0
+y 245
+w 65
+h 58
+
+beginGroup
+
 
 # (Static Text)
 object activeXTextClass
@@ -467,7 +456,7 @@ minor 0
 release 0
 x 0
 y 265
-w 70
+w 65
 h 18
 font "helvetica-medium-r-8.0"
 fontAlign "right"
@@ -486,7 +475,7 @@ minor 0
 release 0
 x 0
 y 285
-w 70
+w 65
 h 18
 font "helvetica-medium-r-8.0"
 fontAlign "right"
@@ -497,15 +486,78 @@ value {
 }
 endObjectProperties
 
+# (Static Text)
+object activeXTextClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 245
+w 65
+h 20
+font "helvetica-medium-r-8.0"
+fontAlign "right"
+fgColor index 14
+useDisplayBg
+value {
+ "totMem"
+}
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 70
+y 245
+w 90
+h 58
+
+beginGroup
+
+
 # (Text Control)
 object activeXTextDspClass
 beginObjectProperties
 major 4
 minor 0
 release 0
-x 75
+x 70
+y 265
+w 90
+h 18
+controlPv "$(P)acalcRecMem"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 54
+bgColor index 3
+autoHeight
+format "decimal"
+precision 2
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 70
 y 285
-w 100
+w 90
 h 18
 controlPv "$(P)acalcCalcMem"
 font "helvetica-medium-r-8.0"
@@ -522,23 +574,59 @@ objType "controls"
 newPos
 endObjectProperties
 
-# (Static Text)
-object activeXTextClass
+# (Text Control)
+object activeXTextDspClass
 beginObjectProperties
 major 4
 minor 0
 release 0
-x 0
+x 70
 y 245
-w 70
+w 90
 h 20
+controlPv "$(P)acalcTotMem"
 font "helvetica-medium-r-8.0"
-fontAlign "right"
-fgColor index 14
-useDisplayBg
-value {
- "totMem"
-}
+smartRefresh
+fastUpdate
+fgColor index 54
+bgColor index 3
+autoHeight
+format "decimal"
+precision 2
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+endGroup
+
+endObjectProperties
+
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 165
+y 265
+w 20
+h 18
+controlPv "$(P)acalcRecMem.EGU"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 54
+bgColor index 3
+autoHeight
+format "decimal"
+precision 2
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
 endObjectProperties
 
 # (Text Control)
@@ -547,11 +635,36 @@ beginObjectProperties
 major 4
 minor 0
 release 0
-x 75
+x 165
+y 285
+w 20
+h 18
+controlPv "$(P)acalcCalcMem.EGU"
+font "helvetica-medium-r-8.0"
+smartRefresh
+fastUpdate
+fgColor index 54
+bgColor index 3
+autoHeight
+format "decimal"
+precision 2
+nullColor index 32
+useHexPrefix
+objType "controls"
+newPos
+endObjectProperties
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 165
 y 245
-w 100
+w 20
 h 20
-controlPv "$(P)acalcTotMem"
+controlPv "$(P)acalcTotMem.EGU"
 font "helvetica-medium-r-8.0"
 smartRefresh
 fastUpdate
@@ -615,4 +728,40 @@ symbols {
   0 "P=$(P),N1=1,N2=2,N3=3,N4=4,N5=5,N6=6,N7=7,N8=8,N9=9,N10=10"
 }
 endObjectProperties
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 0
+y 245
+w 65
+h 58
+
+beginGroup
+
+
+endGroup
+
+endObjectProperties
+
+# (Group)
+object activeGroupClass
+beginObjectProperties
+major 4
+minor 0
+release 0
+x 70
+y 245
+w 90
+h 58
+
+beginGroup
+
+
+endGroup
+
+endObjectProperties
+
 
