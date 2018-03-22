@@ -1,7 +1,7 @@
 
 file {
 	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/userArrayCalcs10.adl"
-	version=030107
+	version=030111
 }
 display {
 	object {
@@ -217,15 +217,124 @@ composite {
 	bclr=63
 	label="-All Plots"
 }
+composite {
+	object {
+		x=0
+		y=245
+		width=65
+		height=58
+	}
+	"composite name"=""
+	children {
+		text {
+			object {
+				x=0
+				y=265
+				width=65
+				height=18
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="recMem"
+			align="horiz. right"
+		}
+		text {
+			object {
+				x=0
+				y=285
+				width=65
+				height=18
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="calcMem"
+			align="horiz. right"
+		}
+		text {
+			object {
+				x=0
+				y=245
+				width=65
+				height=20
+			}
+			"basic attribute" {
+				clr=14
+			}
+			textix="totMem"
+			align="horiz. right"
+		}
+	}
+}
+composite {
+	object {
+		x=70
+		y=245
+		width=90
+		height=58
+	}
+	"composite name"=""
+	children {
+		"text update" {
+			object {
+				x=70
+				y=265
+				width=90
+				height=18
+			}
+			monitor {
+				chan="$(P)acalcRecMem"
+				clr=54
+				bclr=3
+			}
+			format="compact"
+			limits {
+			}
+		}
+		"text update" {
+			object {
+				x=70
+				y=285
+				width=90
+				height=18
+			}
+			monitor {
+				chan="$(P)acalcCalcMem"
+				clr=54
+				bclr=3
+			}
+			format="compact"
+			limits {
+			}
+		}
+		"text update" {
+			object {
+				x=70
+				y=245
+				width=90
+				height=20
+			}
+			monitor {
+				chan="$(P)acalcTotMem"
+				clr=54
+				bclr=3
+			}
+			format="compact"
+			limits {
+			}
+		}
+	}
+}
 "text update" {
 	object {
-		x=75
+		x=165
 		y=265
-		width=100
+		width=20
 		height=18
 	}
 	monitor {
-		chan="$(P)acalcRecMem"
+		chan="$(P)acalcRecMem.EGU"
 		clr=54
 		bclr=3
 	}
@@ -233,41 +342,15 @@ composite {
 	limits {
 	}
 }
-text {
-	object {
-		x=0
-		y=265
-		width=70
-		height=18
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="recMem"
-	align="horiz. right"
-}
-text {
-	object {
-		x=0
-		y=285
-		width=70
-		height=18
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="calcMem"
-	align="horiz. right"
-}
 "text update" {
 	object {
-		x=75
+		x=165
 		y=285
-		width=100
+		width=20
 		height=18
 	}
 	monitor {
-		chan="$(P)acalcCalcMem"
+		chan="$(P)acalcCalcMem.EGU"
 		clr=54
 		bclr=3
 	}
@@ -275,28 +358,15 @@ text {
 	limits {
 	}
 }
-text {
-	object {
-		x=0
-		y=245
-		width=70
-		height=20
-	}
-	"basic attribute" {
-		clr=14
-	}
-	textix="totMem"
-	align="horiz. right"
-}
 "text update" {
 	object {
-		x=75
+		x=165
 		y=245
-		width=100
+		width=20
 		height=20
 	}
 	monitor {
-		chan="$(P)acalcTotMem"
+		chan="$(P)acalcTotMem.EGU"
 		clr=54
 		bclr=3
 	}
