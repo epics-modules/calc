@@ -334,12 +334,302 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>false</string>
             </property>
         </widget>
-        <widget class="caLineEdit" name="caLineEdit_0">
+        <widget class="caFrame" name="caFrame_10">
             <property name="geometry">
                 <rect>
-                    <x>75</x>
+                    <x>0</x>
+                    <y>245</y>
+                    <width>67</width>
+                    <height>60</height>
+                </rect>
+            </property>
+            <widget class="caLabel" name="caLabel_0">
+                <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="0">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="text">
+                    <string>recMem</string>
+                </property>
+                <property name="fontScaleMode">
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="alignment">
+                    <set>Qt::AlignAbsolute|Qt::AlignRight|Qt::AlignVCenter</set>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>20</y>
+                        <width>65</width>
+                        <height>18</height>
+                    </rect>
+                </property>
+            </widget>
+            <widget class="caLabel" name="caLabel_1">
+                <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="0">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="text">
+                    <string>calcMem</string>
+                </property>
+                <property name="fontScaleMode">
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="alignment">
+                    <set>Qt::AlignAbsolute|Qt::AlignRight|Qt::AlignVCenter</set>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>40</y>
+                        <width>65</width>
+                        <height>18</height>
+                    </rect>
+                </property>
+            </widget>
+            <widget class="caLabel" name="caLabel_2">
+                <property name="frameShape">
+                    <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="0">
+                        <red>0</red>
+                        <green>0</green>
+                        <blue>0</blue>
+                    </color>
+                </property>
+                <property name="text">
+                    <string>totMem</string>
+                </property>
+                <property name="fontScaleMode">
+                    <enum>ESimpleLabel::WidthAndHeight</enum>
+                </property>
+                <property name="alignment">
+                    <set>Qt::AlignAbsolute|Qt::AlignRight|Qt::AlignVCenter</set>
+                </property>
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>0</y>
+                        <width>65</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+            </widget>
+        </widget>
+        <widget class="caFrame" name="caFrame_11">
+            <property name="geometry">
+                <rect>
+                    <x>70</x>
+                    <y>245</y>
+                    <width>92</width>
+                    <height>60</height>
+                </rect>
+            </property>
+            <widget class="caLineEdit" name="caLineEdit_0">
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>20</y>
+                        <width>90</width>
+                        <height>18</height>
+                    </rect>
+                </property>
+                <property name="fontScaleMode">
+                    <enum>caLineEdit::WidthAndHeight</enum>
+                </property>
+                <property name="channel">
+                    <string>$(P)acalcRecMem</string>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>10</red>
+                        <green>0</green>
+                        <blue>184</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="255">
+                        <red>200</red>
+                        <green>200</green>
+                        <blue>200</blue>
+                    </color>
+                </property>
+                <property name="limitsMode">
+                    <enum>caLineEdit::Channel</enum>
+                </property>
+                <property name="limitsMode">
+                    <enum>caLineEdit::Channel</enum>
+                </property>
+                <property name="precisionMode">
+                    <enum>caLineEdit::Channel</enum>
+                </property>
+                <property name="minValue">
+                    <double>0.0</double>
+                </property>
+                <property name="maxValue">
+                    <double>1.0</double>
+                </property>
+                <property name="alignment">
+                    <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+                <property name="formatType">
+                    <enum>compact</enum>
+                </property>
+                <property name="colorMode">
+                    <enum>caLineEdit::Static</enum>
+                </property>
+            </widget>
+            <widget class="caLineEdit" name="caLineEdit_1">
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>40</y>
+                        <width>90</width>
+                        <height>18</height>
+                    </rect>
+                </property>
+                <property name="fontScaleMode">
+                    <enum>caLineEdit::WidthAndHeight</enum>
+                </property>
+                <property name="channel">
+                    <string>$(P)acalcCalcMem</string>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>10</red>
+                        <green>0</green>
+                        <blue>184</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="255">
+                        <red>200</red>
+                        <green>200</green>
+                        <blue>200</blue>
+                    </color>
+                </property>
+                <property name="limitsMode">
+                    <enum>caLineEdit::Channel</enum>
+                </property>
+                <property name="limitsMode">
+                    <enum>caLineEdit::Channel</enum>
+                </property>
+                <property name="precisionMode">
+                    <enum>caLineEdit::Channel</enum>
+                </property>
+                <property name="minValue">
+                    <double>0.0</double>
+                </property>
+                <property name="maxValue">
+                    <double>1.0</double>
+                </property>
+                <property name="alignment">
+                    <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+                <property name="formatType">
+                    <enum>compact</enum>
+                </property>
+                <property name="colorMode">
+                    <enum>caLineEdit::Static</enum>
+                </property>
+            </widget>
+            <widget class="caLineEdit" name="caLineEdit_2">
+                <property name="geometry">
+                    <rect>
+                        <x>0</x>
+                        <y>0</y>
+                        <width>90</width>
+                        <height>20</height>
+                    </rect>
+                </property>
+                <property name="fontScaleMode">
+                    <enum>caLineEdit::WidthAndHeight</enum>
+                </property>
+                <property name="channel">
+                    <string>$(P)acalcTotMem</string>
+                </property>
+                <property name="foreground">
+                    <color alpha="255">
+                        <red>10</red>
+                        <green>0</green>
+                        <blue>184</blue>
+                    </color>
+                </property>
+                <property name="background">
+                    <color alpha="255">
+                        <red>200</red>
+                        <green>200</green>
+                        <blue>200</blue>
+                    </color>
+                </property>
+                <property name="limitsMode">
+                    <enum>caLineEdit::Channel</enum>
+                </property>
+                <property name="limitsMode">
+                    <enum>caLineEdit::Channel</enum>
+                </property>
+                <property name="precisionMode">
+                    <enum>caLineEdit::Channel</enum>
+                </property>
+                <property name="minValue">
+                    <double>0.0</double>
+                </property>
+                <property name="maxValue">
+                    <double>1.0</double>
+                </property>
+                <property name="alignment">
+                    <set>Qt::AlignAbsolute|Qt::AlignLeft|Qt::AlignVCenter</set>
+                </property>
+                <property name="formatType">
+                    <enum>compact</enum>
+                </property>
+                <property name="colorMode">
+                    <enum>caLineEdit::Static</enum>
+                </property>
+            </widget>
+        </widget>
+        <widget class="caLineEdit" name="caLineEdit_3">
+            <property name="geometry">
+                <rect>
+                    <x>165</x>
                     <y>265</y>
-                    <width>100</width>
+                    <width>20</width>
                     <height>18</height>
                 </rect>
             </property>
@@ -347,7 +637,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)acalcRecMem</string>
+                <string>$(P)acalcRecMem.EGU</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -388,84 +678,12 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>caLineEdit::Static</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_0">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>recMem</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignRight|Qt::AlignVCenter</set>
-            </property>
+        <widget class="caLineEdit" name="caLineEdit_4">
             <property name="geometry">
                 <rect>
-                    <x>0</x>
-                    <y>265</y>
-                    <width>70</width>
-                    <height>18</height>
-                </rect>
-            </property>
-        </widget>
-        <widget class="caLabel" name="caLabel_1">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>calcMem</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignRight|Qt::AlignVCenter</set>
-            </property>
-            <property name="geometry">
-                <rect>
-                    <x>0</x>
+                    <x>165</x>
                     <y>285</y>
-                    <width>70</width>
-                    <height>18</height>
-                </rect>
-            </property>
-        </widget>
-        <widget class="caLineEdit" name="caLineEdit_1">
-            <property name="geometry">
-                <rect>
-                    <x>75</x>
-                    <y>285</y>
-                    <width>100</width>
+                    <width>20</width>
                     <height>18</height>
                 </rect>
             </property>
@@ -473,7 +691,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)acalcCalcMem</string>
+                <string>$(P)acalcCalcMem.EGU</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -514,48 +732,12 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>caLineEdit::Static</enum>
             </property>
         </widget>
-        <widget class="caLabel" name="caLabel_2">
-            <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="0">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="text">
-                <string>totMem</string>
-            </property>
-            <property name="fontScaleMode">
-                <enum>ESimpleLabel::WidthAndHeight</enum>
-            </property>
-            <property name="alignment">
-                <set>Qt::AlignAbsolute|Qt::AlignRight|Qt::AlignVCenter</set>
-            </property>
+        <widget class="caLineEdit" name="caLineEdit_5">
             <property name="geometry">
                 <rect>
-                    <x>0</x>
+                    <x>165</x>
                     <y>245</y>
-                    <width>70</width>
-                    <height>20</height>
-                </rect>
-            </property>
-        </widget>
-        <widget class="caLineEdit" name="caLineEdit_2">
-            <property name="geometry">
-                <rect>
-                    <x>75</x>
-                    <y>245</y>
-                    <width>100</width>
+                    <width>20</width>
                     <height>20</height>
                 </rect>
             </property>
@@ -563,7 +745,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>caLineEdit::WidthAndHeight</enum>
             </property>
             <property name="channel">
-                <string>$(P)acalcTotMem</string>
+                <string>$(P)acalcTotMem.EGU</string>
             </property>
             <property name="foreground">
                 <color alpha="255">
@@ -617,11 +799,16 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
         <zorder>caLabel_0</zorder>
         <zorder>caLabel_1</zorder>
         <zorder>caLabel_2</zorder>
+        <zorder>caFrame_10</zorder>
+        <zorder>caFrame_11</zorder>
         <zorder>caChoice_0</zorder>
         <zorder>caRelatedDisplay_0</zorder>
         <zorder>caLineEdit_0</zorder>
         <zorder>caLineEdit_1</zorder>
         <zorder>caLineEdit_2</zorder>
+        <zorder>caLineEdit_3</zorder>
+        <zorder>caLineEdit_4</zorder>
+        <zorder>caLineEdit_5</zorder>
     </widget>
 </widget>
 </ui>
