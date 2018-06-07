@@ -14,7 +14,7 @@ SSCAN=$(SUPPORT)/sscan-2-9
 
 # Need SNCSEQ module only to build editSseq.st.  If you comment this
 # definition out, the module will just decline to build editSseq.st.
-SNCSEQ=$(SUPPORT)/seq-2-1-16
+#SNCSEQ=$(SUPPORT)/seq-2-1-16
 
 # EPICS_BASE usually appears last so other apps can override stuff:
 EPICS_BASE=/home/oxygen/MOONEY/epics/bazaar/base-3.14
