@@ -21,6 +21,14 @@ calcTestHarness_SRCS += $(testHarness_SRCS)
 TESTSPEC_vxWorks = calcTestHarness.munch; runTests
 
 PROD_LIBS += calc
+
+ifdef SSCAN
+PROD_LIBS += sscan
+endif
+ifdef SNCSEQ
+PROD_LIBS += seq
+endif
+
 PROD_LIBS += $(EPICS_BASE_IOC_LIBS)
 
 TESTSCRIPTS_HOST += $(TESTS:%=%.t)
