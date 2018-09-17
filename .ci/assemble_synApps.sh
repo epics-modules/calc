@@ -166,6 +166,8 @@ echo "SNCSEQ=\$(SUPPORT)/seq-${SNCSEQ//./-}" >> ./configure/RELEASE
 
 fi
 
+cp -f configure/RELEASE sscan-${SSCAN//./-}/configure/RELEASE
+
 make release
 make
 
