@@ -3,11 +3,11 @@ dist: trusty
 language: c
 compiler:
   - gcc
-notifications:
-  email: false
 cache:
   directories:
     - $HOME/.cache
+notifications:
+  email: false
 addons:
   apt:
     packages:
@@ -17,15 +17,44 @@ addons:
     - clang
     - g++-mingw-w64-i686
     - re2c
-env:
-    - BASE=R3.15.5    STATIC=shared SSCAN=R2-10-2 SNCSEQ=2.2.4
-    - BASE=R3.14.12.6 STATIC=shared SSCAN=R2-10-2 SNCSEQ=2.2.4
+matrix:
+    include:
+    - name: "3.16 master with Sequencer"
+      env: BASE=3.16  STATIC=shared SSCAN=master SNCSEQ=2.2.5
+        
+    - name: "3.16 master without Sequencer"
+      env: BASE=3.16  STATIC=shared SSCAN=master 
     
+    - name: "3.15 master with Sequencer"
+      env: BASE=3.15  STATIC=shared SSCAN=master  SNCSEQ=2.2.5
+        
+    - name: "3.15 master without Sequencer"
+      env: BASE=3.15  STATIC=shared SSCAN=master 
+        
+    - name: "3.14 master with Sequencer"
+      env: BASE=3.14  STATIC=shared SSCAN=master  SNCSEQ=2.2.5
+    
+    - name: "3.14 master without Sequencer"
+      env: BASE=3.14  STATIC=shared SSCAN=master 
+        
+    - name: "Windows Shared with Sequencer"
+      env: BASE=3.16  STATIC=shared CMPLR=clang WINE=32 SSCAN=master  SNCSEQ=2.2.5
+        
+    - name: "Windows Shared without Sequencer"
+      env: BASE=3.16  STATIC=shared CMPLR=clang WINE=32 SSCAN=master 
+        
+    - name: "Windows Static with Sequencer"
+      env: BASE=3.16  STATIC=static CMPLR=clang WINE=32 SSCAN=master  SNCSEQ=2.2.5
+        
+    - name: "Windows Static without Sequencer"
+      env: BASE=3.16  STATIC=static CMPLR=clang WINE=32 SSCAN=master 
+    
+
+        
 before_install: chmod +x ./.ci/assemble_synApps.sh
 
 install: ./.ci/assemble_synApps.sh
-    
-    
+     
 script: 
   # Build the module
   - make
