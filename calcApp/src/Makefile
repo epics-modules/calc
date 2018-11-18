@@ -5,6 +5,8 @@ include $(TOP)/configure/CONFIG
 #  ADD MACRO DEFINITIONS AFTER THIS LINE
 #=============================
 
+USR_CPPFLAGS += -DUSE_TYPED_RSET
+
 #=============================
 # xxxRecord.h will be created from xxxRecord.dbd
 

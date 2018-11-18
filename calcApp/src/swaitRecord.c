@@ -127,15 +127,15 @@
 /* Create RSET - Record Support Entry Table*/
 #define report NULL
 #define initialize NULL
-STATIC long init_record(swaitRecord	*pwait, int pass);
-STATIC long process(swaitRecord	*pwait);
+STATIC long init_record(dbCommon *pwait, int pass);
+STATIC long process(dbCommon *pwait);
 STATIC long special(DBADDR *paddr, int after);
 #define get_value NULL
 #define cvt_dbaddr NULL
 #define get_array_info NULL 
 #define put_array_info NULL 
 #define get_units NULL 
-STATIC long get_precision(DBADDR *paddr, long *precision);
+STATIC long get_precision(const DBADDR *paddr, long *precision);
 #define get_enum_str NULL
 #define get_enum_strs NULL 
 #define put_enum_str NULL
@@ -263,8 +263,9 @@ static int isBlank(char *name)
 	return((i>0));
 }
 
-STATIC long init_record(swaitRecord	*pwait, int pass)
+STATIC long init_record(dbCommon *pcommon, int pass)
 {
+    swaitRecord *pwait = (swaitRecord *) pcommon;
     struct cbStruct *pcbst;
     long    status = 0;
     int i;
@@ -382,8 +383,9 @@ notifyCallback(recDynLink * precDynLink)
 	if (swaitRecordDebug >= 10) errlogPrintf("swaitRecord:notifyCallback: entry\n");
     recGblFwdLink(pwait);
 }
-STATIC long process(swaitRecord	*pwait)
+STATIC long process(dbCommon *pcommon)
 {
+	swaitRecord *pwait = (swaitRecord *) pcommon;
 	struct cbStruct *pcbst = (struct cbStruct *)pwait->cbst;
 	short async    = FALSE;
 	long  status;
@@ -577,7 +579,7 @@ STATIC long special(DBADDR *paddr, int after)
     }
 }
 
-STATIC long get_precision(DBADDR *paddr, long *precision)
+STATIC long get_precision(const DBADDR *paddr, long *precision)
 {
     swaitRecord	*pwait=(swaitRecord *)paddr->precord;
 
@@ -730,13 +732,13 @@ STATIC void schedOutput(swaitRecord *pwait)
 static void doOutputCallback(CALLBACK *pcallback)
 {
 	dbCommon    *pwait;
-	struct rset *prset;
+	rset *prset;
 
 	callbackGetUser(pwait, pcallback);
-	prset = (struct rset *)pwait->rset;
+	prset = pwait->rset;
 
 	dbScanLock((struct dbCommon *)pwait);
-	(*prset->process)(pwait);
+	prset->process((dbCommon *) pwait);
 	dbScanUnlock((struct dbCommon *)pwait);
 }
 

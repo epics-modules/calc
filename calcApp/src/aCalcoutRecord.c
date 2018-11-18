@@ -1325,7 +1325,7 @@ static long doCalc(acalcoutRecord *pcalc) {
 static void acalcPerformTask(void *parm) {
 	calcMessage msg;
 	acalcoutRecord *pcalc;
-	struct rset *prset;
+	rset *prset;
 
 	if (aCalcoutRecordDebug >= 10)
 		printf("acalcPerformTask:entry\n");
@@ -1338,7 +1338,7 @@ static void acalcPerformTask(void *parm) {
 		}
 
 		pcalc = msg.pcalc;
-		prset = (struct rset *)(pcalc->rset);
+		prset = pcalc->rset;
 
 		dbScanLock((struct dbCommon *)pcalc);
 
@@ -1348,7 +1348,7 @@ static void acalcPerformTask(void *parm) {
 		if (aCalcoutRecordDebug >= 10)
 			printf("acalcPerformTask:processing '%s'\n", pcalc->name);
 
-		(*prset->process)(pcalc);
+		prset->process((dbCommon *) pcalc);
 		dbScanUnlock((struct dbCommon *)pcalc);
 	}
 }
