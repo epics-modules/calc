@@ -110,18 +110,18 @@ struct callbackSeq {
 	short				linkStat; /* LINKS_ALL_OK, LINKS_NOT_OK */
 };
 
-static long init_record(sseqRecord *pR, int pass);
-static long process(sseqRecord *pR);
+static long init_record(dbCommon *pR, int pass);
+static long process(dbCommon *pR);
 static int processNextLink(sseqRecord *pR);
 static long asyncFinish(sseqRecord *pR);
 static void processCallback(CALLBACK *pCallback);
-static long get_precision(struct dbAddr *paddr, long *precision);
+static long get_precision(const dbAddr *paddr, long *precision);
 static void checkLinksCallback(CALLBACK *pCallback);
 static void checkLinks(sseqRecord *pR);
 static long special(struct dbAddr *paddr, int after);
 
 /* Create RSET - Record Support Entry Table*/
-struct rset sseqRSET={
+rset sseqRSET={
 	RSETNUMBER,
 	NULL,			/* report */
 	NULL,			/* initialize */
@@ -155,8 +155,9 @@ epicsExportAddress(rset, sseqRSET);
  *
  ******************************************************************************/
 static long 
-init_record(sseqRecord *pR, int pass)
+init_record(dbCommon *pcommon, int pass)
 {
+	sseqRecord *pR = (sseqRecord *) pcommon;
 	int					index;
 	struct linkGroup	*plinkGroup;
 	struct callbackSeq	*pcb;
@@ -279,8 +280,9 @@ init_record(sseqRecord *pR, int pass)
  *
  ******************************************************************************/
 static long 
-process(sseqRecord *pR)
+process(dbCommon *pcommon)
 {
+	sseqRecord *pR = (sseqRecord *) pcommon;
 	struct callbackSeq	*pcb = (struct callbackSeq *) (pR->dpvt);
 	struct linkGroup	*plinkGroup;
 	unsigned short		lmask;
@@ -411,7 +413,7 @@ static int processNextLink(sseqRecord *pR)
 			}
 		}
 		/* no outstanding callbacks.  finish up */
-		(*(struct rset *)(pR->rset)).process(pR);
+		pR->rset->process((dbCommon *) pR);
 		return(0);
 	}
 
@@ -564,7 +566,7 @@ void putCallbackCB(void *arg)
 		/* If all links are done, call process to finish up. */
 		if (numWaiting == 0) {
 			if (sseqRecDebug > 5) printf("sseq:putCallbackCB(%s) aborting\n", pR->name);
-			(*(struct rset *)(pR->rset)).process(pR);
+			pR->rset->process((dbCommon *) pR);
 		}
 		dbScanUnlock((struct dbCommon *)pR);
 		return;
@@ -620,7 +622,7 @@ processCallback(CALLBACK *pCallback)
 		if (sseqRecDebug >= 5)
 			printf("sseq:processCallback(%s) aborting at field index %d\n", pR->name, pcb->index);
 		/* Finish up. */
-		(*(struct rset *)(pR->rset)).process(pR);
+		pR->rset->process((dbCommon *) pR);
 		dbScanUnlock((struct dbCommon *)pR);
 		return;
 	}
@@ -805,7 +807,7 @@ processCallback(CALLBACK *pCallback)
  *
  *****************************************************************************/
 static long
-get_precision(struct dbAddr *paddr, long *precision)
+get_precision(const dbAddr *paddr, long *precision)
 {
 	sseqRecord	*pR = (struct sseqRecord *) paddr->precord;
 

@@ -182,7 +182,7 @@ static long init_record(acalcoutRecord *pcalc, int pass)
 	if (pass==0) {
 		pcalc->vers = VERSION;
 		pcalc->rpvt = (void *)calloc(1, sizeof(struct rpvtStruct));
-		if ((pcalc->nuse < 0) || (pcalc->nuse > pcalc->nelm)) {
+		if (pcalc->nuse > pcalc->nelm) {
 			pcalc->nuse = pcalc->nelm;
 			db_post_events(pcalc,&pcalc->nuse,DBE_VALUE|DBE_LOG);
 		}
@@ -367,7 +367,7 @@ static long process(acalcoutRecord *pcalc)
 		pcalc->name, pcalc->pact, pcalc->cact, pcalc->dlya);
 
 	/* Make sure.  Autosave is capable of setting NUSE to an illegal value. */
-	if ((pcalc->nuse < 0) || (pcalc->nuse > pcalc->nelm)) {
+	if (pcalc->nuse > pcalc->nelm) {
 		pcalc->nuse = pcalc->nelm;
 		db_post_events(pcalc,&pcalc->nuse, DBE_VALUE|DBE_LOG);
 	}
@@ -488,7 +488,7 @@ static long special(dbAddr	*paddr, int after)
 		break;
 
 	case acalcoutRecordNUSE:
-		if ((pcalc->nuse < 0) || (pcalc->nuse > pcalc->nelm)) {
+		if (pcalc->nuse > pcalc->nelm) {
 			pcalc->nuse = pcalc->nelm;
 			db_post_events(pcalc,&pcalc->nuse,DBE_VALUE);
 			return(-1);
@@ -1325,7 +1325,7 @@ static long doCalc(acalcoutRecord *pcalc) {
 static void acalcPerformTask(void *parm) {
 	calcMessage msg;
 	acalcoutRecord *pcalc;
-	struct rset *prset;
+	rset *prset;
 
 	if (aCalcoutRecordDebug >= 10)
 		printf("acalcPerformTask:entry\n");
@@ -1338,7 +1338,7 @@ static void acalcPerformTask(void *parm) {
 		}
 
 		pcalc = msg.pcalc;
-		prset = (struct rset *)(pcalc->rset);
+		prset = pcalc->rset;
 
 		dbScanLock((struct dbCommon *)pcalc);
 
@@ -1348,7 +1348,7 @@ static void acalcPerformTask(void *parm) {
 		if (aCalcoutRecordDebug >= 10)
 			printf("acalcPerformTask:processing '%s'\n", pcalc->name);
 
-		(*prset->process)(pcalc);
+		prset->process((dbCommon *) pcalc);
 		dbScanUnlock((struct dbCommon *)pcalc);
 	}
 }

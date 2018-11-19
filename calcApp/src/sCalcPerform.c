@@ -1541,7 +1541,7 @@ epicsShareFunc long
 				if (((s = strpbrk(s, "%")) == NULL) ||
 					((s = strpbrk(s+1, "*cdeEfgGiousxX")) == NULL)) {
 					/* no printf arguments needed */
-		 			sprintf(tmpstr, ps->s);
+					strcpy(tmpstr, ps->s);
 				} else {
 					switch (*s) {
 					default: case '*':
