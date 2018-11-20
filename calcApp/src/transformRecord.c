@@ -393,8 +393,9 @@ static int convertExpression(transformRecord *ptran, char *dest, const char *src
 /********************************************************************************/
 
 static long 
-init_record(transformRecord *ptran, int pass)
+init_record(dbCommon *pcommon, int pass)
 {
+	transformRecord *ptran = (transformRecord *) pcommon;
 	int				i;
 	epicsInt32		*pcalcInvalid;
 	struct link		*pinlink, *poutlink;
@@ -503,8 +504,9 @@ init_record(transformRecord *ptran, int pass)
 }
 
 static long 
-process(transformRecord *ptran)
+process(dbCommon *pcommon)
 {
+	transformRecord *ptran = (transformRecord *) pcommon;
 	int				i, no_inlink, new_value, postfix_ok, same;
 	long			status;
 	struct link		*plink;
@@ -623,7 +625,7 @@ process(transformRecord *ptran)
 
 
 static long 
-special(struct dbAddr *paddr, int after)
+special(const DBADDR *paddr, int after)
 {
 	int				i;
 	transformRecord	*ptran = (transformRecord *) (paddr->precord);
@@ -748,7 +750,7 @@ special(struct dbAddr *paddr, int after)
 }
 
 static long 
-get_precision(struct dbAddr *paddr, long *precision)
+get_precision(const DBADDR *paddr, long *precision)
 {
 	transformRecord *ptran = (transformRecord *) paddr->precord;
 	int fieldIndex = dbGetFieldIndex(paddr);
