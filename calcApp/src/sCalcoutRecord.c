@@ -764,7 +764,7 @@ static void execOutput(scalcoutRecord *pcalc)
 		if (sCalcPerform(&pcalc->a, MAX_FIELDS, (char **)(pcalc->strs),
 				STRING_MAX_FIELDS, &pcalc->oval, pcalc->osv, STRING_SIZE,
 				pcalc->orpc, pcalc->prec)) {
-			pcalc->val = -1;
+			pcalc->oval = -1;
 			/* strcpy(pcalc->osv,"***ERROR***"); */
 			strNcpy(pcalc->osv,"***ERROR***", STRING_SIZE);
 			recGblSetSevr(pcalc,CALC_ALARM,INVALID_ALARM);
