@@ -1,0 +1,3441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>userStringSeq_help</name>
+  <x>46</x>
+  <y>385</y>
+  <width>1100</width>
+  <height>590</height>
+  <background_color>
+    <color red="200" green="200" blue="200">
+    </color>
+  </background_color>
+  <grid_visible>false</grid_visible>
+  <grid_step_x>5</grid_step_x>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #6</name>
+    <x>297</x>
+    <y>196</y>
+    <width>759</width>
+    <height>200</height>
+    <line_color>
+      <color red="0" green="0" blue="0">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="0" green="0" blue="0">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #9</name>
+    <x>301</x>
+    <y>200</y>
+    <width>753</width>
+    <height>26</height>
+    <line_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #12</name>
+    <text># DIGITS</text>
+    <x>531</x>
+    <y>235</y>
+    <width>50</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="polyline" version="2.0.0">
+    <name>polyline #15</name>
+    <x>300</x>
+    <y>227</y>
+    <width>754</width>
+    <height>3</height>
+    <line_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </line_color>
+    <points>
+      <point x="1.0" y="1.0">
+      </point>
+      <point x="752.0" y="1.0">
+      </point>
+    </points>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #19</name>
+    <text>&lt;NAME OF RECORD&gt;</text>
+    <x>541</x>
+    <y>206</y>
+    <width>140</width>
+    <height>14</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #22</name>
+    <x>1002</x>
+    <y>372</y>
+    <width>50</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #24</name>
+    <actions>
+      <action type="open_display">
+        <file>inlinkHelp.opi</file>
+        <target>tab</target>
+        <description>Terse link docs</description>
+      </action>
+    </actions>
+    <text>LINK HELP</text>
+    <x>416</x>
+    <y>250</y>
+    <width>60</width>
+    <height>16</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #27</name>
+    <text>INPUT PV NAME</text>
+    <x>326</x>
+    <y>255</y>
+    <width>90</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #30</name>
+    <text>DELAY</text>
+    <x>481</x>
+    <y>255</y>
+    <width>45</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #33</name>
+    <x>301</x>
+    <y>230</y>
+    <width>100</width>
+    <height>21</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="rectangle" version="2.0.0">
+      <name>rectangle #36</name>
+      <line_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </line_color>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #39</name>
+      <text>EXECUTION</text>
+      <y>1</y>
+      <width>76</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #42</name>
+      <text>MODE</text>
+      <y>10</y>
+      <width>76</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="group" version="2.0.0">
+      <name>composite #45</name>
+      <width>100</width>
+      <height>21</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #48</name>
+        <width>99</width>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="236" green="236" blue="236">
+          </color>
+        </line_color>
+        <points>
+          <point x="0.0" y="19.0">
+          </point>
+          <point x="0.0" y="0.0">
+          </point>
+          <point x="98.0" y="0.0">
+          </point>
+        </points>
+      </widget>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #52</name>
+        <width>99</width>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="105" green="105" blue="105">
+          </color>
+        </line_color>
+        <points>
+          <point x="98.0" y="0.0">
+          </point>
+          <point x="98.0" y="19.0">
+          </point>
+          <point x="0.0" y="19.0">
+          </point>
+        </points>
+      </widget>
+    </widget>
+    <widget type="group" version="2.0.0">
+      <name>composite #56</name>
+      <x>81</x>
+      <y>6</y>
+      <width>11</width>
+      <height>6</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #59</name>
+        <width>10</width>
+        <height>6</height>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="236" green="236" blue="236">
+          </color>
+        </line_color>
+        <points>
+          <point x="0.0" y="5.0">
+          </point>
+          <point x="0.0" y="0.0">
+          </point>
+          <point x="9.0" y="0.0">
+          </point>
+        </points>
+      </widget>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #63</name>
+        <width>10</width>
+        <height>6</height>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="105" green="105" blue="105">
+          </color>
+        </line_color>
+        <points>
+          <point x="9.0" y="0.0">
+          </point>
+          <point x="9.0" y="5.0">
+          </point>
+          <point x="0.0" y="5.0">
+          </point>
+        </points>
+      </widget>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #67</name>
+    <text>STRING VALUE</text>
+    <x>536</x>
+    <y>255</y>
+    <width>200</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #70</name>
+    <text>VALUE</text>
+    <x>741</x>
+    <y>255</y>
+    <width>80</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #73</name>
+    <text>OUTPUT PV NAME</text>
+    <x>826</x>
+    <y>255</y>
+    <width>90</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #76</name>
+    <actions>
+      <action type="open_display">
+        <file>outlinkHelp.opi</file>
+        <target>tab</target>
+        <description>Terse link docs</description>
+      </action>
+    </actions>
+    <text>LINK HELP</text>
+    <x>916</x>
+    <y>250</y>
+    <width>60</width>
+    <height>16</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #79</name>
+    <text>FORWARD LINK</text>
+    <x>732</x>
+    <y>372</y>
+    <width>80</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #82</name>
+    <x>981</x>
+    <y>245</y>
+    <width>70</width>
+    <height>20</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>text #85</name>
+      <text>WAIT FOR</text>
+      <width>70</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #88</name>
+      <text>COMPLETION?</text>
+      <y>10</y>
+      <width>70</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #91</name>
+    <text>NUMERIC</text>
+    <x>741</x>
+    <y>245</y>
+    <width>80</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #94</name>
+    <x>581</x>
+    <y>230</y>
+    <width>25</width>
+    <height>20</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="rectangle" version="2.0.0">
+      <name>rectangle #97</name>
+      <x>1</x>
+      <y>1</y>
+      <width>24</width>
+      <height>19</height>
+      <line_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </line_color>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #100</name>
+      <text>#</text>
+      <x>1</x>
+      <y>2</y>
+      <width>24</width>
+      <height>14</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="group" version="2.0.0">
+      <name>composite #103</name>
+      <width>24</width>
+      <height>19</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #106</name>
+        <x>1</x>
+        <y>1</y>
+        <width>23</width>
+        <height>19</height>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="236" green="236" blue="236">
+          </color>
+        </line_color>
+        <points>
+          <point x="22.0" y="0.0">
+          </point>
+          <point x="22.0" y="18.0">
+          </point>
+          <point x="0.0" y="18.0">
+          </point>
+        </points>
+      </widget>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #110</name>
+        <x>1</x>
+        <y>1</y>
+        <width>23</width>
+        <height>19</height>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="105" green="105" blue="105">
+          </color>
+        </line_color>
+        <points>
+          <point x="0.0" y="18.0">
+          </point>
+          <point x="0.0" y="0.0">
+          </point>
+          <point x="22.0" y="0.0">
+          </point>
+        </points>
+      </widget>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #114</name>
+    <x>300</x>
+    <y>200</y>
+    <width>235</width>
+    <height>25</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="rectangle" version="2.0.0">
+      <name>rectangle #117</name>
+      <width>235</width>
+      <height>25</height>
+      <line_color>
+        <color red="105" green="105" blue="105">
+        </color>
+      </line_color>
+      <background_color>
+        <color red="105" green="105" blue="105">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>rectangle #120</name>
+      <x>1</x>
+      <y>1</y>
+      <width>233</width>
+      <height>23</height>
+      <line_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </line_color>
+      <background_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #123</name>
+      <text>&lt;DESCRIPTION&gt;</text>
+      <x>1</x>
+      <y>4</y>
+      <width>233</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="polyline" version="2.0.0">
+      <name>polyline #126</name>
+      <width>234</width>
+      <height>24</height>
+      <line_width>1</line_width>
+      <line_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </line_color>
+      <points>
+        <point x="233.0" y="0.0">
+        </point>
+        <point x="233.0" y="23.0">
+        </point>
+        <point x="0.0" y="23.0">
+        </point>
+      </points>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #130</name>
+    <x>826</x>
+    <y>366</y>
+    <width>150</width>
+    <height>19</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="rectangle" version="2.0.0">
+      <name>rectangle #133</name>
+      <width>149</width>
+      <height>19</height>
+      <line_color>
+        <color red="164" green="170" blue="255">
+        </color>
+      </line_color>
+      <background_color>
+        <color red="164" green="170" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #136</name>
+      <text>&lt;NAME OF A RECORD&gt;</text>
+      <x>1</x>
+      <y>4</y>
+      <width>147</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="polyline" version="2.0.0">
+      <name>polyline #139</name>
+      <width>150</width>
+      <height>19</height>
+      <line_width>1</line_width>
+      <line_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </line_color>
+      <points>
+        <point x="149.0" y="0.0">
+        </point>
+        <point x="149.0" y="18.0">
+        </point>
+        <point x="0.0" y="18.0">
+        </point>
+      </points>
+    </widget>
+    <widget type="polyline" version="2.0.0">
+      <name>polyline #143</name>
+      <width>150</width>
+      <height>18</height>
+      <line_width>1</line_width>
+      <line_color>
+        <color red="105" green="105" blue="105">
+        </color>
+      </line_color>
+      <points>
+        <point x="0.0" y="17.0">
+        </point>
+        <point x="0.0" y="0.0">
+        </point>
+        <point x="149.0" y="0.0">
+        </point>
+      </points>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #147</name>
+    <text></text>
+    <x>10</x>
+    <y>125</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #150</name>
+    <text>1) If 'DELAY' is nonzero, wait for the</text>
+    <x>10</x>
+    <y>140</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #153</name>
+    <text>a multiple of some clock period --</text>
+    <x>10</x>
+    <y>185</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #156</name>
+    <text>seconds, and will be quantized to</text>
+    <x>10</x>
+    <y>170</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #159</name>
+    <text></text>
+    <x>10</x>
+    <y>215</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #162</name>
+    <text>2) If 'INPUT PV NAME' is not blank,</text>
+    <x>10</x>
+    <y>230</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #165</name>
+    <text>read a value from that PV, and put</text>
+    <x>10</x>
+    <y>245</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #168</name>
+    <text>string and numeric renditions of</text>
+    <x>10</x>
+    <y>260</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #171</name>
+    <text>the value into the 'STRING VALUE'</text>
+    <x>10</x>
+    <y>275</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #174</name>
+    <text></text>
+    <x>10</x>
+    <y>305</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #177</name>
+    <text>3) If 'OUTPUT PV NAME' is not blank,</text>
+    <x>10</x>
+    <y>320</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #180</name>
+    <text>write the string or numeric value</text>
+    <x>10</x>
+    <y>335</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #183</name>
+    <text>(depending on the type of the</text>
+    <x>10</x>
+    <y>350</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #186</name>
+    <text>recipient PV).</text>
+    <x>10</x>
+    <y>365</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #189</name>
+    <text>4) If 'WAIT FOR COMPLETION' has the</text>
+    <x>10</x>
+    <y>395</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #192</name>
+    <text>value 'WAIT', and the link has the</text>
+    <x>10</x>
+    <y>410</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #195</name>
+    <text>typically .0166... seconds (60 Hz).</text>
+    <x>10</x>
+    <y>200</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #198</name>
+    <text>This display controls a sequence of</text>
+    <x>10</x>
+    <y>20</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #201</name>
+    <text>operations (numbered 1-4 here, a</text>
+    <x>10</x>
+    <y>35</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #204</name>
+    <text>larger display shows all 10), each</text>
+    <x>10</x>
+    <y>50</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #207</name>
+    <text>described by one row of fields as</text>
+    <x>10</x>
+    <y>65</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #210</name>
+    <text>shown at right. Rows are processed in</text>
+    <x>10</x>
+    <y>80</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #213</name>
+    <text>sequence, and each row operates as</text>
+    <x>10</x>
+    <y>95</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #216</name>
+    <text>follows:</text>
+    <x>10</x>
+    <y>110</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #219</name>
+    <text>specified time.  The time is in</text>
+    <x>10</x>
+    <y>155</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #222</name>
+    <text></text>
+    <x>10</x>
+    <y>380</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #225</name>
+    <text>and 'NUMERIC VALUE' fields.</text>
+    <x>10</x>
+    <y>290</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #228</name>
+    <x>326</x>
+    <y>292</y>
+    <width>725</width>
+    <height>21</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="group" version="2.0.0">
+      <name>composite #231</name>
+      <x>156</x>
+      <y>1</y>
+      <width>49</width>
+      <height>20</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <widget type="rectangle" version="2.0.0">
+        <name>rectangle #234</name>
+        <width>47</width>
+        <line_color>
+          <color red="115" green="223" blue="255">
+          </color>
+        </line_color>
+        <background_color>
+          <color red="115" green="223" blue="255">
+          </color>
+        </background_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>text #237</name>
+        <text>TIME (S)</text>
+        <y>1</y>
+        <width>49</width>
+        <height>10</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </font>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>text #240</name>
+        <text>TO WAIT</text>
+        <y>10</y>
+        <width>49</width>
+        <height>10</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </font>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #243</name>
+        <width>47</width>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="236" green="236" blue="236">
+          </color>
+        </line_color>
+        <points>
+          <point x="46.0" y="0.0">
+          </point>
+          <point x="46.0" y="19.0">
+          </point>
+          <point x="0.0" y="19.0">
+          </point>
+        </points>
+      </widget>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #247</name>
+        <width>47</width>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="105" green="105" blue="105">
+          </color>
+        </line_color>
+        <points>
+          <point x="0.0" y="19.0">
+          </point>
+          <point x="0.0" y="0.0">
+          </point>
+          <point x="46.0" y="0.0">
+          </point>
+        </points>
+      </widget>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>rectangle #251</name>
+      <x>212</x>
+      <width>194</width>
+      <line_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </line_color>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #254</name>
+      <text>&lt;STRING TO BE WRITTEN&gt;</text>
+      <x>212</x>
+      <y>5</y>
+      <width>196</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="polyline" version="2.0.0">
+      <name>polyline #257</name>
+      <x>212</x>
+      <width>194</width>
+      <line_width>1</line_width>
+      <line_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </line_color>
+      <points>
+        <point x="193.0" y="0.0">
+        </point>
+        <point x="193.0" y="19.0">
+        </point>
+        <point x="0.0" y="19.0">
+        </point>
+      </points>
+    </widget>
+    <widget type="polyline" version="2.0.0">
+      <name>polyline #261</name>
+      <x>212</x>
+      <width>194</width>
+      <line_width>1</line_width>
+      <line_color>
+        <color red="105" green="105" blue="105">
+        </color>
+      </line_color>
+      <points>
+        <point x="0.0" y="19.0">
+        </point>
+        <point x="0.0" y="0.0">
+        </point>
+        <point x="193.0" y="0.0">
+        </point>
+      </points>
+    </widget>
+    <widget type="group" version="2.0.0">
+      <name>composite #265</name>
+      <width>150</width>
+      <height>19</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <widget type="rectangle" version="2.0.0">
+        <name>rectangle #268</name>
+        <width>149</width>
+        <height>19</height>
+        <line_color>
+          <color red="164" green="170" blue="255">
+          </color>
+        </line_color>
+        <background_color>
+          <color red="164" green="170" blue="255">
+          </color>
+        </background_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>text #271</name>
+        <text>&lt;PV TO READ FROM&gt;</text>
+        <x>1</x>
+        <y>5</y>
+        <width>147</width>
+        <height>10</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </font>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #274</name>
+        <width>150</width>
+        <height>19</height>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="236" green="236" blue="236">
+          </color>
+        </line_color>
+        <points>
+          <point x="149.0" y="0.0">
+          </point>
+          <point x="149.0" y="18.0">
+          </point>
+          <point x="0.0" y="18.0">
+          </point>
+        </points>
+      </widget>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #278</name>
+        <width>150</width>
+        <height>19</height>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="105" green="105" blue="105">
+          </color>
+        </line_color>
+        <points>
+          <point x="0.0" y="18.0">
+          </point>
+          <point x="0.0" y="0.0">
+          </point>
+          <point x="149.0" y="0.0">
+          </point>
+        </points>
+      </widget>
+    </widget>
+    <widget type="group" version="2.0.0">
+      <name>composite #282</name>
+      <x>500</x>
+      <width>150</width>
+      <height>19</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <widget type="rectangle" version="2.0.0">
+        <name>rectangle #285</name>
+        <width>149</width>
+        <height>19</height>
+        <line_color>
+          <color red="164" green="170" blue="255">
+          </color>
+        </line_color>
+        <background_color>
+          <color red="164" green="170" blue="255">
+          </color>
+        </background_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>text #288</name>
+        <text>&lt;PV TO WRITE TO&gt;</text>
+        <x>1</x>
+        <y>4</y>
+        <width>147</width>
+        <height>10</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </font>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #291</name>
+        <width>150</width>
+        <height>19</height>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="236" green="236" blue="236">
+          </color>
+        </line_color>
+        <points>
+          <point x="149.0" y="0.0">
+          </point>
+          <point x="149.0" y="18.0">
+          </point>
+          <point x="0.0" y="18.0">
+          </point>
+        </points>
+      </widget>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #295</name>
+        <width>150</width>
+        <height>18</height>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="105" green="105" blue="105">
+          </color>
+        </line_color>
+        <points>
+          <point x="0.0" y="17.0">
+          </point>
+          <point x="0.0" y="0.0">
+          </point>
+          <point x="149.0" y="0.0">
+          </point>
+        </points>
+      </widget>
+    </widget>
+    <widget type="group" version="2.0.0">
+      <name>composite #299</name>
+      <x>415</x>
+      <width>79</width>
+      <height>20</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <widget type="rectangle" version="2.0.0">
+        <name>rectangle #302</name>
+        <width>78</width>
+        <line_color>
+          <color red="115" green="223" blue="255">
+          </color>
+        </line_color>
+        <background_color>
+          <color red="115" green="223" blue="255">
+          </color>
+        </background_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>text #305</name>
+        <text>&lt;NUMBER TO</text>
+        <y>1</y>
+        <width>78</width>
+        <height>10</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </font>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>text #308</name>
+        <text>BE WRITTEN&gt;</text>
+        <y>10</y>
+        <width>78</width>
+        <height>10</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </font>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #311</name>
+        <width>79</width>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="236" green="236" blue="236">
+          </color>
+        </line_color>
+        <points>
+          <point x="78.0" y="0.0">
+          </point>
+          <point x="78.0" y="19.0">
+          </point>
+          <point x="0.0" y="19.0">
+          </point>
+        </points>
+      </widget>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #315</name>
+        <width>77</width>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="105" green="105" blue="105">
+          </color>
+        </line_color>
+        <points>
+          <point x="0.0" y="19.0">
+          </point>
+          <point x="0.0" y="0.0">
+          </point>
+          <point x="76.0" y="0.0">
+          </point>
+        </points>
+      </widget>
+    </widget>
+    <widget type="group" version="2.0.0">
+      <name>composite #319</name>
+      <x>660</x>
+      <width>65</width>
+      <height>21</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <widget type="rectangle" version="2.0.0">
+        <name>rectangle #322</name>
+        <width>65</width>
+        <line_color>
+          <color red="115" green="223" blue="255">
+          </color>
+        </line_color>
+        <background_color>
+          <color red="115" green="223" blue="255">
+          </color>
+        </background_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>text #325</name>
+        <text>WAIT OR</text>
+        <y>1</y>
+        <width>49</width>
+        <height>10</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </font>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>text #328</name>
+        <text>NO WAIT?</text>
+        <y>10</y>
+        <width>49</width>
+        <height>10</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </font>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="group" version="2.0.0">
+        <name>composite #331</name>
+        <width>65</width>
+        <height>21</height>
+        <style>3</style>
+        <transparent>true</transparent>
+        <widget type="polyline" version="2.0.0">
+          <name>polyline #334</name>
+          <width>65</width>
+          <line_width>1</line_width>
+          <line_color>
+            <color red="236" green="236" blue="236">
+            </color>
+          </line_color>
+          <points>
+            <point x="0.0" y="19.0">
+            </point>
+            <point x="0.0" y="0.0">
+            </point>
+            <point x="64.0" y="0.0">
+            </point>
+          </points>
+        </widget>
+        <widget type="polyline" version="2.0.0">
+          <name>polyline #338</name>
+          <width>65</width>
+          <line_width>1</line_width>
+          <line_color>
+            <color red="105" green="105" blue="105">
+            </color>
+          </line_color>
+          <points>
+            <point x="64.0" y="0.0">
+            </point>
+            <point x="64.0" y="19.0">
+            </point>
+            <point x="0.0" y="19.0">
+            </point>
+          </points>
+        </widget>
+      </widget>
+      <widget type="group" version="2.0.0">
+        <name>composite #342</name>
+        <x>53</x>
+        <y>6</y>
+        <width>7</width>
+        <height>6</height>
+        <style>3</style>
+        <transparent>true</transparent>
+        <widget type="polyline" version="2.0.0">
+          <name>polyline #345</name>
+          <width>7</width>
+          <height>6</height>
+          <line_width>1</line_width>
+          <line_color>
+            <color red="236" green="236" blue="236">
+            </color>
+          </line_color>
+          <points>
+            <point x="0.0" y="5.0">
+            </point>
+            <point x="0.0" y="0.0">
+            </point>
+            <point x="6.0" y="0.0">
+            </point>
+          </points>
+        </widget>
+        <widget type="polyline" version="2.0.0">
+          <name>polyline #349</name>
+          <width>7</width>
+          <height>6</height>
+          <line_width>1</line_width>
+          <line_color>
+            <color red="105" green="105" blue="105">
+            </color>
+          </line_color>
+          <points>
+            <point x="6.0" y="0.0">
+            </point>
+            <point x="6.0" y="5.0">
+            </point>
+            <point x="0.0" y="5.0">
+            </point>
+          </points>
+        </widget>
+      </widget>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #353</name>
+    <text>2</text>
+    <x>301</x>
+    <y>295</y>
+    <width>20</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #356</name>
+    <text>1</text>
+    <x>301</x>
+    <y>270</y>
+    <width>20</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #359</name>
+    <x>482</x>
+    <y>268</y>
+    <width>49</width>
+    <height>20</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="rectangle" version="2.0.0">
+      <name>rectangle #362</name>
+      <width>47</width>
+      <line_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </line_color>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #365</name>
+      <text>TIME (S)</text>
+      <y>1</y>
+      <width>49</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #368</name>
+      <text>TO WAIT</text>
+      <y>10</y>
+      <width>49</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="polyline" version="2.0.0">
+      <name>polyline #371</name>
+      <width>47</width>
+      <line_width>1</line_width>
+      <line_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </line_color>
+      <points>
+        <point x="46.0" y="0.0">
+        </point>
+        <point x="46.0" y="19.0">
+        </point>
+        <point x="0.0" y="19.0">
+        </point>
+      </points>
+    </widget>
+    <widget type="polyline" version="2.0.0">
+      <name>polyline #375</name>
+      <width>47</width>
+      <line_width>1</line_width>
+      <line_color>
+        <color red="105" green="105" blue="105">
+        </color>
+      </line_color>
+      <points>
+        <point x="0.0" y="19.0">
+        </point>
+        <point x="0.0" y="0.0">
+        </point>
+        <point x="46.0" y="0.0">
+        </point>
+      </points>
+    </widget>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #379</name>
+    <x>538</x>
+    <y>267</y>
+    <width>194</width>
+    <line_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #382</name>
+    <text>&lt;STRING TO BE WRITTEN&gt;</text>
+    <x>538</x>
+    <y>272</y>
+    <width>196</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="polyline" version="2.0.0">
+    <name>polyline #385</name>
+    <x>538</x>
+    <y>267</y>
+    <width>194</width>
+    <line_width>1</line_width>
+    <line_color>
+      <color red="236" green="236" blue="236">
+      </color>
+    </line_color>
+    <points>
+      <point x="193.0" y="0.0">
+      </point>
+      <point x="193.0" y="19.0">
+      </point>
+      <point x="0.0" y="19.0">
+      </point>
+    </points>
+  </widget>
+  <widget type="polyline" version="2.0.0">
+    <name>polyline #389</name>
+    <x>538</x>
+    <y>267</y>
+    <width>194</width>
+    <line_width>1</line_width>
+    <line_color>
+      <color red="105" green="105" blue="105">
+      </color>
+    </line_color>
+    <points>
+      <point x="0.0" y="19.0">
+      </point>
+      <point x="0.0" y="0.0">
+      </point>
+      <point x="193.0" y="0.0">
+      </point>
+    </points>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #393</name>
+    <x>326</x>
+    <y>267</y>
+    <width>150</width>
+    <height>19</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="rectangle" version="2.0.0">
+      <name>rectangle #396</name>
+      <width>149</width>
+      <height>19</height>
+      <line_color>
+        <color red="164" green="170" blue="255">
+        </color>
+      </line_color>
+      <background_color>
+        <color red="164" green="170" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #399</name>
+      <text>&lt;PV TO READ FROM&gt;</text>
+      <x>1</x>
+      <y>5</y>
+      <width>147</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="polyline" version="2.0.0">
+      <name>polyline #402</name>
+      <width>150</width>
+      <height>19</height>
+      <line_width>1</line_width>
+      <line_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </line_color>
+      <points>
+        <point x="149.0" y="0.0">
+        </point>
+        <point x="149.0" y="18.0">
+        </point>
+        <point x="0.0" y="18.0">
+        </point>
+      </points>
+    </widget>
+    <widget type="polyline" version="2.0.0">
+      <name>polyline #406</name>
+      <width>150</width>
+      <height>19</height>
+      <line_width>1</line_width>
+      <line_color>
+        <color red="105" green="105" blue="105">
+        </color>
+      </line_color>
+      <points>
+        <point x="0.0" y="18.0">
+        </point>
+        <point x="0.0" y="0.0">
+        </point>
+        <point x="149.0" y="0.0">
+        </point>
+      </points>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #410</name>
+    <x>826</x>
+    <y>267</y>
+    <width>150</width>
+    <height>19</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="rectangle" version="2.0.0">
+      <name>rectangle #413</name>
+      <width>149</width>
+      <height>19</height>
+      <line_color>
+        <color red="164" green="170" blue="255">
+        </color>
+      </line_color>
+      <background_color>
+        <color red="164" green="170" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #416</name>
+      <text>&lt;PV TO WRITE TO&gt;</text>
+      <x>1</x>
+      <y>4</y>
+      <width>147</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="polyline" version="2.0.0">
+      <name>polyline #419</name>
+      <width>150</width>
+      <height>19</height>
+      <line_width>1</line_width>
+      <line_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </line_color>
+      <points>
+        <point x="149.0" y="0.0">
+        </point>
+        <point x="149.0" y="18.0">
+        </point>
+        <point x="0.0" y="18.0">
+        </point>
+      </points>
+    </widget>
+    <widget type="polyline" version="2.0.0">
+      <name>polyline #423</name>
+      <width>150</width>
+      <height>18</height>
+      <line_width>1</line_width>
+      <line_color>
+        <color red="105" green="105" blue="105">
+        </color>
+      </line_color>
+      <points>
+        <point x="0.0" y="17.0">
+        </point>
+        <point x="0.0" y="0.0">
+        </point>
+        <point x="149.0" y="0.0">
+        </point>
+      </points>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #427</name>
+    <x>741</x>
+    <y>267</y>
+    <width>79</width>
+    <height>20</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="rectangle" version="2.0.0">
+      <name>rectangle #430</name>
+      <width>78</width>
+      <line_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </line_color>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #433</name>
+      <text>&lt;NUMBER TO</text>
+      <y>1</y>
+      <width>78</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #436</name>
+      <text>BE WRITTEN&gt;</text>
+      <y>10</y>
+      <width>78</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="polyline" version="2.0.0">
+      <name>polyline #439</name>
+      <width>79</width>
+      <line_width>1</line_width>
+      <line_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </line_color>
+      <points>
+        <point x="78.0" y="0.0">
+        </point>
+        <point x="78.0" y="19.0">
+        </point>
+        <point x="0.0" y="19.0">
+        </point>
+      </points>
+    </widget>
+    <widget type="polyline" version="2.0.0">
+      <name>polyline #443</name>
+      <width>77</width>
+      <line_width>1</line_width>
+      <line_color>
+        <color red="105" green="105" blue="105">
+        </color>
+      </line_color>
+      <points>
+        <point x="0.0" y="19.0">
+        </point>
+        <point x="0.0" y="0.0">
+        </point>
+        <point x="76.0" y="0.0">
+        </point>
+      </points>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #447</name>
+    <x>986</x>
+    <y>267</y>
+    <width>65</width>
+    <height>21</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="rectangle" version="2.0.0">
+      <name>rectangle #450</name>
+      <width>65</width>
+      <line_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </line_color>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #453</name>
+      <text>WAIT OR</text>
+      <y>1</y>
+      <width>49</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #456</name>
+      <text>NO WAIT?</text>
+      <y>10</y>
+      <width>49</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="group" version="2.0.0">
+      <name>composite #459</name>
+      <width>65</width>
+      <height>21</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #462</name>
+        <width>65</width>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="236" green="236" blue="236">
+          </color>
+        </line_color>
+        <points>
+          <point x="0.0" y="19.0">
+          </point>
+          <point x="0.0" y="0.0">
+          </point>
+          <point x="64.0" y="0.0">
+          </point>
+        </points>
+      </widget>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #466</name>
+        <width>65</width>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="105" green="105" blue="105">
+          </color>
+        </line_color>
+        <points>
+          <point x="64.0" y="0.0">
+          </point>
+          <point x="64.0" y="19.0">
+          </point>
+          <point x="0.0" y="19.0">
+          </point>
+        </points>
+      </widget>
+    </widget>
+    <widget type="group" version="2.0.0">
+      <name>composite #470</name>
+      <x>53</x>
+      <y>6</y>
+      <width>7</width>
+      <height>6</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #473</name>
+        <width>7</width>
+        <height>6</height>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="236" green="236" blue="236">
+          </color>
+        </line_color>
+        <points>
+          <point x="0.0" y="5.0">
+          </point>
+          <point x="0.0" y="0.0">
+          </point>
+          <point x="6.0" y="0.0">
+          </point>
+        </points>
+      </widget>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #477</name>
+        <width>7</width>
+        <height>6</height>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="105" green="105" blue="105">
+          </color>
+        </line_color>
+        <points>
+          <point x="6.0" y="0.0">
+          </point>
+          <point x="6.0" y="5.0">
+          </point>
+          <point x="0.0" y="5.0">
+          </point>
+        </points>
+      </widget>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #481</name>
+    <text>3</text>
+    <x>301</x>
+    <y>320</y>
+    <width>20</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #484</name>
+    <x>326</x>
+    <y>317</y>
+    <width>725</width>
+    <height>21</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="group" version="2.0.0">
+      <name>composite #487</name>
+      <x>156</x>
+      <y>1</y>
+      <width>49</width>
+      <height>20</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <widget type="rectangle" version="2.0.0">
+        <name>rectangle #490</name>
+        <width>47</width>
+        <line_color>
+          <color red="115" green="223" blue="255">
+          </color>
+        </line_color>
+        <background_color>
+          <color red="115" green="223" blue="255">
+          </color>
+        </background_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>text #493</name>
+        <text>TIME (S)</text>
+        <y>1</y>
+        <width>49</width>
+        <height>10</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </font>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>text #496</name>
+        <text>TO WAIT</text>
+        <y>10</y>
+        <width>49</width>
+        <height>10</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </font>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #499</name>
+        <width>47</width>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="236" green="236" blue="236">
+          </color>
+        </line_color>
+        <points>
+          <point x="46.0" y="0.0">
+          </point>
+          <point x="46.0" y="19.0">
+          </point>
+          <point x="0.0" y="19.0">
+          </point>
+        </points>
+      </widget>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #503</name>
+        <width>47</width>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="105" green="105" blue="105">
+          </color>
+        </line_color>
+        <points>
+          <point x="0.0" y="19.0">
+          </point>
+          <point x="0.0" y="0.0">
+          </point>
+          <point x="46.0" y="0.0">
+          </point>
+        </points>
+      </widget>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>rectangle #507</name>
+      <x>212</x>
+      <width>194</width>
+      <line_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </line_color>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #510</name>
+      <text>&lt;STRING TO BE WRITTEN&gt;</text>
+      <x>212</x>
+      <y>5</y>
+      <width>196</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="polyline" version="2.0.0">
+      <name>polyline #513</name>
+      <x>212</x>
+      <width>194</width>
+      <line_width>1</line_width>
+      <line_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </line_color>
+      <points>
+        <point x="193.0" y="0.0">
+        </point>
+        <point x="193.0" y="19.0">
+        </point>
+        <point x="0.0" y="19.0">
+        </point>
+      </points>
+    </widget>
+    <widget type="polyline" version="2.0.0">
+      <name>polyline #517</name>
+      <x>212</x>
+      <width>194</width>
+      <line_width>1</line_width>
+      <line_color>
+        <color red="105" green="105" blue="105">
+        </color>
+      </line_color>
+      <points>
+        <point x="0.0" y="19.0">
+        </point>
+        <point x="0.0" y="0.0">
+        </point>
+        <point x="193.0" y="0.0">
+        </point>
+      </points>
+    </widget>
+    <widget type="group" version="2.0.0">
+      <name>composite #521</name>
+      <width>150</width>
+      <height>19</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <widget type="rectangle" version="2.0.0">
+        <name>rectangle #524</name>
+        <width>149</width>
+        <height>19</height>
+        <line_color>
+          <color red="164" green="170" blue="255">
+          </color>
+        </line_color>
+        <background_color>
+          <color red="164" green="170" blue="255">
+          </color>
+        </background_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>text #527</name>
+        <text>&lt;PV TO READ FROM&gt;</text>
+        <x>1</x>
+        <y>5</y>
+        <width>147</width>
+        <height>10</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </font>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #530</name>
+        <width>150</width>
+        <height>19</height>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="236" green="236" blue="236">
+          </color>
+        </line_color>
+        <points>
+          <point x="149.0" y="0.0">
+          </point>
+          <point x="149.0" y="18.0">
+          </point>
+          <point x="0.0" y="18.0">
+          </point>
+        </points>
+      </widget>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #534</name>
+        <width>150</width>
+        <height>19</height>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="105" green="105" blue="105">
+          </color>
+        </line_color>
+        <points>
+          <point x="0.0" y="18.0">
+          </point>
+          <point x="0.0" y="0.0">
+          </point>
+          <point x="149.0" y="0.0">
+          </point>
+        </points>
+      </widget>
+    </widget>
+    <widget type="group" version="2.0.0">
+      <name>composite #538</name>
+      <x>500</x>
+      <width>150</width>
+      <height>19</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <widget type="rectangle" version="2.0.0">
+        <name>rectangle #541</name>
+        <width>149</width>
+        <height>19</height>
+        <line_color>
+          <color red="164" green="170" blue="255">
+          </color>
+        </line_color>
+        <background_color>
+          <color red="164" green="170" blue="255">
+          </color>
+        </background_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>text #544</name>
+        <text>&lt;PV TO WRITE TO&gt;</text>
+        <x>1</x>
+        <y>4</y>
+        <width>147</width>
+        <height>10</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </font>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #547</name>
+        <width>150</width>
+        <height>19</height>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="236" green="236" blue="236">
+          </color>
+        </line_color>
+        <points>
+          <point x="149.0" y="0.0">
+          </point>
+          <point x="149.0" y="18.0">
+          </point>
+          <point x="0.0" y="18.0">
+          </point>
+        </points>
+      </widget>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #551</name>
+        <width>150</width>
+        <height>18</height>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="105" green="105" blue="105">
+          </color>
+        </line_color>
+        <points>
+          <point x="0.0" y="17.0">
+          </point>
+          <point x="0.0" y="0.0">
+          </point>
+          <point x="149.0" y="0.0">
+          </point>
+        </points>
+      </widget>
+    </widget>
+    <widget type="group" version="2.0.0">
+      <name>composite #555</name>
+      <x>415</x>
+      <width>79</width>
+      <height>20</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <widget type="rectangle" version="2.0.0">
+        <name>rectangle #558</name>
+        <width>78</width>
+        <line_color>
+          <color red="115" green="223" blue="255">
+          </color>
+        </line_color>
+        <background_color>
+          <color red="115" green="223" blue="255">
+          </color>
+        </background_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>text #561</name>
+        <text>&lt;NUMBER TO</text>
+        <y>1</y>
+        <width>78</width>
+        <height>10</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </font>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>text #564</name>
+        <text>BE WRITTEN&gt;</text>
+        <y>10</y>
+        <width>78</width>
+        <height>10</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </font>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #567</name>
+        <width>79</width>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="236" green="236" blue="236">
+          </color>
+        </line_color>
+        <points>
+          <point x="78.0" y="0.0">
+          </point>
+          <point x="78.0" y="19.0">
+          </point>
+          <point x="0.0" y="19.0">
+          </point>
+        </points>
+      </widget>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #571</name>
+        <width>77</width>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="105" green="105" blue="105">
+          </color>
+        </line_color>
+        <points>
+          <point x="0.0" y="19.0">
+          </point>
+          <point x="0.0" y="0.0">
+          </point>
+          <point x="76.0" y="0.0">
+          </point>
+        </points>
+      </widget>
+    </widget>
+    <widget type="group" version="2.0.0">
+      <name>composite #575</name>
+      <x>660</x>
+      <width>65</width>
+      <height>21</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <widget type="rectangle" version="2.0.0">
+        <name>rectangle #578</name>
+        <width>65</width>
+        <line_color>
+          <color red="115" green="223" blue="255">
+          </color>
+        </line_color>
+        <background_color>
+          <color red="115" green="223" blue="255">
+          </color>
+        </background_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>text #581</name>
+        <text>WAIT OR</text>
+        <y>1</y>
+        <width>49</width>
+        <height>10</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </font>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>text #584</name>
+        <text>NO WAIT?</text>
+        <y>10</y>
+        <width>49</width>
+        <height>10</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </font>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="group" version="2.0.0">
+        <name>composite #587</name>
+        <width>65</width>
+        <height>21</height>
+        <style>3</style>
+        <transparent>true</transparent>
+        <widget type="polyline" version="2.0.0">
+          <name>polyline #590</name>
+          <width>65</width>
+          <line_width>1</line_width>
+          <line_color>
+            <color red="236" green="236" blue="236">
+            </color>
+          </line_color>
+          <points>
+            <point x="0.0" y="19.0">
+            </point>
+            <point x="0.0" y="0.0">
+            </point>
+            <point x="64.0" y="0.0">
+            </point>
+          </points>
+        </widget>
+        <widget type="polyline" version="2.0.0">
+          <name>polyline #594</name>
+          <width>65</width>
+          <line_width>1</line_width>
+          <line_color>
+            <color red="105" green="105" blue="105">
+            </color>
+          </line_color>
+          <points>
+            <point x="64.0" y="0.0">
+            </point>
+            <point x="64.0" y="19.0">
+            </point>
+            <point x="0.0" y="19.0">
+            </point>
+          </points>
+        </widget>
+      </widget>
+      <widget type="group" version="2.0.0">
+        <name>composite #598</name>
+        <x>53</x>
+        <y>6</y>
+        <width>7</width>
+        <height>6</height>
+        <style>3</style>
+        <transparent>true</transparent>
+        <widget type="polyline" version="2.0.0">
+          <name>polyline #601</name>
+          <width>7</width>
+          <height>6</height>
+          <line_width>1</line_width>
+          <line_color>
+            <color red="236" green="236" blue="236">
+            </color>
+          </line_color>
+          <points>
+            <point x="0.0" y="5.0">
+            </point>
+            <point x="0.0" y="0.0">
+            </point>
+            <point x="6.0" y="0.0">
+            </point>
+          </points>
+        </widget>
+        <widget type="polyline" version="2.0.0">
+          <name>polyline #605</name>
+          <width>7</width>
+          <height>6</height>
+          <line_width>1</line_width>
+          <line_color>
+            <color red="105" green="105" blue="105">
+            </color>
+          </line_color>
+          <points>
+            <point x="6.0" y="0.0">
+            </point>
+            <point x="6.0" y="5.0">
+            </point>
+            <point x="0.0" y="5.0">
+            </point>
+          </points>
+        </widget>
+      </widget>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #609</name>
+    <text>4</text>
+    <x>301</x>
+    <y>345</y>
+    <width>20</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #612</name>
+    <x>326</x>
+    <y>342</y>
+    <width>725</width>
+    <height>21</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="group" version="2.0.0">
+      <name>composite #615</name>
+      <x>156</x>
+      <y>1</y>
+      <width>49</width>
+      <height>20</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <widget type="rectangle" version="2.0.0">
+        <name>rectangle #618</name>
+        <width>47</width>
+        <line_color>
+          <color red="115" green="223" blue="255">
+          </color>
+        </line_color>
+        <background_color>
+          <color red="115" green="223" blue="255">
+          </color>
+        </background_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>text #621</name>
+        <text>TIME (S)</text>
+        <y>1</y>
+        <width>49</width>
+        <height>10</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </font>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>text #624</name>
+        <text>TO WAIT</text>
+        <y>10</y>
+        <width>49</width>
+        <height>10</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </font>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #627</name>
+        <width>47</width>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="236" green="236" blue="236">
+          </color>
+        </line_color>
+        <points>
+          <point x="46.0" y="0.0">
+          </point>
+          <point x="46.0" y="19.0">
+          </point>
+          <point x="0.0" y="19.0">
+          </point>
+        </points>
+      </widget>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #631</name>
+        <width>47</width>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="105" green="105" blue="105">
+          </color>
+        </line_color>
+        <points>
+          <point x="0.0" y="19.0">
+          </point>
+          <point x="0.0" y="0.0">
+          </point>
+          <point x="46.0" y="0.0">
+          </point>
+        </points>
+      </widget>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>rectangle #635</name>
+      <x>212</x>
+      <width>194</width>
+      <line_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </line_color>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #638</name>
+      <text>&lt;STRING TO BE WRITTEN&gt;</text>
+      <x>212</x>
+      <y>5</y>
+      <width>196</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="polyline" version="2.0.0">
+      <name>polyline #641</name>
+      <x>212</x>
+      <width>194</width>
+      <line_width>1</line_width>
+      <line_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </line_color>
+      <points>
+        <point x="193.0" y="0.0">
+        </point>
+        <point x="193.0" y="19.0">
+        </point>
+        <point x="0.0" y="19.0">
+        </point>
+      </points>
+    </widget>
+    <widget type="polyline" version="2.0.0">
+      <name>polyline #645</name>
+      <x>212</x>
+      <width>194</width>
+      <line_width>1</line_width>
+      <line_color>
+        <color red="105" green="105" blue="105">
+        </color>
+      </line_color>
+      <points>
+        <point x="0.0" y="19.0">
+        </point>
+        <point x="0.0" y="0.0">
+        </point>
+        <point x="193.0" y="0.0">
+        </point>
+      </points>
+    </widget>
+    <widget type="group" version="2.0.0">
+      <name>composite #649</name>
+      <width>150</width>
+      <height>19</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <widget type="rectangle" version="2.0.0">
+        <name>rectangle #652</name>
+        <width>149</width>
+        <height>19</height>
+        <line_color>
+          <color red="164" green="170" blue="255">
+          </color>
+        </line_color>
+        <background_color>
+          <color red="164" green="170" blue="255">
+          </color>
+        </background_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>text #655</name>
+        <text>&lt;PV TO READ FROM&gt;</text>
+        <x>1</x>
+        <y>5</y>
+        <width>147</width>
+        <height>10</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </font>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #658</name>
+        <width>150</width>
+        <height>19</height>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="236" green="236" blue="236">
+          </color>
+        </line_color>
+        <points>
+          <point x="149.0" y="0.0">
+          </point>
+          <point x="149.0" y="18.0">
+          </point>
+          <point x="0.0" y="18.0">
+          </point>
+        </points>
+      </widget>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #662</name>
+        <width>150</width>
+        <height>19</height>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="105" green="105" blue="105">
+          </color>
+        </line_color>
+        <points>
+          <point x="0.0" y="18.0">
+          </point>
+          <point x="0.0" y="0.0">
+          </point>
+          <point x="149.0" y="0.0">
+          </point>
+        </points>
+      </widget>
+    </widget>
+    <widget type="group" version="2.0.0">
+      <name>composite #666</name>
+      <x>500</x>
+      <width>150</width>
+      <height>19</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <widget type="rectangle" version="2.0.0">
+        <name>rectangle #669</name>
+        <width>149</width>
+        <height>19</height>
+        <line_color>
+          <color red="164" green="170" blue="255">
+          </color>
+        </line_color>
+        <background_color>
+          <color red="164" green="170" blue="255">
+          </color>
+        </background_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>text #672</name>
+        <text>&lt;PV TO WRITE TO&gt;</text>
+        <x>1</x>
+        <y>4</y>
+        <width>147</width>
+        <height>10</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </font>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #675</name>
+        <width>150</width>
+        <height>19</height>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="236" green="236" blue="236">
+          </color>
+        </line_color>
+        <points>
+          <point x="149.0" y="0.0">
+          </point>
+          <point x="149.0" y="18.0">
+          </point>
+          <point x="0.0" y="18.0">
+          </point>
+        </points>
+      </widget>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #679</name>
+        <width>150</width>
+        <height>18</height>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="105" green="105" blue="105">
+          </color>
+        </line_color>
+        <points>
+          <point x="0.0" y="17.0">
+          </point>
+          <point x="0.0" y="0.0">
+          </point>
+          <point x="149.0" y="0.0">
+          </point>
+        </points>
+      </widget>
+    </widget>
+    <widget type="group" version="2.0.0">
+      <name>composite #683</name>
+      <x>415</x>
+      <width>79</width>
+      <height>20</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <widget type="rectangle" version="2.0.0">
+        <name>rectangle #686</name>
+        <width>78</width>
+        <line_color>
+          <color red="115" green="223" blue="255">
+          </color>
+        </line_color>
+        <background_color>
+          <color red="115" green="223" blue="255">
+          </color>
+        </background_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>text #689</name>
+        <text>&lt;NUMBER TO</text>
+        <y>1</y>
+        <width>78</width>
+        <height>10</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </font>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>text #692</name>
+        <text>BE WRITTEN&gt;</text>
+        <y>10</y>
+        <width>78</width>
+        <height>10</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </font>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #695</name>
+        <width>79</width>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="236" green="236" blue="236">
+          </color>
+        </line_color>
+        <points>
+          <point x="78.0" y="0.0">
+          </point>
+          <point x="78.0" y="19.0">
+          </point>
+          <point x="0.0" y="19.0">
+          </point>
+        </points>
+      </widget>
+      <widget type="polyline" version="2.0.0">
+        <name>polyline #699</name>
+        <width>77</width>
+        <line_width>1</line_width>
+        <line_color>
+          <color red="105" green="105" blue="105">
+          </color>
+        </line_color>
+        <points>
+          <point x="0.0" y="19.0">
+          </point>
+          <point x="0.0" y="0.0">
+          </point>
+          <point x="76.0" y="0.0">
+          </point>
+        </points>
+      </widget>
+    </widget>
+    <widget type="group" version="2.0.0">
+      <name>composite #703</name>
+      <x>660</x>
+      <width>65</width>
+      <height>21</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <widget type="rectangle" version="2.0.0">
+        <name>rectangle #706</name>
+        <width>65</width>
+        <line_color>
+          <color red="115" green="223" blue="255">
+          </color>
+        </line_color>
+        <background_color>
+          <color red="115" green="223" blue="255">
+          </color>
+        </background_color>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>text #709</name>
+        <text>WAIT OR</text>
+        <y>1</y>
+        <width>49</width>
+        <height>10</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </font>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>text #712</name>
+        <text>NO WAIT?</text>
+        <y>10</y>
+        <width>49</width>
+        <height>10</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </font>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="group" version="2.0.0">
+        <name>composite #715</name>
+        <width>65</width>
+        <height>21</height>
+        <style>3</style>
+        <transparent>true</transparent>
+        <widget type="polyline" version="2.0.0">
+          <name>polyline #718</name>
+          <width>65</width>
+          <line_width>1</line_width>
+          <line_color>
+            <color red="236" green="236" blue="236">
+            </color>
+          </line_color>
+          <points>
+            <point x="0.0" y="19.0">
+            </point>
+            <point x="0.0" y="0.0">
+            </point>
+            <point x="64.0" y="0.0">
+            </point>
+          </points>
+        </widget>
+        <widget type="polyline" version="2.0.0">
+          <name>polyline #722</name>
+          <width>65</width>
+          <line_width>1</line_width>
+          <line_color>
+            <color red="105" green="105" blue="105">
+            </color>
+          </line_color>
+          <points>
+            <point x="64.0" y="0.0">
+            </point>
+            <point x="64.0" y="19.0">
+            </point>
+            <point x="0.0" y="19.0">
+            </point>
+          </points>
+        </widget>
+      </widget>
+      <widget type="group" version="2.0.0">
+        <name>composite #726</name>
+        <x>53</x>
+        <y>6</y>
+        <width>7</width>
+        <height>6</height>
+        <style>3</style>
+        <transparent>true</transparent>
+        <widget type="polyline" version="2.0.0">
+          <name>polyline #729</name>
+          <width>7</width>
+          <height>6</height>
+          <line_width>1</line_width>
+          <line_color>
+            <color red="236" green="236" blue="236">
+            </color>
+          </line_color>
+          <points>
+            <point x="0.0" y="5.0">
+            </point>
+            <point x="0.0" y="0.0">
+            </point>
+            <point x="6.0" y="0.0">
+            </point>
+          </points>
+        </widget>
+        <widget type="polyline" version="2.0.0">
+          <name>polyline #733</name>
+          <width>7</width>
+          <height>6</height>
+          <line_width>1</line_width>
+          <line_color>
+            <color red="105" green="105" blue="105">
+            </color>
+          </line_color>
+          <points>
+            <point x="6.0" y="0.0">
+            </point>
+            <point x="6.0" y="5.0">
+            </point>
+            <point x="0.0" y="5.0">
+            </point>
+          </points>
+        </widget>
+      </widget>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #737</name>
+    <text>BUSY</text>
+    <x>643</x>
+    <y>365</y>
+    <width>50</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="26" green="115" blue="9">
+      </color>
+    </foreground_color>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #740</name>
+    <text>ABORTING</text>
+    <x>643</x>
+    <y>375</y>
+    <width>50</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="ellipse" version="2.0.0">
+    <name>oval #743</name>
+    <x>474</x>
+    <y>263</y>
+    <width>60</width>
+    <height>27</height>
+    <line_width>2</line_width>
+    <line_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+  </widget>
+  <widget type="ellipse" version="2.0.0">
+    <name>oval #746</name>
+    <x>579</x>
+    <y>360</y>
+    <width>131</width>
+    <height>37</height>
+    <line_width>2</line_width>
+    <line_color>
+      <color red="251" green="243" blue="74">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="251" green="243" blue="74">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+  </widget>
+  <widget type="ellipse" version="2.0.0">
+    <name>oval #749</name>
+    <x>321</x>
+    <y>287</y>
+    <width>156</width>
+    <height>26</height>
+    <line_width>2</line_width>
+    <line_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+  </widget>
+  <widget type="ellipse" version="2.0.0">
+    <name>oval #752</name>
+    <x>823</x>
+    <y>313</y>
+    <width>156</width>
+    <height>26</height>
+    <line_width>2</line_width>
+    <line_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+  </widget>
+  <widget type="ellipse" version="2.0.0">
+    <name>oval #755</name>
+    <x>979</x>
+    <y>337</y>
+    <width>69</width>
+    <height>31</height>
+    <line_width>2</line_width>
+    <line_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+  </widget>
+  <widget type="polyline" version="2.0.0">
+    <name>polyline #758</name>
+    <x>271</x>
+    <y>269</y>
+    <width>58</width>
+    <height>28</height>
+    <line_width>2</line_width>
+    <line_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </line_color>
+    <points>
+      <point x="1.0" y="1.0">
+      </point>
+      <point x="57.0" y="27.0">
+      </point>
+    </points>
+  </widget>
+  <widget type="polyline" version="2.0.0">
+    <name>polyline #762</name>
+    <x>273</x>
+    <y>326</y>
+    <width>553</width>
+    <height>18</height>
+    <line_width>2</line_width>
+    <line_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </line_color>
+    <points>
+      <point x="1.0" y="17.0">
+      </point>
+      <point x="552.0" y="1.0">
+      </point>
+    </points>
+  </widget>
+  <widget type="polyline" version="2.0.0">
+    <name>polyline #766</name>
+    <x>285</x>
+    <y>168</y>
+    <width>195</width>
+    <height>103</height>
+    <line_width>2</line_width>
+    <line_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </line_color>
+    <points>
+      <point x="1.0" y="1.0">
+      </point>
+      <point x="194.0" y="102.0">
+      </point>
+    </points>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #770</name>
+    <x>481</x>
+    <y>230</y>
+    <width>40</width>
+    <height>19</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="rectangle" version="2.0.0">
+      <name>rectangle #773</name>
+      <width>39</width>
+      <height>19</height>
+      <line_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </line_color>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #776</name>
+      <text>PROC</text>
+      <y>3</y>
+      <width>40</width>
+      <height>14</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="polyline" version="2.0.0">
+      <name>polyline #779</name>
+      <width>39</width>
+      <height>19</height>
+      <line_width>1</line_width>
+      <line_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </line_color>
+      <points>
+        <point x="0.0" y="18.0">
+        </point>
+        <point x="0.0" y="0.0">
+        </point>
+        <point x="38.0" y="0.0">
+        </point>
+      </points>
+    </widget>
+    <widget type="polyline" version="2.0.0">
+      <name>polyline #783</name>
+      <width>39</width>
+      <height>19</height>
+      <line_width>1</line_width>
+      <line_color>
+        <color red="105" green="105" blue="105">
+        </color>
+      </line_color>
+      <points>
+        <point x="38.0" y="0.0">
+        </point>
+        <point x="38.0" y="18.0">
+        </point>
+        <point x="0.0" y="18.0">
+        </point>
+      </points>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #787</name>
+    <x>593</x>
+    <y>370</y>
+    <width>45</width>
+    <height>19</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="rectangle" version="2.0.0">
+      <name>rectangle #790</name>
+      <width>44</width>
+      <height>19</height>
+      <line_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </line_color>
+      <background_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #793</name>
+      <text>ABORT</text>
+      <y>3</y>
+      <width>45</width>
+      <height>14</height>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="polyline" version="2.0.0">
+      <name>polyline #796</name>
+      <width>43</width>
+      <height>19</height>
+      <line_width>1</line_width>
+      <line_color>
+        <color red="236" green="236" blue="236">
+        </color>
+      </line_color>
+      <points>
+        <point x="0.0" y="18.0">
+        </point>
+        <point x="0.0" y="0.0">
+        </point>
+        <point x="42.0" y="0.0">
+        </point>
+      </points>
+    </widget>
+    <widget type="polyline" version="2.0.0">
+      <name>polyline #800</name>
+      <width>43</width>
+      <height>19</height>
+      <line_width>1</line_width>
+      <line_color>
+        <color red="105" green="105" blue="105">
+        </color>
+      </line_color>
+      <points>
+        <point x="42.0" y="0.0">
+        </point>
+        <point x="42.0" y="18.0">
+        </point>
+        <point x="0.0" y="18.0">
+        </point>
+      </points>
+    </widget>
+  </widget>
+  <widget type="polyline" version="2.0.0">
+    <name>polyline #804</name>
+    <x>278</x>
+    <y>366</y>
+    <width>730</width>
+    <height>52</height>
+    <line_width>2</line_width>
+    <line_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </line_color>
+    <points>
+      <point x="1.0" y="51.0">
+      </point>
+      <point x="643.0" y="51.0">
+      </point>
+      <point x="729.0" y="1.0">
+      </point>
+    </points>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #808</name>
+    <text>FORWARD LINK: always executed, and</text>
+    <x>799</x>
+    <y>432</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #811</name>
+    <text>always the last thing executed.</text>
+    <x>799</x>
+    <y>447</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #814</name>
+    <text>the FORWARD LINK, if this is the</text>
+    <x>10</x>
+    <y>485</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #817</name>
+    <text>last row).  Note that WAIT does not</text>
+    <x>10</x>
+    <y>500</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #820</name>
+    <text>(3) to complete before going on to</text>
+    <x>10</x>
+    <y>455</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #823</name>
+    <text>the next row (or before executing</text>
+    <x>9</x>
+    <y>470</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #826</name>
+    <text>for processing that results from</text>
+    <x>10</x>
+    <y>440</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #829</name>
+    <text>attribute 'CA', the record will wait</text>
+    <x>10</x>
+    <y>425</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #832</name>
+    <x>301</x>
+    <y>430</y>
+    <width>480</width>
+    <height>149</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>text #835</name>
+      <text>While a sequence is active, the word 'BUSY' will be visible.</text>
+      <width>480</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #838</name>
+      <text>If the ABORT button is pressed, an active sequence will be aborted.</text>
+      <y>15</y>
+      <width>480</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #841</name>
+      <text>If the sseq record is waiting for the completion callback from a 'WAIT'</text>
+      <y>60</y>
+      <width>480</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #844</name>
+      <text>link, then the abort will finish after that callback is received.</text>
+      <y>75</y>
+      <width>480</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #847</name>
+      <text>(You can release the sseq record from this wait by overwriting the</text>
+      <y>90</y>
+      <width>480</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #850</name>
+      <text>WAIT-link field, but note that this will have no effect on any</text>
+      <y>105</y>
+      <width>480</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #853</name>
+      <text>processing that the link field started.)</text>
+      <y>120</y>
+      <width>480</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #856</name>
+      <text>This will stop the sseq record, but it will not stop any processing</text>
+      <y>30</y>
+      <width>480</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #859</name>
+      <text>that the sseq record has already started with its links.</text>
+      <y>45</y>
+      <width>480</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #862</name>
+      <text>When the abort finishes, the FORWARD LINK will be executed.</text>
+      <y>135</y>
+      <width>480</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+  </widget>
+  <widget type="polyline" version="2.0.0">
+    <name>polyline #865</name>
+    <x>630</x>
+    <y>396</y>
+    <width>15</width>
+    <height>31</height>
+    <line_width>2</line_width>
+    <line_color>
+      <color red="251" green="243" blue="74">
+      </color>
+    </line_color>
+    <points>
+      <point x="14.0" y="1.0">
+      </point>
+      <point x="1.0" y="30.0">
+      </point>
+    </points>
+  </widget>
+  <widget type="ellipse" version="2.0.0">
+    <name>oval #869</name>
+    <x>815</x>
+    <y>356</y>
+    <width>164</width>
+    <height>37</height>
+    <line_width>2</line_width>
+    <line_color>
+      <color red="251" green="243" blue="74">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="251" green="243" blue="74">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+  </widget>
+  <widget type="polyline" version="2.0.0">
+    <name>polyline #872</name>
+    <x>890</x>
+    <y>391</y>
+    <width>5</width>
+    <height>42</height>
+    <line_width>2</line_width>
+    <line_color>
+      <color red="251" green="243" blue="74">
+      </color>
+    </line_color>
+    <points>
+      <point x="1.0" y="1.0">
+      </point>
+      <point x="4.0" y="41.0">
+      </point>
+    </points>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #876</name>
+    <text>affect the DELAY in item (1).</text>
+    <x>10</x>
+    <y>515</y>
+    <width>275</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+</display>

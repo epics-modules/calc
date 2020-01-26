@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>userArrayCalcs_line</name>
+  <x>1685</x>
+  <y>176</y>
+  <width>195</width>
+  <height>32</height>
+  <background_color>
+    <color red="200" green="200" blue="200">
+    </color>
+  </background_color>
+  <grid_visible>false</grid_visible>
+  <grid_step_x>5</grid_step_x>
+  <widget type="textentry" version="3.0.0">
+    <name>text entry #6</name>
+    <pv_name>$(P)userArrayCalc$(N).DESC</pv_name>
+    <x>65</x>
+    <width>120</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="200" green="200" blue="200">
+      </color>
+    </background_color>
+    <format>1</format>
+    <show_units>false</show_units>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #10</name>
+    <actions>
+      <action type="open_display">
+        <file>userArrayCalc.opi</file>
+        <macros>
+          <C>userArrayCalc$(N)</C>
+        </macros>
+        <target>tab</target>
+        <description>user Array Calc $(N)</description>
+      </action>
+      <action type="open_display">
+        <file>userArrayCalc_full.opi</file>
+        <macros>
+          <C>userArrayCalc$(N)</C>
+        </macros>
+        <target>tab</target>
+        <description>user Array Calc $(N) (full)</description>
+      </action>
+    </actions>
+    <text>$(N)</text>
+    <width>25</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="40" green="147" blue="21">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="choice" version="2.0.0">
+    <name>choice button #14</name>
+    <pv_name>$(P)userArrayCalc$(N)Enable</pv_name>
+    <x>25</x>
+    <width>40</width>
+    <height>20</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <items>
+      <item>Item 1</item>
+      <item>Item 2</item>
+    </items>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>rectangle #17</name>
+    <x>185</x>
+    <width>10</width>
+    <line_color>
+      <color red="0" green="0" blue="0">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="0" green="0" blue="0">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="vis_calc" prop_id="visible" out_exp="false">
+        <exp bool_exp="!(a==0)">
+          <value>false</value>
+        </exp>
+        <pv_name>$(P)userArrayCalc$(N)EnableCalc</pv_name>
+      </rule>
+    </rules>
+  </widget>
+</display>

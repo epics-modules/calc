@@ -1,0 +1,1353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>calcStringExamples</name>
+  <x>92</x>
+  <y>35</y>
+  <width>480</width>
+  <height>660</height>
+  <background_color>
+    <color red="236" green="236" blue="236">
+    </color>
+  </background_color>
+  <grid_visible>false</grid_visible>
+  <grid_step_x>5</grid_step_x>
+  <widget type="label" version="2.0.0">
+    <name>text #6</name>
+    <text>AA-BB</text>
+    <x>5</x>
+    <y>75</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #9</name>
+    <text>AA-|BB</text>
+    <x>5</x>
+    <y>90</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #12</name>
+    <text>AA|-BB</text>
+    <x>5</x>
+    <y>130</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #15</name>
+    <text>AA&gt;BB    (&lt;, &gt;=, etc.)</text>
+    <x>5</x>
+    <y>170</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #18</name>
+    <text>PRINTF('abc%f', A)</text>
+    <x>5</x>
+    <y>200</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #21</name>
+    <text>$P('abc%f',A)</text>
+    <x>5</x>
+    <y>240</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #24</name>
+    <text>$S(AA,'%lf')</text>
+    <x>5</x>
+    <y>310</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #27</name>
+    <text>TR_ESC('a\002b')</text>
+    <x>5</x>
+    <y>340</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #30</name>
+    <text>$T('a\002b')</text>
+    <x>5</x>
+    <y>380</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #33</name>
+    <text>ESC(aa)</text>
+    <x>5</x>
+    <y>410</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #36</name>
+    <text>$E(aa)</text>
+    <x>5</x>
+    <y>450</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #39</name>
+    <text>MAX(AA,BB)</text>
+    <x>5</x>
+    <y>480</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #42</name>
+    <text>AA-'.VAL'+'.EGU'</text>
+    <x>5</x>
+    <y>510</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #45</name>
+    <text>subtract first BB from AA</text>
+    <x>15</x>
+    <y>105</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #48</name>
+    <text>E.G., 'A:B.VAL' - '.VAL' = 'A:B'</text>
+    <x>15</x>
+    <y>115</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #51</name>
+    <text>subtract last BB from AA</text>
+    <x>15</x>
+    <y>145</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #54</name>
+    <text>E.G., 'ABA' |- 'A' = 'AB'</text>
+    <x>15</x>
+    <y>155</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #57</name>
+    <text>LEXICAL COMPARE, LOGICAL RESULT</text>
+    <x>15</x>
+    <y>185</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #60</name>
+    <text>ONLY ONE ARGUMENT. RESULT IS</text>
+    <x>15</x>
+    <y>215</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #63</name>
+    <text>STRING</text>
+    <x>15</x>
+    <y>225</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #66</name>
+    <text>$P MEANS PRINTF</text>
+    <x>15</x>
+    <y>255</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #69</name>
+    <text>DEPENDS ON FORMAT STRING</text>
+    <x>15</x>
+    <y>295</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #72</name>
+    <text>$S MEANS SSCANF</text>
+    <x>15</x>
+    <y>325</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #75</name>
+    <text>TRANSLATES ESCAPE SEQUENCES</text>
+    <x>15</x>
+    <y>355</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #78</name>
+    <text>NOTE: TR_ESC('a\000b') -&gt; 'a'</text>
+    <x>15</x>
+    <y>365</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #81</name>
+    <text>$T MEANS TR_ESC</text>
+    <x>15</x>
+    <y>395</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #84</name>
+    <text>OPPOSITE OF TR_ESC</text>
+    <x>15</x>
+    <y>425</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #87</name>
+    <text>NOTE: NULLS AREN'T HANDLED WELL</text>
+    <x>15</x>
+    <y>435</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #90</name>
+    <text>$E MEANS ESC</text>
+    <x>15</x>
+    <y>465</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #93</name>
+    <text>LEXICAL COMPARE, STRING RESULT</text>
+    <x>15</x>
+    <y>495</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #96</name>
+    <text>*.VAL -&gt; *.EGU</text>
+    <x>15</x>
+    <y>525</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #99</name>
+    <actions>
+      <action type="open_display">
+        <file>calcExamples.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>TOP</text>
+    <width>60</width>
+    <height>16</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #102</name>
+    <actions>
+      <action type="open_display">
+        <file>calcAlgebraicExamples.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>ALG</text>
+    <x>60</x>
+    <width>60</width>
+    <height>16</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #105</name>
+    <actions>
+      <action type="open_display">
+        <file>calcTrigExamples.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>TRIG</text>
+    <x>120</x>
+    <width>60</width>
+    <height>16</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #108</name>
+    <actions>
+      <action type="open_display">
+        <file>calcRelationalExamples.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>REL</text>
+    <x>180</x>
+    <width>60</width>
+    <height>16</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #111</name>
+    <actions>
+      <action type="open_display">
+        <file>calcBitwiseExamples.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>BIT</text>
+    <x>240</x>
+    <width>60</width>
+    <height>16</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #114</name>
+    <actions>
+      <action type="open_display">
+        <file>calcMiscExamples.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>MISC</text>
+    <x>300</x>
+    <width>60</width>
+    <height>16</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #117</name>
+    <actions>
+      <action type="open_display">
+        <file>calcStringExamples.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>STR</text>
+    <x>360</x>
+    <width>60</width>
+    <height>16</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="polyline" version="2.0.0">
+    <name>polyline #120</name>
+    <x>2</x>
+    <y>40</y>
+    <width>485</width>
+    <height>3</height>
+    <line_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </line_color>
+    <points>
+      <point x="1.0" y="1.0">
+      </point>
+      <point x="483.0" y="1.0">
+      </point>
+    </points>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #124</name>
+    <text>String expressions</text>
+    <x>10</x>
+    <y>20</y>
+    <width>470</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="polyline" version="2.0.0">
+    <name>polyline #127</name>
+    <x>2</x>
+    <y>15</y>
+    <width>485</width>
+    <height>3</height>
+    <line_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </line_color>
+    <points>
+      <point x="1.0" y="1.0">
+      </point>
+      <point x="483.0" y="1.0">
+      </point>
+    </points>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #131</name>
+    <actions>
+      <action type="open_display">
+        <file>calcArrayExamples.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>ARR</text>
+    <x>420</x>
+    <width>60</width>
+    <height>16</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #134</name>
+    <x>5</x>
+    <y>45</y>
+    <width>230</width>
+    <height>25</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>text #137</name>
+      <text>CONCATENATE STRINGS</text>
+      <x>10</x>
+      <y>15</y>
+      <width>220</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="164" green="126" blue="60">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #140</name>
+      <text>AA+BB</text>
+      <width>230</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #143</name>
+    <text>CONVERT FIRST CHAR TO DOUBLE</text>
+    <x>255</x>
+    <y>60</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #146</name>
+    <text>BYTE(AA)</text>
+    <x>245</x>
+    <y>45</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #149</name>
+    <text>CALC MODBUS/RTU 16-BIT CRC</text>
+    <x>255</x>
+    <y>90</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #152</name>
+    <text>CRC16(AA)</text>
+    <x>245</x>
+    <y>75</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #155</name>
+    <text>APPEND MODBUS/RTU CRC</text>
+    <x>255</x>
+    <y>120</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #158</name>
+    <text>MODBUS(AA)</text>
+    <x>245</x>
+    <y>105</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #161</name>
+    <text>CALC MODBUS/ASCII 8-BIT LRC</text>
+    <x>255</x>
+    <y>150</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #164</name>
+    <text>LRC(AA)</text>
+    <x>245</x>
+    <y>135</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #167</name>
+    <x>245</x>
+    <y>170</y>
+    <width>230</width>
+    <height>25</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>text #170</name>
+      <text>AMODBUS(AA)</text>
+      <width>230</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #173</name>
+      <text>APPEND MODBUS/ASCII LRC</text>
+      <x>10</x>
+      <y>15</y>
+      <width>220</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="164" green="126" blue="60">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #176</name>
+    <text>XOR8(AA)</text>
+    <x>245</x>
+    <y>200</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #179</name>
+    <text>CALC CHECKSUM BY XOR'ING EACH BYTE</text>
+    <x>255</x>
+    <y>215</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #182</name>
+    <text>ADD_XOR8(AA)</text>
+    <x>245</x>
+    <y>230</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #185</name>
+    <text>APPEND XOR8 CHECKSUM</text>
+    <x>255</x>
+    <y>245</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #188</name>
+    <text>AA[1,3]</text>
+    <x>245</x>
+    <y>265</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #191</name>
+    <text>AA['ab','yz']</text>
+    <x>245</x>
+    <y>305</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #194</name>
+    <text>AA[1,4][2,3]</text>
+    <x>245</x>
+    <y>345</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #197</name>
+    <text>AA{'old','new'}</text>
+    <x>245</x>
+    <y>375</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #200</name>
+    <text>EXTRACT SUBSTRING</text>
+    <x>255</x>
+    <y>280</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #203</name>
+    <text>'ABCD'[1,3] = 'BCD'</text>
+    <x>255</x>
+    <y>290</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #206</name>
+    <text>EXTRACT SUBSTRING</text>
+    <x>255</x>
+    <y>320</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #209</name>
+    <text>'ABC'['A','C'] = 'B'</text>
+    <x>255</x>
+    <y>330</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #212</name>
+    <text>'ABCDEF'[3,5][1,1] = 'E'</text>
+    <x>255</x>
+    <y>360</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #215</name>
+    <text>REPLACE 'OLD' WITH 'NEW' (ONCE)</text>
+    <x>255</x>
+    <y>390</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #218</name>
+    <text>INT(AA)</text>
+    <x>245</x>
+    <y>450</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #221</name>
+    <text>STR(A)</text>
+    <x>245</x>
+    <y>480</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #224</name>
+    <text>FIND FIRST NUMBER IN STRING,</text>
+    <x>255</x>
+    <y>425</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #227</name>
+    <text>CONVERT TO DOUBLE</text>
+    <x>255</x>
+    <y>435</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #230</name>
+    <text>FIND FIRST NUMBER; CVT TO INT</text>
+    <x>255</x>
+    <y>465</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #233</name>
+    <text>CONVERT TO STRING</text>
+    <x>255</x>
+    <y>495</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #236</name>
+    <text>DBL(AA)</text>
+    <x>245</x>
+    <y>410</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #239</name>
+    <x>245</x>
+    <y>510</y>
+    <width>230</width>
+    <height>25</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>text #242</name>
+      <text>'yyy:'+AA-'xxx:'</text>
+      <width>230</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #245</name>
+      <text>xxx:* -&gt; yyy:*</text>
+      <x>10</x>
+      <y>15</y>
+      <width>220</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="164" green="126" blue="60">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #248</name>
+    <y>615</y>
+    <width>460</width>
+    <height>44</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>text #251</name>
+      <text>NOTE: You can use either single or double quotes for string</text>
+      <width>460</width>
+      <height>14</height>
+      <foreground_color>
+        <color red="164" green="126" blue="60">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #254</name>
+      <text>literals.  Using one allows you to include the other in the</text>
+      <y>15</y>
+      <width>460</width>
+      <height>14</height>
+      <foreground_color>
+        <color red="164" green="126" blue="60">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #257</name>
+      <text>string.</text>
+      <y>30</y>
+      <width>460</width>
+      <height>14</height>
+      <foreground_color>
+        <color red="164" green="126" blue="60">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #260</name>
+    <x>5</x>
+    <y>270</y>
+    <width>230</width>
+    <height>25</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>text #263</name>
+      <text>SSCANF(AA,'%lf')</text>
+      <width>230</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #266</name>
+      <text>ONLY ONE ARGUMENT. RESULT TYPE</text>
+      <x>10</x>
+      <y>15</y>
+      <width>220</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="164" green="126" blue="60">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #269</name>
+    <x>5</x>
+    <y>540</y>
+    <width>230</width>
+    <height>25</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>text #272</name>
+      <text>READ(AA,'%ld')   or $R(...)</text>
+      <width>230</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #275</name>
+      <text>LIKE SSCANF, BUT READ BINARY DATA</text>
+      <x>10</x>
+      <y>15</y>
+      <width>220</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="164" green="126" blue="60">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #278</name>
+    <text>LEN(AA)</text>
+    <x>5</x>
+    <y>570</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #281</name>
+    <text>LENGTH OF STRING</text>
+    <x>15</x>
+    <y>585</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #284</name>
+    <x>245</x>
+    <y>540</y>
+    <width>230</width>
+    <height>25</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>text #287</name>
+      <text>WRITE('%ld',A)  or $W(...)</text>
+      <width>230</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #290</name>
+      <text>LIKE PRINTF, BUT WRITE BINARY DATA</text>
+      <x>10</x>
+      <y>15</y>
+      <width>220</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="164" green="126" blue="60">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #293</name>
+    <text>AA&gt;&gt;A     AA&lt;&lt;A</text>
+    <x>245</x>
+    <y>570</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #296</name>
+    <text>SHIFT CHARACTERS, FILL WITH SPACES</text>
+    <x>255</x>
+    <y>585</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #299</name>
+    <text>FOR RIGHT SHIFT</text>
+    <x>255</x>
+    <y>595</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+</display>

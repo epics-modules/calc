@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>userCalc_help</name>
+  <x>10</x>
+  <y>10</y>
+  <width>195</width>
+  <height>130</height>
+  <background_color>
+    <color red="200" green="200" blue="200">
+    </color>
+  </background_color>
+  <grid_visible>false</grid_visible>
+  <grid_step_x>5</grid_step_x>
+  <widget type="group" version="2.0.0">
+    <name>composite #6</name>
+    <width>195</width>
+    <height>130</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="rectangle" version="2.0.0">
+      <name>rectangle #9</name>
+      <width>195</width>
+      <height>130</height>
+      <line_color>
+        <color red="0" green="0" blue="0">
+        </color>
+      </line_color>
+      <background_color>
+        <color red="0" green="0" blue="0">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #12</name>
+      <text>1. Specify input name(s)</text>
+      <x>5</x>
+      <y>5</y>
+      <width>180</width>
+      <height>14</height>
+      <foreground_color>
+        <color red="255" green="176" blue="255">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #15</name>
+      <text>2. Enter calc expression</text>
+      <x>5</x>
+      <y>20</y>
+      <width>180</width>
+      <height>14</height>
+      <foreground_color>
+        <color red="115" green="223" blue="255">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #18</name>
+      <text>3. Specify output name(?)</text>
+      <x>5</x>
+      <y>35</y>
+      <width>180</width>
+      <height>14</height>
+      <foreground_color>
+        <color red="255" green="176" blue="255">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #21</name>
+      <text>4. Specify output value(?)</text>
+      <x>5</x>
+      <y>50</y>
+      <width>180</width>
+      <height>14</height>
+      <foreground_color>
+        <color red="164" green="126" blue="60">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #24</name>
+      <text>5. Schedule output(?)</text>
+      <x>5</x>
+      <y>65</y>
+      <width>180</width>
+      <height>14</height>
+      <foreground_color>
+        <color red="238" green="182" blue="43">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #27</name>
+      <text>6. Schedule execution:</text>
+      <x>5</x>
+      <y>80</y>
+      <width>180</width>
+      <height>14</height>
+      <foreground_color>
+        <color red="82" green="218" blue="59">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #30</name>
+      <text>(if TRIGGERs, use I/O Intr)</text>
+      <x>5</x>
+      <y>111</y>
+      <width>180</width>
+      <height>12</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="12.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="82" green="218" blue="59">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #33</name>
+      <text>Passive, periodic, I/O Intr</text>
+      <x>5</x>
+      <y>96</y>
+      <width>180</width>
+      <height>12</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="12.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="82" green="218" blue="59">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+  </widget>
+</display>

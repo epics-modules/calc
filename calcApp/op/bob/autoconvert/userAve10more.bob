@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>userAve10more</name>
+  <x>1192</x>
+  <y>245</y>
+  <width>195</width>
+  <height>220</height>
+  <background_color>
+    <color red="200" green="200" blue="200">
+    </color>
+  </background_color>
+  <grid_visible>false</grid_visible>
+  <grid_step_x>5</grid_step_x>
+  <widget type="choice" version="2.0.0">
+    <name>choice button #6</name>
+    <pv_name>$(P)userAveEnable.VAL</pv_name>
+    <width>195</width>
+    <height>20</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <items>
+      <item>Item 1</item>
+      <item>Item 2</item>
+    </items>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #9</name>
+    <file>userAves_line.bob</file>
+    <macros>
+      <N>$(N1)</N>
+    </macros>
+    <y>20</y>
+    <width>195</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #11</name>
+    <file>userAves_line.bob</file>
+    <macros>
+      <N>$(N2)</N>
+    </macros>
+    <y>40</y>
+    <width>195</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #13</name>
+    <file>userAves_line.bob</file>
+    <macros>
+      <N>$(N3)</N>
+    </macros>
+    <y>60</y>
+    <width>195</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #15</name>
+    <file>userAves_line.bob</file>
+    <macros>
+      <N>$(N4)</N>
+    </macros>
+    <y>80</y>
+    <width>195</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #17</name>
+    <file>userAves_line.bob</file>
+    <macros>
+      <N>$(N5)</N>
+    </macros>
+    <y>100</y>
+    <width>195</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #19</name>
+    <file>userAves_line.bob</file>
+    <macros>
+      <N>$(N6)</N>
+    </macros>
+    <y>120</y>
+    <width>195</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #21</name>
+    <file>userAves_line.bob</file>
+    <macros>
+      <N>$(N7)</N>
+    </macros>
+    <y>140</y>
+    <width>195</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #23</name>
+    <file>userAves_line.bob</file>
+    <macros>
+      <N>$(N8)</N>
+    </macros>
+    <y>160</y>
+    <width>195</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #25</name>
+    <file>userAves_line.bob</file>
+    <macros>
+      <N>$(N9)</N>
+    </macros>
+    <y>180</y>
+    <width>195</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #27</name>
+    <file>userAves_line.bob</file>
+    <macros>
+      <N>$(N10)</N>
+    </macros>
+    <y>200</y>
+    <width>195</width>
+    <height>20</height>
+  </widget>
+</display>

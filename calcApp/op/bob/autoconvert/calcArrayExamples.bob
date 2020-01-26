@@ -1,0 +1,1215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>calcArrayExamples</name>
+  <x>382</x>
+  <y>128</y>
+  <width>480</width>
+  <height>610</height>
+  <background_color>
+    <color red="236" green="236" blue="236">
+    </color>
+  </background_color>
+  <grid_visible>false</grid_visible>
+  <grid_step_x>5</grid_step_x>
+  <widget type="label" version="2.0.0">
+    <name>text #6</name>
+    <text>STD(AA)</text>
+    <x>5</x>
+    <y>175</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #9</name>
+    <text>AMAX(AA)</text>
+    <x>5</x>
+    <y>205</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #12</name>
+    <text>AMIN(AA)</text>
+    <x>5</x>
+    <y>235</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #15</name>
+    <text>STANDARD DEV. OF ARRAY VALUES</text>
+    <x>15</x>
+    <y>190</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #18</name>
+    <text>MAX. OF ARRAY VALUES</text>
+    <x>15</x>
+    <y>220</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #21</name>
+    <text>MIN. OF ARRAY VALUES</text>
+    <x>15</x>
+    <y>250</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="polyline" version="2.0.0">
+    <name>polyline #24</name>
+    <x>5</x>
+    <y>140</y>
+    <width>483</width>
+    <height>1</height>
+    <line_width>1</line_width>
+    <line_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </line_color>
+    <points>
+      <point x="0.0" y="0.0">
+      </point>
+      <point x="482.0" y="0.0">
+      </point>
+    </points>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #28</name>
+    <x>5</x>
+    <y>265</y>
+    <width>230</width>
+    <height>25</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>text #31</name>
+      <text>ARNDM</text>
+      <width>230</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #34</name>
+      <text>ARRAY of RANDOM, (0 to 1)</text>
+      <x>10</x>
+      <y>15</y>
+      <width>220</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="164" green="126" blue="60">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #37</name>
+    <x>5</x>
+    <y>355</y>
+    <width>229</width>
+    <height>55</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>text #40</name>
+      <text>@0</text>
+      <width>229</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #43</name>
+      <text>@@2</text>
+      <y>30</y>
+      <width>229</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #46</name>
+      <text>GET VARIABLE 0 (@0=A, @1=B, ..)</text>
+      <x>10</x>
+      <y>15</y>
+      <width>219</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="164" green="126" blue="60">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #49</name>
+      <text>GET VARIABLE CC</text>
+      <x>10</x>
+      <y>45</y>
+      <width>219</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="164" green="126" blue="60">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #52</name>
+    <text>AA[1,3]</text>
+    <x>5</x>
+    <y>415</y>
+    <width>229</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #55</name>
+    <text>SUB-ARRAY (ELEMENTS NUMBERED 0..N)</text>
+    <x>15</x>
+    <y>430</y>
+    <width>219</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #58</name>
+    <text>AA{1,3}</text>
+    <x>5</x>
+    <y>445</y>
+    <width>229</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #61</name>
+    <text>SUB-ARRAY IN PLACE (ELEMENTS LEFT</text>
+    <x>15</x>
+    <y>460</y>
+    <width>219</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #64</name>
+    <text>IN PLACE, OTHER ELEMENTS SET TO ZERO)</text>
+    <x>15</x>
+    <y>470</y>
+    <width>219</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #67</name>
+    <x>5</x>
+    <y>295</y>
+    <width>230</width>
+    <height>25</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>text #70</name>
+      <text>IX</text>
+      <width>230</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #73</name>
+      <text>ARRAY WITH VALUES 0,1,2...</text>
+      <x>10</x>
+      <y>15</y>
+      <width>220</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="164" green="126" blue="60">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #76</name>
+    <text>ARR(A)</text>
+    <x>5</x>
+    <y>325</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #79</name>
+    <text>ARRAY WITH VALUES A,A,A,...</text>
+    <x>15</x>
+    <y>340</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #82</name>
+    <x>5</x>
+    <y>485</y>
+    <width>230</width>
+    <height>25</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>text #85</name>
+      <text>FWHM(AA)</text>
+      <width>230</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #88</name>
+      <text>FULL WIDTH AT HALF MAX OF AA</text>
+      <x>10</x>
+      <y>15</y>
+      <width>220</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="164" green="126" blue="60">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #91</name>
+    <x>5</x>
+    <y>515</y>
+    <width>230</width>
+    <height>25</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>text #94</name>
+      <text>SMOOTH ARRAY (BINOMIAL OVER 5 CHANS)</text>
+      <x>10</x>
+      <y>15</y>
+      <width>220</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="164" green="126" blue="60">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #97</name>
+      <text>SMOO(AA)</text>
+      <width>230</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #100</name>
+    <x>5</x>
+    <y>545</y>
+    <width>230</width>
+    <height>25</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>text #103</name>
+      <text>DERIV(AA)</text>
+      <width>230</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #106</name>
+      <text>DERIVATIVE (WRT ARRAY INDEX)</text>
+      <x>10</x>
+      <y>15</y>
+      <width>220</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="164" green="126" blue="60">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #109</name>
+    <x>5</x>
+    <y>575</y>
+    <width>230</width>
+    <height>25</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>text #112</name>
+      <text>SUM OF ARRAY ELEMENTS</text>
+      <x>10</x>
+      <y>15</y>
+      <width>220</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="164" green="126" blue="60">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #115</name>
+      <text>SUM(AA)</text>
+      <width>230</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+  </widget>
+  <widget type="polyline" version="2.0.0">
+    <name>polyline #118</name>
+    <y>60</y>
+    <width>482</width>
+    <height>3</height>
+    <line_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </line_color>
+    <points>
+      <point x="1.0" y="1.0">
+      </point>
+      <point x="480.0" y="1.0">
+      </point>
+    </points>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #122</name>
+    <text>expressions</text>
+    <x>5</x>
+    <y>40</y>
+    <width>470</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #125</name>
+    <text>Array</text>
+    <x>5</x>
+    <y>20</y>
+    <width>470</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </foreground_color>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="polyline" version="2.0.0">
+    <name>polyline #128</name>
+    <y>15</y>
+    <width>482</width>
+    <height>3</height>
+    <line_color>
+      <color red="10" green="0" blue="184">
+      </color>
+    </line_color>
+    <points>
+      <point x="1.0" y="1.0">
+      </point>
+      <point x="480.0" y="1.0">
+      </point>
+    </points>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #132</name>
+    <width>480</width>
+    <height>16</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="action_button" version="3.0.0">
+      <name>related display #135</name>
+      <actions>
+        <action type="open_display">
+          <file>calcExamples.opi</file>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>TOP</text>
+      <width>60</width>
+      <height>16</height>
+      <foreground_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="51" green="153" blue="0">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>related display #138</name>
+      <actions>
+        <action type="open_display">
+          <file>calcAlgebraicExamples.opi</file>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>ALG</text>
+      <x>60</x>
+      <width>60</width>
+      <height>16</height>
+      <foreground_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="51" green="153" blue="0">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>related display #141</name>
+      <actions>
+        <action type="open_display">
+          <file>calcTrigExamples.opi</file>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>TRIG</text>
+      <x>120</x>
+      <width>60</width>
+      <height>16</height>
+      <foreground_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="51" green="153" blue="0">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>related display #144</name>
+      <actions>
+        <action type="open_display">
+          <file>calcRelationalExamples.opi</file>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>REL</text>
+      <x>180</x>
+      <width>60</width>
+      <height>16</height>
+      <foreground_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="51" green="153" blue="0">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>related display #147</name>
+      <actions>
+        <action type="open_display">
+          <file>calcBitwiseExamples.opi</file>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>BIT</text>
+      <x>240</x>
+      <width>60</width>
+      <height>16</height>
+      <foreground_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="51" green="153" blue="0">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>related display #150</name>
+      <actions>
+        <action type="open_display">
+          <file>calcMiscExamples.opi</file>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>MISC</text>
+      <x>300</x>
+      <width>60</width>
+      <height>16</height>
+      <foreground_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="51" green="153" blue="0">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>related display #153</name>
+      <actions>
+        <action type="open_display">
+          <file>calcStringExamples.opi</file>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>STR</text>
+      <x>360</x>
+      <width>60</width>
+      <height>16</height>
+      <foreground_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="51" green="153" blue="0">
+        </color>
+      </background_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>related display #156</name>
+      <actions>
+        <action type="open_display">
+          <file>calcArrayExamples.opi</file>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>ARR</text>
+      <x>420</x>
+      <width>60</width>
+      <height>16</height>
+      <foreground_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="51" green="153" blue="0">
+        </color>
+      </background_color>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #159</name>
+    <text>All functions and operators that can take a scalar value can also</text>
+    <x>5</x>
+    <y>65</y>
+    <width>470</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #162</name>
+    <text>take an array value.  Only array-specific functions are listed here.</text>
+    <x>5</x>
+    <y>80</y>
+    <width>470</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #165</name>
+    <text></text>
+    <x>5</x>
+    <y>95</y>
+    <width>470</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #168</name>
+    <text></text>
+    <x>5</x>
+    <y>110</y>
+    <width>470</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #171</name>
+    <text></text>
+    <x>5</x>
+    <y>125</y>
+    <width>470</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #174</name>
+    <x>5</x>
+    <y>145</y>
+    <width>230</width>
+    <height>25</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>text #177</name>
+      <text>AVG(AA)</text>
+      <width>230</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #180</name>
+      <text>AVERAGE OF ARRAY VALUES</text>
+      <x>10</x>
+      <y>15</y>
+      <width>220</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="164" green="126" blue="60">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #183</name>
+    <text>UNTIL(&lt;expr&gt;;&lt;expr&gt;;...)</text>
+    <x>245</x>
+    <y>145</y>
+    <width>230</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #186</name>
+    <text>EXECUTE REPEATEDLY UNTIL RESULT != 0</text>
+    <x>255</x>
+    <y>160</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #189</name>
+    <text>EXACTLY ONE &lt;expr&gt; CAN RETURN A VALUE</text>
+    <x>255</x>
+    <y>170</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #192</name>
+    <x>245</x>
+    <y>205</y>
+    <width>230</width>
+    <height>385</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="group" version="2.0.0">
+      <name>composite #195</name>
+      <width>230</width>
+      <height>25</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <widget type="label" version="2.0.0">
+        <name>text #198</name>
+        <text>CAT(AA[M,N],B)</text>
+        <width>230</width>
+        <height>14</height>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>text #201</name>
+        <text>APPEND B TO SUBRANGE AA[m,n]</text>
+        <x>10</x>
+        <y>15</y>
+        <width>220</width>
+        <height>10</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </font>
+        <foreground_color>
+          <color red="164" green="126" blue="60">
+          </color>
+        </foreground_color>
+        <auto_size>true</auto_size>
+      </widget>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #204</name>
+      <text>CAT(AA[M,N],BB[x,y])</text>
+      <y>30</y>
+      <width>230</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #207</name>
+      <text>APPEND BB[x,y] TO SUBRANGE AA[m,n]</text>
+      <x>10</x>
+      <y>45</y>
+      <width>220</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="164" green="126" blue="60">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="group" version="2.0.0">
+      <name>composite #210</name>
+      <y>60</y>
+      <width>230</width>
+      <height>25</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <widget type="label" version="2.0.0">
+        <name>text #213</name>
+        <text>AA&gt;&gt;10</text>
+        <width>230</width>
+        <height>14</height>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>text #216</name>
+        <text>MOVE ARRAY ELEMENTS FORWARD IN ARRAY</text>
+        <x>10</x>
+        <y>15</y>
+        <width>220</width>
+        <height>10</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </font>
+        <foreground_color>
+          <color red="164" green="126" blue="60">
+          </color>
+        </foreground_color>
+        <auto_size>true</auto_size>
+      </widget>
+    </widget>
+    <widget type="group" version="2.0.0">
+      <name>composite #219</name>
+      <y>90</y>
+      <width>230</width>
+      <height>25</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <widget type="label" version="2.0.0">
+        <name>text #222</name>
+        <text>AA&lt;&lt;10</text>
+        <width>230</width>
+        <height>14</height>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>text #225</name>
+        <text>MOVE ARRAY ELEMENTS BACKWARD IN ARRAY</text>
+        <x>10</x>
+        <y>15</y>
+        <width>220</width>
+        <height>10</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </font>
+        <foreground_color>
+          <color red="164" green="126" blue="60">
+          </color>
+        </foreground_color>
+        <auto_size>true</auto_size>
+      </widget>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #228</name>
+      <text>CUM(AA)</text>
+      <y>120</y>
+      <width>230</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #231</name>
+      <text>CALC RUNNING SUM OF ARRAY ELEMENTS</text>
+      <x>10</x>
+      <y>135</y>
+      <width>220</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="164" green="126" blue="60">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #234</name>
+      <text>IXMAX(AA)</text>
+      <y>150</y>
+      <width>230</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #237</name>
+      <text>INDEX OF MAX ARRAY VALUE</text>
+      <x>10</x>
+      <y>165</y>
+      <width>220</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="164" green="126" blue="60">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #240</name>
+      <text>IXMIN(AA)</text>
+      <y>180</y>
+      <width>230</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #243</name>
+      <text>INDEX OF MIN ARRAY VALUE</text>
+      <x>10</x>
+      <y>195</y>
+      <width>220</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="164" green="126" blue="60">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #246</name>
+      <text>IXNZ(AA)</text>
+      <y>210</y>
+      <width>230</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #249</name>
+      <text>INDEX OF FIRST NONZERO ELEMENT</text>
+      <x>10</x>
+      <y>225</y>
+      <width>220</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="164" green="126" blue="60">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #252</name>
+      <text>IXZ(AA)</text>
+      <y>240</y>
+      <width>230</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #255</name>
+      <text>INDEX OF FIRST ZERO CROSSING</text>
+      <x>10</x>
+      <y>255</y>
+      <width>220</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="164" green="126" blue="60">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #258</name>
+      <text>SMOO(AA) B TIMES</text>
+      <x>10</x>
+      <y>285</y>
+      <width>220</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="164" green="126" blue="60">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #261</name>
+      <text>NSMOO(AA,B)</text>
+      <y>270</y>
+      <width>230</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #264</name>
+      <text>NDERIV(AA,B)</text>
+      <y>300</y>
+      <width>230</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #267</name>
+      <text>DERIV BY FITTING 2B+1 POINT SEGMENTS</text>
+      <x>10</x>
+      <y>315</y>
+      <width>220</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="164" green="126" blue="60">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #270</name>
+      <text>FITPOLY(AA)</text>
+      <y>330</y>
+      <width>230</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #273</name>
+      <text>FIT TO 2ND ORDER POLYNOMIAL</text>
+      <x>10</x>
+      <y>345</y>
+      <width>220</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="164" green="126" blue="60">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="group" version="2.0.0">
+      <name>composite #276</name>
+      <y>360</y>
+      <width>230</width>
+      <height>25</height>
+      <style>3</style>
+      <transparent>true</transparent>
+      <widget type="label" version="2.0.0">
+        <name>text #279</name>
+        <text>FITMPOLY(AA,BB)</text>
+        <width>230</width>
+        <height>14</height>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>text #282</name>
+        <text>FITPOLY, IGNORING AA[I] IF BB[I]==0</text>
+        <x>10</x>
+        <y>15</y>
+        <width>220</width>
+        <height>10</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="10.0">
+          </font>
+        </font>
+        <foreground_color>
+          <color red="164" green="126" blue="60">
+          </color>
+        </foreground_color>
+        <auto_size>true</auto_size>
+      </widget>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #285</name>
+    <text>UNTIL(B:=B+1;B&gt;1) IS LEGAL</text>
+    <x>255</x>
+    <y>180</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #288</name>
+    <text>UNTIL(B:=B+1;B:=1) IS NOT</text>
+    <x>255</x>
+    <y>190</y>
+    <width>220</width>
+    <height>10</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="164" green="126" blue="60">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+</display>

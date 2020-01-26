@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>userXXX10more_bare</name>
+  <x>466</x>
+  <y>87</y>
+  <width>150</width>
+  <height>220</height>
+  <background_color>
+    <color red="200" green="200" blue="200">
+    </color>
+  </background_color>
+  <grid_visible>false</grid_visible>
+  <grid_step_x>5</grid_step_x>
+  <widget type="choice" version="2.0.0">
+    <name>choice button #6</name>
+    <pv_name>$(P)user$(TYPE)Enable.VAL</pv_name>
+    <width>150</width>
+    <height>20</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <items>
+      <item>Item 1</item>
+      <item>Item 2</item>
+    </items>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #9</name>
+    <actions>
+      <action type="open_display">
+        <file>user$(TYPE).opi</file>
+        <macros>
+          <C>user$(TYPE)$(N1)</C>
+          <S>user$(TYPE)$(N1)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N1)</description>
+      </action>
+      <action type="open_display">
+        <file>user$(TYPE)_full.opi</file>
+        <macros>
+          <C>user$(TYPE)$(N1)</C>
+          <S>user$(TYPE)$(N1)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N1) (full)</description>
+      </action>
+      <action type="open_display">
+        <file>user$(TYPE)_demo.opi</file>
+        <macros>
+          <C>user$(TYPE)$(N1)</C>
+          <S>user$(TYPE)$(N1)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N1) (demo)</description>
+      </action>
+    </actions>
+    <text>$(N1)</text>
+    <y>20</y>
+    <width>25</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="40" green="147" blue="21">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #14</name>
+    <actions>
+      <action type="open_display">
+        <file>user$(TYPE).opi</file>
+        <macros>
+          <C>user$(TYPE)$(N2)</C>
+          <S>user$(TYPE)$(N2)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N2)</description>
+      </action>
+      <action type="open_display">
+        <file>user$(TYPE)_full.opi</file>
+        <macros>
+          <C>user$(TYPE)$(N2)</C>
+          <S>user$(TYPE)$(N2)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N2) (full)</description>
+      </action>
+      <action type="open_display">
+        <file>user$(TYPE)_demo.opi</file>
+        <macros>
+          <C>user$(TYPE)$(N2)</C>
+          <S>user$(TYPE)$(N2)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N2) (demo)</description>
+      </action>
+    </actions>
+    <text>$(N2)</text>
+    <y>40</y>
+    <width>25</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="40" green="147" blue="21">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #19</name>
+    <actions>
+      <action type="open_display">
+        <file>user$(TYPE).opi</file>
+        <macros>
+          <C>user$(TYPE)$(N3)</C>
+          <S>user$(TYPE)$(N3)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N3)</description>
+      </action>
+      <action type="open_display">
+        <file>user$(TYPE)_full.opi</file>
+        <macros>
+          <C>user$(TYPE)$(N3)</C>
+          <S>user$(TYPE)$(N3)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N3) (full)</description>
+      </action>
+      <action type="open_display">
+        <file>user$(TYPE)_demo.opi</file>
+        <macros>
+          <C>user$(TYPE)$(N3)</C>
+          <S>user$(TYPE)$(N3)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N3) (demo)</description>
+      </action>
+    </actions>
+    <text>$(N3)</text>
+    <y>60</y>
+    <width>25</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="40" green="147" blue="21">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #24</name>
+    <actions>
+      <action type="open_display">
+        <file>user$(TYPE).opi</file>
+        <macros>
+          <C>user$(TYPE)$(N4)</C>
+          <S>user$(TYPE)$(N4)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N4)</description>
+      </action>
+      <action type="open_display">
+        <file>user$(TYPE)_full.opi</file>
+        <macros>
+          <C>user$(TYPE)$(N4)</C>
+          <S>user$(TYPE)$(N4)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N4) (full)</description>
+      </action>
+      <action type="open_display">
+        <file>user$(TYPE)_demo.opi</file>
+        <macros>
+          <C>user$(TYPE)$(N4)</C>
+          <S>user$(TYPE)$(N4)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N4) (demo)</description>
+      </action>
+    </actions>
+    <text>$(N4)</text>
+    <y>80</y>
+    <width>25</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="40" green="147" blue="21">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #29</name>
+    <actions>
+      <action type="open_display">
+        <file>user$(TYPE).opi</file>
+        <macros>
+          <C>user$(TYPE)$(N5)</C>
+          <S>user$(TYPE)$(N5)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N5)</description>
+      </action>
+      <action type="open_display">
+        <file>user$(TYPE)_full.opi</file>
+        <macros>
+          <C>user$(TYPE)$(N5)</C>
+          <S>user$(TYPE)$(N5)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N5) (full)</description>
+      </action>
+      <action type="open_display">
+        <file>user$(TYPE)_demo.opi</file>
+        <macros>
+          <C>user$(TYPE)$(N5)</C>
+          <S>user$(TYPE)$(N5)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N5) (demo)</description>
+      </action>
+    </actions>
+    <text>$(N5)</text>
+    <y>100</y>
+    <width>25</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="40" green="147" blue="21">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #34</name>
+    <actions>
+      <action type="open_display">
+        <file>user$(TYPE).opi</file>
+        <macros>
+          <C>user$(TYPE)$(N6)</C>
+          <S>user$(TYPE)$(N6)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N6)</description>
+      </action>
+      <action type="open_display">
+        <file>user$(TYPE)_full.opi</file>
+        <macros>
+          <C>user$(TYPE)$(N6)</C>
+          <S>user$(TYPE)$(N6)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N6) (full)</description>
+      </action>
+      <action type="open_display">
+        <file>user$(TYPE)_demo.opi</file>
+        <macros>
+          <C>user$(TYPE)$(N6)</C>
+          <S>user$(TYPE)$(N6)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N6) (demo)</description>
+      </action>
+    </actions>
+    <text>$(N6)</text>
+    <y>120</y>
+    <width>25</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="40" green="147" blue="21">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #39</name>
+    <actions>
+      <action type="open_display">
+        <file>user$(TYPE).opi</file>
+        <macros>
+          <C>user$(TYPE)$(N7)</C>
+          <S>user$(TYPE)$(N7)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N7)</description>
+      </action>
+      <action type="open_display">
+        <file>user$(TYPE)_full.opi</file>
+        <macros>
+          <C>user$(TYPE)$(N7)</C>
+          <S>user$(TYPE)$(N7)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N7) (full)</description>
+      </action>
+      <action type="open_display">
+        <file>user$(TYPE)_demo.opi</file>
+        <macros>
+          <C>user$(TYPE)$(N7)</C>
+          <S>user$(TYPE)$(N7)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N7) (demo)</description>
+      </action>
+    </actions>
+    <text>$(N7)</text>
+    <y>140</y>
+    <width>25</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="40" green="147" blue="21">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #44</name>
+    <actions>
+      <action type="open_display">
+        <file>user$(TYPE).opi</file>
+        <macros>
+          <C>user$(TYPE)$(N8)</C>
+          <S>user$(TYPE)$(N8)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N8)</description>
+      </action>
+      <action type="open_display">
+        <file>user$(TYPE)_full.opi</file>
+        <macros>
+          <C>user$(TYPE)$(N8)</C>
+          <S>user$(TYPE)$(N8)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N8) (full)</description>
+      </action>
+      <action type="open_display">
+        <file>user$(TYPE)_demo.opi</file>
+        <macros>
+          <C>user$(TYPE)$(N8)</C>
+          <S>user$(TYPE)$(N8)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N8) (demo)</description>
+      </action>
+    </actions>
+    <text>$(N8)</text>
+    <y>160</y>
+    <width>25</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="40" green="147" blue="21">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #49</name>
+    <actions>
+      <action type="open_display">
+        <file>user$(TYPE).opi</file>
+        <macros>
+          <C>user$(TYPE)$(N9)</C>
+          <S>user$(TYPE)$(N9)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N9)</description>
+      </action>
+      <action type="open_display">
+        <file>user$(TYPE)_full.opi</file>
+        <macros>
+          <C>user$(TYPE)$(N9)</C>
+          <S>user$(TYPE)$(N9)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N9) (full)</description>
+      </action>
+      <action type="open_display">
+        <file>user$(TYPE)_demo.opi</file>
+        <macros>
+          <C>user$(TYPE)$(N9)</C>
+          <S>user$(TYPE)$(N9)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N9) (demo)</description>
+      </action>
+    </actions>
+    <text>$(N9)</text>
+    <y>180</y>
+    <width>25</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="40" green="147" blue="21">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #54</name>
+    <actions>
+      <action type="open_display">
+        <file>user$(TYPE).opi</file>
+        <macros>
+          <C>user$(TYPE)$(N10)</C>
+          <S>user$(TYPE)$(N10)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N10)</description>
+      </action>
+      <action type="open_display">
+        <file>user$(TYPE)_full.opi</file>
+        <macros>
+          <C>user$(TYPE)$(N10)</C>
+          <S>user$(TYPE)$(N10)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N10) (full)</description>
+      </action>
+      <action type="open_display">
+        <file>user$(TYPE)_demo.opi</file>
+        <macros>
+          <C>user$(TYPE)$(N10)</C>
+          <S>user$(TYPE)$(N10)</S>
+        </macros>
+        <target>tab</target>
+        <description>user $(TYPE) $(N10) (demo)</description>
+      </action>
+    </actions>
+    <text>$(N10)</text>
+    <y>200</y>
+    <width>25</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="40" green="147" blue="21">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #59</name>
+    <x>25</x>
+    <y>20</y>
+    <width>125</width>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #62</name>
+      <pv_name>$(P)user$(TYPE)$(N1).DESC</pv_name>
+      <width>125</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="200" green="200" blue="200">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #66</name>
+      <pv_name>$(P)user$(TYPE)$(N2).DESC</pv_name>
+      <y>20</y>
+      <width>125</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="200" green="200" blue="200">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #70</name>
+      <pv_name>$(P)user$(TYPE)$(N3).DESC</pv_name>
+      <y>40</y>
+      <width>125</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="200" green="200" blue="200">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #74</name>
+      <pv_name>$(P)user$(TYPE)$(N4).DESC</pv_name>
+      <y>60</y>
+      <width>125</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="200" green="200" blue="200">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #78</name>
+      <pv_name>$(P)user$(TYPE)$(N5).DESC</pv_name>
+      <y>80</y>
+      <width>125</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="200" green="200" blue="200">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #82</name>
+      <pv_name>$(P)user$(TYPE)$(N6).DESC</pv_name>
+      <y>100</y>
+      <width>125</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="200" green="200" blue="200">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #86</name>
+      <pv_name>$(P)user$(TYPE)$(N7).DESC</pv_name>
+      <y>120</y>
+      <width>125</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="200" green="200" blue="200">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #90</name>
+      <pv_name>$(P)user$(TYPE)$(N8).DESC</pv_name>
+      <y>140</y>
+      <width>125</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="200" green="200" blue="200">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #94</name>
+      <pv_name>$(P)user$(TYPE)$(N9).DESC</pv_name>
+      <y>160</y>
+      <width>125</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="200" green="200" blue="200">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>text entry #98</name>
+      <pv_name>$(P)user$(TYPE)$(N10).DESC</pv_name>
+      <y>180</y>
+      <width>125</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="10" green="0" blue="184">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="200" green="200" blue="200">
+        </color>
+      </background_color>
+      <format>1</format>
+      <show_units>false</show_units>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+  </widget>
+</display>

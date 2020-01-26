@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>yyArrayCalc_small</name>
+  <x>1173</x>
+  <y>303</y>
+  <width>400</width>
+  <height>315</height>
+  <background_color>
+    <color red="200" green="200" blue="200">
+    </color>
+  </background_color>
+  <grid_visible>false</grid_visible>
+  <grid_step_x>5</grid_step_x>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #6</name>
+    <actions>
+      <action type="open_display">
+        <file>yyArrayCalc.opi</file>
+        <target>replace</target>
+        <description>user arrayCalc (w/plot)</description>
+      </action>
+    </actions>
+    <text>More</text>
+    <x>330</x>
+    <y>286</y>
+    <width>40</width>
+    <height>20</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="40" green="147" blue="21">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #9</name>
+    <file>yyArrayCalc_small_bare.bob</file>
+    <height>311</height>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #11</name>
+    <text>($(P)$(C))</text>
+    <x>240</x>
+    <y>6</y>
+    <width>160</width>
+    <height>14</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+</display>

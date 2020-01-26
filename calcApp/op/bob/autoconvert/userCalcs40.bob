@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>userCalcs40</name>
+  <x>962</x>
+  <y>248</y>
+  <width>440</width>
+  <height>420</height>
+  <background_color>
+    <color red="200" green="200" blue="200">
+    </color>
+  </background_color>
+  <grid_visible>false</grid_visible>
+  <grid_step_x>5</grid_step_x>
+  <widget type="choice" version="2.0.0">
+    <name>choice button #6</name>
+    <pv_name>$(P)userCalcEnable.VAL</pv_name>
+    <width>440</width>
+    <height>20</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <items>
+      <item>Item 1</item>
+      <item>Item 2</item>
+    </items>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #9</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N1)</N>
+    </macros>
+    <y>20</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #11</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N2)</N>
+    </macros>
+    <y>40</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #13</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N3)</N>
+    </macros>
+    <y>60</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #15</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N4)</N>
+    </macros>
+    <y>80</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #17</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N5)</N>
+    </macros>
+    <y>100</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #19</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N6)</N>
+    </macros>
+    <y>120</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #21</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N7)</N>
+    </macros>
+    <y>140</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #23</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N8)</N>
+    </macros>
+    <y>160</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #25</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N9)</N>
+    </macros>
+    <y>180</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #27</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N10)</N>
+    </macros>
+    <y>200</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #29</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N11)</N>
+    </macros>
+    <y>220</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #31</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N12)</N>
+    </macros>
+    <y>240</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #33</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N13)</N>
+    </macros>
+    <y>260</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #35</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N14)</N>
+    </macros>
+    <y>280</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #37</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N15)</N>
+    </macros>
+    <y>300</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #39</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N16)</N>
+    </macros>
+    <y>320</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #41</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N17)</N>
+    </macros>
+    <y>340</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #43</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N18)</N>
+    </macros>
+    <y>360</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #45</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N19)</N>
+    </macros>
+    <y>380</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #47</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N20)</N>
+    </macros>
+    <y>400</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #49</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N21)</N>
+    </macros>
+    <x>225</x>
+    <y>20</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #51</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N22)</N>
+    </macros>
+    <x>225</x>
+    <y>40</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #53</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N23)</N>
+    </macros>
+    <x>225</x>
+    <y>60</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #55</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N24)</N>
+    </macros>
+    <x>225</x>
+    <y>80</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #57</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N25)</N>
+    </macros>
+    <x>225</x>
+    <y>100</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #59</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N26)</N>
+    </macros>
+    <x>225</x>
+    <y>120</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #61</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N27)</N>
+    </macros>
+    <x>225</x>
+    <y>140</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #63</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N28)</N>
+    </macros>
+    <x>225</x>
+    <y>160</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #65</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N29)</N>
+    </macros>
+    <x>225</x>
+    <y>180</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #67</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N30)</N>
+    </macros>
+    <x>225</x>
+    <y>200</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #69</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N31)</N>
+    </macros>
+    <x>225</x>
+    <y>220</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #71</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N32)</N>
+    </macros>
+    <x>225</x>
+    <y>240</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #73</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N33)</N>
+    </macros>
+    <x>225</x>
+    <y>260</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #75</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N34)</N>
+    </macros>
+    <x>225</x>
+    <y>280</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #77</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N35)</N>
+    </macros>
+    <x>225</x>
+    <y>300</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #79</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N36)</N>
+    </macros>
+    <x>225</x>
+    <y>320</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #81</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N37)</N>
+    </macros>
+    <x>225</x>
+    <y>340</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #83</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N38)</N>
+    </macros>
+    <x>225</x>
+    <y>360</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #85</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N39)</N>
+    </macros>
+    <x>225</x>
+    <y>380</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #87</name>
+    <file>userCalcs_line.bob</file>
+    <macros>
+      <N>$(N40)</N>
+    </macros>
+    <x>225</x>
+    <y>400</y>
+    <width>215</width>
+    <height>20</height>
+  </widget>
+</display>

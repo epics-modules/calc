@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>userStringCalcs10</name>
+  <x>1192</x>
+  <y>245</y>
+  <width>195</width>
+  <height>220</height>
+  <background_color>
+    <color red="200" green="200" blue="200">
+    </color>
+  </background_color>
+  <grid_visible>false</grid_visible>
+  <grid_step_x>5</grid_step_x>
+  <widget type="choice" version="2.0.0">
+    <name>choice button #6</name>
+    <pv_name>$(P)userStringCalcEnable.VAL</pv_name>
+    <width>195</width>
+    <height>20</height>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <items>
+      <item>Item 1</item>
+      <item>Item 2</item>
+    </items>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #9</name>
+    <file>userStringCalcs_line.bob</file>
+    <macros>
+      <N>1</N>
+    </macros>
+    <y>20</y>
+    <width>195</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #11</name>
+    <file>userStringCalcs_line.bob</file>
+    <macros>
+      <N>2</N>
+    </macros>
+    <y>40</y>
+    <width>195</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #13</name>
+    <file>userStringCalcs_line.bob</file>
+    <macros>
+      <N>3</N>
+    </macros>
+    <y>60</y>
+    <width>195</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #15</name>
+    <file>userStringCalcs_line.bob</file>
+    <macros>
+      <N>4</N>
+    </macros>
+    <y>80</y>
+    <width>195</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #17</name>
+    <file>userStringCalcs_line.bob</file>
+    <macros>
+      <N>5</N>
+    </macros>
+    <y>100</y>
+    <width>195</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #19</name>
+    <file>userStringCalcs_line.bob</file>
+    <macros>
+      <N>6</N>
+    </macros>
+    <y>120</y>
+    <width>195</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #21</name>
+    <file>userStringCalcs_line.bob</file>
+    <macros>
+      <N>7</N>
+    </macros>
+    <y>140</y>
+    <width>195</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #23</name>
+    <file>userStringCalcs_line.bob</file>
+    <macros>
+      <N>8</N>
+    </macros>
+    <y>160</y>
+    <width>195</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #25</name>
+    <file>userStringCalcs_line.bob</file>
+    <macros>
+      <N>9</N>
+    </macros>
+    <y>180</y>
+    <width>195</width>
+    <height>20</height>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>composite #27</name>
+    <file>userStringCalcs_line.bob</file>
+    <macros>
+      <N>10</N>
+    </macros>
+    <y>200</y>
+    <width>195</width>
+    <height>20</height>
+  </widget>
+</display>

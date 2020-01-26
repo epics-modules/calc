@@ -1,0 +1,1799 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>calcExamples</name>
+  <x>1026</x>
+  <y>69</y>
+  <width>370</width>
+  <height>955</height>
+  <background_color>
+    <color red="236" green="236" blue="236">
+    </color>
+  </background_color>
+  <grid_visible>false</grid_visible>
+  <grid_step_x>5</grid_step_x>
+  <widget type="label" version="2.0.0">
+    <name>text #6</name>
+    <text>LOGE(a)</text>
+    <x>110</x>
+    <y>55</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #9</name>
+    <text>ABS(a)</text>
+    <x>10</x>
+    <y>40</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #12</name>
+    <text>CEIL(a)</text>
+    <x>10</x>
+    <y>55</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #15</name>
+    <text>EXP(a)</text>
+    <x>10</x>
+    <y>70</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #18</name>
+    <text>FLOOR(a)</text>
+    <x>10</x>
+    <y>85</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #21</name>
+    <text>INT(a)</text>
+    <x>10</x>
+    <y>100</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #24</name>
+    <text>NINT(a)</text>
+    <x>110</x>
+    <y>100</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #27</name>
+    <text>LOG(a)</text>
+    <x>110</x>
+    <y>40</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #30</name>
+    <text>a*b</text>
+    <x>310</x>
+    <y>40</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #33</name>
+    <text>SQR(a)</text>
+    <x>210</x>
+    <y>40</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #36</name>
+    <actions>
+      <action type="open_display">
+        <file>calcAlgebraicExamples.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>Algebraic functions/operators</text>
+    <x>10</x>
+    <y>10</y>
+    <width>350</width>
+    <height>27</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #39</name>
+    <text>a/b</text>
+    <x>310</x>
+    <y>55</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #42</name>
+    <text>a%b</text>
+    <x>310</x>
+    <y>70</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #45</name>
+    <text>-a</text>
+    <x>310</x>
+    <y>85</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #48</name>
+    <text>a&gt;?b</text>
+    <x>310</x>
+    <y>100</y>
+    <width>90</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #51</name>
+    <text>a+b</text>
+    <x>210</x>
+    <y>100</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #54</name>
+    <text>a^b</text>
+    <x>210</x>
+    <y>70</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #57</name>
+    <text>a**b</text>
+    <x>210</x>
+    <y>85</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #60</name>
+    <text>SQRT(a)</text>
+    <x>210</x>
+    <y>55</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="group" version="2.0.0">
+    <name>composite #63</name>
+    <x>110</x>
+    <y>70</y>
+    <width>90</width>
+    <height>14</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>text #66</name>
+      <text>,...</text>
+      <width>90</width>
+      <height>14</height>
+      <foreground_color>
+        <color red="88" green="147" blue="255">
+        </color>
+      </foreground_color>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>text #69</name>
+      <text>MAX(a,b    )</text>
+      <width>90</width>
+      <height>14</height>
+      <auto_size>true</auto_size>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #72</name>
+    <text>,...</text>
+    <x>110</x>
+    <y>85</y>
+    <width>90</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="88" green="147" blue="255">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #75</name>
+    <text>MIN(a,b    )</text>
+    <x>110</x>
+    <y>85</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #78</name>
+    <text>LN(a)</text>
+    <x>10</x>
+    <y>115</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #81</name>
+    <text>NOT(a)</text>
+    <x>110</x>
+    <y>115</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #84</name>
+    <text>a-b</text>
+    <x>210</x>
+    <y>115</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #87</name>
+    <text>a&lt;?b</text>
+    <x>310</x>
+    <y>115</y>
+    <width>90</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #90</name>
+    <text>a==b</text>
+    <x>310</x>
+    <y>270</y>
+    <width>50</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #93</name>
+    <text>a=b</text>
+    <x>310</x>
+    <y>255</y>
+    <width>50</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #96</name>
+    <text>ACOS(a)</text>
+    <x>10</x>
+    <y>170</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #99</name>
+    <text>ATAN(a)</text>
+    <x>10</x>
+    <y>185</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #102</name>
+    <text>TAN(a)</text>
+    <x>210</x>
+    <y>185</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #105</name>
+    <text>TANH(a)</text>
+    <x>210</x>
+    <y>200</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #108</name>
+    <text>ATAN2(a,b)</text>
+    <x>10</x>
+    <y>200</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #111</name>
+    <text>COS(a)</text>
+    <x>110</x>
+    <y>170</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #114</name>
+    <text>COSH(a)</text>
+    <x>110</x>
+    <y>185</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #117</name>
+    <text>SIN(a)</text>
+    <x>110</x>
+    <y>200</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #120</name>
+    <text>SINH(a)</text>
+    <x>210</x>
+    <y>170</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #123</name>
+    <text>a&gt;=b</text>
+    <x>10</x>
+    <y>255</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #126</name>
+    <text>a&gt;b</text>
+    <x>10</x>
+    <y>270</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #129</name>
+    <text>a&lt;=b</text>
+    <x>110</x>
+    <y>255</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #132</name>
+    <text>a&lt;b</text>
+    <x>110</x>
+    <y>270</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #135</name>
+    <text>a!=b</text>
+    <x>210</x>
+    <y>255</y>
+    <width>90</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #138</name>
+    <text>a#b</text>
+    <x>210</x>
+    <y>270</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #141</name>
+    <text>(a)</text>
+    <x>10</x>
+    <y>410</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #144</name>
+    <text>a?b:c</text>
+    <x>110</x>
+    <y>410</y>
+    <width>70</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #147</name>
+    <text>UNTIL(a:=a-1;a&lt;1)</text>
+    <x>190</x>
+    <y>410</y>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #150</name>
+    <actions>
+      <action type="open_display">
+        <file>calcTrigExamples.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>Trigonometric functions/operators</text>
+    <x>10</x>
+    <y>140</y>
+    <width>350</width>
+    <height>27</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #153</name>
+    <actions>
+      <action type="open_display">
+        <file>calcRelationalExamples.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>Relational operators</text>
+    <x>10</x>
+    <y>225</y>
+    <width>350</width>
+    <height>27</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #156</name>
+    <actions>
+      <action type="open_display">
+        <file>calcMiscExamples.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>Misc operators &amp; symbols</text>
+    <x>10</x>
+    <y>380</y>
+    <width>350</width>
+    <height>27</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #159</name>
+    <text>RNDM</text>
+    <x>10</x>
+    <y>425</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #162</name>
+    <actions>
+      <action type="open_display">
+        <file>calcStringExamples.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>String functions/operators</text>
+    <x>10</x>
+    <y>450</y>
+    <width>350</width>
+    <height>27</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #165</name>
+    <text>@@a</text>
+    <x>310</x>
+    <y>395</y>
+    <width>90</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #168</name>
+    <text>WRITE('%lf',a)</text>
+    <x>110</x>
+    <y>540</y>
+    <width>110</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #171</name>
+    <text>READ(aa,'%ld')</text>
+    <x>110</x>
+    <y>525</y>
+    <width>110</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #174</name>
+    <text>aa{bb,cc}</text>
+    <x>110</x>
+    <y>555</y>
+    <width>110</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #177</name>
+    <text>aa[1,3]</text>
+    <x>110</x>
+    <y>570</y>
+    <width>110</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #180</name>
+    <text>$S(aa,'%lf')</text>
+    <x>110</x>
+    <y>510</y>
+    <width>110</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #183</name>
+    <text>PRINTF('%f',aa)</text>
+    <x>110</x>
+    <y>480</y>
+    <width>110</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #186</name>
+    <text>SSCANF(aa,'%lf')</text>
+    <x>110</x>
+    <y>495</y>
+    <width>110</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #189</name>
+    <text>TR_ESC(aa)</text>
+    <x>110</x>
+    <y>585</y>
+    <width>110</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #192</name>
+    <text>ADD_XOR8(aa)</text>
+    <x>110</x>
+    <y>600</y>
+    <width>110</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #195</name>
+    <text>aa&gt;?bb</text>
+    <x>230</x>
+    <y>510</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #198</name>
+    <text>aa&gt;bb</text>
+    <x>230</x>
+    <y>540</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #201</name>
+    <text>aa!=bb</text>
+    <x>230</x>
+    <y>525</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #204</name>
+    <text>aa==bb</text>
+    <x>230</x>
+    <y>555</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #207</name>
+    <text>aa-|bb</text>
+    <x>230</x>
+    <y>570</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #210</name>
+    <text>aa&gt;=bb</text>
+    <x>230</x>
+    <y>495</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #213</name>
+    <text>aa+bb</text>
+    <x>230</x>
+    <y>480</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #216</name>
+    <text>$E(aa)</text>
+    <x>230</x>
+    <y>585</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #219</name>
+    <text>XOR8(aa)</text>
+    <x>230</x>
+    <y>600</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #222</name>
+    <text>aa&lt;?bb</text>
+    <x>310</x>
+    <y>510</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #225</name>
+    <text>aa&lt;bb</text>
+    <x>310</x>
+    <y>540</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #228</name>
+    <text>aa#bb</text>
+    <x>310</x>
+    <y>525</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #231</name>
+    <text>aa=bb</text>
+    <x>310</x>
+    <y>555</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #234</name>
+    <text>aa|-bb</text>
+    <x>310</x>
+    <y>570</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #237</name>
+    <text>aa&lt;=bb</text>
+    <x>310</x>
+    <y>495</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #240</name>
+    <text>aa-bb</text>
+    <x>310</x>
+    <y>480</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #243</name>
+    <text>ESC(aa)</text>
+    <x>310</x>
+    <y>585</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #246</name>
+    <text>STR(aa)</text>
+    <x>310</x>
+    <y>600</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #249</name>
+    <text>AMODBUS(aa)</text>
+    <x>110</x>
+    <y>615</y>
+    <width>110</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #252</name>
+    <text>LRC(aa)</text>
+    <x>230</x>
+    <y>615</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #255</name>
+    <text>'abc'</text>
+    <x>310</x>
+    <y>615</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #258</name>
+    <text>$R(aa,'%ld')</text>
+    <x>110</x>
+    <y>630</y>
+    <width>110</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #261</name>
+    <text>LEN(aa)</text>
+    <x>230</x>
+    <y>630</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #264</name>
+    <text></text>
+    <x>310</x>
+    <y>630</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #267</name>
+    <text>$P('%f',aa)</text>
+    <x>10</x>
+    <y>570</y>
+    <width>90</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #270</name>
+    <text>$T(aa)</text>
+    <x>10</x>
+    <y>585</y>
+    <width>90</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #273</name>
+    <text>CRC16(aa)</text>
+    <x>10</x>
+    <y>600</y>
+    <width>90</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #276</name>
+    <text>MODBUS(aa)</text>
+    <x>10</x>
+    <y>615</y>
+    <width>90</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #279</name>
+    <text>$W('%lf',a)</text>
+    <x>10</x>
+    <y>630</y>
+    <width>90</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #282</name>
+    <text>INT(aa)</text>
+    <x>10</x>
+    <y>510</y>
+    <width>90</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #285</name>
+    <text>MIN(aa,bb,..)</text>
+    <x>10</x>
+    <y>540</y>
+    <width>90</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #288</name>
+    <text>MAX(aa,bb,..)</text>
+    <x>10</x>
+    <y>525</y>
+    <width>90</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #291</name>
+    <text>NINT(aa)</text>
+    <x>10</x>
+    <y>555</y>
+    <width>90</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #294</name>
+    <text>BYTE(aa)</text>
+    <x>10</x>
+    <y>480</y>
+    <width>90</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #297</name>
+    <text>DBL(aa)</text>
+    <x>10</x>
+    <y>495</y>
+    <width>90</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #300</name>
+    <text>NRNDM</text>
+    <x>110</x>
+    <y>425</y>
+    <width>70</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #303</name>
+    <text>a&gt;&gt;b</text>
+    <x>310</x>
+    <y>325</y>
+    <width>50</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #306</name>
+    <text>a|b</text>
+    <x>10</x>
+    <y>325</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #309</name>
+    <text>a&amp;b</text>
+    <x>110</x>
+    <y>325</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #312</name>
+    <text>a XOR b</text>
+    <x>210</x>
+    <y>325</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #315</name>
+    <actions>
+      <action type="open_display">
+        <file>calcBitwiseExamples.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>Bitwise/Logical operators</text>
+    <x>10</x>
+    <y>295</y>
+    <width>350</width>
+    <height>27</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #318</name>
+    <text>a OR b</text>
+    <x>10</x>
+    <y>340</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #321</name>
+    <text>a AND b</text>
+    <x>110</x>
+    <y>340</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #324</name>
+    <text>~a</text>
+    <x>210</x>
+    <y>340</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #327</name>
+    <text>a&lt;&lt;b</text>
+    <x>310</x>
+    <y>340</y>
+    <width>50</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #330</name>
+    <text>a||b</text>
+    <x>10</x>
+    <y>355</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #333</name>
+    <text>a&amp;&amp;b</text>
+    <x>110</x>
+    <y>355</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #336</name>
+    <text>a^b</text>
+    <x>210</x>
+    <y>355</y>
+    <width>90</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #339</name>
+    <text></text>
+    <x>310</x>
+    <y>355</y>
+    <width>50</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #342</name>
+    <text>(a:=1;b:=2;c)</text>
+    <x>190</x>
+    <y>425</y>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #345</name>
+    <text>@@a</text>
+    <x>310</x>
+    <y>630</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #348</name>
+    <text>@a</text>
+    <x>310</x>
+    <y>410</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #351</name>
+    <text>a:=b</text>
+    <x>310</x>
+    <y>425</y>
+    <width>50</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #354</name>
+    <text>NOTE: can use single or double quotes at runtime</text>
+    <x>10</x>
+    <y>680</y>
+    <width>350</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #357</name>
+    <text>but only single quotes in a static database.</text>
+    <x>10</x>
+    <y>695</y>
+    <width>350</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #360</name>
+    <text>'a', 'b', etc. are numeric arguments.</text>
+    <x>10</x>
+    <y>715</y>
+    <width>350</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #363</name>
+    <text>'aa', 'bb', etc. are string arguments.</text>
+    <x>10</x>
+    <y>730</y>
+    <width>350</width>
+    <height>14</height>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="polyline" version="2.0.0">
+    <name>polyline #366</name>
+    <x>10</x>
+    <y>675</y>
+    <width>350</width>
+    <height>0</height>
+    <line_width>1</line_width>
+    <line_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </line_color>
+    <points>
+      <point x="0.0" y="0.0">
+      </point>
+      <point x="350.0" y="0.0">
+      </point>
+    </points>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>related display #370</name>
+    <actions>
+      <action type="open_display">
+        <file>calcArrayExamples.opi</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <text>Array functions/operators</text>
+    <x>5</x>
+    <y>755</y>
+    <width>350</width>
+    <height>27</height>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="51" green="153" blue="0">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #373</name>
+    <text>Items in red are useable in aCalcout records.</text>
+    <x>10</x>
+    <y>910</y>
+    <width>350</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #376</name>
+    <text></text>
+    <x>10</x>
+    <y>925</y>
+    <width>350</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #379</name>
+    <text>Items in blue are useable in transform and sCalcout</text>
+    <x>10</x>
+    <y>880</y>
+    <width>350</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #382</name>
+    <text>records, and include string functions.</text>
+    <x>10</x>
+    <y>895</y>
+    <width>350</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #385</name>
+    <text>AVG(aa)</text>
+    <x>10</x>
+    <y>845</y>
+    <width>70</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #388</name>
+    <text>ARNDM</text>
+    <x>10</x>
+    <y>815</y>
+    <width>70</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #391</name>
+    <text>AMAX(aa)</text>
+    <x>10</x>
+    <y>785</y>
+    <width>70</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #394</name>
+    <text>AMIN(aa)</text>
+    <x>10</x>
+    <y>800</y>
+    <width>70</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #397</name>
+    <text>ARR(a)</text>
+    <x>10</x>
+    <y>830</y>
+    <width>70</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #400</name>
+    <text>IX</text>
+    <x>85</x>
+    <y>845</y>
+    <width>110</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #403</name>
+    <text>FWHM(aa)</text>
+    <x>85</x>
+    <y>830</y>
+    <width>110</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #406</name>
+    <text>DERIV(aa)</text>
+    <x>85</x>
+    <y>785</y>
+    <width>110</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #409</name>
+    <text>FITPOLY(aa)</text>
+    <x>85</x>
+    <y>800</y>
+    <width>110</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #412</name>
+    <text>FITMPOLY(aa,bb)</text>
+    <x>85</x>
+    <y>815</y>
+    <width>110</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #415</name>
+    <text>STD(aa)</text>
+    <x>205</x>
+    <y>830</y>
+    <width>80</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #418</name>
+    <text>SMOO(aa)</text>
+    <x>205</x>
+    <y>815</y>
+    <width>80</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #421</name>
+    <text>SUM(aa)</text>
+    <x>205</x>
+    <y>845</y>
+    <width>80</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #424</name>
+    <text>NSMOO(aa,a)</text>
+    <x>205</x>
+    <y>800</y>
+    <width>80</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #427</name>
+    <text>NDERIV(aa,a)</text>
+    <x>205</x>
+    <y>785</y>
+    <width>80</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #430</name>
+    <text>aa&gt;&gt;10</text>
+    <x>295</x>
+    <y>800</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #433</name>
+    <text>@@a</text>
+    <x>295</x>
+    <y>785</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #436</name>
+    <text>aa&lt;&lt;10</text>
+    <x>295</x>
+    <y>815</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #439</name>
+    <text>aa&gt;&gt;a</text>
+    <x>10</x>
+    <y>645</y>
+    <width>90</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #442</name>
+    <text>aa&lt;&lt;a</text>
+    <x>110</x>
+    <y>645</y>
+    <width>110</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="42" green="99" blue="228">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #445</name>
+    <text>CUM(AA)</text>
+    <x>295</x>
+    <y>830</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #448</name>
+    <text>IXMAX(AA)</text>
+    <x>295</x>
+    <y>845</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #451</name>
+    <text>IXNZ(AA)</text>
+    <x>205</x>
+    <y>860</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #454</name>
+    <text>IXZ(AA)</text>
+    <x>85</x>
+    <y>860</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>text #457</name>
+    <text>IXMIN(AA)</text>
+    <x>10</x>
+    <y>860</y>
+    <width>50</width>
+    <height>14</height>
+    <foreground_color>
+      <color red="253" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <auto_size>true</auto_size>
+  </widget>
+</display>
