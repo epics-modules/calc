@@ -1,28 +1,28 @@
-4 0 0
+4 0 1
 beginScreenProperties
 major 4
 minor 0
-release 0
+release 1
 x 10
 y 10
 w 195
 h 130
 font "helvetica-medium-r-18.0"
-ctlFont "helvetica-medium-r-8.0"
+ctlFont "helvetica-bold-r-10.0"
 btnFont "helvetica-medium-r-18.0"
-fgColor index 14
-bgColor index 3
-textColor index 14
-ctlFgColor1 index 30
-ctlFgColor2 index 32
-ctlBgColor1 index 34
-ctlBgColor2 index 35
-topShadowColor index 37
-botShadowColor index 44
+fgColor rgb 0 0 0
+bgColor rgb 51200 51200 51200
+textColor rgb 0 0 0
+ctlFgColor1 rgb 64256 62208 18944
+ctlFgColor2 rgb 60928 46592 11008
+ctlBgColor1 rgb 52480 24832 0
+ctlBgColor2 rgb 65280 45056 65280
+topShadowColor rgb 44544 19968 48128
+botShadowColor rgb 13312 13056 34304
+showGrid
 snapToGrid
-gridSize 5
+gridSize 4
 endScreenProperties
-
 
 # (Group)
 object activeGroupClass
@@ -37,7 +37,6 @@ h 130
 
 beginGroup
 
-
 # (Rectangle)
 object activeRectangleClass
 beginObjectProperties
@@ -48,9 +47,9 @@ x 0
 y 0
 w 194
 h 129
-lineColor index 14
+lineColor rgb 0 0 0
 fill
-fillColor index 14
+fillColor rgb 0 0 0
 lineWidth 0
 endObjectProperties
 
@@ -58,17 +57,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 5
 w 180
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 35
+font "helvetica-medium-r-12.0"
+fgColor rgb 65280 45056 65280
+bgColor index 3
 useDisplayBg
 value {
- "1. Specify input name(s)"
+  "1. Specify input name(s)"
 }
 endObjectProperties
 
@@ -76,17 +76,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 20
 w 180
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 51
+font "helvetica-medium-r-12.0"
+fgColor rgb 29440 57088 65280
+bgColor index 3
 useDisplayBg
 value {
- "2. Enter calc expression"
+  "2. Enter calc expression"
 }
 endObjectProperties
 
@@ -94,17 +95,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 35
 w 180
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 35
+font "helvetica-medium-r-12.0"
+fgColor rgb 65280 45056 65280
+bgColor index 3
 useDisplayBg
 value {
- "3. Specify output name(?)"
+  "3. Specify output name(?)"
 }
 endObjectProperties
 
@@ -112,17 +114,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 50
 w 180
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 47
+font "helvetica-medium-r-12.0"
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "4. Specify output value(?)"
+  "4. Specify output value(?)"
 }
 endObjectProperties
 
@@ -130,17 +133,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 65
 w 180
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 32
+font "helvetica-medium-r-12.0"
+fgColor rgb 60928 46592 11008
+bgColor index 3
 useDisplayBg
 value {
- "5. Schedule output(?)"
+  "5. Schedule output(?)"
 }
 endObjectProperties
 
@@ -148,17 +152,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 80
 w 180
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 61
+font "helvetica-medium-r-12.0"
+fgColor rgb 20992 55808 15104
+bgColor index 3
 useDisplayBg
 value {
- "6. Schedule execution:"
+  "6. Schedule execution:"
 }
 endObjectProperties
 
@@ -166,17 +171,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 111
 w 180
 h 12
-font "helvetica-medium-r-8.0"
-fgColor index 61
+font "helvetica-medium-r-10.0"
+fgColor rgb 20992 55808 15104
+bgColor index 3
 useDisplayBg
 value {
- "   (if TRIGGERs, use I/O Intr)"
+  "   (if TRIGGERs, use I/O Intr)"
 }
 endObjectProperties
 
@@ -184,17 +190,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 96
 w 180
 h 12
-font "helvetica-medium-r-8.0"
-fgColor index 61
+font "helvetica-medium-r-10.0"
+fgColor rgb 20992 55808 15104
+bgColor index 3
 useDisplayBg
 value {
- "   Passive, periodic, I/O Intr"
+  "   Passive, periodic, I/O Intr"
 }
 endObjectProperties
 
@@ -214,7 +221,6 @@ w 195
 h 130
 
 beginGroup
-
 
 endGroup
 

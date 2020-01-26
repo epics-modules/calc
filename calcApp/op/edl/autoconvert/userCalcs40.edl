@@ -1,29 +1,29 @@
-4 0 0
+4 0 1
 beginScreenProperties
 major 4
 minor 0
-release 0
+release 1
 x 962
 y 248
 w 440
 h 420
 font "helvetica-medium-r-18.0"
-ctlFont "helvetica-medium-r-8.0"
+ctlFont "helvetica-bold-r-10.0"
 btnFont "helvetica-medium-r-18.0"
-fgColor index 64
-bgColor index 3
-textColor index 14
-ctlFgColor1 index 30
-ctlFgColor2 index 32
-ctlBgColor1 index 34
-ctlBgColor2 index 35
-topShadowColor index 37
-botShadowColor index 44
+fgColor rgb 6656 29440 2304
+bgColor rgb 51200 51200 51200
+textColor rgb 0 0 0
+ctlFgColor1 rgb 64256 62208 18944
+ctlFgColor2 rgb 60928 46592 11008
+ctlBgColor1 rgb 52480 24832 0
+ctlBgColor2 rgb 65280 45056 65280
+topShadowColor rgb 44544 19968 48128
+botShadowColor rgb 13312 13056 34304
+showGrid
 snapToGrid
-gridSize 5
+gridSize 4
 endScreenProperties
 
-
 # (Group)
 object activeGroupClass
 beginObjectProperties
@@ -41,26 +41,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 20
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N1)"
+file "userCalcs_line.edl;P=$(P),N=$(N1)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N1)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -82,26 +84,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 40
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N2)"
+file "userCalcs_line.edl;P=$(P),N=$(N2)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N2)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -123,26 +127,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 60
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N3)"
+file "userCalcs_line.edl;P=$(P),N=$(N3)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N3)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -164,26 +170,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 80
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N4)"
+file "userCalcs_line.edl;P=$(P),N=$(N4)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N4)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -205,26 +213,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 100
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N5)"
+file "userCalcs_line.edl;P=$(P),N=$(N5)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N5)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -246,26 +256,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 120
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N6)"
+file "userCalcs_line.edl;P=$(P),N=$(N6)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N6)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -287,26 +299,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 140
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N7)"
+file "userCalcs_line.edl;P=$(P),N=$(N7)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N7)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -328,26 +342,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 160
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N8)"
+file "userCalcs_line.edl;P=$(P),N=$(N8)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N8)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -369,26 +385,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 180
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N9)"
+file "userCalcs_line.edl;P=$(P),N=$(N9)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N9)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -410,26 +428,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 200
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N10)"
+file "userCalcs_line.edl;P=$(P),N=$(N10)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N10)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -451,26 +471,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 220
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N11)"
+file "userCalcs_line.edl;P=$(P),N=$(N11)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N11)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -492,26 +514,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 240
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N12)"
+file "userCalcs_line.edl;P=$(P),N=$(N12)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N12)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -533,26 +557,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 260
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N13)"
+file "userCalcs_line.edl;P=$(P),N=$(N13)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N13)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -574,26 +600,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 280
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N14)"
+file "userCalcs_line.edl;P=$(P),N=$(N14)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N14)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -615,26 +643,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 300
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N15)"
+file "userCalcs_line.edl;P=$(P),N=$(N15)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N15)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -656,26 +686,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 320
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N16)"
+file "userCalcs_line.edl;P=$(P),N=$(N16)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N16)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -697,26 +729,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 340
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N17)"
+file "userCalcs_line.edl;P=$(P),N=$(N17)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N17)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -738,26 +772,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 360
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N18)"
+file "userCalcs_line.edl;P=$(P),N=$(N18)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N18)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -779,26 +815,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 380
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N19)"
+file "userCalcs_line.edl;P=$(P),N=$(N19)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N19)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -820,26 +858,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 400
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N20)"
+file "userCalcs_line.edl;P=$(P),N=$(N20)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N20)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -861,26 +901,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 225
 y 20
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N21)"
+file "userCalcs_line.edl;P=$(P),N=$(N21)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N21)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -902,26 +944,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 225
 y 40
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N22)"
+file "userCalcs_line.edl;P=$(P),N=$(N22)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N22)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -943,26 +987,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 225
 y 60
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N23)"
+file "userCalcs_line.edl;P=$(P),N=$(N23)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N23)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -984,26 +1030,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 225
 y 80
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N24)"
+file "userCalcs_line.edl;P=$(P),N=$(N24)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N24)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -1025,26 +1073,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 225
 y 100
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N25)"
+file "userCalcs_line.edl;P=$(P),N=$(N25)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N25)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -1066,26 +1116,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 225
 y 120
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N26)"
+file "userCalcs_line.edl;P=$(P),N=$(N26)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N26)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -1107,26 +1159,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 225
 y 140
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N27)"
+file "userCalcs_line.edl;P=$(P),N=$(N27)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N27)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -1148,26 +1202,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 225
 y 160
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N28)"
+file "userCalcs_line.edl;P=$(P),N=$(N28)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N28)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -1189,26 +1245,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 225
 y 180
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N29)"
+file "userCalcs_line.edl;P=$(P),N=$(N29)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N29)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -1230,26 +1288,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 225
 y 200
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N30)"
+file "userCalcs_line.edl;P=$(P),N=$(N30)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N30)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -1271,26 +1331,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 225
 y 220
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N31)"
+file "userCalcs_line.edl;P=$(P),N=$(N31)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N31)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -1312,26 +1374,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 225
 y 240
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N32)"
+file "userCalcs_line.edl;P=$(P),N=$(N32)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N32)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -1353,26 +1417,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 225
 y 260
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N33)"
+file "userCalcs_line.edl;P=$(P),N=$(N33)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N33)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -1394,26 +1460,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 225
 y 280
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N34)"
+file "userCalcs_line.edl;P=$(P),N=$(N34)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N34)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -1435,26 +1503,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 225
 y 300
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N35)"
+file "userCalcs_line.edl;P=$(P),N=$(N35)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N35)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -1476,26 +1546,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 225
 y 320
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N36)"
+file "userCalcs_line.edl;P=$(P),N=$(N36)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N36)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -1517,26 +1589,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 225
 y 340
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N37)"
+file "userCalcs_line.edl;P=$(P),N=$(N37)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N37)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -1558,26 +1632,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 225
 y 360
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N38)"
+file "userCalcs_line.edl;P=$(P),N=$(N38)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N38)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -1599,26 +1675,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 225
 y 380
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N39)"
+file "userCalcs_line.edl;P=$(P),N=$(N39)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N39)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -1640,26 +1718,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 225
 y 400
 w 215
 h 20
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file userCalcs_line.edl;P=$(P),N=$(N40)"
+file "userCalcs_line.edl;P=$(P),N=$(N40)"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "userCalcs_line.edl;P=$(P),N=$(N40)"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -1674,12 +1754,12 @@ x 0
 y 0
 w 440
 h 20
-fgColor index 14
-bgColor index 51
-selectColor index 51
-inconsistentColor index 14
-topShadowColor index 0
-botShadowColor index 14
+fgColor rgb 0 0 0
+bgColor rgb 29440 57088 65280
+selectColor rgb 29440 57088 65280
+inconsistentColor rgb 0 0 0
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 controlPv "$(P)userCalcEnable.VAL"
 font "helvetica-medium-r-10.0"
 orientation "horizontal"

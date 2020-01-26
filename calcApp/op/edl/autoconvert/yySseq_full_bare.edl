@@ -1,45 +1,46 @@
-4 0 0
+4 0 1
 beginScreenProperties
 major 4
 minor 0
-release 0
+release 1
 x 678
 y 334
 w 750
 h 330
 font "helvetica-medium-r-18.0"
-ctlFont "helvetica-medium-r-8.0"
+ctlFont "helvetica-bold-r-10.0"
 btnFont "helvetica-medium-r-18.0"
-fgColor index 14
-bgColor index 3
-textColor index 14
-ctlFgColor1 index 30
-ctlFgColor2 index 32
-ctlBgColor1 index 34
-ctlBgColor2 index 35
-topShadowColor index 37
-botShadowColor index 44
+fgColor rgb 0 0 0
+bgColor rgb 51200 51200 51200
+textColor rgb 0 0 0
+ctlFgColor1 rgb 64256 62208 18944
+ctlFgColor2 rgb 60928 46592 11008
+ctlBgColor1 rgb 52480 24832 0
+ctlBgColor2 rgb 65280 45056 65280
+topShadowColor rgb 44544 19968 48128
+botShadowColor rgb 13312 13056 34304
+showGrid
 snapToGrid
-gridSize 5
+gridSize 4
 endScreenProperties
-
 
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 25
 y 10
 w 90
 h 10
 font "helvetica-medium-r-8.0"
 fontAlign "center"
-fgColor index 14
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "INPUT PV NAME"
+  "INPUT PV NAME"
 }
 endObjectProperties
 
@@ -47,18 +48,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 230
 y 10
 w 200
 h 10
 font "helvetica-medium-r-8.0"
 fontAlign "center"
-fgColor index 14
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "STRING VALUE"
+  "STRING VALUE"
 }
 endObjectProperties
 
@@ -66,18 +68,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 435
 y 10
 w 80
 h 10
 font "helvetica-medium-r-8.0"
 fontAlign "center"
-fgColor index 14
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "VALUE"
+  "VALUE"
 }
 endObjectProperties
 
@@ -85,18 +88,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 520
 y 10
 w 90
 h 10
 font "helvetica-medium-r-8.0"
 fontAlign "center"
-fgColor index 14
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "OUTPUT PV NAME"
+  "OUTPUT PV NAME"
 }
 endObjectProperties
 
@@ -104,44 +108,45 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 0
+minor 7
 release 0
 x 520
 y 272
 w 150
 h 20
 controlPv "$(P)$(S).FLNK"
-font "helvetica-medium-r-8.0"
+format "string"
+font "helvetica-medium-r-12.0"
+fontAlign "left"
+fgColor rgb 0 0 0
+bgColor rgb 41984 43520 65280
+editable
+motifWidget
+limitsFromDb
+nullColor rgb 60928 46592 11008
 smartRefresh
 fastUpdate
-fgColor index 14
-bgColor index 40
-editable
-autoHeight
-format "string"
-motifWidget
-nullColor index 32
-useHexPrefix
-objType "controls"
 newPos
+objType "controls"
 endObjectProperties
 
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 439
 y 277
 w 80
 h 10
 font "helvetica-medium-r-8.0"
 fontAlign "center"
-fgColor index 14
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "FORWARD LINK"
+  "FORWARD LINK"
 }
 endObjectProperties
 
@@ -149,18 +154,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 180
 y 10
 w 45
 h 10
 font "helvetica-medium-r-8.0"
 fontAlign "center"
-fgColor index 14
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "DELAY"
+  "DELAY"
 }
 endObjectProperties
 
@@ -177,23 +183,23 @@ h 20
 
 beginGroup
 
-
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 675
 y 0
 w 70
 h 10
 font "helvetica-medium-r-8.0"
 fontAlign "center"
-fgColor index 14
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "WAIT FOR"
+  "WAIT FOR"
 }
 endObjectProperties
 
@@ -201,18 +207,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 675
 y 10
 w 70
 h 10
 font "helvetica-medium-r-8.0"
 fontAlign "center"
-fgColor index 14
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "COMPLETION?"
+  "COMPLETION?"
 }
 endObjectProperties
 
@@ -225,18 +232,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 434
 y 0
 w 80
 h 10
 font "helvetica-medium-r-8.0"
 fontAlign "center"
-fgColor index 14
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "NUMERIC"
+  "NUMERIC"
 }
 endObjectProperties
 
@@ -253,23 +261,23 @@ h 25
 
 beginGroup
 
-
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 340
 y 270
 w 50
 h 10
 font "helvetica-medium-r-8.0"
 fontAlign "center"
-fgColor index 64
+fgColor rgb 6656 29440 2304
+bgColor index 3
 useDisplayBg
 value {
- "BUSY"
+  "BUSY"
 }
 visPv "CALC\\\{(A)\}($(P)$(S).BUSY)"
 visInvert
@@ -290,23 +298,23 @@ h 20
 
 beginGroup
 
-
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 340
 y 280
 w 50
 h 10
 font "helvetica-medium-r-8.0"
 fontAlign "center"
-fgColor index 20
+fgColor rgb 64768 0 0
+bgColor index 3
 useDisplayBg
 value {
- "ABORTING"
+  "ABORTING"
 }
 visPv "CALC\\\{(A)\}($(P)$(S).ABORT)"
 visInvert
@@ -341,26 +349,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 20
 w 747
 h 25
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file sseqElement_bare.edl;P=$(P),S=$(S),EL=1,ELN=01"
+file "sseqElement_bare.edl;P=$(P),S=$(S),EL=1,ELN=01"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "sseqElement_bare.edl;P=$(P),S=$(S),EL=1,ELN=01"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -382,26 +392,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 45
 w 747
 h 25
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file sseqElement_bare.edl;P=$(P),S=$(S),EL=2,ELN=02"
+file "sseqElement_bare.edl;P=$(P),S=$(S),EL=2,ELN=02"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "sseqElement_bare.edl;P=$(P),S=$(S),EL=2,ELN=02"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -423,26 +435,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 70
 w 747
 h 25
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file sseqElement_bare.edl;P=$(P),S=$(S),EL=3,ELN=03"
+file "sseqElement_bare.edl;P=$(P),S=$(S),EL=3,ELN=03"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "sseqElement_bare.edl;P=$(P),S=$(S),EL=3,ELN=03"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -464,26 +478,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 95
 w 747
 h 25
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file sseqElement_bare.edl;P=$(P),S=$(S),EL=4,ELN=04"
+file "sseqElement_bare.edl;P=$(P),S=$(S),EL=4,ELN=04"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "sseqElement_bare.edl;P=$(P),S=$(S),EL=4,ELN=04"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -505,26 +521,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 120
 w 747
 h 25
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file sseqElement_bare.edl;P=$(P),S=$(S),EL=5,ELN=05"
+file "sseqElement_bare.edl;P=$(P),S=$(S),EL=5,ELN=05"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "sseqElement_bare.edl;P=$(P),S=$(S),EL=5,ELN=05"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -546,26 +564,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 145
 w 747
 h 25
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file sseqElement_bare.edl;P=$(P),S=$(S),EL=6,ELN=06"
+file "sseqElement_bare.edl;P=$(P),S=$(S),EL=6,ELN=06"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "sseqElement_bare.edl;P=$(P),S=$(S),EL=6,ELN=06"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -587,26 +607,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 170
 w 747
 h 25
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file sseqElement_bare.edl;P=$(P),S=$(S),EL=7,ELN=07"
+file "sseqElement_bare.edl;P=$(P),S=$(S),EL=7,ELN=07"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "sseqElement_bare.edl;P=$(P),S=$(S),EL=7,ELN=07"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -628,26 +650,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 195
 w 747
 h 25
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file sseqElement_bare.edl;P=$(P),S=$(S),EL=8,ELN=08"
+file "sseqElement_bare.edl;P=$(P),S=$(S),EL=8,ELN=08"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "sseqElement_bare.edl;P=$(P),S=$(S),EL=8,ELN=08"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -669,26 +693,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 220
 w 747
 h 25
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file sseqElement_bare.edl;P=$(P),S=$(S),EL=9,ELN=09"
+file "sseqElement_bare.edl;P=$(P),S=$(S),EL=9,ELN=09"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "sseqElement_bare.edl;P=$(P),S=$(S),EL=9,ELN=09"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -710,26 +736,28 @@ beginGroup
 object activePipClass
 beginObjectProperties
 major 4
-minor 0
+minor 1
 release 0
 x 0
 y 245
 w 747
 h 25
-fgColor index 14
-bgColor index 0
-topShadowColor index 0
-botShadowColor index 14
-noScroll
+fgColor rgb 0 0 0
+bgColor rgb 65280 65280 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 displaySource "file"
-file "	composite file sseqElement_bare.edl;P=$(P),S=$(S),EL=A,ELN=10"
+file "sseqElement_bare.edl;P=$(P),S=$(S),EL=A,ELN=10"
 sizeOfs 5
-numDsps 0
+numDsps 1
+displayFileName {
+  0 "sseqElement_bare.edl;P=$(P),S=$(S),EL=A,ELN=10"
+}
+noScroll
 endObjectProperties
 
 endGroup
 
-visPv ""
 visMin "A"
 visMax "1"
 endObjectProperties
@@ -738,18 +766,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 25
 y 275
 w 140
 h 14
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-12.0"
 fontAlign "center"
-fgColor index 20
+fgColor rgb 64768 0 0
+bgColor index 3
 useDisplayBg
 value {
- "WAIT requires CA link"
+  "WAIT requires CA link"
 }
 visPv "CALC\\\{(a||b||c||d)\}($(P)$(S).WERR1, $(P)$(S).WERR2, $(P)$(S).WERR3, $(P)$(S).WERR4)"
 visInvert
@@ -761,18 +790,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 25
 y 275
 w 140
 h 14
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-12.0"
 fontAlign "center"
-fgColor index 20
+fgColor rgb 64768 0 0
+bgColor index 3
 useDisplayBg
 value {
- "WAIT requires CA link"
+  "WAIT requires CA link"
 }
 visPv "CALC\\\{(a||b||c||d)\}($(P)$(S).WERR5, $(P)$(S).WERR6, $(P)$(S).WERR7, $(P)$(S).WERR8)"
 visInvert
@@ -784,18 +814,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 25
 y 275
 w 140
 h 14
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-12.0"
 fontAlign "center"
-fgColor index 20
+fgColor rgb 64768 0 0
+bgColor index 3
 useDisplayBg
 value {
- "WAIT requires CA link"
+  "WAIT requires CA link"
 }
 visPv "CALC\\\{(a||b)\}($(P)$(S).WERR9, $(P)$(S).WERRA)"
 visInvert
@@ -807,44 +838,45 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 0
+minor 7
 release 0
 x 5
 y 305
 w 150
 h 20
 controlPv "$(P)$(S).SELL"
-font "helvetica-medium-r-8.0"
+format "string"
+font "helvetica-medium-r-12.0"
+fontAlign "left"
+fgColor rgb 0 0 0
+bgColor rgb 41984 43520 65280
+editable
+motifWidget
+limitsFromDb
+nullColor rgb 60928 46592 11008
 smartRefresh
 fastUpdate
-fgColor index 14
-bgColor index 40
-editable
-autoHeight
-format "string"
-motifWidget
-nullColor index 32
-useHexPrefix
-objType "controls"
 newPos
+objType "controls"
 endObjectProperties
 
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 295
 w 150
 h 10
 font "helvetica-medium-r-8.0"
 fontAlign "center"
-fgColor index 14
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "SELL"
+  "SELL"
 }
 endObjectProperties
 
@@ -852,44 +884,45 @@ endObjectProperties
 object activeXTextDspClass
 beginObjectProperties
 major 4
-minor 0
+minor 7
 release 0
 x 160
 y 305
 w 45
 h 20
 controlPv "$(P)$(S).SELN"
-font "helvetica-medium-r-8.0"
+format "decimal"
+font "helvetica-medium-r-12.0"
+fontAlign "left"
+fgColor rgb 0 0 0
+bgColor rgb 29440 57088 65280
+editable
+motifWidget
+limitsFromDb
+nullColor rgb 60928 46592 11008
 smartRefresh
 fastUpdate
-fgColor index 14
-bgColor index 51
-editable
-autoHeight
-format decimal
-motifWidget
-nullColor index 32
-useHexPrefix
-objType "controls"
 newPos
+objType "controls"
 endObjectProperties
 
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 160
 y 295
 w 45
 h 10
 font "helvetica-medium-r-8.0"
 fontAlign "center"
-fgColor index 14
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "SELN"
+  "SELN"
 }
 endObjectProperties
 
@@ -906,23 +939,23 @@ h 30
 
 beginGroup
 
-
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 210
 y 295
 w 80
 h 10
 font "helvetica-medium-r-8.0"
 fontAlign "center"
-fgColor index 14
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "SELM"
+  "SELM"
 }
 endObjectProperties
 
@@ -941,22 +974,25 @@ x 115
 y 5
 w 60
 h 16
-fgColor index 0
-bgColor index 17
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-8.0"
 buttonLabel "LINK HELP"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 inlinkHelp.adl
+  0 inlinkHelp.edl
 }
 menuLabel {
   0 Terse link docs
 }
 symbols {
   0 
+}
+replaceSymbols {
+  0 1
 }
 endObjectProperties
 
@@ -970,22 +1006,25 @@ x 610
 y 5
 w 60
 h 16
-fgColor index 0
-bgColor index 17
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-8.0"
 buttonLabel "LINK HELP"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 outlinkHelp.adl
+  0 outlinkHelp.edl
 }
 menuLabel {
   0 Terse link docs
 }
 symbols {
   0 
+}
+replaceSymbols {
+  0 1
 }
 endObjectProperties
 # (Group)
@@ -1000,7 +1039,6 @@ w 70
 h 20
 
 beginGroup
-
 
 endGroup
 
@@ -1017,11 +1055,11 @@ x 675
 y 268
 w 25
 h 27
-fgColor index 0
-bgColor index 17
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-14.0"
 buttonLabel "?"
 numPvs 2
 numDsps 1
@@ -1033,6 +1071,9 @@ menuLabel {
 }
 symbols {
   0 
+}
+replaceSymbols {
+  0 1
 }
 endObjectProperties
 # (Group)
@@ -1047,7 +1088,6 @@ w 100
 h 25
 
 beginGroup
-
 # (Group)
 object activeGroupClass
 beginObjectProperties
@@ -1061,7 +1101,6 @@ h 20
 
 beginGroup
 
-
 # (Message Button)
 object activeMessageButtonClass
 beginObjectProperties
@@ -1072,11 +1111,11 @@ x 290
 y 275
 w 45
 h 20
-fgColor index 14
-onColor index 51
-offColor index 51
-topShadowColor index 0
-botShadowColor index 14
+fgColor rgb 0 0 0
+onColor rgb 29440 57088 65280
+offColor rgb 29440 57088 65280
+topShadowColor rgb 65280 65280 65280
+botShadowColor rgb 0 0 0
 controlPv "$(P)$(S).ABORT"
 pressValue "1"
 releaseValue 
@@ -1084,7 +1123,7 @@ onLabel "ABORT"
 offLabel "ABORT"
 3d
 useEnumNumeric
-font "helvetica-medium-r-10.0"
+font "helvetica-medium-r-12.0"
 endObjectProperties
 
 endGroup
@@ -1109,7 +1148,6 @@ h 30
 
 beginGroup
 
-
 # (Menu Button)
 object activeMenuButtonClass
 beginObjectProperties
@@ -1120,14 +1158,14 @@ x 210
 y 305
 w 80
 h 20
-fgColor index 14
-bgColor index 51
-inconsistentColor index 12
-topShadowColor index 2
-botShadowColor index 12
+fgColor rgb 0 0 0
+bgColor rgb 29440 57088 65280
+inconsistentColor rgb 17920 17920 17920
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
 controlPv "$(P)$(S).SELM"
 indicatorPv "$(P)$(S).SELM"
-font "helvetica-medium-r-10.0"
+font "helvetica-medium-r-12.0"
 endObjectProperties
 
 endGroup

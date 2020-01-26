@@ -14,7 +14,94 @@
         <string>
 
 QWidget#centralWidget {background: rgba(200, 200, 200, 255);}
-QPushButton::menu-indicator {image: url(none.png); width: 0}
+
+caTable {
+       font: 10pt;
+       background: cornsilk;
+       alternate-background-color: wheat;
+}
+
+caLineEdit {
+     border-radius: 1px;
+     background: lightyellow;
+     color: black;
+ }
+
+caTextEntry {
+    color: rgb(127, 0, 63);
+    background-color: cornsilk;
+    selection-color: #0a214c;
+    selection-background-color: wheat;
+    border: 1px groove black;
+    border-radius: 1px;
+    padding: 1px;
+}
+
+caTextEntry:focus {
+    padding: 0px;
+    border: 2px groove darkred;
+    border-radius: 1px;
+}
+
+QPushButton {
+      border-color: #00b;
+      border-radius: 2px;
+      padding: 3px;
+      border-width: 1px;
+
+	background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1,
+						   stop:0   rgba(224, 239, 255, 255),
+						   stop:0.5 rgba(199, 215, 230, 255),
+						   stop:1   rgba(184, 214, 236, 255));
+}
+QPushButton:hover {
+	background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1,
+						stop:0   rgba(201, 226, 255, 255),
+						stop:0.5 rgba(177, 204, 230, 255),
+						stop:1   rgba(163, 205, 236, 255));
+}
+QPushButton:pressed {
+	background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1,
+						stop:0   rgba(174, 219, 255, 255),
+						stop:0.5 rgba(165, 199, 230, 255),
+						stop:1   rgba(134, 188, 236, 255));
+}
+
+QPushButton:disabled {
+	background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1,
+						stop:0   rgba(174, 219, 255, 255),
+						stop:0.5 rgba(165, 199, 230, 255),
+						stop:1   rgba(134, 188, 236, 255));
+}
+
+caChoice {
+      background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                  stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
+                                  stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
+}
+
+caChoice &gt; QPushButton {
+      text-align: left;
+      padding: 1px;
+}
+
+caSlider::groove:horizontal {
+border: 1px solid #bbb;
+background: lightgrey;
+height: 20px;
+border-radius: 4px;
+}
+
+caSlider::handle:horizontal {
+background: red;
+border: 1px solid #777;
+width: 13px;
+margin-top: -2px;
+margin-bottom: -2px;
+border-radius: 2px;
+}
+
+
 
 </string>
     </property>
@@ -119,7 +206,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>Solid</enum>
             </property>
             <property name="xyPairs">
-                <string>1,1;397,1;</string>
+                <string>397,1;</string>
             </property>
         </widget>
         <widget class="caTextEntry" name="caTextEntry_0">
@@ -324,7 +411,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>Solid</enum>
             </property>
             <property name="xyPairs">
-                <string>0,0;398,0;</string>
+                <string>398,0;</string>
             </property>
         </widget>
         <widget class="caPolyLine" name="caPolyLine_2">
@@ -364,7 +451,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>Solid</enum>
             </property>
             <property name="xyPairs">
-                <string>0,0;398,0;</string>
+                <string>398,0;</string>
             </property>
         </widget>
         <widget class="caLabel" name="caLabel_3">
@@ -476,7 +563,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>Solid</enum>
             </property>
             <property name="xyPairs">
-                <string>1,1;379,1;</string>
+                <string>379,1;</string>
             </property>
         </widget>
         <widget class="caGraphics" name="caRectangle_1">
@@ -1406,7 +1493,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>$(P)$(C).IVOA</string>
             </property>
             <property name="xyPairs">
-                <string>1,1;1,76;</string>
+                <string>1,76;</string>
             </property>
         </widget>
         <widget class="caLineEdit" name="caLineEdit_0">
@@ -1733,7 +1820,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>$(P)$(C).DOPT</string>
             </property>
             <property name="xyPairs">
-                <string>1,1;10,1;</string>
+                <string>10,1;</string>
             </property>
         </widget>
         <widget class="caPolyLine" name="caPolyLine_6">
@@ -1775,7 +1862,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>$(P)$(C).DOPT</string>
             </property>
             <property name="xyPairs">
-                <string>2,56;1,1;</string>
+                <string>1,1;</string>
             </property>
         </widget>
         <widget class="caLineEdit" name="caLineEdit_1">
@@ -1869,7 +1956,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>Solid</enum>
             </property>
             <property name="xyPairs">
-                <string>0,0;283,0;</string>
+                <string>283,0;</string>
             </property>
         </widget>
         <widget class="caPolyLine" name="caPolyLine_8">
@@ -1911,7 +1998,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>$(P)$(C).DOPT</string>
             </property>
             <property name="xyPairs">
-                <string>1,1;10,1;</string>
+                <string>10,1;</string>
             </property>
         </widget>
         <widget class="caPolyLine" name="caPolyLine_9">
@@ -1953,7 +2040,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <string>$(P)$(C).IVOA</string>
             </property>
             <property name="xyPairs">
-                <string>1,63;2,1;</string>
+                <string>2,1;</string>
             </property>
         </widget>
         <widget class="caMenu" name="caMenu_2">
@@ -2274,7 +2361,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                     <string>$(P)$(C).IVOA</string>
                 </property>
                 <property name="xyPairs">
-                    <string>10,0;10,11;0,4;10,0;</string>
+                    <string>10,0;</string>
                 </property>
                 <property name="polystyle">
                     <enum>caPolyLine::Polygon</enum>
@@ -2319,7 +2406,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                     <string>$(P)$(C).IVOA</string>
                 </property>
                 <property name="xyPairs">
-                    <string>1,1;5,1;</string>
+                    <string>5,1;</string>
                 </property>
             </widget>
         </widget>
@@ -2457,7 +2544,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>Solid</enum>
             </property>
             <property name="xyPairs">
-                <string>1,1;378,1;</string>
+                <string>378,1;</string>
             </property>
         </widget>
         <widget class="caFrame" name="caFrame_1">
@@ -2925,7 +3012,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>Solid</enum>
             </property>
             <property name="xyPairs">
-                <string>1,1;379,1;</string>
+                <string>379,1;</string>
             </property>
         </widget>
         <widget class="caLineEdit" name="caLineEdit_3">
@@ -3019,7 +3106,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>Solid</enum>
             </property>
             <property name="xyPairs">
-                <string>0,0;283,0;</string>
+                <string>283,0;</string>
             </property>
         </widget>
         <widget class="caGraphics" name="caRectangle_10">
@@ -6239,7 +6326,7 @@ QPushButton::menu-indicator {image: url(none.png); width: 0}
                 <enum>Solid</enum>
             </property>
             <property name="xyPairs">
-                <string>1,1;397,1;</string>
+                <string>397,1;</string>
             </property>
         </widget>
         <widget class="caFrame" name="caFrame_4">

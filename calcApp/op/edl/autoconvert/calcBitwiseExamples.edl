@@ -1,44 +1,45 @@
-4 0 0
+4 0 1
 beginScreenProperties
 major 4
 minor 0
-release 0
+release 1
 x 715
 y 370
 w 240
 h 295
 font "helvetica-medium-r-18.0"
-ctlFont "helvetica-medium-r-8.0"
+ctlFont "helvetica-bold-r-10.0"
 btnFont "helvetica-medium-r-18.0"
-fgColor index 14
-bgColor index 1
-textColor index 14
-ctlFgColor1 index 30
-ctlFgColor2 index 32
-ctlBgColor1 index 34
-ctlBgColor2 index 35
-topShadowColor index 37
-botShadowColor index 44
+fgColor rgb 0 0 0
+bgColor rgb 60416 60416 60416
+textColor rgb 0 0 0
+ctlFgColor1 rgb 64256 62208 18944
+ctlFgColor2 rgb 60928 46592 11008
+ctlBgColor1 rgb 52480 24832 0
+ctlBgColor2 rgb 65280 45056 65280
+topShadowColor rgb 44544 19968 48128
+botShadowColor rgb 13312 13056 34304
+showGrid
 snapToGrid
-gridSize 5
+gridSize 4
 endScreenProperties
-
 
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 20
 w 235
 h 20
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-14.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "Bitwise/Logical"
+  "Bitwise/Logical"
 }
 endObjectProperties
 
@@ -52,8 +53,8 @@ x 0
 y 40
 w 244
 h 3
-lineColor index 54
-fillColor index 54
+lineColor rgb 2560 0 47104
+fillColor rgb 2560 0 47104
 lineWidth 3
 numPoints 2 {
 xPoints  {
@@ -76,8 +77,8 @@ x 0
 y 15
 w 244
 h 3
-lineColor index 54
-fillColor index 54
+lineColor rgb 2560 0 47104
+fillColor rgb 2560 0 47104
 lineWidth 3
 numPoints 2 {
 xPoints  {
@@ -94,17 +95,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 45
 w 230
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-12.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "3|5 = 7"
+  "3|5 = 7"
 }
 endObjectProperties
 
@@ -112,17 +114,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 75
 w 230
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-12.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "3&5 = 1"
+  "3&5 = 1"
 }
 endObjectProperties
 
@@ -130,17 +133,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 105
 w 230
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-12.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "3^5 = 6"
+  "3^5 = 6"
 }
 endObjectProperties
 
@@ -148,17 +152,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 135
 w 230
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-12.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "2<<2 = 8"
+  "2<<2 = 8"
 }
 endObjectProperties
 
@@ -166,17 +171,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 15
 y 60
 w 220
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "BITWISE OR: 011 | 101 = 111"
+  "BITWISE OR: 011 | 101 = 111"
 }
 endObjectProperties
 
@@ -184,17 +190,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 15
 y 90
 w 220
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "BITWISE AND: 011 & 101 = 001"
+  "BITWISE AND: 011 & 101 = 001"
 }
 endObjectProperties
 
@@ -202,17 +209,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 15
 y 120
 w 220
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "BITWISE XOR: 011 XOR 101 = 110"
+  "BITWISE XOR: 011 XOR 101 = 110"
 }
 endObjectProperties
 
@@ -220,17 +228,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 15
 y 150
 w 220
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "BIT SHIFT: 0010 << 2 = 1000"
+  "BIT SHIFT: 0010 << 2 = 1000"
 }
 endObjectProperties
 
@@ -238,17 +247,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 165
 w 230
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-12.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "8>>1 = 4"
+  "8>>1 = 4"
 }
 endObjectProperties
 
@@ -256,17 +266,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 15
 y 180
 w 220
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "BIT SHIFT: 1000 >> 1 = 0100"
+  "BIT SHIFT: 1000 >> 1 = 0100"
 }
 endObjectProperties
 
@@ -274,17 +285,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 195
 w 230
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-12.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "8||1 = 1"
+  "8||1 = 1"
 }
 endObjectProperties
 
@@ -292,17 +304,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 15
 y 210
 w 220
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "LOGICAL OR"
+  "LOGICAL OR"
 }
 endObjectProperties
 
@@ -310,17 +323,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 225
 w 230
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-12.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "8&&1 = 1"
+  "8&&1 = 1"
 }
 endObjectProperties
 
@@ -328,17 +342,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 15
 y 240
 w 220
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "LOGICAL AND"
+  "LOGICAL AND"
 }
 endObjectProperties
 
@@ -346,17 +361,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 255
 w 230
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-12.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "3 XOR 5 = 6"
+  "3 XOR 5 = 6"
 }
 endObjectProperties
 
@@ -364,17 +380,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 15
 y 270
 w 220
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "BITWISE XOR: 011 XOR 101 = 110"
+  "BITWISE XOR: 011 XOR 101 = 110"
 }
 endObjectProperties
 
@@ -388,11 +405,11 @@ x 90
 y 0
 w 30
 h 16
-fgColor index 0
-bgColor index 17
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-8.0"
 buttonLabel "REL"
 numPvs 2
 numDsps 1
@@ -406,6 +423,9 @@ symbols {
   0 
 }
 closeAction {
+  0 1
+}
+replaceSymbols {
   0 1
 }
 closeDisplay {
@@ -423,11 +443,11 @@ x 0
 y 0
 w 30
 h 16
-fgColor index 0
-bgColor index 17
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-8.0"
 buttonLabel "TOP"
 numPvs 2
 numDsps 1
@@ -441,6 +461,9 @@ symbols {
   0 
 }
 closeAction {
+  0 1
+}
+replaceSymbols {
   0 1
 }
 closeDisplay {
@@ -458,11 +481,11 @@ x 30
 y 0
 w 30
 h 16
-fgColor index 0
-bgColor index 17
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-8.0"
 buttonLabel "ALG"
 numPvs 2
 numDsps 1
@@ -476,6 +499,9 @@ symbols {
   0 
 }
 closeAction {
+  0 1
+}
+replaceSymbols {
   0 1
 }
 closeDisplay {
@@ -493,11 +519,11 @@ x 60
 y 0
 w 30
 h 16
-fgColor index 0
-bgColor index 17
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-8.0"
 buttonLabel "TRIG"
 numPvs 2
 numDsps 1
@@ -511,6 +537,9 @@ symbols {
   0 
 }
 closeAction {
+  0 1
+}
+replaceSymbols {
   0 1
 }
 closeDisplay {
@@ -528,11 +557,11 @@ x 120
 y 0
 w 30
 h 16
-fgColor index 0
-bgColor index 17
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-8.0"
 buttonLabel "BIT"
 numPvs 2
 numDsps 1
@@ -546,6 +575,9 @@ symbols {
   0 
 }
 closeAction {
+  0 1
+}
+replaceSymbols {
   0 1
 }
 closeDisplay {
@@ -563,11 +595,11 @@ x 150
 y 0
 w 30
 h 16
-fgColor index 0
-bgColor index 17
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-8.0"
 buttonLabel "MISC"
 numPvs 2
 numDsps 1
@@ -581,6 +613,9 @@ symbols {
   0 
 }
 closeAction {
+  0 1
+}
+replaceSymbols {
   0 1
 }
 closeDisplay {
@@ -598,11 +633,11 @@ x 180
 y 0
 w 30
 h 16
-fgColor index 0
-bgColor index 17
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-8.0"
 buttonLabel "STR"
 numPvs 2
 numDsps 1
@@ -616,6 +651,9 @@ symbols {
   0 
 }
 closeAction {
+  0 1
+}
+replaceSymbols {
   0 1
 }
 closeDisplay {
@@ -633,11 +671,11 @@ x 210
 y 0
 w 30
 h 16
-fgColor index 0
-bgColor index 17
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-8.0"
 buttonLabel "ARR"
 numPvs 2
 numDsps 1
@@ -651,6 +689,9 @@ symbols {
   0 
 }
 closeAction {
+  0 1
+}
+replaceSymbols {
   0 1
 }
 closeDisplay {

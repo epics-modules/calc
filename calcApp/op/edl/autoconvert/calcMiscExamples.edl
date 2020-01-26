@@ -1,28 +1,28 @@
-4 0 0
+4 0 1
 beginScreenProperties
 major 4
 minor 0
-release 0
+release 1
 x 1127
 y 37
 w 240
 h 900
 font "helvetica-medium-r-18.0"
-ctlFont "helvetica-medium-r-8.0"
+ctlFont "helvetica-bold-r-10.0"
 btnFont "helvetica-medium-r-18.0"
-fgColor index 14
-bgColor index 1
-textColor index 14
-ctlFgColor1 index 30
-ctlFgColor2 index 32
-ctlBgColor1 index 34
-ctlBgColor2 index 35
-topShadowColor index 37
-botShadowColor index 44
+fgColor rgb 0 0 0
+bgColor rgb 60416 60416 60416
+textColor rgb 0 0 0
+ctlFgColor1 rgb 64256 62208 18944
+ctlFgColor2 rgb 60928 46592 11008
+ctlBgColor1 rgb 52480 24832 0
+ctlBgColor2 rgb 65280 45056 65280
+topShadowColor rgb 44544 19968 48128
+botShadowColor rgb 13312 13056 34304
+showGrid
 snapToGrid
-gridSize 5
+gridSize 4
 endScreenProperties
-
 
 # (Lines)
 object activeLineClass
@@ -34,8 +34,8 @@ x 0
 y 15
 w 244
 h 3
-lineColor index 54
-fillColor index 54
+lineColor rgb 2560 0 47104
+fillColor rgb 2560 0 47104
 lineWidth 3
 numPoints 2 {
 xPoints  {
@@ -52,18 +52,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 20
 w 235
 h 20
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor index 14
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "Miscellaneous"
+  "Miscellaneous"
 }
 endObjectProperties
 
@@ -71,18 +72,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 35
 w 235
 h 20
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-14.0"
 fontAlign "center"
-fgColor index 14
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "expressions"
+  "expressions"
 }
 endObjectProperties
 
@@ -96,8 +98,8 @@ x 0
 y 55
 w 244
 h 3
-lineColor index 54
-fillColor index 54
+lineColor rgb 2560 0 47104
+fillColor rgb 2560 0 47104
 lineWidth 3
 numPoints 2 {
 xPoints  {
@@ -114,17 +116,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 6
 y 80
 w 229
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-12.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "(a)"
+  "(a)"
 }
 endObjectProperties
 
@@ -138,8 +141,8 @@ x 0
 y 57
 w 224
 h 1
-lineColor index 54
-fillColor index 54
+lineColor rgb 2560 0 47104
+fillColor rgb 2560 0 47104
 numPoints 2 {
 xPoints  {
 0 0
@@ -155,18 +158,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 6
 y 60
 w 229
 h 14
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-12.0"
 fontAlign "center"
-fgColor index 54
+fgColor rgb 2560 0 47104
+bgColor index 3
 useDisplayBg
 value {
- "Grouping"
+  "Grouping"
 }
 endObjectProperties
 
@@ -180,8 +184,8 @@ x 7
 y 75
 w 223
 h 1
-lineColor index 54
-fillColor index 54
+lineColor rgb 2560 0 47104
+fillColor rgb 2560 0 47104
 numPoints 2 {
 xPoints  {
 0 7
@@ -197,17 +201,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 6
 y 110
 w 229
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-12.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "(A)ANDB"
+  "(A)ANDB"
 }
 endObjectProperties
 
@@ -215,17 +220,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 6
 y 140
 w 229
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-12.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "AANDB"
+  "AANDB"
 }
 endObjectProperties
 
@@ -233,18 +239,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 6
 y 242
 w 229
 h 14
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-12.0"
 fontAlign "center"
-fgColor index 54
+fgColor rgb 2560 0 47104
+bgColor index 3
 useDisplayBg
 value {
- "Inputs-as-array expressions"
+  "Inputs-as-array expressions"
 }
 endObjectProperties
 
@@ -258,8 +265,8 @@ x 7
 y 258
 w 223
 h 1
-lineColor index 54
-fillColor index 54
+lineColor rgb 2560 0 47104
+fillColor rgb 2560 0 47104
 numPoints 2 {
 xPoints  {
 0 7
@@ -281,8 +288,8 @@ x 6
 y 240
 w 223
 h 1
-lineColor index 54
-fillColor index 54
+lineColor rgb 2560 0 47104
+fillColor rgb 2560 0 47104
 numPoints 2 {
 xPoints  {
 0 6
@@ -298,17 +305,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 6
 y 325
 w 229
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-12.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "@(A+3)"
+  "@(A+3)"
 }
 endObjectProperties
 
@@ -316,17 +324,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 6
 y 355
 w 229
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-12.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "@@0"
+  "@@0"
 }
 endObjectProperties
 
@@ -334,17 +343,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 16
 y 95
 w 219
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "CAN'T USE '[]' or '{}'"
+  "CAN'T USE '[]' or '{}'"
 }
 endObjectProperties
 
@@ -352,17 +362,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 16
 y 125
 w 219
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "SAME AS A&B.  BUT NOTE..."
+  "SAME AS A&B.  BUT NOTE..."
 }
 endObjectProperties
 
@@ -370,17 +381,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 16
 y 155
 w 219
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "SCALCOUT RECORD WILL PARSE 'AA'"
+  "SCALCOUT RECORD WILL PARSE 'AA'"
 }
 endObjectProperties
 
@@ -388,17 +400,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 16
 y 165
 w 219
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "AS A STRING VARIABLE"
+  "AS A STRING VARIABLE"
 }
 endObjectProperties
 
@@ -406,17 +419,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 16
 y 340
 w 219
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "GET VARIABLE A+3"
+  "GET VARIABLE A+3"
 }
 endObjectProperties
 
@@ -424,17 +438,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 16
 y 370
 w 219
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "GET STRING VAR 0 (@@0=AA, ..)"
+  "GET STRING VAR 0 (@@0=AA, ..)"
 }
 endObjectProperties
 
@@ -451,22 +466,22 @@ h 55
 
 beginGroup
 
-
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 6
 y 265
 w 229
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-12.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "@0"
+  "@0"
 }
 endObjectProperties
 
@@ -474,17 +489,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 6
 y 295
 w 229
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-12.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "@A+3"
+  "@A+3"
 }
 endObjectProperties
 
@@ -492,17 +508,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 16
 y 280
 w 219
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "GET VARIABLE 0 (@0=A, @1=B, ..)"
+  "GET VARIABLE 0 (@0=A, @1=B, ..)"
 }
 endObjectProperties
 
@@ -510,17 +527,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 16
 y 310
 w 219
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "GET VARIABLE A; ADD 3 TO IT"
+  "GET VARIABLE A; ADD 3 TO IT"
 }
 endObjectProperties
 
@@ -542,7 +560,6 @@ h 400
 
 beginGroup
 
-
 # (Group)
 object activeGroupClass
 beginObjectProperties
@@ -556,23 +573,23 @@ h 19
 
 beginGroup
 
-
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 6
 y 492
 w 229
 h 14
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-12.0"
 fontAlign "center"
-fgColor index 54
+fgColor rgb 2560 0 47104
+bgColor index 3
 useDisplayBg
 value {
- "Random number"
+  "Random number"
 }
 endObjectProperties
 
@@ -586,8 +603,8 @@ x 7
 y 508
 w 222
 h 1
-lineColor index 54
-fillColor index 54
+lineColor rgb 2560 0 47104
+fillColor rgb 2560 0 47104
 numPoints 2 {
 xPoints  {
 0 7
@@ -609,8 +626,8 @@ x 6
 y 490
 w 222
 h 1
-lineColor index 54
-fillColor index 54
+lineColor rgb 2560 0 47104
+fillColor rgb 2560 0 47104
 numPoints 2 {
 xPoints  {
 0 6
@@ -631,17 +648,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 6
 y 515
 w 229
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-12.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "RNDM"
+  "RNDM"
 }
 endObjectProperties
 
@@ -649,17 +667,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 10
 y 530
 w 219
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "RANDOM VALUE IN RANGE (0,1] (NOT ZERO)"
+  "RANDOM VALUE IN RANGE (0,1] (NOT ZERO)"
 }
 endObjectProperties
 
@@ -667,17 +686,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 16
 y 560
 w 219
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "RANDOM, NORMALLY DISTRIBUTED IN (0,1]"
+  "RANDOM, NORMALLY DISTRIBUTED IN (0,1]"
 }
 endObjectProperties
 
@@ -685,17 +705,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 545
 w 230
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-12.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "NRNDM"
+  "NRNDM"
 }
 endObjectProperties
 
@@ -703,17 +724,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 16
 y 590
 w 219
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "ARRAY of RANDOM, (0,1]"
+  "ARRAY of RANDOM, (0,1]"
 }
 endObjectProperties
 
@@ -721,17 +743,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 575
 w 230
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-12.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "ARNDM"
+  "ARNDM"
 }
 endObjectProperties
 
@@ -739,18 +762,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 6
 y 607
 w 229
 h 14
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-12.0"
 fontAlign "center"
-fgColor index 54
+fgColor rgb 2560 0 47104
+bgColor index 3
 useDisplayBg
 value {
- "Store"
+  "Store"
 }
 endObjectProperties
 
@@ -764,8 +788,8 @@ x 7
 y 623
 w 222
 h 1
-lineColor index 54
-fillColor index 54
+lineColor rgb 2560 0 47104
+fillColor rgb 2560 0 47104
 numPoints 2 {
 xPoints  {
 0 7
@@ -787,8 +811,8 @@ x 6
 y 605
 w 222
 h 1
-lineColor index 54
-fillColor index 54
+lineColor rgb 2560 0 47104
+fillColor rgb 2560 0 47104
 numPoints 2 {
 xPoints  {
 0 6
@@ -804,17 +828,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 6
 y 630
 w 229
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-12.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "A:=B"
+  "A:=B"
 }
 endObjectProperties
 
@@ -822,17 +847,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 10
 y 645
 w 219
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "SET INPUT VARIABLE A TO VALUE OF B"
+  "SET INPUT VARIABLE A TO VALUE OF B"
 }
 endObjectProperties
 
@@ -840,17 +866,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 16
 y 685
 w 219
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "MULTIPLE EXPRESSIONS, RETURNING A"
+  "MULTIPLE EXPRESSIONS, RETURNING A"
 }
 endObjectProperties
 
@@ -858,17 +885,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 670
 w 230
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-12.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "(A:=1;B:=2;C)"
+  "(A:=1;B:=2;C)"
 }
 endObjectProperties
 
@@ -876,17 +904,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 16
 y 725
 w 219
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "SET INPUT VARIABLE B TO VALUE OF A"
+  "SET INPUT VARIABLE B TO VALUE OF A"
 }
 endObjectProperties
 
@@ -894,17 +923,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 710
 w 230
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-12.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "@1:=A"
+  "@1:=A"
 }
 endObjectProperties
 
@@ -912,17 +942,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 10
 y 655
 w 219
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "NOTE: DOES NOT RETURN A VALUE"
+  "NOTE: DOES NOT RETURN A VALUE"
 }
 endObjectProperties
 
@@ -930,17 +961,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 15
 y 695
 w 219
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "SINGLE VALUE (C)"
+  "SINGLE VALUE (C)"
 }
 endObjectProperties
 
@@ -948,18 +980,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 6
 y 742
 w 229
 h 14
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-12.0"
 fontAlign "center"
-fgColor index 54
+fgColor rgb 2560 0 47104
+bgColor index 3
 useDisplayBg
 value {
- "Loop"
+  "Loop"
 }
 endObjectProperties
 
@@ -973,8 +1006,8 @@ x 7
 y 758
 w 222
 h 1
-lineColor index 54
-fillColor index 54
+lineColor rgb 2560 0 47104
+fillColor rgb 2560 0 47104
 numPoints 2 {
 xPoints  {
 0 7
@@ -996,8 +1029,8 @@ x 6
 y 740
 w 222
 h 1
-lineColor index 54
-fillColor index 54
+lineColor rgb 2560 0 47104
+fillColor rgb 2560 0 47104
 numPoints 2 {
 xPoints  {
 0 6
@@ -1013,17 +1046,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 6
 y 765
 w 229
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-12.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "UNTIL(a:=a-1;a<1)"
+  "UNTIL(a:=a-1;a<1)"
 }
 endObjectProperties
 
@@ -1031,17 +1065,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 10
 y 780
 w 219
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "DECREMENT A UNTIL ITS VALUE IS ZERO"
+  "DECREMENT A UNTIL ITS VALUE IS ZERO"
 }
 endObjectProperties
 
@@ -1049,17 +1084,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 16
 y 830
 w 219
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "EXPRESSION WILL NEVER RETURN TRUE"
+  "EXPRESSION WILL NEVER RETURN TRUE"
 }
 endObjectProperties
 
@@ -1067,17 +1103,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 815
 w 230
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-12.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "UNTIL(0)"
+  "UNTIL(0)"
 }
 endObjectProperties
 
@@ -1085,17 +1122,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 16
 y 870
 w 219
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "ILLEGAL: EXPRESSION DOES NOT RETURN"
+  "ILLEGAL: EXPRESSION DOES NOT RETURN"
 }
 endObjectProperties
 
@@ -1103,17 +1141,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 855
 w 230
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-12.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "UNTIL(a:=a-1)"
+  "UNTIL(a:=a-1)"
 }
 endObjectProperties
 
@@ -1121,17 +1160,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 10
 y 800
 w 219
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "NOTE: UNTIL RETURNS 1, UNLESS ABORTED"
+  "NOTE: UNTIL RETURNS 1, UNLESS ABORTED"
 }
 endObjectProperties
 
@@ -1139,17 +1179,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 15
 y 840
 w 219
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "WILL BE ABORTED AT sCalcLoopMax"
+  "WILL BE ABORTED AT sCalcLoopMax"
 }
 endObjectProperties
 
@@ -1157,17 +1198,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 10
 y 790
 w 219
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "(LOOP UNTIL EXPRESSION RETURNS TRUE)"
+  "(LOOP UNTIL EXPRESSION RETURNS TRUE)"
 }
 endObjectProperties
 
@@ -1175,17 +1217,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 15
 y 880
 w 219
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "A VALUE."
+  "A VALUE."
 }
 endObjectProperties
 
@@ -1198,17 +1241,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 205
 w 229
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-12.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "A?B:C"
+  "A?B:C"
 }
 endObjectProperties
 
@@ -1216,18 +1260,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 6
 y 185
 w 229
 h 14
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-12.0"
 fontAlign "center"
-fgColor index 54
+fgColor rgb 2560 0 47104
+bgColor index 3
 useDisplayBg
 value {
- "'?:' (if-else) operator"
+  "'?:' (if-else) operator"
 }
 endObjectProperties
 
@@ -1241,8 +1286,8 @@ x 7
 y 200
 w 223
 h 1
-lineColor index 54
-fillColor index 54
+lineColor rgb 2560 0 47104
+fillColor rgb 2560 0 47104
 numPoints 2 {
 xPoints  {
 0 7
@@ -1264,8 +1309,8 @@ x 6
 y 182
 w 223
 h 1
-lineColor index 54
-fillColor index 54
+lineColor rgb 2560 0 47104
+fillColor rgb 2560 0 47104
 numPoints 2 {
 xPoints  {
 0 6
@@ -1281,17 +1326,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 15
 y 220
 w 219
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "IF (A!=0) RESULT IS B, ELSE C"
+  "IF (A!=0) RESULT IS B, ELSE C"
 }
 endObjectProperties
 
@@ -1299,18 +1345,19 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 388
 w 229
 h 14
-font "helvetica-medium-r-8.0"
+font "helvetica-medium-r-12.0"
 fontAlign "center"
-fgColor index 54
+fgColor rgb 2560 0 47104
+bgColor index 3
 useDisplayBg
 value {
- "Multiple expressions"
+  "Multiple expressions"
 }
 endObjectProperties
 
@@ -1324,8 +1371,8 @@ x 6
 y 403
 w 223
 h 1
-lineColor index 54
-fillColor index 54
+lineColor rgb 2560 0 47104
+fillColor rgb 2560 0 47104
 numPoints 2 {
 xPoints  {
 0 6
@@ -1347,8 +1394,8 @@ x 5
 y 385
 w 223
 h 1
-lineColor index 54
-fillColor index 54
+lineColor rgb 2560 0 47104
+fillColor rgb 2560 0 47104
 numPoints 2 {
 xPoints  {
 0 5
@@ -1364,17 +1411,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 408
 w 229
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-12.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "(a:=1;b:=2;c)"
+  "(a:=1;b:=2;c)"
 }
 endObjectProperties
 
@@ -1382,17 +1430,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 15
 y 423
 w 219
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "MUST RETURN A SINGLE VALUE"
+  "MUST RETURN A SINGLE VALUE"
 }
 endObjectProperties
 
@@ -1409,22 +1458,22 @@ h 25
 
 beginGroup
 
-
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 435
 w 229
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-12.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "(a:=1;b:=2)"
+  "(a:=1;b:=2)"
 }
 endObjectProperties
 
@@ -1432,17 +1481,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 15
 y 450
 w 219
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "ILLEGAL: RETURNS NO VALUE"
+  "ILLEGAL: RETURNS NO VALUE"
 }
 endObjectProperties
 
@@ -1455,17 +1505,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 5
 y 460
 w 229
 h 14
-font "helvetica-medium-r-8.0"
-fgColor index 14
+font "helvetica-medium-r-12.0"
+fgColor rgb 0 0 0
+bgColor index 3
 useDisplayBg
 value {
- "(a;cos(b))"
+  "(a;cos(b))"
 }
 endObjectProperties
 
@@ -1473,17 +1524,18 @@ endObjectProperties
 object activeXTextClass
 beginObjectProperties
 major 4
-minor 0
-release 0
+minor 1
+release 1
 x 15
 y 475
 w 219
 h 10
 font "helvetica-medium-r-8.0"
-fgColor index 47
+fgColor rgb 41984 32256 15360
+bgColor index 3
 useDisplayBg
 value {
- "ILLEGAL: RETURNS TWO VALUES"
+  "ILLEGAL: RETURNS TWO VALUES"
 }
 endObjectProperties
 
@@ -1497,11 +1549,11 @@ x 0
 y 0
 w 30
 h 16
-fgColor index 0
-bgColor index 17
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-8.0"
 buttonLabel "TOP"
 numPvs 2
 numDsps 1
@@ -1515,6 +1567,9 @@ symbols {
   0 
 }
 closeAction {
+  0 1
+}
+replaceSymbols {
   0 1
 }
 closeDisplay {
@@ -1532,11 +1587,11 @@ x 30
 y 0
 w 30
 h 16
-fgColor index 0
-bgColor index 17
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-8.0"
 buttonLabel "ALG"
 numPvs 2
 numDsps 1
@@ -1550,6 +1605,9 @@ symbols {
   0 
 }
 closeAction {
+  0 1
+}
+replaceSymbols {
   0 1
 }
 closeDisplay {
@@ -1567,11 +1625,11 @@ x 60
 y 0
 w 30
 h 16
-fgColor index 0
-bgColor index 17
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-8.0"
 buttonLabel "TRIG"
 numPvs 2
 numDsps 1
@@ -1585,6 +1643,9 @@ symbols {
   0 
 }
 closeAction {
+  0 1
+}
+replaceSymbols {
   0 1
 }
 closeDisplay {
@@ -1602,11 +1663,11 @@ x 90
 y 0
 w 30
 h 16
-fgColor index 0
-bgColor index 17
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-8.0"
 buttonLabel "REL"
 numPvs 2
 numDsps 1
@@ -1620,6 +1681,9 @@ symbols {
   0 
 }
 closeAction {
+  0 1
+}
+replaceSymbols {
   0 1
 }
 closeDisplay {
@@ -1637,11 +1701,11 @@ x 120
 y 0
 w 30
 h 16
-fgColor index 0
-bgColor index 17
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-8.0"
 buttonLabel "BIT"
 numPvs 2
 numDsps 1
@@ -1655,6 +1719,9 @@ symbols {
   0 
 }
 closeAction {
+  0 1
+}
+replaceSymbols {
   0 1
 }
 closeDisplay {
@@ -1672,11 +1739,11 @@ x 150
 y 0
 w 30
 h 16
-fgColor index 0
-bgColor index 17
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-8.0"
 buttonLabel "MISC"
 numPvs 2
 numDsps 1
@@ -1690,6 +1757,9 @@ symbols {
   0 
 }
 closeAction {
+  0 1
+}
+replaceSymbols {
   0 1
 }
 closeDisplay {
@@ -1707,11 +1777,11 @@ x 180
 y 0
 w 30
 h 16
-fgColor index 0
-bgColor index 17
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-8.0"
 buttonLabel "STR"
 numPvs 2
 numDsps 1
@@ -1725,6 +1795,9 @@ symbols {
   0 
 }
 closeAction {
+  0 1
+}
+replaceSymbols {
   0 1
 }
 closeDisplay {
@@ -1742,11 +1815,11 @@ x 210
 y 0
 w 30
 h 16
-fgColor index 0
-bgColor index 17
-topShadowColor index 2
-botShadowColor index 12
-font "helvetica-medium-r-10.0"
+fgColor rgb 65280 65280 65280
+bgColor rgb 13056 39168 0
+topShadowColor rgb 55808 55808 55808
+botShadowColor rgb 17920 17920 17920
+font "helvetica-medium-r-8.0"
 buttonLabel "ARR"
 numPvs 2
 numDsps 1
@@ -1760,6 +1833,9 @@ symbols {
   0 
 }
 closeAction {
+  0 1
+}
+replaceSymbols {
   0 1
 }
 closeDisplay {
@@ -1779,7 +1855,6 @@ h 55
 
 beginGroup
 
-
 endGroup
 
 endObjectProperties
@@ -1796,7 +1871,6 @@ w 230
 h 400
 
 beginGroup
-
 # (Group)
 object activeGroupClass
 beginObjectProperties
@@ -1809,7 +1883,6 @@ w 229
 h 19
 
 beginGroup
-
 
 endGroup
 
@@ -1832,7 +1905,6 @@ w 229
 h 25
 
 beginGroup
-
 
 endGroup
 
