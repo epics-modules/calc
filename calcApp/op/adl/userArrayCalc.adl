@@ -1,7 +1,7 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/userArrayCalc.adl"
-	version=030107
+	name="/tmp/calc/calcApp/op/adl/userArrayCalc.adl"
+	version=030114
 }
 display {
 	object {
@@ -539,22 +539,6 @@ polyline {
 	points {
 		(1,216)
 		(379,216)
-	}
-}
-"text entry" {
-	object {
-		x=25
-		y=230
-		width=255
-		height=20
-	}
-	control {
-		chan="$(P)$(C).CALC$"
-		clr=14
-		bclr=51
-	}
-	format="string"
-	limits {
 	}
 }
 text {
@@ -1602,4 +1586,20 @@ text {
 	clr=0
 	bclr=63
 	label="-Less"
+}
+"text entry" {
+	object {
+		x=25
+		y=230
+		width=255
+		height=20
+	}
+	control {
+		chan="$(P)$(C).CALC$"
+		clr=14
+		bclr=51
+	}
+	format="string"
+	limits {
+	}
 }

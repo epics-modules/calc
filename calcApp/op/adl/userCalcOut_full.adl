@@ -1,7 +1,7 @@
 
 file {
-	name="/home/oxygen/MOONEY/epics/synApps/support/calc/calcApp/op/adl/userCalcOut_full.adl"
-	version=030107
+	name="/tmp/calc/calcApp/op/adl/userCalcOut_full.adl"
+	version=030114
 }
 display {
 	object {
@@ -1311,22 +1311,6 @@ polyline {
 		(379,334)
 	}
 }
-"text entry" {
-	object {
-		x=25
-		y=348
-		width=255
-		height=20
-	}
-	control {
-		chan="$(P)$(C).CALC$"
-		clr=14
-		bclr=51
-	}
-	format="string"
-	limits {
-	}
-}
 text {
 	object {
 		x=75
@@ -1724,4 +1708,20 @@ text {
 	}
 	textix="($(P)$(C))"
 	align="horiz. centered"
+}
+"text entry" {
+	object {
+		x=25
+		y=348
+		width=255
+		height=20
+	}
+	control {
+		chan="$(P)$(C).CALC$"
+		clr=14
+		bclr=51
+	}
+	format="string"
+	limits {
+	}
 }
