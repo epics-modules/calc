@@ -10,9 +10,9 @@
 
 
 #- ## Stuff for user programming ###
-dbLoadRecords("$(CALC)/calcApp/Db/userCalcs10more.db","P=$(PREFIX),N10=$(N)0,N1=$(N)1,N2=$(N)2,N3=$(N)3,N4=$(N)4,N5=$(N)5,N6=$(N)6,N7=$(N)7,N8=$(N)8,N9=$(N)9")
-dbLoadRecords("$(CALC)/calcApp/Db/userCalcOuts10more.db","P=$(PREFIX),N10=$(N)0,N1=$(N)1,N2=$(N)2,N3=$(N)3,N4=$(N)4,N5=$(N)5,N6=$(N)6,N7=$(N)7,N8=$(N)8,N9=$(N)9")
-dbLoadRecords("$(CALC)/calcApp/Db/userStringCalcs10more.db","P=$(PREFIX),N10=$(N)0,N1=$(N)1,N2=$(N)2,N3=$(N)3,N4=$(N)4,N5=$(N)5,N6=$(N)6,N7=$(N)7,N8=$(N)8,N9=$(N)9")
-dbLoadRecords("$(CALC)/calcApp/Db/userArrayCalcs10more.db","P=$(PREFIX),N10=$(N)0,N1=$(N)1,N2=$(N)2,N3=$(N)3,N4=$(N)4,N5=$(N)5,N6=$(N)6,N7=$(N)7,N8=$(N)8,N9=$(N)9,N=$(ARRAY_SIZE=8000)")
-dbLoadRecords("$(CALC)/calcApp/Db/userTransforms10more.db","P=$(PREFIX),N10=$(N)0,N1=$(N)1,N2=$(N)2,N3=$(N)3,N4=$(N)4,N5=$(N)5,N6=$(N)6,N7=$(N)7,N8=$(N)8,N9=$(N)9")
-dbLoadRecords("$(CALC)/calcApp/Db/userAve10more.db","P=$(PREFIX),N10=$(N)0,N1=$(N)1,N2=$(N)2,N3=$(N)3,N4=$(N)4,N5=$(N)5,N6=$(N)6,N7=$(N)7,N8=$(N)8,N9=$(N)9")
+dbLoadRecords("$(CALC)/db/userCalcs10more.db","P=$(PREFIX),N10=$(N)0,N1=$(N)1,N2=$(N)2,N3=$(N)3,N4=$(N)4,N5=$(N)5,N6=$(N)6,N7=$(N)7,N8=$(N)8,N9=$(N)9")
+dbLoadRecords("$(CALC)/db/userCalcOuts10more.db","P=$(PREFIX),N10=$(N)0,N1=$(N)1,N2=$(N)2,N3=$(N)3,N4=$(N)4,N5=$(N)5,N6=$(N)6,N7=$(N)7,N8=$(N)8,N9=$(N)9")
+dbLoadRecords("$(CALC)/db/userStringCalcs10more.db","P=$(PREFIX),N10=$(N)0,N1=$(N)1,N2=$(N)2,N3=$(N)3,N4=$(N)4,N5=$(N)5,N6=$(N)6,N7=$(N)7,N8=$(N)8,N9=$(N)9")
+dbLoadRecords("$(CALC)/db/userArrayCalcs10more.db","P=$(PREFIX),N10=$(N)0,N1=$(N)1,N2=$(N)2,N3=$(N)3,N4=$(N)4,N5=$(N)5,N6=$(N)6,N7=$(N)7,N8=$(N)8,N9=$(N)9,N=$(ARRAY_SIZE=8000)")
+dbLoadRecords("$(CALC)/db/userTransforms10more.db","P=$(PREFIX),N10=$(N)0,N1=$(N)1,N2=$(N)2,N3=$(N)3,N4=$(N)4,N5=$(N)5,N6=$(N)6,N7=$(N)7,N8=$(N)8,N9=$(N)9")
+dbLoadRecords("$(CALC)/db/userAve10more.db","P=$(PREFIX),N10=$(N)0,N1=$(N)1,N2=$(N)2,N3=$(N)3,N4=$(N)4,N5=$(N)5,N6=$(N)6,N7=$(N)7,N8=$(N)8,N9=$(N)9")

@@ -9,10 +9,10 @@
 
 
 #- ## Stuff for user programming ###
-dbLoadRecords("$(CALC)/calcApp/Db/userCalcGlobalEnable.db", "P=$(PREFIX)")
-dbLoadRecords("$(CALC)/calcApp/Db/userCalcs10.db",          "P=$(PREFIX)")
-dbLoadRecords("$(CALC)/calcApp/Db/userCalcOuts10.db",       "P=$(PREFIX)")
-dbLoadRecords("$(CALC)/calcApp/Db/userStringCalcs10.db",    "P=$(PREFIX)")
-dbLoadRecords("$(CALC)/calcApp/Db/userArrayCalcs10.db",     "P=$(PREFIX), N=$(ARRAY_SIZE=8000)")
-dbLoadRecords("$(CALC)/calcApp/Db/userTransforms10.db",     "P=$(PREFIX)")
-dbLoadRecords("$(CALC)/calcApp/Db/userAve10.db",            "P=$(PREFIX)")
+dbLoadRecords("$(CALC)/db/userCalcGlobalEnable.db", "P=$(PREFIX)")
+dbLoadRecords("$(CALC)/db/userCalcs10.db",          "P=$(PREFIX)")
+dbLoadRecords("$(CALC)/db/userCalcOuts10.db",       "P=$(PREFIX)")
+dbLoadRecords("$(CALC)/db/userStringCalcs10.db",    "P=$(PREFIX)")
+dbLoadRecords("$(CALC)/db/userArrayCalcs10.db",     "P=$(PREFIX), N=$(ARRAY_SIZE=8000)")
+dbLoadRecords("$(CALC)/db/userTransforms10.db",     "P=$(PREFIX)")
+dbLoadRecords("$(CALC)/db/userAve10.db",            "P=$(PREFIX)")
