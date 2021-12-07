@@ -372,9 +372,11 @@ composite {
 		height=15
 	}
 	control {
+		chan="$(P)$(Q)Debug"
 		clr=14
 		bclr=51
 	}
+	format="string"
 	limits {
 	}
 }
