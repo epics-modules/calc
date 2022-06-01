@@ -413,8 +413,8 @@ x 359
 y 205
 w 20
 h 15
-controlPv 
-format "decimal"
+controlPv "$(P)$(Q)Debug"
+format "string"
 font "helvetica-medium-r-8.0"
 fontAlign "left"
 fgColor rgb 0 0 0
@@ -492,10 +492,10 @@ buttonLabel "Less"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 editSseq.edl
+  0 "editSseq.edl"
 }
 menuLabel {
-  0 less
+  0 "less"
 }
 symbols {
   0 "P=$(P),Q=$(Q)"
