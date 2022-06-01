@@ -643,7 +643,7 @@ x 25
 y 230
 w 255
 h 20
-controlPv "$(P)$(C).CALC$"
+controlPv "$(P)$(C).CALC"
 format "string"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -1348,7 +1348,7 @@ x 25
 y 283
 w 255
 h 20
-controlPv "$(P)$(C).OCAL$"
+controlPv "$(P)$(C).OCAL"
 format "string"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -2102,10 +2102,10 @@ buttonLabel "?"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 calcExamples.edl
+  0 "calcExamples.edl"
 }
 menuLabel {
-  0 
+  0 ""
 }
 symbols {
   0 
@@ -2134,10 +2134,10 @@ buttonLabel "?"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 calcExamples.edl
+  0 "calcExamples.edl"
 }
 menuLabel {
-  0 
+  0 ""
 }
 symbols {
   0 
@@ -2183,10 +2183,10 @@ buttonLabel "More"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 yyArrayCalc_plot.edl
+  0 "yyArrayCalc_plot.edl"
 }
 menuLabel {
-  0 user arrayCalc (w/plot)
+  0 "user arrayCalc (w/plot)"
 }
 symbols {
   0 "P=$(P),C=$(C)"
@@ -2258,12 +2258,12 @@ buttonLabel "ARRAY RESULT"
 numPvs 4
 numDsps 2
 displayFileName {
-  0 userArrayCalcPlot.edl
-  1 arrayPlot8.edl
+  0 "userArrayCalcPlot.edl"
+  1 "arrayPlot8.edl"
 }
 menuLabel {
-  0 plot
-  1 plot with input arrays
+  0 "plot"
+  1 "plot with input arrays"
 }
 symbols {
   0 "P=$(P),C=$(C),Y=$(P)$(C).AVAL,YLABEL=$(P)$(C).AVAL"
@@ -2294,10 +2294,10 @@ buttonLabel "ARRAY RESULT"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 userArrayCalcPlot.edl
+  0 "userArrayCalcPlot.edl"
 }
 menuLabel {
-  0 plot
+  0 "plot"
 }
 symbols {
   0 "P=$(P),C=$(C),Y=$(P)$(C).OAV,YLABEL=$(P)$(C).OAV"
@@ -2326,12 +2326,12 @@ buttonLabel "AA"
 numPvs 4
 numDsps 2
 displayFileName {
-  0 userArrayCalcPlot.edl
-  1 arrayPlot8.edl
+  0 "userArrayCalcPlot.edl"
+  1 "arrayPlot8.edl"
 }
 menuLabel {
-  0 plot
-  1 plot AA-HH
+  0 "plot"
+  1 "plot AA-HH"
 }
 symbols {
   0 "P=$(P),C=$(C),Y=$(P)$(C).AA,YLABEL=$(P)$(C).AA"
@@ -2362,10 +2362,10 @@ buttonLabel "BB"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 userArrayCalcPlot.edl
+  0 "userArrayCalcPlot.edl"
 }
 menuLabel {
-  0 plot
+  0 "plot"
 }
 symbols {
   0 "P=$(P),C=$(C),Y=$(P)$(C).BB,YLABEL=$(P)$(C).BB"
@@ -2419,10 +2419,10 @@ buttonLabel "Less"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 yyArrayCalc_small.edl
+  0 "yyArrayCalc_small.edl"
 }
 menuLabel {
-  0 arrayCalc (small)
+  0 "arrayCalc (small)"
 }
 symbols {
   0 "P=$(P),C=$(C)"

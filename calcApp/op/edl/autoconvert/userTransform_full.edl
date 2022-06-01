@@ -2083,7 +2083,7 @@ x 267
 y 67
 w 196
 h 20
-controlPv "$(P)$(T).CLCA$"
+controlPv "$(P)$(T).CLCA"
 format "string"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -2109,7 +2109,7 @@ x 267
 y 92
 w 196
 h 20
-controlPv "$(P)$(T).CLCB$"
+controlPv "$(P)$(T).CLCB"
 format "string"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -2135,7 +2135,7 @@ x 267
 y 117
 w 196
 h 20
-controlPv "$(P)$(T).CLCC$"
+controlPv "$(P)$(T).CLCC"
 format "string"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -2161,7 +2161,7 @@ x 267
 y 142
 w 196
 h 20
-controlPv "$(P)$(T).CLCD$"
+controlPv "$(P)$(T).CLCD"
 format "string"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -2187,7 +2187,7 @@ x 267
 y 167
 w 196
 h 20
-controlPv "$(P)$(T).CLCE$"
+controlPv "$(P)$(T).CLCE"
 format "string"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -2213,7 +2213,7 @@ x 267
 y 192
 w 196
 h 20
-controlPv "$(P)$(T).CLCF$"
+controlPv "$(P)$(T).CLCF"
 format "string"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -2239,7 +2239,7 @@ x 267
 y 217
 w 196
 h 20
-controlPv "$(P)$(T).CLCG$"
+controlPv "$(P)$(T).CLCG"
 format "string"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -2265,7 +2265,7 @@ x 267
 y 242
 w 196
 h 20
-controlPv "$(P)$(T).CLCH$"
+controlPv "$(P)$(T).CLCH"
 format "string"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -2291,7 +2291,7 @@ x 267
 y 267
 w 196
 h 20
-controlPv "$(P)$(T).CLCI$"
+controlPv "$(P)$(T).CLCI"
 format "string"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -2317,7 +2317,7 @@ x 267
 y 292
 w 196
 h 20
-controlPv "$(P)$(T).CLCJ$"
+controlPv "$(P)$(T).CLCJ"
 format "string"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -2343,7 +2343,7 @@ x 267
 y 317
 w 196
 h 20
-controlPv "$(P)$(T).CLCK$"
+controlPv "$(P)$(T).CLCK"
 format "string"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -2369,7 +2369,7 @@ x 267
 y 342
 w 196
 h 20
-controlPv "$(P)$(T).CLCL$"
+controlPv "$(P)$(T).CLCL"
 format "string"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -2395,7 +2395,7 @@ x 267
 y 367
 w 196
 h 20
-controlPv "$(P)$(T).CLCM$"
+controlPv "$(P)$(T).CLCM"
 format "string"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -2421,7 +2421,7 @@ x 267
 y 392
 w 196
 h 20
-controlPv "$(P)$(T).CLCN$"
+controlPv "$(P)$(T).CLCN"
 format "string"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -2447,7 +2447,7 @@ x 267
 y 417
 w 196
 h 20
-controlPv "$(P)$(T).CLCO$"
+controlPv "$(P)$(T).CLCO"
 format "string"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -2473,7 +2473,7 @@ x 267
 y 442
 w 196
 h 20
-controlPv "$(P)$(T).CLCP$"
+controlPv "$(P)$(T).CLCP"
 format "string"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -3684,10 +3684,10 @@ buttonLabel "Less"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 userTransform.edl
+  0 "userTransform.edl"
 }
 menuLabel {
-  0 Show fewer fields
+  0 "Show fewer fields"
 }
 symbols {
   0 "P=$(P),T=$(T),N=$(N)"
@@ -3722,10 +3722,10 @@ buttonLabel "INPUT PV NAME"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 inlinkHelp.edl
+  0 "inlinkHelp.edl"
 }
 menuLabel {
-  0 Terse link docs
+  0 "Terse link docs"
 }
 symbols {
   0 
@@ -3754,10 +3754,10 @@ buttonLabel "EXPRESSION"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 calcExamples.edl
+  0 "calcExamples.edl"
 }
 menuLabel {
-  0 
+  0 ""
 }
 symbols {
   0 
@@ -3786,10 +3786,10 @@ buttonLabel "OUTPUT PV NAME"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 outlinkHelp.edl
+  0 "outlinkHelp.edl"
 }
 menuLabel {
-  0 Terse link docs
+  0 "Terse link docs"
 }
 symbols {
   0 

@@ -771,7 +771,7 @@ x 25
 y 230
 w 255
 h 20
-controlPv "$(P)$(C).CALC$"
+controlPv "$(P)$(C).CALC"
 format "string"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -1495,7 +1495,7 @@ x 25
 y 283
 w 255
 h 20
-controlPv "$(P)$(C).OCAL$"
+controlPv "$(P)$(C).OCAL"
 format "string"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -2193,10 +2193,10 @@ buttonLabel "?"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 calcExamples.edl
+  0 "calcExamples.edl"
 }
 menuLabel {
-  0 
+  0 ""
 }
 symbols {
   0 
@@ -2225,10 +2225,10 @@ buttonLabel "?"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 calcExamples.edl
+  0 "calcExamples.edl"
 }
 menuLabel {
-  0 
+  0 ""
 }
 symbols {
   0 
@@ -2311,10 +2311,10 @@ buttonLabel "More"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 yysCalcoutRecord_full.edl
+  0 "yysCalcoutRecord_full.edl"
 }
 menuLabel {
-  0 all fields
+  0 "all fields"
 }
 symbols {
   0 "P=$(P),C=$(C)"

@@ -476,7 +476,7 @@ x 25
 y 178
 w 255
 h 20
-controlPv "$(P)$(C).CALC$"
+controlPv "$(P)$(C).CALC"
 format "string"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -818,10 +818,10 @@ buttonLabel "?"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 calcExamples.edl
+  0 "calcExamples.edl"
 }
 menuLabel {
-  0 
+  0 ""
 }
 symbols {
   0 
@@ -867,10 +867,10 @@ buttonLabel "More"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 CalcRecord_full.edl
+  0 "CalcRecord_full.edl"
 }
 menuLabel {
-  0 more fields
+  0 "more fields"
 }
 symbols {
   0 "P=$(P),C=$(C)"

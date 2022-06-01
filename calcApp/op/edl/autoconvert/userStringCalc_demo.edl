@@ -1551,32 +1551,6 @@ newPos
 objType "controls"
 endObjectProperties
 
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 25
-y 636
-w 255
-h 20
-controlPv "$(P)$(C).CALC$"
-format "string"
-font "helvetica-medium-r-12.0"
-fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-editable
-motifWidget
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
@@ -2285,7 +2259,7 @@ x 25
 y 689
 w 255
 h 20
-controlPv "$(P)$(C).OCAL$"
+controlPv "$(P)$(C).OCAL"
 format "string"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -4832,6 +4806,32 @@ endGroup
 
 endObjectProperties
 
+
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 25
+y 636
+w 255
+h 20
+controlPv "$(P)$(C).CALC"
+format "string"
+font "helvetica-medium-r-12.0"
+fontAlign "left"
+fgColor rgb 0 0 0
+bgColor rgb 29440 57088 65280
+editable
+motifWidget
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
 # (Group)
 object activeGroupClass
 beginObjectProperties
@@ -5093,10 +5093,10 @@ buttonLabel "?"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 calcExamples.edl
+  0 "calcExamples.edl"
 }
 menuLabel {
-  0 
+  0 ""
 }
 symbols {
   0 
@@ -5125,10 +5125,10 @@ buttonLabel "?"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 calcExamples.edl
+  0 "calcExamples.edl"
 }
 menuLabel {
-  0 
+  0 ""
 }
 symbols {
   0 
@@ -5157,10 +5157,10 @@ buttonLabel "Less"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 userStringCalc_full.edl
+  0 "userStringCalc_full.edl"
 }
 menuLabel {
-  0 no examples
+  0 "no examples"
 }
 symbols {
   0 "P=$(P),C=$(C),N=$(N)"

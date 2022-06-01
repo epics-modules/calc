@@ -741,7 +741,7 @@ x 25
 y 636
 w 255
 h 20
-controlPv "$(P)$(C).CALC$"
+controlPv "$(P)$(C).CALC"
 format "string"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -1446,7 +1446,7 @@ x 25
 y 689
 w 255
 h 20
-controlPv "$(P)$(C).OCAL$"
+controlPv "$(P)$(C).OCAL"
 format "string"
 font "helvetica-medium-r-12.0"
 fontAlign "left"
@@ -3514,10 +3514,10 @@ buttonLabel "?"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 calcExamples.edl
+  0 "calcExamples.edl"
 }
 menuLabel {
-  0 
+  0 ""
 }
 symbols {
   0 
@@ -3546,10 +3546,10 @@ buttonLabel "?"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 calcExamples.edl
+  0 "calcExamples.edl"
 }
 menuLabel {
-  0 
+  0 ""
 }
 symbols {
   0 
@@ -3595,10 +3595,10 @@ buttonLabel "More"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 yyArrayCalc_demo.edl
+  0 "yyArrayCalc_demo.edl"
 }
 menuLabel {
-  0 user arrayCalc (demo)
+  0 "user arrayCalc (demo)"
 }
 symbols {
   0 "P=$(P),C=$(C)"
@@ -3633,10 +3633,10 @@ buttonLabel "Less"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 yyArrayCalc_plot.edl
+  0 "yyArrayCalc_plot.edl"
 }
 menuLabel {
-  0 user arrayCalc (w/plot)
+  0 "user arrayCalc (w/plot)"
 }
 symbols {
   0 "P=$(P),C=$(C)"
@@ -3708,10 +3708,10 @@ buttonLabel "ARRAY RESULT"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 userArrayCalcPlot.edl
+  0 "userArrayCalcPlot.edl"
 }
 menuLabel {
-  0 plot
+  0 "plot"
 }
 symbols {
   0 "P=$(P),C=$(C),Y=$(P)$(C).OAV,YLABEL=$(P)$(C).OAV"
@@ -3740,10 +3740,10 @@ buttonLabel "BB"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 userArrayCalcPlot.edl
+  0 "userArrayCalcPlot.edl"
 }
 menuLabel {
-  0 plot
+  0 "plot"
 }
 symbols {
   0 "P=$(P),C=$(C),Y=$(P)$(C).BB,YLABEL=$(P)$(C).BB"
@@ -3772,10 +3772,10 @@ buttonLabel "CC"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 userArrayCalcPlot.edl
+  0 "userArrayCalcPlot.edl"
 }
 menuLabel {
-  0 plot
+  0 "plot"
 }
 symbols {
   0 "P=$(P),C=$(C),Y=$(P)$(C).CC,YLABEL=$(P)$(C).CC"
@@ -3804,10 +3804,10 @@ buttonLabel "DD"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 userArrayCalcPlot.edl
+  0 "userArrayCalcPlot.edl"
 }
 menuLabel {
-  0 plot
+  0 "plot"
 }
 symbols {
   0 "P=$(P),C=$(C),Y=$(P)$(C).DD,YLABEL=$(P)$(C).DD"
@@ -3836,10 +3836,10 @@ buttonLabel "EE"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 userArrayCalcPlot.edl
+  0 "userArrayCalcPlot.edl"
 }
 menuLabel {
-  0 plot
+  0 "plot"
 }
 symbols {
   0 "P=$(P),C=$(C),Y=$(P)$(C).EE,YLABEL=$(P)$(C).EE"
@@ -3868,10 +3868,10 @@ buttonLabel "FF"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 userArrayCalcPlot.edl
+  0 "userArrayCalcPlot.edl"
 }
 menuLabel {
-  0 plot
+  0 "plot"
 }
 symbols {
   0 "P=$(P),C=$(C),Y=$(P)$(C).FF,YLABEL=$(P)$(C).FF"
@@ -3900,10 +3900,10 @@ buttonLabel "GG"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 userArrayCalcPlot.edl
+  0 "userArrayCalcPlot.edl"
 }
 menuLabel {
-  0 plot
+  0 "plot"
 }
 symbols {
   0 "P=$(P),C=$(C),Y=$(P)$(C).GG,YLABEL=$(P)$(C).GG"
@@ -3932,10 +3932,10 @@ buttonLabel "HH"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 userArrayCalcPlot.edl
+  0 "userArrayCalcPlot.edl"
 }
 menuLabel {
-  0 plot
+  0 "plot"
 }
 symbols {
   0 "P=$(P),C=$(C),Y=$(P)$(C).HH,YLABEL=$(P)$(C).HH"
@@ -3964,10 +3964,10 @@ buttonLabel "II"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 userArrayCalcPlot.edl
+  0 "userArrayCalcPlot.edl"
 }
 menuLabel {
-  0 plot
+  0 "plot"
 }
 symbols {
   0 "P=$(P),C=$(C),Y=$(P)$(C).II,YLABEL=$(P)$(C).II"
@@ -3996,10 +3996,10 @@ buttonLabel "JJ"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 userArrayCalcPlot.edl
+  0 "userArrayCalcPlot.edl"
 }
 menuLabel {
-  0 plot
+  0 "plot"
 }
 symbols {
   0 "P=$(P),C=$(C),Y=$(P)$(C).JJ,YLABEL=$(P)$(C).JJ"
@@ -4028,10 +4028,10 @@ buttonLabel "KK"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 userArrayCalcPlot.edl
+  0 "userArrayCalcPlot.edl"
 }
 menuLabel {
-  0 plot
+  0 "plot"
 }
 symbols {
   0 "P=$(P),C=$(C),Y=$(P)$(C).KK,YLABEL=$(P)$(C).KK"
@@ -4060,10 +4060,10 @@ buttonLabel "LL"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 userArrayCalcPlot.edl
+  0 "userArrayCalcPlot.edl"
 }
 menuLabel {
-  0 plot
+  0 "plot"
 }
 symbols {
   0 "P=$(P),C=$(C),Y=$(P)$(C).LL,YLABEL=$(P)$(C).LL"
@@ -4117,12 +4117,12 @@ buttonLabel "AA"
 numPvs 4
 numDsps 2
 displayFileName {
-  0 userArrayCalcPlot.edl
-  1 arrayPlot8.edl
+  0 "userArrayCalcPlot.edl"
+  1 "arrayPlot8.edl"
 }
 menuLabel {
-  0 plot
-  1 plot AA-HH
+  0 "plot"
+  1 "plot AA-HH"
 }
 symbols {
   0 "P=$(P),C=$(C),Y=$(P)$(C).AA,YLABEL=$(P)$(C).AA"
@@ -4153,12 +4153,12 @@ buttonLabel "ARRAY RESULT"
 numPvs 4
 numDsps 2
 displayFileName {
-  0 userArrayCalcPlot.edl
-  1 arrayPlot8.edl
+  0 "userArrayCalcPlot.edl"
+  1 "arrayPlot8.edl"
 }
 menuLabel {
-  0 plot
-  1 plot with input arrays
+  0 "plot"
+  1 "plot with input arrays"
 }
 symbols {
   0 "P=$(P),C=$(C),Y=$(P)$(C).AVAL,YLABEL=$(P)$(C).AVAL"
