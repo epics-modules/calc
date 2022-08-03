@@ -6,6 +6,7 @@
 #include <epicsMath.h>
 #include <epicsUnitTest.h>
 #include <testMain.h>
+#include <string.h>
 
 #include "aCalcPostfix.h"
 
