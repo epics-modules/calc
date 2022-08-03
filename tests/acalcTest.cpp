@@ -12,7 +12,7 @@
 
 static void testValExpr(const char* expr, double* args, double** aargs, double expected)
 {	
-	char* rpn = (char*)malloc(INFIX_TO_POSTFIX_SIZE(strlen(expr)+1));
+	char* rpn = (char*)malloc(ACALC_INFIX_TO_POSTFIX_SIZE(strlen(expr)+1));
 	short err;
 	
 	double val;
@@ -49,7 +49,7 @@ static void testValExpr(const char* expr, double* args, double** aargs, double e
 
 static void testAValExpr(const char* expr, double* args, double** aargs, double* expected, int length)
 {	
-	char* rpn = (char*)malloc(INFIX_TO_POSTFIX_SIZE(strlen(expr)+1));
+	char* rpn = (char*)malloc(ACALC_INFIX_TO_POSTFIX_SIZE(strlen(expr)+1));
 	short err;
 	
 	double val;
