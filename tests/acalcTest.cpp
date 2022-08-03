@@ -69,26 +69,14 @@ static void testAValExpr(const char* expr, double* args, double** aargs, double*
 	bool pass = true;
 	int i = 0;
 	
-	for (i = 0; i < length; i += 1)
+	for (i = 0; i < length && pass; i += 1)
 	{
 		if (finite(expected[i]) && finite(aval[i]))
 		{
-			if (fabs(expected[i] - aval[i]) > 1e-8)
-			{
-				pass = false;
-				break;
-			}
+			if (fabs(expected[i] - aval[i]) > 1e-8)    { pass = false; }
 		}
-		else if (isnan(expected[i]) && !isnan(aval[i]))
-		{
-			pass = false;
-			break;
-		}
-		else if (aval[i] != expected[i])
-		{
-			pass = false;
-			break;
-		}
+		else if (isnan(expected[i]) && !isnan(aval[i]))    { pass = false; }
+		else if (aval[i] != expected[i])                   { pass = false; }
 	}
 	
 	if(!testOk(pass, "%s", expr))
@@ -128,6 +116,8 @@ MAIN(acalcTest)
 	
 	double args[12] = {A, B, C, D, E, F, G, H, I, J, K, L};
 	double* aargs[12] = {AA, BB, CC, DD, EE, FF, GG, HH, II, JJ, KK, LL};
+	
+	double BB_check[3] = {4.0, 5.0, 6.0};
 	
 	testPlan(122);
 
@@ -327,9 +317,7 @@ MAIN(acalcTest)
 	temp.push_back(AA[(int) A]);
 	testAValExpr("A<B?BB:AA[A,A]", args, aargs, A<B ? BB : &temp[0], A<B ? 3 : 1);
 	
-	testAValExpr("ix[1,3]", args, aargs, AA, 3);
-	
-	double BB_check[3] = {4.0, 5.0, 6.0};
+	testAValExpr("ix[1,3]", args, aargs, AA, 3);	
 	testAValExpr("@@0:=BB;AA;aa:=aa-3[0,2]", args, aargs, BB_check, 3);
 	testAValExpr("a:=-7;@@-a:=BB;HH;a:=1;hh:=ii", args, aargs, BB, 3);
 
