@@ -31,21 +31,11 @@ static void testValExpr(const char* expr, double* args, const char** sargs, doub
 		return;
 	}
 	
-	
 	bool pass;
 	
-	if (finite(expected) && finite(val))
-	{
-		pass = fabs(expected - val) < 1e-8;
-	}
-	else if (isnan(expected))
-	{
-		pass = (bool) isnan(val);
-	}
-	else
-	{
-		pass = (val == expected);
-	}
+	if (finite(expected) && finite(val))    { pass = fabs(expected - val) < 1e-8; }
+	else if (isnan(expected))               { pass = (bool) isnan(val); }
+	else                                    { pass = (val == expected); }
 	
 	if(!testOk(pass, "%s", expr))
 	{
@@ -75,14 +65,8 @@ static void testSValExpr(const char* expr, double* args, const char** sargs, con
 	
 	bool pass;
 	
-	if (expected)
-	{
-		pass = (strncmp(expected, sval, 256) == 0);
-	}
-	else
-	{
-		pass = false;
-	}
+	if (expected)    { pass = (strncmp(expected, sval, 256) == 0); }
+	else             { pass = false; }
 	
 	if(!testOk(pass, "%s", expr))
 	{
@@ -268,8 +252,6 @@ MAIN(scalcTest)
 	
 	sprintf(temp, "%s%s%s%s", DD, AA, EE, BB);
 	testSValExpr("DD+AA+EE+BB", args, sargs, temp);
-
-	printf("%s\n", AA);
 	
 	return testDone();
 }

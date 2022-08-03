@@ -34,18 +34,9 @@ static void testValExpr(const char* expr, double* args, double** aargs, double e
 	
 	bool pass;
 	
-	if (finite(expected) && finite(val))
-	{
-		pass = fabs(expected - val) < 1e-8;
-	}
-	else if (isnan(expected))
-	{
-		pass = (bool) isnan(val);
-	}
-	else
-	{
-		pass = (val == expected);
-	}
+	if (finite(expected) && finite(val))    { pass = fabs(expected - val) < 1e-8; }
+	else if (isnan(expected))               { pass = (bool) isnan(val); }
+	else                                    { pass = (val == expected); }
 	
 	if(!testOk(pass, "%s", expr))
 	{
@@ -103,7 +94,7 @@ static void testAValExpr(const char* expr, double* args, double** aargs, double*
 	if(!testOk(pass, "%s", expr))
 	{	
 		testDiag("Expected aval[%d]: %f, Got: %f", i, expected[i], aval[i]);
-	}	
+	}
 }
 
 
