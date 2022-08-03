@@ -11,7 +11,7 @@
 
 static void testValExpr(const char* expr, double* args, double** aargs, double expected)
 {	
-	unsigned char rpn[255];
+	char* rpn = (char*)malloc(INFIX_TO_POSTFIX_SIZE(strlen(expr)+1));
 	short err;
 	
 	double val;
@@ -42,11 +42,13 @@ static void testValExpr(const char* expr, double* args, double** aargs, double e
 	{
 		testDiag("Expected: %f, Got: %f", expected, val);
 	}	
+	
+	free(rpn);
 }
 
 static void testAValExpr(const char* expr, double* args, double** aargs, double* expected, int length)
 {	
-	unsigned char rpn[255];
+	char* rpn = (char*)malloc(INFIX_TO_POSTFIX_SIZE(strlen(expr)+1));
 	short err;
 	
 	double val;
@@ -83,6 +85,9 @@ static void testAValExpr(const char* expr, double* args, double** aargs, double*
 	{	
 		testDiag("Expected aval[%d]: %f, Got: %f", i, expected[i], aval[i]);
 	}
+	
+	
+	free(rpn);
 }
 
 
