@@ -7,12 +7,13 @@
 #include <epicsUnitTest.h>
 #include <testMain.h>
 #include <string.h>
+#include <stdio.h>
 
 #include "aCalcPostfix.h"
 
 static void testValExpr(const char* expr, double* args, double** aargs, double expected)
 {	
-	unsigned char* rpn = (unsigned char*)malloc(ACALC_INFIX_TO_POSTFIX_SIZE(strlen(expr)+1));
+	unsigned char rpn[255];
 	short err;
 	
 	double val;
@@ -26,12 +27,11 @@ static void testValExpr(const char* expr, double* args, double** aargs, double e
 		return;
 	}
 	
-	if (aCalcPerform(args, 12, aargs, 12, 3, &val, aval, rpn, 1, &amask))
+	if (aCalcPerform(args, 12, aargs, 12, 12, &val, aval, rpn, 1, &amask))
 	{
 		testDiag("calcPerform: error evaluating '%s'", expr);
 		return;
 	}
-	
 	
 	bool pass;
 	
@@ -42,18 +42,19 @@ static void testValExpr(const char* expr, double* args, double** aargs, double e
 	if(!testOk(pass, "%s", expr))
 	{
 		testDiag("Expected: %f, Got: %f", expected, val);
-	}	
-	
-	free(rpn);
+	}
 }
 
-static void testAValExpr(const char* expr, double* args, double** aargs, double* expected, int length)
+static void testAValExpr(const char* expr, double* args, double** aargs, double* expected, int exp_length)
 {	
-	unsigned char* rpn = (unsigned char*)malloc(ACALC_INFIX_TO_POSTFIX_SIZE(strlen(expr)+1));
+	//unsigned char* rpn = (unsigned char*) calloc(ACALC_INFIX_TO_POSTFIX_SIZE(strlen(expr)+1), sizeof (unsigned char));
+	//memset(rpn, '\0', sizeof(*rpn));
+	
+	unsigned char rpn[255];
 	short err;
 	
-	double val;
-	double aval[12];
+	double val = 0.0;
+	double aval[12] = {0.0};
 	
 	epicsUInt32 amask;
 	
@@ -63,7 +64,7 @@ static void testAValExpr(const char* expr, double* args, double** aargs, double*
 		return;
 	}
 	
-	if (aCalcPerform(args, 12, aargs, 12, 12, &val, aval, rpn, 12, &amask))
+	if (aCalcPerform(args, 12, aargs, 12, 12, &val, aval, rpn, exp_length, &amask))
 	{
 		testDiag("calcPerform: error evaluating '%s'", expr);
 		return;
@@ -72,7 +73,7 @@ static void testAValExpr(const char* expr, double* args, double** aargs, double*
 	bool pass = true;
 	int i = 0;
 	
-	for (i = 0; i < length && pass; i += 1)
+	for (i = 0; i < exp_length && pass; i += 1)
 	{
 		if (finite(expected[i]) && finite(aval[i]))
 		{
@@ -88,7 +89,7 @@ static void testAValExpr(const char* expr, double* args, double** aargs, double*
 	}
 	
 	
-	free(rpn);
+	//free(rpn);
 }
 
 
@@ -107,25 +108,24 @@ MAIN(acalcTest)
 	double K = 11.0;
 	double L = 12.0;
 	
-	double AA[3] = {1.0, 2.0, 3.0};
-	double BB[3] = {4.0, 5.0, 6.0};
-	double CC[3] = {7.0, 8.0, 9.0};
-	double DD[3] = {-1.0, 0.0, 1.0};
-	double EE[3] = {0.0, 1.0, 2.0};
-	double FF[3] = {16.0, 17.0, 18.0};
-	double GG[3] = {19.0, 20.0, 21.0};
-	double HH[3] = {1.0, 2.0, 3.0};
-	double II[3] = {1.0, 2.0, 3.0};
-	double JJ[3] = {1.0, 2.0, 3.0};
-	double KK[3] = {1.0, 2.0, 3.0};
-	double LL[3] = {1.0, 2.0, 3.0};
+	double AA[12] = {1.0, 2.0, 3.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+	double BB[12] = {4.0, 5.0, 6.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+	double CC[12] = {7.0, 8.0, 9.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+	double DD[12] = {-1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+	double EE[12] = {0.0, 1.0, 2.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+	double FF[12] = {16.0, 17.0, 18.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+	double GG[12] = {19.0, 20.0, 21.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+	double HH[12] = {1.0, 2.0, 3.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+	double II[12] = {1.0, 2.0, 3.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+	double JJ[12] = {1.0, 2.0, 3.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+	double KK[12] = {1.0, 2.0, 3.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+	double LL[12] = {1.0, 2.0, 3.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 	
 	double args[12] = {A, B, C, D, E, F, G, H, I, J, K, L};
 	double* aargs[12] = {AA, BB, CC, DD, EE, FF, GG, HH, II, JJ, KK, LL};
 	
-	double BB_check[3] = {4.0, 5.0, 6.0};
 	
-	testPlan(122);
+	testPlan(121);
 
 	testValExpr("finite(1)", args, aargs, 1);
 	testValExpr("finite(AA)", args, aargs, 1);
@@ -221,10 +221,6 @@ MAIN(acalcTest)
 	testValExpr("5xor3", args, aargs, 5 ^ 3);
 	testValExpr("asin(.3)", args, aargs, asin(.3));
 	testValExpr("acos(.3)", args, aargs, acos(.3));
-	testValExpr("A?0;C:=3.3:B", args, aargs, A==0 ? B : 0);
-	testValExpr("C;C:=3", args, aargs, 3.3);
-	testValExpr("A?(0;C:=3.3):B", args, aargs, A==0 ? B : 0);
-	testValExpr("C;C:=3", args, aargs, 3.3);
 	testValExpr("sum(BB)", args, aargs, BB[0] + BB[1] + BB[2]);
 	testValExpr("avg(BB[0,2])", args, aargs, (BB[0] + BB[1] + BB[2]) / 3.);
 	testValExpr("amax(aa[0,2])", args, aargs, std::max(std::max(AA[0], AA[1]), AA[2]));
@@ -233,98 +229,55 @@ MAIN(acalcTest)
 	testValExpr("ixmin(aa[0,2])", args, aargs, 0);
 	testValExpr("ixz(dd)", args, aargs, 1);
 	testValExpr("ixnz(ee)", args, aargs, 1);
-	
-	std::vector<double> temp;
-	
-	temp.push_back(LL[0]);
-	temp.push_back(LL[1]);
-	testAValExpr("LL[0,1]", args, aargs, &temp[0], 2);
-	
-	temp.clear();
-	
-	temp.push_back(0.);
-	temp.push_back(AA[1]);
-	temp.push_back(AA[2]);	
-	testAValExpr("AA{1,2}", args, aargs, &temp[0], 3);
-	
-	temp.clear();
-	
-	temp.push_back(AA[0] + BB[0]);
-	temp.push_back(AA[1] + BB[1]);
-	temp.push_back(AA[2] + BB[2]);	
-	testAValExpr("AA+BB", args, aargs, &temp[0], 3);
-
-	temp.clear();
-	
-	temp.push_back(AA[0] + BB[0] + CC[0]);
-	temp.push_back(AA[1] + BB[1] + CC[1]);
-	temp.push_back(AA[2] + BB[2] + CC[2]);	
-	testAValExpr("AA+(BB)+CC", args, aargs, &temp[0], 3);
-	
-	temp.clear();
-	
-	temp.push_back(DD[0] + AA[0] + BB[0] + EE[0]);
-	temp.push_back(DD[1] + AA[1] + BB[1] + EE[1]);
-	temp.push_back(DD[2] + AA[2] + BB[2] + EE[2]);	
-	testAValExpr("DD+AA+EE+BB", args, aargs, &temp[0], 3);
 		
-	temp.clear();
+	// Assignment tests
+	testValExpr("A?0;C:=3.3:B", args, aargs, A==0 ? B : 0);
+	testValExpr("C;C:=3", args, aargs, 3.3);
+	testValExpr("A?(0;C:=3.3):B", args, aargs, A==0 ? B : 0);
+	testValExpr("C;C:=3", args, aargs, 3.3);
 
-	temp.push_back(1.);
-	temp.push_back(2.);
-	temp.push_back(3.);	
-	temp.push_back(4.);	
-	temp.push_back(5.);	
-	testAValExpr("cat(aa[0,2],bb[0,2])", args, aargs, &temp[0], 5);	
+	// Tests returning an array
+	double exp_1[2] = { LL[0], LL[1] };	
+	testAValExpr("LL[0,1]", args, aargs, exp_1, 2);
+
+	double exp_2[3] = { 0.0, AA[1], AA[2] };
+	testAValExpr("AA{1,2}", args, aargs, exp_2, 3);
 	
-	temp.clear();
+	double exp_3[3] = { AA[0] + BB[0], AA[1] + BB[1], AA[2] + BB[2] };
+	testAValExpr("AA+BB", args, aargs, exp_3, 3);
+
+	double exp_4[3] = { AA[0] + BB[0] + CC[0], AA[1] + BB[1] + CC[1], AA[2] + BB[2] + CC[2] };
+	testAValExpr("AA+(BB)+CC", args, aargs, exp_4, 3);
 	
-	temp.push_back(1.);
-	temp.push_back(2.);
-	temp.push_back(3.);	
-	temp.push_back(7.);
-	testAValExpr("cat(aa[0,2],7)", args, aargs, &temp[0], 4);
+	double exp_5[3] = { DD[0] + AA[0] + BB[0] + EE[0], DD[1] + AA[1] + BB[1] + EE[1], DD[2] + AA[2] + BB[2] + EE[2] };
+	testAValExpr("DD+AA+EE+BB", args, aargs, exp_5, 3);
+		
+	double exp_6[6] = { 1., 2., 3., 4., 5., 6. };
+	testAValExpr("cat(aa[0,2],bb[0,2])", args, aargs, exp_6, 6);	
 	
-	temp.clear();
+	double exp_7[4] = {1., 2., 3., 7.};
+	testAValExpr("cat(aa[0,2],7)", args, aargs, exp_7, 4);
 	
-	temp.push_back(4.);
-	temp.push_back(9.);
-	temp.push_back(15.);	
-	testAValExpr("CUM(BB)", args, aargs, &temp[0], 3);
+	double exp_8[3] = {4., 9., 15.};
+	testAValExpr("CUM(BB)", args, aargs, exp_8, 3);
 	
-	temp.clear();
+	double exp_9[3] = { std::max(std::max(AA[0], B), C), std::max(std::max(AA[1], B), C), std::max(std::max(AA[2], B), C) };
+	testAValExpr("max(AA,B,C)", args, aargs, exp_9, 3);
 	
-	temp.push_back(std::max(std::max(AA[0], B), C));
-	temp.push_back(std::max(std::max(AA[1], B), C));
-	temp.push_back(std::max(std::max(AA[2], B), C));	
-	testAValExpr("max(AA,B,C)", args, aargs, &temp[0], 3);
+	double exp_10[3] = { std::max(std::max(CC[0], B), A), std::max(std::max(CC[1], B), A), std::max(std::max(CC[2], B), A) };
+	testAValExpr("max(A,B,CC)", args, aargs, exp_10, 3);
 	
-	temp.clear();
-	
-	temp.push_back(std::max(std::max(CC[0], B), A));
-	temp.push_back(std::max(std::max(CC[1], B), A));
-	temp.push_back(std::max(std::max(CC[2], B), A));	
-	testAValExpr("max(A,B,CC)", args, aargs, &temp[0], 3);
-	
-	temp.clear();
-	
-	temp.push_back(std::max(std::max(BB[0], A), C));
-	temp.push_back(std::max(std::max(BB[1], A), C));
-	temp.push_back(std::max(std::max(BB[2], A), C));	
-	testAValExpr("max(A,BB,C)", args, aargs, &temp[0], 3);
-	
-	temp.clear();
-	
-	temp.push_back(AA[(int) A]);
-	testAValExpr("A>B?BB:AA[A,A]", args, aargs, A>B ? BB : &temp[0], A>B ? 3 : 1);
-	
-	temp.clear();
-	
-	temp.push_back(AA[(int) A]);
-	testAValExpr("A<B?BB:AA[A,A]", args, aargs, A<B ? BB : &temp[0], A<B ? 3 : 1);
+	double exp_11[3] = { std::max(std::max(BB[0], A), C), std::max(std::max(BB[1], A), C), std::max(std::max(BB[2], A), C) };
+	testAValExpr("max(A,BB,C)", args, aargs, exp_11, 3);
+
+	double exp_12[1] = { AA[(int) A] };
+	testAValExpr("A>B?BB:AA[A,A]", args, aargs, A>B ? BB : exp_12, A>B ? 3 : 1);
 	
 	testAValExpr("ix[1,3]", args, aargs, AA, 3);	
-	testAValExpr("@@0:=BB;AA;aa:=aa-3[0,2]", args, aargs, BB_check, 3);
+	
+	// Array Assignment
+	double exp_13[3] = { 4.0, 5.0, 6.0 };
+	testAValExpr("@@0:=BB;AA;aa:=aa-3[0,2]", args, aargs, exp_13, 3);
 	testAValExpr("a:=-7;@@-a:=BB;HH;a:=1;hh:=ii", args, aargs, BB, 3);
 
 	return testDone();
