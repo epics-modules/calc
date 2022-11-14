@@ -570,14 +570,14 @@ buttonLabel "More"
 numPvs 6
 numDsps 3
 displayFileName {
-  0 interpNew_help.edl
-  1 interpNewData.edl
-  2 interpArray.edl
+  0 "interpNew_help.edl"
+  1 "interpNewData.edl"
+  2 "interpArray.edl"
 }
 menuLabel {
-  0 interp help
-  1 Data Entry
-  2 interp array
+  0 "interp help"
+  1 "Data Entry"
+  2 "interp array"
 }
 symbols {
   0 "P=$(P),Q=$(Q)"
@@ -630,10 +630,10 @@ buttonLabel "Y1(X)"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 arrayPlot.edl
+  0 "arrayPlot.edl"
 }
 menuLabel {
-  0 plot
+  0 "plot"
 }
 symbols {
   0 "P=$(P),X=$(P)interp$(Q).VALA,Y=$(P)interp$(Q).VALB,YLABEL=Y1"
@@ -662,10 +662,10 @@ buttonLabel "Y2(X)"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 arrayPlot.edl
+  0 "arrayPlot.edl"
 }
 menuLabel {
-  0 plot
+  0 "plot"
 }
 symbols {
   0 "P=$(P),X=$(P)interp$(Q).VALA,Y=$(P)interp$(Q).VALC,YLABEL=Y2"

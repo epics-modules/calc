@@ -1149,26 +1149,8 @@
     <horizontal_alignment>1</horizontal_alignment>
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
-  <widget type="textentry" version="3.0.0">
-    <name>text entry #256</name>
-    <pv_name>$(P)$(C).CALC$</pv_name>
-    <x>25</x>
-    <y>636</y>
-    <width>255</width>
-    <font>
-      <font family="Liberation Sans" style="REGULAR" size="16.0">
-      </font>
-    </font>
-    <background_color>
-      <color red="115" green="223" blue="255">
-      </color>
-    </background_color>
-    <format>6</format>
-    <show_units>false</show_units>
-    <border_alarm_sensitive>false</border_alarm_sensitive>
-  </widget>
   <widget type="label" version="2.0.0">
-    <name>text #260</name>
+    <name>text #256</name>
     <text>CALC (CALCULATION)</text>
     <x>75</x>
     <y>626</y>
@@ -1181,7 +1163,7 @@
     <horizontal_alignment>1</horizontal_alignment>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #263</name>
+    <name>text #259</name>
     <text>INVALID</text>
     <x>30</x>
     <y>626</y>
@@ -1206,7 +1188,7 @@
     </rules>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #267</name>
+    <name>text #263</name>
     <text>HELP</text>
     <x>4</x>
     <y>626</y>
@@ -1219,7 +1201,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #270</name>
+    <name>text #266</name>
     <text>RESULT</text>
     <x>280</x>
     <y>626</y>
@@ -1231,7 +1213,7 @@
     <horizontal_alignment>1</horizontal_alignment>
   </widget>
   <widget type="combo" version="2.0.0">
-    <name>menu #273</name>
+    <name>menu #269</name>
     <pv_name>$(P)$(C).DOPT</pv_name>
     <x>310</x>
     <y>739</y>
@@ -1248,7 +1230,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="polyline" version="2.0.0">
-    <name>polyline #276</name>
+    <name>polyline #272</name>
     <x>384</x>
     <y>654</y>
     <width>11</width>
@@ -1274,7 +1256,7 @@
     </rules>
   </widget>
   <widget type="polyline" version="2.0.0">
-    <name>polyline #281</name>
+    <name>polyline #277</name>
     <x>392</x>
     <y>654</y>
     <width>3</width>
@@ -1300,7 +1282,7 @@
     </rules>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #286</name>
+    <name>text #282</name>
     <text>STRING RESULT:</text>
     <x>4</x>
     <y>662</y>
@@ -1313,7 +1295,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="textupdate" version="2.0.0">
-    <name>text update #289</name>
+    <name>text update #285</name>
     <pv_name>$(P)$(C).SVAL</pv_name>
     <x>89</x>
     <y>659</y>
@@ -1332,7 +1314,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="polyline" version="2.0.0">
-    <name>polyline #293</name>
+    <name>polyline #289</name>
     <y>658</y>
     <width>284</width>
     <height>1</height>
@@ -1349,7 +1331,7 @@
     </points>
   </widget>
   <widget type="polyline" version="2.0.0">
-    <name>polyline #297</name>
+    <name>polyline #293</name>
     <x>384</x>
     <y>709</y>
     <width>11</width>
@@ -1375,7 +1357,7 @@
     </rules>
   </widget>
   <widget type="polyline" version="2.0.0">
-    <name>polyline #302</name>
+    <name>polyline #298</name>
     <x>392</x>
     <y>705</y>
     <width>3</width>
@@ -1402,7 +1384,7 @@
     </rules>
   </widget>
   <widget type="combo" version="2.0.0">
-    <name>menu #307</name>
+    <name>menu #303</name>
     <pv_name>$(P)$(C).OOPT</pv_name>
     <x>145</x>
     <y>739</y>
@@ -1415,7 +1397,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #310</name>
+    <name>text #306</name>
     <text>DELAY</text>
     <y>744</y>
     <width>30</width>
@@ -1427,7 +1409,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #313</name>
+    <name>text entry #309</name>
     <pv_name>$(P)$(C).ODLY</pv_name>
     <x>30</x>
     <y>739</y>
@@ -1445,7 +1427,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="combo" version="2.0.0">
-    <name>menu #317</name>
+    <name>menu #313</name>
     <pv_name>$(P)$(C).IVOA</pv_name>
     <y>774</y>
     <width>120</width>
@@ -1461,7 +1443,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #320</name>
+    <name>text entry #316</name>
     <pv_name>$(P)$(C).IVOV</pv_name>
     <x>147</x>
     <y>774</y>
@@ -1483,7 +1465,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #324</name>
+    <name>text #320</name>
     <text>IVOV</text>
     <x>122</x>
     <y>778</y>
@@ -1496,7 +1478,7 @@
     <horizontal_alignment>1</horizontal_alignment>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #327</name>
+    <name>text #323</name>
     <text>OUTPUT PV NAME</text>
     <x>192</x>
     <y>762</y>
@@ -1509,7 +1491,7 @@
     <horizontal_alignment>1</horizontal_alignment>
   </widget>
   <widget type="group" version="2.0.0">
-    <name>composite #330</name>
+    <name>composite #326</name>
     <x>380</x>
     <y>779</y>
     <width>15</width>
@@ -1517,7 +1499,7 @@
     <style>3</style>
     <transparent>true</transparent>
     <widget type="polygon" version="2.0.0">
-      <name>polygon #333</name>
+      <name>polygon #329</name>
       <width>10</width>
       <height>11</height>
       <line_width>2</line_width>
@@ -1549,7 +1531,7 @@
       </rules>
     </widget>
     <widget type="polyline" version="2.0.0">
-      <name>polyline #338</name>
+      <name>polyline #334</name>
       <x>9</x>
       <y>5</y>
       <width>6</width>
@@ -1576,7 +1558,7 @@
     </widget>
   </widget>
   <widget type="rectangle" version="2.0.0">
-    <name>rectangle #343</name>
+    <name>rectangle #339</name>
     <x>190</x>
     <y>772</y>
     <width>190</width>
@@ -1601,7 +1583,7 @@
     </rules>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #347</name>
+    <name>text entry #343</name>
     <pv_name>$(P)$(C).OUT</pv_name>
     <x>192</x>
     <y>774</y>
@@ -1619,7 +1601,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="polyline" version="2.0.0">
-    <name>polyline #351</name>
+    <name>polyline #347</name>
     <y>674</y>
     <width>380</width>
     <height>3</height>
@@ -1635,7 +1617,7 @@
     </points>
   </widget>
   <widget type="group" version="2.0.0">
-    <name>composite #355</name>
+    <name>composite #351</name>
     <x>70</x>
     <y>739</y>
     <width>70</width>
@@ -1643,7 +1625,7 @@
     <style>3</style>
     <transparent>true</transparent>
     <widget type="textentry" version="3.0.0">
-      <name>text entry #358</name>
+      <name>text entry #354</name>
       <pv_name>$(P)$(C).OEVT</pv_name>
       <x>40</x>
       <width>30</width>
@@ -1660,19 +1642,19 @@
       <border_alarm_sensitive>false</border_alarm_sensitive>
     </widget>
     <widget type="group" version="2.0.0">
-      <name>composite #362</name>
+      <name>composite #358</name>
       <width>40</width>
       <height>20</height>
       <style>3</style>
       <transparent>true</transparent>
       <widget type="group" version="2.0.0">
-        <name>composite #365</name>
+        <name>composite #361</name>
         <width>40</width>
         <height>20</height>
         <style>3</style>
         <transparent>true</transparent>
         <widget type="label" version="2.0.0">
-          <name>text #368</name>
+          <name>text #364</name>
           <text>OUTPUT</text>
           <width>40</width>
           <height>10</height>
@@ -1683,7 +1665,7 @@
           <horizontal_alignment>1</horizontal_alignment>
         </widget>
         <widget type="label" version="2.0.0">
-          <name>text #371</name>
+          <name>text #367</name>
           <text>EVENT#</text>
           <y>10</y>
           <width>40</width>
@@ -1698,7 +1680,7 @@
     </widget>
   </widget>
   <widget type="rectangle" version="2.0.0">
-    <name>rectangle #374</name>
+    <name>rectangle #370</name>
     <y>620</y>
     <width>385</width>
     <height>57</height>
@@ -1721,7 +1703,7 @@
     </rules>
   </widget>
   <widget type="rectangle" version="2.0.0">
-    <name>rectangle #378</name>
+    <name>rectangle #374</name>
     <y>673</y>
     <width>385</width>
     <height>57</height>
@@ -1744,7 +1726,7 @@
     </rules>
   </widget>
   <widget type="textupdate" version="2.0.0">
-    <name>text update #382</name>
+    <name>text update #378</name>
     <pv_name>$(P)$(C).OVAL</pv_name>
     <x>282</x>
     <y>689</y>
@@ -1767,7 +1749,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #386</name>
+    <name>text entry #382</name>
     <pv_name>$(P)$(C).OCAL$</pv_name>
     <x>25</x>
     <y>689</y>
@@ -1785,7 +1767,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #390</name>
+    <name>text #386</name>
     <text>INVALID</text>
     <x>30</x>
     <y>679</y>
@@ -1810,7 +1792,7 @@
     </rules>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #394</name>
+    <name>text #390</name>
     <text>OCAL (OUTPUT CALCULATION)</text>
     <x>75</x>
     <y>679</y>
@@ -1823,7 +1805,7 @@
     <horizontal_alignment>1</horizontal_alignment>
   </widget>
   <widget type="polyline" version="2.0.0">
-    <name>polyline #397</name>
+    <name>polyline #393</name>
     <y>727</y>
     <width>381</width>
     <height>3</height>
@@ -1839,7 +1821,7 @@
     </points>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #401</name>
+    <name>text #397</name>
     <text>STRING RESULT:</text>
     <x>4</x>
     <y>715</y>
@@ -1852,7 +1834,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="textupdate" version="2.0.0">
-    <name>text update #404</name>
+    <name>text update #400</name>
     <pv_name>$(P)$(C).OSV</pv_name>
     <x>89</x>
     <y>712</y>
@@ -1871,7 +1853,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="polyline" version="2.0.0">
-    <name>polyline #408</name>
+    <name>polyline #404</name>
     <y>711</y>
     <width>284</width>
     <height>1</height>
@@ -1888,7 +1870,7 @@
     </points>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #412</name>
+    <name>text #408</name>
     <text>HH</text>
     <x>5</x>
     <y>503</y>
@@ -1900,7 +1882,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="rectangle" version="2.0.0">
-    <name>rectangle #415</name>
+    <name>rectangle #411</name>
     <x>25</x>
     <y>498</y>
     <width>209</width>
@@ -1925,7 +1907,7 @@
     </rules>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #419</name>
+    <name>text entry #415</name>
     <pv_name>$(P)$(C).INHH</pv_name>
     <x>27</x>
     <y>500</y>
@@ -1943,7 +1925,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #423</name>
+    <name>text entry #419</name>
     <pv_name>$(P)$(C).HH</pv_name>
     <x>235</x>
     <y>500</y>
@@ -1961,7 +1943,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #427</name>
+    <name>text #423</name>
     <text>II</text>
     <x>5</x>
     <y>525</y>
@@ -1973,7 +1955,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="rectangle" version="2.0.0">
-    <name>rectangle #430</name>
+    <name>rectangle #426</name>
     <x>25</x>
     <y>520</y>
     <width>209</width>
@@ -1998,7 +1980,7 @@
     </rules>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #434</name>
+    <name>text entry #430</name>
     <pv_name>$(P)$(C).INII</pv_name>
     <x>27</x>
     <y>522</y>
@@ -2016,7 +1998,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #438</name>
+    <name>text entry #434</name>
     <pv_name>$(P)$(C).II</pv_name>
     <x>235</x>
     <y>522</y>
@@ -2034,7 +2016,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #442</name>
+    <name>text #438</name>
     <text>JJ</text>
     <x>5</x>
     <y>547</y>
@@ -2046,7 +2028,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="rectangle" version="2.0.0">
-    <name>rectangle #445</name>
+    <name>rectangle #441</name>
     <x>25</x>
     <y>542</y>
     <width>209</width>
@@ -2071,7 +2053,7 @@
     </rules>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #449</name>
+    <name>text entry #445</name>
     <pv_name>$(P)$(C).INJJ</pv_name>
     <x>27</x>
     <y>544</y>
@@ -2089,7 +2071,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #453</name>
+    <name>text entry #449</name>
     <pv_name>$(P)$(C).JJ</pv_name>
     <x>235</x>
     <y>544</y>
@@ -2107,7 +2089,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #457</name>
+    <name>text #453</name>
     <text>KK</text>
     <x>5</x>
     <y>569</y>
@@ -2119,7 +2101,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="rectangle" version="2.0.0">
-    <name>rectangle #460</name>
+    <name>rectangle #456</name>
     <x>25</x>
     <y>564</y>
     <width>209</width>
@@ -2144,7 +2126,7 @@
     </rules>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #464</name>
+    <name>text entry #460</name>
     <pv_name>$(P)$(C).INKK</pv_name>
     <x>27</x>
     <y>566</y>
@@ -2162,7 +2144,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #468</name>
+    <name>text entry #464</name>
     <pv_name>$(P)$(C).KK</pv_name>
     <x>235</x>
     <y>566</y>
@@ -2180,7 +2162,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="rectangle" version="2.0.0">
-    <name>rectangle #472</name>
+    <name>rectangle #468</name>
     <x>25</x>
     <y>586</y>
     <width>209</width>
@@ -2205,7 +2187,7 @@
     </rules>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #476</name>
+    <name>text entry #472</name>
     <pv_name>$(P)$(C).INLL</pv_name>
     <x>27</x>
     <y>588</y>
@@ -2223,7 +2205,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #480</name>
+    <name>text entry #476</name>
     <pv_name>$(P)$(C).LL</pv_name>
     <x>235</x>
     <y>588</y>
@@ -2241,7 +2223,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #484</name>
+    <name>text #480</name>
     <text>GG</text>
     <x>5</x>
     <y>481</y>
@@ -2253,7 +2235,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="rectangle" version="2.0.0">
-    <name>rectangle #487</name>
+    <name>rectangle #483</name>
     <x>25</x>
     <y>476</y>
     <width>209</width>
@@ -2278,7 +2260,7 @@
     </rules>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #491</name>
+    <name>text entry #487</name>
     <pv_name>$(P)$(C).INGG</pv_name>
     <x>27</x>
     <y>478</y>
@@ -2296,7 +2278,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #495</name>
+    <name>text entry #491</name>
     <pv_name>$(P)$(C).GG</pv_name>
     <x>235</x>
     <y>478</y>
@@ -2314,7 +2296,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #499</name>
+    <name>text #495</name>
     <text>LL</text>
     <x>5</x>
     <y>591</y>
@@ -2326,7 +2308,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #502</name>
+    <name>text #498</name>
     <text>INT(AA)</text>
     <x>405</x>
     <y>390</y>
@@ -2335,7 +2317,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #505</name>
+    <name>text #501</name>
     <text>STR(A)</text>
     <x>405</x>
     <y>420</y>
@@ -2344,7 +2326,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #508</name>
+    <name>text #504</name>
     <text>AA[1,3]</text>
     <x>405</x>
     <y>450</y>
@@ -2353,7 +2335,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #511</name>
+    <name>text #507</name>
     <text>AA['ab','yz']</text>
     <x>405</x>
     <y>490</y>
@@ -2362,7 +2344,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #514</name>
+    <name>text #510</name>
     <text>AA[1,4][2,3]</text>
     <x>405</x>
     <y>530</y>
@@ -2371,7 +2353,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #517</name>
+    <name>text #513</name>
     <text>FIND FIRST NUMBER; CVT TO INT</text>
     <x>415</x>
     <y>405</y>
@@ -2388,7 +2370,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #520</name>
+    <name>text #516</name>
     <text>CONVERT TO STRING</text>
     <x>415</x>
     <y>435</y>
@@ -2405,7 +2387,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #523</name>
+    <name>text #519</name>
     <text>EXTRACT SUBSTRING</text>
     <x>415</x>
     <y>465</y>
@@ -2422,7 +2404,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #526</name>
+    <name>text #522</name>
     <text>'ABC'[1,3] = 'B'</text>
     <x>415</x>
     <y>475</y>
@@ -2439,7 +2421,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #529</name>
+    <name>text #525</name>
     <text>EXTRACT SUBSTRING</text>
     <x>415</x>
     <y>505</y>
@@ -2456,7 +2438,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #532</name>
+    <name>text #528</name>
     <text>'ABC'['A','C'] = 'B'</text>
     <x>415</x>
     <y>515</y>
@@ -2473,7 +2455,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #535</name>
+    <name>text #531</name>
     <text>'ABCDEF'[3,5][1,1] = 'E'</text>
     <x>415</x>
     <y>545</y>
@@ -2490,7 +2472,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="group" version="2.0.0">
-    <name>composite #538</name>
+    <name>composite #534</name>
     <x>405</x>
     <y>560</y>
     <width>200</width>
@@ -2498,14 +2480,14 @@
     <style>3</style>
     <transparent>true</transparent>
     <widget type="label" version="2.0.0">
-      <name>text #541</name>
+      <name>text #537</name>
       <text>AA{'old','new'}</text>
       <width>200</width>
       <height>14</height>
       <auto_size>true</auto_size>
     </widget>
     <widget type="label" version="2.0.0">
-      <name>text #544</name>
+      <name>text #540</name>
       <text>REPLACE 'OLD' WITH 'NEW' (ONCE)</text>
       <x>10</x>
       <y>15</y>
@@ -2523,7 +2505,7 @@
     </widget>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #547</name>
+    <name>text #543</name>
     <text>CONVERT TO DOUBLE</text>
     <x>415</x>
     <y>375</y>
@@ -2540,7 +2522,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="polyline" version="2.0.0">
-    <name>polyline #550</name>
+    <name>polyline #546</name>
     <x>405</x>
     <y>26</y>
     <width>198</width>
@@ -2557,7 +2539,7 @@
     </points>
   </widget>
   <widget type="group" version="2.0.0">
-    <name>composite #554</name>
+    <name>composite #550</name>
     <x>405</x>
     <y>680</y>
     <width>200</width>
@@ -2565,14 +2547,14 @@
     <style>3</style>
     <transparent>true</transparent>
     <widget type="group" version="2.0.0">
-      <name>composite #557</name>
+      <name>composite #553</name>
       <y>20</y>
       <width>200</width>
       <height>115</height>
       <style>3</style>
       <transparent>true</transparent>
       <widget type="label" version="2.0.0">
-        <name>text #560</name>
+        <name>text #556</name>
         <text>@@0</text>
         <y>90</y>
         <width>200</width>
@@ -2580,7 +2562,7 @@
         <auto_size>true</auto_size>
       </widget>
       <widget type="label" version="2.0.0">
-        <name>text #563</name>
+        <name>text #559</name>
         <text>GET STRING VAR 0 (@@0=AA, ...)</text>
         <x>10</x>
         <y>105</y>
@@ -2597,14 +2579,14 @@
         <auto_size>true</auto_size>
       </widget>
       <widget type="label" version="2.0.0">
-        <name>text #566</name>
+        <name>text #562</name>
         <text>@0</text>
         <width>200</width>
         <height>14</height>
         <auto_size>true</auto_size>
       </widget>
       <widget type="label" version="2.0.0">
-        <name>text #569</name>
+        <name>text #565</name>
         <text>GET VARIABLE 0 (@0=A, @1=B, ...)</text>
         <x>10</x>
         <y>15</y>
@@ -2621,7 +2603,7 @@
         <auto_size>true</auto_size>
       </widget>
       <widget type="label" version="2.0.0">
-        <name>text #572</name>
+        <name>text #568</name>
         <text>@A+3</text>
         <y>30</y>
         <width>200</width>
@@ -2629,7 +2611,7 @@
         <auto_size>true</auto_size>
       </widget>
       <widget type="label" version="2.0.0">
-        <name>text #575</name>
+        <name>text #571</name>
         <text>GET VARIABLE A; ADD 3 TO IT</text>
         <x>10</x>
         <y>45</y>
@@ -2646,7 +2628,7 @@
         <auto_size>true</auto_size>
       </widget>
       <widget type="label" version="2.0.0">
-        <name>text #578</name>
+        <name>text #574</name>
         <text>@(A+3)</text>
         <y>60</y>
         <width>200</width>
@@ -2654,7 +2636,7 @@
         <auto_size>true</auto_size>
       </widget>
       <widget type="label" version="2.0.0">
-        <name>text #581</name>
+        <name>text #577</name>
         <text>GET VARIABLE A+3</text>
         <x>10</x>
         <y>75</y>
@@ -2672,7 +2654,7 @@
       </widget>
     </widget>
     <widget type="label" version="2.0.0">
-      <name>text #584</name>
+      <name>text #580</name>
       <text>Example array expressions</text>
       <width>200</width>
       <height>14</height>
@@ -2683,7 +2665,7 @@
       <auto_size>true</auto_size>
     </widget>
     <widget type="polyline" version="2.0.0">
-      <name>polyline #587</name>
+      <name>polyline #583</name>
       <y>15</y>
       <width>198</width>
       <height>3</height>
@@ -2700,7 +2682,7 @@
     </widget>
   </widget>
   <widget type="rectangle" version="2.0.0">
-    <name>rectangle #591</name>
+    <name>rectangle #587</name>
     <x>20</x>
     <y>63</y>
     <width>214</width>
@@ -2725,7 +2707,7 @@
     </rules>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #595</name>
+    <name>text #591</name>
     <text>A</text>
     <x>5</x>
     <y>68</y>
@@ -2737,7 +2719,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #598</name>
+    <name>text entry #594</name>
     <pv_name>$(P)$(C).INPA</pv_name>
     <x>22</x>
     <y>65</y>
@@ -2755,7 +2737,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #602</name>
+    <name>text #598</name>
     <text>B</text>
     <x>5</x>
     <y>90</y>
@@ -2767,7 +2749,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="rectangle" version="2.0.0">
-    <name>rectangle #605</name>
+    <name>rectangle #601</name>
     <x>20</x>
     <y>85</y>
     <width>214</width>
@@ -2792,7 +2774,7 @@
     </rules>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #609</name>
+    <name>text entry #605</name>
     <pv_name>$(P)$(C).INPB</pv_name>
     <x>22</x>
     <y>87</y>
@@ -2810,7 +2792,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #613</name>
+    <name>text #609</name>
     <text>C</text>
     <x>5</x>
     <y>112</y>
@@ -2822,7 +2804,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="rectangle" version="2.0.0">
-    <name>rectangle #616</name>
+    <name>rectangle #612</name>
     <x>20</x>
     <y>107</y>
     <width>214</width>
@@ -2847,7 +2829,7 @@
     </rules>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #620</name>
+    <name>text entry #616</name>
     <pv_name>$(P)$(C).INPC</pv_name>
     <x>22</x>
     <y>109</y>
@@ -2865,7 +2847,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #624</name>
+    <name>text #620</name>
     <text>D</text>
     <x>5</x>
     <y>134</y>
@@ -2877,7 +2859,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="rectangle" version="2.0.0">
-    <name>rectangle #627</name>
+    <name>rectangle #623</name>
     <x>20</x>
     <y>129</y>
     <width>214</width>
@@ -2902,7 +2884,7 @@
     </rules>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #631</name>
+    <name>text entry #627</name>
     <pv_name>$(P)$(C).INPD</pv_name>
     <x>22</x>
     <y>131</y>
@@ -2920,7 +2902,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #635</name>
+    <name>text #631</name>
     <text>E</text>
     <x>5</x>
     <y>156</y>
@@ -2932,7 +2914,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="rectangle" version="2.0.0">
-    <name>rectangle #638</name>
+    <name>rectangle #634</name>
     <x>20</x>
     <y>151</y>
     <width>214</width>
@@ -2957,7 +2939,7 @@
     </rules>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #642</name>
+    <name>text entry #638</name>
     <pv_name>$(P)$(C).INPE</pv_name>
     <x>22</x>
     <y>153</y>
@@ -2975,7 +2957,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #646</name>
+    <name>text #642</name>
     <text>F</text>
     <x>5</x>
     <y>178</y>
@@ -2987,7 +2969,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="rectangle" version="2.0.0">
-    <name>rectangle #649</name>
+    <name>rectangle #645</name>
     <x>20</x>
     <y>173</y>
     <width>214</width>
@@ -3012,7 +2994,7 @@
     </rules>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #653</name>
+    <name>text entry #649</name>
     <pv_name>$(P)$(C).INPF</pv_name>
     <x>22</x>
     <y>175</y>
@@ -3030,7 +3012,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #657</name>
+    <name>text #653</name>
     <text>G</text>
     <x>5</x>
     <y>200</y>
@@ -3042,7 +3024,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="rectangle" version="2.0.0">
-    <name>rectangle #660</name>
+    <name>rectangle #656</name>
     <x>20</x>
     <y>195</y>
     <width>214</width>
@@ -3067,7 +3049,7 @@
     </rules>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #664</name>
+    <name>text entry #660</name>
     <pv_name>$(P)$(C).INPG</pv_name>
     <x>22</x>
     <y>197</y>
@@ -3085,7 +3067,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #668</name>
+    <name>text #664</name>
     <text>H</text>
     <x>5</x>
     <y>222</y>
@@ -3097,7 +3079,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="rectangle" version="2.0.0">
-    <name>rectangle #671</name>
+    <name>rectangle #667</name>
     <x>20</x>
     <y>217</y>
     <width>214</width>
@@ -3122,7 +3104,7 @@
     </rules>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #675</name>
+    <name>text entry #671</name>
     <pv_name>$(P)$(C).INPH</pv_name>
     <x>22</x>
     <y>219</y>
@@ -3140,7 +3122,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #679</name>
+    <name>text #675</name>
     <text>I</text>
     <x>5</x>
     <y>244</y>
@@ -3152,7 +3134,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="rectangle" version="2.0.0">
-    <name>rectangle #682</name>
+    <name>rectangle #678</name>
     <x>20</x>
     <y>239</y>
     <width>214</width>
@@ -3177,7 +3159,7 @@
     </rules>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #686</name>
+    <name>text entry #682</name>
     <pv_name>$(P)$(C).INPI</pv_name>
     <x>22</x>
     <y>241</y>
@@ -3195,7 +3177,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #690</name>
+    <name>text #686</name>
     <text>J</text>
     <x>5</x>
     <y>266</y>
@@ -3207,7 +3189,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="rectangle" version="2.0.0">
-    <name>rectangle #693</name>
+    <name>rectangle #689</name>
     <x>20</x>
     <y>261</y>
     <width>214</width>
@@ -3232,7 +3214,7 @@
     </rules>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #697</name>
+    <name>text entry #693</name>
     <pv_name>$(P)$(C).INPJ</pv_name>
     <x>22</x>
     <y>263</y>
@@ -3250,7 +3232,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #701</name>
+    <name>text #697</name>
     <text>K</text>
     <x>5</x>
     <y>288</y>
@@ -3262,7 +3244,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="rectangle" version="2.0.0">
-    <name>rectangle #704</name>
+    <name>rectangle #700</name>
     <x>20</x>
     <y>283</y>
     <width>214</width>
@@ -3287,7 +3269,7 @@
     </rules>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #708</name>
+    <name>text entry #704</name>
     <pv_name>$(P)$(C).INPK</pv_name>
     <x>22</x>
     <y>285</y>
@@ -3305,7 +3287,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #712</name>
+    <name>text #708</name>
     <text>L</text>
     <x>5</x>
     <y>310</y>
@@ -3317,7 +3299,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="rectangle" version="2.0.0">
-    <name>rectangle #715</name>
+    <name>rectangle #711</name>
     <x>20</x>
     <y>305</y>
     <width>214</width>
@@ -3342,7 +3324,7 @@
     </rules>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #719</name>
+    <name>text entry #715</name>
     <pv_name>$(P)$(C).INPL</pv_name>
     <x>22</x>
     <y>307</y>
@@ -3360,7 +3342,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #723</name>
+    <name>text entry #719</name>
     <pv_name>$(P)$(C).A</pv_name>
     <x>235</x>
     <y>65</y>
@@ -3378,7 +3360,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #727</name>
+    <name>text entry #723</name>
     <pv_name>$(P)$(C).B</pv_name>
     <x>235</x>
     <y>87</y>
@@ -3396,7 +3378,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #731</name>
+    <name>text entry #727</name>
     <pv_name>$(P)$(C).C</pv_name>
     <x>235</x>
     <y>109</y>
@@ -3414,7 +3396,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #735</name>
+    <name>text entry #731</name>
     <pv_name>$(P)$(C).D</pv_name>
     <x>235</x>
     <y>131</y>
@@ -3432,7 +3414,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #739</name>
+    <name>text entry #735</name>
     <pv_name>$(P)$(C).E</pv_name>
     <x>235</x>
     <y>153</y>
@@ -3450,7 +3432,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #743</name>
+    <name>text entry #739</name>
     <pv_name>$(P)$(C).F</pv_name>
     <x>235</x>
     <y>175</y>
@@ -3468,7 +3450,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #747</name>
+    <name>text entry #743</name>
     <pv_name>$(P)$(C).G</pv_name>
     <x>235</x>
     <y>197</y>
@@ -3486,7 +3468,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #751</name>
+    <name>text entry #747</name>
     <pv_name>$(P)$(C).H</pv_name>
     <x>235</x>
     <y>219</y>
@@ -3504,7 +3486,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #755</name>
+    <name>text entry #751</name>
     <pv_name>$(P)$(C).I</pv_name>
     <x>235</x>
     <y>241</y>
@@ -3522,7 +3504,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #759</name>
+    <name>text entry #755</name>
     <pv_name>$(P)$(C).J</pv_name>
     <x>235</x>
     <y>263</y>
@@ -3540,7 +3522,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #763</name>
+    <name>text entry #759</name>
     <pv_name>$(P)$(C).K</pv_name>
     <x>235</x>
     <y>285</y>
@@ -3558,7 +3540,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #767</name>
+    <name>text entry #763</name>
     <pv_name>$(P)$(C).L</pv_name>
     <x>235</x>
     <y>307</y>
@@ -3576,7 +3558,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #771</name>
+    <name>text #767</name>
     <text>($(P)$(C))</text>
     <x>240</x>
     <y>6</y>
@@ -3593,7 +3575,7 @@
     </rules>
   </widget>
   <widget type="combo" version="2.0.0">
-    <name>menu #775</name>
+    <name>menu #771</name>
     <pv_name>$(P)$(C).SCAN</pv_name>
     <y>30</y>
     <height>16</height>
@@ -3604,7 +3586,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="textentry" version="3.0.0">
-    <name>text entry #778</name>
+    <name>text entry #774</name>
     <pv_name>$(P)$(C).EVNT</pv_name>
     <x>145</x>
     <y>30</y>
@@ -3622,7 +3604,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="action_button" version="3.0.0">
-    <name>message button #782</name>
+    <name>message button #778</name>
     <actions>
       <action type="write_pv">
         <pv_name>$(P)$(C).PROC</pv_name>
@@ -3642,7 +3624,7 @@
     </background_color>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #785</name>
+    <name>text #781</name>
     <text>E.G., 'A:B.VAL' - '.VAL' =</text>
     <x>415</x>
     <y>75</y>
@@ -3659,7 +3641,7 @@
     <auto_size>true</auto_size>
   </widget>
   <widget type="label" version="2.0.0">
-    <name>text #788</name>
+    <name>text #784</name>
     <text>DISABLED</text>
     <x>240</x>
     <y>5</y>
@@ -3683,7 +3665,7 @@
     </rules>
   </widget>
   <widget type="action_button" version="3.0.0">
-    <name>related display #792</name>
+    <name>related display #788</name>
     <actions>
       <action type="open_display">
         <file>calcExamples.opi</file>
@@ -3705,7 +3687,7 @@
     </background_color>
   </widget>
   <widget type="action_button" version="3.0.0">
-    <name>related display #795</name>
+    <name>related display #791</name>
     <actions>
       <action type="open_display">
         <file>calcExamples.opi</file>
@@ -3727,7 +3709,7 @@
     </background_color>
   </widget>
   <widget type="polyline" version="2.0.0">
-    <name>polyline #798</name>
+    <name>polyline #794</name>
     <y>818</y>
     <width>399</width>
     <height>3</height>
@@ -3743,7 +3725,7 @@
     </points>
   </widget>
   <widget type="action_button" version="3.0.0">
-    <name>related display #802</name>
+    <name>related display #798</name>
     <actions>
       <action type="open_display">
         <file>userStringCalc_full.opi</file>
@@ -3766,7 +3748,7 @@
     </background_color>
   </widget>
   <widget type="group" version="2.0.0">
-    <name>composite #805</name>
+    <name>composite #801</name>
     <x>5</x>
     <y>824</y>
     <width>236</width>
@@ -3774,7 +3756,7 @@
     <style>3</style>
     <transparent>true</transparent>
     <widget type="textentry" version="3.0.0">
-      <name>text entry #808</name>
+      <name>text entry #804</name>
       <pv_name>$(P)$(C).FLNK</pv_name>
       <x>50</x>
       <width>186</width>
@@ -3791,7 +3773,7 @@
       <border_alarm_sensitive>false</border_alarm_sensitive>
     </widget>
     <widget type="label" version="2.0.0">
-      <name>text #812</name>
+      <name>text #808</name>
       <text>FORWARD</text>
       <width>40</width>
       <height>10</height>
@@ -3802,7 +3784,7 @@
       <horizontal_alignment>1</horizontal_alignment>
     </widget>
     <widget type="label" version="2.0.0">
-      <name>text #815</name>
+      <name>text #811</name>
       <text>LINK</text>
       <y>10</y>
       <width>40</width>
@@ -3815,7 +3797,7 @@
     </widget>
   </widget>
   <widget type="combo" version="2.0.0">
-    <name>menu #818</name>
+    <name>menu #814</name>
     <pv_name>$(P)$(C).WAIT</pv_name>
     <x>310</x>
     <y>755</y>
@@ -3828,7 +3810,7 @@
     <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
   <widget type="group" version="2.0.0">
-    <name>composite #821</name>
+    <name>composite #817</name>
     <x>164</x>
     <y>798</y>
     <width>216</width>
@@ -3836,7 +3818,7 @@
     <style>3</style>
     <transparent>true</transparent>
     <widget type="combo" version="2.0.0">
-      <name>menu #824</name>
+      <name>menu #820</name>
       <pv_name>$(P)$(C).WAIT</pv_name>
       <x>136</x>
       <width>80</width>
@@ -3848,7 +3830,7 @@
       <border_alarm_sensitive>false</border_alarm_sensitive>
     </widget>
     <widget type="label" version="2.0.0">
-      <name>text #827</name>
+      <name>text #823</name>
       <text>WAIT FOR COMPLETION?</text>
       <y>6</y>
       <width>130</width>
@@ -3859,5 +3841,23 @@
       </font>
       <horizontal_alignment>1</horizontal_alignment>
     </widget>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>text entry #826</name>
+    <pv_name>$(P)$(C).CALC$</pv_name>
+    <x>25</x>
+    <y>636</y>
+    <width>255</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="16.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="115" green="223" blue="255">
+      </color>
+    </background_color>
+    <format>6</format>
+    <show_units>false</show_units>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
   </widget>
 </display>

@@ -683,10 +683,10 @@ buttonLabel "More"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 FuncGen_full.edl
+  0 "FuncGen_full.edl"
 }
 menuLabel {
-  0 
+  0 ""
 }
 symbols {
   0 "P=$(P),Q=$(Q)"
@@ -721,12 +721,12 @@ buttonLabel "DEBUG"
 numPvs 4
 numDsps 2
 displayFileName {
-  0 yyTransform_full.edl
-  1 yyTransform.edl
+  0 "yyTransform_full.edl"
+  1 "yyTransform.edl"
 }
 menuLabel {
-  0 freqGen
-  1 freq/period
+  0 "freqGen"
+  1 "freq/period"
 }
 symbols {
   0 "P=$(P),T=$(Q):Tran"

@@ -89,12 +89,12 @@ buttonLabel "$(N)"
 numPvs 4
 numDsps 2
 displayFileName {
-  0 userCalcOut.edl
-  1 userCalcOut_full.edl
+  0 "userCalcOut.edl"
+  1 "userCalcOut_full.edl"
 }
 menuLabel {
-  0 user CalcOut $(N)
-  1 user CalcOut $(N) (full)
+  0 "user CalcOut $(N)"
+  1 "user CalcOut $(N) (full)"
 }
 symbols {
   0 "P=$(P),N=$(N),C=userCalcOut$(N)"

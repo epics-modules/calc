@@ -89,12 +89,12 @@ buttonLabel "$(N)"
 numPvs 4
 numDsps 2
 displayFileName {
-  0 userStringSeq.edl
-  1 userStringSeq_full.edl
+  0 "userStringSeq.edl"
+  1 "userStringSeq_full.edl"
 }
 menuLabel {
-  0 user String Seq $(N)
-  1 user String Seq $(N) (full)
+  0 "user String Seq $(N)"
+  1 "user String Seq $(N) (full)"
 }
 symbols {
   0 "P=$(P),N=$(N),S=userStringSeq$(N)"

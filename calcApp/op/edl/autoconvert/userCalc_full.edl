@@ -2410,12 +2410,12 @@ buttonLabel "More"
 numPvs 4
 numDsps 2
 displayFileName {
-  0 userCalcMeter.edl
-  1 userCalc_help.edl
+  0 "userCalcMeter.edl"
+  1 "userCalc_help.edl"
 }
 menuLabel {
-  0 Show meter
-  1 Help
+  0 "Show meter"
+  1 "Help"
 }
 symbols {
   0 "P=$(P),C=$(C),N=$(N)"
@@ -2606,10 +2606,10 @@ buttonLabel "?"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 calcExamples.edl
+  0 "calcExamples.edl"
 }
 menuLabel {
-  0 
+  0 ""
 }
 symbols {
   0 
@@ -2638,10 +2638,10 @@ buttonLabel "Less"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 userCalc.edl
+  0 "userCalc.edl"
 }
 menuLabel {
-  0 First four inputs only
+  0 "First four inputs only"
 }
 symbols {
   0 "P=$(P),C=$(C),N=$(N)"

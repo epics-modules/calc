@@ -89,12 +89,12 @@ buttonLabel "$(N)"
 numPvs 4
 numDsps 2
 displayFileName {
-  0 userTransform.edl
-  1 userTransform_full.edl
+  0 "userTransform.edl"
+  1 "userTransform_full.edl"
 }
 menuLabel {
-  0 user transform $(N)
-  1 user transform $(N) (full)
+  0 "user transform $(N)"
+  1 "user transform $(N) (full)"
 }
 symbols {
   0 "P=$(P),N=$(N),T=userTran$(N)"

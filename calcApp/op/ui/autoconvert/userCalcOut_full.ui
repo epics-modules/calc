@@ -3618,57 +3618,6 @@ border-radius: 2px;
                 <string>379,1;</string>
             </property>
         </widget>
-        <widget class="caTextEntry" name="caTextEntry_31">
-            <property name="geometry">
-                <rect>
-                    <x>25</x>
-                    <y>348</y>
-                    <width>255</width>
-                    <height>20</height>
-                </rect>
-            </property>
-            <property name="fontScaleMode">
-                <enum>caLineEdit::WidthAndHeight</enum>
-            </property>
-            <property name="channel">
-                <string>$(P)$(C).CALC$</string>
-            </property>
-            <property name="foreground">
-                <color alpha="255">
-                    <red>0</red>
-                    <green>0</green>
-                    <blue>0</blue>
-                </color>
-            </property>
-            <property name="background">
-                <color alpha="255">
-                    <red>115</red>
-                    <green>223</green>
-                    <blue>255</blue>
-                </color>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="limitsMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="precisionMode">
-                <enum>caLineEdit::Channel</enum>
-            </property>
-            <property name="minValue">
-                <double>0.0</double>
-            </property>
-            <property name="maxValue">
-                <double>1.0</double>
-            </property>
-            <property name="colorMode">
-                <enum>caLineEdit::Static</enum>
-            </property>
-            <property name="formatType">
-                <enum>string</enum>
-            </property>
-        </widget>
         <widget class="caLabel" name="caLabel_22">
             <property name="frameShape">
                 <enum>QFrame::NoFrame</enum>
@@ -4173,7 +4122,7 @@ border-radius: 2px;
                 <enum>caLineEdit::Static</enum>
             </property>
         </widget>
-        <widget class="caTextEntry" name="caTextEntry_32">
+        <widget class="caTextEntry" name="caTextEntry_31">
             <property name="geometry">
                 <rect>
                     <x>25</x>
@@ -4475,7 +4424,7 @@ border-radius: 2px;
                     <height>22</height>
                 </rect>
             </property>
-            <widget class="caTextEntry" name="caTextEntry_33">
+            <widget class="caTextEntry" name="caTextEntry_32">
                 <property name="geometry">
                     <rect>
                         <x>50</x>
@@ -4683,6 +4632,57 @@ border-radius: 2px;
                 </rect>
             </property>
         </widget>
+        <widget class="caTextEntry" name="caTextEntry_33">
+            <property name="geometry">
+                <rect>
+                    <x>25</x>
+                    <y>348</y>
+                    <width>255</width>
+                    <height>20</height>
+                </rect>
+            </property>
+            <property name="fontScaleMode">
+                <enum>caLineEdit::WidthAndHeight</enum>
+            </property>
+            <property name="channel">
+                <string>$(P)$(C).CALC$</string>
+            </property>
+            <property name="foreground">
+                <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                </color>
+            </property>
+            <property name="background">
+                <color alpha="255">
+                    <red>115</red>
+                    <green>223</green>
+                    <blue>255</blue>
+                </color>
+            </property>
+            <property name="limitsMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="limitsMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="precisionMode">
+                <enum>caLineEdit::Channel</enum>
+            </property>
+            <property name="minValue">
+                <double>0.0</double>
+            </property>
+            <property name="maxValue">
+                <double>1.0</double>
+            </property>
+            <property name="colorMode">
+                <enum>caLineEdit::Static</enum>
+            </property>
+            <property name="formatType">
+                <enum>string</enum>
+            </property>
+        </widget>
         <zorder>caRectangle_0</zorder>
         <zorder>caLabel_0</zorder>
         <zorder>caPolyLine_0</zorder>
@@ -4785,13 +4785,13 @@ border-radius: 2px;
         <zorder>caTextEntry_29</zorder>
         <zorder>caTextEntry_30</zorder>
         <zorder>caLineEdit_0</zorder>
-        <zorder>caTextEntry_31</zorder>
         <zorder>caLineEdit_1</zorder>
-        <zorder>caTextEntry_32</zorder>
+        <zorder>caTextEntry_31</zorder>
         <zorder>caRelatedDisplay_0</zorder>
         <zorder>caRelatedDisplay_1</zorder>
-        <zorder>caTextEntry_33</zorder>
+        <zorder>caTextEntry_32</zorder>
         <zorder>caRelatedDisplay_2</zorder>
+        <zorder>caTextEntry_33</zorder>
     </widget>
 </widget>
 </ui>

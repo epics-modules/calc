@@ -656,32 +656,6 @@ yPoints  {
 }
 endObjectProperties
 
-# (Text Control)
-object activeXTextDspClass
-beginObjectProperties
-major 4
-minor 7
-release 0
-x 25
-y 230
-w 255
-h 20
-controlPv "$(P)$(C).CALC$"
-format "string"
-font "helvetica-medium-r-12.0"
-fontAlign "left"
-fgColor rgb 0 0 0
-bgColor rgb 29440 57088 65280
-editable
-motifWidget
-limitsFromDb
-nullColor rgb 60928 46592 11008
-smartRefresh
-fastUpdate
-newPos
-objType "controls"
-endObjectProperties
-
 # (Static Text)
 object activeXTextClass
 beginObjectProperties
@@ -1958,6 +1932,32 @@ newPos
 objType "controls"
 endObjectProperties
 
+# (Text Control)
+object activeXTextDspClass
+beginObjectProperties
+major 4
+minor 7
+release 0
+x 25
+y 230
+w 255
+h 20
+controlPv "$(P)$(C).CALC$"
+format "string"
+font "helvetica-medium-r-12.0"
+fontAlign "left"
+fgColor rgb 0 0 0
+bgColor rgb 29440 57088 65280
+editable
+motifWidget
+limitsFromDb
+nullColor rgb 60928 46592 11008
+smartRefresh
+fastUpdate
+newPos
+objType "controls"
+endObjectProperties
+
 # (Menu Button)
 object activeMenuButtonClass
 beginObjectProperties
@@ -2125,10 +2125,10 @@ buttonLabel "?"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 calcExamples.edl
+  0 "calcExamples.edl"
 }
 menuLabel {
-  0 
+  0 ""
 }
 symbols {
   0 
@@ -2157,10 +2157,10 @@ buttonLabel "?"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 calcExamples.edl
+  0 "calcExamples.edl"
 }
 menuLabel {
-  0 
+  0 ""
 }
 symbols {
   0 
@@ -2206,10 +2206,10 @@ buttonLabel "More"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 userArrayCalc_plot.edl
+  0 "userArrayCalc_plot.edl"
 }
 menuLabel {
-  0 user arrayCalc (w/plot)
+  0 "user arrayCalc (w/plot)"
 }
 symbols {
   0 "P=$(P),C=$(C),N=$(N)"
@@ -2281,12 +2281,12 @@ buttonLabel "ARRAY RESULT"
 numPvs 4
 numDsps 2
 displayFileName {
-  0 userArrayCalcPlot.edl
-  1 arrayPlot8.edl
+  0 "userArrayCalcPlot.edl"
+  1 "arrayPlot8.edl"
 }
 menuLabel {
-  0 plot
-  1 plot with input arrays
+  0 "plot"
+  1 "plot with input arrays"
 }
 symbols {
   0 "P=$(P),C=$(C),Y=$(P)$(C).AVAL,YLABEL=$(P)$(C).AVAL"
@@ -2317,10 +2317,10 @@ buttonLabel "ARRAY RESULT"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 userArrayCalcPlot.edl
+  0 "userArrayCalcPlot.edl"
 }
 menuLabel {
-  0 plot
+  0 "plot"
 }
 symbols {
   0 "P=$(P),C=$(C),Y=$(P)$(C).OAV,YLABEL=$(P)$(C).OAV"
@@ -2349,12 +2349,12 @@ buttonLabel "AA"
 numPvs 4
 numDsps 2
 displayFileName {
-  0 userArrayCalcPlot.edl
-  1 arrayPlot8.edl
+  0 "userArrayCalcPlot.edl"
+  1 "arrayPlot8.edl"
 }
 menuLabel {
-  0 plot
-  1 plot AA-HH
+  0 "plot"
+  1 "plot AA-HH"
 }
 symbols {
   0 "P=$(P),C=$(C),Y=$(P)$(C).AA,YLABEL=$(P)$(C).AA"
@@ -2385,10 +2385,10 @@ buttonLabel "BB"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 userArrayCalcPlot.edl
+  0 "userArrayCalcPlot.edl"
 }
 menuLabel {
-  0 plot
+  0 "plot"
 }
 symbols {
   0 "P=$(P),C=$(C),Y=$(P)$(C).BB,YLABEL=$(P)$(C).BB"
@@ -2442,10 +2442,10 @@ buttonLabel "Less"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 userArrayCalc_small.edl
+  0 "userArrayCalc_small.edl"
 }
 menuLabel {
-  0 user arrayCalc (w/plot)
+  0 "user arrayCalc (w/plot)"
 }
 symbols {
   0 "P=$(P),C=$(C),N=$(N)"

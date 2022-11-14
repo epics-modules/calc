@@ -877,12 +877,12 @@ buttonLabel "Debug"
 numPvs 4
 numDsps 2
 displayFileName {
-  0 yyCalcoutRecord.edl
-  1 yySeq.edl
+  0 "yyCalcoutRecord.edl"
+  1 "yySeq.edl"
 }
 menuLabel {
-  0 done calc
-  1 acquire seq
+  0 "done calc"
+  1 "acquire seq"
 }
 symbols {
   0 "P=$(P),C=$(C)_doneCalc"
@@ -938,10 +938,10 @@ buttonLabel "Less"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 userAve.edl
+  0 "userAve.edl"
 }
 menuLabel {
-  0 Less
+  0 "Less"
 }
 symbols {
   0 "P=$(P),C=$(C),N=$(N)"

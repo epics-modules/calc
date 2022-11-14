@@ -47,24 +47,11 @@ visMin 0
 visMax 1
 endObjectProperties
 
-# (Group)
-object activeGroupClass
-beginObjectProperties
-major 4
-minor 0
-release 0
-x 0
-y 0
-w 400
-h 311
-
-beginGroup
-
 # (Embedded Window)
 object activePipClass
 beginObjectProperties
 major 4
-minor 1
+minor 0
 release 0
 x 0
 y 0
@@ -82,12 +69,6 @@ displayFileName {
   0 "yyArrayCalc_small_bare.edl;P=$(P),C=$(C)"
 }
 noScroll
-endObjectProperties
-
-endGroup
-
-visMin "A"
-visMax "1"
 endObjectProperties
 
 # (Static Text)
@@ -133,10 +114,10 @@ buttonLabel "More"
 numPvs 2
 numDsps 1
 displayFileName {
-  0 userArrayCalc.edl
+  0 "userArrayCalc.edl"
 }
 menuLabel {
-  0 user arrayCalc
+  0 "user arrayCalc"
 }
 symbols {
   0 "P=$(P),C=$(C),N=$(N)"
