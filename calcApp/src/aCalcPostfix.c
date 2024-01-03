@@ -150,6 +150,8 @@ static const ELEMENT operands[] = {
 {"I",			0, 0,	1,		OPERAND,			FETCH_I},
 {"II",			0, 0,	1,		OPERAND,			FETCH_II},
 {"INT",			9, 10,	0,		UNARY_OPERATOR,		NINT},
+{"ANEG",		9, 10,	0,		UNARY_OPERATOR,		ANEG_VAL},
+{"APOS",		9, 10,	0,		UNARY_OPERATOR,		APOS_VAL},
 {"ISINF",		9, 10,	0,		UNARY_OPERATOR,		ISINF},
 {"ISNAN",		9, 10,	0,		VARARG_OPERATOR,	ISNAN},
 {"IX",			0, 0,	1,		OPERAND,			CONST_IX},
@@ -305,6 +307,8 @@ static const char *opcodes[] = {
 /* Algebraic */
 	"ABS_VAL",
 	"EXP",
+	"ANEG_VAL",
+	"APOS_VAL",
 	"LOG_10",
 	"LOG_E",
 	"MAX",

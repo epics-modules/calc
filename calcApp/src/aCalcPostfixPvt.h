@@ -56,6 +56,8 @@ typedef enum {
     /* Algebraic */
 	ABS_VAL,
 	EXP,
+	ANEG_VAL,
+	APOS_VAL,
 	LOG_10,
 	LOG_E,
 	MAX,
