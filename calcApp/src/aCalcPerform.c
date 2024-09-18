@@ -745,6 +745,8 @@ long aCalcPerform(double *p_dArg, int num_dArgs, double **pp_aArg,
 		case NINT:
 		case AMAX:
 		case AMIN:
+		case ANEG_VAL:
+		case APOS_VAL:
 		case IXMAX:
 		case IXMIN:
 		case IXZ:
@@ -762,6 +764,8 @@ long aCalcPerform(double *p_dArg, int num_dArgs, double **pp_aArg,
 			if (isArray(ps)) {
 				switch (op) {
 				case ABS_VAL: for (i=0; i<arraySize; i++) {if (ps->a[i] < 0) ps->a[i] *= -1;} break;
+				case ANEG_VAL: for (i=0; i<arraySize; i++) {if (ps->a[i] < 0) ps->a[i] = 0;} break;
+				case APOS_VAL: for (i=0; i<arraySize; i++) {if (ps->a[i] > 0) ps->a[i] = 0;} break;
 				case UNARY_NEG: for (i=0; i<arraySize; i++) {ps->a[i] *= -1;} break;
 				case SQU_RT:
 					status = 0;
@@ -1029,6 +1033,8 @@ long aCalcPerform(double *p_dArg, int num_dArgs, double **pp_aArg,
 			} else { /* if (isArray(ps)) */
 				switch (op) {
 				case ABS_VAL: if (ps->d < 0) {ps->d *= -1;} break;
+				case ANEG_VAL: if (ps->d < 0) {ps->d = 0;} break;
+				case APOS_VAL: if (ps->d > 0) {ps->d = 0;} break;
 				case UNARY_NEG: ps->d *= -1; break;
 				case SQU_RT:
 					if (ps->d < 0) {
