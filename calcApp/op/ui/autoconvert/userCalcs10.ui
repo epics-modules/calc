@@ -85,6 +85,16 @@ caChoice &gt; QPushButton {
       padding: 1px;
 }
 
+/* when font specified, no font sizing is done any more,  font: 10pt; is not bad. You could Enable this when you converted from .adl files
+caRelatedDisplay  &gt; QPushButton {
+font: 10pt;
+}
+
+caShellCommand  &gt; QPushButton {
+font: 10pt;
+}
+*/
+
 caSlider::groove:horizontal {
 border: 1px solid #bbb;
 background: lightgrey;
@@ -124,7 +134,7 @@ border-radius: 2px;
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalcs_line.adl</string>
+                <string>userCalcs_line.ui</string>
             </property>
             <property name="macro">
                 <string>P=$(P),N=1</string>
@@ -148,7 +158,7 @@ border-radius: 2px;
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalcs_line.adl</string>
+                <string>userCalcs_line.ui</string>
             </property>
             <property name="macro">
                 <string>P=$(P),N=2</string>
@@ -172,7 +182,7 @@ border-radius: 2px;
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalcs_line.adl</string>
+                <string>userCalcs_line.ui</string>
             </property>
             <property name="macro">
                 <string>P=$(P),N=3</string>
@@ -196,7 +206,7 @@ border-radius: 2px;
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalcs_line.adl</string>
+                <string>userCalcs_line.ui</string>
             </property>
             <property name="macro">
                 <string>P=$(P),N=4</string>
@@ -220,7 +230,7 @@ border-radius: 2px;
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalcs_line.adl</string>
+                <string>userCalcs_line.ui</string>
             </property>
             <property name="macro">
                 <string>P=$(P),N=5</string>
@@ -244,7 +254,7 @@ border-radius: 2px;
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalcs_line.adl</string>
+                <string>userCalcs_line.ui</string>
             </property>
             <property name="macro">
                 <string>P=$(P),N=6</string>
@@ -268,7 +278,7 @@ border-radius: 2px;
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalcs_line.adl</string>
+                <string>userCalcs_line.ui</string>
             </property>
             <property name="macro">
                 <string>P=$(P),N=7</string>
@@ -292,7 +302,7 @@ border-radius: 2px;
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalcs_line.adl</string>
+                <string>userCalcs_line.ui</string>
             </property>
             <property name="macro">
                 <string>P=$(P),N=8</string>
@@ -316,7 +326,7 @@ border-radius: 2px;
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalcs_line.adl</string>
+                <string>userCalcs_line.ui</string>
             </property>
             <property name="macro">
                 <string>P=$(P),N=9</string>
@@ -340,7 +350,7 @@ border-radius: 2px;
                 </rect>
             </property>
             <property name="filename">
-                <string>userCalcs_line.adl</string>
+                <string>userCalcs_line.ui</string>
             </property>
             <property name="macro">
                 <string>P=$(P),N=10</string>
