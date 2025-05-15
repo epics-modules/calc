@@ -53,12 +53,6 @@ jobs:
           - os: ubuntu-24.04
             cmp: gcc
             configuration: default
-            set: stable_3_16
-            name: "Linux stable 3.16"
-            
-          - os: ubuntu-24.04
-            cmp: gcc
-            configuration: default
             set: stable_3_15
             name: "Linux stable 3.15"
             
@@ -68,12 +62,6 @@ jobs:
             set: master_7_0
             name: "Linux master 7.0"
 
-          - os: ubuntu-24.04
-            cmp: gcc
-            configuration: default
-            set: master_3_16
-            name: "Linux master 3.16"
-            
           - os: ubuntu-24.04
             cmp: gcc
             configuration: default
