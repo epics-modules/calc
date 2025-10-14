@@ -94,21 +94,21 @@
 /* Create RSET - Record Support Entry Table*/
 #define report NULL
 #define initialize NULL
-static long init_record();
-static long process();
-static long special();
+static long init_record(dbCommon *precord, int pass);
+static long process(dbCommon *precord);
+static long special(DBADDR *paddr, int after);
 #define get_value NULL
-static long cvt_dbaddr();
+static long cvt_dbaddr(dbAddr *paddr);
 #define get_array_info NULL
 #define put_array_info NULL
-static long get_units();
-static long get_precision();
+static long get_units(dbAddr *paddr, char *units);
+static long get_precision(const dbAddr *paddr, long *prec);
 #define get_enum_str NULL
 #define get_enum_strs NULL
 #define put_enum_str NULL
-static long get_graphic_double();
-static long get_control_double();
-static long get_alarm_double();
+static long get_graphic_double(dbAddr *paddr, struct dbr_grDouble *pgd);
+static long get_control_double(dbAddr *paddr, struct dbr_ctrlDouble *pcd);
+static long get_alarm_double(dbAddr *paddr, struct dbr_alDouble *pad);
 
 rset scalcoutRSET={
 	RSETNUMBER,
@@ -175,13 +175,15 @@ typedef struct rpvtStruct {
 	short		outlink_field_type;
 } rpvtStruct;
 
-static void checkAlarms();
-static void monitor();
-static int fetch_values();
-static void execOutput();
-static void checkLinks();
-static void checkLinksCallback();
+static void checkAlarms(scalcoutRecord *pcalc);
+static void monitor(scalcoutRecord *pcalc);
+static int fetch_values(scalcoutRecord *pcalc);
+static void execOutput(scalcoutRecord *pcalc);
+static void checkLinks(scalcoutRecord *pcalc);
+static void checkLinksCallback(CALLBACK *pcallback);
 static long writeValue(scalcoutRecord *pcalc);
+
+typedef long(*typed_devsupfun_t)(void*);
 
 volatile int    sCalcoutRecordDebug = 0;
 epicsExportAddress(int, sCalcoutRecordDebug);
@@ -198,7 +200,7 @@ epicsExportAddress(int, sCalcoutRecordDebug);
 static char sFldnames[MAX_FIELDS][3] =
 {"AA","BB","CC","DD","EE","FF","GG","HH","II","JJ","KK","LL"};
 
-static long init_record(scalcoutRecord *pcalc, int pass)
+static long init_record(dbCommon *precord, int pass)
 {
 	DBLINK *plink;
 	int i;
@@ -207,6 +209,7 @@ static long init_record(scalcoutRecord *pcalc, int pass)
 	short error_number;
 	char *s, **ps;
     scalcoutDSET *pscalcoutDSET;
+	scalcoutRecord* pcalc = (scalcoutRecord*)precord;
 
 	dbAddr       Addr;
 	dbAddr       *pAddr = &Addr;
@@ -311,13 +314,14 @@ static long init_record(scalcoutRecord *pcalc, int pass)
 	}
 
 	if (pscalcoutDSET->init_record ) {
-		return (*pscalcoutDSET->init_record)(pcalc);
+		return ((typed_devsupfun_t)pscalcoutDSET->init_record)(pcalc);
 	}
     return(0);
 }
 
-static long process(scalcoutRecord *pcalc)
+static long process(dbCommon *precord)
 {
+	scalcoutRecord *pcalc = (scalcoutRecord*)precord;
 	rpvtStruct   *prpvt = (rpvtStruct *)pcalc->rpvt;
 	short		doOutput = 0;
 	long		stat;
@@ -604,7 +608,7 @@ static long get_units(dbAddr *paddr, char *units)
 	return(0);
 }
 
-static long get_precision(dbAddr *paddr, long *precision)
+static long get_precision(const dbAddr *paddr, long *precision)
 {
 	scalcoutRecord	*pcalc=(scalcoutRecord *)paddr->precord;
 	int fieldIndex = dbGetFieldIndex(paddr);
@@ -1071,5 +1075,6 @@ static long writeValue(scalcoutRecord *pcalc)
         pcalc->pact = TRUE;
         return(-1);
     }
-	return pscalcoutDSET->write(pcalc);
+
+	return ((typed_devsupfun_t)pscalcoutDSET->write)(pcalc);
 }
