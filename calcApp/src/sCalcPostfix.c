@@ -4,7 +4,7 @@
 * Copyright (c) 2002 The Regents of the University of California, as
 *     Operator of Los Alamos National Laboratory.
 * EPICS BASE is distributed subject to a Software License Agreement found
-* in file LICENSE that is included with this distribution. 
+* in file LICENSE that is included with this distribution.
 \*************************************************************************/
 /* $Id: sCalcPostfix.c,v 1.19 2009-09-09 16:39:34 mooney Exp $
  * Subroutines used to convert an infix expression to a postfix expression
@@ -69,7 +69,7 @@ typedef struct expression_element {
 
 /*
  * NOTE: DO NOT CHANGE WITHOUT READING THIS NOTICE !!!!!!!!!!!!!!!!!!!!
- * Because the routine that looks for a match in this table takes the first 
+ * Because the routine that looks for a match in this table takes the first
  * match it finds, elements whose designations are contained in other elements
  * MUST come first in this list. (e.g. ABS will match A if A preceeds ABS and
  * then try to find BS.  Therefore ABS must be first in this list.)
@@ -215,7 +215,7 @@ static const ELEMENT operators[] = {
 {"[",		0, 11,	-1,		BINARY_OPERATOR,	SUBRANGE},    /* string subrange */
 {"{",		0, 11,	-1,		BINARY_OPERATOR,	REPLACE},      /* string replace */
 {"]",		0, 0,	0,		CLOSE_BRACKET,		NOT_GENERATED},
-{"}",		0, 0,	0,		CLOSE_CURLY,		NOT_GENERATED}, 
+{"}",		0, 0,	0,		CLOSE_CURLY,		NOT_GENERATED},
 {"*",		7, 7,	-1,		BINARY_OPERATOR,	MULT},
 {"**",		8, 8,	-1,		BINARY_OPERATOR,	POWER},
 {"+",		6, 6,	-1,		BINARY_OPERATOR,	ADD},
@@ -407,7 +407,7 @@ static const char *opcodes[] = {
 epicsShareFunc long
 	sCalcPostfix(const char *psrc, unsigned char * const ppostfix, short *perror)
 {
-	ELEMENT stack[80];
+	ELEMENT stack[80] = { END_EXPRESSION };
 	ELEMENT *pstacktop = stack, *ps1;
 	const ELEMENT *pel;
 	int operand_needed = TRUE;
@@ -903,7 +903,7 @@ epicsShareFunc const char *
 		"Close bracket without open",
 		"Close curly bracket without open"
 	};
-	
+
 	if (error < CALC_ERR_NONE || error > CALC_ERR_INTERNAL)
 		return NULL;
 	return errStrs[error];
@@ -919,7 +919,7 @@ epicsShareFunc void
 	unsigned char op;
 	double lit_d;
 	int lit_i;
-	
+
 	while ((op = *pinst) != END_EXPRESSION) {
 		switch (op) {
 		case LITERAL_DOUBLE:

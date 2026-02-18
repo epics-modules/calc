@@ -409,7 +409,7 @@ static const char *opcodes[] = {
 epicsShareFunc long
 	aCalcPostfix(const char *psrc, unsigned char * const ppostfix, short *perror)
 {
-	ELEMENT stack[80];
+	ELEMENT stack[80] = { END_EXPRESSION };
 	ELEMENT *pstacktop = stack, *ps1;
 	const ELEMENT *pel;
 	int operand_needed = TRUE;
