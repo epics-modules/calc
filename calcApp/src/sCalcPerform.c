@@ -971,7 +971,7 @@ epicsShareFunc long
 					ps->d = ps->d + ps1->d;
 				} else {
 					/* concatenate two strings */
-					strncat(ps->s, ps1->s, strlen(ps->s)-SCALC_STRING_SIZE-1);
+					strncat(ps->s, ps1->s, SCALC_STRING_SIZE-strlen(ps->s)-1);
 				}
 				break;
 
@@ -1821,7 +1821,7 @@ epicsShareFunc long
 						if (op==CRC16) {
 							strNcpy(ps->s, tmpstr, SCALC_STRING_SIZE-1);
 						} else {
-							strncat(ps->s, tmpstr, strlen(ps->s)-SCALC_STRING_SIZE-1);
+							strncat(ps->s, tmpstr, SCALC_STRING_SIZE-strlen(ps->s)-1);
 						}
 					}
 				}
@@ -1845,8 +1845,8 @@ epicsShareFunc long
 						} else {
 							strcpy(tmpstr, ":");
 							strcat(tmpstr, ps->s);
-							strNcpy(ps->s, tmpstr, strlen(ps->s)-SCALC_STRING_SIZE-1);
-							strncat(ps->s, tmpstr10, strlen(ps->s)-SCALC_STRING_SIZE-1);
+							strNcpy(ps->s, tmpstr, SCALC_STRING_SIZE);
+							strncat(ps->s, tmpstr10, SCALC_STRING_SIZE-strlen(ps->s)-1);
 						}
 					}
 				}
@@ -1859,7 +1859,7 @@ epicsShareFunc long
 						if (op==XOR8) {
 							strNcpy(ps->s, tmpstr, SCALC_STRING_SIZE-1);
 						} else {
-							strncat(ps->s, tmpstr, strlen(ps->s)-SCALC_STRING_SIZE-1);
+							strncat(ps->s, tmpstr, SCALC_STRING_SIZE-strlen(ps->s)-1);
 						}
 					}
 				}
