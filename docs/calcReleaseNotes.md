@@ -1,3 +1,9 @@
+---
+layout: default
+title: Release Notes
+nav_order: 2
+---
+
 # calc Release Notes
 
 ## Release 3-7-5

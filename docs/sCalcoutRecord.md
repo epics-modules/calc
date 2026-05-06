@@ -1,3 +1,9 @@
+---
+layout: default
+title: sCalcout Record
+nav_order: 4
+---
+
 # scalcout - String Calculation Output Record
 
 

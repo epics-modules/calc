@@ -1,3 +1,9 @@
+---
+layout: default
+title: Array Interpolation
+nav_order: 8
+---
+
 # interpNew - Array Interpolation
 
 This is a new version of interp, that requires the additional macro, Q, and that is easier to use.

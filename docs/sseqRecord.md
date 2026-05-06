@@ -1,3 +1,9 @@
+---
+layout: default
+title: sseq Record
+nav_order: 5
+---
+
 # The sseq (string sequence) record
 
 ## Contents

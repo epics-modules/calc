@@ -1,3 +1,9 @@
+---
+layout: default
+title: aCalcout Record
+nav_order: 3
+---
+
 # aCalcout - Array Calculation Output Record
 
 

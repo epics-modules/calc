@@ -1,3 +1,9 @@
+---
+layout: default
+title: swait Record
+nav_order: 6
+---
+
 # The SWAIT record
 
 Ned D. Arnold, Tim Mooney
