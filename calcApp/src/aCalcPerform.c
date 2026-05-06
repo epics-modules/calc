@@ -30,6 +30,7 @@
 #include "aCalcPostfixPvt.h"
 #include <iocsh.h>
 #include <epicsMutex.h>
+#include <epicsThread.h>
 #include <epicsTime.h>
 #include <epicsExport.h>
 
@@ -157,7 +158,11 @@ int to_array(void *flp, stackElement *ps, int arraySize, int setValues) {
 /*** begin manage an array of freeLists ***/
 
 /* an fList is a list of freeLists */
-epicsMutexId fListLock=0;
+static epicsMutexId fListLock;
+static epicsThreadOnceId fListOnceFlag = EPICS_THREAD_ONCE_INIT;
+static void fListInit(void *arg) {
+	fListLock = epicsMutexMustCreate();
+}
 
 typedef struct {
 	void *freeListPvt;
@@ -247,7 +252,7 @@ void *get_freeList(int nuse) {
 long acalcTotalAllocatedMemory(void) {
 	int i;
 	long blocks, total=0;
-	if (fListLock==0) fListLock = epicsMutexMustCreate();
+	epicsThreadOnce(&fListOnceFlag, fListInit, NULL);
 	epicsMutexMustLock(fListLock);
 	for (i=0; i<NLISTS; i++) {
 		if (fList[i].freeListPvt) {
@@ -308,7 +313,7 @@ long aCalcPerform(double *p_dArg, int num_dArgs, double **pp_aArg,
 		return(-1);
 	}
 
-	if (fListLock==0) fListLock = epicsMutexMustCreate();
+	epicsThreadOnce(&fListOnceFlag, fListInit, NULL);
 	flp = get_freeList(arraySize);
 	if (flp == 0) {
 		printf("aCalcPerform: Can't allocate value stack\n");

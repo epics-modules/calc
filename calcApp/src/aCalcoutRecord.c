@@ -1239,6 +1239,24 @@ typedef struct {
 volatile int aCalcAsyncThreshold = 10000; /* array sizes larger than this get queued */
 epicsExportAddress(int, aCalcAsyncThreshold);
 
+static void acalcPerformTask(void *parm);
+static epicsThreadOnceId acalcOnceFlag = EPICS_THREAD_ONCE_INIT;
+static void acalcInit(void *arg) {
+	acalcMsgQueue = epicsMessageQueueCreate(MAX_MSG, MSG_SIZE);
+	if (acalcMsgQueue == NULL) {
+		printf("aCalcoutRecord: Unable to create message queue\n");
+		return;
+	}
+	acalcThreadId = epicsThreadCreate("acalcPerformTask", PRIORITY,
+		epicsThreadGetStackSize(epicsThreadStackBig),
+		(EPICSTHREADFUNC)acalcPerformTask, (void *)epicsThreadGetIdSelf());
+	if (acalcThreadId == NULL) {
+		printf("aCalcoutRecord: Unable to create acalcPerformTask\n");
+		epicsMessageQueueDestroy(acalcMsgQueue);
+		acalcMsgQueue = NULL;
+	}
+}
+
 static void call_aCalcPerform(acalcoutRecord *pcalc) {
 	long numElements;
 	epicsUInt32 amask;
@@ -1288,23 +1306,10 @@ static long doCalc(acalcoutRecord *pcalc) {
 		doAsync = 1;
 
 	/* if required infrastructure doesn't yet exist, create it */
-	if (doAsync && acalcMsgQueue == NULL) {
-		acalcMsgQueue = epicsMessageQueueCreate(MAX_MSG, MSG_SIZE);
-		if (acalcMsgQueue==NULL) {
-			printf("aCalcoutRecord: Unable to create message queue\n");
+	if (doAsync) {
+		epicsThreadOnce(&acalcOnceFlag, acalcInit, NULL);
+		if (acalcMsgQueue == NULL)
 			return(-1);
-		}
-
-		acalcThreadId = epicsThreadCreate("acalcPerformTask", PRIORITY,
-			epicsThreadGetStackSize(epicsThreadStackBig),
-			(EPICSTHREADFUNC)acalcPerformTask, (void *)epicsThreadGetIdSelf());
-
-		if (acalcThreadId == NULL) {
-			printf("aCalcoutRecord: Unable to create acalcPerformTask\n");
-			epicsMessageQueueDestroy(acalcMsgQueue);
-			acalcMsgQueue = NULL;
-			return(-1);
-		}
 	}
 	
 	/* Ideally, we should do short calculations in this thread, and queue long calculations.
