@@ -1550,15 +1550,15 @@ epicsShareFunc long
 					case 'u': case 'x': case 'X':
 						toDouble(ps1);
 						l = myNINT(ps1->d);
-	 					sprintf(tmpstr, ps->s, l);
+	 					snprintf(tmpstr, TMPSTR_SIZE, ps->s, l);
 						break;
 					case 'e': case 'E': case 'f': case 'g': case 'G':
 						toDouble(ps1);
-	 					sprintf(tmpstr, ps->s, ps1->d);
+	 					snprintf(tmpstr, TMPSTR_SIZE, ps->s, ps1->d);
 						break;
 					case 's':
 						toString(ps1);
-	 					sprintf(tmpstr, ps->s, ps1->s);
+	 					snprintf(tmpstr, TMPSTR_SIZE, ps->s, ps1->s);
 						break;
 					}
 				}
