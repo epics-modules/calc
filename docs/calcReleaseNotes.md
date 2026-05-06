@@ -65,15 +65,12 @@ nav_order: 2
 ## Release 3-4-2-1
 
 - Not all userCalc displays use $(C); some use $(S). Specify both
-
-## Release 3-4-2
-
 - /userXXX10more_bare.adl specified macro C, but sseq displays need S
 
 ## Release 3-4-2
 
 - calc was adding editSeq.dbd to calcSupport.dbd even when SNCSEQ wasn't defined in RELEASE
-- sseq record: previously, sseq could segfault when .WAIT=="After\<n\>". Thanks to Matt Pearson for finding and characterizing the problem.
+- sseq record: previously, sseq could segfault when `WAIT` == `After<n>`. Thanks to Matt Pearson for finding and characterizing the problem.
 
 ## Release 3-4-1
 
@@ -110,8 +107,6 @@ nav_order: 2
 - Previously, when fetching array values from input links, the number of elements requested was not initialized before each call to dbGetLink(). If dbGetLink() reported a smaller number of elements, that number was used in subsequent calls to dbGetLink().
 - Previously, the arguments of the @ and @@ operators were not thoroughly range checked. Also, a subexpression like "@-a:=2" was executed as "@a:=-2" because the := operator failed to move operators of >= priority out to the postfix buffer.
 - Added display files for caQtDM
-
-# calc Release Notes
 
 ## Release 3-1
 
@@ -251,8 +246,4 @@ Differences from software as previously released in std 2.2:
 - interp.c, interp.db, interp.adl - now supports spline and polynomial interpolation.
 - subAve.c - registry stuff
 
----
 
-Suggestions and Comments to:
-[Tim Mooney](mailto:mooney@aps.anl.gov) (mooney@aps.anl.gov)
-Last modified: December 22, 2004
