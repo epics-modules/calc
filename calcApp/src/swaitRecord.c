@@ -316,8 +316,9 @@ STATIC long init_record(dbCommon *pcommon, int pass)
     callbackSetUser(pwait, &pcbst->ioProcCb);
     pcbst->pwait = pwait;
     if ((pcbst->monitorQ=epicsRingBytesCreate(sizeof(struct qStruct)*Q_SIZE)) == NULL) {
-        errMessage(0,"recWait can't create ring buffer");
-        exit(1);
+        errlogSevPrintf(errlogMajor,
+            "swaitRecord(%s): can't create ring buffer\n", pwait->name);
+        return(S_db_noMemory);
     }
 
     if ((status=initSiml(pwait))) return(status);
