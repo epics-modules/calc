@@ -409,7 +409,11 @@ static const char *opcodes[] = {
 epicsShareFunc long
 	aCalcPostfix(const char *psrc, unsigned char * const ppostfix, short *perror)
 {
-	ELEMENT stack[80] = { END_EXPRESSION };
+	/* Sentinel element must have a valid name pointer so that loops
+	 * searching for '(', '[', or '{' don't dereference NULL on
+	 * malformed expressions that pop down to the stack bottom.
+	 */
+	ELEMENT stack[80] = { { "" } };
 	ELEMENT *pstacktop = stack, *ps1;
 	const ELEMENT *pel;
 	int operand_needed = TRUE;
