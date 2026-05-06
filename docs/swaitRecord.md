@@ -189,18 +189,18 @@ The expression can use the values retrieved from the INP*x* links as operands, t
 ### 4.5. Logical Operators
 
 - && : And
-- || : Or
+- \|\| : Or
 - ! : Not
 
 ### 4.6. Bitwise Operators
 
-- | : Bitwise Or
+- \| : Bitwise Or
 - & : Bitwise And
 - OR : Bitwise Or
 - AND: Bitwise And
 - XOR: Bitwise Exclusive Or
 - ~ : One's Complement
-- << : Left shift
+- \<\< : Left shift
 - \>\> : Right shift
 
 ### 4.7. Parentheses and Comma

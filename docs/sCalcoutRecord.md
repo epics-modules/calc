@@ -567,7 +567,7 @@ Result is  `"abc1.23"`.
 
 NOTE: unlike the c-language function
 
-printf(\<format\>,\<arg1\>,\<arg2\>,...),
+`printf(<format>,<arg1>,<arg2>,...)`,
 
 this function accepts only one argument after the format string.
 
@@ -580,7 +580,7 @@ Result is `"1.20000000"`.  (The format fragment
 
 NOTE: unlike the c-language function
 
-sscanf(\<source\>,\<format\>,\<dest1\>,\<dest2\>,...),
+`sscanf(<source>,<format>,<dest1>,<dest2>,...)`,
 
 this function cannot store to a variable, but only to the value
 stack.
