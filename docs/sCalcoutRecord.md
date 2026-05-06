@@ -9,135 +9,49 @@ nav_order: 4
 
 ## Contents
 
-
-- [1.  Introduction](#HEADING14-1)
-
-
-- [2.  Scan Parameters](#HEADING14-11)
-
-
-- [3.  Read Parameters](#HEADING14-13)
-
-
-- [4.  Expressions](#HEADING14-16)
-
-
-- [4.1.  Operands](#HEADING14-19)
-
-
-- [4.2.  Algebraic Functions/Operators](#HEADING14-21)
-
-
-- [4.3.  Trigonometric Functions](#HEADING14-39)
-
-
-- [4.4.  Relational Operators](#HEADING14-49)
-
-
-- [4.5.  Logical Operators](#HEADING14-56)
-
-
-- [4.6.  Bitwise Operators](#HEADING14-60)
-
-
-- [4.7.  Special Characters](#HEADING14-69)
-
-
-- [4.8.  Conditional Expression](#HEADING14-72)
-
-
-- [4.9.  String Functions/Operators](#HEADING14-73)
-
-
-- [4.10.  Array Operators](#HEADING14-74)
-
-
-- [4.11.  Miscellaneous Operators](#HEADING14-75)
-
-
-- [4.12.  Examples](#HEADING14-76)
-
-
-- [Algebraic](#HEADING14-77)
-
-
-- [Relational](#HEADING14-79)
-
-
-- [Question Mark](#HEADING14-83)
-
-
-- [Logical](#HEADING14-91)
-
-
-- [String](#HEADING14-92)
-
-
-- [Argument Array](#HEADING14-93)
-
-
-- [Store](#HEADING14-94)
-
-
-- [Loop](#HEADING14-95)
-
-
-- [5.  Output Parameters](#HEADING14-98)
-
-
-- [6.  Operator Display Parameters](#HEADING14-109)
-
-
-- [7.  Alarm Parameters](#HEADING14-122)
-
-
-- [8.  Monitor Parameters](#HEADING14-126)
-
-
-- [9.  Run-time Parameters](#HEADING14-128)
-
-
-- [10.  Record Support Routines](#HEADING14-132)
-
-
-- [init_record](#HEADING14-133)
-
-
-- [process](#HEADING14-136)
-
-
-- [special](#HEADING14-138)
-
-
-- [get_value](#HEADING14-140)
-
-
-- [get_units](#HEADING14-142)
-
-
-- [get_precision](#HEADING14-144)
-
-
-- [get_graphic_double](#HEADING14-146)
-
-
-- [get_control_double](#HEADING14-148)
-
-
-- [get_alarm_double](#HEADING14-150)
-
-
-- [11.  Record Processing](#HEADING14-156)
-
-
-- [11.1.  process()](#HEADING14-157)
-
-
-- [11.2.  execOutput()](#HEADING14-169)
-
-
-- [12.  Sample Database](#HEADING14-170)
-
+1. [Introduction](#1-introduction)
+2. [Scan Parameters](#2-scan-parameters)
+3. [Read Parameters](#3-read-parameters)
+4. [Expressions](#4-expressions)
+   - [4.1. Operands](#41-operands)
+   - [4.2. Algebraic Functions/Operators](#42-algebraic-functionsoperators)
+   - [4.3. Trigonometric Functions](#43-trigonometric-functions)
+   - [4.4. Relational Operators](#44-relational-operators)
+   - [4.5. Logical Operators](#45-logical-operators)
+   - [4.6. Bitwise Operators](#46-bitwise-operators)
+   - [4.7. Special Characters](#47-special-characters)
+   - [4.8. Conditional Expression](#48-conditional-expression)
+   - [4.9. String Functions/Operators](#49-string-functionsoperators)
+   - [4.10. Array Operators](#410-array-operators)
+   - [4.11. Miscellaneous Operators](#411-miscellaneous-operators)
+   - [4.12. Examples](#412-examples)
+      - [Algebraic](#algebraic)
+      - [Relational](#relational)
+      - [Question Mark](#question-mark)
+      - [Logical](#logical)
+      - [String](#string)
+      - [Argument Array](#argument-array)
+      - [Store](#store)
+      - [Loop](#loop-until)
+5. [Output Parameters](#5-output-parameters)
+6. [Operator Display Parameters](#6-operator-display-parameters)
+7. [Alarm Parameters](#7-alarm-parameters)
+8. [Monitor Parameters](#8-monitor-parameters)
+9. [Run-time Parameters](#9-run-time-parameters)
+10. [Record Support Routines](#10-record-support-routines)
+   - [init_record](#init_record)
+   - [process](#process)
+   - [special](#special)
+   - [get_value](#get_value)
+   - [get_units](#get_units)
+   - [get_precision](#get_precision)
+   - [get_graphic_double](#get_graphic_double)
+   - [get_control_double](#get_control_double)
+   - [get_alarm_double](#get_alarm_double)
+11. [Record Processing](#11-record-processing)
+   - [11.1. process()](#111-process)
+   - [11.2. execOutput()](#112-execoutput)
+12. [Sample Database](#12-sample-database)
 
 ---
 
@@ -208,7 +122,7 @@ the status of the links to numeric fields, and the fields IAAV, IBBV, .
 . . ILLV, which indicate the status of the links to string fields. 
 These fields indicate whether or not the specified PV was found and a link
 to it established. See [Section 6, *Operator Display
-Parameters*](#MARKER-9-2) for an explanation of these fields.
+Parameters*](#6-operator-display-parameters) for an explanation of these fields.
 
 
 From most types of PV's, the scalcout record's string input links fetch data
@@ -245,7 +159,7 @@ truncates the result to fit into a 40-character string.
 
 
 Like the Calc record, the scalcout record has a CALC field into which
-you can enter an expression for the record to evaluate when it processes.  The resulting numeric value will be placed in the VAL field, and the resulting string value will be placed in the SVAL field.  VAL can then be used by the OOPT field (see [Section 5, *Output Parameters*](#MARKER-9-1)) to determine whether or not to write to the output link or post an output event. Either VAL and SVAL can also be written to the output link.  (If you elect to write an output value, the record will choose between VAL and SVAL, depending on the data type of the field at the other end of the output link.)
+you can enter an expression for the record to evaluate when it processes.  The resulting numeric value will be placed in the VAL field, and the resulting string value will be placed in the SVAL field.  VAL can then be used by the OOPT field (see [Section 5, *Output Parameters*](#5-output-parameters)) to determine whether or not to write to the output link or post an output event. Either VAL and SVAL can also be written to the output link.  (If you elect to write an output value, the record will choose between VAL and SVAL, depending on the data type of the field at the other end of the output link.)
 
 
  The CALC expression is actually converted to opcodes and stored in
@@ -256,7 +170,7 @@ the record-support routine `special()` will call a function to check
 it, and convert it to postfix notation.
 
 
-The record also has a second set of calculation-related fields described  in [Section 5, *Output Parameters.*](#MARKER-9-1)
+The record also has a second set of calculation-related fields described  in [Section 5, *Output Parameters.*](#5-output-parameters)
 
 
  

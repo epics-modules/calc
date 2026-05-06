@@ -9,111 +9,41 @@ nav_order: 3
 
 ## Contents
 
-
-- [1.  Introduction](#INTRODUCTION)
-
-
-- [2.  Scan Parameters](#SCAN_PARAMETERS)
-
-
-- [3.  Array-size Parameters](#ARRAY_SIZE_PARAMETERS)
-
-
-- [4.  Input Links](#INPUT_LINKS)
-
-
-- [5.  Expressions](#EXPRESSIONS)
-
-
-- [5.1.  Operands](#OPERANDS)
-
-
-- [5.2.  Algebraic Functions/Operators](#ALGEBRAIC)
-
-
-- [5.3.  Trigonometric Functions](#TRIGONOMETRIC)
-
-
-- [5.4.  Relational Operators](#RELATIONAL)
-
-
-- [5.5.  Logical Operators](#LOGICAL)
-
-
-- [5.6.  Bitwise Operators](#BITWISE)
-
-
-- [5.7.  Separators](#SEPARATORS)
-
-
-- [5.8.  If-Else Expression](#IF-ELSE)
-
-
-- [5.9.  Array-specific Functions/Operators](#ARRAY_SPECIFIC)
-
-
-- [5.10.  Argument-array Operators](#ARGUMENT_ARRAY)
-
-
-- [5.11.  Miscellaneous Operators](#MISCELLANEOUS)
-
-
-- [5.12.  Examples](#EXAMPLES)
-
-
-- [6.  Output Parameters](#OUTPUT_PARAMETERS)
-
-
-- [7.  Display Parameters](#DISPLAY_PARAMETERS)
-
-
-- [8.  Alarm Parameters](#ALARM_PARAMETERS)
-
-
-- [9.  Monitor Parameters](#MONITOR_PARAMETERS)
-
-
-- [10.  Run-time Parameters](#RUN-TIME_PARAMETERS)
-
-
-- [11.  Record Support Routines](#RECORD_SUPPORT)
-
-
-- [init_record](#INIT_RECORD)
-
-
-- [process](#PROCESS)
-
-
-- [special](#SPECIAL)
-
-
-- [get_value](#GET_VALUE)
-
-
-- [get_units](#GET_UNITS)
-
-
-- [get_precision](#GET_PRECISION)
-
-
-- [get_graphic_double](#GET_GRAPHIC_DOUBLE)
-
-
-- [get_control_double](#GET_CONTROL_DOUBLE)
-
-
-- [get_alarm_double](#GET_ALARM_DOUBLE)
-
-
-- [12.  Record Processing](#RECORD_PROCESSING)
-
-
-- [12.1.  process()](#PROCESS)
-
-
-- [12.2.  execOutput()](#EXEC_OUTPUT)
-
+1. [Introduction](#1-introduction)
+2. [Scan Parameters](#2-scan-parameters)
+3. [Array-size Parameters](#3-array-size-parameters)
+4. [Input Links](#4-input-links)
+5. [Expressions](#5-expressions)
+   - [5.1. Operands](#51-operands)
+   - [5.2. Algebraic Functions/Operators](#52-algebraic-functionsoperators)
+   - [5.3. Trigonometric Functions](#53-trigonometric-functions)
+   - [5.4. Relational Operators](#54-relational-operators)
+   - [5.5. Logical Operators](#55-logical-operators)
+   - [5.6. Bitwise Operators](#56-bitwise-operators)
+   - [5.7. Separators](#57-separators)
+   - [5.8. If-Else Expression](#58-if-else-expression)
+   - [5.9. Array-specific Functions/Operators](#59-array-specific-functionsoperators)
+   - [5.10. Argument-array Operators](#510-argument-array-operators)
+   - [5.11. Miscellaneous Operators](#511-miscellaneous-operators)
+   - [5.12. Examples](#512-examples)
+6. [Output Parameters](#6-output-parameters)
+7. [Display Parameters](#7-display-parameters)
+8. [Alarm Parameters](#8-alarm-parameters)
+9. [Monitor Parameters](#9-monitor-parameters)
+10. [Run-time Parameters](#10-run-time-parameters)
+11. [Record Support Routines](#11-record-support-routines)
+   - [init_record](#init_record)
+   - [process](#process)
+   - [special](#special)
+   - [get_value](#get_value)
+   - [get_units](#get_units)
+   - [get_precision](#get_precision)
+   - [get_graphic_double](#get_graphic_double)
+   - [get_control_double](#get_control_double)
+   - [get_alarm_double](#get_alarm_double)
+12. [Record Processing](#12-record-processing)
+   - [12.1. process()](#121-process)
+   - [12.2. execOutput()](#122-execoutput)
 
 ---
 
@@ -212,7 +142,7 @@ fields INAV, INBV, . . . INLV, which indicate the status of the links to scalar
 fields, and the fields IAAV, IBBV, . . . ILLV, which indicate the status of the
 links to array fields.  These fields indicate whether or not the specified
 PV was found and a link to it established. See [Section 7,
-*Display Parameters*](#DISPLAY_PARAMETERS) for an explanation of these fields.
+*Display Parameters*](#7-display-parameters) for an explanation of these fields.
 
 
  See the EPICS Record Reference Manual for information on how to specify
@@ -244,7 +174,7 @@ Like the Calcout record, the aCalcout record has a CALC field into which you can
 enter an expression for the record to evaluate when it processes.  The resulting
 scalar value will be placed in the VAL field, and the resulting array value
 will be placed in the AVAL field.  VAL can then be used by the OOPT field (see
-[Section 6, *Output Parameters*](#EXPRESSIONS)) to determine
+[Section 6, *Output Parameters*](#6-output-parameters)) to determine
 whether or not to write to the output link or post an output event. Either VAL
 and AVAL can also be written to the output link.  (If you elect to write an
 output value, the record will choose between VAL and AVAL, depending on the data
@@ -259,7 +189,7 @@ to check it and convert it to postfix.
 
 
 The record also has a second set of calculation-related fields described in
-[Section 6, *Output Parameters.*](#EXPRESSIONS)
+[Section 6, *Output Parameters.*](#6-output-parameters)
 
 
  

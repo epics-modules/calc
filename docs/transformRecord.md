@@ -12,12 +12,16 @@ Tim Mooney
 
 ## Contents
 
-- [Overview](#overview)
-- [Field Descriptions](#field-descriptions)
-- [Expressions](#expressions)
-- [Files](#files)
-- [Restrictions](#restrictions)
-- [Release notes](#release-notes)
+1. [Overview](#overview)
+2. [Background](#background)
+3. [Expressions](#expressions)
+   - [Synonyms](#synonyms)
+4. [Field Descriptions](#field-descriptions)
+5. [Files](#files)
+6. [Restrictions](#restrictions)
+7. [Release notes](#release-notes)
+
+---
 
 ## Overview
 

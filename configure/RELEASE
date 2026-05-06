@@ -4,19 +4,19 @@
 
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 
-SUPPORT=/home/oxygen/MOONEY/epics/synAppsSVN/support
+SUPPORT=/APSshare/epics/synApps_6_3/support
 
 # Need SSCAN module only to build the swait record (recDynLink library)
 # If you comment this definition out, the module will just decline to
 # build the swait record.
-SSCAN=$(SUPPORT)/sscan-2-9
+SSCAN=$(SUPPORT)/sscan-R2-11-6
 
 # Need SNCSEQ module only to build editSseq.st.  If you comment this
 # definition out, the module will just decline to build editSseq.st.
-#SNCSEQ=$(SUPPORT)/seq-2-1-16
+#SNCSEQ=$(SUPPORT)/sequencer-mirror-R2-2-9
 
 # EPICS_BASE usually appears last so other apps can override stuff:
-EPICS_BASE=/home/oxygen/MOONEY/epics/bazaar/base-3.14
+EPICS_BASE=/APSshare/epics/base-7.0.8
 
 #Capfast users may need the following definitions
 #CAPFAST_TEMPLATES=
