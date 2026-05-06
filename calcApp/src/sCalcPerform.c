@@ -2091,8 +2091,8 @@ static double local_random()
 
 	/* random number */
 	*pSeed = (*pSeed * RAND_MULTY) + RAND_ADDY;
-	/* randy = (float) *pSeed / 65535.0; */
-	randy = (float) (*pSeed+1) / 65536.0;	/* exclude zero */
+	/* exclude zero: NORMAL_RNDM uses log(local_random()), and log(0) is -inf */
+	randy = (float) (*pSeed+1) / 65536.0;
 	return(randy);
 }
 
