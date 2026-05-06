@@ -1654,16 +1654,32 @@ long aCalcPerform(double *p_dArg, int num_dArgs, double **pp_aArg,
  *                                              Chapter 1
  * randy = seed / 65535.0          To normalize the number between 0 - 1
  */
-static unsigned short seed = 0xa3bf;
-static unsigned short multy = 191 * 8 + 5;  /* 191 % 8 == 5 */
-static unsigned short addy = 0x3141;
+#define RAND_MULTY (191 * 8 + 5)  /* 191 % 8 == 5 */
+#define RAND_ADDY  0x3141
+#define RAND_SEED  0xa3bf
+
+static epicsThreadPrivateId randSeedKey;
+static epicsThreadOnceId randOnceFlag = EPICS_THREAD_ONCE_INIT;
+static void randInit(void *arg) {
+        randSeedKey = epicsThreadPrivateCreate();
+}
+
 static double local_random()
 {
-        double  randy;
+        unsigned short *pSeed;
+        double randy;
+
+        epicsThreadOnce(&randOnceFlag, randInit, NULL);
+        pSeed = (unsigned short *)epicsThreadPrivateGet(randSeedKey);
+        if (pSeed == NULL) {
+                pSeed = (unsigned short *)calloc(1, sizeof(unsigned short));
+                *pSeed = RAND_SEED;
+                epicsThreadPrivateSet(randSeedKey, pSeed);
+        }
 
         /* random number */
-        seed = (seed * multy) + addy;
-        randy = (float) seed / 65535.0;
+        *pSeed = (*pSeed * RAND_MULTY) + RAND_ADDY;
+        randy = (float) *pSeed / 65535.0;
 
         /* between 0 - 1 */
         return(randy);
