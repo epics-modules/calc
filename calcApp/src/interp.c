@@ -216,11 +216,13 @@ static long interp_do(aSubRecord *pasub)
 		for (i=0; i<pasub->noh; i++) {
 			if (h[i] < vala[0]) {
 				valh[i] = valb[0];
-				vali[i] = valb[0];
+				vali[i] = valc[0];
+				continue;
 			}
 			if (h[i] > vala[n-1]) {
 				valh[i] = valb[n-1];
-				vali[i] = valb[n-1];
+				vali[i] = valc[n-1];
+				continue;
 			}
 
 			ix = find_index(n, vala, &h[i], &lo, &hi);
