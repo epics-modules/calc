@@ -1243,6 +1243,7 @@ static void call_aCalcPerform(acalcoutRecord *pcalc) {
 	long numElements;
 	epicsUInt32 amask;
 	int i;
+	double **panew;
 	long numAllocatedArraysPre=0, numAllocatedArraysPost=0;
 
 	if (aCalcoutRecordDebug >= 10) printf("call_aCalcPerform:entry\n");
@@ -1251,8 +1252,8 @@ static void call_aCalcPerform(acalcoutRecord *pcalc) {
 	 * and it hasn't yet been allocated.  To keep track of allocated array memory, we need to
 	 * count number of arrays for which memory has been allocated before and after .
 	 */
-	for (i=0; i<ARRAY_MAX_FIELDS; i++) {
-		if ((pcalc->aa+i) != 0) numAllocatedArraysPre++;
+	for (i=0, panew=&pcalc->aa; i<ARRAY_MAX_FIELDS; i++, panew++) {
+		if (*panew != 0) numAllocatedArraysPre++;
 	}
 
 	/* Note that we want to permit nuse == 0 as a way of saying "use nelm". */
@@ -1267,8 +1268,8 @@ static void call_aCalcPerform(acalcoutRecord *pcalc) {
 			pcalc->nelm, &amask);
 		pcalc->amask |= amask;
 	}
-	for (i=0; i<ARRAY_MAX_FIELDS; i++) {
-		if ((pcalc->aa+i) != 0) numAllocatedArraysPost++;
+	for (i=0, panew=&pcalc->aa; i<ARRAY_MAX_FIELDS; i++, panew++) {
+		if (*panew != 0) numAllocatedArraysPost++;
 	}
 	if (numAllocatedArraysPost > numAllocatedArraysPre) {
 		pcalc->amem += (numAllocatedArraysPost-numAllocatedArraysPre) * pcalc->nelm * sizeof(double);
