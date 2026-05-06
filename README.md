@@ -12,14 +12,14 @@ For more information, see
 Documentation
 -------------
 
-* [Overview documentation](https://epics-modules.github.io/calc)
-* [ReleaseNotes](https://epics-modules.github.io/calc/calcReleaseNotes.html)
-* [aCalcoutRecord](https://epics-modules.github.io/calc/aCalcoutRecord.html)
-* [interpNew](https://epics-modules.github.io/calc/interpNew.html)
-* [sCalcoutRecord](https://epics-modules.github.io/calc/sCalcoutRecord.html)
-* [sseqRecord](https://epics-modules.github.io/calc/sseqRecord.html)
-* [swaitRecord](https://epics-modules.github.io/calc/swaitRecord.html)
-* [transformRecord](https://epics-modules.github.io/calc/transformRecord.html)
+* [Overview documentation](docs/index.md)
+* [Release Notes](docs/calcReleaseNotes.md)
+* [aCalcoutRecord](docs/aCalcoutRecord.md)
+* [interpNew](docs/interpNew.md)
+* [sCalcoutRecord](docs/sCalcoutRecord.md)
+* [sseqRecord](docs/sseqRecord.md)
+* [swaitRecord](docs/swaitRecord.md)
+* [transformRecord](docs/transformRecord.md)
 
 converted from APS SVN repository: Fri Nov  6 11:32:45 CST 2015
 
