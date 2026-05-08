@@ -56,7 +56,7 @@ struct {
 	NULL,
 	NULL,
 	NULL,
-	write_scalcout
+	(DEVSUPFUN)write_scalcout
 };
 epicsExportAddress(dset,devsCalcoutSoft);
 

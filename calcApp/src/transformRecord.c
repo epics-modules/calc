@@ -144,15 +144,15 @@ epicsExportAddress(int, transformRecordDebug);
 /* Create RSET - Record Support Entry Table*/
 #define report NULL
 #define initialize NULL
-static long     init_record();
-static long     process();
-static long     special();
+static long     init_record(dbCommon *precord, int pass);
+static long     process(dbCommon *precord);
+static long     special(DBADDR* paddr, int after);
 #define get_value NULL
 #define cvt_dbaddr NULL
 #define get_array_info NULL
 #define put_array_info NULL
 #define get_units NULL
-static long     get_precision();
+static long     get_precision(const DBADDR *addr, long *pprec);
 #define get_enum_str NULL
 #define get_enum_strs NULL
 #define put_enum_str NULL
@@ -182,8 +182,8 @@ rset    transformRSET = {
 };
 epicsExportAddress(rset, transformRSET);
 
-static void     checkAlarms();
-static void     monitor();
+static void     checkAlarms(transformRecord *precord);
+static void     monitor(transformRecord *precord);
 
 /* To provide feedback to the user as to the connection status of the 
  * links (.IxV and .OxV), the following algorithm has been implemented ...
@@ -197,8 +197,8 @@ static void     monitor();
  * (This code stolen from Ned Arnold's calcAo record.)
  */
 
-static void checkLinksCallback();
-static void checkLinks();
+static void checkLinksCallback(CALLBACK *pcallback);
+static void checkLinks(struct transformRecord *precord);
 #define NO_CA_LINKS     0
 #define CA_LINKS_ALL_OK 1
 #define CA_LINKS_NOT_OK 2
@@ -625,7 +625,7 @@ process(dbCommon *pcommon)
 
 
 static long 
-special(const DBADDR *paddr, int after)
+special(DBADDR *paddr, int after)
 {
 	int				i;
 	transformRecord	*ptran = (transformRecord *) (paddr->precord);

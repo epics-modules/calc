@@ -182,7 +182,7 @@ WAIT_IO_EVENT devSWaitIoEvent = {
         NULL,
         NULL,
         NULL,
-        get_ioint_info,
+        (DEVSUPFUN)get_ioint_info,
         NULL
 };
 epicsExportAddress(dset, devSWaitIoEvent);

@@ -66,21 +66,21 @@
 /* Create RSET - Record Support Entry Table*/
 #define report NULL
 #define initialize NULL
-static long init_record();
-static long process();
-static long special();
+static long init_record(dbCommon *precord, int pas);
+static long process(dbCommon *precord);
+static long special(DBADDR *paddr, int after);
 #define get_value NULL
-static long cvt_dbaddr();
-static long get_array_info();
-static long put_array_info();
-static long get_units();
-static long get_precision();
+static long cvt_dbaddr(dbAddr *paddr);
+static long get_array_info(struct dbAddr *paddr, long*, long*);
+static long put_array_info(struct dbAddr *paddr, long);
+static long get_units(dbAddr *paddr, char *units);
+static long get_precision(const dbAddr *paddr, long *pprec);
 #define get_enum_str NULL
 #define get_enum_strs NULL
 #define put_enum_str NULL
-static long get_graphic_double();
-static long get_control_double();
-static long get_alarm_double();
+static long get_graphic_double(dbAddr *paddr, struct dbr_grDouble *pgd);
+static long get_control_double(dbAddr *paddr, struct dbr_ctrlDouble *pcd);
+static long get_alarm_double(dbAddr *paddr, struct dbr_alDouble *pad);
 
 rset acalcoutRSET={
 	RSETNUMBER,
@@ -138,18 +138,20 @@ typedef struct rpvtStruct {
 	short		outlink_field_type;
 } rpvtStruct;
 
-static void checkAlarms();
-static void monitor();
-static int fetch_values();
-static void execOutput();
-static void checkLinks();
-static void checkLinksCallback();
+static void checkAlarms(acalcoutRecord *pcalc);
+static void monitor(acalcoutRecord *pcalc);
+static int fetch_values(acalcoutRecord *pcalc);
+static void execOutput(acalcoutRecord *pcalc);
+static void checkLinks(acalcoutRecord *pcalc);
+static void checkLinksCallback(CALLBACK *callback);
 static long writeValue(acalcoutRecord *pcalc);
 static void call_aCalcPerform(acalcoutRecord *pcalc);
 static long doCalc(acalcoutRecord *pcalc);
 static void acalcPerformTask(void *parm);
 volatile int aCalcoutRecordDebug = 0;
 epicsExportAddress(int, aCalcoutRecordDebug);
+
+typedef long(*typed_devsupfun_t)(void*);
 
 #define MAX_FIELDS 12
 #define ARRAY_MAX_FIELDS 12
@@ -166,7 +168,7 @@ static long acalcGetNumElements( acalcoutRecord *pcalc )
 }
 
 
-static long init_record(acalcoutRecord *pcalc, int pass)
+static long init_record(dbCommon *precord, int pass)
 {
 	DBLINK *plink;
 	int i;
@@ -174,6 +176,7 @@ static long init_record(acalcoutRecord *pcalc, int pass)
 	unsigned short *plinkValid;
 	short error_number;
     acalcoutDSET *pacalcoutDSET;
+	acalcoutRecord *pcalc = (acalcoutRecord*)precord;
 
 	dbAddr       Addr;
 	dbAddr       *pAddr = &Addr;
@@ -268,7 +271,7 @@ static long init_record(acalcoutRecord *pcalc, int pass)
 	}
 
 	if (pacalcoutDSET->init_record ) {
-		return (*pacalcoutDSET->init_record)(pcalc);
+		return ((typed_devsupfun_t)pacalcoutDSET->init_record)(pcalc);
 	}
 	return(0);
 }
@@ -357,8 +360,9 @@ static long afterCalc(acalcoutRecord *pcalc) {
 	return(SYNC);
 }
 
-static long process(acalcoutRecord *pcalc)
+static long process(dbCommon *precord)
 {
+	acalcoutRecord *pcalc = (acalcoutRecord*)precord;
 	rpvtStruct   *prpvt = (rpvtStruct *)pcalc->rpvt;
 	long		i;
 	double		*pnew, *pprev;
@@ -744,7 +748,7 @@ static long get_units(dbAddr *paddr, char *units)
 	return(0);
 }
 
-static long get_precision(dbAddr *paddr, long *precision)
+static long get_precision(const dbAddr *paddr, long *precision)
 {
 	acalcoutRecord	*pcalc=(acalcoutRecord *)paddr->precord;
 	int fieldIndex = dbGetFieldIndex(paddr);
@@ -1219,7 +1223,7 @@ static long writeValue(acalcoutRecord *pcalc)
     }
 	if (aCalcoutRecordDebug >= 10)
 		printf("acalcoutRecord(%s):writeValue:calling device support\n", pcalc->name);
-	return pacalcoutDSET->write(pcalc);
+	return ((typed_devsupfun_t)pacalcoutDSET->write)(pcalc);
 }
 
 /************************************************************/
