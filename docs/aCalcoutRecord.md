@@ -191,8 +191,8 @@ element.  In the following expressions, the array argument will be converted imp
   - AA?BB:CC
   - AA^BB
   - AA\*\*BB
-  - AA>>BB
-  - AA<<BB
+  - AA\>\>BB
+  - AA\<\<BB
 
 ### 5.1. Operands
 
@@ -315,14 +315,14 @@ constants.
 
 | Op | Description | Example |
 |----|-------------|---------|
-| \| | Bitwise OR | `A\|B` |
+| \| | Bitwise OR | `A|B` |
 | OR | Bitwise OR | `A OR B` |
 | & | Bitwise AND | `A&B` |
 | AND | Bitwise AND | `A AND B` |
 | XOR | Bitwise Exclusive OR | `A XOR B` |
 | ~ | One's Complement | `~A` |
-| << | Left shift | `A<<B` |
-| >> | Right shift | `A>>B` |
+| \<\< | Left shift | `A<<B` |
+| \>\> | Right shift | `A>>B` |
 
 ### 5.7. Separators
 
@@ -361,8 +361,8 @@ rendition of some scalar function.
 |----|-------------|---------|
 | [ | Subarray | `AA[1,3] -> aa(1),aa(2),aa(3)` |
 | { | Subarray in place | `AA[1,3] -> 0, aa(1),aa(2),aa(3), 0,...` |
-| >> | Array shift right. Move array elements by index. If index is not an integer, the array is interpolated to move by the fractional part. | `AA>>2` |
-| << | Array shift left. Move array elements by index. If index is not an integer, the array is interpolated to move by the fractional part. | `AA<<2` (same as `AA>>-2`) |
+| \>\> | Array shift right. Move array elements by index. If index is not an integer, the array is interpolated to move by the fractional part. | `AA>>2` |
+| \<\< | Array shift left. Move array elements by index. If index is not an integer, the array is interpolated to move by the fractional part. | `AA<<2` (same as `AA>>-2`) |
 | AMIN | Minimal element of array (one-argument function) | `AMIN(AA) -> scalar` |
 | AMAX | Maximal element of array (one-argument function) | `AMAX('a','b','c') -> 'c'` |
 | ARR | Convert argument to array (one-argument function) | `ARR(1) -> 1, 1, 1,...` |
