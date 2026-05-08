@@ -257,8 +257,8 @@ constants.
 | FLOOR | Floor (one-argument function) | `FLOOR(A)` |
 | INT | Nearest integer (one-argument function) | `INT(A)` |
 | NINT | Nearest integer (one-argument function) | `NINT(A)` |
-| APOS | Positive component. If negative, then zero (one-argument function) | `APOS(A)` |
-| ANEG | Negative component. If positive, then zero (one-argument function) | `ANEG(A)` |
+| APOS | Clamp positive values to zero; negative values are unchanged (one-argument function) | `APOS(A)` |
+| ANEG | Clamp negative values to zero; positive values are unchanged (one-argument function) | `ANEG(A)` |
 | LOG | Log base 10 (one-argument function) | `LOG(A)` |
 | LN | Natural logarithm (one-argument function) | `LN(A)` |
 | LOGE | Deprecated synonym for 'LN' | `LOGE(A)` |
