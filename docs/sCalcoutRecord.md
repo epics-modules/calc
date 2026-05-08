@@ -376,7 +376,7 @@ both of their arguments/operands are strings.
 | --- | --- | --- |
 | MIN | Minimum lexically (two-or-more-argument function) | `MAX('a','b','c') -> 'a'` |
 | MAX | Maximum lexically (two-or-more-argument function) | `MAX('a','b','c') -> 'c'` |
-| INT | Find first number in string; return nearest integer (one-argument function) | `INT('1.9') -> 1` / `INT('abc1.9') -> 1` |
+| INT | Find first number in string; return nearest integer (one-argument function) | `INT('1.9') -> 2` / `INT('abc1.9') -> 2` |
 | NINT | Find first number in string; return nearest integer (one-argument function) | `NINT('1.9') -> 2` / `NINT('abc1.9') -> 2` |
 | + | Concatenate (binary) | `'a'+'b' -> 'ab'` |
 | - | Delete first occurrence of substring (binary) | `'abca'-'a' -> 'bca'` |
