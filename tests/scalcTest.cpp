@@ -106,7 +106,7 @@ MAIN(scalcTest)
 	double args[12] = {A, B, C, D, E, F, G, H, I, J, K, L};
 	const char* sargs[12] = {AA, BB, CC, DD, EE, FF, GG, HH, II, JJ, KK, LL};
 	
-	testPlan(113);
+	testPlan(143);
 
 	testValExpr("finite(1)", args, sargs, 1);
 	testValExpr("isnan(1)", args, sargs, 0);
@@ -252,6 +252,61 @@ MAIN(scalcTest)
 	
 	sprintf(temp, "%s%s%s%s", DD, AA, EE, BB);
 	testSValExpr("DD+AA+EE+BB", args, sargs, temp);
+	
+	/* --- Missing scalar function tests --- */
+	
+	/* EXP and LN */
+	testValExpr("exp(0)", args, sargs, 1.0);
+	testValExpr("exp(1)", args, sargs, exp(1.0));
+	testValExpr("ln(1)", args, sargs, 0.0);
+	testValExpr("ln(exp(1))", args, sargs, 1.0);
+	testValExpr("loge(10)", args, sargs, log(10.0));
+	
+	/* Bitwise NOT */
+	testValExpr("~0", args, sargs, -1.0);
+	testValExpr("~1", args, sargs, -2.0);
+	
+	/* @ operator (numeric argument fetch) */
+	testValExpr("@0", args, sargs, A);     /* @0 = A = 1.0 */
+	testValExpr("@1", args, sargs, B);     /* @1 = B = 2.0 */
+	testValExpr("@(A+B)", args, sargs, D); /* A+B=3, @3 = D = 4.0 */
+	
+	/* INF literal and related */
+	testValExpr("isinf(INF)", args, sargs, 1.0);
+	testValExpr("finite(INF)", args, sargs, 0.0);
+	
+	/* String functions */
+	testValExpr("LEN('abc')", args, sargs, 3.0);
+	testValExpr("LEN(AA)", args, sargs, 8.0);   /* "string 1" = 8 chars */
+	testValExpr("BYTE('A')", args, sargs, 65.0); /* ASCII 'A' = 65 */
+	testValExpr("BYTE(AA)", args, sargs, 115.0); /* ASCII 's' = 115 */
+	testValExpr("DBL('3.14')", args, sargs, 3.14);
+	testValExpr("DBL('abc3.14')", args, sargs, 3.14);
+	testValExpr("INT('1.9')", args, sargs, 2.0);
+	testValExpr("NINT('1.9')", args, sargs, 2.0);
+	
+	/* String subtract-first and subtract-last */
+	testSValExpr("'abca'-|'a'", args, sargs, "bca");
+	testSValExpr("'abca'|-'a'", args, sargs, "abc");
+	
+	/* UNTIL loops */
+	testValExpr("UNTIL(1)", args, sargs, 1.0);
+	/* B:=10, decrement until B<1, returns 1 (the true condition) */
+	testValExpr("B:=10;UNTIL(B:=B-1;B<1)", args, sargs, 1.0);
+	/* Reset B for subsequent tests */
+	args[1] = B;
+	
+	/* Parse error tests */
+	{
+		unsigned char rpn[255];
+		short err;
+		testOk(sCalcPostfix(")", rpn, &err) != 0, "bad expr: ) (unmatched close paren)");
+		testOk(sCalcPostfix("(A+B", rpn, &err) != 0, "bad expr: (A+B (unclosed paren)");
+		testOk(sCalcPostfix("A+", rpn, &err) != 0, "bad expr: A+ (incomplete)");
+		testOk(sCalcPostfix("]", rpn, &err) != 0, "bad expr: ] (unmatched bracket)");
+		testOk(sCalcPostfix("}", rpn, &err) != 0, "bad expr: } (unmatched curly)");
+		testOk(sCalcPostfix("A?B:C:D", rpn, &err) != 0, "bad expr: A?B:C:D (extra colon)");
+	}
 	
 	return testDone();
 }

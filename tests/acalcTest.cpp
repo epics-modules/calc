@@ -125,7 +125,7 @@ MAIN(acalcTest)
 	double* aargs[12] = {AA, BB, CC, DD, EE, FF, GG, HH, II, JJ, KK, LL};
 	
 	
-	testPlan(121);
+	testPlan(148);
 
 	testValExpr("finite(1)", args, aargs, 1);
 	testValExpr("finite(AA)", args, aargs, 1);
@@ -279,6 +279,91 @@ MAIN(acalcTest)
 	double exp_13[3] = { 4.0, 5.0, 6.0 };
 	testAValExpr("@@0:=BB;AA;aa:=aa-3[0,2]", args, aargs, exp_13, 3);
 	testAValExpr("a:=-7;@@-a:=BB;HH;a:=1;hh:=ii", args, aargs, BB, 3);
+	
+	/* Reset args after store tests */
+	args[0] = A; args[1] = B; args[7] = H;
+	{
+		double reset[12] = {1.0, 2.0, 3.0, 0,0,0,0,0,0,0,0,0};
+		memcpy(AA, reset, sizeof(AA));
+		memcpy(HH, reset, sizeof(HH));
+	}
+	
+	/* --- Missing scalar function tests --- */
+	
+	/* EXP and LN */
+	testValExpr("exp(0)", args, aargs, 1.0);
+	testValExpr("exp(1)", args, aargs, exp(1.0));
+	testValExpr("ln(1)", args, aargs, 0.0);
+	testValExpr("ln(exp(1))", args, aargs, 1.0);
+	testValExpr("loge(10)", args, aargs, log(10.0));
+	
+	/* Bitwise NOT */
+	testValExpr("~0", args, aargs, -1.0);
+	testValExpr("~1", args, aargs, -2.0);
+	
+	/* @ operator (numeric argument fetch) */
+	testValExpr("@0", args, aargs, A);     /* @0 = A = 1.0 */
+	testValExpr("@1", args, aargs, B);     /* @1 = B = 2.0 */
+	testValExpr("@(A+B)", args, aargs, D); /* A+B=3, @3 = D = 4.0 */
+	
+	/* Note: aCalc engine does not support INF as a literal operand
+	 * (unlike sCalc). Tests for isinf(INF) and finite(INF) are omitted.
+	 */
+	
+	/* --- Array operation tests --- */
+	
+	/* Element-wise subtraction */
+	double exp_sub[3] = { AA[0]-BB[0], AA[1]-BB[1], AA[2]-BB[2] };
+	testAValExpr("AA-BB", args, aargs, exp_sub, 3);
+	
+	/* Element-wise multiplication */
+	double exp_mul[3] = { AA[0]*BB[0], AA[1]*BB[1], AA[2]*BB[2] };
+	testAValExpr("AA*BB", args, aargs, exp_mul, 3);
+	
+	/* Element-wise division */
+	double exp_div[3] = { AA[0]/BB[0], AA[1]/BB[1], AA[2]/BB[2] };
+	testAValExpr("AA/BB", args, aargs, exp_div, 3);
+	
+	/* Scalar * array */
+	double exp_smul[3] = { 2*AA[0], 2*AA[1], 2*AA[2] };
+	testAValExpr("2*AA", args, aargs, exp_smul, 3);
+	
+	/* ARR -- scalar to array */
+	double exp_arr[3] = { 5.0, 5.0, 5.0 };
+	testAValExpr("ARR(5)", args, aargs, exp_arr, 3);
+	
+	/* ANEG -- clamp negative values to zero. DD=[-1,0,1] -> [0,0,1] */
+	double exp_aneg[3] = { 0.0, 0.0, 1.0 };
+	testAValExpr("ANEG(DD)", args, aargs, exp_aneg, 3);
+	
+	/* APOS -- clamp positive values to zero. DD=[-1,0,1] -> [-1,0,0] */
+	double exp_apos[3] = { -1.0, 0.0, 0.0 };
+	testAValExpr("APOS(DD)", args, aargs, exp_apos, 3);
+	
+	/* Element-wise relational */
+	double exp_gt[3] = { 0.0, 0.0, 0.0 }; /* AA=[1,2,3] < BB=[4,5,6] */
+	testAValExpr("AA>BB", args, aargs, exp_gt, 3);
+	
+	double exp_eq[3] = { 1.0, 1.0, 1.0 };
+	testAValExpr("AA==AA", args, aargs, exp_eq, 3);
+	
+	/* UNTIL loop */
+	testValExpr("UNTIL(1)", args, aargs, 1.0);
+	testValExpr("B:=10;UNTIL(B:=B-1;B<1)", args, aargs, 1.0);
+	/* Reset B */
+	args[1] = B;
+	
+	/* Parse error tests */
+	{
+		unsigned char rpn[255];
+		short err;
+		testOk(aCalcPostfix(")", rpn, &err) != 0, "bad expr: ) (unmatched close paren)");
+		testOk(aCalcPostfix("(A+B", rpn, &err) != 0, "bad expr: (A+B (unclosed paren)");
+		testOk(aCalcPostfix("A+", rpn, &err) != 0, "bad expr: A+ (incomplete)");
+		testOk(aCalcPostfix("]", rpn, &err) != 0, "bad expr: ] (unmatched bracket)");
+		testOk(aCalcPostfix("}", rpn, &err) != 0, "bad expr: } (unmatched curly)");
+		testOk(aCalcPostfix("A?B:C:D", rpn, &err) != 0, "bad expr: A?B:C:D (extra colon)");
+	}
 
 	return testDone();
 }
