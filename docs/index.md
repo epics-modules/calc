@@ -20,67 +20,204 @@ nav_order: 1
 
 **swaitRecord** - [swaitRecord.md](swaitRecord.md) -- The **swait** record is much like the **calcout** record in EPICS base, but it uses an older form of retargetable links, and its output link waits for completion. The **swait** record is not recommended for new development; use a **calcout** record instead.
 
-## EPICS Databases, MEDM display files, and autosave-request files
+## Databases, Displays, and Configuration Files
 
-**arrayTest.db, arrayTest.adl** -- This database contains an **aSub** record that maintains two array fields: "$(P)arrayTest.VALA", and "$(P)arrayTest.VALB". The "VALB" field contains double values from 0 to $(N)-1, where $(N) is a macro supplied to the `dbLoadRecords()` command that loads the database. The "VALA" field contains double values from M to M+$(N)-1, where M is supplied at run time to the field "$(P)arrayTest_start".
+Each record type in the calc module comes with a set of "user" databases
+(pre-configured record instances for run-time programming), MEDM display
+files, and autosave request files. The databases follow a naming convention:
+`user<Type>s10.db` provides 10 instances with enable logic,
+`user<Type>s10more.db` provides 10 additional instances, and
+`user<Type>.db` provides a single parameterized instance.
+All user databases share a three-level enable architecture
+(global, per-type, and per-record).
 
-**CalcRecord.adl, CalcRecord_full.adl** -- The **calc** record, in EPICS base, does not come with display files. But, frequently, one would like to be able to display and interact with a **calc** record embedded in a database. The files serve that purpose.
+### User Calcs (swait)
 
-**calcExamples.adl, calcAlgebraicExamples.adl, calcArrayExamples.adl, calcBitwiseExamples.adl, calcMiscExamples.adl, calcRelationalExamples.adl, calcStringExamples.adl, calcTrigExamples.adl** -- These files document the expressions evaluated by **calc**, **calcout**, **sCalcout**, and **aCalcout** records.
+A *userCalc* is a **swait** record configured for run-time programming,
+with enable switches, autosave support, and comprehensive displays.
 
-**calcout_settings.req** -- The **calcout** record, in EPICS base, does not come with an autosave-request file.
+> Although the **swait** record is not recommended for new development,
+> it is retained because many users are accustomed to its link programming
+> model (PV names only, no link attributes like NPP/NMS).
 
-**yyCalcoutRecord.adl, yyCalcoutRecord_full.adl** -- The **calcout** record, in EPICS base, does not come with display files. But, frequently, one would like to be able to display and interact with a **calcout** record embedded in a database. The files serve that purpose.
+| File | Type | Description |
+|------|------|-------------|
+| userCalcs10.db | Database | 10 user calc records with enable logic |
+| userCalcs10more.db | Database | 10 additional user calcs |
+| userCalcN.db | Database | Single parameterized user calc |
+| userCalcN_noDisable.db | Database | Single user calc without disable mechanism |
+| waitRecN.db | Database | Single plain swait record |
+| userCalc.adl | Display | Compact user calc display |
+| userCalc_full.adl | Display | Detailed user calc display |
+| userCalcMeter.adl | Display | User calc with meter widget |
+| userCalc_help.adl | Display | User calc help display |
+| userCalcs10.adl | Display | Collection of 10 user calcs |
+| userCalcs20.adl | Display | Collection of 20 user calcs |
+| userCalcs40.adl | Display | Collection of 40 user calcs |
+| yyWaitRecord.adl | Display | Plain swait record display |
+| yyWaitRecord_full.adl | Display | Detailed plain swait display |
+| swait_settings.req | Autosave | Settings for a single swait record |
+| userCalcN_settings.req | Autosave | Settings for a single user calc |
 
-**interpNew.db, interpNew_settings.req, interpNew.adl** -- This is a new version of interp, that requires the additional macro, Q, and that is easier to use. [Details](interpNew.md)
+### User CalcOuts (calcout)
 
-**interp.db, interp_settings.req, interp.adl** -- This database implements array interpolation, and hosts three arrays: an independent variable array, X, whose PV name is "$(P)interp.VALA"); and two dependent variable arrays, Y1(X) and Y2(X), whose PV names are, respectively, "$(P)interp.VALB", and "$(P)interp.VALC".
+Like a *userCalc*, but based on the **calcout** record from EPICS base.
 
-The arrays can be loaded at boot time, using autosave; written to at run time by a CA client; or built up element by element at run time, by setting the MODE switch ("$(P)interp_mode") to "Add Entry".
+| File | Type | Description |
+|------|------|-------------|
+| userCalcOuts10.db | Database | 10 user calcout records with enable logic |
+| userCalcOuts10more.db | Database | 10 additional user calcouts |
+| userCalcOut.adl | Display | Compact user calcout display |
+| userCalcOut_full.adl | Display | Detailed user calcout display |
+| userCalcOuts10.adl | Display | Collection of 10 user calcouts |
+| yyCalcoutRecord.adl | Display | Plain calcout record display |
+| yyCalcoutRecord_full.adl | Display | Detailed plain calcout display |
+| calcout_settings.req | Autosave | Settings for a single calcout record |
 
-To interpolate, one sets the mode switch to "Interpolate", and writes a number to the X-input field, "$(P)interp_x". This causes an underlying **aSub** record to interpolate the Yi arrays to find values that would correspond with that value of X, to display them as "$(P)interp_y1" and "$(P)interp_y2", and, optionally, to write them to the external PVs named in the link fields "$(P)interp_y1.OUT", and "$(P)interp_y2.OUT".
+### User Array Calcs (acalcout)
 
-The interpolation performed is a Lagrange interpolation, where the degree of the polynomial can be specified by writing to "$(P)interp.F". The order must be in the range 1..10. Currently the database doesn't visibly enforce these limits, but silently clips to them if they are violated.
+Like a *userCalc*, but based on the **aCalcout** (array calcout) record.
 
-To add an element to the arrays, one sets the mode switch to "Add Element", writes Yi values to "$(P)interp_y1" and "$(P)interp_y2", and then writes the corresponding X value to "$(P)interp_x". The number of entries, "$(P)interp_n" will then increase by one.
+| File | Type | Description |
+|------|------|-------------|
+| userArrayCalcs10.db | Database | 10 user array calc records with enable logic |
+| userArrayCalcs10more.db | Database | 10 additional user array calcs |
+| userArrayCalc.adl | Display | Compact user array calc display |
+| userArrayCalc_full.adl | Display | Detailed user array calc display |
+| userArrayCalcPlot.adl | Display | Single array calc with plot |
+| userArrayCalcPlots10.adl | Display | 10 array calc plots |
+| userArrayCalc_plot.adl | Display | Array calc plot display |
+| userArrayCalcs10.adl | Display | Collection of 10 user array calcs |
+| arrayPlot8.adl | Display | 8-channel array plot |
+| acalcout_settings.req | Autosave | Settings for a single acalcout record |
 
-The arrays can be cleared by setting the mode switch to "Clear All" and writing anything to X.
+### User String Calcs (scalcout)
 
-For more information, see [interp.README](interp.README).
+Like a *userCalc*, but based on the **sCalcout** (string calcout) record.
 
-**userAve10.db, userAve10_settings.req, userAve.adl, userAve10.adl, userAve10more.db, userAve10more_settings.req, userAve_settings.req** -- These files implement, manage, and display sets of 10 **sub** records programmed (thanks to Frank Lenkszus) to calculate the average of M values, where M is given by "$(P)userAve$(N).A", which are read via the input link "$(P)userAve$(N).INPB". Alternatively, the **sub** record can be made to fit recorded values, seen as a function of time, to a line, and to return the line evaluated at the time of the most recently recorded value. This is very similar to an average, if the true value is constant. If the true value varies with time, the line fit produces a better estimate of the signal's true value than an average.
+| File | Type | Description |
+|------|------|-------------|
+| userStringCalcs10.db | Database | 10 user string calc records with enable logic |
+| userStringCalcs10more.db | Database | 10 additional user string calcs |
+| userStringCalc.adl | Display | Compact user string calc display |
+| userStringCalc_full.adl | Display | Detailed user string calc display |
+| userStringCalc_demo.adl | Display | String calc demo display |
+| userStringCalcs10.adl | Display | Collection of 10 user string calcs |
+| yysCalcoutRecord.adl | Display | Plain sCalcout record display |
+| yysCalcoutRecord_demo.adl | Display | Plain sCalcout demo display |
+| yysCalcoutRecord_full.adl | Display | Detailed plain sCalcout display |
+| scalcout_settings.req | Autosave | Settings for a single scalcout record |
 
-These records are intended for use in run-time programming. With either algorithm, the records can operate in two ways:
+### User Transforms (transform)
 
-- **Running average/fit** ("$(P)userAve$(N)_mode" == "CONTINUOUS"): After M values have been recorded, output the average (line-fit result) of the most recent M value whenever a new value is read.
+Like a *userCalc*, but based on the **transform** record.
 
-- **One-shot average/fit** ("$(P)userAve$(N)_mode" == "ONE-SHOT"): Clear the output, read M values, output the average (line-fit result) of those values, and ignore new values until a restart command is received ("$(P)userAve$(N).C is set to 1).
+| File | Type | Description |
+|------|------|-------------|
+| userTransform.db | Database | Single parameterized user transform |
+| userTransforms10.db | Database | 10 user transforms with enable logic |
+| userTransforms10more.db | Database | 10 additional user transforms |
+| userTransforms20.db | Database | 20 user transforms (deprecated) |
+| transforms10.db | Database | 10 individually-enabled transforms |
+| userTransform.adl | Display | Compact user transform display |
+| userTransform_full.adl | Display | Detailed user transform display |
+| userTransforms10.adl | Display | Collection of 10 user transforms |
+| userTransforms20.adl | Display | Collection of 20 user transforms |
+| Transform.adl | Display | Compact individually-enabled transform |
+| Transform_full.adl | Display | Detailed individually-enabled transform |
+| Transforms10.adl | Display | Collection of 10 individually-enabled transforms |
+| yyTransform.adl | Display | Plain transform record display |
+| yyTransform_full.adl | Display | Detailed plain transform display |
+| transform_settings.req | Autosave | Settings for a single transform record |
 
-In either mode, the record uses its alarm field to indicate whether the output value it is displaying ("$(P)userAve$(N).VAL") is valid (i.e., is the result of M readings). Until M readings have been read, the record will be in alarm (STAT=="SOFT", SEVR=="MAJOR"). After M readings have been treated, STAT=="NO_ALARM", SEVR=="NO_ALARM".
+### User String Sequences (sseq)
 
-**userCalcs10.db, userCalcs10_settings.req, userCalcs10more.db, userCalcs10more_settings.req, swait_settings.req, userCalc.adl, userCalcMeter.adl, userCalc_full.adl, userCalc_help.adl, userCalcs10.adl, userCalcs20.adl, userCalcs40.adl, userCalcN.db, userCalcN_noDisable.db, userCalcN_settings.req** -- A *userCalc* is simply a **swait** record implemented for use in run-time programming. "Implemented" means that a database containing several uncommitted **swait** records, with an overall enable switch, is loaded; corresponding entries are made in autosave files to save and restore selected field values; and reasonably comprehensive MEDM displays are provided so that a user can exercise most of the records' features.
+| File | Type | Description |
+|------|------|-------------|
+| userStringSeqs10.db | Database | 10 user string sequence records |
+| userStringSeqs10more.db | Database | 10 additional user string sequences |
+| yySseq.db | Database | Single string sequence record |
+| editSseq.db | Database | Support records for the editSseq SNL program |
+| userStringSeq\*.adl | Display | User string sequence displays |
+| yySseq\*.adl | Display | Plain sseq record displays |
+| sseqRecord_settings.req | Autosave | Settings for a single sseq record |
 
-> Although the **swait** record is not recommended for new development, it is retained in this case because many users have become accustomed to the way it behaves -- in particular, to the way its links are programmed: they take only a PV name, without the link attributes (e.g., NPP, NMS) that standard EPICS links have.
+### User Averages (sub)
 
-**userCalcOuts10.db, userCalcOuts10_settings.req, userCalcOuts10more.db, userCalcOuts10more_settings.req, userCalcOut.adl, userCalcOut_full.adl, userCalcOuts10.adl** -- Just like a *userCalc*, but based on the **calcout** record, instead of the **swait** record.
+These databases provide sets of **sub** records programmed to calculate
+the average of M values read via an input link. The records can
+alternatively fit values (as a function of time) to a line, returning
+the line evaluated at the time of the most recent reading -- useful in
+PID loops where the true signal varies with time.
 
-**userArrayCalcs10.db, userArrayCalcs10_settings.req, userArrayCalcs10more.db, userArrayCalcs10more_settings.req, acalcout_settings.req, userArrayCalc.adl, userArrayCalcPlot.adl, userArrayCalcPlots10.adl, userArrayCalc_full.adl, userArrayCalc_plot.adl, userArrayCalcs10.adl, arrayPlot8.adl** -- Just like a *userCalc*, but based on the **aCalcout** (array calcout) record, instead of the **swait** record.
+The records operate in two modes:
 
-**userStringCalcs10.db, userStringCalcs10_settings.req, userStringCalcs10more.db, userStringCalcs10more_settings.req, scalcout_settings.req, userStringCalc.adl, userStringCalc_demo.adl, userStringCalc_full.adl, userStringCalcs10.adl** -- Just like a *userCalc*, but based on the **aCalcout** (array calcout) record, instead of the **swait** record.
+- **CONTINUOUS**: Running average/fit -- after M values, output the
+  result of the most recent M values whenever a new value arrives.
+- **ONE-SHOT**: Acquire M values, output the result, and stop until
+  restarted.
 
-**yysCalcoutRecord.adl, yysCalcoutRecord_demo.adl, yysCalcoutRecord_full.adl** -- MEDM displays for a plain **sCalcout** record, i.e., one that is not also a userStringCalc.
+The record is in MAJOR alarm until M readings have been accumulated.
 
-**userTransform.db, userTransforms10.db, userTransforms10_settings.req, userTransforms10more.db, userTransforms10more_settings.req, userTransform.adl, userTransform_full.adl, userTransforms10.adl, userTransforms20.adl, userTransforms20.db (deprecated), userTransforms20_settings.req (deprecated)** -- Just like a *userCalc*, but based on the **transform** record, instead of the **swait** record.
+| File | Type | Description |
+|------|------|-------------|
+| userAve10.db | Database | 10 user averaging records |
+| userAve10more.db | Database | 10 additional user averaging records |
+| userAve.adl | Display | Compact user average display |
+| userAve10.adl | Display | Collection of 10 user averages |
+| userAve_settings.req | Autosave | Settings for a single user average |
 
-**Transform.adl, Transform_full.adl, Transforms10.adl, transforms10.db, transforms10_settings.req, transform_settings.req** -- Just like a userTransform, but individually enabled/disabled.
+### Interpolation
 
-**yyTransform.adl, yyTransform_full.adl** -- MEDM displays for a plain **transform** record, i.e., one that is not also a userTransform.
+Array interpolation using the **aSub** record, supporting linear and
+polynomial (Lagrange) interpolation of one or two dependent variables
+against an independent variable. Tables can be loaded via autosave,
+written by CA clients, or built up point-by-point at run time.
+See [Array Interpolation](interpNew.md) for details.
 
-**waitRecN.db, yyWaitRecord.adl, yyWaitRecord_full.adl** -- MEDM displays for a plain **swait** record, i.e., one that is not also a userCalc, and a database to load a single **swait** record. These files are retained mostly for backward compatibility.
+| File | Type | Description |
+|------|------|-------------|
+| interpNew.db | Database | Interpolation database (preferred) |
+| interp.db | Database | Legacy interpolation database |
+| interpNew.adl | Display | Interpolation display |
+| interp.adl | Display | Legacy interpolation display |
+| interpNew_settings.req | Autosave | Interpolation table save/restore |
+| interp_settings.req | Autosave | Legacy interpolation save/restore |
 
-**userStringSeqs10.db, userStringSeqs10_settings.req, userStringSeqs10more_settings.req, userStringSeqs10more.db, userStringSeq\*.adl** -- Ten string-sequence records.
+### Calc and Calcout Record Support
 
-**yySseq.db, yySseq\*.adl** -- One string-sequence record.
+Display files and autosave support for the **calc** and **calcout**
+records from EPICS base, which do not ship with these files.
+
+| File | Type | Description |
+|------|------|-------------|
+| CalcRecord.adl | Display | Compact calc record display |
+| CalcRecord_full.adl | Display | Detailed calc record display |
+| calcout_settings.req | Autosave | Settings for a calcout record |
+
+### Expression Help Displays
+
+MEDM displays documenting the expressions supported by **calc**,
+**calcout**, **sCalcout**, and **aCalcout** records, with examples.
+
+| File | Description |
+|------|-------------|
+| calcExamples.adl | Top-level expression examples |
+| calcAlgebraicExamples.adl | Algebraic operator examples |
+| calcArrayExamples.adl | Array operator examples |
+| calcBitwiseExamples.adl | Bitwise operator examples |
+| calcMiscExamples.adl | Miscellaneous operator examples |
+| calcRelationalExamples.adl | Relational operator examples |
+| calcStringExamples.adl | String operator examples |
+| calcTrigExamples.adl | Trigonometric function examples |
+
+### Other Databases
+
+| File | Type | Description |
+|------|------|-------------|
+| arrayTest.db | Database | aSub record generating test arrays `VALA` and `VALB` |
+| FuncGen.db | Database | Software function generator (sine, square, triangle, ramp) |
+| userCalcGlobalEnable.db | Database | Global enable switch for all user calc types |
 
 ## How to build and use
 
