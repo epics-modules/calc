@@ -194,7 +194,7 @@ int crc16(char *output, char *rawInput)
 {
 	int i, j, len;
 	unsigned int crc;
-	char tranInput[100];
+	char tranInput[SCALC_STRING_SIZE];
 
 	len = dbTranslateEscape(tranInput, rawInput);
 	if (len == 0) return(-1);
@@ -260,7 +260,7 @@ int xor8(char *output, char *rawInput)
 {
 	int i, len;
 	unsigned int xor8;
-	char tranInput[100];
+	char tranInput[SCALC_STRING_SIZE];
 
 	len = dbTranslateEscape(tranInput, rawInput);
 	if (len == 0) return(-1);
