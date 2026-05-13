@@ -6,8 +6,6 @@ nav_order: 1
 
 # calc module Documentation
 
-[Release Notes](calcReleaseNotes.md)
-
 ## Records
 
 **aCalcoutRecord** - [aCalcoutRecord.md](aCalcoutRecord.md) -- The **aCalcout** record is much like the **calcout** record in EPICS base, but it supports array fields and calculations, and its output link can wait for completion.
@@ -242,8 +240,3 @@ MEDM displays documenting the expressions supported by **calc**,
   ```
 
   to xxxApp/src/Makefile.
-
----
-
-Suggestions and Comments to:
-Tim Mooney (mooney@aps.anl.gov)
