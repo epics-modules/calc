@@ -25,6 +25,8 @@ INC += sCalcPostfix.h aCalcPostfix.h
 DBD_INSTALLS += calcSupport.dbd
 DBD_INSTALLS += calc.dbd
 
+CFG += CALC_DEPS
+
 ifdef SNCSEQ
 	DBD += editSseq.dbd
 endif

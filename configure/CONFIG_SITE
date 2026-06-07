@@ -16,6 +16,10 @@
 #   continue building even if conflicts are found.
 CHECK_RELEASE = YES
 
+# Canonical module name for cfg-based automated dependencies.
+# Must match the variable name used in RELEASE files.
+MODULE = CALC
+
 # Set this when you only want to compile this application
 #   for a subset of the cross-compiled target architectures
 #   that Base is built for.
