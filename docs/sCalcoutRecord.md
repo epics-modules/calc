@@ -5,55 +5,13 @@ nav_order: 4
 ---
 
 # scalcout - String Calculation Output Record
+{: .no_toc}
 
+## Table of contents
+{: .no_toc .text-delta }
 
-## Contents
-
-1. [Introduction](#1-introduction)
-2. [Scan Parameters](#2-scan-parameters)
-3. [Read Parameters](#3-read-parameters)
-4. [Expressions](#4-expressions)
-   - [4.1. Operands](#41-operands)
-   - [4.2. Algebraic Functions/Operators](#42-algebraic-functionsoperators)
-   - [4.3. Trigonometric Functions](#43-trigonometric-functions)
-   - [4.4. Relational Operators](#44-relational-operators)
-   - [4.5. Logical Operators](#45-logical-operators)
-   - [4.6. Bitwise Operators](#46-bitwise-operators)
-   - [4.7. Special Characters](#47-special-characters)
-   - [4.8. Conditional Expression](#48-conditional-expression)
-   - [4.9. String Functions/Operators](#49-string-functionsoperators)
-   - [4.10. Array Operators](#410-array-operators)
-   - [4.11. Miscellaneous Operators](#411-miscellaneous-operators)
-   - [4.12. Examples](#412-examples)
-      - [Algebraic](#algebraic)
-      - [Relational](#relational)
-      - [Question Mark](#question-mark)
-      - [Logical](#logical)
-      - [String](#string)
-      - [Argument Array](#argument-array)
-      - [Store](#store)
-      - [Loop](#loop-until)
-5. [Output Parameters](#5-output-parameters)
-6. [Operator Display Parameters](#6-operator-display-parameters)
-7. [Alarm Parameters](#7-alarm-parameters)
-8. [Monitor Parameters](#8-monitor-parameters)
-9. [Run-time Parameters](#9-run-time-parameters)
-10. [Record Support Routines](#10-record-support-routines)
-    - [init_record](#init_record)
-    - [process](#process)
-    - [special](#special)
-    - [get_value](#get_value)
-    - [get_units](#get_units)
-    - [get_precision](#get_precision)
-    - [get_graphic_double](#get_graphic_double)
-    - [get_control_double](#get_control_double)
-    - [get_alarm_double](#get_alarm_double)
-11. [Record Processing](#11-record-processing)
-    - [11.1. process()](#111-process)
-    - [11.2. execOutput()](#112-execoutput)
-12. [Sample Database](#12-sample-database)
-
----
+- TOC
+{:toc}
 
 
 ## 1. Introduction
@@ -1019,53 +977,52 @@ in the same manner for the VAL field.
 
 ## 10. Record Support Routines
 
-
-#### init_record
+### init_record
+---
 
 For each constant input link, the corresponding value field is initialized
 with the constant value if the input link is CONSTANT or a channel access
 link is created if the input link is PV_LINK.
 
-
 A routine postfix is called to convert the infix expression in
 CALC and OCAL to reverse polish notation. The result is stored in RPCL
 and ORPC, respectively.
 
-
-#### process
+### process
+---
 
 See section 11.
 
-
-#### special
+### special
+---
 
 This is called if CALC or OCAL is changed. special calls sCalcPostfix.
 
-
-#### get_value
+### get_value
+---
 
 Fills in the values of struct valueDes so that they refer to VAL.
 
-
-#### get_units
+### get_units
+---
 
 Retrieves EGU.
 
-
-#### get_precision
+### get_precision
+---
 
 Retrieves PREC.
 
-
-#### get_graphic_double
+### get_graphic_double
+---
 
 Sets the upper display and lower display limits for a field. If the field
 is VAL, HIHI, HIGH, LOW, or LOLO, the limits are set to HOPR and LOPR,
 else if the field has upper and lower limits defined they will be used,
 else the upper and lower maximum values for the field type will be used.
 
-
-#### get_control_double
+### get_control_double
+---
 
 Sets the upper control and the lower control limits for a field. If the
 field is VAL, HIHI, HIGH, LOW, or LOLO, the limits are set to HOPR and
@@ -1073,8 +1030,8 @@ LOPR, else if the field has upper and lower limits defined they will be
 used, else the upper and lower maximum values for the field type will be
 used.
 
-
-#### get_alarm_double
+### get_alarm_double
+---
 
 Sets the following values:
 

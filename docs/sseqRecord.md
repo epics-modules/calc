@@ -5,21 +5,13 @@ nav_order: 5
 ---
 
 # The sseq (string sequence) record
+{: .no_toc}
 
-## Contents
+## Table of contents
+{: .no_toc .text-delta }
 
-1. [Introduction](#1-introduction)
-2. [Scan/Control Fields](#2-scancontrol-fields)
-3. [Desired Output Fields](#3-desired-output-fields)
-4. [Output/Wait Fields](#4-outputwait-fields)
-5. [Selection Algorithm Fields](#5-selection-algorithm-fields)
-6. [Delay Fields](#6-delay-fields)
-7. [Operator Display Fields](#7-operator-display-fields)
-8. [Alarm Fields](#8-alarm-fields)
-9. [Record Support Routines](#9-record-support-routines)
-10. [Editing a sseq record at run time](#10-editing-a-sseq-record-at-run-time)
-
----
+- TOC
+{:toc}
 
 ## 1. Introduction
 
@@ -55,8 +47,10 @@ The user, or another EPICS record, can cause a running **sseq** record to stop e
 
 The first write of '1' to the abort field waits for outstanding callbacks to arrive before returning the record to the idle state. This is the preferred way to abort an executing sequence. However, it may be that a callback the record is waiting for will never arrive. In this case, a more thorough abort is required, to put the record back into an executable state. Therefore, if a second write of '1' to the abort field occurs while the record is waiting for callbacks, the record will abandon outstanding callbacks, and return immediately to the idle state. However, any abandoned callbacks remain outstanding, and can arrive at any time. If one comes in while the record is idle, it will be ignored, but if it comes in while the record is executing a fresh sequence, it may be treated as the result of that fresh sequence.
 
+{: .important }
 > It has become common practice for EPICS developers to treat a sequence record's forward link as an extra `LNKn` field, and to chain a series of sequence records together using forward links. These practices are not recommended for use with the **sseq** record, because the forward link is not subject to `ABORT`; it is *always* executed.
 
+{: .note }
 > For previous versions of the record (earlier than std-module version R3-0), users were cautioned not to write to the `ABORT` the record via a `PP` link, because this could cause EPICS to reprocess the record after the abort had succeeded. The record now defends itself against this possibility, by clearing its `RPRO` field as the last step of an abort.
 
 ---

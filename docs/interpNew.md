@@ -5,6 +5,13 @@ nav_order: 8
 ---
 
 # interpNew - Array Interpolation
+{: .no_toc}
+
+## Table of contents
+{: .no_toc .text-delta }
+
+- TOC
+{:toc}
 
 This is a new version of interp, that requires the additional macro, Q, and that is easier to use.
 
@@ -60,37 +67,37 @@ The supplied database adds a sort of user interface to the software described ab
 
 To use BURT to load and save the VALA, VALB, and VALC arrays, make a burt request file for your loaded copy of the interp database:
 
-> ```
-> xxx:interp.VALA
-> xxx:interp.VALB
-> xxx:interp.VALC
-> ```
+```
+xxx:interp.VALA
+xxx:interp.VALB
+xxx:interp.VALC
+```
 
 Then make a load file using `burtrb`:
 
-> ```
-> burtrb -f interp.req -o interp.load
-> ```
+```
+burtrb -f interp.req -o interp.load
+```
 
 This will produce an output file that might look something like this:
 
-> ```
-> --- Start BURT header
-> Time:     Thu Dec  9 17:17:48 2010
-> Login ID: mooney (Tim Mooney)
-> Eff  UID: 597
-> Group ID: 104
-> Keywords: 
-> Comments: 
-> Type:     Absolute
-> Directory /home/oxygen4/MOONEY/epics/synApps/support/xxx/xxxApp/op/burt
-> Req File: interp.req
-> --- End BURT header
-> xxx:interp.VALA 2000 0.000000000000000e+00 0.000000000000000e+00 ...
-> xxx:interp.VALB 2000 0.000000000000000e+00 0.000000000000000e+00 ...
-> xxx:interp.VALC 2000 0.000000000000000e+00 0.000000000000000e+00 ...
-> ---end file interp.load---
-> ```
+```
+--- Start BURT header
+Time:     Thu Dec  9 17:17:48 2010
+Login ID: mooney (Tim Mooney)
+Eff  UID: 597
+Group ID: 104
+Keywords: 
+Comments: 
+Type:     Absolute
+Directory /home/oxygen4/MOONEY/epics/synApps/support/xxx/xxxApp/op/burt
+Req File: interp.req
+--- End BURT header
+xxx:interp.VALA 2000 0.000000000000000e+00 0.000000000000000e+00 ...
+xxx:interp.VALB 2000 0.000000000000000e+00 0.000000000000000e+00 ...
+xxx:interp.VALC 2000 0.000000000000000e+00 0.000000000000000e+00 ...
+---end file interp.load---
+```
 
 You can edit this file to change the array values. Note that the first number ("2000") on the line beginning "xxx:interp.VALA" is the number of array values specified on the rest of the line. (I've chopped the line off after two array values in this example.)
 

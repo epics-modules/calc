@@ -1,10 +1,17 @@
 ---
 layout: default
-title: Home
+title: Overview
 nav_order: 1
 ---
 
 # calc module Documentation
+{: .no_toc}
+
+## Table of contents
+{: .no_toc .text-delta }
+
+- TOC
+{:toc}
 
 ## Records
 
@@ -34,6 +41,7 @@ All user databases share a three-level enable architecture
 A *userCalc* is a **swait** record configured for run-time programming,
 with enable switches, autosave support, and comprehensive displays.
 
+{: .note }
 > Although the **swait** record is not recommended for new development,
 > it is retained because many users are accustomed to its link programming
 > model (PV names only, no link attributes like NPP/NMS).
@@ -219,11 +227,13 @@ MEDM displays documenting the expressions supported by **calc**,
 
 ## How to build and use
 
-- Edit `configure/RELEASE` to specify the paths to **EPICS base**, and to the **sscan** and **seq** modules. If you don't have **sscan**, or don't want it to be used by the **calc** module, comment the definition out, and the **calc** module will adjust its build accordingly. Same for **seq**. The only thing **calc** can't build without **sscan** is the swait record, which is retained in **calc** mostly for historical reasons. The only thing **calc** can't build without **sscan** is the editSseq program and database, which support run-time editing of sseq and seq records.
+- Edit `configure/RELEASE` to specify the paths to **EPICS base**, and to the [sscan](https://github.com/epics-modules/sscan) and [seq](https://github.com/epics-modules/sequencer) modules. If you don't have **sscan**, or don't want it to be used by the **calc** module, comment the definition out, and the **calc** module will adjust its build accordingly. Same for **seq**. The only thing **calc** can't build without **sscan** is the swait record, which is retained in **calc** mostly for historical reasons. The only thing **calc** can't build without **seq** is the editSseq program and database, which support run-time editing of sseq and seq records.
 
-  > If **calc** was built with **sscan** or **seq**, modules that depend on calc should also be built with those modules.
+{: .important }
+> If **calc** was built with **sscan** or **seq**, modules that depend on calc should also be built with those modules.
 
-  > The swait record is the original "userCalc" record, and many users at APS have become accustomed to the way it works. The calcout record from EPICS base, with "Async Soft Channel" device support, is a reasonable substitute for the swait record,
+{: .note }
+> The swait record is the original "userCalc" record, and many users at APS have become accustomed to the way it works. The calcout record from EPICS base, with "Async Soft Channel" device support, is a reasonable substitute for the swait record.
 
 - Run Gnu Make to build.
 

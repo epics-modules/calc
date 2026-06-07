@@ -5,34 +5,17 @@ nav_order: 6
 ---
 
 # The SWAIT record
+{: .no_toc}
 
 Ned D. Arnold, Tim Mooney
 Advanced Photon Source
 Argonne National Laboratory
 
-## Contents
+## Table of contents
+{: .no_toc .text-delta }
 
-1. [Introduction](#1-introduction)
-2. [Scan Parameters](#2-scan-parameters)
-3. [Read Parameters](#3-read-parameters)
-4. [Expression-related Parameters](#4-expression-related-parameters)
-   - [4.1. Operands](#41-operands)
-   - [4.2. Algebraic Operators](#42-algebraic-operators)
-   - [4.3. Trigonometric Operators](#43-trigonometric-operators)
-   - [4.4. Relational Operators](#44-relational-operators)
-   - [4.5. Logical Operators](#45-logical-operators)
-   - [4.6. Bitwise Operators](#46-bitwise-operators)
-   - [4.7. Parentheses and Comma](#47-parentheses-and-comma)
-   - [4.8. Conditional Expression](#48-conditional-expression)
-   - [4.9. Examples](#49-examples)
-5. [Desired Output Parameters](#5-desired-output-parameters)
-6. [Write Parameters](#6-write-parameters)
-7. [Operator Display Parameters](#7-operator-display-parameters)
-8. [Alarm Parameters](#8-alarm-parameters)
-9. [Monitor Parameters](#9-monitor-parameters)
-10. [Run-time Parameters](#10-run-time-parameters)
-
----
+- TOC
+{:toc}
 
 ## 1. Introduction
 
@@ -80,9 +63,10 @@ The SWAIT record has the standard fields for specifying under what circumstances
 | INKP | Input K ProcessOnChange | Menu | Yes | No | Yes | Yes | Yes |
 | INLP | Input L ProcessOnChange | Menu | Yes | No | Yes | Yes | Yes |
 
-> **Note: Because of the event-driven nature of this feature, it is quite easy to configure a database that results in an infinite loop which uses all available CPU time. If the SWAIT record is set to process as a result of a channel changing and the processing of the SWAIT record causes the channel to change again, an infinite loop will result. This is not by itself a bad thing, but if there is no throttle on the rate at which the SWAIT record causes itself to process, its activity will use all of the available CPU time. The symptom will be an apparent loss of all channel access connections (lower priority tasks) even though the shell responds normally. Using the `spy` vxWorks utility will confirm the predicament by showing 0% free CPU time. If the condition persists for more than a few tens of seconds, some system queue is likely to overflow, and a crate reboot may be required to recover.**
+{: .warning }
+> Because of the event-driven nature of this feature, it is quite easy to configure a database that results in an infinite loop which uses all available CPU time. If the SWAIT record is set to process as a result of a channel changing and the processing of the SWAIT record causes the channel to change again, an infinite loop will result. This is not by itself a bad thing, but if there is no throttle on the rate at which the SWAIT record causes itself to process, its activity will use all of the available CPU time. The symptom will be an apparent loss of all channel access connections (lower priority tasks) even though the shell responds normally. Using the `spy` vxWorks utility will confirm the predicament by showing 0% free CPU time. If the condition persists for more than a few tens of seconds, some system queue is likely to overflow, and a crate reboot may be required to recover.
 >
-> **You can safely use the SWAIT record in such a self-sustaining loop by setting the record's output-delay (.ODLY) field to, say, .02 (seconds). The delay value must be larger than a single system-clock tick (typically, .01667) or it will have no effect.**
+> You can safely use the SWAIT record in such a self-sustaining loop by setting the record's output-delay (.ODLY) field to, say, .02 (seconds). The delay value must be larger than a single system-clock tick (typically, .01667) or it will have no effect.
 
 The Application Developer's Guide explains how the rest of these fields are used.
 

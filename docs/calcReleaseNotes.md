@@ -5,6 +5,13 @@ nav_order: 2
 ---
 
 # calc Release Notes
+{: .no_toc}
+
+## Table of contents
+{: .no_toc .text-delta }
+
+- TOC
+{:toc}
 
 ## Release 3-7-5
 

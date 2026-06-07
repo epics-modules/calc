@@ -1,3 +1,8 @@
+---
+layout: default
+nav_exclude: true
+---
+
 # calc module Documentation
 
 * [Overview documentation](index.md)
