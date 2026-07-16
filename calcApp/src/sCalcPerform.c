@@ -45,6 +45,18 @@ static int cond_search(const unsigned char **ppinst, int match);
 #define myMIN(a,b) (a)<(b)?(a):(b)
 #define SMALL 1.e-11
 
+/* Signed remainder that guards the one case C leaves undefined: INT_MIN % -1
+ * (here also INT64_MIN % -1 on LP64).  On x86 the idiv used for '%' traps that
+ * quotient overflow as #DE, delivered as SIGFPE, killing the whole IOC.
+ * Mathematically x % -1 == 0 for every x, so return 0 for a -1 divisor instead
+ * of executing the trapping remainder.  The divisor == 0 case is guarded
+ * separately at each call site. */
+static long safeModulo(long a, long b)
+{
+	if (b == -1) return 0;
+	return a % b;
+}
+
 #define DEBUG 1
 #define INIT_STACK 1
 volatile int sCalcPerformDebug = 0;
@@ -559,7 +571,7 @@ epicsShareFunc long
 				--pd;
 				if ((int)(pd[1]) == 0)
 					return(-1);
-				*pd = (double)((int)(*pd) % (int)(pd[1]));
+				*pd = (double)safeModulo((int)(*pd), (int)(pd[1]));
 				break;
 
 			case REL_OR:
@@ -1106,7 +1118,7 @@ epicsShareFunc long
 				toDouble(ps);
 				if ((long)ps1->d == 0)
 					return(-1);
-				ps->d = (double)((long)ps->d % (long)ps1->d);
+				ps->d = (double)safeModulo((long)ps->d, (long)ps1->d);
 				break;
 
 			case REL_OR:
