@@ -106,7 +106,7 @@ MAIN(scalcTest)
 	double args[12] = {A, B, C, D, E, F, G, H, I, J, K, L};
 	const char* sargs[12] = {AA, BB, CC, DD, EE, FF, GG, HH, II, JJ, KK, LL};
 	
-	testPlan(143);
+	testPlan(145);
 
 	testValExpr("finite(1)", args, sargs, 1);
 	testValExpr("isnan(1)", args, sargs, 0);
@@ -288,6 +288,12 @@ MAIN(scalcTest)
 	/* String subtract-first and subtract-last */
 	testSValExpr("'abca'-|'a'", args, sargs, "bca");
 	testSValExpr("'abca'|-'a'", args, sargs, "abc");
+
+	/* LRC on an empty operand: strlen(rawInput)-1 must not wrap size_t and
+	 * read out of bounds.  Empty -> empty loop -> lrc 0 -> "00".
+	 * The documented AMODBUS example "F7031389000A" has LRC 0x60. */
+	testSValExpr("LRC('')", args, sargs, "00");
+	testSValExpr("LRC('F7031389000A')", args, sargs, "60");
 	
 	/* UNTIL loops */
 	testValExpr("UNTIL(1)", args, sargs, 1.0);
