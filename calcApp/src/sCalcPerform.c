@@ -1494,7 +1494,7 @@ epicsShareFunc long
 				INC(ps);
 				ps->s = &(ps->local_string[0]);
 				s = ps->s;
-				for (i=0; (i<SCALC_STRING_SIZE-1) && *post; )
+				for (i=0; (i<SCALC_STRING_SIZE-1) && *post; i++)
 					*s++ = (char)*post++;
 				*s = '\0';
 				/* skip to end of string, if we haven't already */
