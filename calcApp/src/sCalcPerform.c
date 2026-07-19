@@ -1265,7 +1265,7 @@ epicsShareFunc long
 				ps1 = ps;
 				toDouble(ps1);
 				j = myNINT(ps1->d);
-				j = myMIN(j,SCALC_STRING_SIZE);
+				j = myMAX(myMIN(j,SCALC_STRING_SIZE),0);
 				DEC(ps);
 				if (isDouble(ps)) {
 					/* numeric variable: bit shift by integer amount */
