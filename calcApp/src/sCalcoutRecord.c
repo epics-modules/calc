@@ -62,6 +62,7 @@
 #include	<math.h>
 
 #include	<alarm.h>
+#include	<cantProceed.h>
 #include	<dbDefs.h>
 #include	<dbAccess.h>
 #include	<dbEvent.h>
@@ -219,7 +220,7 @@ static long init_record(dbCommon *precord, int pass)
 		pcalc->vers = VERSION;
 		pcalc->rpvt = (void *)calloc(1, sizeof(struct rpvtStruct));
 		/* allocate space for previous-value strings */
-		s = (char *)calloc(STRING_MAX_FIELDS, STRING_SIZE);
+		s = (char *)callocMustSucceed(STRING_MAX_FIELDS, STRING_SIZE, "sCalcoutRecord");
 		if (sCalcoutRecordDebug) printf("sCalcoutRecord:init_record(%s): s=%p\n", pcalc->name, s);
 		for (i=0, ps=(char **)&(pcalc->paa); i<STRING_MAX_FIELDS; i++, ps++)
 			*ps = &s[i*STRING_SIZE];
@@ -227,7 +228,7 @@ static long init_record(dbCommon *precord, int pass)
 			pcalc->name, pcalc->paa);
 
 		/* allocate and fill in array of pointers to strings AA... */
-		pcalc->strs = (char **)calloc(STRING_MAX_FIELDS, sizeof(char *));
+		pcalc->strs = (char **)callocMustSucceed(STRING_MAX_FIELDS, sizeof(char *), "sCalcoutRecord");
 		if (sCalcoutRecordDebug) printf("sCalcoutRecord:init_record: strs=%p\n",
 			pcalc->strs);
 		s = (char *)&(pcalc->aa);
