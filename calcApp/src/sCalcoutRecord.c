@@ -593,11 +593,11 @@ static long cvt_dbaddr(dbAddr *paddr)
 		if (sCalcoutRecordDebug > 5) printf("sCalcout: cvt_dbaddr: setting paddr->pfield = %p\n",
 			(void *)paddr->pfield);
 		if (sCalcoutRecordDebug > 5) printf("sCalcout: cvt_dbaddr: i= %d %d\n", i, fieldIndex - scalcoutRecordPAA);
-		paddr->no_elements = STRING_SIZE;
+		paddr->no_elements = 1;
+		paddr->field_type = DBF_STRING;
+		paddr->field_size = STRING_SIZE;
+		paddr->dbr_field_type = DBR_STRING;
 	}
-	paddr->field_type = DBF_STRING;
-	paddr->field_size = 1;
-	paddr->dbr_field_type = DBR_STRING;
 	return(0);
 }
 
