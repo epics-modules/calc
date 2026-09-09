@@ -62,6 +62,7 @@
 #include	<math.h>
 
 #include	<alarm.h>
+#include	<cantProceed.h>
 #include	<dbDefs.h>
 #include	<dbAccess.h>
 #include	<dbEvent.h>
@@ -219,7 +220,7 @@ static long init_record(dbCommon *precord, int pass)
 		pcalc->vers = VERSION;
 		pcalc->rpvt = (void *)calloc(1, sizeof(struct rpvtStruct));
 		/* allocate space for previous-value strings */
-		s = (char *)calloc(STRING_MAX_FIELDS, STRING_SIZE);
+		s = (char *)callocMustSucceed(STRING_MAX_FIELDS, STRING_SIZE, "sCalcoutRecord");
 		if (sCalcoutRecordDebug) printf("sCalcoutRecord:init_record(%s): s=%p\n", pcalc->name, s);
 		for (i=0, ps=(char **)&(pcalc->paa); i<STRING_MAX_FIELDS; i++, ps++)
 			*ps = &s[i*STRING_SIZE];
@@ -227,7 +228,7 @@ static long init_record(dbCommon *precord, int pass)
 			pcalc->name, pcalc->paa);
 
 		/* allocate and fill in array of pointers to strings AA... */
-		pcalc->strs = (char **)calloc(STRING_MAX_FIELDS, sizeof(char *));
+		pcalc->strs = (char **)callocMustSucceed(STRING_MAX_FIELDS, sizeof(char *), "sCalcoutRecord");
 		if (sCalcoutRecordDebug) printf("sCalcoutRecord:init_record: strs=%p\n",
 			pcalc->strs);
 		s = (char *)&(pcalc->aa);
@@ -592,11 +593,11 @@ static long cvt_dbaddr(dbAddr *paddr)
 		if (sCalcoutRecordDebug > 5) printf("sCalcout: cvt_dbaddr: setting paddr->pfield = %p\n",
 			(void *)paddr->pfield);
 		if (sCalcoutRecordDebug > 5) printf("sCalcout: cvt_dbaddr: i= %d %d\n", i, fieldIndex - scalcoutRecordPAA);
-		paddr->no_elements = STRING_SIZE;
+		paddr->no_elements = 1;
+		paddr->field_type = DBF_STRING;
+		paddr->field_size = STRING_SIZE;
+		paddr->dbr_field_type = DBR_STRING;
 	}
-	paddr->field_type = DBF_STRING;
-	paddr->field_size = 1;
-	paddr->dbr_field_type = DBR_STRING;
 	return(0);
 }
 
