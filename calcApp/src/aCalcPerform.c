@@ -86,7 +86,7 @@ int aCalcStackLW = 0;	/* low-water mark */
 	++ps;									\
 	if ((int)((ps)-top) > aCalcStackHW)		\
 		aCalcStackHW = (int)((ps)-top);		\
-	if ((ps-top)>ACALC_STACKSIZE) {			\
+	if ((ps-top)>ACALC_STACKSIZE-2) {		\
 		printf("aCalcPerform:stack overflow\n");	\
 		freeStack(flp, stack); return(-1);	\
 	} else {								\

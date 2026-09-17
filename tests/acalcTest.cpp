@@ -92,6 +92,32 @@ static void testAValExpr(const char* expr, double* args, double** aargs, double*
 	//free(rpn);
 }
 
+/* Assert whether an expression the postfix compiler accepts overflows the
+ * runtime value stack.  Operators such as NDERIV/DERIV/FITPOLY push scratch
+ * elements at run time that the compiler's per-opcode stack accounting does
+ * not model, so a deep-enough expression passes aCalcPostfix() yet drives the
+ * runtime stack past its end.  The INC() guard must reject it (aCalcPerform
+ * returns non-zero) instead of writing out of bounds. */
+static void testStackOverflow(const char* expr, double* args, double** aargs, bool expectOverflow)
+{
+	unsigned char rpn[255];
+	short err;
+
+	double val = 0.0;
+	double aval[12] = {0.0};
+	epicsUInt32 amask;
+
+	if (aCalcPostfix(expr, rpn, &err))
+	{
+		testOk(false, "postfix rejected '%s': %s", expr, aCalcErrorStr(err));
+		return;
+	}
+
+	bool overflow = (aCalcPerform(args, 12, aargs, 12, 12, &val, aval, rpn, 1, &amask) != 0);
+	testOk(overflow == expectOverflow, "%s -> %s", expr,
+		overflow ? "runtime stack overflow rejected" : "evaluated");
+}
+
 
 MAIN(acalcTest)
 {
@@ -125,7 +151,7 @@ MAIN(acalcTest)
 	double* aargs[12] = {AA, BB, CC, DD, EE, FF, GG, HH, II, JJ, KK, LL};
 	
 	
-	testPlan(148);
+	testPlan(150);
 
 	testValExpr("finite(1)", args, aargs, 1);
 	testValExpr("finite(AA)", args, aargs, 1);
@@ -353,6 +379,16 @@ MAIN(acalcTest)
 	/* Reset B */
 	args[1] = B;
 	
+	/* Runtime value-stack overflow guard (INC off-by-two).  NDERIV pushes
+	 * three scratch elements the compiler does not account for; 15 levels of
+	 * nesting evaluate, 16 must be rejected by the runtime guard rather than
+	 * writing past stack[ACALC_STACKSIZE-1].  Without the fix the k=16 case
+	 * writes out of bounds and crashes the test binary. */
+	testStackOverflow("1+(1+(1+(1+(1+(1+(1+(1+(1+(1+(1+(1+(1+(1+(1+(NDERIV(AA,2))))))))))))))))",
+		args, aargs, false);
+	testStackOverflow("1+(1+(1+(1+(1+(1+(1+(1+(1+(1+(1+(1+(1+(1+(1+(1+(NDERIV(AA,2)))))))))))))))))",
+		args, aargs, true);
+
 	/* Parse error tests */
 	{
 		unsigned char rpn[255];
