@@ -30,6 +30,7 @@ int nderiv(double *x, double *y, int n, double *d, int npts, double *lx)
 	double c, b, a;
 
 	m = 2*npts+1;
+	if (n < m) return(-1);	/* fit window larger than the array: refuse rather than read OOB */
 	/* first m/2+1 points */
 	e = fitpoly(x,y,m, &c, &b, &a, NULL);
 	if (e) {

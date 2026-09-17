@@ -1531,7 +1531,7 @@ long aCalcPerform(double *p_dArg, int num_dArgs, double **pp_aArg,
 			j = (int)ps2->d;
 			if (j < 0) j += arraySize;
 			i = myMAX(myMIN(i,arraySize),0);
-			j = myMIN(j,arraySize);
+			j = myMIN(j,arraySize-1);
 			if (aCalcPerformDebug > 20) printf("\tSUBRANGE*: ix1=%d, ix2=%d\n", i, j);
 			if (op == SUBRANGE) {
 				ps->firstEl = 0;

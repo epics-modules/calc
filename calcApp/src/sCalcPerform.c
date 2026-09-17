@@ -1265,7 +1265,7 @@ epicsShareFunc long
 				ps1 = ps;
 				toDouble(ps1);
 				j = myNINT(ps1->d);
-				j = myMIN(j,SCALC_STRING_SIZE);
+				j = myMAX(myMIN(j,SCALC_STRING_SIZE),0);
 				DEC(ps);
 				if (isDouble(ps)) {
 					/* numeric variable: bit shift by integer amount */
@@ -1494,7 +1494,7 @@ epicsShareFunc long
 				INC(ps);
 				ps->s = &(ps->local_string[0]);
 				s = ps->s;
-				for (i=0; (i<SCALC_STRING_SIZE-1) && *post; )
+				for (i=0; (i<SCALC_STRING_SIZE-1) && *post; i++)
 					*s++ = (char)*post++;
 				*s = '\0';
 				/* skip to end of string, if we haven't already */
