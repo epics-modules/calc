@@ -241,10 +241,14 @@ int hex(char c) {
 
 int lrc(char *output, char *rawInput)
 {
-	int i;
+	int i, len;
 	unsigned int lrc;
 
-	for (i=0, lrc=0; i<strlen(rawInput)-1; i+=2) {
+	/* strlen() is size_t; for an empty operand strlen(rawInput)-1 would
+	 * wrap to SIZE_MAX and the loop would read out of bounds.  Compare
+	 * against a signed length so an empty string yields an empty loop. */
+	len = (int)strlen(rawInput);
+	for (i=0, lrc=0; i+1<len; i+=2) {
 		lrc += hex(rawInput[i])*0x10 + hex(rawInput[i+1]);
 		if (sCalcPerformDebug>=20) printf("lrc: adding %d\n", rawInput[i]*0x10 + rawInput[i+1]);
 	}
