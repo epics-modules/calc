@@ -55,6 +55,17 @@
 #define myMIN(a,b) (a)<(b)?(a):(b)
 #define SMALL 1.e-9
 
+/* Signed remainder that guards the one case C leaves undefined: INT_MIN % -1.
+ * On x86 the idiv used for '%' traps that quotient overflow as #DE, delivered
+ * as SIGFPE, killing the whole IOC.  Mathematically x % -1 == 0 for every x, so
+ * return 0 for a -1 divisor instead of executing the trapping remainder.  The
+ * divisor == 0 case is guarded separately at each call site. */
+static long safeModulo(long a, long b)
+{
+	if (b == -1) return 0;
+	return a % b;
+}
+
 static double local_random();
 static int cond_search(const unsigned char **ppinst, int match);
 
@@ -647,7 +658,7 @@ long aCalcPerform(double *p_dArg, int num_dArgs, double **pp_aArg,
 							if ((int)ps1->a[i] == 0) {
 								ps->a[i] = myMAXFLOAT;
 							} else {
-								ps->a[i] = (double)((int)ps->a[i] % (int)ps1->a[i]);
+								ps->a[i] = (double)safeModulo((int)ps->a[i], (int)ps1->a[i]);
 							}
 						}
 						break;
@@ -671,7 +682,7 @@ long aCalcPerform(double *p_dArg, int num_dArgs, double **pp_aArg,
 							if ((int)ps1->d == 0) {
 								ps->a[i] = myMAXFLOAT;
 							} else {
-								ps->a[i] = (double)((int)ps->a[i] % (int)ps1->d);
+								ps->a[i] = (double)safeModulo((int)ps->a[i], (int)ps1->d);
 							}
 						}
 						break;
@@ -698,7 +709,7 @@ long aCalcPerform(double *p_dArg, int num_dArgs, double **pp_aArg,
 					if ((int)ps1->d == 0) {
 						ps->d = myMAXFLOAT;
 					} else {
-						ps->d = (double)((int)ps->d % (int)ps1->d);
+						ps->d = (double)safeModulo((int)ps->d, (int)ps1->d);
 					}
 					break;
 				}
