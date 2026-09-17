@@ -373,6 +373,15 @@ long aCalcPerform(double *p_dArg, int num_dArgs, double **pp_aArg,
 		case LITERAL_INT:
 			post += sizeof(int);
 			break;
+		case MIN:
+		case MAX:
+		case FINITE:
+		case ISNAN:
+		case FITQ:
+		case FITMQ:
+			/* vararg operators are followed by a 1-byte argument count */
+			post++;
+			break;
 		case UNTIL:
 			/*printf("sCalcPerform: UNTIL at index %d\n", (int)(post-postfix));*/
 			until_scratch[i].until_loc = post;

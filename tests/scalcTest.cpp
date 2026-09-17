@@ -22,12 +22,14 @@ static void testValExpr(const char* expr, double* args, const char** sargs, doub
 	if (sCalcPostfix(expr, rpn, &err))
 	{
 		testDiag("postfix: %s in expression '%s'", sCalcErrorStr(err), expr);
+		testOk(0, "%s", expr);
 		return;
 	}
 	
 	if (sCalcPerform(args, 12, (char**) sargs, 12, &val, sval, 256, rpn, 3))
 	{
 		testDiag("calcPerform: error evaluating '%s'", expr);
+		testOk(0, "%s", expr);
 		return;
 	}
 	
@@ -54,12 +56,14 @@ static void testSValExpr(const char* expr, double* args, const char** sargs, con
 	if (sCalcPostfix(expr, rpn, &err))
 	{
 		testDiag("postfix: %s in expression '%s'", sCalcErrorStr(err), expr);
+		testOk(0, "%s", expr);
 		return;
 	}
 	
 	if (sCalcPerform(args, 12, (char**) sargs, 12, &val, sval, 256, rpn, 3))
 	{
 		testDiag("calcPerform: error evaluating '%s'", expr);
+		testOk(0, "%s", expr);
 		return;
 	}	
 	
