@@ -230,7 +230,7 @@ record(calc, "$(P)userArrayCalc$(N10)EnableCalc") {
 	field(CALC, "a+b+c==3")
 }
 record(acalcout, "$(P)userArrayCalc$(N10)") {
-  field(DESC, "userArrayCalc 10")
+  field(DESC, "userArrayCalc$(N10)")
   field(DISV, "0")
   field(SDIS, "$(P)userArrayCalc$(N10)EnableCalc.VAL  CA MS")
   field(PREC, "5")

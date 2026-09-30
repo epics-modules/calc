@@ -14,7 +14,7 @@ record(calc, "$(P)userCalc$(N1)EnableCalc") {
 	field(CALC, "a+b+c==3")
 }
 record(swait, "$(P)userCalc$(N1)") {
-  field(DESC, "userCalc $(N1)")
+  field(DESC, "userCalc$(N1)")
   field(DISV, "0")
   field(SDIS, "$(P)userCalcEnable.VAL  CA MS")
   field(PREC, "5")
@@ -36,7 +36,7 @@ record(calc, "$(P)userCalc$(N2)EnableCalc") {
 	field(CALC, "a+b+c==3")
 }
 record(swait, "$(P)userCalc$(N2)") {
-  field(DESC, "userCalc $(N2)")
+  field(DESC, "userCalc$(N2)")
   field(DISV, "0")
   field(SDIS, "$(P)userCalcEnable.VAL  CA MS")
   field(PREC, "5")
@@ -58,7 +58,7 @@ record(calc, "$(P)userCalc$(N3)EnableCalc") {
 	field(CALC, "a+b+c==3")
 }
 record(swait, "$(P)userCalc$(N3)") {
-  field(DESC, "userCalc $(N3)")
+  field(DESC, "userCalc$(N3)")
   field(DISV, "0")
   field(SDIS, "$(P)userCalcEnable.VAL  CA MS")
   field(PREC, "5")
@@ -80,7 +80,7 @@ record(calc, "$(P)userCalc$(N4)EnableCalc") {
 	field(CALC, "a+b+c==3")
 }
 record(swait, "$(P)userCalc$(N4)") {
-  field(DESC, "userCalc $(N4)")
+  field(DESC, "userCalc$(N4)")
   field(DISV, "0")
   field(SDIS, "$(P)userCalcEnable.VAL  CA MS")
   field(PREC, "5")
@@ -102,7 +102,7 @@ record(calc, "$(P)userCalc$(N5)EnableCalc") {
 	field(CALC, "a+b+c==3")
 }
 record(swait, "$(P)userCalc$(N5)") {
-  field(DESC, "userCalc $(N5)")
+  field(DESC, "userCalc$(N5)")
   field(DISV, "0")
   field(SDIS, "$(P)userCalcEnable.VAL  CA MS")
   field(PREC, "5")
@@ -124,7 +124,7 @@ record(calc, "$(P)userCalc$(N6)EnableCalc") {
 	field(CALC, "a+b+c==3")
 }
 record(swait, "$(P)userCalc$(N6)") {
-  field(DESC, "userCalc $(N6)")
+  field(DESC, "userCalc$(N6)")
   field(DISV, "0")
   field(SDIS, "$(P)userCalcEnable.VAL  CA MS")
   field(PREC, "5")
@@ -146,7 +146,7 @@ record(calc, "$(P)userCalc$(N7)EnableCalc") {
 	field(CALC, "a+b+c==3")
 }
 record(swait, "$(P)userCalc$(N7)") {
-  field(DESC, "userCalc $(N7)")
+  field(DESC, "userCalc$(N7)")
   field(DISV, "0")
   field(SDIS, "$(P)userCalcEnable.VAL  CA MS")
   field(PREC, "5")
@@ -168,7 +168,7 @@ record(calc, "$(P)userCalc$(N8)EnableCalc") {
 	field(CALC, "a+b+c==3")
 }
 record(swait, "$(P)userCalc$(N8)") {
-  field(DESC, "userCalc $(N8)")
+  field(DESC, "userCalc$(N8)")
   field(DISV, "0")
   field(SDIS, "$(P)userCalcEnable.VAL  CA MS")
   field(PREC, "5")
@@ -190,7 +190,7 @@ record(calc, "$(P)userCalc$(N9)EnableCalc") {
 	field(CALC, "a+b+c==3")
 }
 record(swait, "$(P)userCalc$(N9)") {
-  field(DESC, "userCalc $(N9)")
+  field(DESC, "userCalc$(N9)")
   field(DISV, "0")
   field(SDIS, "$(P)userCalcEnable.VAL  CA MS")
   field(PREC, "5")
@@ -212,7 +212,7 @@ record(calc, "$(P)userCalc$(N10)EnableCalc") {
 	field(CALC, "a+b+c==3")
 }
 record(swait, "$(P)userCalc$(N10)") {
-  field(DESC, "userCalc $(N10)")
+  field(DESC, "userCalc$(N10)")
   field(DISV, "0")
   field(SDIS, "$(P)userCalcEnable.VAL  CA MS")
   field(PREC, "5")

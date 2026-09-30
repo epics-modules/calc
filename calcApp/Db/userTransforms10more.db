@@ -14,7 +14,7 @@ record(calc, "$(P)userTran$(N1)EnableCalc") {
 	field(CALC, "a+b+c==3")
 }
 record(transform, "$(P)userTran$(N1)") {
-  field(DESC, "user Transform $(N1)")
+  field(DESC, "userTransform$(N1)")
   field(DISV, "0")
   field(SDIS, "$(P)userTran$(N1)EnableCalc.VAL  CA NMS")
   field(PREC, "3")
@@ -52,7 +52,7 @@ record(calc, "$(P)userTran$(N2)EnableCalc") {
 	field(CALC, "a+b+c==3")
 }
 record(transform, "$(P)userTran$(N2)") {
-  field(DESC, "user Transform $(N2)")
+  field(DESC, "userTransform$(N2)")
   field(DISV, "0")
   field(SDIS, "$(P)userTran$(N2)EnableCalc  CA MS")
   field(PREC, "3")
@@ -90,7 +90,7 @@ record(calc, "$(P)userTran$(N3)EnableCalc") {
 	field(CALC, "a+b+c==3")
 }
 record(transform, "$(P)userTran$(N3)") {
-  field(DESC, "user Transform $(N3)")
+  field(DESC, "userTransform$(N3)")
   field(DISV, "0")
   field(SDIS, "$(P)userTran$(N3)EnableCalc  CA MS")
   field(PREC, "3")
@@ -128,7 +128,7 @@ record(calc, "$(P)userTran$(N4)EnableCalc") {
 	field(CALC, "a+b+c==3")
 }
 record(transform, "$(P)userTran$(N4)") {
-  field(DESC, "user Transform $(N4)")
+  field(DESC, "userTransform$(N4)")
   field(DISV, "0")
   field(SDIS, "$(P)userTran$(N4)EnableCalc  CA MS")
   field(PREC, "3")
@@ -166,7 +166,7 @@ record(calc, "$(P)userTran$(N5)EnableCalc") {
 	field(CALC, "a+b+c==3")
 }
 record(transform, "$(P)userTran$(N5)") {
-  field(DESC, "user Transform $(N5)")
+  field(DESC, "userTransform$(N5)")
   field(DISV, "0")
   field(SDIS, "$(P)userTran$(N5)EnableCalc  CA MS")
   field(PREC, "3")
@@ -204,7 +204,7 @@ record(calc, "$(P)userTran$(N6)EnableCalc") {
 	field(CALC, "a+b+c==3")
 }
 record(transform, "$(P)userTran$(N6)") {
-  field(DESC, "user Transform $(N6)")
+  field(DESC, "userTransform$(N6)")
   field(DISV, "0")
   field(SDIS, "$(P)userTran$(N6)EnableCalc  CA MS")
   field(PREC, "3")
@@ -242,7 +242,7 @@ record(calc, "$(P)userTran$(N7)EnableCalc") {
 	field(CALC, "a+b+c==3")
 }
 record(transform, "$(P)userTran$(N7)") {
-  field(DESC, "user Transform $(N7)")
+  field(DESC, "userTransform$(N7)")
   field(DISV, "0")
   field(SDIS, "$(P)userTran$(N7)EnableCalc  CA MS")
   field(PREC, "3")
@@ -280,7 +280,7 @@ record(calc, "$(P)userTran$(N8)EnableCalc") {
 	field(CALC, "a+b+c==3")
 }
 record(transform, "$(P)userTran$(N8)") {
-  field(DESC, "user Transform $(N8)")
+  field(DESC, "userTransform$(N8)")
   field(DISV, "0")
   field(SDIS, "$(P)userTran$(N8)EnableCalc  CA MS")
   field(PREC, "3")
@@ -318,7 +318,7 @@ record(calc, "$(P)userTran$(N9)EnableCalc") {
 	field(CALC, "a+b+c==3")
 }
 record(transform, "$(P)userTran$(N9)") {
-  field(DESC, "user Transform $(N9)")
+  field(DESC, "userTransform$(N9)")
   field(DISV, "0")
   field(SDIS, "$(P)userTran$(N9)EnableCalc  CA MS")
   field(PREC, "3")
@@ -356,7 +356,7 @@ record(calc, "$(P)userTran$(N10)EnableCalc") {
 	field(CALC, "a+b+c==3")
 }
 record(transform, "$(P)userTran$(N10)") {
-  field(DESC, "user Transform $(N10)")
+  field(DESC, "userTransform$(N10)")
   field(DISV, "0")
   field(SDIS, "$(P)userTran$(N10)EnableCalc  CA MS")
   field(PREC, "3")

@@ -33,7 +33,7 @@ record(calc, "$(P)userStringCalc1EnableCalc") {
 	field(CALC, "a+b+c==3")
 }
 record(scalcout, "$(P)userStringCalc1") {
-  field(DESC, "userStringCalc 1")
+  field(DESC, "userStringCalc1")
   field(DISV, "0")
   field(SDIS, "$(P)userStringCalc1Enable.VAL  CA MS")
   field(PREC, "5")
