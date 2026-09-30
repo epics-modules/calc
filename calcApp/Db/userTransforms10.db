@@ -5,7 +5,6 @@ record(bo, "$(P)userTranEnable") {
   field(UDF, "0")
   field(STAT, "NO_ALARM")
   field(SEVR, "NO_ALARM")
-  field(DOL, "1")
 }
 record(bo, "$(P)EnableUserTrans") {
   field(OMSL, "closed_loop")
