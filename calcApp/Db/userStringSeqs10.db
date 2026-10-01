@@ -34,7 +34,7 @@ record(calc, "$(P)userStringSeq1EnableCalc") {
 	field(CALC, "a+b+c==3")
 }
 record(sseq, "$(P)userStringSeq1") {
-  field(DESC, "userStringSeq 1")
+  field(DESC, "userStringSeq1")
   field(DISV, "0")
   field(SDIS, "$(P)userStringSeq1EnableCalc.VAL  CA MS")
   field(PREC, "5")

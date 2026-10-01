@@ -212,7 +212,7 @@ record(calc, "$(P)userCalcOut$(N10)EnableCalc") {
 	field(CALC, "a+b+c==3")
 }
 record(calcout, "$(P)userCalcOut$(N10)") {
-  field(DESC, "userCalcOut $(N10)")
+  field(DESC, "userCalcOut$(N10)")
   field(DISV, "0")
   field(SDIS, "$(P)userCalcOut$(N10)Enable.VAL  CA MS")
   field(PREC, "5")
